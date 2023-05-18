@@ -8,13 +8,13 @@ from sklearn.svm import SVR
 from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.metrics import r2_score, mean_squared_error
 
-model_names = ['ridge', 'knn', 'rfr', 'gradient', 'svr', 'krr', 'gpr']
+model_names = ['ridge', 'knn', 'rfr', 'grad', 'svr', 'krr', 'gpr']
 
 models = {
     'ridge': Ridge(),
     'knn': KNeighborsRegressor(),
     'rfr': RandomForestRegressor(),
-    'gradient': GradientBoostingRegressor(),
+    'grad': GradientBoostingRegressor(),
     'svr': SVR(),
     'krr': KernelRidge(),
     'gpr': GaussianProcessRegressor()
@@ -44,10 +44,21 @@ def score_model(model_name, y_tr_pred, y_tr, y_pred, y_te):
         model_name + '_rmse_tr': train_rmse,
         model_name + '_rmse_te': test_rmse
     }
+    scores = list(scores.values())
     return scores
 
 
 def classical_regressor(model: str, X_tr, y_tr, X_te, y_te, plot=True, save=False):
+    """
+    :param model: defines the model to run, raises a ValueError if unexpected type
+    :param X_tr: X training data
+    :param y_tr: y training data
+    :param X_te: X testing data
+    :param y_te: y testing data
+    :param plot: whether to produce a plot, plot will be predicted vs actual
+    :param save: whether to save the plot saves to /plots/model.png
+    :return: returns current_scores dict of test scores from score_model
+    """
     if model not in model_names:
         raise ValueError('Model must be one of', model_names)
     current_model = models[model]
@@ -66,3 +77,20 @@ def classical_regressor(model: str, X_tr, y_tr, X_te, y_te, plot=True, save=Fals
             plt.savefig('plots/'+model+'.png')
         plt.show()
     return current_scores
+
+
+def run_models(X_tr, y_tr, X_te, y_te):
+    score = []
+    for i in range(len(model_names)):
+        score.append(classical_regressor(model_names[i], X_tr, y_tr, X_te, y_te, plot=False))
+    fig = plt.figure()
+    plot_spacing = np.arange(len(score[0]))
+    ax = fig.add_axes([0, 0, 1, 1])
+    print(score)
+    print(np.shape(score))
+    for count in score:
+        print(np.shape(count))
+
+    for i in range(len(model_names)):
+        ax.bar(plot_spacing + i / len(model_names), score[i], width=.2)
+    plt.show()
