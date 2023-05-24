@@ -9,18 +9,19 @@ import numpy as np
 def mol_from_xyz(xyz):
     m = MolFromXYZFile(xyz)
 
-    if m is None:
-        print('Failed to load file, ', xyz)
+    try:
+        Chem.SanitizeMol(m)
+    except:
+        assert "Molecule cannot be sanitized"
 
     return m
 
 
 def auto_correct_descs(descs):
     descs = np.nan_to_num(descs)
-    descs[descs > 10**5] = 0
-    descs[descs < -10**5] = 0
+    descs[descs > 10 ** 5] = 0
+    descs[descs < -10 ** 5] = 0
     return descs
-
 
 
 class RDKitDescriptors:
@@ -57,7 +58,7 @@ class RDKitDescriptors:
         else:
             return descs
 
-    # calc descriptors from smiles list
+    # calc descriptors from xyz list
     def calc_list(self, ls, pandas_mode=True):
         """
         ls: list of xyz
@@ -76,34 +77,32 @@ class RDKitDescriptors:
         return res_list
 
     def auto_calc(self, arg, pandas_mode=True):
-        if type(arg) is type(""):
+        if type(arg) is str:
             return self.calc(arg)
-        elif type(arg) is type([]):
+        elif type(arg) is list:
             return self.calc_list(arg, pandas_mode=pandas_mode)
         else:
             assert False, ("unexpected type: ", type(arg))
 
 
-class AutoDescriptor():
+class AutoDescriptor:
     def __init__(self, calculators=[RDKitDescriptors()]):
         self.calculators = calculators
         # self.descriptor_names = list(self.__call__("give some base XYZ file here to make this work").columns)
         # self.descriptor_names.remove("XYZ")
 
     def __call__(self, xyz_list):
-        if type(xyz_list) is type(""):
+        if type(xyz_list) is str:
             xyz_list = [xyz_list]
-        elif type(xyz_list) is type([]):
+        elif type(xyz_list) is list:
             pass
         else:
             assert False, ("unexpected type: ", type(xyz_list))
 
         integ_pd = pd.DataFrame()
         integ_pd["XYZ"] = xyz_list
-        print('okay')
         for num, calculator in enumerate(self.calculators):
             df = (calculator.auto_calc(xyz_list))
-            print('okay')
             integ_pd = pd.concat([integ_pd, df], axis=1)
 
         return integ_pd
