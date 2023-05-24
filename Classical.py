@@ -1,13 +1,12 @@
-import numpy as np
 import matplotlib.pyplot as plt
-import pylab as p
-from sklearn.linear_model import Ridge
-from sklearn.kernel_ridge import KernelRidge
-from sklearn.neighbors import KNeighborsRegressor
+import numpy as np
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
-from sklearn.svm import SVR
 from sklearn.gaussian_process import GaussianProcessRegressor
+from sklearn.kernel_ridge import KernelRidge
+from sklearn.linear_model import Ridge
 from sklearn.metrics import r2_score, mean_squared_error
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.svm import SVR
 
 model_names = ['ridge', 'knn', 'rfr', 'grad', 'svr', 'krr', 'gpr']
 
@@ -90,8 +89,8 @@ def run_models(X_tr, y_tr, X_te, y_te):
         # bar plot comparing the models for each scoring metric
         heights = list(scores.values())
         heights = np.array(heights).transpose()
-        heights = dict(zip(keys, heights[i*2:2*i+2]))  # because keys only has two elements this zips the first two lists in
-        # heights which corresponds to r2score train and test respectively.
+        heights = dict(zip(keys, heights[i*2:2*i+2]))  # because keys only has two elements this zips the first two
+        # lists in ith set of lists which corresponds to a score type.
 
         width = 0.25
         multiplier = 0
