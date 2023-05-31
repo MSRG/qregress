@@ -2,7 +2,10 @@ import pennylane as qml
 from sklearn.metrics import mean_squared_error
 from scipy.optimize import minimize
 
+
 class QuantumRegressor:
+    credentials = None
+
     def __init__(
             self,
             encoder,
@@ -20,7 +23,11 @@ class QuantumRegressor:
         self.qnode = qml.QNode(self._circuit, self.device)
 
     def _set_device(self, device, num_qubits):
-        self.device = qml.device(device, wires=num_qubits)
+        if device == 'qiskit.ibmq' and QuantumRegressor.credentials is None:
+            QuantumRegressor.credentials = []
+            QuantumRegressor.credentials.append(input('Please input API token'))
+            QuantumRegressor.credentials.append(input('Please input backend'))
+        self.device = qml.device(device, wires=num_qubits, backend=QuantumRegressor.credentials[1], ibmqx_token=QuantumRegressor.credentials[0])
 
     def _circuit(self, features, parameters):
         self.encoder(features, wires=range(self.num_qubits))
