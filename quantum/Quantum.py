@@ -27,7 +27,9 @@ class QuantumRegressor:
             QuantumRegressor.credentials = []
             QuantumRegressor.credentials.append(input('Please input API token'))
             QuantumRegressor.credentials.append(input('Please input backend'))
-        self.device = qml.device(device, wires=num_qubits, backend=QuantumRegressor.credentials[1], ibmqx_token=QuantumRegressor.credentials[0])
+            self.device = qml.device(device, wires=num_qubits, backend=QuantumRegressor.credentials[1], ibmqx_token=QuantumRegressor.credentials[0])
+        else:
+            self.device = qml.device(device, wires=num_qubits)
 
     def _circuit(self, features, parameters):
         self.encoder(features, wires=range(self.num_qubits))
