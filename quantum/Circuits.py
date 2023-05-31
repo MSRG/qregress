@@ -26,7 +26,7 @@ def double_angle(features, wires):
         qml.RZ(features[feature_index], wires=wires[i])
 
 
-def entangle_cnot(wires):
+def entangle_cnot(features, wires):
     for i in wires:
         if i == len(wires) - 1:
             qml.CNOT(wires=(i, 0))
@@ -34,7 +34,7 @@ def entangle_cnot(wires):
             qml.CNOT(wires=(i, i+1))
 
 
-def entangle_cz(wires):
+def entangle_cz(features, wires):
     for i in wires:
         if i == len(wires) - 1:
             qml.CZ(wires=(i, 0))
