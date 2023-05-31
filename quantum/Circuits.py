@@ -26,7 +26,7 @@ def double_angle(features, wires):
         qml.RZ(features[feature_index], wires=wires[i])
 
 
-def entangle_cnot(features, wires):
+def entangle_cnot(wires):
     for i in wires:
         if i == len(wires) - 1:
             qml.CNOT(wires=(i, 0))
@@ -34,7 +34,7 @@ def entangle_cnot(features, wires):
             qml.CNOT(wires=(i, i+1))
 
 
-def entangle_cz(features, wires):
+def entangle_cz(wires):
     for i in wires:
         if i == len(wires) - 1:
             qml.CZ(wires=(i, 0))
@@ -57,5 +57,9 @@ def entangling_layers(parameters, layers, wires):
 def composer(*args):
     def new_func(features, wires):
         for arg in args:
-            arg(features, wires)
+            num_params = arg.__code__.co_argcount
+            if num_params == 1:
+                arg(wires)
+            else:
+                arg(features, wires)
     return new_func
