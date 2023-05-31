@@ -10,20 +10,20 @@ def mitarai(features, wires):
 
 
 def single_angle(features, wires):
-    if len(features) >> len(wires):
+    if len(features) > len(wires):
         raise ValueError("Cannot encode more features than there are wires")
-    for j in range(math.floor(len(wires) / len(features))):
-        for i in range(len(features)):
-            qml.RY(features[i], wires=wires[i + j * math.floor(len(wires) / len(features))])
+    for i in range(len(wires)):
+        feature_index = i % len(features)
+        qml.RY(features[feature_index], wires=wires[i])
 
 
 def double_angle(features, wires):
     if len(features) >> len(wires):
         raise ValueError("Cannot encode more features than there are wires")
-    for j in range(math.floor(len(wires) / len(features))):
-        for i in range(int(len(features)/2)):
-            qml.RY(features[i], wires=wires[i + j * math.floor(len(wires) / len(features))])
-            qml.RZ(features[i + 1], wires=wires[i + j * math.floor(len(wires) / len(features))])
+    for i in range(len(wires)):
+        feature_index = i % len(features)
+        qml.RY(features[feature_index], wires=wires[i])
+        qml.RZ(features[feature_index], wires=wires[i])
 
 
 def entangle_cnot(wires):
