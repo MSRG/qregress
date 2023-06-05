@@ -4,7 +4,6 @@ from scipy.optimize import minimize
 
 
 class QuantumRegressor:
-    credentials = None
 
     def __init__(
             self,
@@ -12,8 +11,9 @@ class QuantumRegressor:
             variational,
             num_qubits,
             optimizer='COBYLA',
-            device='default.qubit'):
-        self._set_device(device, num_qubits)
+            device='default.qubit',
+            backend=None):
+        self._set_device(device, num_qubits, backend)
         self.x = None
         self.y = None
         self.params = None
@@ -22,12 +22,9 @@ class QuantumRegressor:
         self.num_qubits = num_qubits
         self.qnode = qml.QNode(self._circuit, self.device)
 
-    def _set_device(self, device, num_qubits):
-        if device == 'qiskit.ibmq' and QuantumRegressor.credentials is None:
-            QuantumRegressor.credentials = []
-            QuantumRegressor.credentials.append(input('Please input API token'))
-            QuantumRegressor.credentials.append(input('Please input backend'))
-            self.device = qml.device(device, wires=num_qubits, backend=QuantumRegressor.credentials[1], ibmqx_token=QuantumRegressor.credentials[0])
+    def _set_device(self, device, num_qubits, backend):
+        if device == 'qiskit.ibmq':
+            self.device = qml.device(device, wires=num_qubits, backend=backend)
         else:
             self.device = qml.device(device, wires=num_qubits)
 
