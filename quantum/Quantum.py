@@ -1,4 +1,5 @@
 import pennylane as qml
+import numpy as np
 from sklearn.metrics import mean_squared_error
 from scipy.optimize import minimize
 
@@ -11,31 +12,55 @@ class QuantumRegressor:
             variational,
             num_qubits,
             optimizer='COBYLA',
+            max_iterations=100,
             device='default.qubit',
-            backend=None):
-        self._set_device(device, num_qubits, backend)
+            backend=None,
+            pure_qml: bool = True):
+        self._set_optimizer(optimizer)
+        self.num_qubits = num_qubits
+        self._set_device(device, backend)
+        self.max_iterations = max_iterations
+        self.pure = pure_qml
         self.x = None
         self.y = None
         self.params = None
         self.encoder = encoder
         self.variational = variational
-        self.num_qubits = num_qubits
         self.qnode = qml.QNode(self._circuit, self.device)
 
-    def _set_device(self, device, num_qubits, backend):
-        if device == 'qiskit.ibmq':
-            self.device = qml.device(device, wires=num_qubits, backend=backend)
+    def _set_optimizer(self, optimizer):
+        scipy_optimizers = ['COBYLA', 'Nelder-Mead']
+        if optimizer in scipy_optimizers:
+            self.optimizer = optimizer
+            self.use_scipy = True
         else:
-            self.device = qml.device(device, wires=num_qubits)
+            self.optimizer = qml.SPSAOptimizer(maxiter=self.max_iterations)
+            self.use_scipy = False
+
+    def _set_device(self, device, backend):
+        if device == 'qiskit.ibmq':
+            self.device = qml.device(device, wires=self.num_qubits, backend=backend)
+        else:
+            self.device = qml.device(device, wires=self.num_qubits)
 
     def _circuit(self, features, parameters):
         self.encoder(features, wires=range(self.num_qubits))
         self.variational(parameters, wires=range(self.num_qubits))
-        return qml.expval(qml.PauliZ(0))
+        if self.pure:
+            return qml.expval(qml.PauliZ(0))
+        elif not self.pure:
+            return [qml.expval(qml.PauliZ(i)) for i in range(self.num_qubits)]
 
     def _cost(self, parameters):
         predicted_y = [self.qnode(x, parameters) for x in self.x]
         return mean_squared_error(self.y, predicted_y)
+
+    def _hybrid_cost(self, parameters):
+        params = parameters[:-3]
+        extra_params = parameters[-3:]
+        measurements = np.array([self.qnode(x, params) for x in self.x])
+        cost = np.linalg.norm(self.y - np.matmul(measurements, extra_params))**2 / len(self.x)
+        return cost
 
     def fit(self, x, y, initial_parameters=None, detailed_results=False):
         if initial_parameters is None:
@@ -44,8 +69,25 @@ class QuantumRegressor:
         self.x = x
         self.y = y
         params = initial_parameters
-        opt_result = minimize(self._cost, x0=params, method='COBYLA')
-        self.params = opt_result['x']
+        if self.pure:
+            if self.use_scipy:
+                opt_result = minimize(self._cost, x0=params, method=self.optimizer[1])
+                self.params = opt_result['x']
+            else:
+                cost = []
+                for _ in range(self.max_iterations):
+                    params, temp_cost = self.optimizer.step_and_cost(self._cost, params)
+                    cost.append(temp_cost)
+                opt_result = (params, cost)
+        elif not self.pure:
+            if self.use_scipy:
+                opt_result = minimize(self._hybrid_cost, x0=params, method=self.optimizer[1])
+            else:
+                cost = []
+                for _ in range(self.max_iterations):
+                    params, temp_cost = self.optimizer.step_and_cost(self._hybrid_cost, params)
+                    cost.append(temp_cost)
+                opt_result = (params, cost)
         if detailed_results:
             return opt_result
         return self.params
@@ -53,4 +95,7 @@ class QuantumRegressor:
     def predict(self, x):
         if self.params is None:
             raise ValueError('Model must be trained first!')
-        return [self.qnode(features=features, parameters=self.params) for features in x]
+        if self.pure:
+            return [self.qnode(features=features, parameters=self.params) for features in x]
+        elif not self.pure:
+            return [np.dot(self.qnode(features=features, parameters=self.params[:-3]), self.params[-3:]) for features in x]
