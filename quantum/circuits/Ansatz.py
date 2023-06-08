@@ -1,6 +1,6 @@
 import pennylane as qml
 from Encoders import entangle_cnot, entangle_cz
-from qiskit.circuit.library.n_local import EfficientSU2
+from qiskit.circuit.library.n_local import EfficientSU2, ExcitationPreserving
 from typing import Union
 
 
@@ -37,7 +37,9 @@ def efficient_su2(
         entanglement="linear",
         reps: int = 1):
     #  Implements Qiskit's EfficientSU2 ansatz template by converting it using the qiskit-pennylane plugin
-    if type(wires) == list or type(wires) == tuple:
+    if su2_gates is None:
+        su2_gates = ['ry', 'rz']
+    if type(wires) is list or tuple:
         num_qubits = len(wires)
     else:
         num_qubits = wires
@@ -46,6 +48,25 @@ def efficient_su2(
         raise ValueError("Incorrect number of parameters. Expected ", qc.num_parameters_settable, ' but received ',
                          len(parameters))
     qc = qc.decompose()
-    bound_qc = qc.bind_parameters(parameters)
-    qml_circuit = qml.from_qiskit(bound_qc)
+    qc = qc.bind_parameters(parameters)
+    qml_circuit = qml.from_qiskit(qc)
+    qml_circuit(wires=wires)
+
+
+def excitation_preserving(
+        parameters,
+        wires: Union[list, int],
+        entanglement='linear',
+        reps=1):
+    if type(wires) is list or tuple:
+        num_qubits = len(wires)
+    else:
+        num_qubits = wires
+    qc = ExcitationPreserving(num_qubits=num_qubits, entanglement=entanglement, reps=reps)
+    if qc.num_parameters_settable != len(parameters):
+        raise ValueError('Incorrect number of parameters. Expected ', qc.num_parameters_settable, ' but received ',
+                         len(parameters))
+    qc = qc.decompose()
+    qc = qc.bind_parameters(parameters)
+    qml_circuit = qml.from_qiskit(qc)
     qml_circuit(wires=wires)
