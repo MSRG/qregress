@@ -1,5 +1,5 @@
 import pennylane as qml
-import numpy as np
+from pennylane import numpy as np
 from sklearn.metrics import mean_squared_error
 from scipy.optimize import minimize
 
@@ -56,7 +56,7 @@ class QuantumRegressor:
         return mean_squared_error(self.y, predicted_y)
 
     def _hybrid_cost(self, parameters):
-        params = parameters[:-3]
+        params = parameters[:-3] # change to num qubits
         extra_params = parameters[-3:]
         measurements = np.array([self.qnode(x, params) for x in self.x])
         cost = np.linalg.norm(self.y - np.matmul(measurements, extra_params))**2 / len(self.x)
