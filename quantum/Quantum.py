@@ -2,6 +2,7 @@ import pennylane as qml
 from pennylane import numpy as np
 from sklearn.metrics import mean_squared_error
 from scipy.optimize import minimize
+from qiskit_ibm_runtime import QiskitRuntimeService
 
 
 class QuantumRegressor:
@@ -28,6 +29,16 @@ class QuantumRegressor:
         self.variational = variational
         self.qnode = qml.QNode(self._circuit, self.device)
 
+    def _set_device(self, device, backend):
+        if device == 'qiskit.ibmq':
+            print('Running on IBMQ Runtime')
+            instance = input('Enter runtime setting: instance')
+            token = input('Enter IBMQ token')
+            QiskitRuntimeService.save_account(channel='ibm_quantum', instance=instance, token=token, overwrite=True)
+            self.device = qml.device(device, wires=self.num_qubits, backend=backend)
+        else:
+            self.device = qml.device(device, wires=self.num_qubits)
+
     def _set_optimizer(self, optimizer):
         scipy_optimizers = ['COBYLA', 'Nelder-Mead']
         if optimizer in scipy_optimizers:
@@ -36,12 +47,6 @@ class QuantumRegressor:
         else:
             self.optimizer = qml.SPSAOptimizer(maxiter=self.max_iterations)
             self.use_scipy = False
-
-    def _set_device(self, device, backend):
-        if device == 'qiskit.ibmq':
-            self.device = qml.device(device, wires=self.num_qubits, backend=backend)
-        else:
-            self.device = qml.device(device, wires=self.num_qubits)
 
     def _circuit(self, features, parameters):
         self.encoder(features, wires=range(self.num_qubits))
