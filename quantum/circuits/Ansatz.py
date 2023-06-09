@@ -1,16 +1,18 @@
 import pennylane as qml
 from Encoders import entangle_cnot, entangle_cz
-from qiskit.circuit.library.n_local import EfficientSU2, ExcitationPreserving, TwoLocal, PauliTwoDesign, RealAmplitudes, NLocal
+from qiskit.circuit.library.n_local import EfficientSU2, ExcitationPreserving, TwoLocal
+from qiskit.circuit.library.n_local import PauliTwoDesign, RealAmplitudes, NLocal
 from typing import Union
 
 
-def rotation_layer(parameters, wires):
+def rotation_layer(parameters, wires, three_rotations=True):
     if len(parameters) != 3 * len(wires):
         raise ValueError("Unsupported number of parameters. Expected amount should be 3 * len(wires)")
     for i in range(len(wires)):
         qml.RX(parameters[3 * i], wires=wires[i])
         qml.RZ(parameters[3 * i + 1], wires=wires[i])
-        qml.RX(parameters[3 * i + 2], wires=wires[i])
+        if three_rotations:
+            qml.RX(parameters[3 * i + 2], wires=wires[i])
 
 
 def entangling_layers(parameters, wires, entangle_type='CNOT'):
@@ -137,3 +139,46 @@ def n_local(
     qc = qc.bind_parameters(parameters)
     qml_circuit = qml.from_qiskit(qc)
     qml_circuit(wires=wires)
+
+
+def modified_pauli_two(parameters, wires, entanglement='crz', layers=1, rotation_block=None, full_rotation=True):
+    entanglers = {
+        'crz': qml.CRZ,
+        'crx': qml.CRX,
+        'cnot': qml.CNOT,
+        'cz': qml.CZ
+    }
+    rotations = {
+        'rz': qml.RZ,
+        'rx': qml.RX,
+        'ry': qml.RY
+    }
+    if rotation_block is None:
+        rotation_block = ['rx', 'rz']
+    counter = 0
+    entangler = entanglers[entanglement]
+    for i in range(layers):
+        for j in range(len(wires)):
+            rotations[rotation_block[0]](parameters[counter], j)
+            counter += 1
+            rotations[rotation_block[1]](parameters[counter], j)
+            counter += 1
+        for j in range(len(wires)):
+            if j % 2 == 0:
+                entangler(parameters[counter], (j, j+1))
+                counter += 1
+        for j in range(len(wires)):
+            if full_rotation is True:
+                rotations[rotation_block[0]](parameters[counter], j)
+                counter += 1
+                rotations[rotation_block[1]](parameters[counter], j)
+                counter += 1
+            elif full_rotation is not True:
+                if j != 0 or j != len(wires) - 1:
+                    rotations[rotation_block[0]](parameters[counter], j)
+                    counter += 1
+                    rotations[rotation_block[1]](parameters[counter], j)
+        for j in range(len(wires)):
+            if j % 2 != 0 and j != len(wires) - 1:
+                entangler(parameters[counter], (j, j+1))
+                counter += 1
