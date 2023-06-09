@@ -141,7 +141,8 @@ def n_local(
     qml_circuit(wires=wires)
 
 
-def modified_pauli_two(parameters, wires, entanglement='crz', layers=1, rotation_block=None, full_rotation=True):
+def modified_pauli_two(parameters: list, wires: list, entanglement: str = 'crz', layers: int = 1,
+                       rotation_block: list = None, full_rotation: bool = True):
     entanglers = {
         'crz': qml.CRZ,
         'crx': qml.CRX,
@@ -153,6 +154,27 @@ def modified_pauli_two(parameters, wires, entanglement='crz', layers=1, rotation
         'rx': qml.RX,
         'ry': qml.RY
     }
+    entangle_param = True
+    if entanglement == 'cnot' or entanglement == 'cz':
+        entangle_param = False
+    if full_rotation:
+        if entangle_param:
+            if len(parameters) != layers * (4 * len(wires) + len(wires) - 1):
+                raise ValueError('Expected ', layers * (4 * len(wires) + len(wires) - 1),
+                                 'parameters, but got: ', len(parameters))
+        elif not entangle_param:
+            if len(parameters) != layers * (4 * len(wires)):
+                raise ValueError('Expected ', layers * (4 * len(wires)),
+                                 'parameters, but got: ', len(parameters))
+    elif not full_rotation:
+        if entangle_param:
+            if len(parameters) != layers * (4 * len(wires) + len(wires) - 3):
+                raise ValueError('Expected ', layers * (4 * len(wires) + len(wires) - 3),
+                                 'parameters, but got: ', len(parameters))
+        elif not entangle_param:
+            if len(parameters) != layers * (4 * len(wires) - 2):
+                raise ValueError('Expected ', layers * (4 * len(wires) - 2),
+                                 'parameters, but got: ', len(parameters))
     if rotation_block is None:
         rotation_block = ['rx', 'rz']
     counter = 0
@@ -165,8 +187,11 @@ def modified_pauli_two(parameters, wires, entanglement='crz', layers=1, rotation
             counter += 1
         for j in range(len(wires)):
             if j % 2 == 0:
-                entangler(parameters[counter], (j, j+1))
-                counter += 1
+                if entangle_param:
+                    entangler(parameters[counter], (j, j+1))
+                    counter += 1
+                else:
+                    entangler((j, j+1))
         for j in range(len(wires)):
             if full_rotation is True:
                 rotations[rotation_block[0]](parameters[counter], j)
@@ -180,5 +205,20 @@ def modified_pauli_two(parameters, wires, entanglement='crz', layers=1, rotation
                     rotations[rotation_block[1]](parameters[counter], j)
         for j in range(len(wires)):
             if j % 2 != 0 and j != len(wires) - 1:
-                entangler(parameters[counter], (j, j+1))
-                counter += 1
+                if entangle_param:
+                    entangler(parameters[counter], (j, j+1))
+                    counter += 1
+                else:
+                    entangler((j, j+1))
+
+
+def hadamard_ansatz(parameters: list, wires: list, layers: int = 1):
+    counter = 0
+    for _ in range(layers):
+        for i in range(len(wires)):
+            qml.Hadamard(wires=wires[i])
+        for i in range(len(wires)):
+            if i != len(wires) - 1:
+                qml.CZ((i, i+1))
+            qml.RX(parameters[counter], wires=wires[i])
+            counter += 1
