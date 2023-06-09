@@ -1,6 +1,6 @@
 import pennylane as qml
 from Encoders import entangle_cnot, entangle_cz
-from qiskit.circuit.library.n_local import EfficientSU2, ExcitationPreserving
+from qiskit.circuit.library.n_local import EfficientSU2, ExcitationPreserving, TwoLocal, PauliTwoDesign, RealAmplitudes, NLocal
 from typing import Union
 
 
@@ -66,6 +66,73 @@ def excitation_preserving(
     if qc.num_parameters_settable != len(parameters):
         raise ValueError('Incorrect number of parameters. Expected ', qc.num_parameters_settable, ' but received ',
                          len(parameters))
+    qc = qc.decompose()
+    qc = qc.bind_parameters(parameters)
+    qml_circuit = qml.from_qiskit(qc)
+    qml_circuit(wires=wires)
+
+
+def two_local(
+        parameters,
+        wires: Union[list, int],
+        entanglement='linear',
+        reps=1):
+    if type(wires) is list or tuple:
+        num_qubits = len(wires)
+    else:
+        num_qubits = wires
+    qc = TwoLocal(num_qubits=num_qubits, entanglement=entanglement, reps=reps)
+    if qc.num_parameters_settable != len(parameters):
+        raise ValueError('Incorrect number of parameters. Expected ', qc.num_parameters_settable, ' but received ',
+                         len(parameters))
+    qc = qc.decompose()
+    qc = qc.bind_parameters(parameters)
+    qml_circuit = qml.from_qiskit(qc)
+    qml_circuit(wires=wires)
+
+
+def pauli_two_design(
+        parameters,
+        wires: Union[list, int, tuple],
+        reps=1):
+    if type(wires) is list or tuple:
+        num_qubits = len(wires)
+    else:
+        num_qubits = wires
+    qc = PauliTwoDesign(num_qubits=num_qubits, reps=reps)
+    qc = qc.decompose()
+    qc = qc.bind_parameters(parameters)
+    qml_circuit = qml.from_qiskit(qc)
+    qml_circuit(wires=wires)
+
+
+def real_amplitudes(
+        parameters,
+        wires: Union[list, int, tuple],
+        entanglement='linear',
+        reps=1):
+    if type(wires) is list or tuple:
+        num_qubits = len(wires)
+    else:
+        num_qubits = wires
+    qc = RealAmplitudes(num_qubits=num_qubits, entanglement=entanglement, reps=reps)
+    qc = qc.decompose()
+    qc = qc.bind_parameters(parameters)
+    qml_circuit = qml.from_qiskit(qc)
+    qml_circuit(wires=wires)
+
+
+def n_local(
+        parameters,
+        wires: Union[list, int, tuple],
+        rotation_blocks=None,
+        entanglement=None,
+        reps=1):
+    if type(wires) is list or tuple:
+        num_qubits = len(wires)
+    else:
+        num_qubits = wires
+    qc = NLocal(num_qubits=num_qubits, rotation_blocks=rotation_blocks, entanglement=entanglement, reps=reps)
     qc = qc.decompose()
     qc = qc.bind_parameters(parameters)
     qml_circuit = qml.from_qiskit(qc)
