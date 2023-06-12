@@ -50,3 +50,11 @@ def composer(*args):
             else:
                 arg(features, wires)
     return new_func
+
+
+def amplitude_embedding(features, wires, pad_with=None):
+    if len(features) != 2 ** len(wires) and pad_with is None:
+        raise ValueError('Should be encoding 2^n features into n qubits. If you want to encode fewer features specify '
+                         'a padding')
+    qml.AmplitudeEmbedding(features=features, wires=wires, pad_with=pad_with, normalize=True)
+
