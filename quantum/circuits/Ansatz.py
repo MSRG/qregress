@@ -22,16 +22,17 @@ def rotation_layer(parameters, wires, three_rotations=True):
             qml.RZ(parameters[2 * i + 1], wires=wires[i])
 
 
-def entangling_layers(parameters, wires, entangle_type='CNOT'):
+def entangling_layers(parameters, wires, layers, entangle_type='CNOT', calc_params=False):
     entanglers = {
         'CNOT': entangle_cnot,
         'CZ': entangle_cz
     }
-    if len(parameters) % (3 * len(wires)) != 0:
+    if calc_params:
+        return 3 * layers * len(wires)
+    if len(parameters) != 3 * layers * len(wires):
         raise ValueError("Unsupported number of parameters. Expected amount should be 3 * layers * wires")
     if entanglers[entangle_type] is None:
         raise ValueError("Unexpected entangling type")
-    layers = len(parameters) // (3 * len(wires))
     for i in range(layers):
         start_index = i * 3 * len(wires)
         end_index = start_index + 3 * len(wires)
@@ -45,7 +46,8 @@ def efficient_su2(
         su2_gates=None,
         entanglement="linear",
         reps: int = 1,
-        skip_final_rot=False):
+        skip_final_rot=False,
+        calc_params=False):
     #  Implements Qiskit's EfficientSU2 ansatz template by converting it using the qiskit-pennylane plugin
     if su2_gates is None:
         su2_gates = ['ry', 'rz']
@@ -55,6 +57,8 @@ def efficient_su2(
         num_qubits = wires
     qc = EfficientSU2(num_qubits=num_qubits, su2_gates=su2_gates, entanglement=entanglement, reps=reps,
                       skip_final_rotation_layer=skip_final_rot)
+    if calc_params:
+        return qc.num_parameters_settable
     if qc.num_parameters_settable != len(parameters):
         raise ValueError("Incorrect number of parameters. Expected ", qc.num_parameters_settable, ' but received ',
                          len(parameters))
@@ -68,12 +72,15 @@ def excitation_preserving(
         parameters,
         wires: Union[list, int],
         entanglement='linear',
-        reps=1):
+        reps=1,
+        calc_params=False):
     if type(wires) is list or tuple:
         num_qubits = len(wires)
     else:
         num_qubits = wires
     qc = ExcitationPreserving(num_qubits=num_qubits, entanglement=entanglement, reps=reps)
+    if calc_params:
+        return qc.num_parameters_settable
     if qc.num_parameters_settable != len(parameters):
         raise ValueError('Incorrect number of parameters. Expected ', qc.num_parameters_settable, ' but received ',
                          len(parameters))
@@ -90,13 +97,16 @@ def two_local(
         reps=1,
         rot_gates=None,
         entangle_gates=None,
-        skip_final_rot=True):
+        skip_final_rot=True,
+        calc_params=False):
     if type(wires) is list or tuple:
         num_qubits = len(wires)
     else:
         num_qubits = wires
     qc = TwoLocal(num_qubits=num_qubits, entanglement=entanglement, reps=reps, rotation_blocks=rot_gates,
                   entanglement_blocks=entangle_gates, skip_final_rotation_layer=skip_final_rot)
+    if calc_params:
+        return qc.num_parameters_settable
     if qc.num_parameters_settable != len(parameters):
         raise ValueError('Incorrect number of parameters. Expected ', qc.num_parameters_settable, ' but received ',
                          len(parameters))
@@ -109,12 +119,15 @@ def two_local(
 def pauli_two_design(
         parameters,
         wires: Union[list, int, tuple],
-        reps=1):
+        reps=1,
+        calc_params=False):
     if type(wires) is list or tuple:
         num_qubits = len(wires)
     else:
         num_qubits = wires
     qc = PauliTwoDesign(num_qubits=num_qubits, reps=reps)
+    if calc_params:
+        return qc.num_parameters_settable
     qc = qc.decompose()
     qc = qc.bind_parameters(parameters)
     qml_circuit = qml.from_qiskit(qc)
@@ -125,12 +138,15 @@ def real_amplitudes(
         parameters,
         wires: Union[list, int, tuple],
         entanglement='linear',
-        reps=1):
+        reps=1,
+        calc_params=False):
     if type(wires) is list or tuple:
         num_qubits = len(wires)
     else:
         num_qubits = wires
     qc = RealAmplitudes(num_qubits=num_qubits, entanglement=entanglement, reps=reps)
+    if calc_params:
+        return qc.num_parameters_settable
     qc = qc.decompose()
     qc = qc.bind_parameters(parameters)
     qml_circuit = qml.from_qiskit(qc)
@@ -155,7 +171,7 @@ def n_local(
 
 
 def modified_pauli_two(parameters: list, wires: list, entanglement: str = 'crz', layers: int = 1,
-                       rotation_block: list = None, full_rotation: bool = True):
+                       rotation_block: list = None, full_rotation: bool = True, calc_params=False):
     entanglers = {
         'crz': qml.CRZ,
         'crx': qml.CRX,
@@ -172,19 +188,27 @@ def modified_pauli_two(parameters: list, wires: list, entanglement: str = 'crz',
         entangle_param = False
     if full_rotation:
         if entangle_param:
+            if calc_params:
+                return layers * (4 * len(wires) + len(wires) - 1)
             if len(parameters) != layers * (4 * len(wires) + len(wires) - 1):
                 raise ValueError('Expected ', layers * (4 * len(wires) + len(wires) - 1),
                                  'parameters, but got: ', len(parameters))
         elif not entangle_param:
+            if calc_params:
+                return layers * (4 * len(wires))
             if len(parameters) != layers * (4 * len(wires)):
                 raise ValueError('Expected ', layers * (4 * len(wires)),
                                  'parameters, but got: ', len(parameters))
     elif not full_rotation:
         if entangle_param:
+            if calc_params:
+                return layers * (4 * len(wires) + len(wires) - 5)
             if len(parameters) != layers * (4 * len(wires) + len(wires) - 5):
                 raise ValueError('Expected ', layers * (4 * len(wires) + len(wires) - 5),
                                  'parameters, but got: ', len(parameters))
         elif not entangle_param:
+            if calc_params:
+                return layers * (4 * len(wires) - 4)
             if len(parameters) != layers * (4 * len(wires) - 4):
                 raise ValueError('Expected ', layers * (4 * len(wires) - 4),
                                  'parameters, but got: ', len(parameters))
@@ -225,8 +249,10 @@ def modified_pauli_two(parameters: list, wires: list, entanglement: str = 'crz',
                     entangler((j+1, j))
 
 
-def hadamard_ansatz(parameters: list, wires: list, layers: int = 1):
+def hadamard_ansatz(parameters: list, wires: list, layers: int = 1, calc_params=False):
     counter = 0
+    if calc_params:
+        return layers * wires
     for _ in range(layers):
         for i in range(len(wires)):
             qml.Hadamard(wires=wires[i])
