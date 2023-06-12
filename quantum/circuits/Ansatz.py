@@ -6,8 +6,12 @@ from typing import Union
 
 
 def rotation_layer(parameters, wires, three_rotations=True):
-    if len(parameters) != 3 * len(wires):
-        raise ValueError("Unsupported number of parameters. Expected amount should be 3 * len(wires)")
+    if not three_rotations:
+        if len(parameters) != 2 * len(wires):
+            raise ValueError("Unsopported number of parameters. Expected amount should be", 3*len(wires))
+    else:
+        if len(parameters) != 3 * len(wires):
+            raise ValueError("Unsupported number of parameters. Expected amount should be", 3 * len(wires))
     for i in range(len(wires)):
         qml.RX(parameters[3 * i], wires=wires[i])
         qml.RZ(parameters[3 * i + 1], wires=wires[i])
