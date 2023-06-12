@@ -43,7 +43,8 @@ def efficient_su2(
         wires: Union[list, int],
         su2_gates=None,
         entanglement="linear",
-        reps: int = 1):
+        reps: int = 1,
+        skip_final_rot=False):
     #  Implements Qiskit's EfficientSU2 ansatz template by converting it using the qiskit-pennylane plugin
     if su2_gates is None:
         su2_gates = ['ry', 'rz']
@@ -51,7 +52,8 @@ def efficient_su2(
         num_qubits = len(wires)
     else:
         num_qubits = wires
-    qc = EfficientSU2(num_qubits=num_qubits, su2_gates=su2_gates, entanglement=entanglement, reps=reps)
+    qc = EfficientSU2(num_qubits=num_qubits, su2_gates=su2_gates, entanglement=entanglement, reps=reps,
+                      skip_final_rotation_layer=skip_final_rot)
     if qc.num_parameters_settable != len(parameters):
         raise ValueError("Incorrect number of parameters. Expected ", qc.num_parameters_settable, ' but received ',
                          len(parameters))
