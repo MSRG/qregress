@@ -3,6 +3,8 @@ from pennylane import numpy as np
 from sklearn.metrics import mean_squared_error
 from scipy.optimize import minimize
 from qiskit_ibm_runtime import QiskitRuntimeService
+from mitiq.zne.scaling import fold_global
+from mitiq.zne.inference import RichardsonFactory
 
 
 class QuantumRegressor:
@@ -16,7 +18,14 @@ class QuantumRegressor:
             max_iterations=100,
             device='default.qubit',
             backend=None,
-            pure_qml: bool = True):
+            pure_qml: bool = True,
+            error_mitigation: list = None):
+        if error_mitigation is None:
+            self.error_mitigation = {
+                'scale_factors': [1, 2, 3],
+                'noise_scale_method': fold_global,
+                'extrapolate': RichardsonFactory.extrapolate
+            }
         self.num_qubits = num_qubits
         self._set_device(device, backend)
         self.max_iterations = max_iterations
@@ -27,6 +36,7 @@ class QuantumRegressor:
         self.params = None
         self.encoder = encoder
         self.variational = variational
+        self._build_qnode()
         self.qnode = qml.QNode(self._circuit, self.device)
 
     def _set_device(self, device, backend):
@@ -38,6 +48,7 @@ class QuantumRegressor:
             self.device = qml.device(device, wires=self.num_qubits, backend=backend)
         else:
             self.device = qml.device(device, wires=self.num_qubits)
+            self.error_mitigation = None
 
     def _set_optimizer(self, optimizer):
         scipy_optimizers = ['COBYLA', 'Nelder-Mead']
@@ -55,6 +66,14 @@ class QuantumRegressor:
             return qml.expval(qml.PauliZ(0))
         elif not self.pure:
             return [qml.expval(qml.PauliZ(i)) for i in range(self.num_qubits)]
+
+    def _build_qnode(self):
+        self.qnode = qml.QNode(self._circuit, self.device)
+        if self.error_mitigation is not None:
+            scale_factors = self.error_mitigation['scale_factors']
+            noise_scale_method = self.error_mitigation['noise_scale_method']
+            extrapolate = self.error_mitigation['extrapolate']
+            self.qnode = qml.transforms.mitigate_with_zne(self.qnode, scale_factors, noise_scale_method, extrapolate)
 
     def _cost(self, parameters):
         predicted_y = [self.qnode(x, parameters) for x in self.x]
