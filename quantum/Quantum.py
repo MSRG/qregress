@@ -17,10 +17,10 @@ class QuantumRegressor:
             device='default.qubit',
             backend=None,
             pure_qml: bool = True):
-        self._set_optimizer(optimizer)
         self.num_qubits = num_qubits
         self._set_device(device, backend)
         self.max_iterations = max_iterations
+        self._set_optimizer(optimizer)
         self.pure = pure_qml
         self.x = None
         self.y = None
@@ -84,6 +84,7 @@ class QuantumRegressor:
                     params, temp_cost = self.optimizer.step_and_cost(self._cost, params)
                     cost.append(temp_cost)
                 opt_result = (params, cost)
+                self.params = params
         elif not self.pure:
             if self.use_scipy:
                 opt_result = minimize(self._hybrid_cost, x0=params, method=self.optimizer)
