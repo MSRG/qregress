@@ -86,10 +86,14 @@ class QuantumRegressor:
         cost = np.linalg.norm(self.y - np.matmul(measurements, extra_params))**2 / len(self.x)
         return cost
 
+    def _num_params(self):
+        num_params = self.variational(None, wires=range(self.num_qubits), calc_params=True)
+        return num_params
+
     def fit(self, x, y, initial_parameters=None, detailed_results=False):
         if initial_parameters is None:
-            raise ValueError('Missing initial parameters')  # to do, assign a random set of initial parameters if
-            # none are passed
+            num_params = self._num_params()
+            initial_parameters = np.random.rand(num_params)
         self.x = x
         self.y = y
         params = initial_parameters
