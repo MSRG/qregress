@@ -56,5 +56,9 @@ def amplitude_embedding(features, wires, pad_with=None):
     if len(features) != 2 ** len(wires) and pad_with is None:
         raise ValueError('Should be encoding 2^n features into n qubits. If you want to encode fewer features specify '
                          'a padding')
+    if pad_with == 'self' and len(features) != 2 ** len(wires):
+        diff = 2 ** len(wires) - len(features)
+        features = np.concatenate([features, np.tile(features, diff // len(features) + 1)])[:2 ** len(wires)]
+        pad_with = None
     qml.AmplitudeEmbedding(features=features, wires=wires, pad_with=pad_with, normalize=True)
 
