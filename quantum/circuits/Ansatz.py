@@ -1,5 +1,5 @@
 import pennylane as qml
-from Encoders import entangle_cnot, entangle_cz
+from .Encoders import entangle_cnot, entangle_cz
 from qiskit.circuit.library.n_local import EfficientSU2, ExcitationPreserving, TwoLocal
 from qiskit.circuit.library.n_local import PauliTwoDesign, RealAmplitudes, NLocal
 from typing import Union
