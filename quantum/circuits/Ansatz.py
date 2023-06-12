@@ -13,11 +13,13 @@ def rotation_layer(parameters, wires, three_rotations=True):
         if len(parameters) != 3 * len(wires):
             raise ValueError("Unsupported number of parameters. Expected amount should be", 3 * len(wires))
     for i in range(len(wires)):
-        qml.RX(parameters[3 * i], wires=wires[i])
-        qml.RZ(parameters[3 * i + 1], wires=wires[i])
         if three_rotations:
+            qml.RX(parameters[3 * i], wires=wires[i])
+            qml.RZ(parameters[3 * i + 1], wires=wires[i])
             qml.RX(parameters[3 * i + 2], wires=wires[i])
-
+        else:
+            qml.RX(parameters[2 * i], wires=wires[i])
+            qml.RZ(parameters[2 * i + 1], wires=wires[i])
 
 def entangling_layers(parameters, wires, entangle_type='CNOT'):
     entanglers = {
