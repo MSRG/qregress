@@ -76,7 +76,7 @@ class QuantumRegressor:
         params = initial_parameters
         if self.pure:
             if self.use_scipy:
-                opt_result = minimize(self._cost, x0=params, method=self.optimizer[1])
+                opt_result = minimize(self._cost, x0=params, method=self.optimizer)
                 self.params = opt_result['x']
             else:
                 cost = []
@@ -86,7 +86,7 @@ class QuantumRegressor:
                 opt_result = (params, cost)
         elif not self.pure:
             if self.use_scipy:
-                opt_result = minimize(self._hybrid_cost, x0=params, method=self.optimizer[1])
+                opt_result = minimize(self._hybrid_cost, x0=params, method=self.optimizer)
             else:
                 cost = []
                 for _ in range(self.max_iterations):
