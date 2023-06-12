@@ -21,6 +21,7 @@ def rotation_layer(parameters, wires, three_rotations=True):
             qml.RX(parameters[2 * i], wires=wires[i])
             qml.RZ(parameters[2 * i + 1], wires=wires[i])
 
+
 def entangling_layers(parameters, wires, entangle_type='CNOT'):
     entanglers = {
         'CNOT': entangle_cnot,
@@ -86,12 +87,16 @@ def two_local(
         parameters,
         wires: Union[list, int],
         entanglement='linear',
-        reps=1):
+        reps=1,
+        rot_gates=None,
+        entangle_gates=None,
+        skip_final_rot=True):
     if type(wires) is list or tuple:
         num_qubits = len(wires)
     else:
         num_qubits = wires
-    qc = TwoLocal(num_qubits=num_qubits, entanglement=entanglement, reps=reps)
+    qc = TwoLocal(num_qubits=num_qubits, entanglement=entanglement, reps=reps, rotation_blocks=rot_gates,
+                  entanglement_blocks=entangle_gates, skip_final_rotation_layer=skip_final_rot)
     if qc.num_parameters_settable != len(parameters):
         raise ValueError('Incorrect number of parameters. Expected ', qc.num_parameters_settable, ' but received ',
                          len(parameters))
@@ -99,7 +104,7 @@ def two_local(
     qc = qc.bind_parameters(parameters)
     qml_circuit = qml.from_qiskit(qc)
     qml_circuit(wires=wires)
-
+    
 
 def pauli_two_design(
         parameters,
@@ -176,12 +181,12 @@ def modified_pauli_two(parameters: list, wires: list, entanglement: str = 'crz',
                                  'parameters, but got: ', len(parameters))
     elif not full_rotation:
         if entangle_param:
-            if len(parameters) != layers * (4 * len(wires) + len(wires) - 3):
-                raise ValueError('Expected ', layers * (4 * len(wires) + len(wires) - 3),
+            if len(parameters) != layers * (4 * len(wires) + len(wires) - 5):
+                raise ValueError('Expected ', layers * (4 * len(wires) + len(wires) - 5),
                                  'parameters, but got: ', len(parameters))
         elif not entangle_param:
-            if len(parameters) != layers * (4 * len(wires) - 2):
-                raise ValueError('Expected ', layers * (4 * len(wires) - 2),
+            if len(parameters) != layers * (4 * len(wires) - 4):
+                raise ValueError('Expected ', layers * (4 * len(wires) - 4),
                                  'parameters, but got: ', len(parameters))
     if rotation_block is None:
         rotation_block = ['rx', 'rz']
@@ -196,28 +201,28 @@ def modified_pauli_two(parameters: list, wires: list, entanglement: str = 'crz',
         for j in range(len(wires)):
             if j % 2 == 0:
                 if entangle_param:
-                    entangler(parameters[counter], (j, j+1))
+                    entangler(parameters[counter], (j+1, j))
                     counter += 1
                 else:
-                    entangler((j, j+1))
+                    entangler((j+1, j))
         for j in range(len(wires)):
-            if full_rotation is True:
+            if full_rotation:
                 rotations[rotation_block[0]](parameters[counter], j)
                 counter += 1
                 rotations[rotation_block[1]](parameters[counter], j)
                 counter += 1
-            elif full_rotation is not True:
-                if j != 0 or j != len(wires) - 1:
+            elif not full_rotation:
+                if j != 0 and j != len(wires) - 1:
                     rotations[rotation_block[0]](parameters[counter], j)
                     counter += 1
                     rotations[rotation_block[1]](parameters[counter], j)
         for j in range(len(wires)):
             if j % 2 != 0 and j != len(wires) - 1:
                 if entangle_param:
-                    entangler(parameters[counter], (j, j+1))
+                    entangler(parameters[counter], (j+1, j))
                     counter += 1
                 else:
-                    entangler((j, j+1))
+                    entangler((j+1, j))
 
 
 def hadamard_ansatz(parameters: list, wires: list, layers: int = 1):
