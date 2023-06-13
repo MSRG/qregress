@@ -5,6 +5,7 @@ from scipy.optimize import minimize
 from qiskit_ibm_runtime import QiskitRuntimeService
 from mitiq.zne.scaling import fold_global
 from mitiq.zne.inference import RichardsonFactory
+import json
 
 
 class QuantumRegressor:
@@ -38,6 +39,7 @@ class QuantumRegressor:
         self.variational = variational
         self._build_qnode()
         self.qnode = qml.QNode(self._circuit, self.device)
+        self.fit_count = 0
 
     def _set_device(self, device, backend):
         if device == 'qiskit.ibmq':
@@ -90,8 +92,30 @@ class QuantumRegressor:
         num_params = self.variational(None, wires=range(self.num_qubits), calc_params=True)
         return num_params
 
-    def fit(self, x, y, initial_parameters=None, detailed_results=False):
-        if initial_parameters is None:
+    def _save_partial_state(self, param_vector, opt_result):
+        if self.fit_count % 5 == 0:
+            partial_results = {'param_vector': param_vector, 'opt_result': opt_result}
+            with open('partial_results.json', 'w') as outfile:
+                json.dump(partial_results, outfile)
+        self.fit_count += 1
+
+    def _load_partial_state(self, infile):
+        print('Loading partial state from file ' + infile)
+        with open(infile) as infile:
+            partial_state = json.load(infile)
+        param_vector = partial_state['param_vector']
+        opt_result = partial_state['opt_result']
+        print('Loaded parameter_vector as', param_vector, 'and opt_result as ', opt_result)
+        if (self.use_scipy and type(opt_result) is not dict) or (not self.use_scipy and type(opt_result) is dict):
+            print('Warning: loaded file and model optimizer do not match')
+        return param_vector, opt_result
+
+    def fit(self, x, y, initial_parameters=None, detailed_results=False, load_state=None):
+        opt_result = None
+        if load_state is not None:
+            param_vector, opt_result = self._load_partial_state(load_state)
+            initial_parameters = param_vector
+        elif initial_parameters is None:
             num_params = self._num_params()
             initial_parameters = np.random.rand(num_params)
         self.x = x
@@ -99,24 +123,29 @@ class QuantumRegressor:
         params = initial_parameters
         if self.pure:
             if self.use_scipy:
-                opt_result = minimize(self._cost, x0=params, method=self.optimizer)
+                opt_result = minimize(self._cost, x0=params, method=self.optimizer, callback=self._save_partial_state)
                 self.params = opt_result['x']
             else:
                 cost = []
                 for _ in range(self.max_iterations):
                     params, temp_cost = self.optimizer.step_and_cost(self._cost, params)
                     cost.append(temp_cost)
-                opt_result = (params, cost)
+                    temp_opt_result = [params, cost]
+                    self._save_partial_state(params, temp_opt_result)
+                opt_result = [params, cost]
                 self.params = params
         elif not self.pure:
             if self.use_scipy:
-                opt_result = minimize(self._hybrid_cost, x0=params, method=self.optimizer)
+                opt_result = minimize(self._hybrid_cost, x0=params, method=self.optimizer,
+                                      callback=self._save_partial_state)
             else:
                 cost = []
                 for _ in range(self.max_iterations):
                     params, temp_cost = self.optimizer.step_and_cost(self._hybrid_cost, params)
                     cost.append(temp_cost)
-                opt_result = (params, cost)
+                    temp_opt_result = [params, cost]
+                    self._save_partial_state(params, temp_opt_result)
+                opt_result = [params, cost]
         if detailed_results:
             return opt_result
         return self.params
