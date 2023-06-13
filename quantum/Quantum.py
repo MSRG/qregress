@@ -20,7 +20,8 @@ class QuantumRegressor:
             device='default.qubit',
             backend=None,
             pure_qml: bool = True,
-            error_mitigation: list = None):
+            error_mitigation: list = None,
+            shots=None):
         if error_mitigation is None:
             self.error_mitigation = {
                 'scale_factors': [1, 2, 3],
@@ -28,7 +29,7 @@ class QuantumRegressor:
                 'extrapolate': RichardsonFactory.extrapolate
             }
         self.num_qubits = num_qubits
-        self._set_device(device, backend)
+        self._set_device(device, backend, shots)
         self.max_iterations = max_iterations
         self._set_optimizer(optimizer)
         self.pure = pure_qml
@@ -41,18 +42,20 @@ class QuantumRegressor:
         self.qnode = qml.QNode(self._circuit, self.device)
         self.fit_count = 0
 
-    def _set_device(self, device, backend):
+    def _set_device(self, device, backend, shots):
+        #  sets the models quantum device. If using IBMQ asks for proper credentials
         if device == 'qiskit.ibmq':
             print('Running on IBMQ Runtime')
             instance = input('Enter runtime setting: instance')
             token = input('Enter IBMQ token')
             QiskitRuntimeService.save_account(channel='ibm_quantum', instance=instance, token=token, overwrite=True)
-            self.device = qml.device(device, wires=self.num_qubits, backend=backend)
+            self.device = qml.device(device, wires=self.num_qubits, backend=backend, shots=shots)
         else:
             self.device = qml.device(device, wires=self.num_qubits)
             self.error_mitigation = None
 
     def _set_optimizer(self, optimizer):
+        #  sets the desired optimizer. SPSA is not available in scipy and has to be handled separately in fitting
         scipy_optimizers = ['COBYLA', 'Nelder-Mead']
         if optimizer in scipy_optimizers:
             self.optimizer = optimizer
@@ -62,6 +65,8 @@ class QuantumRegressor:
             self.use_scipy = False
 
     def _circuit(self, features, parameters):
+        #  builds the circuit with the given encoder and variational circuits.
+        #  encoder and variational circuits must have only two required parameters, params/feats and wires
         self.encoder(features, wires=range(self.num_qubits))
         self.variational(parameters, wires=range(self.num_qubits))
         if self.pure:
@@ -70,6 +75,8 @@ class QuantumRegressor:
             return [qml.expval(qml.PauliZ(i)) for i in range(self.num_qubits)]
 
     def _build_qnode(self):
+        #  builds QNode from device and circuit using mitiq error mitigation if specified.
+        #  TODO: Add more error mitigation options, specifically REM
         self.qnode = qml.QNode(self._circuit, self.device)
         if self.error_mitigation is not None:
             scale_factors = self.error_mitigation['scale_factors']
@@ -82,6 +89,7 @@ class QuantumRegressor:
         return mean_squared_error(self.y, predicted_y)
 
     def _hybrid_cost(self, parameters):
+        #  cost function for use in hybrid QML with linear model
         params = parameters[:-3] # change to num qubits
         extra_params = parameters[-3:]
         measurements = np.array([self.qnode(x, params) for x in self.x])
@@ -89,10 +97,12 @@ class QuantumRegressor:
         return cost
 
     def _num_params(self):
+        #  computes the number of parameters required for the implemented variational circuit
         num_params = self.variational(None, wires=range(self.num_qubits), calc_params=True)
         return num_params
 
     def _save_partial_state(self, param_vector, force=False):
+        # saves every fifth call to a bin file able to be loaded later by calling fit with load_state set to filename
         if self.fit_count % 5 == 0 or force:
             partial_results = param_vector
             outfile = 'partial_state.bin'
@@ -107,6 +117,7 @@ class QuantumRegressor:
         return param_vector
 
     def fit(self, x, y, initial_parameters=None, detailed_results=False, load_state=None):
+        self.fit_count = 0
         opt_result = None
         if load_state is not None:
             param_vector = self._load_partial_state(load_state)
