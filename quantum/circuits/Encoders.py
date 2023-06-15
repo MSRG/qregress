@@ -3,12 +3,16 @@ from pennylane import numpy as np
 
 
 def mitarai(features, wires):
+    #  encoding as proposed by Mitarai et al.
     for i in range(len(features)):
         qml.RY(np.arcsin(features[i]), wires=wires[i])
         qml.RZ(np.arccos(features[i]**2), wires=wires[i])
 
 
 def single_angle(features, wires):
+    #  creates a circuit that encodes features into wires via angle encoding with a single RY gate
+    #  the features are encoded 1-1 onto the qubits
+    #  if more wires are passed then features the remaining wires will be filled from the beginning of the feature list
     if len(features) > len(wires):
         raise ValueError("Cannot encode more features than there are wires")
     for i in range(len(wires)):
@@ -17,6 +21,9 @@ def single_angle(features, wires):
 
 
 def double_angle(features, wires):
+    #  creates a circuit that encodes features into wires via angle encoding with an RY then RZ gate
+    #  the features are encoded 1-1 onto the qubits
+    #  if more wires are passed then features the remaining wires will be filled from the beginning of the feature list
     if len(features) >> len(wires):
         raise ValueError("Cannot encode more features than there are wires")
     for i in range(len(wires)):
@@ -26,6 +33,7 @@ def double_angle(features, wires):
 
 
 def entangle_cnot(wires):
+    #  entangles all of the wires in a circular fashion using cnot gates
     for i in wires:
         if i == len(wires) - 1:
             qml.CNOT(wires=(i, 0))
@@ -34,6 +42,7 @@ def entangle_cnot(wires):
 
 
 def entangle_cz(wires):
+    #  entangles all of the wires in a circular fashion using cz gates
     for i in wires:
         if i == len(wires) - 1:
             qml.CZ(wires=(i, 0))
@@ -42,6 +51,9 @@ def entangle_cz(wires):
 
 
 def composer(*args):
+    #  utility function used to compose encoding functions together to achieve layers of encoding and entangling
+    #  checks the number of parameters of the input, if it takes only one 1 parameter it is assumed to be wires
+    #  returns the new function that executes the input functions in given order
     def new_func(features, wires):
         for arg in args:
             num_params = arg.__code__.co_argcount
