@@ -22,20 +22,16 @@ class QuantumRegressor:
             pure_qml: bool = True,
             error_mitigation: list = None,
             shots=None):
-        if error_mitigation is None:
-            self.error_mitigation = {
-                'scale_factors': [1, 2, 3],
-                'noise_scale_method': fold_global,
-                'extrapolate': RichardsonFactory.extrapolate
-            }
+        self.callback_interval = None
+        self.x = None
+        self.y = None
+        self.params = None
+        self.error_mitigation = error_mitigation
         self.num_qubits = num_qubits
         self._set_device(device, backend, shots)
         self.max_iterations = max_iterations
         self._set_optimizer(optimizer)
         self.pure = pure_qml
-        self.x = None
-        self.y = None
-        self.params = None
         self.encoder = encoder
         self.variational = variational
         self._build_qnode()
@@ -52,7 +48,6 @@ class QuantumRegressor:
             self.device = qml.device(device, wires=self.num_qubits, backend=backend, shots=shots)
         else:
             self.device = qml.device(device, wires=self.num_qubits)
-            self.error_mitigation = None
 
     def _set_optimizer(self, optimizer):
         #  sets the desired optimizer. SPSA is not available in scipy and has to be handled separately in fitting
@@ -90,6 +85,7 @@ class QuantumRegressor:
 
     def _hybrid_cost(self, parameters):
         #  cost function for use in hybrid QML with linear model
+        #  TODO: This isn't working all the time. Raising a matmul error.
         params = parameters[:-3] # change to num qubits
         extra_params = parameters[-3:]
         measurements = np.array([self.qnode(x, params) for x in self.x])
@@ -103,7 +99,10 @@ class QuantumRegressor:
 
     def _save_partial_state(self, param_vector, force=False):
         # saves every fifth call to a bin file able to be loaded later by calling fit with load_state set to filename
-        if self.fit_count % 5 == 0 or force:
+        interval = self.callback_interval
+        if interval is None:
+            interval = 5
+        if self.fit_count % interval == 0 or force:
             partial_results = param_vector
             outfile = 'partial_state.bin'
             joblib.dump(partial_results, outfile)
@@ -116,8 +115,9 @@ class QuantumRegressor:
         print('Loaded parameter_vector as', param_vector)
         return param_vector
 
-    def fit(self, x, y, initial_parameters=None, detailed_results=False, load_state=None):
+    def fit(self, x, y, initial_parameters=None, detailed_results=False, load_state=None, callback_interval=None):
         self.fit_count = 0
+        self.callback_interval = callback_interval
         opt_result = None
         if load_state is not None:
             param_vector = self._load_partial_state(load_state)
