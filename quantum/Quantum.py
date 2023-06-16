@@ -20,7 +20,7 @@ class QuantumRegressor:
             device='default.qubit',
             backend=None,
             pure_qml: bool = True,
-            error_mitigation: list = None,
+            error_mitigation=None,
             shots=None):
         self.callback_interval = None
         self.x = None
@@ -28,14 +28,13 @@ class QuantumRegressor:
         self.params = None
         self.error_mitigation = error_mitigation
         self.num_qubits = num_qubits
-        self._set_device(device, backend, shots)
         self.max_iterations = max_iterations
-        self._set_optimizer(optimizer)
         self.pure = pure_qml
         self.encoder = encoder
         self.variational = variational
+        self._set_device(device, backend, shots)
+        self._set_optimizer(optimizer)
         self._build_qnode()
-        self.qnode = qml.QNode(self._circuit, self.device)
         self.fit_count = 0
 
     def _set_device(self, device, backend, shots):
@@ -45,7 +44,9 @@ class QuantumRegressor:
             instance = input('Enter runtime setting: instance')
             token = input('Enter IBMQ token')
             QiskitRuntimeService.save_account(channel='ibm_quantum', instance=instance, token=token, overwrite=True)
-            self.device = qml.device(device, wires=self.num_qubits, backend=backend, shots=shots)
+            self.device = qml.device(device+'.circuit_runner', wires=self.num_qubits, backend=backend, shots=shots)
+            if self.error_mitigation == 'TREX':
+                self.device.set_transpile_args(**{'resilience_level': 1})
         else:
             self.device = qml.device(device, wires=self.num_qubits)
 
@@ -73,7 +74,7 @@ class QuantumRegressor:
         #  builds QNode from device and circuit using mitiq error mitigation if specified.
         #  TODO: Add more error mitigation options, specifically REM
         self.qnode = qml.QNode(self._circuit, self.device)
-        if self.error_mitigation is not None:
+        if self.error_mitigation is not None and self.error_mitigation != 'TREX':
             scale_factors = self.error_mitigation['scale_factors']
             noise_scale_method = self.error_mitigation['noise_scale_method']
             extrapolate = self.error_mitigation['extrapolate']
