@@ -79,21 +79,6 @@ def iqp_embedding(features, wires, layers=1):
         qml.IQPEmbedding(features[:remaining_wires], wires[-remaining_wires:], layers)
 
 
-def displacement_embedding(features, wires):
-    if len(features) > len(wires):
-        raise ValueError('Cannot encode more features than wires')
-    num_repeats = len(wires) // len(features)
-    remaining_wires = len(wires) % len(features)
-
-    for i in range(num_repeats):
-        start_idx = i * len(features)
-        end_idx = (i + 1) * len(features)
-        qml.DisplacementEmbedding(features, wires[start_idx:end_idx])
-
-    if remaining_wires > 0:
-        qml.DisplacementEmbedding(features[:remaining_wires], wires[-remaining_wires:])
-
-
 def amplitude_embedding(features, wires, pad_with=None):
     if len(features) != 2 ** len(wires) and pad_with is None:
         raise ValueError('Should be encoding 2^n features into n qubits. If you want to encode fewer features specify '
