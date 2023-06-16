@@ -65,23 +65,33 @@ def composer(*args):
 
 
 def iqp_embedding(features, wires, layers=1):
-    if len(features) >> len(wires):
+    if len(features) > len(wires):
         raise ValueError('Cannot encode more features than wires')
-    if len(features) << len(wires):
-        qml.IQPEmbedding(features, wires[:len(features)], layers)
-        qml.IQPEmbedding(features[:len(wires)-len(features)], wires[len(features):], layers)
-    else:
-        qml.IQPEmbedding(features, wires, layers)
+    num_repeats = len(wires) // len(features)
+    remaining_wires = len(wires) % len(features)
+
+    for i in range(num_repeats):
+        start_idx = i * len(features)
+        end_idx = (i + 1) * len(features)
+        qml.IQPEmbedding(features, wires[start_idx:end_idx], layers)
+
+    if remaining_wires > 0:
+        qml.IQPEmbedding(features[:remaining_wires], wires[-remaining_wires:], layers)
 
 
 def displacement_embedding(features, wires):
-    if len(features) >> len(wires):
+    if len(features) > len(wires):
         raise ValueError('Cannot encode more features than wires')
-    if len(features) << len(wires):
-        qml.DisplacementEmbedding(features, wires[:len(features)])
-        qml.DisplacementEmbedding(features[:len(wires)-len(features)], wires[len(features):])
-    else:
-        qml.DisplacementEmbedding(features, wires)
+    num_repeats = len(wires) // len(features)
+    remaining_wires = len(wires) % len(features)
+
+    for i in range(num_repeats):
+        start_idx = i * len(features)
+        end_idx = (i + 1) * len(features)
+        qml.DisplacementEmbedding(features, wires[start_idx:end_idx])
+
+    if remaining_wires > 0:
+        qml.DisplacementEmbedding(features[:remaining_wires], wires[-remaining_wires:])
 
 
 def amplitude_embedding(features, wires, pad_with=None):
