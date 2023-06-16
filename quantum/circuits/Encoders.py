@@ -64,6 +64,26 @@ def composer(*args):
     return new_func
 
 
+def iqp_embedding(features, wires, layers=1):
+    if len(features) >> len(wires):
+        raise ValueError('Cannot encode more features than wires')
+    if len(features) << len(wires):
+        qml.IQPEmbedding(features, wires[:len(features)], layers)
+        qml.IQPEmbedding(features[:len(wires)-len(features)], wires[len(features):], layers)
+    else:
+        qml.IQPEmbedding(features, wires, layers)
+
+
+def displacement_embedding(features, wires):
+    if len(features) >> len(wires):
+        raise ValueError('Cannot encode more features than wires')
+    if len(features) << len(wires):
+        qml.DisplacementEmbedding(features, wires[:len(features)])
+        qml.DisplacementEmbedding(features[:len(wires)-len(features)], wires[len(features):])
+    else:
+        qml.DisplacementEmbedding(features, wires)
+
+
 def amplitude_embedding(features, wires, pad_with=None):
     if len(features) != 2 ** len(wires) and pad_with is None:
         raise ValueError('Should be encoding 2^n features into n qubits. If you want to encode fewer features specify '
