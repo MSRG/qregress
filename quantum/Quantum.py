@@ -56,8 +56,7 @@ class QuantumRegressor:
         if optimizer in scipy_optimizers:
             self.optimizer = optimizer
             self.use_scipy = True
-        else:
-            self.optimizer = qml.SPSAOptimizer(maxiter=self.max_iterations)
+        elif optimizer == 'SPSA':
             self.use_scipy = False
 
     def _circuit(self, features, parameters):
@@ -105,7 +104,11 @@ class QuantumRegressor:
             interval = 5
         if self.fit_count % interval == 0 or force:
             partial_results = param_vector
-            outfile = 'partial_state.bin'
+            if force is True:
+                outfile = 'final_state' + '.' + self.optimizer + '.' + self.variational.__name__ \
+                          + '.' + self.encoder.__name__
+            else:
+                outfile = 'partial_state'+self.optimizer+self.variational.__name__+self.encoder.__name__
             joblib.dump(partial_results, outfile)
         self.fit_count += 1
 
@@ -134,9 +137,10 @@ class QuantumRegressor:
                 opt_result = minimize(self._cost, x0=params, method=self.optimizer, callback=self._save_partial_state)
                 self.params = opt_result['x']
             else:
+                opt = qml.SPSAOptimizer(maxiter=self.max_iterations)
                 cost = []
                 for _ in range(self.max_iterations):
-                    params, temp_cost = self.optimizer.step_and_cost(self._cost, params)
+                    params, temp_cost = opt.step_and_cost(self._cost, params)
                     cost.append(temp_cost)
                     self._save_partial_state(params)
                 opt_result = [params, cost]
@@ -146,9 +150,10 @@ class QuantumRegressor:
                 opt_result = minimize(self._hybrid_cost, x0=params, method=self.optimizer,
                                       callback=self._save_partial_state)
             else:
+                opt = qml.SPSAOptimizer(maxiter=self.max_iterations)
                 cost = []
                 for _ in range(self.max_iterations):
-                    params, temp_cost = self.optimizer.step_and_cost(self._hybrid_cost, params)
+                    params, temp_cost = opt.step_and_cost(self._hybrid_cost, params)
                     cost.append(temp_cost)
                     self._save_partial_state(params)
                 opt_result = [params, cost]
