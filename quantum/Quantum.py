@@ -6,6 +6,7 @@ from qiskit_ibm_runtime import QiskitRuntimeService
 from mitiq.zne.scaling import fold_global
 from mitiq.zne.inference import RichardsonFactory
 import joblib
+import mthree
 
 
 class QuantumRegressor:
@@ -44,7 +45,9 @@ class QuantumRegressor:
             instance = input('Enter runtime setting: instance')
             token = input('Enter IBMQ token')
             QiskitRuntimeService.save_account(channel='ibm_quantum', instance=instance, token=token, overwrite=True)
-            self.device = qml.device(device+'.circuit_runner', wires=self.num_qubits, backend=backend, shots=shots)
+            self.device = qml.device(device + '.circuit_runner', wires=self.num_qubits, backend=backend, shots=shots)
+            service = QiskitRuntimeService()
+            self._backend = service.backend(backend)
             if self.error_mitigation == 'TREX':
                 self.device.set_transpile_args(**{'resilience_level': 1})
         else:
@@ -64,20 +67,39 @@ class QuantumRegressor:
         #  encoder and variational circuits must have only two required parameters, params/feats and wires
         self.encoder(features, wires=range(self.num_qubits))
         self.variational(parameters, wires=range(self.num_qubits))
-        if self.pure:
+        if self.pure and self.error_mitigation != 'M3':
             return qml.expval(qml.PauliZ(0))
-        elif not self.pure:
+        elif self.pure and self.error_mitigation == 'M3':
+            return [qml.counts(qml.PauliZ(0))]
+        elif not self.pure and self.error_mitigation != 'M3':
             return [qml.expval(qml.PauliZ(i)) for i in range(self.num_qubits)]
+        elif not self.pure and self.error_mitigation == 'M3':
+            return [qml.counts(qml.PauliZ(i)) for i in range(self.num_qubits)]
 
     def _build_qnode(self):
         #  builds QNode from device and circuit using mitiq error mitigation if specified.
         #  TODO: Add more error mitigation options, specifically REM
         self.qnode = qml.QNode(self._circuit, self.device)
-        if self.error_mitigation is not None and self.error_mitigation != 'TREX':
+        if self.error_mitigation == 'MITIQ':
             scale_factors = self.error_mitigation['scale_factors']
             noise_scale_method = self.error_mitigation['noise_scale_method']
             extrapolate = self.error_mitigation['extrapolate']
             self.qnode = qml.transforms.mitigate_with_zne(self.qnode, scale_factors, noise_scale_method, extrapolate)
+        elif self.error_mitigation == 'M3':
+            mit = mthree.M3Mitigation(self._backend)
+            mit.cals_from_system()
+            old_qnode = self.qnode
+
+            def new_qnode(features, params):
+                raw_counts = old_qnode(features, params)
+                m3_counts = [mit.apply_correction(raw_counts[i], [i], return_mitigation_overhead=False)
+                             for i in range(len(raw_counts))]
+                expval = [counts.expval() for counts in m3_counts]
+                if len(expval) == 1:
+                    expval = expval[0]
+                return expval
+
+            self.qnode = new_qnode
 
     def _cost(self, parameters):
         predicted_y = [self.qnode(x, parameters) for x in self.x]
@@ -86,10 +108,10 @@ class QuantumRegressor:
     def _hybrid_cost(self, parameters):
         #  cost function for use in hybrid QML with linear model
         #  TODO: This isn't working all the time. Raising a matmul error.
-        params = parameters[:-3] # change to num qubits
+        params = parameters[:-3]  # change to num qubits
         extra_params = parameters[-3:]
         measurements = np.array([self.qnode(x, params) for x in self.x])
-        cost = np.linalg.norm(self.y - np.matmul(measurements, extra_params))**2 / len(self.x)
+        cost = np.linalg.norm(self.y - np.matmul(measurements, extra_params)) ** 2 / len(self.x)
         return cost
 
     def _num_params(self):
@@ -108,7 +130,7 @@ class QuantumRegressor:
                 outfile = 'final_state' + '.' + self.optimizer + '.' + self.variational.__name__ \
                           + '.' + self.encoder.__name__
             else:
-                outfile = 'partial_state'+self.optimizer+self.variational.__name__+self.encoder.__name__
+                outfile = 'partial_state' + self.optimizer + self.variational.__name__ + self.encoder.__name__
             joblib.dump(partial_results, outfile)
         self.fit_count += 1
 
@@ -168,4 +190,5 @@ class QuantumRegressor:
         if self.pure:
             return [self.qnode(features=features, parameters=self.params) for features in x]
         elif not self.pure:
-            return [np.dot(self.qnode(features=features, parameters=self.params[:-3]), self.params[-3:]) for features in x]
+            return [np.dot(self.qnode(features=features, parameters=self.params[:-3]), self.params[-3:]) for features in
+                    x]
