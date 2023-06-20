@@ -4,7 +4,7 @@ from sklearn.metrics import mean_squared_error
 from scipy.optimize import minimize
 from qiskit_ibm_runtime import QiskitRuntimeService
 from mitiq.zne.scaling import fold_global
-from mitiq.zne.inference import RichardsonFactory
+from mitiq.zne.inference import RichardsonFactory, LinearFactory
 import joblib
 import mthree
 
@@ -22,7 +22,11 @@ class QuantumRegressor:
             backend=None,
             pure_qml: bool = True,
             error_mitigation=None,
+            scale_factors=None,
+            folding=fold_global,
             shots=None):
+        if scale_factors is None:
+            scale_factors = [1, 3, 5]
         self.callback_interval = None
         self.x = None
         self.y = None
@@ -35,7 +39,7 @@ class QuantumRegressor:
         self.variational = variational
         self._set_device(device, backend, shots)
         self._set_optimizer(optimizer)
-        self._build_qnode()
+        self._build_qnode(scale_factors, folding)
         self.fit_count = 0
 
     def _set_device(self, device, backend, shots):
@@ -76,15 +80,20 @@ class QuantumRegressor:
         elif not self.pure and self.error_mitigation == 'M3':
             return [qml.counts(qml.PauliZ(i)) for i in range(self.num_qubits)]
 
-    def _build_qnode(self):
+    def _build_qnode(self, scale_factors, folding):
         #  builds QNode from device and circuit using mitiq error mitigation if specified.
         #  TODO: Add more error mitigation options, specifically REM
         self.qnode = qml.QNode(self._circuit, self.device)
-        if self.error_mitigation == 'MITIQ':
-            scale_factors = self.error_mitigation['scale_factors']
-            noise_scale_method = self.error_mitigation['noise_scale_method']
-            extrapolate = self.error_mitigation['extrapolate']
-            self.qnode = qml.transforms.mitigate_with_zne(self.qnode, scale_factors, noise_scale_method, extrapolate)
+        if self.error_mitigation == 'MITIQ_Linear':
+            factory = LinearFactory.extrapolate
+            scale_factors = scale_factors
+            noise_scale_method = folding
+            self.qnode = qml.transforms.mitigate_with_zne(self.qnode, scale_factors, noise_scale_method, factory)
+        elif self.error_mitigation == 'MITIQ_Richardson':
+            factory = RichardsonFactory.extrapolate
+            scale_factors = scale_factors
+            noise_scale_method = folding
+            self.qnode = qml.transforms.mitigate_with_zne(self.qnode, scale_factors, noise_scale_method, factory)
         elif self.error_mitigation == 'M3':
             mit = mthree.M3Mitigation(self._backend)
             mit.cals_from_system()
