@@ -10,6 +10,17 @@ import mthree
 
 
 class QuantumRegressor:
+    """
+    Machine learning model based on quantum circuit learning.
+
+    Methods
+    ------
+    fit(x, y, initial_parameters=None, detailed_results=False, load_state=None, callback_interval=None)
+        Fits the model instance to the given x and y data.
+    predict(x)
+        Predicts y values for a given array of input data based on previous training.
+
+    """
 
     def __init__(
             self,
@@ -151,6 +162,26 @@ class QuantumRegressor:
         return param_vector
 
     def fit(self, x, y, initial_parameters=None, detailed_results=False, load_state=None, callback_interval=None):
+        """
+        Fits the current model to the given x and y data. If no initial parameters are given then random ones will be
+        chosen. Optimal parameters are stored in the model for use in predict and returned in this function.
+
+        :param x: np.array
+            x data to fit
+        :param y: np.array
+            y data to fit
+        :param initial_parameters: list, optional
+            initial parameters to start optimizer
+        :param detailed_results: bool, optional
+            whether to return detailed results of optimization or just parameters
+        :param load_state: str, optional
+            file to load partial fit data from
+        :param callback_interval: int, optional
+            how often to save the optimization steps to file
+        :return:
+            returns the optimal parameters found by optimizer. If detailed_results=True and optimizer is scipy, then
+            will be of type scipy optimizer results stored in dictionary.
+        """
         self.fit_count = 0
         self.callback_interval = callback_interval
         opt_result = None
@@ -194,6 +225,16 @@ class QuantumRegressor:
         return self.params
 
     def predict(self, x):
+        """
+        Predicts a set of output data given a set of input data x using the trained parameters found with fit
+
+        :param x: np.array
+            x data to predict outputs of in the model
+        :raises ValueError:
+            if fit is not first called then raises error explaining that the model must first be trained
+        :return: list
+            predicted values corresponding to each datapoint in x
+        """
         if self.params is None:
             raise ValueError('Model must be trained first!')
         if self.pure:
