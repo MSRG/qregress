@@ -1,5 +1,6 @@
 import pennylane as qml
-from pennylane import numpy as np
+# from pennylane import numpy as np
+import numpy as np
 from sklearn.metrics import mean_squared_error
 from scipy.optimize import minimize
 from qiskit_ibm_runtime import QiskitRuntimeService
@@ -27,13 +28,14 @@ class QuantumRegressor:
             encoder,
             variational,
             num_qubits,
-            optimizer='COBYLA',
-            max_iterations=100,
-            device='default.qubit',
-            backend=None,
+            optimizer: str = 'COBYLA',
+            max_iterations: int = 100,
+            device: str = 'default.qubit',
+            backend: str = None,
             pure_qml: bool = True,
+            postprocess: str = None,
             error_mitigation=None,
-            scale_factors=None,
+            scale_factors: list = None,
             folding=fold_global,
             shots=None):
         if scale_factors is None:
@@ -46,6 +48,7 @@ class QuantumRegressor:
         self.num_qubits = num_qubits
         self.max_iterations = max_iterations
         self.pure = pure_qml
+        self.postprocess = postprocess
         self.encoder = encoder
         self.variational = variational
         self._set_device(device, backend, shots)
@@ -125,13 +128,29 @@ class QuantumRegressor:
         predicted_y = [self.qnode(x, parameters) for x in self.x]
         return mean_squared_error(self.y, predicted_y)
 
-    def _hybrid_cost(self, parameters):
+    def _hybrid_cost(self, parameters, **hyperparameters):
         #  cost function for use in hybrid QML with linear model
         #  TODO: This isn't working all the time. Raising a matmul error.
-        params = parameters[:-3]  # change to num qubits
-        extra_params = parameters[-3:]
+        num = self.num_qubits
+        params = parameters[:-num]  # change to num qubits
+        extra_params = parameters[-num:]
         measurements = np.array([self.qnode(x, params) for x in self.x])
-        cost = np.linalg.norm(self.y - np.matmul(measurements, extra_params)) ** 2 / len(self.x)
+        base_cost = np.linalg.norm(self.y - np.matmul(measurements, extra_params)) ** 2 / len(self.x)
+        if self.postprocess == 'simple':
+            cost = base_cost
+        elif self.postprocess == 'ridge':
+            ridge_lambda = hyperparameters['lambda']
+            cost = base_cost + ridge_lambda * np.linalg.norm(extra_params)
+        elif self.postprocess == 'lasso':
+            lasso_lambda = hyperparameters['lambda']
+            num = 0
+            for param in extra_params:
+                num += np.abs(param)
+            cost = base_cost + lasso_lambda * num
+        elif self.postprocess == 'elastic':
+            cost = None
+        else:
+            raise ValueError('Unable to determine classical postprocessing method')
         return cost
 
     def _num_params(self):
@@ -194,7 +213,7 @@ class QuantumRegressor:
         self.x = x
         self.y = y
         params = initial_parameters
-        if self.pure:
+        if self.postprocess is None:
             if self.use_scipy:
                 opt_result = minimize(self._cost, x0=params, method=self.optimizer, callback=self._save_partial_state)
                 self.params = opt_result['x']
@@ -207,7 +226,7 @@ class QuantumRegressor:
                     self._save_partial_state(params)
                 opt_result = [params, cost]
                 self.params = params
-        elif not self.pure:
+        elif self.postprocess is not None:
             if self.use_scipy:
                 opt_result = minimize(self._hybrid_cost, x0=params, method=self.optimizer,
                                       callback=self._save_partial_state)
@@ -240,5 +259,5 @@ class QuantumRegressor:
         if self.pure:
             return [self.qnode(features=features, parameters=self.params) for features in x]
         elif not self.pure:
-            return [np.dot(self.qnode(features=features, parameters=self.params[:-3]), self.params[-3:]) for features in
-                    x]
+            return [np.dot(self.qnode(features=features, parameters=self.params[:-self.num_qubits]),
+                           self.params[-self.num_qubits:]) for features in x]
