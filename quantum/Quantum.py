@@ -37,7 +37,9 @@ class QuantumRegressor:
             error_mitigation=None,
             scale_factors: list = None,
             folding=fold_global,
-            shots=None):
+            shots=None,
+            **hyperparameters):
+        self.hyperparameters = hyperparameters
         if scale_factors is None:
             scale_factors = [1, 3, 5]
         self.callback_interval = None
@@ -125,16 +127,19 @@ class QuantumRegressor:
             self.qnode = new_qnode
 
     def _cost(self, parameters):
-        predicted_y = [self.qnode(x, parameters) for x in self.x]
+        #  f is a hyperparameter scaling each of the obtained measurements used in both pure and hybrid
+        predicted_y = self.hyperparameters['f'] * [self.qnode(x, parameters) for x in self.x]
         return mean_squared_error(self.y, predicted_y)
 
-    def _hybrid_cost(self, parameters, **hyperparameters):
+    def _hybrid_cost(self, parameters):
         #  cost function for use in hybrid QML with linear model
         #  TODO: This isn't working all the time. Raising a matmul error.
+        hyperparameters = self.hyperparameters
         num = self.num_qubits
-        params = parameters[:-num]  # change to num qubits
+        params = parameters[:-num]
         extra_params = parameters[-num:]
-        measurements = np.array([self.qnode(x, params) for x in self.x])
+        #  f is a hyperparameter scaling each of the obtained measurements used in both pure and hybrid
+        measurements = self.hyperparameters['f'] * np.array([self.qnode(x, params) for x in self.x])
         base_cost = np.linalg.norm(self.y - np.matmul(measurements, extra_params)) ** 2 / len(self.x)
         if self.postprocess == 'simple':
             cost = base_cost
@@ -148,7 +153,7 @@ class QuantumRegressor:
                 num += np.abs(param)
             cost = base_cost + lasso_lambda * num
         elif self.postprocess == 'elastic':
-            cost = None
+            raise NotImplementedError('Elastic postprocessing is not implemented yet')
         else:
             raise ValueError('Unable to determine classical postprocessing method')
         return cost
