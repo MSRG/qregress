@@ -302,7 +302,7 @@ class ModifiedPauliTwo:
         num = 0
         if self._full_rotation:
             if self._entangle_params:
-                num = self._layers * (4 * len(self._wires) - 1)
+                num = self._layers * (4 * len(self._wires) + len(self._wires) - 1)
             elif not self._entangle_params:
                 num = self._layers * (4 * len(self._wires))
         elif not self._full_rotation:
