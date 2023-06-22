@@ -166,10 +166,10 @@ class QuantumRegressor:
         if self.fit_count % interval == 0 or force:
             partial_results = param_vector
             if force is True:
-                outfile = 'final_state' + '.' + self.optimizer + '.' + self.variational.__name__ \
+                outfile = 'final_state' + '.' + self.optimizer + '.' \
                           + '.' + self.encoder.__name__
             else:
-                outfile = 'partial_state' + self.optimizer + self.variational.__name__ + self.encoder.__name__
+                outfile = 'partial_state' + self.optimizer + self.encoder.__name__
             joblib.dump(partial_results, outfile)
         self.fit_count += 1
 
