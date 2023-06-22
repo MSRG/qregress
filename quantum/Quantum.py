@@ -155,7 +155,7 @@ class QuantumRegressor:
 
     def _num_params(self):
         #  computes the number of parameters required for the implemented variational circuit
-        num_params = self.variational(None, wires=range(self.num_qubits), calc_params=True)
+        num_params = self.variational.num_params
         return num_params
 
     def _save_partial_state(self, param_vector, force=False):
