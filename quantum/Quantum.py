@@ -37,9 +37,10 @@ class QuantumRegressor:
             error_mitigation=None,
             scale_factors: list = None,
             folding=fold_global,
-            shots=None,
-            **hyperparameters):
-        self.hyperparameters = hyperparameters
+            shots: int = None,
+            f: float = 1.,
+            alpha: float = 0.):
+        self.hyperparameters = {'f': f, 'alpha': alpha}
         if scale_factors is None:
             scale_factors = [1, 3, 5]
         self.callback_interval = None
@@ -128,34 +129,39 @@ class QuantumRegressor:
 
     def _cost(self, parameters):
         #  f is a hyperparameter scaling each of the obtained measurements used in both pure and hybrid
-        predicted_y = self.hyperparameters['f'] * [self.qnode(x, parameters) for x in self.x]
+        f = self.hyperparameters['f']
+        predicted_y = f * np.array([self.qnode(x, parameters) for x in self.x])
         return mean_squared_error(self.y, predicted_y)
 
     def _hybrid_cost(self, parameters):
         #  cost function for use in hybrid QML with linear model
         #  TODO: This isn't working all the time. Raising a matmul error.
-        hyperparameters = self.hyperparameters
+        f = self.hyperparameters['f']
+        alpha = self.hyperparameters['alpha']
         num = self.num_qubits
         params = parameters[:-num]
         extra_params = parameters[-num:]
         #  f is a hyperparameter scaling each of the obtained measurements used in both pure and hybrid
-        measurements = self.hyperparameters['f'] * np.array([self.qnode(x, params) for x in self.x])
+        measurements = f * np.array([self.qnode(x, params) for x in self.x])
         base_cost = np.linalg.norm(self.y - np.matmul(measurements, extra_params)) ** 2 / len(self.x)
         if self.postprocess == 'simple':
             cost = base_cost
         elif self.postprocess == 'ridge':
-            ridge_lambda = hyperparameters['lambda']
+            ridge_lambda = alpha
             cost = base_cost + ridge_lambda * np.linalg.norm(extra_params)
         elif self.postprocess == 'lasso':
-            lasso_lambda = hyperparameters['lambda']
+            lasso_lambda = alpha
             num = 0
             for param in extra_params:
                 num += np.abs(param)
             cost = base_cost + lasso_lambda * num
         elif self.postprocess == 'elastic':
+            #  TODO: Implement this feature
             raise NotImplementedError('Elastic postprocessing is not implemented yet')
         else:
-            raise ValueError('Unable to determine classical postprocessing method')
+            raise ValueError('Unable to determine classical postprocessing method.' +
+                             'postprocess was set to ', self.postprocess, " accepted values include: " +
+                             " 'simple', 'ridge', 'lasso', 'elastic'")
         return cost
 
     def _num_params(self):
