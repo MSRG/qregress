@@ -50,7 +50,6 @@ class QuantumRegressor:
         self.error_mitigation = error_mitigation
         self.num_qubits = num_qubits
         self.max_iterations = max_iterations
-        self.pure = pure_qml
         self.postprocess = postprocess
         self.encoder = encoder
         self.variational = variational
@@ -88,18 +87,17 @@ class QuantumRegressor:
         #  encoder and variational circuits must have only two required parameters, params/feats and wires
         self.encoder(features, wires=range(self.num_qubits))
         self.variational(parameters, wires=range(self.num_qubits))
-        if self.pure and self.error_mitigation != 'M3':
+        if self.postprocess is None and self.error_mitigation != 'M3':
             return qml.expval(qml.PauliZ(0))
-        elif self.pure and self.error_mitigation == 'M3':
+        elif self.postprocess is None and self.error_mitigation == 'M3':
             return [qml.counts(qml.PauliZ(0))]
-        elif not self.pure and self.error_mitigation != 'M3':
+        elif self.postprocess is not None and self.error_mitigation != 'M3':
             return [qml.expval(qml.PauliZ(i)) for i in range(self.num_qubits)]
-        elif not self.pure and self.error_mitigation == 'M3':
+        elif self.postprocess is not None and self.error_mitigation == 'M3':
             return [qml.counts(qml.PauliZ(i)) for i in range(self.num_qubits)]
 
     def _build_qnode(self, scale_factors, folding):
         #  builds QNode from device and circuit using mitiq error mitigation if specified.
-        #  TODO: Add more error mitigation options, specifically REM
         self.qnode = qml.QNode(self._circuit, self.device)
         if self.error_mitigation == 'MITIQ_Linear':
             factory = LinearFactory.extrapolate
@@ -267,8 +265,8 @@ class QuantumRegressor:
         """
         if self.params is None:
             raise ValueError('Model must be trained first!')
-        if self.pure:
+        if self.postprocess is None:
             return [self.qnode(features=features, parameters=self.params) for features in x]
-        elif not self.pure:
+        elif self.postprocess is not None:
             return [np.dot(self.qnode(features=features, parameters=self.params[:-self.num_qubits]),
                            self.params[-self.num_qubits:]) for features in x]
