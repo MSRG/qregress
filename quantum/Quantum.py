@@ -32,7 +32,6 @@ class QuantumRegressor:
             max_iterations: int = 100,
             device: str = 'default.qubit',
             backend: str = None,
-            pure_qml: bool = True,
             postprocess: str = None,
             error_mitigation=None,
             scale_factors: list = None,
