@@ -37,7 +37,10 @@ class QuantumRegressor:
             error_mitigation=None,
             scale_factors: list = None,
             folding=fold_global,
-            shots=None):
+            shots: int = None,
+            f: float = 1.,
+            alpha: float = 0.):
+        self.hyperparameters = {'f': f, 'alpha': alpha}
         if scale_factors is None:
             scale_factors = [1, 3, 5]
         self.callback_interval = None
@@ -47,7 +50,6 @@ class QuantumRegressor:
         self.error_mitigation = error_mitigation
         self.num_qubits = num_qubits
         self.max_iterations = max_iterations
-        self.pure = pure_qml
         self.postprocess = postprocess
         self.encoder = encoder
         self.variational = variational
@@ -85,18 +87,17 @@ class QuantumRegressor:
         #  encoder and variational circuits must have only two required parameters, params/feats and wires
         self.encoder(features, wires=range(self.num_qubits))
         self.variational(parameters, wires=range(self.num_qubits))
-        if self.pure and self.error_mitigation != 'M3':
+        if self.postprocess is None and self.error_mitigation != 'M3':
             return qml.expval(qml.PauliZ(0))
-        elif self.pure and self.error_mitigation == 'M3':
+        elif self.postprocess is None and self.error_mitigation == 'M3':
             return [qml.counts(qml.PauliZ(0))]
-        elif not self.pure and self.error_mitigation != 'M3':
+        elif self.postprocess is not None and self.error_mitigation != 'M3':
             return [qml.expval(qml.PauliZ(i)) for i in range(self.num_qubits)]
-        elif not self.pure and self.error_mitigation == 'M3':
+        elif self.postprocess is not None and self.error_mitigation == 'M3':
             return [qml.counts(qml.PauliZ(i)) for i in range(self.num_qubits)]
 
     def _build_qnode(self, scale_factors, folding):
         #  builds QNode from device and circuit using mitiq error mitigation if specified.
-        #  TODO: Add more error mitigation options, specifically REM
         self.qnode = qml.QNode(self._circuit, self.device)
         if self.error_mitigation == 'MITIQ_Linear':
             factory = LinearFactory.extrapolate
@@ -125,37 +126,48 @@ class QuantumRegressor:
             self.qnode = new_qnode
 
     def _cost(self, parameters):
-        predicted_y = [self.qnode(x, parameters) for x in self.x]
+        #  f is a hyperparameter scaling each of the obtained measurements used in both pure and hybrid
+        f = self.hyperparameters['f']
+        predicted_y = f * np.array([self.qnode(x, parameters) for x in self.x])
         return mean_squared_error(self.y, predicted_y)
 
-    def _hybrid_cost(self, parameters, **hyperparameters):
+    def _hybrid_cost(self, parameters):
         #  cost function for use in hybrid QML with linear model
         #  TODO: This isn't working all the time. Raising a matmul error.
+        f = self.hyperparameters['f']
+        alpha = self.hyperparameters['alpha']
         num = self.num_qubits
-        params = parameters[:-num]  # change to num qubits
+        params = parameters[:-num]
         extra_params = parameters[-num:]
-        measurements = np.array([self.qnode(x, params) for x in self.x])
+        #  f is a hyperparameter scaling each of the obtained measurements used in both pure and hybrid
+        measurements = f * np.array([self.qnode(x, params) for x in self.x])
         base_cost = np.linalg.norm(self.y - np.matmul(measurements, extra_params)) ** 2 / len(self.x)
         if self.postprocess == 'simple':
             cost = base_cost
         elif self.postprocess == 'ridge':
-            ridge_lambda = hyperparameters['lambda']
+            ridge_lambda = alpha
             cost = base_cost + ridge_lambda * np.linalg.norm(extra_params)
         elif self.postprocess == 'lasso':
-            lasso_lambda = hyperparameters['lambda']
+            lasso_lambda = alpha
             num = 0
             for param in extra_params:
                 num += np.abs(param)
             cost = base_cost + lasso_lambda * num
         elif self.postprocess == 'elastic':
-            cost = None
+            num = 0
+            elastic_lambda = 1
+            for param in extra_params:
+                num += np.abs(param)
+            cost = base_cost + elastic_lambda * (alpha * num + (1 - alpha) * np.linalg.norm(extra_params))
         else:
-            raise ValueError('Unable to determine classical postprocessing method')
+            raise ValueError('Unable to determine classical postprocessing method.' +
+                             'postprocess was set to ', self.postprocess, " accepted values include: " +
+                             " 'simple', 'ridge', 'lasso', 'elastic'")
         return cost
 
     def _num_params(self):
         #  computes the number of parameters required for the implemented variational circuit
-        num_params = self.variational(None, wires=range(self.num_qubits), calc_params=True)
+        num_params = self.variational.num_params
         return num_params
 
     def _save_partial_state(self, param_vector, force=False):
@@ -166,10 +178,10 @@ class QuantumRegressor:
         if self.fit_count % interval == 0 or force:
             partial_results = param_vector
             if force is True:
-                outfile = 'final_state' + '.' + self.optimizer + '.' + self.variational.__name__ \
+                outfile = 'final_state' + '.' + self.optimizer + '.' \
                           + '.' + self.encoder.__name__
             else:
-                outfile = 'partial_state' + self.optimizer + self.variational.__name__ + self.encoder.__name__
+                outfile = 'partial_state' + self.optimizer + self.encoder.__name__
             joblib.dump(partial_results, outfile)
         self.fit_count += 1
 
@@ -256,8 +268,8 @@ class QuantumRegressor:
         """
         if self.params is None:
             raise ValueError('Model must be trained first!')
-        if self.pure:
+        if self.postprocess is None:
             return [self.qnode(features=features, parameters=self.params) for features in x]
-        elif not self.pure:
+        elif self.postprocess is not None:
             return [np.dot(self.qnode(features=features, parameters=self.params[:-self.num_qubits]),
                            self.params[-self.num_qubits:]) for features in x]
