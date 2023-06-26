@@ -154,8 +154,11 @@ class QuantumRegressor:
                 num += np.abs(param)
             cost = base_cost + lasso_lambda * num
         elif self.postprocess == 'elastic':
-            #  TODO: Implement this feature
-            raise NotImplementedError('Elastic postprocessing is not implemented yet')
+            num = 0
+            elastic_lambda = 1
+            for param in extra_params:
+                num += np.abs(param)
+            cost = base_cost + elastic_lambda * (alpha * num + (1 - alpha) * np.linalg.norm(extra_params))
         else:
             raise ValueError('Unable to determine classical postprocessing method.' +
                              'postprocess was set to ', self.postprocess, " accepted values include: " +
