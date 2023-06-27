@@ -1,23 +1,41 @@
-import pandas
 import click
 import joblib
-import numpy as np
 import os
+import numpy as np
+import pandas as pd
 
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
+from sklearn.decomposition import PCA
 
 
-def load_file(file: str, y_label: str, length: int | float):
+def load_file(file: str):
     """
     Loads the file given using joblib. Target file must be a joblib output file of type .bin containing a pandas
     dataframe object.
 
-    TODO: Add support for either .csv or .bin joblib files.
     """
     print(f'Loading file {file}... ')
-    df = joblib.load(file)
 
+    file_base = os.path.basename(file)
+    name, extension = os.path.splitext(file_base)
+    if extension == '.bin':
+        df = joblib.load(file)
+        print(f'File loaded successfully! ')
+        return df
+    elif extension == '.csv':
+        df = pd.read_csv
+        print(f'File loaded successfully! ')
+        return df
+
+
+def shuffle(df: pd.DataFrame, y_label: str, length: int | float):
+    """
+    Shuffles the dataframe and splits it into seperate X and y arrays. Additionally, trims the length of the
+    dataset to specified length, either as an int or a ratio of the full set.
+    """
+
+    print(f'Shuffling dataframe into x and y sets... ')
     if length is None:
         df = df.sample(frac=1)
 
@@ -32,26 +50,35 @@ def load_file(file: str, y_label: str, length: int | float):
     x = df.drop([y_label], axis=1)
     x = np.array(x)
 
-    print(f'File successfully loaded and shuffled into {len(y)} samples. ')
+    print(f'Dataframe successfully shuffled into {len(y)} samples. ')
     return x, y
 
 
 def split(x, y, x_dim: int, train_ratio: float):
+    """
+    Splits the dataset into train and test sets then scales each to (-1, 1). Then applies PCA
+    to reduce the number of features to x_dim.
+    """
 
-    if x_dim is not None:
-        raise NotImplementedError('PCA / dimension reduction is not yet implemented.')
+    print('Now splitting and scaling data... ')
     if x_dim is None:
-        raise ValueError('You must specify a feature dimension. Lower dimension is recommended for training time. ')
+        raise ValueError('You must specify a feature dimension. ')
     scaler = MinMaxScaler
     x_scaler = scaler((-1, 1))
     y_scaler = scaler((-1, 1))
     X_train, X_test, y_train, y_test = train_test_split(x, y, train_size=train_ratio)
-    sc_X_tr = x_scaler.fit_transform(X_train)
-    sc_X_te = x_scaler.transform(X_test)
-    sc_y_tr = y_scaler.fit_transform(y_train).reshape(-1)
-    sc_y_te = y_scaler.transform(y_test).reshape(-1)
+    X_tr = x_scaler.fit_transform(X_train)
+    X_te = x_scaler.transform(X_test)
+    y_tr = y_scaler.fit_transform(y_train).reshape(-1)
+    y_te = y_scaler.transform(y_test).reshape(-1)
     print(f'Data successfully split into a {train_ratio} train ratio and scaled to {(-1, 1)} ')
-    return sc_X_tr, sc_y_tr, sc_X_te, sc_y_te  # returns (X_train y_train X_test y_test)
+
+    print(f'Now applying PCA to reduce to {x_dim} features... ')
+    pca = PCA(n_components=x_dim, svd_solver='full')
+    X_tr = pca.fit_transform(X_tr)
+    X_te = pca.transform(X_te)
+    print(f'Successfully reduced the dataset to {x_dim} features. ')
+    return X_tr, y_tr, X_te, y_te  # returns (X_train y_train X_test y_test)
 
 
 @click.command()
@@ -61,12 +88,13 @@ def split(x, y, x_dim: int, train_ratio: float):
 @click.option('--length', default=None, help='Number of datapoints to be included in the dataset generation. Can be '
                                              'passed as an int or a ratio. ')
 @click.option('--y_label', default='BSE', help='Specify the label of the column to use as target values. ')
-@click.option('--file', required=True, help='Source file to use for dataset generation. Must be of .bin format '
-                                            'containing pandas dataframe. ')
+@click.option('--file', required=True, help='Source file to use for dataset generation. Supports either .bin or .csv. ')
 @click.option('--save_name', default=None, help='Specify the name of the output files. ')
 def main(train_ratio, x_dim, length, y_label, file, save_name):
     if save_name is None:
-        save_name = y_label
+        filebase = os.path.basename(file)
+        filename, ext = os.path.splitext(filebase)
+        save_name = filename
     try:
         train_ratio = float(train_ratio)
     except ValueError:
@@ -84,8 +112,8 @@ def main(train_ratio, x_dim, length, y_label, file, save_name):
         print('Could not convert input for length. Proceeding with entire dataset... ')
         length = None
 
-    x, y = load_file(file, y_label, length)
-
+    df = load_file(file)
+    x, y = shuffle(df, y_label, length)
     X_train, y_train, X_test, y_test = split(x, y, x_dim, train_ratio)
 
     X_train = X_train.tolist()
