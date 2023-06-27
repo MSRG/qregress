@@ -24,7 +24,7 @@ def load_file(file: str):
         print(f'File loaded successfully! ')
         return df
     elif extension == '.csv':
-        df = pd.read_csv
+        df = pd.read_csv(file)
         print(f'File loaded successfully! ')
         return df
 
@@ -67,10 +67,11 @@ def split(x, y, x_dim: int, train_ratio: float):
     x_scaler = scaler((-1, 1))
     y_scaler = scaler((-1, 1))
     X_train, X_test, y_train, y_test = train_test_split(x, y, train_size=train_ratio)
+    y_train, y_test = y_train.reshape(-1, 1), y_test.reshape(-1, 1)
     X_tr = x_scaler.fit_transform(X_train)
     X_te = x_scaler.transform(X_test)
-    y_tr = y_scaler.fit_transform(y_train).reshape(-1)
-    y_te = y_scaler.transform(y_test).reshape(-1)
+    y_tr = y_scaler.fit_transform(y_train)
+    y_te = y_scaler.transform(y_test)
     print(f'Data successfully split into a {train_ratio} train ratio and scaled to {(-1, 1)} ')
 
     print(f'Now applying PCA to reduce to {x_dim} features... ')
@@ -116,11 +117,6 @@ def main(train_ratio, x_dim, length, y_label, file, save_name):
     x, y = shuffle(df, y_label, length)
     X_train, y_train, X_test, y_test = split(x, y, x_dim, train_ratio)
 
-    X_train = X_train.tolist()
-    y_train = y_train.tolist()
-    X_test = X_test.tolist()
-    y_test = y_test.tolist()
-
     train = {
         'X': X_train,
         'y': y_train
@@ -130,13 +126,13 @@ def main(train_ratio, x_dim, length, y_label, file, save_name):
         'X': X_test,
         'y': y_test
     }
+    train_name = save_name + '_train.bin'
+    test_name = save_name + '_test.bin'
 
-    with open(save_name+'_train+.json', 'w') as outfile:
-        joblib.dump(train, outfile)
-    with open(save_name+'_test+.json', 'w') as outfile:
-        joblib.dump(test, outfile)
+    joblib.dump(train, train_name)
+    joblib.dump(test, test_name)
 
-    print(f'Successfully created outfiles as {save_name}_train.json and {save_name}_test.json')
+    print(f'Successfully created outfiles as {train_name} and {test_name} ')
 
 
 if __name__ == '__main__':
