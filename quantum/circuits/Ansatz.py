@@ -26,7 +26,7 @@ class HardwareEfficient:
         'CZ': entangle_cz
     }
 
-    def __init__(self, wires: list, layers: int = 1, entangle_type: str = 'CNOT'):
+    def __init__(self, wires: list = None, layers: int = 1, entangle_type: str = 'CNOT'):
         self._layers = layers
         if entangle_type not in self._entangle_types.keys():
             raise ValueError("Unexpected entangling type. Possible types are:", self._entangle_types.keys())
@@ -48,11 +48,14 @@ class HardwareEfficient:
     def num_params(self):
         return 3 * self._layers * len(self._wires)
 
+    def set_wires(self, wires):
+        self._wires = wires
+
 
 class EfficientSU2:
 
     def __init__(self,
-                 wires: list,
+                 wires: list = None,
                  su2_gates: list = None,
                  entanglement: str = 'linear',
                  reps: int = 1,
@@ -60,9 +63,14 @@ class EfficientSU2:
                  ):
         if su2_gates is None:
             su2_gates = ['ry', 'rz']
-        self._wires = wires
-        self._qc = n_local.EfficientSU2(num_qubits=len(self._wires), su2_gates=su2_gates, entanglement=entanglement,
-                                        reps=reps, skip_final_rotation_layer=skip_final_rot)
+        self._su2_gates = su2_gates
+        self._entanglement = entanglement
+        self._reps = reps
+        self._skip_final_rot = skip_final_rot
+        self._wires = None
+        self._qc = None
+        if wires is not None:
+            self.set_wires(wires)
 
     def __call__(self, parameters, wires: list = None):
         if wires is not None:
@@ -82,16 +90,26 @@ class EfficientSU2:
     def num_params(self):
         return self._qc.num_parameters_settable
 
+    def set_wires(self, wires):
+        self._wires = wires
+        self._qc = n_local.EfficientSU2(num_qubits=len(self._wires), su2_gates=self._su2_gates,
+                                        entanglement=self._entanglement, reps=self._reps,
+                                        skip_final_rotation_layer=self._skip_final_rot)
+
 
 class ExcitationPreserving:
 
     def __init__(self,
-                 wires: list,
+                 wires: list = None,
                  entanglement: str = 'linear',
                  reps: int = 1,
                  ):
-        self._wires = wires
-        self._qc = n_local.ExcitationPreserving(num_qubits=len(self._wires), entanglement=entanglement, reps=reps)
+        self._entanglement = entanglement
+        self._reps = reps
+        self._wires = None
+        self._qc = None
+        if wires is not None:
+            self.set_wires(wires)
 
     def __call__(self, parameters, wires: list = None):
         if wires is not None:
@@ -110,21 +128,31 @@ class ExcitationPreserving:
     def num_params(self):
         return self._qc.num_parameters_settable
 
+    def set_wires(self, wires):
+        self._wires = wires
+        self._qc = n_local.ExcitationPreserving(num_qubits=len(self._wires), entanglement=self._entanglement,
+                                                reps=self._reps)
+
 
 class TwoLocal:
 
     def __init__(self,
-                 wires: list,
+                 wires: list = None,
                  entanglement: str = 'linear',
                  reps: int = 1,
                  rot_gates: list = None,
                  entangle_gates: list = None,
                  skip_final_rot: bool = True
                  ):
-        self._wires = wires
-        self._qc = n_local.TwoLocal(num_qubits=len(self._wires), entanglement=entanglement, reps=reps,
-                                    rotation_blocks=rot_gates, entanglement_blocks=entangle_gates,
-                                    skip_final_rotation_layer=skip_final_rot)
+        self._entanglement = entanglement
+        self._reps = reps
+        self._rot_gates = rot_gates
+        self._entangle_gates = entangle_gates
+        self._skip_final_rot = skip_final_rot
+        self._wires = None
+        self._qc = None
+        if wires is not None:
+            self.set_wires(wires)
 
     def __call__(self, parameters, wires: list = None):
         if wires is not None:
@@ -144,12 +172,21 @@ class TwoLocal:
     def num_params(self):
         return self._qc.num_parameters_settable
 
+    def set_wires(self, wires):
+        self._wires = wires
+        self._qc = n_local.TwoLocal(num_qubits=len(self._wires), entanglement=self._entanglement, reps=self._reps,
+                                    rotation_blocks=self._rot_gates, entanglement_blocks=self._entangle_gates,
+                                    skip_final_rotation_layer=self._skip_final_rot)
+
 
 class PauliTwoDesign:
 
-    def __init__(self, wires: list, reps: int = 1):
-        self._wires = wires
-        self._qc = n_local.PauliTwoDesign(num_qubits=len(self._wires), reps=reps)
+    def __init__(self, wires: list = None, reps: int = 1):
+        self._reps = reps
+        self._wires = None
+        self._qc = None
+        if wires is not None:
+            self.set_wires(wires)
 
     def __call__(self, parameters, wires: list = None):
         if wires is not None:
@@ -168,13 +205,21 @@ class PauliTwoDesign:
     @property
     def num_params(self):
         return self._qc.num_parameters_settable
+
+    def set_wires(self, wires):
+        self._wires = wires
+        self._qc = n_local.PauliTwoDesign(num_qubits=len(self._wires), reps=self._reps)
 
 
 class RealAmplitudes:
 
-    def __init__(self, wires: list, entanglement: str = 'linear', reps: int = 1):
-        self._wires = wires
-        self._qc = n_local.RealAmplitudes(num_qubits=len(self._wires), entanglement=entanglement, reps=reps)
+    def __init__(self, wires: list = None, entanglement: str = 'linear', reps: int = 1):
+        self._entanglement = entanglement
+        self._reps = reps
+        self._wires = None
+        self._qc = None
+        if wires is not None:
+            self.set_wires(wires)
 
     def __call__(self, parameters, wires: list = None):
         if wires is not None:
@@ -193,20 +238,29 @@ class RealAmplitudes:
     @property
     def num_params(self):
         return self._qc.num_parameters_settable
+
+    def set_wires(self, wires):
+        self._wires = wires
+        self._qc = n_local.RealAmplitudes(num_qubits=len(self._wires), entanglement=self._entanglement, reps=self._reps)
 
 
 class NLocal:
 
     def __init__(self,
-                 wires: list,
+                 wires: list = None,
                  rotation_blocks: list = None,
                  entanglement: str = None,
                  entanglement_blocks: list = None,
                  reps: int = None
                  ):
-        self._wires = wires
-        self._qc = n_local.NLocal(num_qubits=len(self._wires), rotation_blocks=rotation_blocks,
-                                  entanglement=entanglement, entanglement_blocks=entanglement_blocks, reps=reps)
+        self._rotation_blocks = rotation_blocks
+        self._entanglement = entanglement
+        self._entanglement_blocks = entanglement_blocks
+        self._reps = reps
+        self._wires = None
+        self._qc = None
+        if wires is not None:
+            self.set_wires(wires)
 
     def __call__(self, parameters, wires: list = None):
         if wires is not None:
@@ -225,6 +279,12 @@ class NLocal:
     @property
     def num_params(self):
         return self._qc.num_parameters_settable
+
+    def set_wires(self, wires):
+        self._wires = wires
+        self._qc = n_local.NLocal(num_qubits=len(self._wires), rotation_blocks=self._rotation_blocks,
+                                  entanglement=self._entanglement, entanglement_blocks=self._entanglement_blocks,
+                                  reps=self._reps)
 
 
 class ModifiedPauliTwo:
@@ -242,7 +302,7 @@ class ModifiedPauliTwo:
     }
 
     def __init__(self,
-                 wires: list,
+                 wires: list = None,
                  entanglement: str = 'crz',
                  layers: int = 1,
                  rotation_block: list = None,
@@ -251,7 +311,6 @@ class ModifiedPauliTwo:
         self._entangle_params = True
         if entanglement == 'cnot' or entanglement == 'cz':
             self._entangle_params = False
-        self._wires = wires
         if rotation_block is None:
             self._rotation_block = ['rx', 'rz']
         else:
@@ -259,6 +318,9 @@ class ModifiedPauliTwo:
         self._entangler = self.entanglers[entanglement]
         self._layers = layers
         self._full_rotation = full_rotation
+        self._wires = None
+        if wires is not None:
+            self.set_wires(wires)
 
     def __call__(self, parameters, wires: list = None):
         if len(parameters) != self.num_params:
@@ -312,12 +374,17 @@ class ModifiedPauliTwo:
                 num = self._layers * (4 * len(self._wires) - 4)
         return num
 
+    def set_wires(self, wires):
+        self._wires = wires
+
 
 class HadamardAnsatz:
 
-    def __init__(self, wires: list, layers: int = 1):
+    def __init__(self, wires: list = None, layers: int = 1):
         self._layers = layers
-        self._wires = wires
+        self._wires = None
+        if wires is not None:
+            self.set_wires(wires)
 
     def __call__(self, parameters: list, wires: list = None):
         if wires is not None:
@@ -335,3 +402,6 @@ class HadamardAnsatz:
     @property
     def num_params(self):
         return self._layers * self._wires
+
+    def set_wires(self, wires):
+        self._wires = wires
