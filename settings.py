@@ -95,11 +95,11 @@ def create_combinations(encoder: str = None, ansatz: str = None, **kwargs):
     :return:
     """
     if encoder is None:
-        encoder = ENCODERS.keys()
+        encoder = ENCODER_LIST.keys()
     else:
         encoder = [encoder]
     if ansatz is None:
-        ansatz = ANSATZES.keys()
+        ansatz = ANSATZ_LIST.keys()
     else:
         ansatz = [ansatz]
 
@@ -118,7 +118,7 @@ def create_combinations(encoder: str = None, ansatz: str = None, **kwargs):
 @click.command()
 @click.option('--encoder', default=None, help='Encoder circuit to generate settings for. ')
 @click.option('--ansatz', default=None, help='Ansatz circuit to generate settings for. ')
-@click.option('--layers', default=1, help='Layers to use for ansatz. ')
+@click.option('--layers', default=None, help='Layers to use for ansatz. ')
 @click.option('--device', default='qulacs.simulator', help='Device to run on. ')
 @click.option('--backend', default=None, help='If running on IBMQ device, specify a backend here. ')
 @click.option('--shots', default=None, help='Number of shots to estimate expectation values from. If none is '
@@ -137,12 +137,14 @@ def main(encoder, ansatz, layers, device, backend, shots, optimizer, error_mitig
         for _, val in settings.items():
             new_settings[file_name] = val
         settings = new_settings
-
-    try:
-        layers = int(layers)
-    except ValueError:
+    if layers is None:
         layers = 1
-        print("Could not read layers, ensure it's interpretable as int. Proceeding with 1 layer. ")
+    else:
+        try:
+            layers = int(layers)
+        except ValueError:
+            layers = 1
+            print("Could not read layers, ensure it's interpretable as int. Proceeding with 1 layer. ")
     try:
         if shots is not None:
             shots = int(shots)
