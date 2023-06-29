@@ -109,7 +109,7 @@ def main(settings, train_set, test_set):
     X_train, y_train = load_dataset(train_set)
     parse_settings(settings)
 
-    print(f'Creating and training model with given dataset {test_set} at time {time.asctime()}. ')
+    print(f'Creating and training model with dataset {train_set} \n at time {time.asctime()}. ')
     st = time.time()
     model = create_model()
     model.fit(X_train, y_train, callback_interval=1)

@@ -4,7 +4,6 @@ from quantum.circuits.Encoders import double_angle, single_angle, iqp_embedding,
     entangle_cz, entangle_cnot
 from quantum.circuits.Ansatz import HardwareEfficient, EfficientSU2, TwoLocal, ModifiedPauliTwo, HadamardAnsatz
 
-
 # Global variables
 OPTIMIZER = None
 SHOTS = None
@@ -108,7 +107,7 @@ def create_combinations(encoder: str = None, ansatz: str = None, **kwargs):
         for ansatz_val in ansatz:
             settings = {
                 'ANSATZ': ansatz_val,
-                'ENCODERS': encoder_val
+                'ENCODER': encoder_val
             }
             filename = f'{encoder_val}_{ansatz_val}'
             my_dict[filename] = settings
@@ -123,8 +122,8 @@ def create_combinations(encoder: str = None, ansatz: str = None, **kwargs):
 @click.option('--backend', default=None, help='If running on IBMQ device, specify a backend here. ')
 @click.option('--shots', default=None, help='Number of shots to estimate expectation values from. If none is '
                                             'specified will use the device default. ')
-@click.option('--optimizer', default=None, help='Specify an optimizer for the model. COBYLA is recommended for '
-                                                'noiseless and SPSA or Nelder-Mead for noisy. ')
+@click.option('--optimizer', required=True, help='Specify an optimizer for the model. COBYLA is recommended for '
+                                                 'noiseless and SPSA or Nelder-Mead for noisy. ')
 @click.option('--error_mitigation', default=None, help='Specify an error mitigation method if using a noisy device. '
                                                        'Leave blank for none. ')
 @click.option('--post_process', default=None, help='Specify a post-processing type. Leave blank for none. ')
