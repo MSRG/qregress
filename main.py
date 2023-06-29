@@ -4,12 +4,10 @@ import click
 import json
 import time
 from quantum.Quantum import QuantumRegressor
-from quantum.circuits.Encoders import double_angle, single_angle, iqp_embedding, mitarai, composer, \
-    entangle_cz, entangle_cnot
-from quantum.circuits.Ansatz import HardwareEfficient, EfficientSU2, TwoLocal, ExcitationPreserving, PauliTwoDesign, \
-    RealAmplitudes, HadamardAnsatz, ModifiedPauliTwo, NLocal
+from settings import ANSATZ_LIST, ENCODER_LIST
 
 from sklearn.metrics import mean_squared_error, r2_score
+
 
 # Global variables
 OPTIMIZER = None
@@ -36,28 +34,6 @@ ERROR_MITIGATION_LIST = [
     'M3',
     'TREX'
 ]
-
-ENCODER_LIST = {
-    'M': mitarai,
-    'A1': single_angle,
-    'A2': double_angle,
-    'IQP': iqp_embedding,
-    'M-M-CNOT': composer(mitarai, entangle_cnot, mitarai, entangle_cnot),
-    'A1-A1-CNOT': composer(single_angle, entangle_cnot, single_angle, entangle_cnot),
-    'A2-A2-CNOT': composer(double_angle, entangle_cnot, double_angle, entangle_cnot),
-    'M-A1-CNOT': composer(mitarai, entangle_cnot, single_angle, entangle_cnot),
-    'M-A2-CNOT': composer(mitarai, entangle_cnot, double_angle, entangle_cnot),
-    'M-M-CZ': composer(mitarai, entangle_cz, mitarai, entangle_cz),
-    'A1-A1-CZ': composer(single_angle, entangle_cz, single_angle, entangle_cz),
-    'A2-A2-CZ': composer(double_angle, entangle_cz, double_angle, entangle_cz),
-    'M-A1-CZ': composer(mitarai, entangle_cz, single_angle, entangle_cz),
-    'M-A2-CZ': composer(mitarai, entangle_cz, double_angle, entangle_cz),
-}
-
-# TODO: Create a full list of ansatz to be used in the experiment
-ANSATZ_LIST = {
-    'HardwareEfficient': HardwareEfficient()
-}
 
 POSTPROCESS_LIST = {
     'None': None,
@@ -91,11 +67,18 @@ def parse_settings(settings_file):
     global SCALE_FACTORS
     SCALE_FACTORS = settings['SCALE_FACTORS']
 
+    global POSTPROCESS
+    POSTPROCESS = settings['POSTPROCESS']
+
+    global ERROR_MITIGATION
+    ERROR_MITIGATION = settings['ERROR_MITIGATION']
+
+    # classes aren't JSON serializable, so we store the key in the settings file and access it here.
     global ANSATZ
-    ANSATZ = settings['ANSATZ']
+    ANSATZ = ANSATZ_LIST[settings['ANSATZ']]
 
     global ENCODER
-    ENCODER = settings['ENCODER']
+    ENCODER = ENCODER_LIST[settings['ENCODER']]
 
 
 def load_dataset(file):
