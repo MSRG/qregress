@@ -20,6 +20,7 @@ ANSATZ = None
 ENCODER = None
 POSTPROCESS = None
 ERROR_MITIGATION = None
+LAYERS = None
 
 
 ############################################
@@ -73,6 +74,9 @@ def parse_settings(settings_file):
     global ERROR_MITIGATION
     ERROR_MITIGATION = settings['ERROR_MITIGATION']
 
+    global LAYERS
+    LAYERS = settings['LAYERS']
+
     # classes aren't JSON serializable, so we store the key in the settings file and access it here.
     global ANSATZ
     ANSATZ = ANSATZ_LIST[settings['ANSATZ']]
@@ -118,6 +122,8 @@ def main(settings, train_set, test_set):
 
 
 def create_model():
+    #  First have to apply specific ansatz settings: setting number of layers and the number of wires based on features
+    ANSATZ.layers = LAYERS
     ANSATZ.set_wires(range(X_DIM))
 
     model = QuantumRegressor(encoder=ENCODER, variational=ANSATZ, num_qubits=X_DIM, optimizer=OPTIMIZER, device=DEVICE,
