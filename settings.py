@@ -2,7 +2,7 @@ import json
 import click
 from quantum.circuits.Encoders import double_angle, single_angle, iqp_embedding, mitarai, composer, \
     entangle_cz, entangle_cnot
-from quantum.circuits.Ansatz import HardwareEfficient, EfficientSU2, TwoLocal
+from quantum.circuits.Ansatz import HardwareEfficient, EfficientSU2, TwoLocal, ModifiedPauliTwo, HadamardAnsatz
 
 
 # Global variables
@@ -47,7 +47,11 @@ ANSATZ_LIST = {
     'Efficient_CRX': TwoLocal(rot_gates=['rx', 'rz'], entangle_gates=['crx'], entanglement='linear'),
     'Full_CRZ': TwoLocal(rot_gates=['rx', 'rz'], entangle_gates=['crz'], entanglement='complete'),
     'Full_CRX': TwoLocal(rot_gates=['rx', 'rz'], entangle_gates=['crz'], entanglement='complete'),
-
+    'Modified_Pauli_CRZ': ModifiedPauliTwo(rotation_block=['rx', 'rz'], entanglement='crz', full_rotation=False),
+    'Modified_Pauli_CRX': ModifiedPauliTwo(rotation_block=['rx', 'rz'], entanglement='crx', full_rotation=False),
+    'Full_Pauli_CRZ': ModifiedPauliTwo(rotation_block=['rx', 'rz'], entanglement='crz', full_rotation=True),
+    'Full_Pauli_CRX': ModifiedPauliTwo(rotation_block=['rx', 'rz'], entanglement='crx', full_rotation=True),
+    'Hadamard': HadamardAnsatz()
 }
 
 POSTPROCESS = {
