@@ -7,7 +7,7 @@ from quantum.Quantum import QuantumRegressor
 from settings import ANSATZ_LIST, ENCODER_LIST
 
 from sklearn.metrics import mean_squared_error, r2_score
-
+from qiskit_ibm_runtime import QiskitRuntimeService
 
 # Global variables
 OPTIMIZER = None
@@ -97,6 +97,10 @@ def load_dataset(file):
     return X, y
 
 
+def save_token(instance, token):
+    QiskitRuntimeService.save_account(channel='ibm_quantum', instance=instance, token=token, overwrite=True)
+
+
 ############################################
 # Main
 ############################################
@@ -105,9 +109,14 @@ def load_dataset(file):
 @click.option('--settings', required=True, help='Settings file for running ML. ')
 @click.option('--train_set', required=True, help='Datafile for training the ML model. ')
 @click.option('--test_set', default=None, help='Optional datafile to use for testing and scoring the model. ')
-def main(settings, train_set, test_set):
+@click.option('--save_model', default=False, help='Whether to save the trained model to file. ')
+@click.option('--instnace', default=None, help='Instance for running on IBMQ devices. ')
+@click.option('--token', default=None, help='IBMQ token for running on hardware. ')
+def main(settings, train_set, test_set, instance, token):
     X_train, y_train = load_dataset(train_set)
     parse_settings(settings)
+    if DEVICE == 'qiskit.ibmq':
+        save_token(instance, token)
 
     print(f'Creating and training model with dataset {train_set} \n at time {time.asctime()}. ')
     st = time.time()

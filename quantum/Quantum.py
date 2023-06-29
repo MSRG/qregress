@@ -61,9 +61,9 @@ class QuantumRegressor:
         #  sets the models quantum device. If using IBMQ asks for proper credentials
         if device == 'qiskit.ibmq':
             print('Running on IBMQ Runtime')
-            instance = input('Enter runtime setting: instance')
-            token = input('Enter IBMQ token')
-            QiskitRuntimeService.save_account(channel='ibm_quantum', instance=instance, token=token, overwrite=True)
+            # instance = input('Enter runtime setting: instance')
+            # token = input('Enter IBMQ token')
+            # QiskitRuntimeService.save_account(channel='ibm_quantum', instance=instance, token=token, overwrite=True)
             self.device = qml.device(device + '.circuit_runner', wires=self.num_qubits, backend=backend, shots=shots)
             service = QiskitRuntimeService()
             self._backend = service.backend(backend)
