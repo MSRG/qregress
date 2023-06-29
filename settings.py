@@ -69,6 +69,7 @@ def create_settings(filename: str, settings: dict, postprocess, error_mitigation
     settings. Then is dumped into JSON and saved as filename.json. Filename parameter should not include the extension.
 
     """
+    print(f'Creating settings file {filename}...')
     settings['POSTPROCESS'] = postprocess
     settings['ERROR_MITIGATION'] = error_mitigation
     settings['SHOTS'] = shots
@@ -82,6 +83,7 @@ def create_settings(filename: str, settings: dict, postprocess, error_mitigation
 
     with open(filename, 'w') as outfile:
         json.dump(settings, outfile)
+    print(f'Successfully created {filename}. ')
 
 
 def create_combinations(encoder: str = None, ansatz: str = None, **kwargs):
@@ -116,7 +118,7 @@ def create_combinations(encoder: str = None, ansatz: str = None, **kwargs):
 @click.command()
 @click.option('--encoder', default=None, help='Encoder circuit to generate settings for. ')
 @click.option('--ansatz', default=None, help='Ansatz circuit to generate settings for. ')
-@click.option('--layers', default=None, help='Layers to use for ansatz. ')
+@click.option('--layers', default=1, help='Layers to use for ansatz. ')
 @click.option('--device', default='qulacs.simulator', help='Device to run on. ')
 @click.option('--backend', default=None, help='If running on IBMQ device, specify a backend here. ')
 @click.option('--shots', default=None, help='Number of shots to estimate expectation values from. If none is '
@@ -132,11 +134,23 @@ def main(encoder, ansatz, layers, device, backend, shots, optimizer, error_mitig
     settings = create_combinations(encoder, ansatz)
     if file_name is not None:
         new_settings = {}
-        for val in settings:
+        for _, val in settings.items():
             new_settings[file_name] = val
         settings = new_settings
 
-    for name, setting in settings.values():
+    try:
+        layers = int(layers)
+    except ValueError:
+        layers = 1
+        print("Could not read layers, ensure it's interpretable as int. Proceeding with 1 layer. ")
+    try:
+        if shots is not None:
+            shots = int(shots)
+    except ValueError:
+        shots = None
+        print("Could not read shots, ensure it's interpretable as int. Proceeding with device default. ")
+
+    for name, setting in settings.items():
         create_settings(filename=name, settings=setting, postprocess=post_process, error_mitigation=error_mitigation,
                         shots=shots, backend=backend, device=device, optimizer=optimizer, layers=layers)
 
