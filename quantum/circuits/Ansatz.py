@@ -48,6 +48,14 @@ class HardwareEfficient:
     def num_params(self):
         return 3 * self._layers * len(self._wires)
 
+    @property
+    def layers(self):
+        return self._layers
+
+    @layers.setter
+    def layers(self, val):
+        self._layers = val
+
     def set_wires(self, wires):
         self._wires = wires
 
@@ -90,6 +98,14 @@ class EfficientSU2:
     def num_params(self):
         return self._qc.num_parameters_settable
 
+    @property
+    def layers(self):
+        return self._reps
+
+    @layers.setter
+    def layers(self, val):
+        self._reps = val
+
     def set_wires(self, wires):
         self._wires = wires
         self._qc = n_local.EfficientSU2(num_qubits=len(self._wires), su2_gates=self._su2_gates,
@@ -127,6 +143,14 @@ class ExcitationPreserving:
     @property
     def num_params(self):
         return self._qc.num_parameters_settable
+
+    @property
+    def layers(self):
+        return self._reps
+
+    @layers.setter
+    def layers(self, val):
+        self._reps = val
 
     def set_wires(self, wires):
         self._wires = wires
@@ -172,11 +196,26 @@ class TwoLocal:
     def num_params(self):
         return self._qc.num_parameters_settable
 
+    @property
+    def layers(self):
+        return self._reps
+
+    @layers.setter
+    def layers(self, val):
+        self._reps = val
+
     def set_wires(self, wires):
         self._wires = wires
         self._qc = n_local.TwoLocal(num_qubits=len(self._wires), entanglement=self._entanglement, reps=self._reps,
                                     rotation_blocks=self._rot_gates, entanglement_blocks=self._entangle_gates,
                                     skip_final_rotation_layer=self._skip_final_rot)
+        if self._entanglement == 'complete':
+            entanglement = []
+            for i in wires:
+                for j in wires:
+                    if i != j:
+                        entanglement.append((i, j))
+            self._entanglement = entanglement
 
 
 class PauliTwoDesign:
@@ -205,6 +244,14 @@ class PauliTwoDesign:
     @property
     def num_params(self):
         return self._qc.num_parameters_settable
+
+    @property
+    def layers(self):
+        return self._reps
+
+    @layers.setter
+    def layers(self, val):
+        self._reps = val
 
     def set_wires(self, wires):
         self._wires = wires
@@ -238,6 +285,14 @@ class RealAmplitudes:
     @property
     def num_params(self):
         return self._qc.num_parameters_settable
+
+    @property
+    def layers(self):
+        return self._reps
+
+    @layers.setter
+    def layers(self, val):
+        self._reps = val
 
     def set_wires(self, wires):
         self._wires = wires
@@ -279,6 +334,14 @@ class NLocal:
     @property
     def num_params(self):
         return self._qc.num_parameters_settable
+
+    @property
+    def layers(self):
+        return self._reps
+
+    @layers.setter
+    def layers(self, val):
+        self._reps = val
 
     def set_wires(self, wires):
         self._wires = wires
@@ -374,6 +437,14 @@ class ModifiedPauliTwo:
                 num = self._layers * (4 * len(self._wires) - 4)
         return num
 
+    @property
+    def layers(self):
+        return self._layers
+
+    @layers.setter
+    def layers(self, val):
+        self._layers = val
+
     def set_wires(self, wires):
         self._wires = wires
 
@@ -402,6 +473,14 @@ class HadamardAnsatz:
     @property
     def num_params(self):
         return self._layers * self._wires
+
+    @property
+    def layers(self):
+        return self._layers
+
+    @layers.setter
+    def layers(self, val):
+        self._layers = val
 
     def set_wires(self, wires):
         self._wires = wires
