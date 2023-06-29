@@ -2,6 +2,7 @@ import json
 import click
 from quantum.circuits.Encoders import double_angle, single_angle, iqp_embedding, mitarai, composer, \
     entangle_cz, entangle_cnot
+from quantum.circuits.Ansatz import HardwareEfficient, EfficientSU2, TwoLocal
 
 
 # Global variables
@@ -20,7 +21,7 @@ ERROR_MITIGATION = [
     'TREX'
 ]
 
-ENCODERS = {
+ENCODER_LIST = {
     'M': mitarai,
     'A1': single_angle,
     'A2': double_angle,
@@ -38,8 +39,15 @@ ENCODERS = {
 }
 
 # TODO: Create a full list of ansatz to be used in the experiment
-ANSATZES = {
-    'HardwareEfficient': None
+ANSATZ_LIST = {
+    'HWE_CNOT': HardwareEfficient(),
+    'HWE_CZ': HardwareEfficient(entangle_type='CZ'),
+    'ESU2': EfficientSU2(skip_final_rot=True),
+    'Efficient_CRZ': TwoLocal(rot_gates=['rx', 'rz'], entangle_gates=['crz'], entanglement='linear'),
+    'Efficient_CRX': TwoLocal(rot_gates=['rx', 'rz'], entangle_gates=['crx'], entanglement='linear'),
+    'Full_CRZ': TwoLocal(rot_gates=['rx', 'rz'], entangle_gates=['crz'], entanglement='complete'),
+    'Full_CRX': TwoLocal(rot_gates=['rx', 'rz'], entangle_gates=['crz'], entanglement='complete'),
+
 }
 
 POSTPROCESS = {
@@ -49,8 +57,9 @@ POSTPROCESS = {
     'lasso': 'lasso'
 }
 
+
 def create_settings(filename: str, settings: dict, postprocess, error_mitigation, shots, backend, device,
-                    optimizer, scale_factors=None):
+                    optimizer, layers, scale_factors=None):
     """
     Takes inputs for all of the settings to be used in the QML model and creates a dictionary of the corresponding
     settings. Then is dumped into JSON and saved as filename.json. Filename parameter should not include the extension.
@@ -63,6 +72,7 @@ def create_settings(filename: str, settings: dict, postprocess, error_mitigation
     settings['BACKEND'] = backend
     settings['OPTIMIZER'] = optimizer
     settings['SCALE_FACTORS'] = scale_factors
+    settings['LAYERS'] = layers
 
     filename = filename + '.json'
 
@@ -102,6 +112,7 @@ def create_combinations(encoder: str = None, ansatz: str = None, **kwargs):
 @click.command()
 @click.option('--encoder', default=None, help='Encoder circuit to generate settings for. ')
 @click.option('--ansatz', default=None, help='Ansatz circuit to generate settings for. ')
+@click.option('--layers', default=None, help='Layers to use for ansatz. ')
 @click.option('--device', default='qulacs.simulator', help='Device to run on. ')
 @click.option('--backend', default=None, help='If running on IBMQ device, specify a backend here. ')
 @click.option('--shots', default=None, help='Number of shots to estimate expectation values from. If none is '
@@ -113,7 +124,7 @@ def create_combinations(encoder: str = None, ansatz: str = None, **kwargs):
 @click.option('--post_process', default=None, help='Specify a post-processing type. Leave blank for none. ')
 @click.option('--file_name', default=None, help='Name for the file to be saved as. Only specify if creating a single '
                                                 'settings file. ')
-def main(encoder, ansatz, device, backend, shots, optimizer, error_mitigation, post_process, file_name):
+def main(encoder, ansatz, layers, device, backend, shots, optimizer, error_mitigation, post_process, file_name):
     settings = create_combinations(encoder, ansatz)
     if file_name is not None:
         new_settings = {}
@@ -122,7 +133,8 @@ def main(encoder, ansatz, device, backend, shots, optimizer, error_mitigation, p
         settings = new_settings
 
     for name, setting in settings.values():
-        create_settings(name, setting, post_process, error_mitigation, shots, backend, device, optimizer)
+        create_settings(filename=name, settings=setting, postprocess=post_process, error_mitigation=error_mitigation,
+                        shots=shots, backend=backend, device=device, optimizer=optimizer, layers=layers)
 
 
 if __name__ == '__main__':
