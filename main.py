@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import click
 import json
 import time
+import os
 from quantum.Quantum import QuantumRegressor
 from settings import ANSATZ_LIST, ENCODER_LIST
 
@@ -109,10 +110,10 @@ def save_token(instance, token):
 @click.option('--settings', required=True, help='Settings file for running ML. ')
 @click.option('--train_set', required=True, help='Datafile for training the ML model. ')
 @click.option('--test_set', default=None, help='Optional datafile to use for testing and scoring the model. ')
-@click.option('--save_model', default=False, help='Whether to save the trained model to file. ')
-@click.option('--instnace', default=None, help='Instance for running on IBMQ devices. ')
+@click.option('--instance', default=None, help='Instance for running on IBMQ devices. ')
 @click.option('--token', default=None, help='IBMQ token for running on hardware. ')
-def main(settings, train_set, test_set, instance, token):
+@click.option('--save_model', default=False, help='Whether to save the trained model to file. ')
+def main(settings, train_set, test_set, instance, token, save_model):
     X_train, y_train = load_dataset(train_set)
     parse_settings(settings)
     if DEVICE == 'qiskit.ibmq':
@@ -128,6 +129,12 @@ def main(settings, train_set, test_set, instance, token):
     if test_set is not None:
         X_test, y_test = load_dataset(test_set)
         evaluate(model, X_train, X_test, y_train, y_test, plot=True)
+
+    if save_model:
+        name = os.path.basename(settings)
+        name, _ = os.path.splitext(name)
+        name = name + '.bin'
+        joblib.dump(model, name)
 
 
 def create_model():
