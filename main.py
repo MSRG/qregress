@@ -1,16 +1,18 @@
 import joblib
-import matplotlib.pyplot as plt
 import click
 import json
 import time
 import os
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pennylane as qml
+from sklearn.metrics import mean_squared_error, r2_score
+from qiskit_ibm_provider import IBMProvider
+
 from quantum.Quantum import QuantumRegressor
 from settings import ANSATZ_LIST, ENCODER_LIST
 
-from sklearn.metrics import mean_squared_error, r2_score
-
-from qiskit_ibm_runtime import QiskitRuntimeService
-from qiskit_ibm_provider import IBMProvider
 
 # Global variables
 OPTIMIZER = None
@@ -121,13 +123,25 @@ def save_token(instance, token):
 @click.option('--instance', default=None, help='Instance for running on IBMQ devices. ')
 @click.option('--token', default=None, help='IBMQ token for running on hardware. ')
 @click.option('--save_model', default=False, help='Whether to save the trained model to file. ')
-def main(settings, train_set, test_set, instance, token, save_model):
+@click.option('--save_circuits', default=False, help='Whether to save a figure of encoder and ansatz circuits. ')
+@click.option('--title', default=None, help='Title to use for save files. If none, infers it from settings file. ')
+def main(settings, train_set, test_set, instance, token, save_model, save_circuits, title):
     X_train, y_train = load_dataset(train_set)
     parse_settings(settings)
     if DEVICE == 'qiskit.ibmq':
         save_token(instance, token)
 
-    print(f'Creating and training model with dataset {train_set} \n at time {time.asctime()}. ')
+    if title is None:
+        title = os.path.basename(settings)
+        title, _ = os.path.splitext(title)
+        title = title + '_model.bin'
+    else:
+        title = title + '_model.bin'
+
+    if save_circuits:
+        plot_circuits(title)
+
+    print(f'Training model with dataset {train_set} \n at time {time.asctime()}... ')
     st = time.time()
     model = create_model()
     model.fit(X_train, y_train, callback_interval=1)
@@ -139,15 +153,17 @@ def main(settings, train_set, test_set, instance, token, save_model):
         evaluate(model, X_train, X_test, y_train, y_test, plot=True)
 
     if save_model:
-        name = os.path.basename(settings)
-        name, _ = os.path.splitext(name)
-        name = name + '.bin'
-        joblib.dump(model, name)
+        joblib.dump(model, title)
 
 
-def plot_circuits():
-    # TODO: Add function to plot circuits of encoder and ansatz.
-    pass
+def plot_circuits(title):
+    draw_ansatz = qml.draw_mpl(ANSATZ)
+    draw_ansatz(np.random.rand(ANSATZ.num_params))
+    plt.savefig(title+'_ansatz.svg')
+
+    draw_encoder = qml.draw_mpl(ENCODER)
+    draw_encoder(np.random.rand(X_DIM))
+    plt.savefig(title+'_encoder.svg')
 
 
 def create_model():
