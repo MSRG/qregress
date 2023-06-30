@@ -4,13 +4,6 @@ from quantum.circuits.Encoders import double_angle, single_angle, iqp_embedding,
     entangle_cz, entangle_cnot
 from quantum.circuits.Ansatz import HardwareEfficient, EfficientSU2, TwoLocal, ModifiedPauliTwo, HadamardAnsatz
 
-# Global variables
-OPTIMIZER = None
-SHOTS = None
-LENGTH = None
-BACKEND = None
-DEVICE = None
-SCALE_FACTORS = None
 
 ERROR_MITIGATION = [
     None,
