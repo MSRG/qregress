@@ -39,17 +39,17 @@ ENCODER_LIST = {
 
 # TODO: Create a full list of ansatz to be used in the experiment
 ANSATZ_LIST = {
-    'HWE_CNOT': HardwareEfficient(),
-    'HWE_CZ': HardwareEfficient(entangle_type='CZ'),
+    'HWE-CNOT': HardwareEfficient(),
+    'HWE-CZ': HardwareEfficient(entangle_type='CZ'),
     'ESU2': EfficientSU2(skip_final_rot=True),
-    'Efficient_CRZ': TwoLocal(rot_gates=['rx', 'rz'], entangle_gates=['crz'], entanglement='linear'),
-    'Efficient_CRX': TwoLocal(rot_gates=['rx', 'rz'], entangle_gates=['crx'], entanglement='linear'),
-    'Full_CRZ': TwoLocal(rot_gates=['rx', 'rz'], entangle_gates=['crz'], entanglement='complete'),
-    'Full_CRX': TwoLocal(rot_gates=['rx', 'rz'], entangle_gates=['crz'], entanglement='complete'),
-    'Modified_Pauli_CRZ': ModifiedPauliTwo(rotation_block=['rx', 'rz'], entanglement='crz', full_rotation=False),
-    'Modified_Pauli_CRX': ModifiedPauliTwo(rotation_block=['rx', 'rz'], entanglement='crx', full_rotation=False),
-    'Full_Pauli_CRZ': ModifiedPauliTwo(rotation_block=['rx', 'rz'], entanglement='crz', full_rotation=True),
-    'Full_Pauli_CRX': ModifiedPauliTwo(rotation_block=['rx', 'rz'], entanglement='crx', full_rotation=True),
+    'Efficient-CRZ': TwoLocal(rot_gates=['rx', 'rz'], entangle_gates=['crz'], entanglement='linear'),
+    'Efficient-CRX': TwoLocal(rot_gates=['rx', 'rz'], entangle_gates=['crx'], entanglement='linear'),
+    'Full-CRZ': TwoLocal(rot_gates=['rx', 'rz'], entangle_gates=['crz'], entanglement='complete'),
+    'Full-CRX': TwoLocal(rot_gates=['rx', 'rz'], entangle_gates=['crz'], entanglement='complete'),
+    'Modified-Pauli-CRZ': ModifiedPauliTwo(rotation_block=['rx', 'rz'], entanglement='crz', full_rotation=False),
+    'Modified-Pauli-CRX': ModifiedPauliTwo(rotation_block=['rx', 'rz'], entanglement='crx', full_rotation=False),
+    'Full-Pauli-CRZ': ModifiedPauliTwo(rotation_block=['rx', 'rz'], entanglement='crz', full_rotation=True),
+    'Full-Pauli-CRX': ModifiedPauliTwo(rotation_block=['rx', 'rz'], entanglement='crx', full_rotation=True),
     'Hadamard': HadamardAnsatz()
 }
 
@@ -85,7 +85,7 @@ def create_settings(filename: str, settings: dict, postprocess, error_mitigation
     print(f'Successfully created {filename}. ')
 
 
-def create_combinations(encoder: str = None, ansatz: str = None, **kwargs):
+def create_combinations(encoder: str = None, ansatz: str = None):
     """
     Creates combinations of every ansatz with every available encoder. Alternativaley, an encoder or ansatz can be
     specified then it will create combinations of that ansatz/encoder with every other. If both an encoder and
@@ -117,7 +117,7 @@ def create_combinations(encoder: str = None, ansatz: str = None, **kwargs):
 @click.command()
 @click.option('--encoder', default=None, help='Encoder circuit to generate settings for. ')
 @click.option('--ansatz', default=None, help='Ansatz circuit to generate settings for. ')
-@click.option('--layers', default=None, help='Layers to use for ansatz. ')
+@click.option('--layers', default=1, help='Layers to use for ansatz. ')
 @click.option('--device', default='qulacs.simulator', help='Device to run on. ')
 @click.option('--backend', default=None, help='If running on IBMQ device, specify a backend here. ')
 @click.option('--shots', default=None, help='Number of shots to estimate expectation values from. If none is '
@@ -136,14 +136,6 @@ def main(encoder, ansatz, layers, device, backend, shots, optimizer, error_mitig
         for _, val in settings.items():
             new_settings[file_name] = val
         settings = new_settings
-    if layers is None:
-        layers = 1
-    else:
-        try:
-            layers = int(layers)
-        except ValueError:
-            layers = 1
-            print("Could not read layers, ensure it's interpretable as int. Proceeding with 1 layer. ")
     try:
         if shots is not None:
             shots = int(shots)
