@@ -4,6 +4,7 @@ import numpy as np
 from sklearn.metrics import mean_squared_error
 from scipy.optimize import minimize
 from qiskit_ibm_runtime import QiskitRuntimeService
+from qiskit_ibm_provider import IBMProvider
 from mitiq.zne.scaling import fold_global
 from mitiq.zne.inference import RichardsonFactory, LinearFactory
 import joblib
@@ -38,7 +39,9 @@ class QuantumRegressor:
             folding=fold_global,
             shots: int = None,
             f: float = 1.,
-            alpha: float = 0.):
+            alpha: float = 0.,
+            provider=None,
+            token: str = None):
         self.hyperparameters = {'f': f, 'alpha': alpha}
         if scale_factors is None:
             scale_factors = [1, 3, 5]
@@ -52,25 +55,29 @@ class QuantumRegressor:
         self.postprocess = postprocess
         self.encoder = encoder
         self.variational = variational
-        self._set_device(device, backend, shots)
+        self._set_device(device, backend, shots, provider, token)
         self._set_optimizer(optimizer)
         self._build_qnode(scale_factors, folding)
         self.fit_count = 0
 
-    def _set_device(self, device, backend, shots):
+    def _set_device(self, device, backend, shots, provider=None, token=None):
         #  sets the models quantum device. If using IBMQ asks for proper credentials
         if device == 'qiskit.ibmq':
             print('Running on IBMQ Runtime')
-            # instance = input('Enter runtime setting: instance')
-            # token = input('Enter IBMQ token')
+            if provider is None:
+                instance = input('Enter runtime setting: instance')
+                provider = IBMProvider(instance)
+            if token is None:
+                token = input('Enter IBMQ token')
             # QiskitRuntimeService.save_account(channel='ibm_quantum', instance=instance, token=token, overwrite=True)
-            self.device = qml.device(device + '.circuit_runner', wires=self.num_qubits, backend=backend, shots=shots)
+            self.device = qml.device(device, wires=self.num_qubits, backend=backend, shots=shots, provider=provider,
+                                     token=token)
             service = QiskitRuntimeService()
             self._backend = service.backend(backend)
             if self.error_mitigation == 'TREX':
                 self.device.set_transpile_args(**{'resilience_level': 1})
         else:
-            self.device = qml.device(device, wires=self.num_qubits)
+            self.device = qml.device(device, wires=self.num_qubits, shots=shots)
 
     def _set_optimizer(self, optimizer):
         #  sets the desired optimizer. SPSA is not available in scipy and has to be handled separately in fitting

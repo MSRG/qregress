@@ -8,7 +8,9 @@ from quantum.Quantum import QuantumRegressor
 from settings import ANSATZ_LIST, ENCODER_LIST
 
 from sklearn.metrics import mean_squared_error, r2_score
+
 from qiskit_ibm_runtime import QiskitRuntimeService
+from qiskit_ibm_provider import IBMProvider
 
 # Global variables
 OPTIMIZER = None
@@ -22,6 +24,8 @@ ENCODER = None
 POSTPROCESS = None
 ERROR_MITIGATION = None
 LAYERS = None
+PROVIDER = None
+TOKEN = None
 
 
 ############################################
@@ -99,7 +103,11 @@ def load_dataset(file):
 
 
 def save_token(instance, token):
-    QiskitRuntimeService.save_account(channel='ibm_quantum', instance=instance, token=token, overwrite=True)
+    global PROVIDER
+    PROVIDER = IBMProvider(instance=instance)
+    global TOKEN
+    TOKEN = token
+#    QiskitRuntimeService.save_account(channel='ibm_quantum', token=token, overwrite=True)
 
 
 ############################################
@@ -137,13 +145,19 @@ def main(settings, train_set, test_set, instance, token, save_model):
         joblib.dump(model, name)
 
 
+def plot_circuits():
+    # TODO: Add function to plot circuits of encoder and ansatz.
+    pass
+
+
 def create_model():
     #  First have to apply specific ansatz settings: setting number of layers and the number of wires based on features
     ANSATZ.layers = LAYERS
     ANSATZ.set_wires(range(X_DIM))
 
     model = QuantumRegressor(encoder=ENCODER, variational=ANSATZ, num_qubits=X_DIM, optimizer=OPTIMIZER, device=DEVICE,
-                             backend=BACKEND, postprocess=POSTPROCESS, error_mitigation=ERROR_MITIGATION)
+                             backend=BACKEND, postprocess=POSTPROCESS, error_mitigation=ERROR_MITIGATION,
+                             provider=PROVIDER, token=TOKEN)
     return model
 
 
