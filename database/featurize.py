@@ -11,12 +11,12 @@ calculator = AutoDescriptor()
 @click.command()
 @click.option('--write', default="/home/taylo773/Quantum/GitHub/qregress/database/processed/", help='Write path for '
                                                                                                     'processed files')
-@click.option('--read', default="/home/taylo773/Quantum/GitHub/qregress/database/bse49-main/", help='Read path for xyz '
-                                                                                                    'files')
+@click.option('--read', default="/home/taylo773/Quantum/GitHub/qregress/database/bse49-main/Geometries/Existing/",
+              help='Read path for xyz files. ')
 @click.option('--org', default=None, help="Path to org file specifying xyz file organization")
 def main(write, read, org):
     # Set read and write paths as well as path to the organizing file
-    # read_path = "/home/taylo773/Quantum/GitHub/qregress/database/bse49-main/"
+    # read_path = "/home/taylo773/Quantum/GitHub/qregress/database/bse49-main/Geometries/Existing/"
     # write_path = "/home/taylo773/Quantum/GitHub/qregress/database/processed/"
     # org_file = "/home/taylo773/Quantum/GitHub/qregress/database/bse49-main/BSE49_Existing.org"
     read_path = read
@@ -35,13 +35,13 @@ def main(write, read, org):
     # Remove excess white space at the ends of names and create path to file
     for i in range(len(nameA)):
         nameA[i] = nameA[i][1:-1]
-        nameA[i] = read_path + "Geometries/Existing/" + nameA[i] + ".xyz"
+        nameA[i] = read_path + nameA[i] + ".xyz"
         nameB[i] = nameB[i][1:-1]
-        nameB[i] = read_path + "Geometries/Existing/" + nameB[i] + ".xyz"
+        nameB[i] = read_path + nameB[i] + ".xyz"
         print(nameAB[i])
         nameAB[i] = nameAB[i][1:-1]
         print(nameAB[i])
-        nameAB[i] = read_path + "Geometries/Existing/" + nameAB[i] + ".xyz"
+        nameAB[i] = read_path + nameAB[i] + ".xyz"
         print(nameAB[i])
     print("Starting to process data...\n")
 
