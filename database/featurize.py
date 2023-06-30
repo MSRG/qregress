@@ -10,10 +10,9 @@ calculator = AutoDescriptor()
 
 @click.command()
 @click.option('--write', default="/home/taylo773/Quantum/GitHub/qregress/database/processed/", help='Write path for '
-                                                                                                    'processed files')
-@click.option('--read', default="/home/taylo773/Quantum/GitHub/qregress/database/bse49-main/Geometries/Existing/",
-              help='Read path for xyz files. ')
-@click.option('--org', default=None, help="Path to org file specifying xyz file organization")
+                                                                                                    'processed files. ')
+@click.option('--read', required=True, help='Read path for xyz files. ')
+@click.option('--org', required=True, help="Path to org file specifying xyz file organization. ")
 def main(write, read, org):
     # Set read and write paths as well as path to the organizing file
     # read_path = "/home/taylo773/Quantum/GitHub/qregress/database/bse49-main/Geometries/Existing/"
@@ -21,10 +20,7 @@ def main(write, read, org):
     # org_file = "/home/taylo773/Quantum/GitHub/qregress/database/bse49-main/BSE49_Existing.org"
     read_path = read
     write_path = write
-    if org is None:
-        org_file = input("Please input path to org file: ")
-    else:
-        org_file = org
+    org_file = org
     file_name, ext = os.path.splitext(os.path.basename(org_file))
 
     # unpack the xyz file names and energies into corresponding lists
