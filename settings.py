@@ -70,6 +70,12 @@ def create_settings(filename: str, settings: dict, postprocess, error_mitigation
 
     """
     print(f'Creating settings file {filename}...')
+    # check post-process, if None then reduce hyperparameter search space to decrease redundancies and
+    # improve train time. Alpha and beta parameters are not used when post-process is None so are set to [0] as to not
+    # iterate over the same settings during grid-search.
+    if postprocess is None:
+        hyperparameters['alpha'] = [0]
+        hyperparameters['beta'] = [0]
     settings['POSTPROCESS'] = postprocess
     settings['ERROR_MITIGATION'] = error_mitigation
     settings['SHOTS'] = shots
