@@ -14,6 +14,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 from qiskit_ibm_provider import IBMProvider
 
 from quantum.Quantum import QuantumRegressor
+from quantum.Evaluate import evaluate
 from settings import ANSATZ_LIST, ENCODER_LIST
 
 
@@ -245,30 +246,6 @@ def grid_search(model, hyperparameters: dict, x_train, y_train, x_test=None, y_t
             print(f'Training complete taking {st-time.time()} seconds. Discarding model... ')
 
     return best_model, best_hyperparameters, best_score, results
-
-
-def evaluate(model, X_train, y_train, X_test=None, y_test=None, plot: bool = False, title: str = 'defult'):
-    scores = {}
-
-    y_train_pred = model.predict(X_train)
-    scores['MSE_train'] = mean_squared_error(y_train, y_train_pred),
-    scores['R2_train'] = r2_score(y_train, y_train_pred)
-
-    y_test_pred = None
-    if y_test is not None:
-        y_test_pred = model.predict(X_test)
-        scores['MSE_test'] = mean_squared_error(y_test, y_test_pred)
-        scores['R2_test'] = r2_score(y_test, y_test_pred)
-
-    if plot:
-        if y_test_pred is not None:
-            plt.scatter(y_test, y_test_pred, color='b', s=10, label='Test')
-        plt.scatter(y_train, y_train_pred, color='r', s=10, label='Train')
-        plt.ylabel('Predicted')
-        plt.xlabel('Actual')
-        plt.legend()
-        plt.savefig(title+'_plot.svg')
-    return scores
 
 
 if __name__ == '__main__':
