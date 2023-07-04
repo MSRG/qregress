@@ -1,5 +1,6 @@
 import json
 import click
+import numpy as np
 from quantum.circuits.Encoders import double_angle, single_angle, iqp_embedding, mitarai, composer, \
     entangle_cz, entangle_cnot
 from quantum.circuits.Ansatz import HardwareEfficient, EfficientSU2, TwoLocal, ModifiedPauliTwo, HadamardAnsatz
@@ -53,6 +54,13 @@ POSTPROCESS = {
     'lasso': 'lasso'
 }
 
+# This is defining the grid-space of hyperparameters to search through.
+hyperparameters = {
+    'f': np.arange(0.5, 2.5, 0.2).tolist(),
+    'alpha': np.arange(0, 1, 0.05).tolist(),
+    'beta': np.arange(0, 1, 0.05).tolist()
+}
+
 
 def create_settings(filename: str, settings: dict, postprocess, error_mitigation, shots, backend, device,
                     optimizer, layers, scale_factors=None):
@@ -70,6 +78,7 @@ def create_settings(filename: str, settings: dict, postprocess, error_mitigation
     settings['OPTIMIZER'] = optimizer
     settings['SCALE_FACTORS'] = scale_factors
     settings['LAYERS'] = layers
+    settings['HYPERPARAMETERS'] = hyperparameters
 
     filename = filename + '.json'
 
