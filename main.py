@@ -166,8 +166,7 @@ def main(settings, train_set, test_set, instance, token, save_model, save_circui
     if save_model:
         joblib.dump(model, title)
 
-    if test_set is not None:
-        evaluate(model, X_train, X_test, y_train, y_test, plot=True, title=title)
+    evaluate(model, X_train, y_train, X_test, y_test, plot=True, title=title)
 
 
 def plot_circuits(title):
@@ -248,16 +247,22 @@ def grid_search(model, hyperparameters: dict, x_train, y_train, x_test=None, y_t
     return best_model, best_hyperparameters, best_score, results
 
 
-def evaluate(model, X_train, X_test, y_train, y_test, plot: bool = False, title: str = 'defult'):
+def evaluate(model, X_train, y_train, X_test=None, y_test=None, plot: bool = False, title: str = 'defult'):
+    scores = {}
+
     y_train_pred = model.predict(X_train)
-    y_test_pred = model.predict(X_test)
-    scores = {'MSE_train': mean_squared_error(y_train, y_train_pred),
-              'MSE_test': mean_squared_error(y_test, y_test_pred),
-              'R2_train': r2_score(y_train, y_train_pred),
-              'R2_test': r2_score(y_test, y_test_pred)
-              }
+    scores['MSE_train'] = mean_squared_error(y_train, y_train_pred),
+    scores['R2_train'] = r2_score(y_train, y_train_pred)
+
+    y_test_pred = None
+    if y_test is not None:
+        y_test_pred = model.predict(X_test)
+        scores['MSE_test'] = mean_squared_error(y_test, y_test_pred)
+        scores['R2_test'] = r2_score(y_test, y_test_pred)
+
     if plot:
-        plt.scatter(y_test, y_test_pred, color='b', s=10, label='Test')
+        if y_test_pred is not None:
+            plt.scatter(y_test, y_test_pred, color='b', s=10, label='Test')
         plt.scatter(y_train, y_train_pred, color='r', s=10, label='Train')
         plt.ylabel('Predicted')
         plt.xlabel('Actual')
