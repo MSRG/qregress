@@ -40,9 +40,10 @@ class QuantumRegressor:
             shots: int = None,
             f: float = 1.,
             alpha: float = 0.,
+            beta: float = 1,
             provider=None,
             token: str = None):
-        self.hyperparameters = {'f': f, 'alpha': alpha}
+        self.hyperparameters = {'f': f, 'alpha': alpha, 'beta': beta}
         if scale_factors is None:
             scale_factors = [1, 3, 5]
         self.callback_interval = None
@@ -142,6 +143,7 @@ class QuantumRegressor:
         #  TODO: This isn't working all the time. Raising a matmul error.
         f = self.hyperparameters['f']
         alpha = self.hyperparameters['alpha']
+        beta = self.hyperparameters['beta']
         num = self.num_qubits
         params = parameters[:-num]
         extra_params = parameters[-num:]
@@ -161,7 +163,7 @@ class QuantumRegressor:
             cost = base_cost + lasso_lambda * num
         elif self.postprocess == 'elastic':
             num = 0
-            elastic_lambda = 1
+            elastic_lambda = beta
             for param in extra_params:
                 num += np.abs(param)
             cost = base_cost + elastic_lambda * (alpha * num + (1 - alpha) * np.linalg.norm(extra_params))
