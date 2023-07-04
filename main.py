@@ -150,7 +150,7 @@ def main(settings, train_set, test_set, instance, token, save_model, save_circui
 
     if test_set is not None:
         X_test, y_test = load_dataset(test_set)
-        evaluate(model, X_train, X_test, y_train, y_test, plot=True)
+        evaluate(model, X_train, X_test, y_train, y_test, plot=True, title=title)
 
     if save_model:
         joblib.dump(model, title)
@@ -186,11 +186,12 @@ def evaluate(model, X_train, X_test, y_train, y_test, plot: bool = False, title:
               'R2_test': r2_score(y_test, y_test_pred)
               }
     if plot:
-        # TODO: make plotting better and save them with nice titles. Add axis, etc.
-        plt.title(title)
         plt.scatter(y_test, y_test_pred, color='b', s=10, label='Test')
         plt.scatter(y_train, y_train_pred, color='r', s=10, label='Train')
+        plt.ylabel('Predicted')
+        plt.xlabel('Actual')
         plt.legend()
+        plt.savefig(title+'_plot.svg')
     return scores
 
 
