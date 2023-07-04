@@ -1,4 +1,5 @@
 import itertools
+import collections.abc
 from matplotlib import pyplot as plt
 from sklearn.metrics import mean_squared_error, r2_score
 
@@ -31,8 +32,8 @@ def grid_searh(model, x_train, x_test, y_train, y_test, hyperparameters: dict, *
     :return: trained_model, dict: best_hyperparameters, flaot: best_score, list: results
     """
     for x in hyperparameters.values():
-        if not isinstance(x, list):
-            raise ValueError('Dictionary must contain lists of values to try! ')
+        if not isinstance(x, collections.abc.Sequence):
+            raise ValueError('Dictionary must contain list-like objects of values to try! ')
 
     results = []
     best_score = float('-inf')
