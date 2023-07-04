@@ -3,6 +3,9 @@ import click
 import json
 import time
 import os
+import itertools
+import warnings
+import collections.abc
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -28,6 +31,7 @@ ERROR_MITIGATION = None
 LAYERS = None
 PROVIDER = None
 TOKEN = None
+HYPERPARAMETERS = None
 
 
 ############################################
@@ -84,6 +88,9 @@ def parse_settings(settings_file):
     global LAYERS
     LAYERS = settings['LAYERS']
 
+    global HYPERPARAMETERS
+    HYPERPARAMETERS = settings['HYPERPARAMETERS']
+
     # classes aren't JSON serializable, so we store the key in the settings file and access it here.
     global ANSATZ
     ANSATZ = ANSATZ_LIST[settings['ANSATZ']]
@@ -117,9 +124,10 @@ def save_token(instance, token):
 ############################################
 
 @click.command()
-@click.option('--settings', required=True, help='Settings file for running ML. ')
-@click.option('--train_set', required=True, help='Datafile for training the ML model. ')
-@click.option('--test_set', default=None, help='Optional datafile to use for testing and scoring the model. ')
+@click.option('--settings', required=True, type=click.Path, help='Settings file for running ML. ')
+@click.option('--train_set', required=True, type=click.Path, help='Datafile for training the ML model. ')
+@click.option('--test_set', default=None, type=click.Path, help='Optional datafile to use for testing and scoring the '
+                                                                'model. ')
 @click.option('--instance', default=None, help='Instance for running on IBMQ devices. ')
 @click.option('--token', default=None, help='IBMQ token for running on hardware. ')
 @click.option('--save_model', default=False, help='Whether to save the trained model to file. ')
@@ -130,6 +138,7 @@ def main(settings, train_set, test_set, instance, token, save_model, save_circui
     parse_settings(settings)
     if DEVICE == 'qiskit.ibmq':
         save_token(instance, token)
+    kwargs = create_kwargs()
 
     if title is None:
         title = os.path.basename(settings)
@@ -141,19 +150,24 @@ def main(settings, train_set, test_set, instance, token, save_model, save_circui
     if save_circuits:
         plot_circuits(title)
 
-    print(f'Training model with dataset {train_set} \n at time {time.asctime()}... ')
-    st = time.time()
-    model = create_model()
-    model.fit(X_train, y_train, callback_interval=1)
-    et = time.time()
-    print(f'Training complete taking {st-et} total seconds. ')
-
     if test_set is not None:
         X_test, y_test = load_dataset(test_set)
-        evaluate(model, X_train, X_test, y_train, y_test, plot=True, title=title)
+    else:
+        X_test, y_test = None, None
+
+    print(f'Training model with dataset {train_set} \n at time {time.asctime()}... ')
+    st = time.time()
+    model, hyperparams, score, results = grid_search(QuantumRegressor, HYPERPARAMETERS, X_train, y_train,
+                                                     X_test, y_test, **kwargs)
+
+    et = time.time()
+    print(f'Training complete taking {st-et} total seconds. Best hyperparameters found to be {hyperparams}. ')
 
     if save_model:
         joblib.dump(model, title)
+
+    if test_set is not None:
+        evaluate(model, X_train, X_test, y_train, y_test, plot=True, title=title)
 
 
 def plot_circuits(title):
@@ -166,15 +180,72 @@ def plot_circuits(title):
     plt.savefig(title+'_encoder.svg')
 
 
-def create_model():
+def create_kwargs():
     #  First have to apply specific ansatz settings: setting number of layers and the number of wires based on features
     ANSATZ.layers = LAYERS
     ANSATZ.set_wires(range(X_DIM))
 
-    model = QuantumRegressor(encoder=ENCODER, variational=ANSATZ, num_qubits=X_DIM, optimizer=OPTIMIZER, device=DEVICE,
-                             backend=BACKEND, postprocess=POSTPROCESS, error_mitigation=ERROR_MITIGATION,
-                             provider=PROVIDER, token=TOKEN)
-    return model
+    kwargs = {
+        'encoder': ENCODER,
+        'variational': ANSATZ,
+        'num_qubits': X_DIM,
+        'optimizer': OPTIMIZER,
+        'device': DEVICE,
+        'backend': BACKEND,
+        'postprocess': POSTPROCESS,
+        'error_mitigation': ERROR_MITIGATION,
+        'provider': PROVIDER,
+        'token': TOKEN
+    }
+    return kwargs
+
+
+def grid_search(model, hyperparameters: dict, x_train, y_train, x_test=None, y_test=None, **kwargs):
+    """
+    Performs a grid search on the given model. Trains the model for each combination of hyperparameters, and then
+    trains it using x_train, y_train. Scores each model using r2_score on the test dataset and returns the best
+    performing model with its score and hyperparameters. Any additional parameters to be passed to the model are
+    handled with kwargs.
+
+    :return: trained_model, dict: best_hyperparameters, flaot: best_score, list: results
+    """
+    for x in hyperparameters.values():
+        if not isinstance(x, collections.abc.Sequence):
+            raise ValueError('Dictionary must contain list-like objects of values to try! ')
+
+    results = []
+    best_score = float('-inf')
+    best_model = None
+    best_hyperparameters = {}
+
+    param_combinations = list(itertools.product(*hyperparameters.values()))
+    for combination in param_combinations:
+        update = dict(zip(hyperparameters.keys(), combination))
+        kwargs.update(update)
+        print(f'Beginning training with hyperparameters f={hyperparameters["f"]}, alpha={hyperparameters["alpha"]}, '
+              f'beta={hyperparameters["beta"]}... ')
+        st = time.time()
+        built_model = model(**kwargs)
+        built_model.fit(x_train, y_train, callback_interval=1)
+        if x_test is not None and y_test is not None:
+            y_pred = built_model.predict(x_test)
+            score = r2_score(y_test, y_pred)
+            results.append(score)
+        else:
+            warnings.warn('Using train set for hyperparameter search may lead to overfitting. ')
+            y_pred = built_model.predict(x_train)
+            score = r2_score(y_train, y_pred)
+            results.append(score)
+
+        if score > best_score:
+            print(f'Training complete taking {st-time.time()} seconds. Saving model as new best. ')
+            best_score = score
+            best_model = built_model
+            best_hyperparameters = {key: kwargs[key] for key in hyperparameters.keys()}
+        else:
+            print(f'Training complete taking {st-time.time()} seconds. Discarding model... ')
+
+    return best_model, best_hyperparameters, best_score, results
 
 
 def evaluate(model, X_train, X_test, y_train, y_test, plot: bool = False, title: str = 'defult'):
