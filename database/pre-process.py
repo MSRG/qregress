@@ -89,7 +89,8 @@ def split(x, y, x_dim: int, train_ratio: float):
 @click.option('--length', default=None, help='Number of datapoints to be included in the dataset generation. Can be '
                                              'passed as an int or a ratio. ')
 @click.option('--y_label', default='BSE', help='Specify the label of the column to use as target values. ')
-@click.option('--file', required=True, help='Source file to use for dataset generation. Supports either .bin or .csv. ')
+@click.option('--file', required=True, type=click.Path, help='Source file to use for dataset generation. Supports '
+                                                             'either .bin or .csv. ')
 @click.option('--save_name', default=None, help='Specify the name of the output files. ')
 def main(train_ratio, x_dim, length, y_label, file, save_name):
     if save_name is None:
