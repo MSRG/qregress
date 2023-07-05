@@ -131,7 +131,7 @@ def save_token(instance, token):
                                                                              'and scoring the model. ')
 @click.option('--instance', default=None, help='Instance for running on IBMQ devices. ')
 @click.option('--token', default=None, help='IBMQ token for running on hardware. ')
-@click.option('--save_model', default=False, help='Whether to save the trained model to file. ')
+@click.option('--save_model', default=True, help='Whether to save the trained model to file. ')
 @click.option('--save_circuits', default=False, help='Whether to save a figure of encoder and ansatz circuits. ')
 @click.option('--title', default=None, type=click.Path(), help='Title to use for save files. If none, infers it from '
                                                                'settings file. ')
@@ -164,7 +164,7 @@ def main(settings, train_set, test_set, instance, token, save_model, save_circui
     st = time.time()
     if f is None:
         model, hyperparams, score, hyperparam_results = grid_search(QuantumRegressor, HYPERPARAMETERS, X_train, y_train,
-                                                                    X_test, y_test, **kwargs)
+                                                                    X_test, y_test, title, **kwargs)
     else:
         model = QuantumRegressor(**kwargs, f=f, alpha=alpha, beta=beta)
         model.fit(X_train, y_train, load_state=resume_file)
@@ -176,6 +176,10 @@ def main(settings, train_set, test_set, instance, token, save_model, save_circui
         model_title = title + '_model.bin'
         joblib.dump(model, model_title)
         print(f'Model saved with joblib as {model_title}. ')
+    if os.path.exists(title+'_tentative_model.bin'):
+        os.remove('tentative_model.bin')
+    elif os.path.exists('tentative_model.bin'):
+        os.remove('tentative_model.bin')
 
     scores = evaluate(model, X_train, y_train, X_test, y_test, plot=True, title=title)
 
@@ -221,7 +225,7 @@ def create_kwargs():
     return kwargs
 
 
-def grid_search(model, hyperparameters: dict, x_train, y_train, x_test=None, y_test=None, **kwargs):
+def grid_search(model, hyperparameters: dict, x_train, y_train, x_test=None, y_test=None, title=None, **kwargs):
     """
     Performs a grid search on the given model. Trains the model for each combination of hyperparameters, and then
     trains it using x_train, y_train. Scores each model using r2_score on the test dataset and returns the best
@@ -262,6 +266,13 @@ def grid_search(model, hyperparameters: dict, x_train, y_train, x_test=None, y_t
             best_score = score
             best_model = built_model
             best_hyperparameters = {key: kwargs[key] for key in hyperparameters.keys()}
+            print('Saving tentative model... ')
+            if title is not None:
+                model_name = title+'_tentative_model.bin'
+            else:
+                model_name = 'tentative_model.bin'
+            joblib.dump(best_model, model_name)
+            print(f'Tentative model saved as {model_name}')
         else:
             print(f'Training complete taking {st - time.time()} seconds. Discarding model... ')
 
