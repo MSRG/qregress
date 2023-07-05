@@ -243,8 +243,8 @@ def grid_search(model, hyperparameters: dict, x_train, y_train, x_test=None, y_t
     for combination in param_combinations:
         update = dict(zip(hyperparameters.keys(), combination))
         kwargs.update(update)
-        print(f'Beginning training with hyperparameters f={hyperparameters["f"]}, alpha={hyperparameters["alpha"]}, '
-              f'beta={hyperparameters["beta"]}... ')
+        print(f'Beginning training with hyperparameters f={update["f"]}, alpha={update["alpha"]}, '
+              f'beta={update["beta"]}... ')
         st = time.time()
         built_model = model(**kwargs)
         built_model.fit(x_train, y_train, callback_interval=1)
