@@ -144,9 +144,6 @@ def main(settings, train_set, test_set, instance, token, save_model, save_circui
     if title is None:
         title = os.path.basename(settings)
         title, _ = os.path.splitext(title)
-        title = title + '_model.bin'
-    else:
-        title = title + '_model.bin'
 
     if save_circuits:
         plot_circuits(title)
@@ -165,9 +162,21 @@ def main(settings, train_set, test_set, instance, token, save_model, save_circui
     print(f'Training complete taking {st-et} total seconds. Best hyperparameters found to be {hyperparams}. ')
 
     if save_model:
-        joblib.dump(model, title)
+        model_title = title + '_model.bin'
+        joblib.dump(model, model_title)
+        print(f'Model saved with joblib as {model_title}. ')
 
-    evaluate(model, X_train, y_train, X_test, y_test, plot=True, title=title)
+    scores = evaluate(model, X_train, y_train, X_test, y_test, plot=True, title=title)
+
+    print(f'Model scores: {scores}. ')
+
+    results = scores
+    results['Hyperparameters'] = hyperparams
+
+    results_title = title + '_results.json'
+    with open(results_title, 'w') as outfile:
+        json.dump(results, outfile)
+    print(f'Saved model results as {results_title}. ')
 
 
 def plot_circuits(title):

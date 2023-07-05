@@ -1,3 +1,4 @@
+import time
 from matplotlib import pyplot as plt
 from sklearn.metrics import mean_squared_error, r2_score
 
@@ -22,7 +23,8 @@ def evaluate_1d(model, X_train, X_test, y_train, y_test, plot=True, title=""):
 
 def evaluate(model, X_train, y_train, X_test=None, y_test=None, plot: bool = False, title: str = 'defult'):
     scores = {}
-
+    st = time.time()
+    print('Now scoring model... ')
     y_train_pred = model.predict(X_train)
     scores['MSE_train'] = mean_squared_error(y_train, y_train_pred),
     scores['R2_train'] = r2_score(y_train, y_train_pred)
@@ -41,4 +43,5 @@ def evaluate(model, X_train, y_train, X_test=None, y_test=None, plot: bool = Fal
         plt.xlabel('Actual')
         plt.legend()
         plt.savefig(title+'_plot.svg')
+    print(f'Scoring complete taking {st - time.time()} seconds. ')
     return scores
