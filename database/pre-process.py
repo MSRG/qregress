@@ -41,6 +41,7 @@ def shuffle(df: pd.DataFrame, y_label: str, length: Union[int, float]):
         df = df.sample(frac=1)
 
     elif length.is_integer():
+        length = int(length)
         df = df.sample(n=length)
 
     elif not length.is_integer():
