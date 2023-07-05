@@ -138,6 +138,11 @@ def create_combinations(encoder: str = None, ansatz: str = None):
 @click.option('--file_name', default=None, type=click.Path(), help='Name for the file to be saved as. Only specify if '
                                                                    'creating a single settings file. ')
 def main(encoder, ansatz, layers, device, backend, shots, optimizer, error_mitigation, post_process, file_name):
+    """
+    Takes user input parameters and creates a settings json file to be inputted into main.py. If an encoder/ansatz is
+    not supplied it will loop over all remaining combinations with remaining settings and title it with encoder_ansatz.
+    If file_name is specified and creating multiple files, the same name is repeated and so only one file is generated.
+    """
     settings = create_combinations(encoder, ansatz)
     if file_name is not None:
         new_settings = {}

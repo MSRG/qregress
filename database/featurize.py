@@ -14,6 +14,11 @@ calculator = AutoDescriptor()
 @click.option('--read', required=True, help='Read path for xyz files. ')
 @click.option('--org', required=True, help="Path to org file specifying xyz file organization. ")
 def main(write, read, org):
+    """
+    Takes a dataset of xyz files and translates it into a set rdkit generated features. Uses org file to read the
+    organization of the xyz dataset. Reads finds xyz files within read path directory and writes processed files within
+    the write directory.
+    """
     # Set read and write paths as well as path to the organizing file
     # read_path = "/home/taylo773/Quantum/GitHub/qregress/database/bse49-main/Geometries/Existing/"
     # write_path = "/home/taylo773/Quantum/GitHub/qregress/database/processed/"
@@ -30,15 +35,15 @@ def main(write, read, org):
 
     # Remove excess white space at the ends of names and create path to file
     for i in range(len(nameA)):
-        nameA[i] = nameA[i][1:-1]
+        if nameA[i][-1] == ' ':
+            nameA[i] = nameA[i][1:-1]
         nameA[i] = read_path + nameA[i] + ".xyz"
-        nameB[i] = nameB[i][1:-1]
+        if nameB[i][-1] == ' ':
+            nameB[i] = nameB[i][1:-1]
         nameB[i] = read_path + nameB[i] + ".xyz"
-        print(nameAB[i])
-        nameAB[i] = nameAB[i][1:-1]
-        print(nameAB[i])
+        if nameAB[i][-1] == ' ':
+            nameAB[i] = nameAB[i][1:-1]
         nameAB[i] = read_path + nameAB[i] + ".xyz"
-        print(nameAB[i])
     print("Starting to process data...\n")
 
     # Calculate features for each set of molecules

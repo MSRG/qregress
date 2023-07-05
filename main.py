@@ -142,6 +142,11 @@ def save_token(instance, token):
 @click.option('--alpha', default=None, type=float, help='Optionally specify hyperparameter for training. ')
 @click.option('--beta', default=None, type=float, help='Optionally specify hyperparameter for training. ')
 def main(settings, train_set, test_set, instance, token, save_model, save_circuits, title, resume_file, f, alpha, beta):
+    """
+    Trains the quantum regressor with the settings in the given settings file using the dataset from the given train
+    and test files. Will perform grid search on a default hyperparameter space unless they are specified. Saves trained
+    model, scores and best hyperparameters to joblib dumps and graphs of performance and circuit drawings as mpl svg.
+    """
     X_train, y_train = load_dataset(train_set)
     parse_settings(settings)
     if DEVICE == 'qiskit.ibmq':

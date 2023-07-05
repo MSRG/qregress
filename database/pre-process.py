@@ -93,6 +93,10 @@ def split(x, y, x_dim: int, train_ratio: float):
                                                                           'Supports either .bin or .csv. ')
 @click.option('--save_name', default=None, type=click.Path(), help='Specify the name of the output files. ')
 def main(train_ratio, x_dim, length, y_label, file, save_name):
+    """
+    Performs PCA dimension reduction to specified size and shuffles the data into specified length. Splits the dataset
+    into train and test sets and creates seperate files for each.
+    """
     if save_name is None:
         filebase = os.path.basename(file)
         filename, ext = os.path.splitext(filebase)
