@@ -135,7 +135,13 @@ def save_token(instance, token):
 @click.option('--save_circuits', default=False, help='Whether to save a figure of encoder and ansatz circuits. ')
 @click.option('--title', default=None, type=click.Path(), help='Title to use for save files. If none, infers it from '
                                                                'settings file. ')
-def main(settings, train_set, test_set, instance, token, save_model, save_circuits, title):
+@click.option('--resume_file', default=None, type=click.Path(exists=True), help='File to resume training from. Use '
+                                                                                'the same settings file to generate '
+                                                                                'the same model for training. ')
+@click.option('--f', default=None, type=float, help='Optionally specify hyperparameter for training. ')
+@click.option('--alpha', default=None, type=float, help='Optionally specify hyperparameter for training. ')
+@click.option('--beta', default=None, type=float, help='Optionally specify hyperparameter for training. ')
+def main(settings, train_set, test_set, instance, token, save_model, save_circuits, title, resume_file, f, alpha, beta):
     X_train, y_train = load_dataset(train_set)
     parse_settings(settings)
     if DEVICE == 'qiskit.ibmq':
@@ -156,8 +162,12 @@ def main(settings, train_set, test_set, instance, token, save_model, save_circui
 
     print(f'Training model with dataset {train_set} \n at time {time.asctime()}... ')
     st = time.time()
-    model, hyperparams, score, hyperparam_results = grid_search(QuantumRegressor, HYPERPARAMETERS, X_train, y_train,
-                                                                X_test, y_test, **kwargs)
+    if f is None:
+        model, hyperparams, score, hyperparam_results = grid_search(QuantumRegressor, HYPERPARAMETERS, X_train, y_train,
+                                                                    X_test, y_test, **kwargs)
+    else:
+        model = QuantumRegressor(**kwargs, f=f, alpha=alpha, beta=beta)
+        model.fit(X_train, y_train, load_state=resume_file)
 
     et = time.time()
     print(f'Training complete taking {st - et} total seconds. Best hyperparameters found to be {hyperparams}. ')
