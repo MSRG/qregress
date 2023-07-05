@@ -3,6 +3,7 @@ import joblib
 import os
 import numpy as np
 import pandas as pd
+from typing import Union
 
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
@@ -29,7 +30,7 @@ def load_file(file: str):
         return df
 
 
-def shuffle(df: pd.DataFrame, y_label: str, length: int | float):
+def shuffle(df: pd.DataFrame, y_label: str, length: Union[int, float]):
     """
     Shuffles the dataframe and splits it into seperate X and y arrays. Additionally, trims the length of the
     dataset to specified length, either as an int or a ratio of the full set.
