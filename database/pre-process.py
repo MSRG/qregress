@@ -83,36 +83,20 @@ def split(x, y, x_dim: int, train_ratio: float):
 
 
 @click.command()
-@click.option('--train_ratio', default='0.8', help='Ratio of dataset to be reserved for training. Must be '
-                                                   'interpretable as a float. ')
-@click.option('--x_dim', default='16', help='Integer size of feature space to reduce to. ')
-@click.option('--length', default=None, help='Number of datapoints to be included in the dataset generation. Can be '
-                                             'passed as an int or a ratio. ')
+@click.option('--train_ratio', default=0.8, help='Ratio of dataset to be reserved for training. Must be '
+                                                 'interpretable as a float. ')
+@click.option('--x_dim', default=16, help='Size of feature space to reduce to. ')
+@click.option('--length', default=None, type=float, help='Number of datapoints to be included in the dataset '
+                                                         'generation. Can be passed as an int or a ratio. ')
 @click.option('--y_label', default='BSE', help='Specify the label of the column to use as target values. ')
-@click.option('--file', required=True, type=click.Path, help='Source file to use for dataset generation. Supports '
-                                                             'either .bin or .csv. ')
-@click.option('--save_name', default=None, help='Specify the name of the output files. ')
+@click.option('--file', required=True, type=click.Path(exists=True), help='Source file to use for dataset generation. '
+                                                                          'Supports either .bin or .csv. ')
+@click.option('--save_name', default=None, type=click.Path(), help='Specify the name of the output files. ')
 def main(train_ratio, x_dim, length, y_label, file, save_name):
     if save_name is None:
         filebase = os.path.basename(file)
         filename, ext = os.path.splitext(filebase)
         save_name = filename
-    try:
-        train_ratio = float(train_ratio)
-    except ValueError:
-        print('Could not convert input into float for train ratio. Proceeding with a ratio of 0.8... ')
-        train_ratio = 0.8
-    try:
-        x_dim = int(x_dim)
-    except ValueError:
-        print('Could not convert input into int for x_dim. Proceeding with size 16... ')
-        x_dim = 16
-    try:
-        if length is not None:
-            length = float(length)
-    except ValueError:
-        print('Could not convert input for length. Proceeding with entire dataset... ')
-        length = None
 
     df = load_file(file)
     x, y = shuffle(df, y_label, length)

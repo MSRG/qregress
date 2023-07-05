@@ -10,7 +10,7 @@ import collections.abc
 import matplotlib.pyplot as plt
 import numpy as np
 import pennylane as qml
-from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.metrics import r2_score
 from qiskit_ibm_provider import IBMProvider
 
 from quantum.Quantum import QuantumRegressor
@@ -125,15 +125,16 @@ def save_token(instance, token):
 ############################################
 
 @click.command()
-@click.option('--settings', required=True, type=click.Path, help='Settings file for running ML. ')
-@click.option('--train_set', required=True, type=click.Path, help='Datafile for training the ML model. ')
-@click.option('--test_set', default=None, type=click.Path, help='Optional datafile to use for testing and scoring the '
-                                                                'model. ')
+@click.option('--settings', required=True, type=click.Path(exists=True), help='Settings file for running ML. ')
+@click.option('--train_set', required=True, type=click.Path(exists=True), help='Datafile for training the ML model. ')
+@click.option('--test_set', default=None, type=click.Path(exists=True), help='Optional datafile to use for testing '
+                                                                             'and scoring the model. ')
 @click.option('--instance', default=None, help='Instance for running on IBMQ devices. ')
 @click.option('--token', default=None, help='IBMQ token for running on hardware. ')
 @click.option('--save_model', default=False, help='Whether to save the trained model to file. ')
 @click.option('--save_circuits', default=False, help='Whether to save a figure of encoder and ansatz circuits. ')
-@click.option('--title', default=None, help='Title to use for save files. If none, infers it from settings file. ')
+@click.option('--title', default=None, type=click.Path(), help='Title to use for save files. If none, infers it from '
+                                                               'settings file. ')
 def main(settings, train_set, test_set, instance, token, save_model, save_circuits, title):
     X_train, y_train = load_dataset(train_set)
     parse_settings(settings)

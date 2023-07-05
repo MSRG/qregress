@@ -135,8 +135,8 @@ def create_combinations(encoder: str = None, ansatz: str = None):
 @click.option('--error_mitigation', default=None, help='Specify an error mitigation method if using a noisy device. '
                                                        'Leave blank for none. ')
 @click.option('--post_process', default=None, help='Specify a post-processing type. Leave blank for none. ')
-@click.option('--file_name', default=None, help='Name for the file to be saved as. Only specify if creating a single '
-                                                'settings file. ')
+@click.option('--file_name', default=None, type=click.Path(), help='Name for the file to be saved as. Only specify if '
+                                                                   'creating a single settings file. ')
 def main(encoder, ansatz, layers, device, backend, shots, optimizer, error_mitigation, post_process, file_name):
     settings = create_combinations(encoder, ansatz)
     if file_name is not None:
