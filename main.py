@@ -17,7 +17,6 @@ from quantum.Quantum import QuantumRegressor
 from quantum.Evaluate import evaluate
 from settings import ANSATZ_LIST, ENCODER_LIST
 
-
 # Global variables
 OPTIMIZER = None
 SHOTS = None
@@ -33,7 +32,6 @@ LAYERS = None
 PROVIDER = None
 TOKEN = None
 HYPERPARAMETERS = None
-
 
 ############################################
 #  Lists of acceptable values
@@ -117,6 +115,8 @@ def save_token(instance, token):
     PROVIDER = IBMProvider(instance=instance)
     global TOKEN
     TOKEN = token
+
+
 #    QiskitRuntimeService.save_account(channel='ibm_quantum', token=token, overwrite=True)
 
 
@@ -156,11 +156,11 @@ def main(settings, train_set, test_set, instance, token, save_model, save_circui
 
     print(f'Training model with dataset {train_set} \n at time {time.asctime()}... ')
     st = time.time()
-    model, hyperparams, score, results = grid_search(QuantumRegressor, HYPERPARAMETERS, X_train, y_train,
-                                                     X_test, y_test, **kwargs)
+    model, hyperparams, score, hyperparam_results = grid_search(QuantumRegressor, HYPERPARAMETERS, X_train, y_train,
+                                                                X_test, y_test, **kwargs)
 
     et = time.time()
-    print(f'Training complete taking {st-et} total seconds. Best hyperparameters found to be {hyperparams}. ')
+    print(f'Training complete taking {st - et} total seconds. Best hyperparameters found to be {hyperparams}. ')
 
     if save_model:
         model_title = title + '_model.bin'
@@ -173,6 +173,7 @@ def main(settings, train_set, test_set, instance, token, save_model, save_circui
 
     results = scores
     results['Hyperparameters'] = hyperparams
+    results['Hyperparam_train'] = hyperparam_results
 
     results_title = title + '_results.json'
     with open(results_title, 'w') as outfile:
@@ -183,11 +184,11 @@ def main(settings, train_set, test_set, instance, token, save_model, save_circui
 def plot_circuits(title):
     draw_ansatz = qml.draw_mpl(ANSATZ)
     draw_ansatz(np.random.rand(ANSATZ.num_params))
-    plt.savefig(title+'_ansatz.svg')
+    plt.savefig(title + '_ansatz.svg')
 
     draw_encoder = qml.draw_mpl(ENCODER)
     draw_encoder(np.random.rand(X_DIM))
-    plt.savefig(title+'_encoder.svg')
+    plt.savefig(title + '_encoder.svg')
 
 
 def create_kwargs():
@@ -223,7 +224,7 @@ def grid_search(model, hyperparameters: dict, x_train, y_train, x_test=None, y_t
         if not isinstance(x, collections.abc.Sequence):
             raise ValueError('Dictionary must contain list-like objects of values to try! ')
 
-    results = []
+    results = {}
     best_score = float('-inf')
     best_model = None
     best_hyperparameters = {}
@@ -240,20 +241,19 @@ def grid_search(model, hyperparameters: dict, x_train, y_train, x_test=None, y_t
         if x_test is not None and y_test is not None:
             y_pred = built_model.predict(x_test)
             score = r2_score(y_test, y_pred)
-            results.append(score)
+            results[f'{update}'] = score
         else:
             warnings.warn('Using train set for hyperparameter search may lead to overfitting. ')
             y_pred = built_model.predict(x_train)
             score = r2_score(y_train, y_pred)
-            results.append(score)
-
+            results[f'{update}'] = score
         if score > best_score:
-            print(f'Training complete taking {st-time.time()} seconds. Saving model as new best. ')
+            print(f'Training complete taking {st - time.time()} seconds. Saving model as new best. ')
             best_score = score
             best_model = built_model
             best_hyperparameters = {key: kwargs[key] for key in hyperparameters.keys()}
         else:
-            print(f'Training complete taking {st-time.time()} seconds. Discarding model... ')
+            print(f'Training complete taking {st - time.time()} seconds. Discarding model... ')
 
     return best_model, best_hyperparameters, best_score, results
 
