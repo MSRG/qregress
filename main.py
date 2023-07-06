@@ -179,8 +179,8 @@ def main(settings, train_set, test_set, instance, token, save_model, save_circui
 
     if save_model:
         model_title = title + '_model.bin'
-        joblib.dump(model, model_title)
-        print(f'Model saved with joblib as {model_title}. ')
+        # joblib.dump(model, model_title)
+        # print(f'Model saved with joblib as {model_title}. ')
     if os.path.exists(title+'_tentative_model.bin'):
         os.remove('tentative_model.bin')
     elif os.path.exists('tentative_model.bin'):
@@ -197,6 +197,7 @@ def main(settings, train_set, test_set, instance, token, save_model, save_circui
     results_title = title + '_results.json'
     with open(results_title, 'w') as outfile:
         json.dump(results, outfile)
+        pass
     print(f'Saved model results as {results_title}. ')
 
 
@@ -267,7 +268,7 @@ def grid_search(model, hyperparameters: dict, x_train, y_train, x_test=None, y_t
             score = r2_score(y_train, y_pred)
             results[f'{update}'] = score
         if score > best_score:
-            print(f'Training complete taking {st - time.time()} seconds. Saving model as new best. ')
+            print(f'Training complete taking {time.time() - st} seconds. Saving model as new best. ')
             best_score = score
             best_model = built_model
             best_hyperparameters = {key: kwargs[key] for key in hyperparameters.keys()}
@@ -276,7 +277,7 @@ def grid_search(model, hyperparameters: dict, x_train, y_train, x_test=None, y_t
                 model_name = title+'_tentative_model.bin'
             else:
                 model_name = 'tentative_model.bin'
-            joblib.dump(best_model, model_name)
+            # joblib.dump(best_model, model_name)
             print(f'Tentative model saved as {model_name}')
         else:
             print(f'Training complete taking {st - time.time()} seconds. Discarding model... ')
