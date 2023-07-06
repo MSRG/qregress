@@ -56,7 +56,7 @@ POSTPROCESS = {
 
 # This is defining the grid-space of hyperparameters to search through.
 hyperparameters = {
-    'f': np.arange(0.5, 2.5, 0.2).tolist(),
+    'f': np.arange(1, 10, 0.5).tolist(),
     'alpha': np.arange(0, 1, 0.05).tolist(),
     'beta': np.arange(0, 1, 0.05).tolist()
 }
