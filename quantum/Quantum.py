@@ -7,6 +7,7 @@ from qiskit_ibm_runtime import QiskitRuntimeService
 from qiskit_ibm_provider import IBMProvider
 from mitiq.zne.scaling import fold_global
 from mitiq.zne.inference import RichardsonFactory, LinearFactory
+from functools import cache
 import joblib
 import mthree
 
@@ -60,6 +61,7 @@ class QuantumRegressor:
         self._set_optimizer(optimizer)
         self._build_qnode(scale_factors, folding)
         self.fit_count = 0
+        self.cached_results = {}
 
     def _set_device(self, device, backend, shots, provider=None, token=None):
         #  sets the models quantum device. If using IBMQ asks for proper credentials
@@ -132,12 +134,14 @@ class QuantumRegressor:
 
             self.qnode = new_qnode
 
+    @cache
     def _cost(self, parameters):
         #  f is a hyperparameter scaling each of the obtained measurements used in both pure and hybrid
         f = self.hyperparameters['f']
         predicted_y = f * np.array([self.qnode(x, parameters) for x in self.x])
         return mean_squared_error(self.y, predicted_y)
 
+    @cache
     def _hybrid_cost(self, parameters):
         #  cost function for use in hybrid QML with linear model
         #  TODO: This isn't working all the time. Raising a matmul error.
@@ -177,6 +181,21 @@ class QuantumRegressor:
         #  computes the number of parameters required for the implemented variational circuit
         num_params = self.variational.num_params
         return num_params
+
+    # TODO: Add callback function that prints out more logging. We want to see the cycle iteration number, and cost
+    # per step
+    def _callback(self, xk):
+        if self.postprocess is None:
+            cost_at_step = self._cost(xk)
+        else:
+            cost_at_step = self._hybrid_cost(xk)
+        filename = 'model_log.txt'
+        log = f'Iteration:  {self.fit_count}  |  Cost:  {cost_at_step}  |  Parameters: {xk} '
+        with open(filename, 'a+') as outfile:
+            outfile.write(log)
+            outfile.write('\n')
+
+        self._save_partial_state(xk)
 
     def _save_partial_state(self, param_vector, force=False):
         # saves every fifth call to a bin file able to be loaded later by calling fit with load_state set to filename
@@ -235,7 +254,8 @@ class QuantumRegressor:
         params = initial_parameters
         if self.postprocess is None:
             if self.use_scipy:
-                opt_result = minimize(self._cost, x0=params, method=self.optimizer, callback=self._save_partial_state)
+                opt_result = minimize(self._cost, x0=params, method=self.optimizer, callback=self._save_partial_state,
+                                      options={'maxiter': self.max_iterations})
                 self.params = opt_result['x']
             else:
                 opt = qml.SPSAOptimizer(maxiter=self.max_iterations)
@@ -249,7 +269,7 @@ class QuantumRegressor:
         elif self.postprocess is not None:
             if self.use_scipy:
                 opt_result = minimize(self._hybrid_cost, x0=params, method=self.optimizer,
-                                      callback=self._save_partial_state)
+                                      callback=self._save_partial_state, options={'maxiter': self.max_iterations})
             else:
                 opt = qml.SPSAOptimizer(maxiter=self.max_iterations)
                 cost = []
