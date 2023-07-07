@@ -7,7 +7,6 @@ from qiskit_ibm_runtime import QiskitRuntimeService
 from qiskit_ibm_provider import IBMProvider
 from mitiq.zne.scaling import fold_global
 from mitiq.zne.inference import RichardsonFactory, LinearFactory
-from functools import cache
 import joblib
 import mthree
 
@@ -134,14 +133,21 @@ class QuantumRegressor:
 
             self.qnode = new_qnode
 
-    @cache
     def _cost(self, parameters):
         #  f is a hyperparameter scaling each of the obtained measurements used in both pure and hybrid
         f = self.hyperparameters['f']
         predicted_y = f * np.array([self.qnode(x, parameters) for x in self.x])
         return mean_squared_error(self.y, predicted_y)
 
-    @cache
+    def _cost_wrapper(self, parameters):
+        param_hash = hash(parameters.data.tobytes())
+        if param_hash in self.cached_results:
+            cost = self.cached_results[param_hash]
+        else:
+            cost = self._cost(parameters)
+            self.cached_results[param_hash] = cost
+        return cost
+
     def _hybrid_cost(self, parameters):
         #  cost function for use in hybrid QML with linear model
         #  TODO: This isn't working all the time. Raising a matmul error.
@@ -177,6 +183,15 @@ class QuantumRegressor:
                              " 'simple', 'ridge', 'lasso', 'elastic'")
         return cost
 
+    def _hybrid_cost_wrapper(self, parameters):
+        param_hash = hash(parameters.data.tobytes())
+        if param_hash in self.cached_results:
+            cost = self.cached_results[param_hash]
+        else:
+            cost = self._cost(parameters)
+            self.cached_results[param_hash] = cost
+        return cost
+
     def _num_params(self):
         #  computes the number of parameters required for the implemented variational circuit
         num_params = self.variational.num_params
@@ -186,9 +201,9 @@ class QuantumRegressor:
     # per step
     def _callback(self, xk):
         if self.postprocess is None:
-            cost_at_step = self._cost(xk)
+            cost_at_step = self._cost_wrapper(xk)
         else:
-            cost_at_step = self._hybrid_cost(xk)
+            cost_at_step = self._hybrid_cost_wrapper(xk)
         filename = 'model_log.txt'
         log = f'Iteration:  {self.fit_count}  |  Cost:  {cost_at_step}  |  Parameters: {xk} '
         with open(filename, 'a+') as outfile:
@@ -254,27 +269,27 @@ class QuantumRegressor:
         params = initial_parameters
         if self.postprocess is None:
             if self.use_scipy:
-                opt_result = minimize(self._cost, x0=params, method=self.optimizer, callback=self._save_partial_state,
+                opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._save_partial_state,
                                       options={'maxiter': self.max_iterations})
                 self.params = opt_result['x']
             else:
                 opt = qml.SPSAOptimizer(maxiter=self.max_iterations)
                 cost = []
                 for _ in range(self.max_iterations):
-                    params, temp_cost = opt.step_and_cost(self._cost, params)
+                    params, temp_cost = opt.step_and_cost(self._cost_wrapper, params)
                     cost.append(temp_cost)
                     self._save_partial_state(params)
                 opt_result = [params, cost]
                 self.params = params
         elif self.postprocess is not None:
             if self.use_scipy:
-                opt_result = minimize(self._hybrid_cost, x0=params, method=self.optimizer,
+                opt_result = minimize(self._hybrid_cost_wrapper, x0=params, method=self.optimizer,
                                       callback=self._save_partial_state, options={'maxiter': self.max_iterations})
             else:
                 opt = qml.SPSAOptimizer(maxiter=self.max_iterations)
                 cost = []
                 for _ in range(self.max_iterations):
-                    params, temp_cost = opt.step_and_cost(self._hybrid_cost, params)
+                    params, temp_cost = opt.step_and_cost(self._hybrid_cost_wrapper, params)
                     cost.append(temp_cost)
                     self._save_partial_state(params)
                 opt_result = [params, cost]
