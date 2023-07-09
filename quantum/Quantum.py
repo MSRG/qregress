@@ -9,6 +9,7 @@ from mitiq.zne.scaling import fold_global
 from mitiq.zne.inference import RichardsonFactory, LinearFactory
 import joblib
 import mthree
+import os
 
 
 class QuantumRegressor:
@@ -204,12 +205,11 @@ class QuantumRegressor:
             cost_at_step = self._cost_wrapper(xk)
         else:
             cost_at_step = self._hybrid_cost_wrapper(xk)
-        filename = 'model_log.txt'
-        log = f'Iteration:  {self.fit_count}  |  Cost:  {cost_at_step}  |  Parameters: {xk} '
-        with open(filename, 'a+') as outfile:
+        filename = 'model_log.csv'
+        log = f'{self.fit_count},{cost_at_step},{xk}'
+        with open(filename, 'a') as outfile:
             outfile.write(log)
             outfile.write('\n')
-
         self._save_partial_state(xk)
 
     def _save_partial_state(self, param_vector, force=False):
@@ -220,10 +220,9 @@ class QuantumRegressor:
         if self.fit_count % interval == 0 or force:
             partial_results = param_vector
             if force is True:
-                outfile = 'final_state' + '.' + self.optimizer + '.' \
-                          + '.' + self.encoder.__name__
+                outfile = 'final_state_model.bin'
             else:
-                outfile = 'partial_state' + self.optimizer + self.encoder.__name__
+                outfile = 'partial_state_model.bin'
             joblib.dump(partial_results, outfile)
         self.fit_count += 1
 
@@ -256,6 +255,9 @@ class QuantumRegressor:
             will be of type scipy optimizer results stored in dictionary.
         """
         self.fit_count = 0
+        with open('model_log.csv', 'w') as outfile:
+            outfile.write('Iteration,Cost,Parameters')
+            outfile.write('\n')
         self.callback_interval = callback_interval
         opt_result = None
         if load_state is not None:
@@ -269,7 +271,7 @@ class QuantumRegressor:
         params = initial_parameters
         if self.postprocess is None:
             if self.use_scipy:
-                opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._save_partial_state,
+                opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
                                       options={'maxiter': self.max_iterations})
                 self.params = opt_result['x']
             else:
@@ -278,20 +280,20 @@ class QuantumRegressor:
                 for _ in range(self.max_iterations):
                     params, temp_cost = opt.step_and_cost(self._cost_wrapper, params)
                     cost.append(temp_cost)
-                    self._save_partial_state(params)
+                    self._callback(params)
                 opt_result = [params, cost]
                 self.params = params
         elif self.postprocess is not None:
             if self.use_scipy:
                 opt_result = minimize(self._hybrid_cost_wrapper, x0=params, method=self.optimizer,
-                                      callback=self._save_partial_state, options={'maxiter': self.max_iterations})
+                                      callback=self._callback, options={'maxiter': self.max_iterations})
             else:
                 opt = qml.SPSAOptimizer(maxiter=self.max_iterations)
                 cost = []
                 for _ in range(self.max_iterations):
                     params, temp_cost = opt.step_and_cost(self._hybrid_cost_wrapper, params)
                     cost.append(temp_cost)
-                    self._save_partial_state(params)
+                    self._callback(params)
                 opt_result = [params, cost]
         self._save_partial_state(params, force=True)
         if detailed_results:
