@@ -31,7 +31,7 @@ class QuantumRegressor:
             variational,
             num_qubits,
             optimizer: str = 'COBYLA',
-            max_iterations: int = 100,
+            max_iterations: int = None,
             device: str = 'default.qubit',
             backend: str = None,
             postprocess: str = None,
@@ -221,6 +221,7 @@ class QuantumRegressor:
             partial_results = param_vector
             if force is True:
                 outfile = 'final_state_model.bin'
+                os.remove('partial_state_model.bin')
             else:
                 outfile = 'partial_state_model.bin'
             joblib.dump(partial_results, outfile)
