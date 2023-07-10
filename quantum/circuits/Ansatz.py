@@ -206,9 +206,6 @@ class TwoLocal:
 
     def set_wires(self, wires):
         self._wires = wires
-        self._qc = n_local.TwoLocal(num_qubits=len(self._wires), entanglement=self._entanglement, reps=self._reps,
-                                    rotation_blocks=self._rot_gates, entanglement_blocks=self._entangle_gates,
-                                    skip_final_rotation_layer=self._skip_final_rot)
         if self._entanglement == 'complete':
             entanglement = []
             for i in wires:
@@ -216,6 +213,9 @@ class TwoLocal:
                     if i != j:
                         entanglement.append((i, j))
             self._entanglement = entanglement
+        self._qc = n_local.TwoLocal(num_qubits=len(self._wires), entanglement=self._entanglement, reps=self._reps,
+                                    rotation_blocks=self._rot_gates, entanglement_blocks=self._entangle_gates,
+                                    skip_final_rotation_layer=self._skip_final_rot)
 
 
 class PauliTwoDesign:
