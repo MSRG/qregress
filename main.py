@@ -9,6 +9,7 @@ import collections.abc
 
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 import pennylane as qml
 from sklearn.metrics import r2_score
 from qiskit_ibm_provider import IBMProvider
@@ -129,6 +130,7 @@ def save_token(instance, token):
 @click.option('--train_set', required=True, type=click.Path(exists=True), help='Datafile for training the ML model. ')
 @click.option('--test_set', default=None, type=click.Path(exists=True), help='Optional datafile to use for testing '
                                                                              'and scoring the model. ')
+@click.option('--scaler', required=True, type=click.Path(exists=True), help='Scaler used to unsclae y-values. ')
 @click.option('--instance', default=None, help='Instance for running on IBMQ devices. ')
 @click.option('--token', default=None, help='IBMQ token for running on hardware. ')
 @click.option('--save_model', default=True, help='Whether to save the trained model to file. ')
@@ -141,16 +143,25 @@ def save_token(instance, token):
 @click.option('--f', default=None, type=float, help='Optionally specify hyperparameter for training. ')
 @click.option('--alpha', default=None, type=float, help='Optionally specify hyperparameter for training. ')
 @click.option('--beta', default=None, type=float, help='Optionally specify hyperparameter for training. ')
-def main(settings, train_set, test_set, instance, token, save_model, save_circuits, title, resume_file, f, alpha, beta):
+@click.option('--num_qubits', default=None, type=int, help='Specify number of qubits')
+def main(settings, train_set, test_set, scaler, instance, token, save_model, save_circuits, title, resume_file,
+         f, alpha, beta, num_qubits):
     """
     Trains the quantum regressor with the settings in the given settings file using the dataset from the given train
     and test files. Will perform grid search on a default hyperparameter space unless they are specified. Saves trained
     model, scores and best hyperparameters to joblib dumps and graphs of performance and circuit drawings as mpl svg.
     """
+    # TODO: Save reference/predicted dataset test and train
+    # TODO: Add three-way split
+    # TODO: Change the way hyperparameters are handled by default
+    # TODO: More logging
     X_train, y_train = load_dataset(train_set)
     parse_settings(settings)
     if DEVICE == 'qiskit.ibmq':
         save_token(instance, token)
+    if num_qubits is not None:
+        global X_DIM
+        X_DIM = num_qubits
     kwargs = create_kwargs()
 
     if title is None:
@@ -165,17 +176,21 @@ def main(settings, train_set, test_set, instance, token, save_model, save_circui
     else:
         X_test, y_test = None, None
 
+    scaler = joblib.load(scaler)
+
     print(f'Training model with dataset {train_set} \n at time {time.asctime()}... ')
     st = time.time()
     if f is None:
         model, hyperparams, score, hyperparam_results = grid_search(QuantumRegressor, HYPERPARAMETERS, X_train, y_train,
                                                                     X_test, y_test, title, **kwargs)
+        et = time.time()
+        print(f'Training complete taking {et - st} total seconds. Best hyperparameters found to be {hyperparams}. ')
+
     else:
         model = QuantumRegressor(**kwargs, f=f, alpha=alpha, beta=beta)
         model.fit(X_train, y_train, load_state=resume_file)
-
-    et = time.time()
-    print(f'Training complete taking {st - et} total seconds. Best hyperparameters found to be {hyperparams}. ')
+        et = time.time()
+        print(f'Training complete taking {et - st} total seconds. ')
 
     if save_model:
         model_title = title + '_model.bin'
@@ -186,13 +201,29 @@ def main(settings, train_set, test_set, instance, token, save_model, save_circui
     elif os.path.exists('tentative_model.bin'):
         os.remove('tentative_model.bin')
 
-    scores = evaluate(model, X_train, y_train, X_test, y_test, plot=True, title=title)
+    scores, test_pred, train_pred = evaluate(model, X_train, y_train, X_test, y_test, plot=True, title=title,
+                                             y_scaler=scaler)
+    y_train = scaler.inverse_transform(y_train.reshape(-1, 1))
+    y_test = scaler.inverse_transform(y_test.reshape(-1, 1))
+
+    name = title + '_predicted_values.csv'
+    train_pred, y_train, test_pred, y_test = train_pred.tolist(), y_train.tolist(), test_pred.tolist(), y_test.tolist()
+    df_train = pd.DataFrame({'Predicted': train_pred, 'Reference': y_train})
+    df_train['Data'] = 'Train'
+    df_test = pd.DataFrame({'Predicted': test_pred, 'Reference': y_test})
+    df_test['Data'] = 'Test'
+    df = pd.concat([df_train, df_test], ignore_index=True)
+    df = df[['Data', 'Predicted', 'Reference']]
+
+    df.to_csv(name, index=False)
+    print(f'Saved predicted values as {name}')
 
     print(f'Model scores: {scores}. ')
 
     results = scores
-    results['Hyperparameters'] = hyperparams
-    results['Hyperparam_train'] = hyperparam_results
+    if f is None:
+        results['Hyperparameters'] = hyperparams
+        results['Hyperparam_train'] = hyperparam_results
 
     results_title = title + '_results.json'
     with open(results_title, 'w') as outfile:
@@ -272,15 +303,15 @@ def grid_search(model, hyperparameters: dict, x_train, y_train, x_test=None, y_t
             best_score = score
             best_model = built_model
             best_hyperparameters = {key: kwargs[key] for key in hyperparameters.keys()}
-            print('Saving tentative model... ')
+            # print('Saving tentative model... ')
             if title is not None:
                 model_name = title+'_tentative_model.bin'
             else:
                 model_name = 'tentative_model.bin'
             # joblib.dump(best_model, model_name)
-            print(f'Tentative model saved as {model_name}')
+            # print(f'Tentative model saved as {model_name}')
         else:
-            print(f'Training complete taking {st - time.time()} seconds. Discarding model... ')
+            print(f'Training complete taking {time.time() - st} seconds. Discarding model... ')
 
     return best_model, best_hyperparameters, best_score, results
 
