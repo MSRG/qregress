@@ -472,7 +472,7 @@ class HadamardAnsatz:
 
     @property
     def num_params(self):
-        return self._layers * self._wires
+        return self._layers * len(self._wires)
 
     @property
     def layers(self):
