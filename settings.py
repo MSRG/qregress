@@ -5,7 +5,6 @@ from quantum.circuits.Encoders import double_angle, single_angle, iqp_embedding,
     entangle_cz, entangle_cnot
 from quantum.circuits.Ansatz import HardwareEfficient, EfficientSU2, TwoLocal, ModifiedPauliTwo, HadamardAnsatz
 
-
 ERROR_MITIGATION = [
     None,
     'MITIQ_LINEAR',
@@ -56,7 +55,7 @@ POSTPROCESS = {
 
 # This is defining the grid-space of hyperparameters to search through.
 hyperparameters = {
-    'f': np.arange(1, 10, 0.5).tolist(),
+    'f': 1,  # np.arange(1, 10, 0.5).tolist(),
     'alpha': np.arange(0, 1, 0.05).tolist(),
     'beta': np.arange(0, 1, 0.05).tolist()
 }

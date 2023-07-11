@@ -180,7 +180,7 @@ def main(settings, train_set, test_set, scaler, instance, token, save_model, sav
 
     print(f'Training model with dataset {train_set} \n at time {time.asctime()}... ')
     st = time.time()
-    if f is None:
+    if type(f) is list:
         model, hyperparams, score, hyperparam_results = grid_search(QuantumRegressor, HYPERPARAMETERS, X_train, y_train,
                                                                     X_test, y_test, title, **kwargs)
         et = time.time()
