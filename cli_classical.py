@@ -8,10 +8,11 @@ from Classical import run_models
 
 
 @click.command()
-@click.option('--scaler', type=click.Path(exists=True), required=True)
-@click.option('--train_set', type=click.Path(exists=True), required=True)
-@click.option('--test_set', type=click.Path(exists=True), required=True)
-@click.option('--save_plots', default=False)
+@click.option('--scaler', type=click.Path(exists=True), required=True, help='File for y scaler to unscale after '
+                                                                            'prediction')
+@click.option('--train_set', type=click.Path(exists=True), required=True, help='File for train set')
+@click.option('--test_set', type=click.Path(exists=True), required=True, help='File for test set')
+@click.option('--save_plots', default=False, help="Don't use: depreceating soon... ")
 def main(scaler, train_set, test_set, save_plots):
     train = joblib.load(train_set)
     test = joblib.load(test_set)
@@ -45,8 +46,7 @@ def main(scaler, train_set, test_set, save_plots):
 
     with open('scores.json', 'w') as outfile:
         json.dump(scores, outfile)
-
-    print(scores)
+        print(f'Scores saved as {outfile}. ')
 
 
 if __name__ == '__main__':
