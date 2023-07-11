@@ -51,6 +51,15 @@ def evaluate(model, X_train, y_train, X_test=None, y_test=None, plot: bool = Fal
         plt.scatter(y_train, y_train_pred, color='r', s=10, label='Train')
         plt.ylabel('Predicted')
         plt.xlabel('Actual')
+        plt.axis('scaled')
+
+        max_val = max(max(plt.xlim()), max(plt.ylim()))
+        plt.xlim((0, max_val))
+        plt.ylim((0, max_val))
+
+        x_min, x_max = plt.xlim()
+        y_min, y_max = plt.ylim()
+        plt.plot([x_min, x_max], [y_min, y_max], 'k--', alpha=0.2, label='y=x')
         plt.legend()
         plt.savefig(title+'_plot.svg')
 
