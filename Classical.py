@@ -1,10 +1,10 @@
+import time
 import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.gaussian_process.kernels import RBF
 from sklearn.kernel_ridge import KernelRidge
 from sklearn.linear_model import Ridge
-from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.svm import SVR
 from quantum.Evaluate import evaluate
@@ -17,7 +17,7 @@ models = {
     'rfr': RandomForestRegressor(),
     'grad': GradientBoostingRegressor(),
     'svr': SVR(),
-    'krr': KernelRidge(),
+    'krr': KernelRidge(kernel='rbf'),
     'gpr': GaussianProcessRegressor(kernel=gaussian_kernel)
 }
 
@@ -67,8 +67,11 @@ def classical_regressor(model: str, scaler, X_tr, y_tr, X_te, y_te, plot=True, s
     """
     if model not in models.keys():
         raise ValueError('Model must be one of', models.keys())
+    st = time.time()
     current_model = models[model]
+    print(f'Now fitting {model}... ')
     current_model.fit(X_tr, y_tr)
+    print(f'Completed fitting {model} in {time.time()-st} seconds. ')
     current_scores, y_te_pred, y_tr_pred = evaluate(model=current_model, X_train=X_tr, X_test=X_te, y_train=y_tr,
                                                     y_test=y_te, y_scaler=scaler, plot=True, title=model)
     if plot:
