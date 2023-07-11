@@ -29,14 +29,14 @@ def evaluate(model, X_train, y_train, X_test=None, y_test=None, plot: bool = Fal
     print('Now scoring model... ')
     y_train_pred = np.array(model.predict(X_train))
     y_train_pred = y_scaler.inverse_transform(y_train_pred.reshape(-1, 1))
-    y_train = y_scaler.inverse_transform(y_train)
+    y_train = y_scaler.inverse_transform(y_train.reshape(-1, 1))
 
     scores['MSE_train'] = mean_squared_error(y_train, y_train_pred),
     scores['R2_train'] = r2_score(y_train, y_train_pred)
     scores['MAE_train'] = mean_absolute_error(y_train, y_train_pred)
 
     y_test_pred = None
-    y_test = y_scaler.inverse_transform(y_test)
+    y_test = y_scaler.inverse_transform(y_test.reshape(-1, 1))
     if y_test is not None:
         y_test_pred = np.array(model.predict(X_test))
         y_test_pred = y_scaler.inverse_transform(y_test_pred.reshape(-1, 1))
