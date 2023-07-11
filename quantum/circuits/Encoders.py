@@ -1,10 +1,12 @@
 import pennylane as qml
-from pennylane import numpy as np
+import numpy as np
 
 
 def mitarai(features, wires):
     #  encoding as proposed by Mitarai et al.
     for i in range(len(features)):
+        if np.isnan(np.arcsin(features[i])):
+            raise ValueError(f'NaN found at index: {i}. With feature: {features[i]}. ')
         qml.RY(np.arcsin(features[i]), wires=wires[i])
         qml.RZ(np.arccos(features[i]**2), wires=wires[i])
 
