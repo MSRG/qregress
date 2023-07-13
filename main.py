@@ -33,6 +33,7 @@ LAYERS = None
 PROVIDER = None
 TOKEN = None
 HYPERPARAMETERS = None
+RE_UPLOAD_DEPTH = None
 
 ############################################
 #  Lists of acceptable values
@@ -90,6 +91,9 @@ def parse_settings(settings_file):
 
     global HYPERPARAMETERS
     HYPERPARAMETERS = settings['HYPERPARAMETERS']
+
+    global RE_UPLOAD_DEPTH
+    RE_UPLOAD_DEPTH = settings['RE-UPLOAD_DEPTH']
 
     # classes aren't JSON serializable, so we store the key in the settings file and access it here.
     global ANSATZ
@@ -257,7 +261,8 @@ def create_kwargs():
         'postprocess': POSTPROCESS,
         'error_mitigation': ERROR_MITIGATION,
         'provider': PROVIDER,
-        'token': TOKEN
+        'token': TOKEN,
+        're_upload_depth': RE_UPLOAD_DEPTH
     }
     return kwargs
 

@@ -39,6 +39,7 @@ class QuantumRegressor:
             scale_factors: list = None,
             folding=fold_global,
             shots: int = None,
+            re_upload_depth: int = 1,
             f: float = 1.,
             alpha: float = 0.,
             beta: float = 1,
@@ -51,6 +52,7 @@ class QuantumRegressor:
         self.x = None
         self.y = None
         self.params = None
+        self._re_upload_depth = re_upload_depth
         self.error_mitigation = error_mitigation
         self.num_qubits = num_qubits
         self.max_iterations = max_iterations
@@ -94,8 +96,10 @@ class QuantumRegressor:
     def _circuit(self, features, parameters):
         #  builds the circuit with the given encoder and variational circuits.
         #  encoder and variational circuits must have only two required parameters, params/feats and wires
-        self.encoder(features, wires=range(self.num_qubits))
-        self.variational(parameters, wires=range(self.num_qubits))
+        for i in range(self._re_upload_depth):
+            self.encoder(features, wires=range(self.num_qubits))
+            self.variational(parameters, wires=range(self.num_qubits))
+
         if self.postprocess is None and self.error_mitigation != 'M3':
             return qml.expval(qml.PauliZ(0))
         elif self.postprocess is None and self.error_mitigation == 'M3':

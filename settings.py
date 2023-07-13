@@ -62,7 +62,7 @@ hyperparameters = {
 
 
 def create_settings(filename: str, settings: dict, postprocess, error_mitigation, shots, backend, device,
-                    optimizer, layers, scale_factors=None):
+                    optimizer, layers, re_upload_depth, scale_factors=None):
     """
     Takes inputs for all of the settings to be used in the QML model and creates a dictionary of the corresponding
     settings. Then is dumped into JSON and saved as filename.json. Filename parameter should not include the extension.
@@ -84,6 +84,7 @@ def create_settings(filename: str, settings: dict, postprocess, error_mitigation
     settings['SCALE_FACTORS'] = scale_factors
     settings['LAYERS'] = layers
     settings['HYPERPARAMETERS'] = hyperparameters
+    settings['RE-UPLOAD_DEPTH'] = re_upload_depth
 
     filename = filename + '.json'
 
@@ -125,6 +126,10 @@ def create_combinations(encoder: str = None, ansatz: str = None):
 @click.option('--encoder', default=None, help='Encoder circuit to generate settings for. ')
 @click.option('--ansatz', default=None, help='Ansatz circuit to generate settings for. ')
 @click.option('--layers', default=1, help='Layers to use for ansatz. ')
+@click.option('--re_upload_depth', default=1, type=int, help='How many times to repeat encoder and ansatz. Note that '
+                                                             'layers passed into ansatz repeats each re-upload cycle '
+                                                             'i.e. if layers=2 and re_upload_depth=2 there will be 4 '
+                                                             'total layers of ansatz and 2 layers of encoding. ')
 @click.option('--device', default='qulacs.simulator', help='Device to run on. ')
 @click.option('--backend', default=None, help='If running on IBMQ device, specify a backend here. ')
 @click.option('--shots', default=None, help='Number of shots to estimate expectation values from. If none is '
@@ -136,7 +141,8 @@ def create_combinations(encoder: str = None, ansatz: str = None):
 @click.option('--post_process', default=None, help='Specify a post-processing type. Leave blank for none. ')
 @click.option('--file_name', default=None, type=click.Path(), help='Name for the file to be saved as. Only specify if '
                                                                    'creating a single settings file. ')
-def main(encoder, ansatz, layers, device, backend, shots, optimizer, error_mitigation, post_process, file_name):
+def main(encoder, ansatz, layers, device, backend, shots, optimizer, error_mitigation, post_process, file_name,
+         re_upload_depth):
     """
     Takes user input parameters and creates a settings json file to be inputted into main.py. If an encoder/ansatz is
     not supplied it will loop over all remaining combinations with remaining settings and title it with encoder_ansatz.
@@ -157,7 +163,8 @@ def main(encoder, ansatz, layers, device, backend, shots, optimizer, error_mitig
 
     for name, setting in settings.items():
         create_settings(filename=name, settings=setting, postprocess=post_process, error_mitigation=error_mitigation,
-                        shots=shots, backend=backend, device=device, optimizer=optimizer, layers=layers)
+                        shots=shots, backend=backend, device=device, optimizer=optimizer, layers=layers,
+                        re_upload_depth=re_upload_depth)
 
 
 if __name__ == '__main__':
