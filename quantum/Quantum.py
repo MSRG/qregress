@@ -10,6 +10,7 @@ from mitiq.zne.inference import RichardsonFactory, LinearFactory
 import joblib
 import mthree
 import os
+import json
 
 
 class QuantumRegressor:
@@ -238,7 +239,7 @@ class QuantumRegressor:
         print('Loaded parameter_vector as', param_vector)
         return param_vector
 
-    def fit(self, x, y, initial_parameters=None, detailed_results=False, load_state=None, callback_interval=None):
+    def fit(self, x, y, initial_parameters=None, detailed_results=True, load_state=None, callback_interval=None):
         """
         Fits the current model to the given x and y data. If no initial parameters are given then random ones will be
         chosen. Optimal parameters are stored in the model for use in predict and returned in this function.
@@ -302,7 +303,18 @@ class QuantumRegressor:
                 opt_result = [params, cost]
         self._save_partial_state(params, force=True)
         if detailed_results:
-            return opt_result
+            for key, value in opt_result.items():
+                if type(value) is np.ndarray:
+                    value = value.tolist()
+                    for i, x in enumerate(value):
+                        if type(x) is np.bool_:
+                            value[i] = bool(x)
+                    opt_result[key] = value
+                elif type(value) is np.bool_:
+                    value = bool(value)
+                    opt_result[key] = value
+            with open('detailed_results.json', 'w') as outfile:
+                json.dump(opt_result, outfile)
         return self.params
 
     def predict(self, x):
