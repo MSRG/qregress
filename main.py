@@ -34,6 +34,7 @@ PROVIDER = None
 TOKEN = None
 HYPERPARAMETERS = None
 RE_UPLOAD_DEPTH = None
+MAX_ITER = None
 
 ############################################
 #  Lists of acceptable values
@@ -95,6 +96,9 @@ def parse_settings(settings_file):
     global RE_UPLOAD_DEPTH
     RE_UPLOAD_DEPTH = settings['RE-UPLOAD_DEPTH']
 
+    global MAX_ITER
+    MAX_ITER = settings['MAX_ITER']
+
     # classes aren't JSON serializable, so we store the key in the settings file and access it here.
     global ANSATZ
     ANSATZ = ANSATZ_LIST[settings['ANSATZ']]
@@ -137,19 +141,16 @@ def save_token(instance, token):
 @click.option('--scaler', required=True, type=click.Path(exists=True), help='Scaler used to unsclae y-values. ')
 @click.option('--instance', default=None, help='Instance for running on IBMQ devices. ')
 @click.option('--token', default=None, help='IBMQ token for running on hardware. ')
-@click.option('--save_model', default=True, help='Whether to save the trained model to file. ')
+@click.option('--save_model', default=True, help='Whether to save the trained model to file. Not implemented. ')
 @click.option('--save_circuits', default=False, help='Whether to save a figure of encoder and ansatz circuits. ')
 @click.option('--title', default=None, type=click.Path(), help='Title to use for save files. If none, infers it from '
                                                                'settings file. ')
 @click.option('--resume_file', default=None, type=click.Path(exists=True), help='File to resume training from. Use '
                                                                                 'the same settings file to generate '
                                                                                 'the same model for training. ')
-@click.option('--f', default=None, type=float, help='Optionally specify hyperparameter for training. ')
-@click.option('--alpha', default=None, type=float, help='Optionally specify hyperparameter for training. ')
-@click.option('--beta', default=None, type=float, help='Optionally specify hyperparameter for training. ')
 @click.option('--num_qubits', default=None, type=int, help='Specify number of qubits')
 def main(settings, train_set, test_set, scaler, instance, token, save_model, save_circuits, title, resume_file,
-         f, alpha, beta, num_qubits):
+         num_qubits):
     """
     Trains the quantum regressor with the settings in the given settings file using the dataset from the given train
     and test files. Will perform grid search on a default hyperparameter space unless they are specified. Saves trained
@@ -184,14 +185,15 @@ def main(settings, train_set, test_set, scaler, instance, token, save_model, sav
 
     print(f'Training model with dataset {train_set} \n at time {time.asctime()}... ')
     st = time.time()
+    """
     if type(f) is list:
         model, hyperparams, score, hyperparam_results = grid_search(QuantumRegressor, HYPERPARAMETERS, X_train, y_train,
                                                                     X_test, y_test, title, **kwargs)
         et = time.time()
         print(f'Training complete taking {et - st} total seconds. Best hyperparameters found to be {hyperparams}. ')
-
-    else:
-        model = QuantumRegressor(**kwargs, f=f, alpha=alpha, beta=beta)
+    """
+    if True:
+        model = QuantumRegressor(**kwargs)
         model.fit(X_train, y_train, load_state=resume_file)
         et = time.time()
         print(f'Training complete taking {et - st} total seconds. ')
@@ -225,10 +227,11 @@ def main(settings, train_set, test_set, scaler, instance, token, save_model, sav
     print(f'Model scores: {scores}. ')
 
     results = scores
+    """
     if f is None:
         results['Hyperparameters'] = hyperparams
         results['Hyperparam_train'] = hyperparam_results
-
+    """
     results_title = title + '_results.json'
     with open(results_title, 'w') as outfile:
         json.dump(results, outfile)
@@ -256,13 +259,17 @@ def create_kwargs():
         'variational': ANSATZ,
         'num_qubits': X_DIM,
         'optimizer': OPTIMIZER,
+        'max_iterations': MAX_ITER,
         'device': DEVICE,
         'backend': BACKEND,
         'postprocess': POSTPROCESS,
         'error_mitigation': ERROR_MITIGATION,
         'provider': PROVIDER,
         'token': TOKEN,
-        're_upload_depth': RE_UPLOAD_DEPTH
+        're_upload_depth': RE_UPLOAD_DEPTH,
+        'f': HYPERPARAMETERS['f'],
+        'alpha': HYPERPARAMETERS['alpha'],
+        'beta': HYPERPARAMETERS['beta']
     }
     return kwargs
 

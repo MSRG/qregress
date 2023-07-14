@@ -62,7 +62,7 @@ hyperparameters = {
 
 
 def create_settings(filename: str, settings: dict, postprocess, error_mitigation, shots, backend, device,
-                    optimizer, layers, re_upload_depth, scale_factors=None):
+                    optimizer, layers, re_upload_depth, max_iter, scale_factors=None):
     """
     Takes inputs for all of the settings to be used in the QML model and creates a dictionary of the corresponding
     settings. Then is dumped into JSON and saved as filename.json. Filename parameter should not include the extension.
@@ -81,10 +81,11 @@ def create_settings(filename: str, settings: dict, postprocess, error_mitigation
     settings['DEVICE'] = device
     settings['BACKEND'] = backend
     settings['OPTIMIZER'] = optimizer
+    settings['MAX_ITER'] = max_iter
     settings['SCALE_FACTORS'] = scale_factors
     settings['LAYERS'] = layers
-    settings['HYPERPARAMETERS'] = hyperparameters
     settings['RE-UPLOAD_DEPTH'] = re_upload_depth
+    settings['HYPERPARAMETERS'] = hyperparameters
 
     filename = filename + '.json'
 
@@ -136,13 +137,15 @@ def create_combinations(encoder: str = None, ansatz: str = None):
                                             'specified will use the device default. ')
 @click.option('--optimizer', required=True, help='Specify an optimizer for the model. COBYLA is recommended for '
                                                  'noiseless and SPSA or Nelder-Mead for noisy. ')
+@click.option('--max_iter', default=None, type=int, help='Maximum number of iterations for optimizer. COBYLA defaults '
+                                                         'to 1000 and Nelder-Mead to 200*N. ')
 @click.option('--error_mitigation', default=None, help='Specify an error mitigation method if using a noisy device. '
                                                        'Leave blank for none. ')
 @click.option('--post_process', default=None, help='Specify a post-processing type. Leave blank for none. ')
 @click.option('--file_name', default=None, type=click.Path(), help='Name for the file to be saved as. Only specify if '
                                                                    'creating a single settings file. ')
-def main(encoder, ansatz, layers, device, backend, shots, optimizer, error_mitigation, post_process, file_name,
-         re_upload_depth):
+def main(encoder, ansatz, layers, device, backend, shots, optimizer, max_iter, error_mitigation, post_process,
+         file_name, re_upload_depth):
     """
     Takes user input parameters and creates a settings json file to be inputted into main.py. If an encoder/ansatz is
     not supplied it will loop over all remaining combinations with remaining settings and title it with encoder_ansatz.
@@ -164,7 +167,7 @@ def main(encoder, ansatz, layers, device, backend, shots, optimizer, error_mitig
     for name, setting in settings.items():
         create_settings(filename=name, settings=setting, postprocess=post_process, error_mitigation=error_mitigation,
                         shots=shots, backend=backend, device=device, optimizer=optimizer, layers=layers,
-                        re_upload_depth=re_upload_depth)
+                        re_upload_depth=re_upload_depth, max_iter=max_iter)
 
 
 if __name__ == '__main__':
