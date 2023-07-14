@@ -1,24 +1,73 @@
 import time
 import matplotlib.pyplot as plt
+
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.gaussian_process.kernels import RBF
 from sklearn.kernel_ridge import KernelRidge
-from sklearn.linear_model import Ridge
+from sklearn.linear_model import Ridge, Lasso, ElasticNet
 from sklearn.neighbors import KNeighborsRegressor
+from sklearn.model_selection import GridSearchCV
 from sklearn.svm import SVR
+
 from quantum.Evaluate import evaluate
 
 gaussian_kernel = RBF()
 
 models = {
     'ridge': Ridge(),
+    'lasso': Lasso(),
+    'elastic': ElasticNet(),
     'knn': KNeighborsRegressor(),
     'rfr': RandomForestRegressor(),
     'grad': GradientBoostingRegressor(),
     'svr': SVR(),
-    'krr': KernelRidge(kernel='rbf'),
-    'gpr': GaussianProcessRegressor(kernel=gaussian_kernel)
+    'krr': KernelRidge(),
+    'gpr': GaussianProcessRegressor()
+}
+
+param_grid = {
+    'ridge': {
+        'alpha': [0.001, 0.01, 0.1, 1],
+        'solver': ['auto', 'svd', 'cholesky']
+    },
+    'knn': {
+        'n_neighbors': range(1, 10),
+        'weights': ['uniform', 'distance']
+    },
+    'rfr': {
+        'n_estimators': [100, 200, 300],
+        'max_depth': [None, 5, 10],
+        'min_samples_split': [2, 5, 10]
+    },
+    'grad': {
+        'n_estimators': [100, 200, 300],
+        'learning_rate': [0.1, 0.01, 0.001],
+        'max_depth': [3, 5, 7]
+    },
+    'svr': {
+        'kernel': ['linear', 'rbf'],
+        'C': [0.1, 1, 10],
+        'epsilon': [0.1, 0.01, 0.001]
+    },
+    'krr': {
+        'kernel': ['linear', 'poly', 'rbf'],
+        'alpha': [0.001, 0.01, 0.1, 1],
+        'gamma': [1, 0.1, 0.01, 0.001]
+    },
+    'gpr': {
+        'alpha': [0.0001, 0.001, 0.01, 0.1, 1],
+        'kernel': [gaussian_kernel]
+    },
+    'lasso': {
+        'alpha': [0.001, 0.01, 0.1, 1],
+        'max_iter': [1000, 2000, 3000]
+    },
+    'elastic': {
+        'alpha': [0.001, 0.01, 0.1, 1],
+        'l1_ratio': [0.2, 0.5, 0.8],
+        'max_iter': [1000, 2000, 3000]
+    }
 }
 
 '''
@@ -67,12 +116,22 @@ def classical_regressor(model: str, scaler, X_tr, y_tr, X_te, y_te, plot=True, s
     """
     if model not in models.keys():
         raise ValueError('Model must be one of', models.keys())
+
     st = time.time()
     current_model = models[model]
+    current_param_grid = param_grid[model]
+
+    grid_search = GridSearchCV(current_model, current_param_grid, cv=5)
+
     print(f'Now fitting {model}... ')
-    current_model.fit(X_tr, y_tr)
-    print(f'Completed fitting {model} in {time.time()-st} seconds. ')
-    current_scores, y_te_pred, y_tr_pred = evaluate(model=current_model, X_train=X_tr, X_test=X_te, y_train=y_tr,
+
+    grid_search.fit(X_tr, y_tr)
+
+    best_model = grid_search.best_estimator_
+
+    print(f'Completed fitting {model} in {time.time() - st} seconds. ')
+
+    current_scores, y_te_pred, y_tr_pred = evaluate(model=best_model, X_train=X_tr, X_test=X_te, y_train=y_tr,
                                                     y_test=y_te, y_scaler=scaler, plot=True, title=model)
     if plot:
         plt.scatter(y_te, y_te_pred, color='r', label='Test data')
@@ -93,7 +152,7 @@ def run_models(scaler, X_tr, y_tr, X_te, y_te, save_plots):
     y_tr_pred = {}
     for model in models.keys():
         scores[model], y_te_pred[model], y_tr_pred[model] = classical_regressor(model, scaler, X_tr, y_tr, X_te, y_te,
-                                                                          plot=save_plots)
+                                                                                plot=save_plots)
 
     """
     for i in range(3):  # 3 because we have 3 different scoring types, this will loop over each of them and create a

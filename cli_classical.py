@@ -46,7 +46,7 @@ def main(scaler, train_set, test_set, save_plots):
 
     with open('scores.json', 'w') as outfile:
         json.dump(scores, outfile)
-        print(f'Scores saved as {outfile}. ')
+        print(f'Scores saved as {outfile.name}. ')
 
 
 if __name__ == '__main__':
