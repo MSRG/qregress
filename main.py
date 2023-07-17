@@ -180,6 +180,7 @@ def main(settings, train_set, test_set, scaler, instance, token, save_model, sav
         X_DIM = NUM_QUBITS
     elif X_DIM == 1:  # if X_DIM is None and no num_qubits wasn't specified anywhere use a default value of 2.
         NUM_QUBITS = 2
+        X_DIM = NUM_QUBITS
 
     kwargs = create_kwargs()
 
