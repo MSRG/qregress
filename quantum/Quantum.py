@@ -11,6 +11,7 @@ import joblib
 import mthree
 import os
 import json
+import time
 
 
 class QuantumRegressor:
@@ -210,6 +211,9 @@ class QuantumRegressor:
             cost_at_step = self._cost_wrapper(xk)
         else:
             cost_at_step = self._hybrid_cost_wrapper(xk)
+        if self.fit_count % 50 == 0:
+            print(f'[{time.asctime()}]  Iteration number: {self.fit_count} with current cost as {cost_at_step} and '
+                  f'parameters \n{xk}. ')
         filename = 'model_log.csv'
         log = f'{self.fit_count},{cost_at_step},{xk}'
         with open(filename, 'a') as outfile:
