@@ -35,6 +35,7 @@ TOKEN = None
 HYPERPARAMETERS = None
 RE_UPLOAD_DEPTH = None
 MAX_ITER = None
+NUM_QUBITS = None
 
 ############################################
 #  Lists of acceptable values
@@ -99,6 +100,12 @@ def parse_settings(settings_file):
     global MAX_ITER
     MAX_ITER = settings['MAX_ITER']
 
+    global NUM_QUBITS
+    try:
+        NUM_QUBITS = settings['NUM_QUBITS']
+    except KeyError:
+        NUM_QUBITS = None
+
     # classes aren't JSON serializable, so we store the key in the settings file and access it here.
     global ANSATZ
     ANSATZ = ANSATZ_LIST[settings['ANSATZ']]
@@ -148,7 +155,7 @@ def save_token(instance, token):
 @click.option('--resume_file', default=None, type=click.Path(exists=True), help='File to resume training from. Use '
                                                                                 'the same settings file to generate '
                                                                                 'the same model for training. ')
-@click.option('--num_qubits', default=None, type=int, help='Specify number of qubits')
+@click.option('--num_qubits', default=None, type=int, help='Specify number of qubits. Better to set in settings file. ')
 def main(settings, train_set, test_set, scaler, instance, token, save_model, save_circuits, title, resume_file,
          num_qubits):
     """
@@ -164,9 +171,16 @@ def main(settings, train_set, test_set, scaler, instance, token, save_model, sav
     parse_settings(settings)
     if DEVICE == 'qiskit.ibmq':
         save_token(instance, token)
+
+    global NUM_QUBITS
+    global X_DIM
     if num_qubits is not None:
-        global X_DIM
-        X_DIM = num_qubits
+        NUM_QUBITS = num_qubits
+    if NUM_QUBITS is not None:
+        X_DIM = NUM_QUBITS
+    elif X_DIM == 1:  # if X_DIM is None and no num_qubits wasn't specified anywhere use a default value of 2.
+        NUM_QUBITS = 2
+
     kwargs = create_kwargs()
 
     if title is None:
