@@ -99,7 +99,6 @@ def split(x, y, train_ratio: float, test_ratio: float, validate_ratio: float):
 ############################################
 # Dimension Reduction
 ############################################
-# TODO: Change from using PCA to using UMAP / TSNE
 
 dim_methods_list = ['UMAP', 'TSNE', 'PCA']
 
