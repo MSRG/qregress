@@ -9,10 +9,11 @@ calculator = AutoDescriptor()
 
 
 @click.command()
-@click.option('--write', default="/home/taylo773/Quantum/GitHub/qregress/database/processed/", help='Write path for '
-                                                                                                    'processed files. ')
-@click.option('--read', required=True, help='Read path for xyz files. ')
-@click.option('--org', required=True, help="Path to org file specifying xyz file organization. ")
+@click.option('--write', type=click.Path(), default="/home/taylo773/Quantum/GitHub/qregress/database/processed/",
+              help='Write path for processed files. ')
+@click.option('--read', required=True, type=click.Path(), help='Read path for xyz files. ')
+@click.option('--org', required=True, type=click.Path(exists=True), help="Path to org file specifying xyz file "
+                                                                         "organization. ")
 def main(write, read, org):
     """
     Takes a dataset of xyz files and translates it into a set rdkit generated features. Uses org file to read the
