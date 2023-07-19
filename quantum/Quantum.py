@@ -1,5 +1,6 @@
 import pennylane as qml
 import numpy as np
+from pennylane import numpy as np
 from sklearn.metrics import mean_squared_error
 from scipy.optimize import minimize
 from qiskit_ibm_runtime import QiskitRuntimeService
@@ -266,8 +267,12 @@ class QuantumRegressor:
         params = initial_parameters
 
         if self.use_scipy:
+            options = {
+                'maxiter': self.max_iterations,
+                'tol': 1e-10
+            }
             opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
-                                  options={'maxiter': self.max_iterations})
+                                  options=options)
             self.params = opt_result['x']
         else:
             opt = qml.SPSAOptimizer(maxiter=self.max_iterations)

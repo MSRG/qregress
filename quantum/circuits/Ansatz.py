@@ -90,6 +90,7 @@ class EfficientSU2:
             raise ValueError("Incorrect number of parameters. Expected ", qc.num_parameters_settable, 'but received ',
                              len(parameters))
         qc = qc.decompose()
+        parameters = parameters.tolist()
         qc = qc.bind_parameters(parameters)
         qml_circuit = qml.from_qiskit(qc)
         qml_circuit(wires=self._wires)
@@ -136,6 +137,7 @@ class ExcitationPreserving:
             raise ValueError("Incorrect number of parameters. Expected ", qc.num_parameters_settable, 'but received ',
                              len(parameters))
         qc = qc.decompose()
+        parameters = parameters.tolist()
         qc = qc.bind_parameters(parameters)
         qml_circuit = qml.from_qiskit(qc)
         qml_circuit(wires=self._wires)
@@ -188,6 +190,7 @@ class TwoLocal:
             raise ValueError("Incorrect number of parameters. Expected ", qc.num_parameters_settable, "but received ",
                              len(parameters))
         qc = qc.decompose()
+        parameters = parameters.tolist()
         qc = qc.bind_parameters(parameters)
         qml_circuit = qml.from_qiskit(qc)
         qml_circuit(wires=self._wires)
@@ -237,6 +240,7 @@ class PauliTwoDesign:
             raise ValueError("Incorrect number of parameters. Expected ", qc.num_parameters_settable, "but received ",
                              len(parameters))
         qc = qc.decompose()
+        parameters = parameters.tolist()
         qc = qc.bind_parameters(parameters)
         qml_circuit = qml.from_qiskit(qc)
         qml_circuit(wires=self._wires)
@@ -278,6 +282,7 @@ class RealAmplitudes:
             raise ValueError("Incorrect number of parameters. Expected ", qc.num_parameters_settable, "but received ",
                              len(parameters))
         qc = qc.decompose()
+        parameters = parameters.tolist()
         qc = qc.bind_parameters(parameters)
         qml_circuit = qml.from_qiskit(qc)
         qml_circuit(wires=self._wires)
@@ -327,6 +332,7 @@ class NLocal:
             raise ValueError("Incorrect number of parameters. Expected ", qc.num_parameters_settable, "but received ",
                              len(parameters))
         qc = qc.decompose()
+        parameters = parameters.tolist()
         qc = qc.bind_parameters(parameters)
         qml_circuit = qml.from_qiskit(qc)
         qml_circuit(wires=self._wires)
