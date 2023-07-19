@@ -1,6 +1,5 @@
 import json
 import click
-import numpy as np
 from quantum.circuits.Encoders import double_angle, single_angle, iqp_embedding, mitarai, composer, \
     entangle_cz, entangle_cnot
 from quantum.circuits.Ansatz import HardwareEfficient, EfficientSU2, TwoLocal, ModifiedPauliTwo, HadamardAnsatz
@@ -61,8 +60,8 @@ ANSATZ_LIST = {
 # This is defining the grid-space of hyperparameters to search through.
 hyperparameters = {
     'f': 1,  # np.arange(1, 10, 0.5).tolist(),
-    'alpha': np.arange(0, 1, 0.05).tolist(),
-    'beta': np.arange(0, 1, 0.05).tolist()
+    'alpha': [0.001, 0.01, 0.1, 1, 10],
+    'beta': [0.001, 0.01, 0.1, 1, 10]
 }
 
 
