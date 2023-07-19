@@ -57,6 +57,8 @@ class QuantumRegressor:
         self.error_mitigation = error_mitigation
         self.num_qubits = num_qubits
         self.max_iterations = max_iterations
+        if postprocess == 'None':
+            postprocess = None
         self.postprocess = postprocess
         self.encoder = encoder
         self.variational = variational
@@ -140,62 +142,46 @@ class QuantumRegressor:
             self.qnode = new_qnode
 
     def _cost(self, parameters):
-        #  f is a hyperparameter scaling each of the obtained measurements used in both pure and hybrid
-        f = self.hyperparameters['f']
-        predicted_y = f * np.array([self.qnode(x, parameters) for x in self.x])
-        return mean_squared_error(self.y, predicted_y)
+
+        pred = self.predict(self.x, params=parameters)
+        base_cost = mean_squared_error(self.y, pred)
+        if self.postprocess is None or self.postprocess == 'None' or self.postprocess == 'simple':
+            return base_cost
+        elif self.postprocess == 'ridge':
+            extra_params = parameters[-self.num_qubits:]
+            alpha = self.hyperparameters['alpha']
+
+            return base_cost + alpha * np.linalg.norm(extra_params)
+        elif self.postprocess == 'lasso':
+            extra_params = parameters[-self.num_qubits:]
+            alpha = self.hyperparameters['alpha']
+
+            l1_norm = 0
+            for param in extra_params:
+                l1_norm += np.abs(param)
+
+            return base_cost + alpha * l1_norm
+        elif self.postprocess == 'elastic':
+            extra_params = parameters[-self.num_qubits:]
+            alpha = self.hyperparameters['alpha']
+            beta = self.hyperparameters['beta']
+
+            l1_norm = 0
+            for param in extra_params:
+                l1_norm += np.abs(param)
+
+            return base_cost + beta * (alpha * l1_norm + (1 - alpha) * np.linalg.norm(extra_params))
+        else:
+            raise NotImplementedError(f'The given postprocess type {self.postprocess} is not implemented. ')
 
     def _cost_wrapper(self, parameters):
+        # caches the results from the cost function, so they don't have to be recalculated if they get called again i.e.
+        # during the callback function for logging.
         param_hash = hash(parameters.data.tobytes())
         if param_hash in self.cached_results:
             cost = self.cached_results[param_hash]
         else:
             cost = self._cost(parameters)
-            self.cached_results[param_hash] = cost
-        return cost
-
-    def _hybrid_cost(self, parameters):
-        #  cost function for use in hybrid QML with linear model
-        #  TODO: This isn't working all the time. Raising a matmul error.
-        f = self.hyperparameters['f']
-        alpha = self.hyperparameters['alpha']
-        beta = self.hyperparameters['beta']
-        num = self.num_qubits
-        params = parameters[:-num]
-        extra_params = parameters[-num:]
-
-        #  f is a hyperparameter scaling each of the obtained measurements used in both pure and hybrid
-        measurements = f * np.array([self.qnode(x, params) for x in self.x])
-        base_cost = np.linalg.norm(self.y - np.matmul(measurements, extra_params)) ** 2 / len(self.x)
-        if self.postprocess == 'simple':
-            cost = base_cost
-        elif self.postprocess == 'ridge':
-            ridge_lambda = alpha
-            cost = base_cost + ridge_lambda * np.linalg.norm(extra_params)
-        elif self.postprocess == 'lasso':
-            lasso_lambda = alpha
-            num = 0
-            for param in extra_params:
-                num += np.abs(param)
-            cost = base_cost + lasso_lambda * num
-        elif self.postprocess == 'elastic':
-            num = 0
-            elastic_lambda = beta
-            for param in extra_params:
-                num += np.abs(param)
-            cost = base_cost + elastic_lambda * (alpha * num + (1 - alpha) * np.linalg.norm(extra_params))
-        else:
-            raise ValueError('Unable to determine classical postprocessing method.' +
-                             'postprocess was set to ', self.postprocess, " accepted values include: " +
-                             " 'simple', 'ridge', 'lasso', 'elastic'")
-        return cost
-
-    def _hybrid_cost_wrapper(self, parameters):
-        param_hash = hash(parameters.data.tobytes())
-        if param_hash in self.cached_results:
-            cost = self.cached_results[param_hash]
-        else:
-            cost = self._hybrid_cost(parameters)
             self.cached_results[param_hash] = cost
         return cost
 
@@ -205,10 +191,7 @@ class QuantumRegressor:
         return num_params
 
     def _callback(self, xk):
-        if self.postprocess is None:
-            cost_at_step = self._cost_wrapper(xk)
-        else:
-            cost_at_step = self._hybrid_cost_wrapper(xk)
+        cost_at_step = self._cost_wrapper(xk)
         if self.fit_count % 50 == 0:
             print(f'[{time.asctime()}]  Iteration number: {self.fit_count} with current cost as {cost_at_step} and '
                   f'parameters \n{xk}. ')
@@ -267,7 +250,6 @@ class QuantumRegressor:
             outfile.write('Iteration,Cost,Parameters')
             outfile.write('\n')
         self.callback_interval = callback_interval
-        opt_result = None
         if load_state is not None:
             param_vector = self._load_partial_state(load_state)
             initial_parameters = param_vector
@@ -275,7 +257,6 @@ class QuantumRegressor:
             num_params = self._num_params()
             generator = np.random.default_rng()
             initial_parameters = generator.uniform(-np.pi, np.pi, num_params)
-
             if self.postprocess is not None:
                 additional_num_params = self.num_qubits
                 additional_params = generator.uniform(-1, 1, additional_num_params)
@@ -283,34 +264,21 @@ class QuantumRegressor:
         self.x = x
         self.y = y
         params = initial_parameters
-        if self.postprocess is None:
-            if self.use_scipy:
-                opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
-                                      options={'maxiter': self.max_iterations})
-                self.params = opt_result['x']
-            else:
-                opt = qml.SPSAOptimizer(maxiter=self.max_iterations)
-                cost = []
-                for _ in range(self.max_iterations):
-                    params, temp_cost = opt.step_and_cost(self._cost_wrapper, params)
-                    cost.append(temp_cost)
-                    self._callback(params)
-                opt_result = [params, cost]
-                self.params = params
-        elif self.postprocess is not None:
-            if self.use_scipy:
-                opt_result = minimize(self._hybrid_cost_wrapper, x0=params, method=self.optimizer,
-                                      callback=self._callback, options={'maxiter': self.max_iterations})
-                self.params = opt_result['x']
-            else:
-                opt = qml.SPSAOptimizer(maxiter=self.max_iterations)
-                cost = []
-                for _ in range(self.max_iterations):
-                    params, temp_cost = opt.step_and_cost(self._hybrid_cost_wrapper, params)
-                    cost.append(temp_cost)
-                    self._callback(params)
-                opt_result = [params, cost]
-                self.params = params
+
+        if self.use_scipy:
+            opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+                                  options={'maxiter': self.max_iterations})
+            self.params = opt_result['x']
+        else:
+            opt = qml.SPSAOptimizer(maxiter=self.max_iterations)
+            cost = []
+            for _ in range(self.max_iterations):
+                params, temp_cost = opt.step_and_cost(self._cost_wrapper, params)
+                cost.append(temp_cost)
+                self._callback(params)
+            opt_result = [params, cost]
+            self.params = params
+
         self._save_partial_state(params, force=True)
         if detailed_results:
             for key, value in opt_result.items():
@@ -330,21 +298,26 @@ class QuantumRegressor:
                     print('Could not dump detailed results. Not json serializable. ')
         return self.params
 
-    def predict(self, x):
+    def predict(self, x, params=None):
         """
         Predicts a set of output data given a set of input data x using the trained parameters found with fit
 
         :param x: np.array
             x data to predict outputs of in the model
+        :param params: list
+            optional parameters to use in prediction, used for internal cost functions.
         :raises ValueError:
             if fit is not first called then raises error explaining that the model must first be trained
-        :return: list
+        :return: np.ndarray
             predicted values corresponding to each datapoint in x
         """
-        if self.params is None:
-            raise ValueError('Model must be trained first!')
+        f = self.hyperparameters['f']
+        if params is None:
+            # if no parameters are passed then we are predicting the fitted model, so we use the stored parameters.
+            params = self.params
+
         if self.postprocess is None:
-            return [self.qnode(features=features, parameters=self.params) for features in x]
-        elif self.postprocess is not None:
-            return [np.dot(self.qnode(features=features, parameters=self.params[:-self.num_qubits]),
-                           self.params[-self.num_qubits:]) for features in x]
+            return [f * self.qnode(features=features, parameters=params) for features in x]
+        else:
+            return [np.dot(f * self.qnode(features=features, parameters=params[:-self.num_qubits]),
+                           params[-self.num_qubits:]) for features in x]
