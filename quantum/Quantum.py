@@ -204,8 +204,6 @@ class QuantumRegressor:
         num_params = self.variational.num_params
         return num_params
 
-    # TODO: Add callback function that prints out more logging. We want to see the cycle iteration number, and cost
-    # per step
     def _callback(self, xk):
         if self.postprocess is None:
             cost_at_step = self._cost_wrapper(xk)
