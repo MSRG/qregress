@@ -243,7 +243,7 @@ class QuantumRegressor:
         print('Loaded parameter_vector as', param_vector)
         return param_vector
 
-    def fit(self, x, y, initial_parameters=None, detailed_results=True, load_state=None, callback_interval=None):
+    def fit(self, x, y, initial_parameters=None, detailed_results=False, load_state=None, callback_interval=None):
         """
         Fits the current model to the given x and y data. If no initial parameters are given then random ones will be
         chosen. Optimal parameters are stored in the model for use in predict and returned in this function.
@@ -318,7 +318,10 @@ class QuantumRegressor:
                     value = bool(value)
                     opt_result[key] = value
             with open('detailed_results.json', 'w') as outfile:
-                json.dump(opt_result, outfile)
+                try:
+                    json.dump(opt_result, outfile)
+                except:
+                    print('Could not dump detailed results. Not json serializable. ')
         return self.params
 
     def predict(self, x):
