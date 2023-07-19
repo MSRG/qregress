@@ -235,7 +235,7 @@ def plot_circuits(title):
     plt.savefig(title + '_ansatz.svg')
 
     draw_encoder = qml.draw_mpl(ENCODER)
-    draw_encoder(np.random.rand(X_DIM))
+    draw_encoder(np.random.rand(X_DIM), range(X_DIM))
     plt.savefig(title + '_encoder.svg')
 
 
