@@ -149,9 +149,9 @@ def create_combinations(encoder: str = None, ansatz: str = None):
               help='Specify an optimizer for the model. COBYLA is recommended for noiseless and SPSA or Nelder-Mead '
                    'for noisy. ')
 @click.option('--max_iter', default=1000, type=int, help='Maximum number of iterations for optimizer. ')
-@click.option('--error_mitigation', default=None, type=click.Choice(list(ERROR_MITIGATION_LIST.keys())),
+@click.option('--error_mitigation', default='None', type=click.Choice(list(ERROR_MITIGATION_LIST.keys())),
               help='Specify an error mitigation method if using a noisy device. Leave blank for none. ')
-@click.option('--post_process', default=None, type=click.Choice(list(POSTPROCESS_LIST.keys())),
+@click.option('--post_process', default='None', type=click.Choice(list(POSTPROCESS_LIST.keys())),
               help='Specify a post-processing type. Leave blank for none. ')
 @click.option('--file_name', default=None, type=click.Path(), help='Name for the file to be saved as. Only specify if '
                                                                    'creating a single settings file. ')
