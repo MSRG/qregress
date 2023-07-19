@@ -37,26 +37,6 @@ RE_UPLOAD_DEPTH = None
 MAX_ITER = None
 NUM_QUBITS = None
 
-############################################
-#  Lists of acceptable values
-############################################
-
-
-ERROR_MITIGATION_LIST = [
-    None,
-    'MITIQ_LINEAR',
-    'MITIQ_Richardson',
-    'M3',
-    'TREX'
-]
-
-POSTPROCESS_LIST = {
-    'None': None,
-    'simple': 'simple',
-    'ridge': 'ridge',
-    'lasso': 'lasso'
-}
-
 
 ############################################
 # Utility functions
@@ -163,10 +143,6 @@ def main(settings, train_set, test_set, scaler, instance, token, save_model, sav
     and test files. Will perform grid search on a default hyperparameter space unless they are specified. Saves trained
     model, scores and best hyperparameters to joblib dumps and graphs of performance and circuit drawings as mpl svg.
     """
-    # TODO: Save reference/predicted dataset test and train
-    # TODO: Add three-way split
-    # TODO: Change the way hyperparameters are handled by default
-    # TODO: More logging
     X_train, y_train = load_dataset(train_set)
     parse_settings(settings)
     if DEVICE == 'qiskit.ibmq':
@@ -207,11 +183,10 @@ def main(settings, train_set, test_set, scaler, instance, token, save_model, sav
         et = time.time()
         print(f'Training complete taking {et - st} total seconds. Best hyperparameters found to be {hyperparams}. ')
     """
-    if True:
-        model = QuantumRegressor(**kwargs)
-        model.fit(X_train, y_train, load_state=resume_file)
-        et = time.time()
-        print(f'Training complete taking {et - st} total seconds. ')
+    model = QuantumRegressor(**kwargs)
+    model.fit(X_train, y_train, load_state=resume_file)
+    et = time.time()
+    print(f'Training complete taking {et - st} total seconds. ')
 
     if save_model:
         model_title = title + '_model.bin'
@@ -298,6 +273,8 @@ def grid_search(model, hyperparameters: dict, x_train, y_train, x_test=None, y_t
 
     :return: trained_model, dict: best_hyperparameters, flaot: best_score, list: results
     """
+    # TODO: remove need for validate set by splitting here and then remove passing of test set for hyperparam search.
+    # temp_X_tr, temp_X_val = train_test_split()
     for x in hyperparameters.values():
         if not isinstance(x, collections.abc.Sequence):
             raise ValueError('Dictionary must contain list-like objects of values to try! ')
