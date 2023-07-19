@@ -1,5 +1,4 @@
 import pennylane as qml
-# from pennylane import numpy as np
 import numpy as np
 from sklearn.metrics import mean_squared_error
 from scipy.optimize import minimize
@@ -164,6 +163,7 @@ class QuantumRegressor:
         num = self.num_qubits
         params = parameters[:-num]
         extra_params = parameters[-num:]
+
         #  f is a hyperparameter scaling each of the obtained measurements used in both pure and hybrid
         measurements = f * np.array([self.qnode(x, params) for x in self.x])
         base_cost = np.linalg.norm(self.y - np.matmul(measurements, extra_params)) ** 2 / len(self.x)
@@ -195,7 +195,7 @@ class QuantumRegressor:
         if param_hash in self.cached_results:
             cost = self.cached_results[param_hash]
         else:
-            cost = self._cost(parameters)
+            cost = self._hybrid_cost(parameters)
             self.cached_results[param_hash] = cost
         return cost
 
@@ -220,7 +220,7 @@ class QuantumRegressor:
         self._save_partial_state(xk)
 
     def _save_partial_state(self, param_vector, force=False):
-        # saves every fifth call to a bin file able to be loaded later by calling fit with load_state set to filename
+        # saves every call to a bin file able to be loaded later by calling fit with load_state set to filename
         interval = self.callback_interval
         if interval is None:
             interval = 5
@@ -273,7 +273,13 @@ class QuantumRegressor:
             initial_parameters = param_vector
         elif initial_parameters is None:
             num_params = self._num_params()
-            initial_parameters = np.random.rand(num_params)
+            generator = np.random.default_rng()
+            initial_parameters = generator.uniform(-np.pi, np.pi, num_params)
+
+            if self.postprocess is not None:
+                additional_num_params = self.num_qubits
+                additional_params = generator.uniform(-1, 1, additional_num_params)
+                initial_parameters = np.concatenate((initial_parameters, additional_params))
         self.x = x
         self.y = y
         params = initial_parameters
@@ -295,6 +301,7 @@ class QuantumRegressor:
             if self.use_scipy:
                 opt_result = minimize(self._hybrid_cost_wrapper, x0=params, method=self.optimizer,
                                       callback=self._callback, options={'maxiter': self.max_iterations})
+                self.params = opt_result['x']
             else:
                 opt = qml.SPSAOptimizer(maxiter=self.max_iterations)
                 cost = []
@@ -303,6 +310,7 @@ class QuantumRegressor:
                     cost.append(temp_cost)
                     self._callback(params)
                 opt_result = [params, cost]
+                self.params = params
         self._save_partial_state(params, force=True)
         if detailed_results:
             for key, value in opt_result.items():
