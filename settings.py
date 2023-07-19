@@ -5,13 +5,25 @@ from quantum.circuits.Encoders import double_angle, single_angle, iqp_embedding,
     entangle_cz, entangle_cnot
 from quantum.circuits.Ansatz import HardwareEfficient, EfficientSU2, TwoLocal, ModifiedPauliTwo, HadamardAnsatz
 
-ERROR_MITIGATION = [
-    None,
-    'MITIQ_LINEAR',
-    'MITIQ_Richardson',
-    'M3',
-    'TREX'
-]
+############################################
+#  Lists of acceptable values
+############################################
+
+
+ERROR_MITIGATION_LIST = {
+    'None': None,
+    'MITIQ_LINEAR': 'MITIQ_LINEAR',
+    'MITIQ_Richardson': 'MITIQ_Richardson',
+    'M3': 'M3',
+    'TREX': 'TREX'
+}
+
+POSTPROCESS_LIST = {
+    'None': None,
+    'simple': 'simple',
+    'ridge': 'ridge',
+    'lasso': 'lasso'
+}
 
 ENCODER_LIST = {
     'M': mitarai,
@@ -46,13 +58,6 @@ ANSATZ_LIST = {
     'Hadamard': HadamardAnsatz()
 }
 
-POSTPROCESS = {
-    'None': None,
-    'simple': 'simple',
-    'ridge': 'ridge',
-    'lasso': 'lasso'
-}
-
 # This is defining the grid-space of hyperparameters to search through.
 hyperparameters = {
     'f': 1,  # np.arange(1, 10, 0.5).tolist(),
@@ -75,8 +80,8 @@ def create_settings(filename: str, settings: dict, postprocess, error_mitigation
     if postprocess is None:
         hyperparameters['alpha'] = [0]
         hyperparameters['beta'] = [0]
-    settings['POSTPROCESS'] = postprocess
-    settings['ERROR_MITIGATION'] = error_mitigation
+    settings['POSTPROCESS'] = POSTPROCESS_LIST[postprocess]
+    settings['ERROR_MITIGATION'] = ERROR_MITIGATION_LIST[error_mitigation]
     settings['SHOTS'] = shots
     settings['DEVICE'] = device
     settings['BACKEND'] = backend
@@ -125,8 +130,10 @@ def create_combinations(encoder: str = None, ansatz: str = None):
 
 
 @click.command()
-@click.option('--encoder', default=None, help='Encoder circuit to generate settings for. ')
-@click.option('--ansatz', default=None, help='Ansatz circuit to generate settings for. ')
+@click.option('--encoder', default=None, type=click.Choice(list(ENCODER_LIST.keys())), help='Encoder circuit to '
+                                                                                            'generate settings for. ')
+@click.option('--ansatz', default=None, type=click.Choice(list(ANSATZ_LIST.keys())), help='Ansatz circuit to generate '
+                                                                                          'settings for. ')
 @click.option('--layers', default=1, help='Layers to use for ansatz. ')
 @click.option('--re_upload_depth', default=1, type=int, help='How many times to repeat encoder and ansatz. Note that '
                                                              'layers passed into ansatz repeats each re-upload cycle '
@@ -136,14 +143,16 @@ def create_combinations(encoder: str = None, ansatz: str = None):
                                                            'will infer from number of features. ')
 @click.option('--device', default='qulacs.simulator', help='Device to run on. ')
 @click.option('--backend', default=None, help='If running on IBMQ device, specify a backend here. ')
-@click.option('--shots', default=None, help='Number of shots to estimate expectation values from. If none is '
-                                            'specified will use the device default. ')
-@click.option('--optimizer', required=True, help='Specify an optimizer for the model. COBYLA is recommended for '
-                                                 'noiseless and SPSA or Nelder-Mead for noisy. ')
+@click.option('--shots', default=None, type=int, help='Number of shots to estimate expectation values from. If none is '
+                                                      'specified will use the device default. ')
+@click.option('--optimizer', required=True, type=click.Choice(['COBYLA', 'Nelder-Mead', 'SPSA'], case_sensitive=True),
+              help='Specify an optimizer for the model. COBYLA is recommended for noiseless and SPSA or Nelder-Mead '
+                   'for noisy. ')
 @click.option('--max_iter', default=1000, type=int, help='Maximum number of iterations for optimizer. ')
-@click.option('--error_mitigation', default=None, help='Specify an error mitigation method if using a noisy device. '
-                                                       'Leave blank for none. ')
-@click.option('--post_process', default=None, help='Specify a post-processing type. Leave blank for none. ')
+@click.option('--error_mitigation', default=None, type=click.Choice(list(ERROR_MITIGATION_LIST.keys())),
+              help='Specify an error mitigation method if using a noisy device. Leave blank for none. ')
+@click.option('--post_process', default=None, type=click.Choice(list(POSTPROCESS_LIST.keys())),
+              help='Specify a post-processing type. Leave blank for none. ')
 @click.option('--file_name', default=None, type=click.Path(), help='Name for the file to be saved as. Only specify if '
                                                                    'creating a single settings file. ')
 def main(encoder, ansatz, layers, device, backend, shots, optimizer, max_iter, error_mitigation, post_process,
@@ -159,12 +168,6 @@ def main(encoder, ansatz, layers, device, backend, shots, optimizer, max_iter, e
         for _, val in settings.items():
             new_settings[file_name] = val
         settings = new_settings
-    try:
-        if shots is not None:
-            shots = int(shots)
-    except ValueError:
-        shots = None
-        print("Could not read shots, ensure it's interpretable as int. Proceeding with device default. ")
 
     for name, setting in settings.items():
         create_settings(filename=name, settings=setting, postprocess=post_process, error_mitigation=error_mitigation,
