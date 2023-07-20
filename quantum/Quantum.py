@@ -248,7 +248,7 @@ class QuantumRegressor:
         """
         self.fit_count = 0
         with open('model_log.csv', 'w') as outfile:
-            outfile.write('Iteration,Cost,Parameters')
+            outfile.write('Time,Iteration,Cost,Parameters')
             outfile.write('\n')
         self.callback_interval = callback_interval
         if load_state is not None:
