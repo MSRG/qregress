@@ -197,7 +197,7 @@ class QuantumRegressor:
             print(f'[{time.asctime()}]  Iteration number: {self.fit_count} with current cost as {cost_at_step} and '
                   f'parameters \n{xk}. ')
         filename = 'model_log.csv'
-        log = f'{self.fit_count},{cost_at_step},{xk}'
+        log = f'{time.asctime()},{self.fit_count},{cost_at_step},{xk}'
         with open(filename, 'a') as outfile:
             outfile.write(log)
             outfile.write('\n')
