@@ -135,9 +135,7 @@ def save_token(instance, token):
 @click.option('--resume_file', default=None, type=click.Path(exists=True), help='File to resume training from. Use '
                                                                                 'the same settings file to generate '
                                                                                 'the same model for training. ')
-@click.option('--num_qubits', default=None, type=int, help='Specify number of qubits. Better to set in settings file. ')
-def main(settings, train_set, test_set, scaler, instance, token, save_model, save_circuits, title, resume_file,
-         num_qubits):
+def main(settings, train_set, test_set, scaler, instance, token, save_model, save_circuits, title, resume_file):
     """
     Trains the quantum regressor with the settings in the given settings file using the dataset from the given train
     and test files. Will perform grid search on a default hyperparameter space unless they are specified. Saves trained
@@ -150,11 +148,9 @@ def main(settings, train_set, test_set, scaler, instance, token, save_model, sav
 
     global NUM_QUBITS
     global X_DIM
-    if num_qubits is not None:
-        NUM_QUBITS = num_qubits
     if NUM_QUBITS is not None:
         X_DIM = NUM_QUBITS
-    elif X_DIM == 1:  # if X_DIM is None and no num_qubits wasn't specified anywhere use a default value of 2.
+    elif X_DIM == 1:  # if X_DIM is None and num_qubits wasn't specified anywhere use a default value of 2.
         NUM_QUBITS = 2
         X_DIM = NUM_QUBITS
 
