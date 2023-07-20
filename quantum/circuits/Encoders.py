@@ -3,12 +3,17 @@ import numpy as np
 
 
 def mitarai(features, wires):
-    #  encoding as proposed by Mitarai et al.
-    for i in range(len(features)):
-        if np.isnan(np.arcsin(features[i])):
-            raise ValueError(f'NaN found at index: {i}. With feature: {features[i]}. ')
-        qml.RY(np.arcsin(features[i]), wires=wires[i])
-        qml.RZ(np.arccos(features[i]**2), wires=wires[i])
+    # encoding as proposed by Mitarai et al.
+    num_features = len(features)
+    num_wires = len(wires)
+
+    for i in range(num_wires):
+        feature_idx = i % num_features  # Calculate the feature index using modulo
+        if np.isnan(np.arcsin(features[feature_idx])) or np.isnan(np.arccos(features[feature_idx])):
+            print(f'Ignoring NaN found at index: {feature_idx}. With feature: {features[feature_idx]}. ')
+        else:
+            qml.RY(np.arcsin(features[feature_idx]), wires=wires[i])
+            qml.RZ(np.arccos(features[feature_idx] ** 2), wires=wires[i])
 
 
 def single_angle(features, wires):
