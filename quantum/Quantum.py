@@ -101,8 +101,9 @@ class QuantumRegressor:
         #  builds the circuit with the given encoder and variational circuits.
         #  encoder and variational circuits must have only two required parameters, params/feats and wires
         for i in range(self._re_upload_depth):
+            params = parameters[self._num_params() * i:self._num_params() * (i + 1)]
             self.encoder(features, wires=range(self.num_qubits))
-            self.variational(parameters, wires=range(self.num_qubits))
+            self.variational(params, wires=range(self.num_qubits))
 
         if self.postprocess is None and self.error_mitigation != 'M3':
             return qml.expval(qml.PauliZ(0))
@@ -255,7 +256,7 @@ class QuantumRegressor:
             param_vector = self._load_partial_state(load_state)
             initial_parameters = param_vector
         elif initial_parameters is None:
-            num_params = self._num_params()
+            num_params = self._num_params() * self._re_upload_depth
             generator = np.random.default_rng()
             initial_parameters = generator.uniform(-np.pi, np.pi, num_params)
             if self.postprocess is not None:
@@ -269,7 +270,6 @@ class QuantumRegressor:
         if self.use_scipy:
             options = {
                 'maxiter': self.max_iterations,
-                'tol': 1e-10
             }
             opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
                                   options=options)
