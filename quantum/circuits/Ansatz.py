@@ -402,7 +402,7 @@ class ModifiedPauliTwo:
                 self.rotations[self._rotation_block[1]](parameters[counter], j)
                 counter += 1
             for j in range(len(self._wires)):
-                if j % 2 == 0:
+                if j % 2 == 0 and j != len(self._wires) - 1:
                     if self._entangle_params:
                         self._entangler(parameters[counter], (j + 1, j))
                         counter += 1
