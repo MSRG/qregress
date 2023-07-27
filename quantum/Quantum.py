@@ -44,7 +44,7 @@ class QuantumRegressor:
             re_upload_depth: int = 1,
             f: float = 1.,
             alpha: float = 0.,
-            beta: float = 1,
+            beta: float = 0,
             provider=None,
             token: str = None):
         self.hyperparameters = {'f': f, 'alpha': alpha, 'beta': beta}
