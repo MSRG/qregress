@@ -11,7 +11,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import pennylane as qml
-from sklearn.metrics import r2_score
+from sklearn.metrics import mean_squared_error
+from sklearn.model_selection import KFold
 from qiskit_ibm_provider import IBMProvider
 
 from quantum.Quantum import QuantumRegressor
@@ -128,14 +129,13 @@ def save_token(instance, token):
 @click.option('--scaler', required=True, type=click.Path(exists=True), help='Scaler used to unsclae y-values. ')
 @click.option('--instance', default=None, help='Instance for running on IBMQ devices. ')
 @click.option('--token', default=None, help='IBMQ token for running on hardware. ')
-@click.option('--save_model', default=True, help='Whether to save the trained model to file. Not implemented. ')
 @click.option('--save_circuits', default=False, help='Whether to save a figure of encoder and ansatz circuits. ')
 @click.option('--title', default=None, type=click.Path(), help='Title to use for save files. If none, infers it from '
                                                                'settings file. ')
 @click.option('--resume_file', default=None, type=click.Path(exists=True), help='File to resume training from. Use '
                                                                                 'the same settings file to generate '
                                                                                 'the same model for training. ')
-def main(settings, train_set, test_set, scaler, instance, token, save_model, save_circuits, title, resume_file):
+def main(settings, train_set, test_set, scaler, instance, token, save_circuits, title, resume_file):
     """
     Trains the quantum regressor with the settings in the given settings file using the dataset from the given train
     and test files. Will perform grid search on a default hyperparameter space unless they are specified. Saves trained
@@ -172,23 +172,19 @@ def main(settings, train_set, test_set, scaler, instance, token, save_model, sav
 
     print(f'Training model with dataset {train_set} \n at time {time.asctime()}... ')
     st = time.time()
-    """
-    if type(f) is list:
-        model, hyperparams, score, hyperparam_results = grid_search(QuantumRegressor, HYPERPARAMETERS, X_train, y_train,
-                                                                    X_test, y_test, title, **kwargs)
-        et = time.time()
-        print(f'Training complete taking {et - st} total seconds. Best hyperparameters found to be {hyperparams}. ')
-    """
-    model = QuantumRegressor(**kwargs)
-    model.fit(X_train, y_train, load_state=resume_file)
+
+    if len(HYPERPARAMETERS['alpha']) != 1:
+        model, hyperparams, _, _ = grid_search(QuantumRegressor, HYPERPARAMETERS, X_train, y_train, **kwargs)
+    else:
+        model = QuantumRegressor(**kwargs)
+        model.fit(X_train, y_train, load_state=resume_file)
+        hyperparams = None
+
     et = time.time()
     print(f'Training complete taking {et - st} total seconds. ')
 
-    if save_model:
-        model_title = title + '_model.bin'
-        # joblib.dump(model, model_title)
-        # print(f'Model saved with joblib as {model_title}. ')
-    if os.path.exists(title+'_tentative_model.bin'):
+    # removes temporary file created during training.
+    if os.path.exists(title + '_tentative_model.bin'):
         os.remove('tentative_model.bin')
     elif os.path.exists('tentative_model.bin'):
         os.remove('tentative_model.bin')
@@ -213,11 +209,9 @@ def main(settings, train_set, test_set, scaler, instance, token, save_model, sav
     print(f'Model scores: {scores}. ')
 
     results = scores
-    """
-    if f is None:
-        results['Hyperparameters'] = hyperparams
-        results['Hyperparam_train'] = hyperparam_results
-    """
+
+    if len(HYPERPARAMETERS['alpha']) != 1:
+        results['hyperparameters'] = hyperparams
     results_title = title + '_results.json'
     with open(results_title, 'w') as outfile:
         json.dump(results, outfile)
@@ -253,27 +247,25 @@ def create_kwargs():
         'provider': PROVIDER,
         'token': TOKEN,
         're_upload_depth': RE_UPLOAD_DEPTH,
-        'f': HYPERPARAMETERS['f'],
-        'alpha': HYPERPARAMETERS['alpha'],
-        'beta': HYPERPARAMETERS['beta']
     }
     return kwargs
 
 
-def grid_search(model, hyperparameters: dict, x_train, y_train, x_test=None, y_test=None, title=None, **kwargs):
+def grid_search(model, hyperparameters: dict, X, y, folds: int = 5, **kwargs):
     """
-    Performs a grid search on the given model. Trains the model for each combination of hyperparameters, and then
-    trains it using x_train, y_train. Scores each model using r2_score on the test dataset and returns the best
-    performing model with its score and hyperparameters. Any additional parameters to be passed to the model are
-    handled with kwargs.
+    Performs a grid search on the given model. Trains the model for each combination of hyperparameters. Scores each
+    model using MSE on the test fold using k-fold cross-validation saves the average across the folds as score and
+    returns the best performing model with its score and hyperparameters. Any additional parameters to be passed to
+    the model are handled with kwargs.
 
-    :return: trained_model, dict: best_hyperparameters, flaot: best_score, list: results
+    :return: trained_model, dict: best_hyperparameters, flaot: best_score, dict: results
     """
-    # TODO: remove need for validate set by splitting here and then remove passing of test set for hyperparam search.
-    # temp_X_tr, temp_X_val = train_test_split()
     for x in hyperparameters.values():
         if not isinstance(x, collections.abc.Sequence):
             raise ValueError('Dictionary must contain list-like objects of values to try! ')
+
+    kf = KFold(n_splits=folds)
+    print(f'Training using {folds}-fold cross-validation. \n')
 
     results = {}
     best_score = float('-inf')
@@ -281,37 +273,35 @@ def grid_search(model, hyperparameters: dict, x_train, y_train, x_test=None, y_t
     best_hyperparameters = {}
 
     param_combinations = list(itertools.product(*hyperparameters.values()))
+
     for combination in param_combinations:
         update = dict(zip(hyperparameters.keys(), combination))
         kwargs.update(update)
-        print(f'Beginning training with hyperparameters f={update["f"]}, alpha={update["alpha"]}, '
-              f'beta={update["beta"]}... ')
+        print(f'Beginning training with hyperparameters {update}...\n')
         st = time.time()
-        built_model = model(**kwargs)
-        built_model.fit(x_train, y_train, callback_interval=1)
-        if x_test is not None and y_test is not None:
-            y_pred = built_model.predict(x_test)
-            score = r2_score(y_test, y_pred)
-            results[f'{update}'] = score
-        else:
-            warnings.warn('Using train set for hyperparameter search may lead to overfitting. ')
-            y_pred = built_model.predict(x_train)
-            score = r2_score(y_train, y_pred)
-            results[f'{update}'] = score
+        k_score = []
+        for train_index, test_index in kf.split(X):
+            X_train, X_test = X[train_index], X[test_index]
+            y_train, y_test = y[train_index], y[test_index]
+            built_model = model(**kwargs)
+            built_model.fit(X_train, y_train, callback_interval=1)
+            y_pred = built_model.predict(X_test)
+            score = mean_squared_error(y_test, y_pred)
+            k_score.append(score)
+        score = np.array(k_score).mean()
+        results[f'{update}'] = score
+        print(f'Training complete taking {time.time() - st} seconds. ')
         if score > best_score:
-            print(f'Training complete taking {time.time() - st} seconds. Saving model as new best. ')
+            print('Saving model as new best... ')
             best_score = score
-            best_model = built_model
+            best_model = built_model  # not sure about this line. Maybe I should return a different version of the model
+            # or re-train the model on the entire set.
             best_hyperparameters = {key: kwargs[key] for key in hyperparameters.keys()}
-            # print('Saving tentative model... ')
-            if title is not None:
-                model_name = title+'_tentative_model.bin'
-            else:
-                model_name = 'tentative_model.bin'
-            # joblib.dump(best_model, model_name)
-            # print(f'Tentative model saved as {model_name}')
         else:
-            print(f'Training complete taking {time.time() - st} seconds. Discarding model... ')
+            print('Discarding model... ')
+
+    with open('Grid_search.json', 'w') as outfile:
+        json.dump(results, outfile)
 
     return best_model, best_hyperparameters, best_score, results
 
