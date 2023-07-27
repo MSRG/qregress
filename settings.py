@@ -59,7 +59,6 @@ ANSATZ_LIST = {
 
 # This is defining the grid-space of hyperparameters to search through.
 hyperparameters = {
-    'f': 1,  # np.arange(1, 10, 0.5).tolist(),
     'alpha': [0.001, 0.01, 0.1, 1, 10],
     'beta': [0.001, 0.01, 0.1, 1, 10]
 }
