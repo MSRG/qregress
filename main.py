@@ -74,6 +74,9 @@ def parse_settings(settings_file):
 
     global HYPERPARAMETERS
     HYPERPARAMETERS = settings['HYPERPARAMETERS']
+    # f was removed from HYPERPARAMETERS, this ensures old settings files can still run.
+    if 'f' in HYPERPARAMETERS.keys():
+        _ = HYPERPARAMETERS.pop('f', None)
 
     global RE_UPLOAD_DEPTH
     RE_UPLOAD_DEPTH = settings['RE-UPLOAD_DEPTH']
