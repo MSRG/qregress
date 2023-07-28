@@ -279,7 +279,10 @@ def grid_search(model, hyperparameters: dict, X, y, folds: int = 5, **kwargs):
         print(f'Beginning training with hyperparameters {update}...\n')
         st = time.time()
         k_score = []
+        count = 1
         for train_index, test_index in kf.split(X):
+            print(f'Working on {count / folds} fold... ')
+            count += 1
             X_train, X_test = X[train_index], X[test_index]
             y_train, y_test = y[train_index], y[test_index]
             built_model = model(**kwargs)
@@ -291,13 +294,13 @@ def grid_search(model, hyperparameters: dict, X, y, folds: int = 5, **kwargs):
         results[f'{update}'] = score
         print(f'Training complete taking {time.time() - st} seconds. ')
         if score > best_score:
-            print('Saving model as new best... ')
+            print('Saving model as new best... \n')
             best_score = score
             best_model = built_model  # not sure about this line. Maybe I should return a different version of the model
             # or re-train the model on the entire set.
             best_hyperparameters = {key: kwargs[key] for key in hyperparameters.keys()}
         else:
-            print('Discarding model... ')
+            print('Discarding model... \n')
 
     with open('Grid_search.json', 'w') as outfile:
         json.dump(results, outfile)
