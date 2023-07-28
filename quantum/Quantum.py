@@ -270,6 +270,7 @@ class QuantumRegressor:
         if self.use_scipy:
             options = {
                 'maxiter': self.max_iterations,
+                'tol': 1e-10
             }
             opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
                                   options=options)
@@ -324,5 +325,5 @@ class QuantumRegressor:
         if self.postprocess is None:
             return [f * self.qnode(features=features, parameters=params) for features in x]
         else:
-            return [np.dot(f * self.qnode(features=features, parameters=params[:-self.num_qubits]),
+            return [np.dot(f * np.array(self.qnode(features=features, parameters=params[:-self.num_qubits])),
                            params[-self.num_qubits:]) for features in x]
