@@ -257,7 +257,7 @@ class QuantumRegressor:
             initial_parameters = param_vector
         elif initial_parameters is None:
             num_params = self._num_params() * self._re_upload_depth
-            generator = np.random.default_rng()
+            generator = np.random.default_rng(12958234)
             initial_parameters = generator.uniform(-np.pi, np.pi, num_params)
             if self.postprocess is not None:
                 additional_num_params = self.num_qubits
