@@ -47,8 +47,8 @@ def evaluate(model, X_train, y_train, X_test=None, y_test=None, plot: bool = Fal
     if plot:
         plt.figure()
         if y_test_pred is not None:
-            plt.scatter(y_test, y_test_pred, color='b', s=10, label='Test')
-        plt.scatter(y_train, y_train_pred, color='r', s=10, label='Train')
+            plt.scatter(y_test, y_test_pred, color='b', s=10, label=f'Test, MAE = {scores["MAE_test"]:.2f}')
+        plt.scatter(y_train, y_train_pred, color='r', s=10, label=f'Train, MAE = {scores["MAE_train"]:.2f}')
         plt.ylabel('Predicted')
         plt.xlabel('Actual')
         plt.axis('scaled')
