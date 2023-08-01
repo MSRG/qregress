@@ -270,7 +270,7 @@ class QuantumRegressor:
         if self.use_scipy:
             options = {
                 'maxiter': self.max_iterations,
-                'tol': 1e-10
+                'tol': 1e-8
             }
             opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
                                   options=options)
