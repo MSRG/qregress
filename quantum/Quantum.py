@@ -106,9 +106,10 @@ class QuantumRegressor:
         #  sets the desired optimizer. SPSA is not available in scipy and has to be handled separately in fitting
         if optimizer == 'SPSA':
             self.use_scipy = False
+            self.optimizer = optimizer
         elif optimizer == 'BasinHopping':
             self.use_scipy = False
-            self.optimizer = 'BasinHopping'
+            self.optimizer = optimizer
         else:
             self.use_scipy = True
             self.optimizer = optimizer
