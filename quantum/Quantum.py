@@ -108,7 +108,7 @@ class QuantumRegressor:
             self.use_scipy = False
         elif optimizer == 'BasinHopping':
             self.use_scipy = False
-            self.optimzier = 'BasinHopping'
+            self.optimizer = 'BasinHopping'
         else:
             self.use_scipy = True
             self.optimizer = optimizer
