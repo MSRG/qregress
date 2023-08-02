@@ -208,7 +208,7 @@ class QuantumRegressor:
         num_params = self.variational.num_params
         return num_params
 
-    def _callback(self, xk):
+    def _callback(self, xk, f=None, accept=None):
         cost_at_step = self._cost_wrapper(xk)
         if self.fit_count % 50 == 0:
             print(f'[{time.asctime()}]  Iteration number: {self.fit_count} with current cost as {cost_at_step} and '
