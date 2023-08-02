@@ -85,7 +85,10 @@ def parse_settings(settings_file):
     MAX_ITER = settings['MAX_ITER']
 
     global TOLERANCE
-    TOLERANCE = settings['TOLERANCE']
+    try:
+        TOLERANCE = settings['TOLERANCE']
+    except KeyError:
+        TOLERANCE = None
 
     global NUM_QUBITS
     try:
