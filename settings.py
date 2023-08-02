@@ -65,7 +65,7 @@ hyperparameters = {
 
 
 def create_settings(filename: str, settings: dict, postprocess, error_mitigation, shots, backend, device,
-                    optimizer, layers, re_upload_depth, max_iter, num_qubits, scale_factors=None):
+                    optimizer, layers, re_upload_depth, max_iter, tol, num_qubits, scale_factors=None):
     """
     Takes inputs for all of the settings to be used in the QML model and creates a dictionary of the corresponding
     settings. Then is dumped into JSON and saved as filename.json. Filename parameter should not include the extension.
@@ -85,6 +85,7 @@ def create_settings(filename: str, settings: dict, postprocess, error_mitigation
     settings['BACKEND'] = backend
     settings['OPTIMIZER'] = optimizer
     settings['MAX_ITER'] = max_iter
+    settings['TOLERANCE'] = tol
     settings['SCALE_FACTORS'] = scale_factors
     settings['LAYERS'] = layers
     settings['RE-UPLOAD_DEPTH'] = re_upload_depth
@@ -147,13 +148,14 @@ def create_combinations(encoder: str = None, ansatz: str = None):
               help='Specify an optimizer for the model. COBYLA is recommended for noiseless and SPSA or Nelder-Mead '
                    'for noisy. ')
 @click.option('--max_iter', default=1000, type=int, help='Maximum number of iterations for optimizer. ')
+@click.option('--tol', default=None, type=float, help='Optionally specify optimizer tolerance for scipy. ')
 @click.option('--error_mitigation', default='None', type=click.Choice(list(ERROR_MITIGATION_LIST.keys())),
               help='Specify an error mitigation method if using a noisy device. Leave blank for none. ')
 @click.option('--post_process', default='None', type=click.Choice(list(POSTPROCESS_LIST.keys())),
               help='Specify a post-processing type. Leave blank for none. ')
 @click.option('--file_name', default=None, type=click.Path(), help='Name for the file to be saved as. Only specify if '
                                                                    'creating a single settings file. ')
-def main(encoder, ansatz, layers, device, backend, shots, optimizer, max_iter, error_mitigation, post_process,
+def main(encoder, ansatz, layers, device, backend, shots, optimizer, max_iter, tol, error_mitigation, post_process,
          file_name, re_upload_depth, num_qubits):
     """
     Takes user input parameters and creates a settings json file to be inputted into main.py. If an encoder/ansatz is
@@ -170,7 +172,7 @@ def main(encoder, ansatz, layers, device, backend, shots, optimizer, max_iter, e
     for name, setting in settings.items():
         create_settings(filename=name, settings=setting, postprocess=post_process, error_mitigation=error_mitigation,
                         shots=shots, backend=backend, device=device, optimizer=optimizer, layers=layers,
-                        re_upload_depth=re_upload_depth, max_iter=max_iter, num_qubits=num_qubits)
+                        re_upload_depth=re_upload_depth, max_iter=max_iter, tol=tol, num_qubits=num_qubits)
 
 
 if __name__ == '__main__':

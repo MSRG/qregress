@@ -35,6 +35,7 @@ TOKEN = None
 HYPERPARAMETERS = None
 RE_UPLOAD_DEPTH = None
 MAX_ITER = None
+TOLERANCE = None
 NUM_QUBITS = None
 
 
@@ -82,6 +83,9 @@ def parse_settings(settings_file):
 
     global MAX_ITER
     MAX_ITER = settings['MAX_ITER']
+
+    global TOLERANCE
+    TOLERANCE = settings['TOLERANCE']
 
     global NUM_QUBITS
     try:
@@ -239,6 +243,7 @@ def create_kwargs():
         'num_qubits': X_DIM,
         'optimizer': OPTIMIZER,
         'max_iterations': MAX_ITER,
+        'tol': TOLERANCE,
         'device': DEVICE,
         'backend': BACKEND,
         'postprocess': POSTPROCESS,

@@ -2,7 +2,7 @@ import pennylane as qml
 import numpy as np
 from pennylane import numpy as np
 from sklearn.metrics import mean_squared_error
-from scipy.optimize import minimize
+from scipy.optimize import minimize, basinhopping
 from qiskit_ibm_runtime import QiskitRuntimeService
 from qiskit_ibm_provider import IBMProvider
 from mitiq.zne.scaling import fold_global
@@ -12,6 +12,18 @@ import mthree
 import os
 import json
 import time
+
+
+class BasinBounds:
+    def __init__(self, xmax=np.pi, xmin=-np.pi):
+        self.xmax = xmax
+        self.xmin = xmin
+
+    def __call__(self, **kwargs):
+        x = kwargs["x_new"]
+        tmax = bool(np.all(x <= self.xmax))
+        tmin = bool(np.all(x >= self.xmin))
+        return tmax and tmin
 
 
 class QuantumRegressor:
@@ -34,6 +46,7 @@ class QuantumRegressor:
             num_qubits,
             optimizer: str = 'COBYLA',
             max_iterations: int = None,
+            tol: float = None,
             device: str = 'default.qubit',
             backend: str = None,
             postprocess: str = None,
@@ -65,6 +78,7 @@ class QuantumRegressor:
         self.variational = variational
         self._set_device(device, backend, shots, provider, token)
         self._set_optimizer(optimizer)
+        self._tol = tol
         self._build_qnode(scale_factors, folding)
         self.fit_count = 0
         self.cached_results = {}
@@ -90,12 +104,14 @@ class QuantumRegressor:
 
     def _set_optimizer(self, optimizer):
         #  sets the desired optimizer. SPSA is not available in scipy and has to be handled separately in fitting
-        scipy_optimizers = ['COBYLA', 'Nelder-Mead']
-        if optimizer in scipy_optimizers:
-            self.optimizer = optimizer
-            self.use_scipy = True
-        elif optimizer == 'SPSA':
+        if optimizer == 'SPSA':
             self.use_scipy = False
+        elif optimizer == 'BasinHopping':
+            self.use_scipy = False
+            self.optimzier = 'BasinHopping'
+        else:
+            self.use_scipy = True
+            self.optimizer = optimizer
 
     def _circuit(self, features, parameters):
         #  builds the circuit with the given encoder and variational circuits.
@@ -270,10 +286,16 @@ class QuantumRegressor:
         if self.use_scipy:
             options = {
                 'maxiter': self.max_iterations,
-                'tol': 1e-8
+                'tol': self._tol
             }
             opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
                                   options=options)
+            self.params = opt_result['x']
+        elif self.optimizer == 'BasinHopping':
+            minimizer_kwargs = {"method": "BFGS"}
+            opt_result = basinhopping(self._cost_wrapper, x0=params, minimizer_kwargs=minimizer_kwargs,
+                                      accept_test=BasinBounds(xmax=np.pi, xmin=-np.pi), niter=self.max_iterations,
+                                      callback=self._callback)
             self.params = opt_result['x']
         else:
             opt = qml.SPSAOptimizer(maxiter=self.max_iterations)
