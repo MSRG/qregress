@@ -144,7 +144,7 @@ def create_combinations(encoder: str = None, ansatz: str = None):
 @click.option('--backend', default=None, help='If running on IBMQ device, specify a backend here. ')
 @click.option('--shots', default=None, type=int, help='Number of shots to estimate expectation values from. If none is '
                                                       'specified will use the device default. ')
-@click.option('--optimizer', required=True, type=click.Choice(['COBYLA', 'Nelder-Mead', 'SPSA'], case_sensitive=True),
+@click.option('--optimizer', required=True, type=str,
               help='Specify an optimizer for the model. COBYLA is recommended for noiseless and SPSA or Nelder-Mead '
                    'for noisy. ')
 @click.option('--max_iter', default=1000, type=int, help='Maximum number of iterations for optimizer. ')
