@@ -77,7 +77,8 @@ def split(x, y, train_ratio: float, test_ratio: float, validate_ratio: float):
     y_scaler = scaler((-1, 1))
     X_train, X_test, y_train, y_test = train_test_split(x, y, train_size=train_ratio)
     if validate_ratio != 0:
-        X_val, X_test, y_val, y_test = train_test_split(X_test, y_test, test_size=test_ratio/(test_ratio + validate_ratio))
+        X_val, X_test, y_val, y_test = train_test_split(X_test, y_test,
+                                                        test_size=test_ratio / (test_ratio + validate_ratio))
     else:
         X_val = np.empty(x.shape)
         y_val = np.empty(y.shape)
@@ -99,6 +100,15 @@ def split(x, y, train_ratio: float, test_ratio: float, validate_ratio: float):
 ############################################
 
 dim_methods_list = ['UMAP', 'TSNE', 'PCA']
+
+
+def remove_colinearity(df, threshold):
+    correlation = df.corr().abs()
+    upper_matrix = correlation.where(np.triu(np.ones(correlation.shape), k=1).astype(np.bool))
+    drop_cols = [column for column in upper_matrix.columns if any(upper_matrix[column] > threshold)]
+    print(f'Dropping {drop_cols} due to correlation greater than {threshold}... \n')
+    df = df.drop(drop_cols, axis=1, inplace=False)
+    return df
 
 
 def dim_reduction(X_train, X_test, X_val, x_dim: int, method: str):
@@ -155,6 +165,7 @@ def plot_dimension(X_train, X_test, X_val, y_train, y_test, y_val):
     plt.show()
     exit()
 
+
 ############################################
 # Main
 ############################################
@@ -198,6 +209,7 @@ def main(train_ratio, test_ratio, validate_ratio, x_dim, length, y_label, file, 
         save_name = filename
 
     df = load_file(file)
+    df = remove_colinearity(df, 0.9)
     x, y = shuffle(df, y_label, length)
     X_train, y_train, X_test, y_test, X_val, y_val, y_scaler = split(x, y, train_ratio, test_ratio,
                                                                      validate_ratio)
