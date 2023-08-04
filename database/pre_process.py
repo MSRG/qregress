@@ -114,7 +114,7 @@ def remove_colinearity(df, threshold):
 def dim_reduction(X_train, X_test, X_val, x_dim: int, method: str):
     dim_methods = {
         'UMAP': umap.UMAP(n_components=x_dim),
-        'TSNE': TSNE(n_components=x_dim, perplexity=50),
+        'TSNE': TSNE(n_components=x_dim, perplexity=50, method='exact'),
         'PCA': PCA(n_components=x_dim, svd_solver='full')
     }
     print(f'Now applying {method} to reduce to {x_dim} features... ')
