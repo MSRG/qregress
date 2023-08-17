@@ -28,8 +28,7 @@ models = {
 
 param_grid = {
     'ridge': {
-        'alpha': [0.001, 0.01, 0.1, 1],
-        'solver': ['auto', 'svd', 'cholesky']
+        'alpha': [0.001, 0.01, 0.1, 1, 10, 50, 100, 1000]
     },
     'knn': {
         'n_neighbors': range(1, 10),
