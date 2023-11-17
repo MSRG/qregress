@@ -219,6 +219,7 @@ class QuantumRegressor:
         with open(filename, 'a') as outfile:
             outfile.write(log)
             outfile.write('\n')
+        self.fit_count += 1
         self._save_partial_state(xk)
 
     def _save_partial_state(self, param_vector, force=False):
@@ -227,21 +228,30 @@ class QuantumRegressor:
         if interval is None:
             interval = 5
         if self.fit_count % interval == 0 or force:
-            partial_results = param_vector
+            partial_results = {
+                'parameters': param_vector,
+                'iterations': self.fit_count
+            }
             if force is True:
                 outfile = 'final_state_model.bin'
                 os.remove('partial_state_model.bin')
             else:
                 outfile = 'partial_state_model.bin'
             joblib.dump(partial_results, outfile)
-        self.fit_count += 1
 
     def _load_partial_state(self, infile):
         print('Loading partial state from file ' + infile)
         partial_state = joblib.load(infile)
-        param_vector = partial_state
-        print('Loaded parameter_vector as', param_vector)
-        return param_vector
+        if type(partial_state) == dict:
+            param_vector = partial_state['parameters']
+            iteration = partial_state['iterations']
+            print('Loaded parameter_vector as', param_vector)
+            return param_vector, iteration
+        else:
+            print('Outdated partial file detected! Unexpected behaviour may occur.')
+            param_vector = partial_state
+            print('Loaded parameter_vector as', param_vector)
+        return param_vector, 0
 
     def fit(self, x, y, initial_parameters=None, detailed_results=False, load_state=None, callback_interval=None):
         """
@@ -270,7 +280,7 @@ class QuantumRegressor:
             outfile.write('\n')
         self.callback_interval = callback_interval
         if load_state is not None:
-            param_vector = self._load_partial_state(load_state)
+            param_vector, self.fit_count = self._load_partial_state(load_state)
             initial_parameters = param_vector
         elif initial_parameters is None:
             num_params = self._num_params() * self._re_upload_depth
@@ -286,7 +296,7 @@ class QuantumRegressor:
 
         if self.use_scipy:
             options = {
-                'maxiter': self.max_iterations,
+                'maxiter': self.max_iterations - self.fit_count,
                 'tol': self._tol
             }
             opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
