@@ -1,1 +1,1015 @@
 test.sh: line 9: python: command not found
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+Loading dataset from /home/grierjones/qregress/function-calc-test/linear/linear_train.bin... 
+Successfully loaded /home/grierjones/qregress/function-calc-test/linear/linear_train.bin into X and y data. 
+Loading dataset from /home/grierjones/qregress/function-calc-test/linear/linear_test.bin... 
+Successfully loaded /home/grierjones/qregress/function-calc-test/linear/linear_test.bin into X and y data. 
+Training model with dataset /home/grierjones/qregress/function-calc-test/linear/linear_train.bin 
+ at time Thu Mar 21 17:54:00 2024... 
+Training using 5-fold cross-validation. 
+
+Beginning training with hyperparameters {'alpha': 0.001, 'beta': 0.001}...
+
+Working on 0.2 fold... 
+[Thu Mar 21 17:54:04 2024]  Iteration number: 0 with current cost as 0.3353662828316882 and parameters 
+[-3.19224908  2.26499879 -1.67844618 -0.11653102  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.72965081]. 
+Working on 0.4 fold... 
+[Thu Mar 21 17:54:28 2024]  Iteration number: 0 with current cost as 0.34044209846462037 and parameters 
+[-3.13058441  2.24172342 -1.7598919  -0.11653102  0.55388708 -2.77010898
+  3.06858498  2.18960145  1.18551999 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.6 fold... 
+[Thu Mar 21 17:55:09 2024]  Iteration number: 0 with current cost as 0.3182829062872693 and parameters 
+[-3.15419039  2.24144122 -1.72149435 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.8 fold... 
+[Thu Mar 21 17:55:40 2024]  Iteration number: 0 with current cost as 0.33075761951788407 and parameters 
+[-3.13610208  2.24291804 -1.75190683 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648309  0.60271511  1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 1.0 fold... 
+[Thu Mar 21 17:56:13 2024]  Iteration number: 0 with current cost as 0.32684848565400965 and parameters 
+[-3.16084855  2.24804966 -1.71591661 -0.11653102  0.55388709 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Training complete taking 156.83584189414978 seconds. 
+Saving model as new best... 
+
+Beginning training with hyperparameters {'alpha': 0.001, 'beta': 0.01}...
+
+Working on 0.2 fold... 
+[Thu Mar 21 17:56:41 2024]  Iteration number: 0 with current cost as 0.3353662828316882 and parameters 
+[-3.19224908  2.26499879 -1.67844618 -0.11653102  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.72965081]. 
+Working on 0.4 fold... 
+[Thu Mar 21 17:57:04 2024]  Iteration number: 0 with current cost as 0.34044209846462037 and parameters 
+[-3.13058441  2.24172342 -1.7598919  -0.11653102  0.55388708 -2.77010898
+  3.06858498  2.18960145  1.18551999 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.6 fold... 
+[Thu Mar 21 17:57:45 2024]  Iteration number: 0 with current cost as 0.3182829062872693 and parameters 
+[-3.15419039  2.24144122 -1.72149435 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.8 fold... 
+[Thu Mar 21 17:58:15 2024]  Iteration number: 0 with current cost as 0.33075761951788407 and parameters 
+[-3.13610208  2.24291804 -1.75190683 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648309  0.60271511  1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 1.0 fold... 
+[Thu Mar 21 17:58:49 2024]  Iteration number: 0 with current cost as 0.32684848565400965 and parameters 
+[-3.16084855  2.24804966 -1.71591661 -0.11653102  0.55388709 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Training complete taking 155.9652407169342 seconds. 
+Discarding model... 
+
+Beginning training with hyperparameters {'alpha': 0.001, 'beta': 0.1}...
+
+Working on 0.2 fold... 
+[Thu Mar 21 17:59:17 2024]  Iteration number: 0 with current cost as 0.3353662828316882 and parameters 
+[-3.19224908  2.26499879 -1.67844618 -0.11653102  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.72965081]. 
+Working on 0.4 fold... 
+[Thu Mar 21 17:59:41 2024]  Iteration number: 0 with current cost as 0.34044209846462037 and parameters 
+[-3.13058441  2.24172342 -1.7598919  -0.11653102  0.55388708 -2.77010898
+  3.06858498  2.18960145  1.18551999 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.6 fold... 
+[Thu Mar 21 18:00:21 2024]  Iteration number: 0 with current cost as 0.3182829062872693 and parameters 
+[-3.15419039  2.24144122 -1.72149435 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.8 fold... 
+[Thu Mar 21 18:00:51 2024]  Iteration number: 0 with current cost as 0.33075761951788407 and parameters 
+[-3.13610208  2.24291804 -1.75190683 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648309  0.60271511  1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 1.0 fold... 
+[Thu Mar 21 18:01:24 2024]  Iteration number: 0 with current cost as 0.32684848565400965 and parameters 
+[-3.16084855  2.24804966 -1.71591661 -0.11653102  0.55388709 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Training complete taking 155.0767228603363 seconds. 
+Discarding model... 
+
+Beginning training with hyperparameters {'alpha': 0.001, 'beta': 1}...
+
+Working on 0.2 fold... 
+[Thu Mar 21 18:01:52 2024]  Iteration number: 0 with current cost as 0.3353662828316882 and parameters 
+[-3.19224908  2.26499879 -1.67844618 -0.11653102  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.72965081]. 
+Working on 0.4 fold... 
+[Thu Mar 21 18:02:16 2024]  Iteration number: 0 with current cost as 0.34044209846462037 and parameters 
+[-3.13058441  2.24172342 -1.7598919  -0.11653102  0.55388708 -2.77010898
+  3.06858498  2.18960145  1.18551999 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.6 fold... 
+[Thu Mar 21 18:02:56 2024]  Iteration number: 0 with current cost as 0.3182829062872693 and parameters 
+[-3.15419039  2.24144122 -1.72149435 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.8 fold... 
+[Thu Mar 21 18:03:26 2024]  Iteration number: 0 with current cost as 0.33075761951788407 and parameters 
+[-3.13610208  2.24291804 -1.75190683 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648309  0.60271511  1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 1.0 fold... 
+[Thu Mar 21 18:04:00 2024]  Iteration number: 0 with current cost as 0.32684848565400965 and parameters 
+[-3.16084855  2.24804966 -1.71591661 -0.11653102  0.55388709 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Training complete taking 156.0799720287323 seconds. 
+Discarding model... 
+
+Beginning training with hyperparameters {'alpha': 0.001, 'beta': 10}...
+
+Working on 0.2 fold... 
+[Thu Mar 21 18:04:28 2024]  Iteration number: 0 with current cost as 0.3353662828316882 and parameters 
+[-3.19224908  2.26499879 -1.67844618 -0.11653102  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.72965081]. 
+Working on 0.4 fold... 
+[Thu Mar 21 18:04:52 2024]  Iteration number: 0 with current cost as 0.34044209846462037 and parameters 
+[-3.13058441  2.24172342 -1.7598919  -0.11653102  0.55388708 -2.77010898
+  3.06858498  2.18960145  1.18551999 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.6 fold... /home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+
+[Thu Mar 21 18:05:33 2024]  Iteration number: 0 with current cost as 0.3182829062872693 and parameters 
+[-3.15419039  2.24144122 -1.72149435 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.8 fold... 
+[Thu Mar 21 18:06:03 2024]  Iteration number: 0 with current cost as 0.33075761951788407 and parameters 
+[-3.13610208  2.24291804 -1.75190683 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648309  0.60271511  1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 1.0 fold... 
+[Thu Mar 21 18:06:37 2024]  Iteration number: 0 with current cost as 0.32684848565400965 and parameters 
+[-3.16084855  2.24804966 -1.71591661 -0.11653102  0.55388709 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Training complete taking 156.934720993042 seconds. 
+Discarding model... 
+
+Beginning training with hyperparameters {'alpha': 0.01, 'beta': 0.001}...
+
+Working on 0.2 fold... 
+[Thu Mar 21 18:07:05 2024]  Iteration number: 0 with current cost as 0.3353662828316882 and parameters 
+[-3.19224908  2.26499879 -1.67844618 -0.11653102  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.72965081]. 
+Working on 0.4 fold... 
+[Thu Mar 21 18:07:29 2024]  Iteration number: 0 with current cost as 0.34044209846462037 and parameters 
+[-3.13058441  2.24172342 -1.7598919  -0.11653102  0.55388708 -2.77010898
+  3.06858498  2.18960145  1.18551999 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.6 fold... 
+[Thu Mar 21 18:08:09 2024]  Iteration number: 0 with current cost as 0.3182829062872693 and parameters 
+[-3.15419039  2.24144122 -1.72149435 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.8 fold... 
+[Thu Mar 21 18:08:39 2024]  Iteration number: 0 with current cost as 0.33075761951788407 and parameters 
+[-3.13610208  2.24291804 -1.75190683 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648309  0.60271511  1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 1.0 fold... 
+[Thu Mar 21 18:09:13 2024]  Iteration number: 0 with current cost as 0.32684848565400965 and parameters 
+[-3.16084855  2.24804966 -1.71591661 -0.11653102  0.55388709 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Training complete taking 155.92915439605713 seconds. 
+Discarding model... 
+
+Beginning training with hyperparameters {'alpha': 0.01, 'beta': 0.01}...
+
+Working on 0.2 fold... 
+[Thu Mar 21 18:09:41 2024]  Iteration number: 0 with current cost as 0.3353662828316882 and parameters 
+[-3.19224908  2.26499879 -1.67844618 -0.11653102  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.72965081]. 
+Working on 0.4 fold... 
+[Thu Mar 21 18:10:05 2024]  Iteration number: 0 with current cost as 0.34044209846462037 and parameters 
+[-3.13058441  2.24172342 -1.7598919  -0.11653102  0.55388708 -2.77010898
+  3.06858498  2.18960145  1.18551999 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.6 fold... 
+[Thu Mar 21 18:10:45 2024]  Iteration number: 0 with current cost as 0.3182829062872693 and parameters 
+[-3.15419039  2.24144122 -1.72149435 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.8 fold... 
+[Thu Mar 21 18:11:16 2024]  Iteration number: 0 with current cost as 0.33075761951788407 and parameters 
+[-3.13610208  2.24291804 -1.75190683 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648309  0.60271511  1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 1.0 fold... 
+[Thu Mar 21 18:11:50 2024]  Iteration number: 0 with current cost as 0.32684848565400965 and parameters 
+[-3.16084855  2.24804966 -1.71591661 -0.11653102  0.55388709 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Training complete taking 157.60471272468567 seconds. 
+Discarding model... 
+
+Beginning training with hyperparameters {'alpha': 0.01, 'beta': 0.1}...
+
+Working on 0.2 fold... 
+[Thu Mar 21 18:12:19 2024]  Iteration number: 0 with current cost as 0.3353662828316882 and parameters 
+[-3.19224908  2.26499879 -1.67844618 -0.11653102  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.72965081]. 
+Working on 0.4 fold... 
+[Thu Mar 21 18:12:43 2024]  Iteration number: 0 with current cost as 0.34044209846462037 and parameters 
+[-3.13058441  2.24172342 -1.7598919  -0.11653102  0.55388708 -2.77010898
+  3.06858498  2.18960145  1.18551999 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.6 fold... 
+[Thu Mar 21 18:13:24 2024]  Iteration number: 0 with current cost as 0.3182829062872693 and parameters 
+[-3.15419039  2.24144122 -1.72149435 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.8 fold... 
+[Thu Mar 21 18:13:55 2024]  Iteration number: 0 with current cost as 0.33075761951788407 and parameters 
+[-3.13610208  2.24291804 -1.75190683 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648309  0.60271511  1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 1.0 fold... 
+[Thu Mar 21 18:14:29 2024]  Iteration number: 0 with current cost as 0.32684848565400965 and parameters 
+[-3.16084855  2.24804966 -1.71591661 -0.11653102  0.55388709 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Training complete taking 158.93093943595886 seconds. 
+Discarding model... 
+
+Beginning training with hyperparameters {'alpha': 0.01, 'beta': 1}...
+
+Working on 0.2 fold... 
+[Thu Mar 21 18:14:58 2024]  Iteration number: 0 with current cost as 0.3353662828316882 and parameters 
+[-3.19224908  2.26499879 -1.67844618 -0.11653102  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.72965081]. 
+Working on 0.4 fold... 
+[Thu Mar 21 18:15:22 2024]  Iteration number: 0 with current cost as 0.34044209846462037 and parameters 
+[-3.13058441  2.24172342 -1.7598919  -0.11653102  0.55388708 -2.77010898
+  3.06858498  2.18960145  1.18551999 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.6 fold... 
+[Thu Mar 21 18:16:03 2024]  Iteration number: 0 with current cost as 0.3182829062872693 and parameters 
+[-3.15419039  2.24144122 -1.72149435 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.8 fold... 
+[Thu Mar 21 18:16:36 2024]  Iteration number: 0 with current cost as 0.33075761951788407 and parameters 
+[-3.13610208  2.24291804 -1.75190683 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648309  0.60271511  1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 1.0 fold... 
+[Thu Mar 21 18:17:10 2024]  Iteration number: 0 with current cost as 0.32684848565400965 and parameters 
+[-3.16084855  2.24804966 -1.71591661 -0.11653102  0.55388709 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Training complete taking 161.8946874141693 seconds. 
+Discarding model... 
+
+Beginning training with hyperparameters {'alpha': 0.01, 'beta': 10}...
+
+Working on 0.2 fold... 
+[Thu Mar 21 18:17:40 2024]  Iteration number: 0 with current cost as 0.3353662828316882 and parameters 
+[-3.19224908  2.26499879 -1.67844618 -0.11653102  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.72965081]. /home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+
+Working on 0.4 fold... 
+[Thu Mar 21 18:18:05 2024]  Iteration number: 0 with current cost as 0.34044209846462037 and parameters 
+[-3.13058441  2.24172342 -1.7598919  -0.11653102  0.55388708 -2.77010898
+  3.06858498  2.18960145  1.18551999 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.6 fold... 
+[Thu Mar 21 18:18:46 2024]  Iteration number: 0 with current cost as 0.3182829062872693 and parameters 
+[-3.15419039  2.24144122 -1.72149435 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.8 fold... 
+[Thu Mar 21 18:19:19 2024]  Iteration number: 0 with current cost as 0.33075761951788407 and parameters 
+[-3.13610208  2.24291804 -1.75190683 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648309  0.60271511  1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 1.0 fold... 
+[Thu Mar 21 18:19:53 2024]  Iteration number: 0 with current cost as 0.32684848565400965 and parameters 
+[-3.16084855  2.24804966 -1.71591661 -0.11653102  0.55388709 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Training complete taking 163.15179109573364 seconds. 
+Discarding model... 
+
+Beginning training with hyperparameters {'alpha': 0.1, 'beta': 0.001}...
+
+Working on 0.2 fold... 
+[Thu Mar 21 18:20:23 2024]  Iteration number: 0 with current cost as 0.3353662828316882 and parameters 
+[-3.19224908  2.26499879 -1.67844618 -0.11653102  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.72965081]. 
+Working on 0.4 fold... 
+[Thu Mar 21 18:20:48 2024]  Iteration number: 0 with current cost as 0.34044209846462037 and parameters 
+[-3.13058441  2.24172342 -1.7598919  -0.11653102  0.55388708 -2.77010898
+  3.06858498  2.18960145  1.18551999 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.6 fold... 
+[Thu Mar 21 18:21:30 2024]  Iteration number: 0 with current cost as 0.3182829062872693 and parameters 
+[-3.15419039  2.24144122 -1.72149435 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.8 fold... 
+[Thu Mar 21 18:22:02 2024]  Iteration number: 0 with current cost as 0.33075761951788407 and parameters 
+[-3.13610208  2.24291804 -1.75190683 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648309  0.60271511  1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 1.0 fold... 
+[Thu Mar 21 18:22:37 2024]  Iteration number: 0 with current cost as 0.32684848565400965 and parameters 
+[-3.16084855  2.24804966 -1.71591661 -0.11653102  0.55388709 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Training complete taking 164.14742922782898 seconds. 
+Discarding model... 
+
+Beginning training with hyperparameters {'alpha': 0.1, 'beta': 0.01}...
+
+Working on 0.2 fold... 
+[Thu Mar 21 18:23:07 2024]  Iteration number: 0 with current cost as 0.3353662828316882 and parameters 
+[-3.19224908  2.26499879 -1.67844618 -0.11653102  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.72965081]. 
+Working on 0.4 fold... 
+[Thu Mar 21 18:23:32 2024]  Iteration number: 0 with current cost as 0.34044209846462037 and parameters 
+[-3.13058441  2.24172342 -1.7598919  -0.11653102  0.55388708 -2.77010898
+  3.06858498  2.18960145  1.18551999 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.6 fold... 
+[Thu Mar 21 18:24:15 2024]  Iteration number: 0 with current cost as 0.3182829062872693 and parameters 
+[-3.15419039  2.24144122 -1.72149435 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.8 fold... 
+[Thu Mar 21 18:24:47 2024]  Iteration number: 0 with current cost as 0.33075761951788407 and parameters 
+[-3.13610208  2.24291804 -1.75190683 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648309  0.60271511  1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 1.0 fold... 
+[Thu Mar 21 18:25:22 2024]  Iteration number: 0 with current cost as 0.32684848565400965 and parameters 
+[-3.16084855  2.24804966 -1.71591661 -0.11653102  0.55388709 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Training complete taking 164.605242729187 seconds. 
+Discarding model... 
+
+Beginning training with hyperparameters {'alpha': 0.1, 'beta': 0.1}...
+
+Working on 0.2 fold... 
+[Thu Mar 21 18:25:52 2024]  Iteration number: 0 with current cost as 0.3353662828316882 and parameters 
+[-3.19224908  2.26499879 -1.67844618 -0.11653102  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.72965081]. 
+Working on 0.4 fold... 
+[Thu Mar 21 18:26:17 2024]  Iteration number: 0 with current cost as 0.34044209846462037 and parameters 
+[-3.13058441  2.24172342 -1.7598919  -0.11653102  0.55388708 -2.77010898
+  3.06858498  2.18960145  1.18551999 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.6 fold... 
+[Thu Mar 21 18:26:59 2024]  Iteration number: 0 with current cost as 0.3182829062872693 and parameters 
+[-3.15419039  2.24144122 -1.72149435 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.8 fold... 
+[Thu Mar 21 18:27:31 2024]  Iteration number: 0 with current cost as 0.33075761951788407 and parameters 
+[-3.13610208  2.24291804 -1.75190683 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648309  0.60271511  1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 1.0 fold... 
+[Thu Mar 21 18:28:07 2024]  Iteration number: 0 with current cost as 0.32684848565400965 and parameters 
+[-3.16084855  2.24804966 -1.71591661 -0.11653102  0.55388709 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Training complete taking 165.39539551734924 seconds. 
+Discarding model... 
+
+Beginning training with hyperparameters {'alpha': 0.1, 'beta': 1}...
+
+Working on 0.2 fold... 
+[Thu Mar 21 18:28:37 2024]  Iteration number: 0 with current cost as 0.3353662828316882 and parameters 
+[-3.19224908  2.26499879 -1.67844618 -0.11653102  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.72965081]. 
+Working on 0.4 fold... 
+[Thu Mar 21 18:29:02 2024]  Iteration number: 0 with current cost as 0.34044209846462037 and parameters 
+[-3.13058441  2.24172342 -1.7598919  -0.11653102  0.55388708 -2.77010898
+  3.06858498  2.18960145  1.18551999 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.6 fold... 
+[Thu Mar 21 18:29:44 2024]  Iteration number: 0 with current cost as 0.3182829062872693 and parameters 
+[-3.15419039  2.24144122 -1.72149435 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.8 fold... 
+[Thu Mar 21 18:30:17 2024]  Iteration number: 0 with current cost as 0.33075761951788407 and parameters 
+[-3.13610208  2.24291804 -1.75190683 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648309  0.60271511  1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 1.0 fold... 
+[Thu Mar 21 18:30:51 2024]  Iteration number: 0 with current cost as 0.32684848565400965 and parameters 
+[-3.16084855  2.24804966 -1.71591661 -0.11653102  0.55388709 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Training complete taking 164.35620832443237 seconds. /home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+
+Discarding model... 
+
+Beginning training with hyperparameters {'alpha': 0.1, 'beta': 10}...
+
+Working on 0.2 fold... 
+[Thu Mar 21 18:31:22 2024]  Iteration number: 0 with current cost as 0.3353662828316882 and parameters 
+[-3.19224908  2.26499879 -1.67844618 -0.11653102  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.72965081]. 
+Working on 0.4 fold... 
+[Thu Mar 21 18:31:46 2024]  Iteration number: 0 with current cost as 0.34044209846462037 and parameters 
+[-3.13058441  2.24172342 -1.7598919  -0.11653102  0.55388708 -2.77010898
+  3.06858498  2.18960145  1.18551999 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.6 fold... 
+[Thu Mar 21 18:32:29 2024]  Iteration number: 0 with current cost as 0.3182829062872693 and parameters 
+[-3.15419039  2.24144122 -1.72149435 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.8 fold... 
+[Thu Mar 21 18:33:01 2024]  Iteration number: 0 with current cost as 0.33075761951788407 and parameters 
+[-3.13610208  2.24291804 -1.75190683 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648309  0.60271511  1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 1.0 fold... 
+[Thu Mar 21 18:33:35 2024]  Iteration number: 0 with current cost as 0.32684848565400965 and parameters 
+[-3.16084855  2.24804966 -1.71591661 -0.11653102  0.55388709 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Training complete taking 164.32581496238708 seconds. 
+Discarding model... 
+
+Beginning training with hyperparameters {'alpha': 1, 'beta': 0.001}...
+
+Working on 0.2 fold... 
+[Thu Mar 21 18:34:06 2024]  Iteration number: 0 with current cost as 0.3353662828316882 and parameters 
+[-3.19224908  2.26499879 -1.67844618 -0.11653102  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.72965081]. 
+Working on 0.4 fold... 
+[Thu Mar 21 18:34:30 2024]  Iteration number: 0 with current cost as 0.34044209846462037 and parameters 
+[-3.13058441  2.24172342 -1.7598919  -0.11653102  0.55388708 -2.77010898
+  3.06858498  2.18960145  1.18551999 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.6 fold... 
+[Thu Mar 21 18:35:13 2024]  Iteration number: 0 with current cost as 0.3182829062872693 and parameters 
+[-3.15419039  2.24144122 -1.72149435 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.8 fold... 
+[Thu Mar 21 18:35:45 2024]  Iteration number: 0 with current cost as 0.33075761951788407 and parameters 
+[-3.13610208  2.24291804 -1.75190683 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648309  0.60271511  1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 1.0 fold... 
+[Thu Mar 21 18:36:19 2024]  Iteration number: 0 with current cost as 0.32684848565400965 and parameters 
+[-3.16084855  2.24804966 -1.71591661 -0.11653102  0.55388709 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Training complete taking 163.38838529586792 seconds. 
+Discarding model... 
+
+Beginning training with hyperparameters {'alpha': 1, 'beta': 0.01}...
+
+Working on 0.2 fold... 
+[Thu Mar 21 18:36:49 2024]  Iteration number: 0 with current cost as 0.3353662828316882 and parameters 
+[-3.19224908  2.26499879 -1.67844618 -0.11653102  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.72965081]. 
+Working on 0.4 fold... 
+[Thu Mar 21 18:37:14 2024]  Iteration number: 0 with current cost as 0.34044209846462037 and parameters 
+[-3.13058441  2.24172342 -1.7598919  -0.11653102  0.55388708 -2.77010898
+  3.06858498  2.18960145  1.18551999 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.6 fold... 
+[Thu Mar 21 18:37:56 2024]  Iteration number: 0 with current cost as 0.3182829062872693 and parameters 
+[-3.15419039  2.24144122 -1.72149435 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.8 fold... 
+[Thu Mar 21 18:38:28 2024]  Iteration number: 0 with current cost as 0.33075761951788407 and parameters 
+[-3.13610208  2.24291804 -1.75190683 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648309  0.60271511  1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 1.0 fold... 
+[Thu Mar 21 18:39:03 2024]  Iteration number: 0 with current cost as 0.32684848565400965 and parameters 
+[-3.16084855  2.24804966 -1.71591661 -0.11653102  0.55388709 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Training complete taking 163.22142887115479 seconds. 
+Discarding model... 
+
+Beginning training with hyperparameters {'alpha': 1, 'beta': 0.1}...
+
+Working on 0.2 fold... 
+[Thu Mar 21 18:39:32 2024]  Iteration number: 0 with current cost as 0.3353662828316882 and parameters 
+[-3.19224908  2.26499879 -1.67844618 -0.11653102  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.72965081]. 
+Working on 0.4 fold... 
+[Thu Mar 21 18:39:58 2024]  Iteration number: 0 with current cost as 0.34044209846462037 and parameters 
+[-3.13058441  2.24172342 -1.7598919  -0.11653102  0.55388708 -2.77010898
+  3.06858498  2.18960145  1.18551999 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.6 fold... 
+[Thu Mar 21 18:40:39 2024]  Iteration number: 0 with current cost as 0.3182829062872693 and parameters 
+[-3.15419039  2.24144122 -1.72149435 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.8 fold... 
+[Thu Mar 21 18:41:11 2024]  Iteration number: 0 with current cost as 0.33075761951788407 and parameters 
+[-3.13610208  2.24291804 -1.75190683 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648309  0.60271511  1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 1.0 fold... 
+[Thu Mar 21 18:41:46 2024]  Iteration number: 0 with current cost as 0.32684848565400965 and parameters 
+[-3.16084855  2.24804966 -1.71591661 -0.11653102  0.55388709 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Training complete taking 163.2969253063202 seconds. 
+Discarding model... 
+
+Beginning training with hyperparameters {'alpha': 1, 'beta': 1}...
+
+Working on 0.2 fold... 
+[Thu Mar 21 18:42:15 2024]  Iteration number: 0 with current cost as 0.3353662828316882 and parameters 
+[-3.19224908  2.26499879 -1.67844618 -0.11653102  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.72965081]. 
+Working on 0.4 fold... 
+[Thu Mar 21 18:42:40 2024]  Iteration number: 0 with current cost as 0.34044209846462037 and parameters 
+[-3.13058441  2.24172342 -1.7598919  -0.11653102  0.55388708 -2.77010898
+  3.06858498  2.18960145  1.18551999 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.6 fold... 
+[Thu Mar 21 18:43:22 2024]  Iteration number: 0 with current cost as 0.3182829062872693 and parameters 
+[-3.15419039  2.24144122 -1.72149435 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.8 fold... 
+[Thu Mar 21 18:43:54 2024]  Iteration number: 0 with current cost as 0.33075761951788407 and parameters 
+[-3.13610208  2.24291804 -1.75190683 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648309  0.60271511  1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. /home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+
+Working on 1.0 fold... 
+[Thu Mar 21 18:44:28 2024]  Iteration number: 0 with current cost as 0.32684848565400965 and parameters 
+[-3.16084855  2.24804966 -1.71591661 -0.11653102  0.55388709 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Training complete taking 162.7158875465393 seconds. 
+Discarding model... 
+
+Beginning training with hyperparameters {'alpha': 1, 'beta': 10}...
+
+Working on 0.2 fold... 
+[Thu Mar 21 18:44:58 2024]  Iteration number: 0 with current cost as 0.3353662828316882 and parameters 
+[-3.19224908  2.26499879 -1.67844618 -0.11653102  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.72965081]. 
+Working on 0.4 fold... 
+[Thu Mar 21 18:45:23 2024]  Iteration number: 0 with current cost as 0.34044209846462037 and parameters 
+[-3.13058441  2.24172342 -1.7598919  -0.11653102  0.55388708 -2.77010898
+  3.06858498  2.18960145  1.18551999 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.6 fold... 
+[Thu Mar 21 18:46:04 2024]  Iteration number: 0 with current cost as 0.3182829062872693 and parameters 
+[-3.15419039  2.24144122 -1.72149435 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.8 fold... 
+[Thu Mar 21 18:46:37 2024]  Iteration number: 0 with current cost as 0.33075761951788407 and parameters 
+[-3.13610208  2.24291804 -1.75190683 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648309  0.60271511  1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 1.0 fold... 
+[Thu Mar 21 18:47:11 2024]  Iteration number: 0 with current cost as 0.32684848565400965 and parameters 
+[-3.16084855  2.24804966 -1.71591661 -0.11653102  0.55388709 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Training complete taking 162.51183247566223 seconds. 
+Discarding model... 
+
+Beginning training with hyperparameters {'alpha': 10, 'beta': 0.001}...
+
+Working on 0.2 fold... 
+[Thu Mar 21 18:47:41 2024]  Iteration number: 0 with current cost as 0.3353662828316882 and parameters 
+[-3.19224908  2.26499879 -1.67844618 -0.11653102  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.72965081]. 
+Working on 0.4 fold... 
+[Thu Mar 21 18:48:05 2024]  Iteration number: 0 with current cost as 0.34044209846462037 and parameters 
+[-3.13058441  2.24172342 -1.7598919  -0.11653102  0.55388708 -2.77010898
+  3.06858498  2.18960145  1.18551999 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.6 fold... 
+[Thu Mar 21 18:48:47 2024]  Iteration number: 0 with current cost as 0.3182829062872693 and parameters 
+[-3.15419039  2.24144122 -1.72149435 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.8 fold... 
+[Thu Mar 21 18:49:19 2024]  Iteration number: 0 with current cost as 0.33075761951788407 and parameters 
+[-3.13610208  2.24291804 -1.75190683 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648309  0.60271511  1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 1.0 fold... 
+[Thu Mar 21 18:49:53 2024]  Iteration number: 0 with current cost as 0.32684848565400965 and parameters 
+[-3.16084855  2.24804966 -1.71591661 -0.11653102  0.55388709 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Training complete taking 161.9283630847931 seconds. 
+Discarding model... 
+
+Beginning training with hyperparameters {'alpha': 10, 'beta': 0.01}...
+
+Working on 0.2 fold... 
+[Thu Mar 21 18:50:23 2024]  Iteration number: 0 with current cost as 0.3353662828316882 and parameters 
+[-3.19224908  2.26499879 -1.67844618 -0.11653102  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.72965081]. 
+Working on 0.4 fold... 
+[Thu Mar 21 18:50:47 2024]  Iteration number: 0 with current cost as 0.34044209846462037 and parameters 
+[-3.13058441  2.24172342 -1.7598919  -0.11653102  0.55388708 -2.77010898
+  3.06858498  2.18960145  1.18551999 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.6 fold... 
+[Thu Mar 21 18:51:28 2024]  Iteration number: 0 with current cost as 0.3182829062872693 and parameters 
+[-3.15419039  2.24144122 -1.72149435 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.8 fold... 
+[Thu Mar 21 18:52:00 2024]  Iteration number: 0 with current cost as 0.33075761951788407 and parameters 
+[-3.13610208  2.24291804 -1.75190683 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648309  0.60271511  1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 1.0 fold... 
+[Thu Mar 21 18:52:34 2024]  Iteration number: 0 with current cost as 0.32684848565400965 and parameters 
+[-3.16084855  2.24804966 -1.71591661 -0.11653102  0.55388709 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Training complete taking 160.76781582832336 seconds. 
+Discarding model... 
+
+Beginning training with hyperparameters {'alpha': 10, 'beta': 0.1}...
+
+Working on 0.2 fold... 
+[Thu Mar 21 18:53:04 2024]  Iteration number: 0 with current cost as 0.3353662828316882 and parameters 
+[-3.19224908  2.26499879 -1.67844618 -0.11653102  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.72965081]. 
+Working on 0.4 fold... 
+[Thu Mar 21 18:53:27 2024]  Iteration number: 0 with current cost as 0.34044209846462037 and parameters 
+[-3.13058441  2.24172342 -1.7598919  -0.11653102  0.55388708 -2.77010898
+  3.06858498  2.18960145  1.18551999 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.6 fold... 
+[Thu Mar 21 18:54:09 2024]  Iteration number: 0 with current cost as 0.3182829062872693 and parameters 
+[-3.15419039  2.24144122 -1.72149435 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.8 fold... 
+[Thu Mar 21 18:54:40 2024]  Iteration number: 0 with current cost as 0.33075761951788407 and parameters 
+[-3.13610208  2.24291804 -1.75190683 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648309  0.60271511  1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 1.0 fold... 
+[Thu Mar 21 18:55:14 2024]  Iteration number: 0 with current cost as 0.32684848565400965 and parameters 
+[-3.16084855  2.24804966 -1.71591661 -0.11653102  0.55388709 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Training complete taking 159.29071497917175 seconds. 
+Discarding model... 
+
+Beginning training with hyperparameters {'alpha': 10, 'beta': 1}...
+
+Working on 0.2 fold... 
+[Thu Mar 21 18:55:43 2024]  Iteration number: 0 with current cost as 0.3353662828316882 and parameters 
+[-3.19224908  2.26499879 -1.67844618 -0.11653102  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.72965081]. 
+Working on 0.4 fold... 
+[Thu Mar 21 18:56:07 2024]  Iteration number: 0 with current cost as 0.34044209846462037 and parameters 
+[-3.13058441  2.24172342 -1.7598919  -0.11653102  0.55388708 -2.77010898
+  3.06858498  2.18960145  1.18551999 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.6 fold... 
+[Thu Mar 21 18:56:47 2024]  Iteration number: 0 with current cost as 0.3182829062872693 and parameters 
+[-3.15419039  2.24144122 -1.72149435 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. /home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/grierjones/qregress/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+
+Working on 0.8 fold... 
+[Thu Mar 21 18:57:19 2024]  Iteration number: 0 with current cost as 0.33075761951788407 and parameters 
+[-3.13610208  2.24291804 -1.75190683 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648309  0.60271511  1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 1.0 fold... 
+[Thu Mar 21 18:57:53 2024]  Iteration number: 0 with current cost as 0.32684848565400965 and parameters 
+[-3.16084855  2.24804966 -1.71591661 -0.11653102  0.55388709 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Training complete taking 159.23800373077393 seconds. 
+Discarding model... 
+
+Beginning training with hyperparameters {'alpha': 10, 'beta': 10}...
+
+Working on 0.2 fold... 
+[Thu Mar 21 18:58:22 2024]  Iteration number: 0 with current cost as 0.3353662828316882 and parameters 
+[-3.19224908  2.26499879 -1.67844618 -0.11653102  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.72965081]. 
+Working on 0.4 fold... 
+[Thu Mar 21 18:58:46 2024]  Iteration number: 0 with current cost as 0.34044209846462037 and parameters 
+[-3.13058441  2.24172342 -1.7598919  -0.11653102  0.55388708 -2.77010898
+  3.06858498  2.18960145  1.18551999 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.6 fold... 
+[Thu Mar 21 18:59:27 2024]  Iteration number: 0 with current cost as 0.3182829062872693 and parameters 
+[-3.15419039  2.24144122 -1.72149435 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 0.8 fold... 
+[Thu Mar 21 18:59:58 2024]  Iteration number: 0 with current cost as 0.33075761951788407 and parameters 
+[-3.13610208  2.24291804 -1.75190683 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648309  0.60271511  1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Working on 1.0 fold... 
+[Thu Mar 21 19:00:31 2024]  Iteration number: 0 with current cost as 0.32684848565400965 and parameters 
+[-3.16084855  2.24804966 -1.71591661 -0.11653102  0.55388709 -2.77010897
+  3.06858498  2.18960146  1.18551999 -1.06648308  0.6027151   1.14432446
+  1.31029899 -1.8735468   0.7296508 ]. 
+Training complete taking 158.0635633468628 seconds. 
+Discarding model... 
+
+Training complete taking 4015.657145023346 total seconds. 
+Now scoring model... 
+Scoring complete taking 0.3932628631591797 seconds. 
+Saved predicted values as A2-A2-CZ_HWE-CZ_predicted_values.csv
+Model scores: {'MSE_train': (206.77432570092247,), 'R2_train': -0.0017522112657377686, 'MAE_train': 13.567234494378642, 'MSE_test': 218.46282076050187, 'R2_test': -0.31685322980678277, 'MAE_test': 14.664600853424972}. 
+Saved model results as A2-A2-CZ_HWE-CZ_results.json. 
