@@ -5,6 +5,8 @@ import time
 import os
 import itertools
 import collections.abc
+from shutil import copy
+from glob import glob
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -128,6 +130,7 @@ def save_token(instance, token):
 ############################################
 
 @click.command()
+@click.option('--save_path', required=True, type=click.Path(exists=True), help='Path for Apptainer to save data.')
 @click.option('--settings', required=True, type=click.Path(exists=True), help='Settings file for running ML. ')
 @click.option('--train_set', required=True, type=click.Path(exists=True), help='Datafile for training the ML model. ')
 @click.option('--test_set', default=None, type=click.Path(exists=True), help='Optional datafile to use for testing '
@@ -141,7 +144,7 @@ def save_token(instance, token):
 @click.option('--resume_file', default=None, type=click.Path(exists=True), help='File to resume training from. Use '
                                                                                 'the same settings file to generate '
                                                                                 'the same model for training. ')
-def main(settings, train_set, test_set, scaler, instance, token, save_circuits, title, resume_file):
+def main(save_path,settings, train_set, test_set, scaler, instance, token, save_circuits, title, resume_file):
     """
     Trains the quantum regressor with the settings in the given settings file using the dataset from the given train
     and test files. Will perform grid search on a default hyperparameter space unless they are specified. Saves scores
@@ -223,7 +226,7 @@ def main(settings, train_set, test_set, scaler, instance, token, save_circuits, 
         json.dump(results, outfile)
         pass
     print(f'Saved model results as {results_title}. ')
-
+    save_apptainer(save_path)
 
 def plot_circuits(title):
     draw_ansatz = qml.draw_mpl(ANSATZ)
@@ -316,6 +319,10 @@ def grid_search(model, hyperparameters: dict, X, y, folds: int = 5, **kwargs):
 
     return best_model, best_hyperparameters, best_score, results
 
+def save_apptainer(save_path):
+     for i in glob("*.bin")+ glob("*.csv")+ glob("*.out")+ glob("*.svg")+ glob("Grid_search.json")+ glob("*_results.json"):
+          copy(i,save_path)
 
+             
 if __name__ == '__main__':
     main()
