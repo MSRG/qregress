@@ -1,0 +1,38 @@
+
+scontrol show job 12508921
+JobId=12508921 JobName=A1_ESU2
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1913616 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=02:41:41 TimeLimit=23:59:00 TimeMin=N/A
+   SubmitTime=2024-04-04T11:28:14 EligibleTime=2024-04-04T11:28:14
+   AccrueTime=2024-04-04T11:28:14
+   StartTime=2024-04-04T11:28:19 EndTime=2024-04-04T14:10:00 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2024-04-04T11:28:19 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login06:5750
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia0396
+   BatchHost=nia0396
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=175000M MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=./A1_ESU2.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/lin5qubits
+   Comment=/opt/slurm/bin/sbatch ./A1_ESU2.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/lin5qubits/A1_ESU2.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/lin5qubits/A1_ESU2.o%J
+   Power=
+   
+
+sacct -j 12508921
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+12508921        A1_ESU2 rrg-fekl-+   02:41:41                        02:12.091 8-19:24:02      0:0 
+12508921.ba+      batch rrg-fekl-+   02:41:41   7372748K    321460K  02:12.090 8-19:24:02      0:0 
+12508921.ex+     extern rrg-fekl-+   02:41:41    148744K       896K   00:00:00   00:00:00      0:0 

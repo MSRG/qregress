@@ -1,0 +1,42 @@
+
+scontrol show job 12508992
+JobId=12508992 JobName=A1-A1-CNOT_Hadamard
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1911915 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:36:21 TimeLimit=23:59:00 TimeMin=N/A
+   SubmitTime=2024-04-04T11:28:51 EligibleTime=2024-04-04T11:28:51
+   AccrueTime=2024-04-04T11:28:51
+   StartTime=2024-04-04T11:40:49 EndTime=2024-04-04T12:17:10 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2024-04-04T11:40:49 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login06:5750
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia0512
+   BatchHost=nia0512
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=175000M MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=./A1-A1-CNOT_Hadamard.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/lin5qubits
+   Comment=/opt/slurm/bin/sbatch ./A1-A1-CNOT_Hadamard.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/lin5qubits/A1-A1-CNOT_Hadamard.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/lin5qubits/A1-A1-CNOT_Hadamard.o%J
+   Power=
+   
+
+sacct -j 12508992
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+12508992     A1-A1-CNO+ rrg-fekl-+   00:36:21                        00:29.009 2-00:03:20      0:0 
+12508992.ba+      batch rrg-fekl-+   00:36:21   7307128K    320244K  00:29.009 2-00:03:20      0:0 
+12508992.ex+     extern rrg-fekl-+   00:36:21    148744K      1088K   00:00:00   00:00:00      0:0 
+
+kernel messages produced during job executions:
+[Apr 4 09:39] TECH PREVIEW: Overlay filesystem may not be fully supported.
+Please review provided documentation for limitations.

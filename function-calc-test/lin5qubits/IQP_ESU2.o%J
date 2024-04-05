@@ -1,0 +1,42 @@
+
+scontrol show job 12509041
+JobId=12509041 JobName=IQP_ESU2
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1820641 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=02:35:02 TimeLimit=23:59:00 TimeMin=N/A
+   SubmitTime=2024-04-04T11:29:02 EligibleTime=2024-04-04T11:29:02
+   AccrueTime=2024-04-04T11:29:02
+   StartTime=2024-04-04T12:21:29 EndTime=2024-04-04T14:56:31 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2024-04-04T12:21:29 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login06:5750
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia0581
+   BatchHost=nia0581
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=175000M MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=./IQP_ESU2.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/lin5qubits
+   Comment=/opt/slurm/bin/sbatch ./IQP_ESU2.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/lin5qubits/IQP_ESU2.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/lin5qubits/IQP_ESU2.o%J
+   Power=
+   
+
+sacct -j 12509041
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+12509041       IQP_ESU2 rrg-fekl-+   02:35:02                        04:09.293 7-15:29:06      0:0 
+12509041.ba+      batch rrg-fekl-+   02:35:02   7240808K    317248K  04:09.292 7-15:29:06      0:0 
+12509041.ex+     extern rrg-fekl-+   02:35:02    148744K       900K   00:00:00   00:00:00      0:0 
+
+kernel messages produced during job executions:
+[Apr 4 10:20] TECH PREVIEW: Overlay filesystem may not be fully supported.
+Please review provided documentation for limitations.

@@ -1,0 +1,17 @@
+#! /bin/bash
+#SBATCH -t 0-23:59:00
+#SBATCH -J __pycache__
+#SBATCH -N 1
+#SBATCH -n 80
+#SBATCH --account=rrg-fekl-ac
+#SBATCH --error=__pycache__.e%J        # The file where run time errors will be dumped
+#SBATCH --output=__pycache__.o%J               # The file where the output of the terminal will be dumped
+
+module load apptainer 
+cd /scratch/j/jacobsen/gjones/lin5qubits/__pycache__
+
+apptainer run -C -B /scratch/j/jacobsen/gjones/lin5qubits ~/deb.sif /opt/miniconda/bin/python /scratch/j/jacobsen/gjones/lin5qubits/main.py --save_path /scratch/j/jacobsen/gjones/lin5qubits/__pycache__  --settings /scratch/j/jacobsen/gjones/lin5qubits/__pycache__/__pycache__.json --train_set /linear_train.bin --test_set /linear_test.bin --scaler /linear_scaler.bin >> __pycache__.out 2>&1 
+
+cd ..
+touch __pycache__.done
+

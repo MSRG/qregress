@@ -1,0 +1,17 @@
+#! /bin/bash
+#SBATCH -t 0-23:59:00
+#SBATCH -J M-M-CZ_Full-CRZ
+#SBATCH -N 1
+#SBATCH -n 80
+#SBATCH --account=rrg-fekl-ac
+#SBATCH --error=M-M-CZ_Full-CRZ.e%J        # The file where run time errors will be dumped
+#SBATCH --output=M-M-CZ_Full-CRZ.o%J               # The file where the output of the terminal will be dumped
+
+module load apptainer 
+cd /scratch/j/jacobsen/gjones/lin5qubits/M-M-CZ_Full-CRZ
+
+apptainer run -C -B /scratch/j/jacobsen/gjones/lin5qubits ~/deb.sif /opt/miniconda/bin/python /scratch/j/jacobsen/gjones/lin5qubits/main.py --save_path /scratch/j/jacobsen/gjones/lin5qubits/M-M-CZ_Full-CRZ  --settings /scratch/j/jacobsen/gjones/lin5qubits/M-M-CZ_Full-CRZ/M-M-CZ_Full-CRZ.json --train_set /linear_train.bin --test_set /linear_test.bin --scaler /linear_scaler.bin >> M-M-CZ_Full-CRZ.out 2>&1 
+
+cd ..
+touch M-M-CZ_Full-CRZ.done
+

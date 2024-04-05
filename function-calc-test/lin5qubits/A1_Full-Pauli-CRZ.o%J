@@ -1,0 +1,38 @@
+
+scontrol show job 12509043
+JobId=12509043 JobName=A1_Full-Pauli-CRZ
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1820641 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=04:08:15 TimeLimit=23:59:00 TimeMin=N/A
+   SubmitTime=2024-04-04T11:29:03 EligibleTime=2024-04-04T11:29:03
+   AccrueTime=2024-04-04T11:29:03
+   StartTime=2024-04-04T12:21:42 EndTime=2024-04-04T16:29:57 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2024-04-04T12:21:42 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login06:5750
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia0546
+   BatchHost=nia0546
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=175000M MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=./A1_Full-Pauli-CRZ.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/lin5qubits
+   Comment=/opt/slurm/bin/sbatch ./A1_Full-Pauli-CRZ.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/lin5qubits/A1_Full-Pauli-CRZ.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/lin5qubits/A1_Full-Pauli-CRZ.o%J
+   Power=
+   
+
+sacct -j 12509043
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+12509043     A1_Full-P+ rrg-fekl-+   04:08:15                         00:00:00   00:00:00      0:0 
+12509043.ba+      batch rrg-fekl-+   04:08:15                         00:00:00   00:00:00      0:0 
+12509043.ex+     extern rrg-fekl-+   04:08:15                         00:00:00   00:00:00      0:0 

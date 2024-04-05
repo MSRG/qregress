@@ -1,0 +1,38 @@
+
+scontrol show job 12508966
+JobId=12508966 JobName=A1_Modified-Pauli-CRX
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1911909 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=10:34:21 TimeLimit=23:59:00 TimeMin=N/A
+   SubmitTime=2024-04-04T11:28:45 EligibleTime=2024-04-04T11:28:45
+   AccrueTime=2024-04-04T11:28:45
+   StartTime=2024-04-04T11:36:26 EndTime=2024-04-04T22:10:47 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2024-04-04T11:36:26 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login06:5750
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia0356
+   BatchHost=nia0356
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=175000M MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=./A1_Modified-Pauli-CRX.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/lin5qubits
+   Comment=/opt/slurm/bin/sbatch ./A1_Modified-Pauli-CRX.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/lin5qubits/A1_Modified-Pauli-CRX.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/lin5qubits/A1_Modified-Pauli-CRX.o%J
+   Power=
+   
+
+sacct -j 12508966
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+12508966     A1_Modifi+ rrg-fekl-+   10:34:21                        04:56.539 35-02:05:+      0:0 
+12508966.ba+      batch rrg-fekl-+   10:34:21   7308032K    316660K  04:56.539 35-02:05:+      0:0 
+12508966.ex+     extern rrg-fekl-+   10:34:21    148744K       900K   00:00:00   00:00:00      0:0 
