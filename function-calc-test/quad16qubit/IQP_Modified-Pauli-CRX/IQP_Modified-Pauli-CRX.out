@@ -1,0 +1,28 @@
+/home/gjones/scratch/quad16qubit/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+Loading dataset from /home/gjones/scratch/quad16qubit/quadratic_train.bin... 
+Successfully loaded /home/gjones/scratch/quad16qubit/quadratic_train.bin into X and y data. 
+Loading dataset from /home/gjones/scratch/quad16qubit/quadratic_test.bin... 
+Successfully loaded /home/gjones/scratch/quad16qubit/quadratic_test.bin into X and y data. 
+Training model with dataset /home/gjones/scratch/quad16qubit/quadratic_train.bin 
+ at time Wed Apr 10 07:20:57 2024... 
+[Wed Apr 10 07:27:20 2024]  Iteration number: 0 with current cost as 0.3138078381547254 and parameters 
+[-2.75945511  2.0974316  -2.15861269 -0.11653107  0.55388704 -2.770109
+  3.0685849   2.18960142  1.18551995 -1.06648315  0.602715    1.14432442
+  1.31029897 -1.87354682  0.72965078  2.88578411 -0.54534344 -0.47522487
+ -2.02654245  0.72897364  1.60512654  2.83077105 -1.26456714 -0.2513611
+ -2.39279221 -2.27309781  3.1333715   2.54856957 -0.67550793 -2.69002207
+  1.51701623 -0.04647228 -2.48820564  2.04043212  1.15216307 -0.65055506
+  1.04465366 -1.92056018 -0.32067989  2.32226028 -0.2058509   0.56637423
+  2.68983129  1.07273362  2.58102864  2.94254026  2.76514586 -2.94578573
+  0.36684052 -0.65725909  1.65159082  2.68042135 -0.25194958 -2.45807913
+  2.63570523 -3.07930432  0.7912972  -0.75901775 -1.81776564  2.99868858
+ -1.85887171 -1.63734088 -2.55370824  2.30926632 -2.25921323  1.98533552
+  1.90881014  1.42517315  2.59930885  2.87147469  1.84732041  1.52137428
+ -1.69866533 -2.34431217  1.23292411]. 
+Training complete taking 4334.91912317276 total seconds. 
+Now scoring model... 
+Scoring complete taking 2.362992525100708 seconds. 
+Saved predicted values as IQP_Modified-Pauli-CRX_predicted_values.csv
+Model scores: {'MSE_train': (4.049750561757147,), 'R2_train': 0.443938762202997, 'MAE_train': 1.7667151170830913, 'MSE_test': 4.904163654493526, 'R2_test': 0.5111006970762026, 'MAE_test': 1.9932683278441712}. 
+Saved model results as IQP_Modified-Pauli-CRX_results.json. 

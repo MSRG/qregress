@@ -232,7 +232,7 @@ class QuantumRegressor:
                 'parameters': param_vector,
                 'iterations': self.fit_count
             }
-            if force is True:
+            if force is True and os.path.exists('partial_state_model.bin'):
                 outfile = 'final_state_model.bin'
                 os.remove('partial_state_model.bin')
             else:

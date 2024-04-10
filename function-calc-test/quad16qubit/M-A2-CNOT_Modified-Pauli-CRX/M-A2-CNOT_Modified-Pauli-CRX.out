@@ -1,0 +1,62 @@
+/home/gjones/scratch/quad16qubit/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/gjones/scratch/quad16qubit/quantum/circuits/Encoders.py:12: RuntimeWarning: invalid value encountered in arcsin
+  if np.isnan(np.arcsin(features[feature_idx])) or np.isnan(np.arccos(features[feature_idx])):
+Loading dataset from /home/gjones/scratch/quad16qubit/quadratic_train.bin... 
+Successfully loaded /home/gjones/scratch/quad16qubit/quadratic_train.bin into X and y data. 
+Loading dataset from /home/gjones/scratch/quad16qubit/quadratic_test.bin... 
+Successfully loaded /home/gjones/scratch/quad16qubit/quadratic_test.bin into X and y data. 
+Training model with dataset /home/gjones/scratch/quad16qubit/quadratic_train.bin 
+ at time Wed Apr 10 07:32:07 2024... 
+[Wed Apr 10 07:39:10 2024]  Iteration number: 0 with current cost as 0.33527775014104516 and parameters 
+[-3.04634662  2.17189871 -1.70288459 -0.11653098  0.55388707 -2.77010894
+  3.06858503  2.18960153  1.18552001 -1.06648305  0.6027152   1.14432448
+  1.31029897 -1.87354677  0.72965083  2.88578424 -0.54534333 -0.47522486
+ -2.02654237  0.7289737   1.60512666  2.83077109 -1.26456705 -0.25136101
+ -2.39279213 -2.27309771  3.13337156  2.54856963 -0.67550786 -2.69002199
+  1.51701628 -0.04647228 -2.07948418  2.04043216  1.15216313 -0.65055497
+  1.04465367 -1.92056013 -0.32067986  2.32226034 -0.20585085  0.56637438
+  2.68983134  1.07273365  2.58102871  2.9425404   2.76514595 -2.94578569
+  0.36684063 -0.65725905  1.6515909   2.68042149 -0.25194952 -2.45807903
+  2.63570526 -3.07930428  0.79129726 -0.75901769 -1.81776561  2.99868861
+ -1.85887164 -1.63734088 -2.55370824  2.30926632 -2.25921323  1.98533552
+  1.90881014  1.42517315  2.59930885  2.87147469  1.84732041  1.52137428
+ -1.69866533 -2.34431217  1.23292411]. 
+Training complete taking 12983.159294843674 total seconds. 
+Now scoring model... 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Scoring complete taking 4.899951219558716 seconds. 
+Saved predicted values as M-A2-CNOT_Modified-Pauli-CRX_predicted_values.csv
+Model scores: {'MSE_train': (3.2909113841007835,), 'R2_train': 0.5481330936764328, 'MAE_train': 1.493125231906093, 'MSE_test': 4.027254735608102, 'R2_test': 0.5985203244326269, 'MAE_test': 1.7114813832411435}. 
+Saved model results as M-A2-CNOT_Modified-Pauli-CRX_results.json. 
