@@ -1,0 +1,108 @@
+/home/gjones/scratch/sin16qubit/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+Loading dataset from /home/gjones/scratch/sin16qubit/sine_train.bin... 
+Successfully loaded /home/gjones/scratch/sin16qubit/sine_train.bin into X and y data. 
+Loading dataset from /home/gjones/scratch/sin16qubit/sine_test.bin... 
+Successfully loaded /home/gjones/scratch/sin16qubit/sine_test.bin into X and y data. 
+Training model with dataset /home/gjones/scratch/sin16qubit/sine_train.bin 
+ at time Wed Apr 10 07:16:15 2024... 
+[Wed Apr 10 07:31:21 2024]  Iteration number: 0 with current cost as 0.30715178873657994 and parameters 
+[-1.45070292  2.23743464 -2.12427929 -0.11653068  0.55388719 -2.77010937
+  3.06858504  2.18960099  1.18552073 -1.06648263  0.60271539  1.14432525
+  1.31029956 -1.87354669  0.72965052  2.88578431 -0.54534335 -0.47522508
+ -2.0265424   0.72897335  1.60512767  2.83077153 -1.26456715 -0.25136076
+ -2.39279224 -2.27309786  3.13337121  2.54857027 -0.67550724 -2.69002202
+  1.51701606 -0.04647228 -2.34271325  2.04043225  1.15216375 -0.65055453
+  1.04465335 -1.9205601  -0.32068039  2.32226044 -0.20585098  0.56637422
+  2.68983206  1.07273442  2.58102912  2.94254044  2.76514705 -2.94578542
+  0.36684076 -0.65725896  1.65159121  2.68042233 -0.25194949 -2.45807872
+  2.63570536 -3.07930429  0.79129724 -0.75901771 -1.81776562  2.9986886
+ -1.85887175 -1.63734088 -2.55370824  2.30926632 -2.25921323  1.98533552
+  1.90881014  1.42517315  2.59930885  2.87147469  1.84732041  1.52137428
+ -1.69866533 -2.34431217  1.23292411]. 
+Traceback (most recent call last):
+  File "/home/gjones/scratch/sin16qubit/main.py", line 329, in <module>
+    main()
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/gjones/scratch/sin16qubit/main.py", line 189, in main
+    model.fit(X_train, y_train, load_state=resume_file)
+  File "/home/gjones/scratch/sin16qubit/quantum/Quantum.py", line 321, in fit
+    self._save_partial_state(params, force=True)
+  File "/home/gjones/scratch/sin16qubit/quantum/Quantum.py", line 237, in _save_partial_state
+    os.remove('partial_state_model.bin')
+FileNotFoundError: [Errno 2] No such file or directory: 'partial_state_model.bin'
+/home/gjones/scratch/sin16qubit/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+Loading dataset from /home/gjones/scratch/sin16qubit/sine_train.bin... 
+Successfully loaded /home/gjones/scratch/sin16qubit/sine_train.bin into X and y data. 
+Loading dataset from /home/gjones/scratch/sin16qubit/sine_test.bin... 
+Successfully loaded /home/gjones/scratch/sin16qubit/sine_test.bin into X and y data. 
+Training model with dataset /home/gjones/scratch/sin16qubit/sine_train.bin 
+ at time Wed Apr 10 16:50:11 2024... 
+[Wed Apr 10 17:08:07 2024]  Iteration number: 0 with current cost as 0.30715178873657994 and parameters 
+[-1.45070292  2.23743464 -2.12427929 -0.11653068  0.55388719 -2.77010937
+  3.06858504  2.18960099  1.18552073 -1.06648263  0.60271539  1.14432525
+  1.31029956 -1.87354669  0.72965052  2.88578431 -0.54534335 -0.47522508
+ -2.0265424   0.72897335  1.60512767  2.83077153 -1.26456715 -0.25136076
+ -2.39279224 -2.27309786  3.13337121  2.54857027 -0.67550724 -2.69002202
+  1.51701606 -0.04647228 -2.34271325  2.04043225  1.15216375 -0.65055453
+  1.04465335 -1.9205601  -0.32068039  2.32226044 -0.20585098  0.56637422
+  2.68983206  1.07273442  2.58102912  2.94254044  2.76514705 -2.94578542
+  0.36684076 -0.65725896  1.65159121  2.68042233 -0.25194949 -2.45807872
+  2.63570536 -3.07930429  0.79129724 -0.75901771 -1.81776562  2.9986886
+ -1.85887175 -1.63734088 -2.55370824  2.30926632 -2.25921323  1.98533552
+  1.90881014  1.42517315  2.59930885  2.87147469  1.84732041  1.52137428
+ -1.69866533 -2.34431217  1.23292411]. 
+Traceback (most recent call last):
+  File "/home/gjones/scratch/sin16qubit/main.py", line 329, in <module>
+    main()
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/gjones/scratch/sin16qubit/main.py", line 189, in main
+    model.fit(X_train, y_train, load_state=resume_file)
+  File "/home/gjones/scratch/sin16qubit/quantum/Quantum.py", line 321, in fit
+    self._save_partial_state(params, force=True)
+  File "/home/gjones/scratch/sin16qubit/quantum/Quantum.py", line 237, in _save_partial_state
+    os.remove('partial_state_model.bin')
+FileNotFoundError: [Errno 2] No such file or directory: 'partial_state_model.bin'
+/home/gjones/scratch/sin16qubit/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+Loading dataset from /home/gjones/scratch/sin16qubit/sine_train.bin... 
+Successfully loaded /home/gjones/scratch/sin16qubit/sine_train.bin into X and y data. 
+Loading dataset from /home/gjones/scratch/sin16qubit/sine_test.bin... 
+Successfully loaded /home/gjones/scratch/sin16qubit/sine_test.bin into X and y data. 
+Training model with dataset /home/gjones/scratch/sin16qubit/sine_train.bin 
+ at time Wed Apr 10 19:19:34 2024... 
+[Wed Apr 10 19:34:49 2024]  Iteration number: 0 with current cost as 0.30715178873657994 and parameters 
+[-1.45070292  2.23743464 -2.12427929 -0.11653068  0.55388719 -2.77010937
+  3.06858504  2.18960099  1.18552073 -1.06648263  0.60271539  1.14432525
+  1.31029956 -1.87354669  0.72965052  2.88578431 -0.54534335 -0.47522508
+ -2.0265424   0.72897335  1.60512767  2.83077153 -1.26456715 -0.25136076
+ -2.39279224 -2.27309786  3.13337121  2.54857027 -0.67550724 -2.69002202
+  1.51701606 -0.04647228 -2.34271325  2.04043225  1.15216375 -0.65055453
+  1.04465335 -1.9205601  -0.32068039  2.32226044 -0.20585098  0.56637422
+  2.68983206  1.07273442  2.58102912  2.94254044  2.76514705 -2.94578542
+  0.36684076 -0.65725896  1.65159121  2.68042233 -0.25194949 -2.45807872
+  2.63570536 -3.07930429  0.79129724 -0.75901771 -1.81776562  2.9986886
+ -1.85887175 -1.63734088 -2.55370824  2.30926632 -2.25921323  1.98533552
+  1.90881014  1.42517315  2.59930885  2.87147469  1.84732041  1.52137428
+ -1.69866533 -2.34431217  1.23292411]. 
+Training complete taking 1528.5222849845886 total seconds. 
+Now scoring model... 
+Scoring complete taking 2.3094770908355713 seconds. 
+Saved predicted values as A1-A1-CZ_Modified-Pauli-CRZ_predicted_values.csv
+Model scores: {'MSE_train': (0.5014497927865975,), 'R2_train': 0.001495412343955782, 'MAE_train': 0.6173098393498397, 'MSE_test': 0.5844791016786799, 'R2_test': -0.09003303885879888, 'MAE_test': 0.6814712844616696}. 
+Saved model results as A1-A1-CZ_Modified-Pauli-CRZ_results.json. 

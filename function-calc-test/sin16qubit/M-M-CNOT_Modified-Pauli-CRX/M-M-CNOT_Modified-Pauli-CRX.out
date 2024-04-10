@@ -1,0 +1,29 @@
+because user namespaces have been disabled
+/home/gjones/scratch/sin16qubit/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+Loading dataset from /home/gjones/scratch/sin16qubit/sine_train.bin... 
+Successfully loaded /home/gjones/scratch/sin16qubit/sine_train.bin into X and y data. 
+Loading dataset from /home/gjones/scratch/sin16qubit/sine_test.bin... 
+Successfully loaded /home/gjones/scratch/sin16qubit/sine_test.bin into X and y data. 
+Training model with dataset /home/gjones/scratch/sin16qubit/sine_train.bin 
+ at time Wed Apr 10 07:08:17 2024... 
+[Wed Apr 10 07:16:30 2024]  Iteration number: 0 with current cost as 0.31102216054862397 and parameters 
+[-2.94382314  2.2260268  -1.98019519 -0.11653102  0.55388708 -2.77010896
+  3.068585    2.18960144  1.18551998 -1.06648311  0.60271512  1.14432444
+  1.31029898 -1.87354679  0.72965078  2.88578419 -0.54534334 -0.47522486
+ -2.02654241  0.72897367  1.60512662  2.83077107 -1.26456711 -0.25136105
+ -2.39279218 -2.27309775  3.13337154  2.54856958 -0.67550787 -2.69002202
+  1.51701622 -0.04647228 -2.27955234  2.04043214  1.15216311 -0.650555
+  1.04465368 -1.92056016 -0.32067988  2.32226034 -0.20585094  0.56637432
+  2.68983128  1.07273361  2.58102864  2.94254034  2.76514589 -2.94578572
+  0.3668406  -0.65725908  1.65159086  2.68042141 -0.25194954 -2.45807906
+  2.63570525 -3.07930429  0.79129724 -0.75901771 -1.81776563  2.9986886
+ -1.8588717  -1.63734088 -2.55370824  2.30926632 -2.25921323  1.98533552
+  1.90881014  1.42517315  2.59930885  2.87147469  1.84732041  1.52137428
+ -1.69866533 -2.34431217  1.23292411]. 
+Training complete taking 8087.39027929306 total seconds. 
+Now scoring model... 
+Scoring complete taking 2.9594008922576904 seconds. 
+Saved predicted values as M-M-CNOT_Modified-Pauli-CRX_predicted_values.csv
+Model scores: {'MSE_train': (0.42639561350385513,), 'R2_train': 0.1509459523872948, 'MAE_train': 0.5644555847938019, 'MSE_test': 0.5112681258066789, 'R2_test': 0.046502865125407356, 'MAE_test': 0.628408429228509}. 
+Saved model results as M-M-CNOT_Modified-Pauli-CRX_results.json. 
