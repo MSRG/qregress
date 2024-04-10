@@ -192,6 +192,7 @@ def main(save_path,settings, train_set, test_set, scaler, instance, token, save_
     et = time.time()
     print(f'Training complete taking {et - st} total seconds. ')
 
+    save_apptainer(save_path)
     # removes temporary file created during training.
     if os.path.exists(title + '_tentative_model.bin'):
         os.remove('tentative_model.bin')

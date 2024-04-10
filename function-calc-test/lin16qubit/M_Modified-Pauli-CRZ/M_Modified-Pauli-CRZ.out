@@ -1,0 +1,287 @@
+because user namespaces have been disabled
+/home/gjones/scratch/lin16qubit/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+Loading dataset from /linear_train.bin... 
+Successfully loaded /linear_train.bin into X and y data. 
+Loading dataset from /linear_test.bin... 
+Successfully loaded /linear_test.bin into X and y data. 
+Training model with dataset /linear_train.bin 
+ at time Fri Apr  5 19:33:05 2024... 
+[Fri Apr  5 19:43:56 2024]  Iteration number: 0 with current cost as 0.9962683764139495 and parameters 
+[-7.99026938  2.23743495 -2.12427745 -0.11652946  0.5538877  -2.77010897
+  3.06858561  2.1896027   1.18552186 -1.06648621  0.60271729  1.14432289
+  1.31029805 -1.87354305  0.72964861  2.88578325 -0.54534241 -0.47522266
+ -2.02654334  0.72897213  1.6051257   2.8307717  -1.26456616 -0.25135917
+ -2.39279187 -2.27309993  3.13337311  2.54856896 -0.67550975 -2.69002264
+  1.51701717 -0.04647228 -2.34271277  2.04043089  1.15216156 -0.65055499
+  1.04465244 -1.92056016 -0.32067925  2.32226283 -0.20584998  0.56637339
+  2.68983037  1.07273487  2.58102867  2.94254063  2.76514653 -2.94578665
+  0.36683902 -0.6572597   1.65159149  2.68042267 -0.25195048 -2.45808094
+  2.63570587 -3.07930429  0.79129724 -0.75901771 -1.81776562  2.9986886
+ -1.85887169 -1.63734088 -2.55370824  2.30926632 -2.25921323  1.98533552
+  1.90881014  1.42517315  2.59930885  2.87147469  1.84732041  1.52137428
+ -1.69866533 -2.34431217  1.23292411]. 
+Traceback (most recent call last):
+  File "/home/gjones/scratch/lin16qubit/main.py", line 329, in <module>
+    main()
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/gjones/scratch/lin16qubit/main.py", line 189, in main
+    model.fit(X_train, y_train, load_state=resume_file)
+  File "/home/gjones/scratch/lin16qubit/quantum/Quantum.py", line 321, in fit
+    self._save_partial_state(params, force=True)
+  File "/home/gjones/scratch/lin16qubit/quantum/Quantum.py", line 237, in _save_partial_state
+    os.remove('partial_state_model.bin')
+FileNotFoundError: [Errno 2] No such file or directory: 'partial_state_model.bin'
+/home/gjones/scratch/lin16qubit/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+Loading dataset from /linear_train.bin... 
+Successfully loaded /linear_train.bin into X and y data. 
+Loading dataset from /linear_test.bin... 
+Successfully loaded /linear_test.bin into X and y data. 
+Training model with dataset /linear_train.bin 
+ at time Mon Apr  8 15:02:34 2024... 
+[Mon Apr  8 15:15:12 2024]  Iteration number: 0 with current cost as 0.9962683764139495 and parameters 
+[-7.99026938  2.23743495 -2.12427745 -0.11652946  0.5538877  -2.77010897
+  3.06858561  2.1896027   1.18552186 -1.06648621  0.60271729  1.14432289
+  1.31029805 -1.87354305  0.72964861  2.88578325 -0.54534241 -0.47522266
+ -2.02654334  0.72897213  1.6051257   2.8307717  -1.26456616 -0.25135917
+ -2.39279187 -2.27309993  3.13337311  2.54856896 -0.67550975 -2.69002264
+  1.51701717 -0.04647228 -2.34271277  2.04043089  1.15216156 -0.65055499
+  1.04465244 -1.92056016 -0.32067925  2.32226283 -0.20584998  0.56637339
+  2.68983037  1.07273487  2.58102867  2.94254063  2.76514653 -2.94578665
+  0.36683902 -0.6572597   1.65159149  2.68042267 -0.25195048 -2.45808094
+  2.63570587 -3.07930429  0.79129724 -0.75901771 -1.81776562  2.9986886
+ -1.85887169 -1.63734088 -2.55370824  2.30926632 -2.25921323  1.98533552
+  1.90881014  1.42517315  2.59930885  2.87147469  1.84732041  1.52137428
+ -1.69866533 -2.34431217  1.23292411]. 
+Traceback (most recent call last):
+  File "/home/gjones/scratch/lin16qubit/main.py", line 329, in <module>
+    main()
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/gjones/scratch/lin16qubit/main.py", line 189, in main
+    model.fit(X_train, y_train, load_state=resume_file)
+  File "/home/gjones/scratch/lin16qubit/quantum/Quantum.py", line 321, in fit
+    self._save_partial_state(params, force=True)
+  File "/home/gjones/scratch/lin16qubit/quantum/Quantum.py", line 237, in _save_partial_state
+    os.remove('partial_state_model.bin')
+FileNotFoundError: [Errno 2] No such file or directory: 'partial_state_model.bin'
+/home/gjones/scratch/lin16qubit/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+Loading dataset from /linear_train.bin... 
+Successfully loaded /linear_train.bin into X and y data. 
+Loading dataset from /linear_test.bin... 
+Successfully loaded /linear_test.bin into X and y data. 
+Training model with dataset /linear_train.bin 
+ at time Mon Apr  8 16:18:48 2024... 
+[Mon Apr  8 16:29:23 2024]  Iteration number: 0 with current cost as 0.9962683764139495 and parameters 
+[-7.99026938  2.23743495 -2.12427745 -0.11652946  0.5538877  -2.77010897
+  3.06858561  2.1896027   1.18552186 -1.06648621  0.60271729  1.14432289
+  1.31029805 -1.87354305  0.72964861  2.88578325 -0.54534241 -0.47522266
+ -2.02654334  0.72897213  1.6051257   2.8307717  -1.26456616 -0.25135917
+ -2.39279187 -2.27309993  3.13337311  2.54856896 -0.67550975 -2.69002264
+  1.51701717 -0.04647228 -2.34271277  2.04043089  1.15216156 -0.65055499
+  1.04465244 -1.92056016 -0.32067925  2.32226283 -0.20584998  0.56637339
+  2.68983037  1.07273487  2.58102867  2.94254063  2.76514653 -2.94578665
+  0.36683902 -0.6572597   1.65159149  2.68042267 -0.25195048 -2.45808094
+  2.63570587 -3.07930429  0.79129724 -0.75901771 -1.81776562  2.9986886
+ -1.85887169 -1.63734088 -2.55370824  2.30926632 -2.25921323  1.98533552
+  1.90881014  1.42517315  2.59930885  2.87147469  1.84732041  1.52137428
+ -1.69866533 -2.34431217  1.23292411]. 
+Traceback (most recent call last):
+  File "/home/gjones/scratch/lin16qubit/main.py", line 330, in <module>
+    main()
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/gjones/scratch/lin16qubit/main.py", line 189, in main
+    model.fit(X_train, y_train, load_state=resume_file)
+  File "/home/gjones/scratch/lin16qubit/quantum/Quantum.py", line 321, in fit
+    self._save_partial_state(params, force=True)
+  File "/home/gjones/scratch/lin16qubit/quantum/Quantum.py", line 237, in _save_partial_state
+    os.remove('partial_state_model.bin')
+FileNotFoundError: [Errno 2] No such file or directory: 'partial_state_model.bin'
+/home/gjones/scratch/lin16qubit/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+Loading dataset from /linear_train.bin... 
+Successfully loaded /linear_train.bin into X and y data. 
+Loading dataset from /linear_test.bin... 
+Successfully loaded /linear_test.bin into X and y data. 
+Training model with dataset /linear_train.bin 
+ at time Mon Apr  8 17:36:51 2024... 
+[Mon Apr  8 17:47:26 2024]  Iteration number: 0 with current cost as 0.9962683764139495 and parameters 
+[-7.99026938  2.23743495 -2.12427745 -0.11652946  0.5538877  -2.77010897
+  3.06858561  2.1896027   1.18552186 -1.06648621  0.60271729  1.14432289
+  1.31029805 -1.87354305  0.72964861  2.88578325 -0.54534241 -0.47522266
+ -2.02654334  0.72897213  1.6051257   2.8307717  -1.26456616 -0.25135917
+ -2.39279187 -2.27309993  3.13337311  2.54856896 -0.67550975 -2.69002264
+  1.51701717 -0.04647228 -2.34271277  2.04043089  1.15216156 -0.65055499
+  1.04465244 -1.92056016 -0.32067925  2.32226283 -0.20584998  0.56637339
+  2.68983037  1.07273487  2.58102867  2.94254063  2.76514653 -2.94578665
+  0.36683902 -0.6572597   1.65159149  2.68042267 -0.25195048 -2.45808094
+  2.63570587 -3.07930429  0.79129724 -0.75901771 -1.81776562  2.9986886
+ -1.85887169 -1.63734088 -2.55370824  2.30926632 -2.25921323  1.98533552
+  1.90881014  1.42517315  2.59930885  2.87147469  1.84732041  1.52137428
+ -1.69866533 -2.34431217  1.23292411]. 
+Traceback (most recent call last):
+  File "/home/gjones/scratch/lin16qubit/main.py", line 329, in <module>
+    main()
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/gjones/scratch/lin16qubit/main.py", line 189, in main
+    model.fit(X_train, y_train, load_state=resume_file)
+  File "/home/gjones/scratch/lin16qubit/quantum/Quantum.py", line 321, in fit
+    self._save_partial_state(params, force=True)
+  File "/home/gjones/scratch/lin16qubit/quantum/Quantum.py", line 237, in _save_partial_state
+    os.remove('partial_state_model.bin')
+FileNotFoundError: [Errno 2] No such file or directory: 'partial_state_model.bin'
+/home/gjones/scratch/lin16qubit/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+Loading dataset from /linear_train.bin... 
+Successfully loaded /linear_train.bin into X and y data. 
+Loading dataset from /linear_test.bin... 
+Successfully loaded /linear_test.bin into X and y data. 
+Training model with dataset /linear_train.bin 
+ at time Wed Apr 10 06:26:49 2024... 
+[Wed Apr 10 06:40:13 2024]  Iteration number: 0 with current cost as 0.9962683764139495 and parameters 
+[-7.99026938  2.23743495 -2.12427745 -0.11652946  0.5538877  -2.77010897
+  3.06858561  2.1896027   1.18552186 -1.06648621  0.60271729  1.14432289
+  1.31029805 -1.87354305  0.72964861  2.88578325 -0.54534241 -0.47522266
+ -2.02654334  0.72897213  1.6051257   2.8307717  -1.26456616 -0.25135917
+ -2.39279187 -2.27309993  3.13337311  2.54856896 -0.67550975 -2.69002264
+  1.51701717 -0.04647228 -2.34271277  2.04043089  1.15216156 -0.65055499
+  1.04465244 -1.92056016 -0.32067925  2.32226283 -0.20584998  0.56637339
+  2.68983037  1.07273487  2.58102867  2.94254063  2.76514653 -2.94578665
+  0.36683902 -0.6572597   1.65159149  2.68042267 -0.25195048 -2.45808094
+  2.63570587 -3.07930429  0.79129724 -0.75901771 -1.81776562  2.9986886
+ -1.85887169 -1.63734088 -2.55370824  2.30926632 -2.25921323  1.98533552
+  1.90881014  1.42517315  2.59930885  2.87147469  1.84732041  1.52137428
+ -1.69866533 -2.34431217  1.23292411]. 
+Traceback (most recent call last):
+  File "/home/gjones/scratch/lin16qubit/main.py", line 329, in <module>
+    main()
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/gjones/scratch/lin16qubit/main.py", line 189, in main
+    model.fit(X_train, y_train, load_state=resume_file)
+  File "/home/gjones/scratch/lin16qubit/quantum/Quantum.py", line 321, in fit
+    self._save_partial_state(params, force=True)
+  File "/home/gjones/scratch/lin16qubit/quantum/Quantum.py", line 237, in _save_partial_state
+    os.remove('partial_state_model.bin')
+FileNotFoundError: [Errno 2] No such file or directory: 'partial_state_model.bin'
+/home/gjones/scratch/lin16qubit/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+Loading dataset from /linear_train.bin... 
+Successfully loaded /linear_train.bin into X and y data. 
+Loading dataset from /linear_test.bin... 
+Successfully loaded /linear_test.bin into X and y data. 
+Training model with dataset /linear_train.bin 
+ at time Wed Apr 10 16:58:59 2024... 
+[Wed Apr 10 17:08:36 2024]  Iteration number: 0 with current cost as 0.9962683764139495 and parameters 
+[-7.99026938  2.23743495 -2.12427745 -0.11652946  0.5538877  -2.77010897
+  3.06858561  2.1896027   1.18552186 -1.06648621  0.60271729  1.14432289
+  1.31029805 -1.87354305  0.72964861  2.88578325 -0.54534241 -0.47522266
+ -2.02654334  0.72897213  1.6051257   2.8307717  -1.26456616 -0.25135917
+ -2.39279187 -2.27309993  3.13337311  2.54856896 -0.67550975 -2.69002264
+  1.51701717 -0.04647228 -2.34271277  2.04043089  1.15216156 -0.65055499
+  1.04465244 -1.92056016 -0.32067925  2.32226283 -0.20584998  0.56637339
+  2.68983037  1.07273487  2.58102867  2.94254063  2.76514653 -2.94578665
+  0.36683902 -0.6572597   1.65159149  2.68042267 -0.25195048 -2.45808094
+  2.63570587 -3.07930429  0.79129724 -0.75901771 -1.81776562  2.9986886
+ -1.85887169 -1.63734088 -2.55370824  2.30926632 -2.25921323  1.98533552
+  1.90881014  1.42517315  2.59930885  2.87147469  1.84732041  1.52137428
+ -1.69866533 -2.34431217  1.23292411]. 
+Traceback (most recent call last):
+  File "/home/gjones/scratch/lin16qubit/main.py", line 329, in <module>
+    main()
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/gjones/scratch/lin16qubit/main.py", line 189, in main
+    model.fit(X_train, y_train, load_state=resume_file)
+  File "/home/gjones/scratch/lin16qubit/quantum/Quantum.py", line 321, in fit
+    self._save_partial_state(params, force=True)
+  File "/home/gjones/scratch/lin16qubit/quantum/Quantum.py", line 237, in _save_partial_state
+    os.remove('partial_state_model.bin')
+FileNotFoundError: [Errno 2] No such file or directory: 'partial_state_model.bin'
+/home/gjones/scratch/lin16qubit/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/gjones/scratch/lin16qubit/quantum/circuits/Encoders.py:12: RuntimeWarning: invalid value encountered in arcsin
+  if np.isnan(np.arcsin(features[feature_idx])) or np.isnan(np.arccos(features[feature_idx])):
+Loading dataset from /linear_train.bin... 
+Successfully loaded /linear_train.bin into X and y data. 
+Loading dataset from /linear_test.bin... 
+Successfully loaded /linear_test.bin into X and y data. 
+Training model with dataset /linear_train.bin 
+ at time Wed Apr 10 19:20:29 2024... 
+[Wed Apr 10 19:29:58 2024]  Iteration number: 0 with current cost as 0.9962683764139495 and parameters 
+[-7.99026938  2.23743495 -2.12427745 -0.11652946  0.5538877  -2.77010897
+  3.06858561  2.1896027   1.18552186 -1.06648621  0.60271729  1.14432289
+  1.31029805 -1.87354305  0.72964861  2.88578325 -0.54534241 -0.47522266
+ -2.02654334  0.72897213  1.6051257   2.8307717  -1.26456616 -0.25135917
+ -2.39279187 -2.27309993  3.13337311  2.54856896 -0.67550975 -2.69002264
+  1.51701717 -0.04647228 -2.34271277  2.04043089  1.15216156 -0.65055499
+  1.04465244 -1.92056016 -0.32067925  2.32226283 -0.20584998  0.56637339
+  2.68983037  1.07273487  2.58102867  2.94254063  2.76514653 -2.94578665
+  0.36683902 -0.6572597   1.65159149  2.68042267 -0.25195048 -2.45808094
+  2.63570587 -3.07930429  0.79129724 -0.75901771 -1.81776562  2.9986886
+ -1.85887169 -1.63734088 -2.55370824  2.30926632 -2.25921323  1.98533552
+  1.90881014  1.42517315  2.59930885  2.87147469  1.84732041  1.52137428
+ -1.69866533 -2.34431217  1.23292411]. 
+Training complete taking 1068.0273180007935 total seconds. 
+Now scoring model... 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Scoring complete taking 1.8813564777374268 seconds. 
+Saved predicted values as M_Modified-Pauli-CRZ_predicted_values.csv
+Model scores: {'MSE_train': (623.5079156271318,), 'R2_train': -2.0206865920316908, 'MAE_train': 22.428241716975016, 'MSE_test': 541.6739523170432, 'R2_test': -2.2651097844831516, 'MAE_test': 20.985704281461242}. 
+Saved model results as M_Modified-Pauli-CRZ_results.json. 

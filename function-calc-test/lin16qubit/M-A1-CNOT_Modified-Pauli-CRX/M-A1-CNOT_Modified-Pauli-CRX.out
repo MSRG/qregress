@@ -1,0 +1,47 @@
+because user namespaces have been disabled
+/home/gjones/scratch/lin16qubit/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/gjones/scratch/lin16qubit/quantum/circuits/Encoders.py:12: RuntimeWarning: invalid value encountered in arcsin
+  if np.isnan(np.arcsin(features[feature_idx])) or np.isnan(np.arccos(features[feature_idx])):
+Loading dataset from /linear_train.bin... 
+Successfully loaded /linear_train.bin into X and y data. 
+Loading dataset from /linear_test.bin... 
+Successfully loaded /linear_test.bin into X and y data. 
+Training model with dataset /linear_train.bin 
+ at time Fri Apr  5 20:31:24 2024... 
+[Fri Apr  5 20:38:22 2024]  Iteration number: 0 with current cost as 0.29887747910208906 and parameters 
+[-2.93413314  2.19959831 -2.03768109 -0.11653104  0.55388708 -2.77010898
+  3.06858497  2.18960145  1.18551997 -1.0664831   0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508   2.88578419 -0.54534335 -0.47522486
+ -2.02654241  0.7289737   1.60512664  2.83077106 -1.2645671  -0.25136105
+ -2.39279217 -2.27309775  3.13337154  2.54856958 -0.67550787 -2.69002203
+  1.51701623 -0.04647228 -2.25899693  2.04043214  1.15216311 -0.65055499
+  1.04465367 -1.92056017 -0.32067989  2.32226033 -0.20585093  0.56637432
+  2.68983128  1.07273361  2.58102867  2.94254032  2.76514589 -2.94578572
+  0.36684058 -0.65725908  1.65159085  2.68042139 -0.25194957 -2.45807905
+  2.63570524 -3.07930429  0.79129724 -0.7590177  -1.81776562  2.9986886
+ -1.85887171 -1.63734088 -2.55370824  2.30926632 -2.25921323  1.98533552
+  1.90881014  1.42517315  2.59930885  2.87147469  1.84732041  1.52137428
+ -1.69866533 -2.34431217  1.23292411]. 
+Training complete taking 9765.03255391121 total seconds. 
+Now scoring model... 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Scoring complete taking 2.843627452850342 seconds. 
+Saved predicted values as M-A1-CNOT_Modified-Pauli-CRX_predicted_values.csv
+Model scores: {'MSE_train': (167.04731621765535,), 'R2_train': 0.19071181666391646, 'MAE_train': 11.217448321269417, 'MSE_test': 227.00494512537134, 'R2_test': -0.3683435658746368, 'MAE_test': 12.278266687984004}. 
+Saved model results as M-A1-CNOT_Modified-Pauli-CRX_results.json. 
