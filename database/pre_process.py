@@ -104,7 +104,7 @@ dim_methods_list = ['UMAP', 'TSNE', 'PCA']
 
 def remove_colinearity(df, threshold):
     correlation = df.corr().abs()
-    upper_matrix = correlation.where(np.triu(np.ones(correlation.shape), k=1).astype(np.bool))
+    upper_matrix = correlation.where(np.triu(np.ones(correlation.shape), k=1).astype(bool))
     drop_cols = [column for column in upper_matrix.columns if any(upper_matrix[column] > threshold)]
     print(f'Dropping {drop_cols} due to correlation greater than {threshold}... \n')
     df = df.drop(drop_cols, axis=1, inplace=False)
@@ -209,7 +209,9 @@ def main(train_ratio, test_ratio, validate_ratio, x_dim, length, y_label, file, 
         save_name = filename
 
     df = load_file(file)
+    print(df.shape)
     df = remove_colinearity(df, 0.9)
+    print(df.shape)
     x, y = shuffle(df, y_label, length)
     X_train, y_train, X_test, y_test, X_val, y_val, y_scaler = split(x, y, train_ratio, test_ratio,
                                                                      validate_ratio)
@@ -218,6 +220,7 @@ def main(train_ratio, test_ratio, validate_ratio, x_dim, length, y_label, file, 
             plot_dimension(X_train, X_test, X_val, y_train, y_test, y_val)
         X_train, X_test, X_val = dim_reduction(X_train, X_test, X_val, x_dim, dimension_analysis)
 
+    print(df.shape)
     train = {
         'X': X_train,
         'y': y_train
