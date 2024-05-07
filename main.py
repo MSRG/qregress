@@ -302,6 +302,7 @@ def grid_search(model, hyperparameters: dict, X, y, folds: int = 5, **kwargs):
             y_pred = built_model.predict(X_test)
             score = mean_squared_error(y_test, y_pred)
             k_score.append(score)
+            print(f"timeGJ: {time.time()-st:.4f}"
         score = np.array(k_score).mean()
         results[f'{update}'] = score
         print(f'Training complete taking {time.time() - st} seconds. ')
