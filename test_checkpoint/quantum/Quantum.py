@@ -303,8 +303,7 @@ class QuantumRegressor:
             }
             print(f"FUBAR: {options['maxiter']}")
             t0=time.perf_counter()
-            opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback›,
-                                  options=options)
+            opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback, options=options)
             print(f"{time.perf_counter()-t0:.4f} s")
             self.params = opt_result['x']
         elif self.optimizer == 'BasinHopping':

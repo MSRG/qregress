@@ -5,7 +5,7 @@ import time
 import os
 import itertools
 import collections.abc
-from shutil import copy
+from shutil import copy,SameFileError
 from glob import glob
 
 import matplotlib.pyplot as plt
@@ -324,8 +324,10 @@ def grid_search(model, hyperparameters: dict, X, y, folds: int = 5, **kwargs):
 
 def save_apptainer(save_path):
      for i in glob("*.bin")+ glob("*.csv")+ glob("*.out")+ glob("*.svg")+ glob("Grid_search.json")+ glob("*_results.json"):
+         try:
           copy(i,save_path)
-
+         except SameFileError:
+          pass
              
 if __name__ == '__main__':
     main()
