@@ -3,6 +3,7 @@ import numpy as np
 from pennylane import numpy as np
 from sklearn.metrics import mean_squared_error
 from scipy.optimize import minimize, basinhopping
+# from optimparallel import minimize_parallel as minimize
 from qiskit_ibm_runtime import QiskitRuntimeService
 from qiskit_ibm_provider import IBMProvider
 from mitiq.zne.scaling import fold_global
@@ -232,7 +233,7 @@ class QuantumRegressor:
                 'parameters': param_vector,
                 'iterations': self.fit_count
             }
-            if force is True and os.path.exists("partial_state_model.bin"):
+            if force is True and os.path.exists('partial_state_model.bin'):
                 outfile = 'final_state_model.bin'
                 os.remove('partial_state_model.bin')
             else:
@@ -297,10 +298,14 @@ class QuantumRegressor:
         if self.use_scipy:
             options = {
                 'maxiter': self.max_iterations - self.fit_count,
-                'tol': self._tol
+                'tol': self._tol,
+                'disp': True
             }
-            opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+            print(f"FUBAR: {options['maxiter']}")
+            t0=time.perf_counter()
+            opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback›,
                                   options=options)
+            print(f"{time.perf_counter()-t0:.4f} s")
             self.params = opt_result['x']
         elif self.optimizer == 'BasinHopping':
             minimizer_kwargs = {"method": "BFGS"}
