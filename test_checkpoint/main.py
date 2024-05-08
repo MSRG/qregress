@@ -185,9 +185,7 @@ def main(save_path,settings, train_set, test_set, scaler, instance, token, save_
     if len(HYPERPARAMETERS['alpha']) != 1:
         model, hyperparams, _, _ = grid_search(QuantumRegressor, HYPERPARAMETERS, X_train, y_train, **kwargs)
     else:
-        print("ELSE BRO")
         model = QuantumRegressor(**kwargs)
-        print(X_train.shape)
         model.fit(X_train, y_train, load_state=resume_file)
         hyperparams = None
 
@@ -250,8 +248,8 @@ def create_kwargs():
         'encoder': ENCODER,
         'variational': ANSATZ,
         'num_qubits': X_DIM,
-#       'optimizer': OPTIMIZER,
-        'optimizer': "BFGS",
+        'optimizer': OPTIMIZER,
+        # 'optimizer': "BFGS",
         'max_iterations': MAX_ITER,
         'tol': TOLERANCE,
         'device': DEVICE,
