@@ -19,7 +19,7 @@ for i in */; do
 module load apptainer 
 cd $(pwd)/$name
 
-apptainer run -C -B /home/gjones/scratch/move2narval/3_RUD_quad16qubit ~/deb.sif /opt/miniconda/bin/python /home/gjones/scratch/move2narval/3_RUD_quad16qubit/main.py--save_path ${path}  --settings ${path}/${name}.json --train_set /home/gjones/scratch/move2narval/3_RUD_quad16qubit/quadratic_train.bin --test_set /home/gjones/scratch/move2narval/3_RUD_quad16qubit/quadratic_test.bin --scaler /home/gjones/scratch/move2narval/3_RUD_quad16qubit/quadratic_scaler.bin >> ${name}.out 2>&1 
+apptainer run -C -B /home/gjones/scratch/move2narval/3_RUD_quad16qubit ~/deb.sif /opt/miniconda/bin/python /home/gjones/scratch/move2narval/3_RUD_quad16qubit/main.py --save_path ${path}  --settings ${path}/${name}.json --train_set /home/gjones/scratch/move2narval/3_RUD_quad16qubit/quadratic_train.bin --test_set /home/gjones/scratch/move2narval/3_RUD_quad16qubit/quadratic_test.bin --scaler /home/gjones/scratch/move2narval/3_RUD_quad16qubit/quadratic_scaler.bin >> ${name}.out 2>&1 
 
 cd ..
 touch ${name}.done
