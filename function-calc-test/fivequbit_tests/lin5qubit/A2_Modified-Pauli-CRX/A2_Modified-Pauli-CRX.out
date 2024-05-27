@@ -1,0 +1,52 @@
+Loading dataset from /linear_train.bin... 
+Successfully loaded /linear_train.bin into X and y data. 
+Loading dataset from /linear_test.bin... 
+Successfully loaded /linear_test.bin into X and y data. 
+Training model with dataset /linear_train.bin 
+ at time Thu May 23 17:26:40 2024... 
+[Thu May 23 17:26:41 2024]  Iteration number: 0 with current cost as 0.6799943090061701 and parameters 
+[-2.95427273  2.18634535 -2.07319036 -0.06544175  0.60497636]. 
+[Thu May 23 17:26:59 2024]  Iteration number: 50 with current cost as 0.1052982152110882 and parameters 
+[-3.38937812  2.05715552 -2.35988535 -0.20445508  1.37779633]. 
+[Thu May 23 17:27:17 2024]  Iteration number: 100 with current cost as 0.07233176025218975 and parameters 
+[-3.30286057  1.84462345 -2.39485907 -0.1920441   1.52428393]. 
+[Thu May 23 17:27:34 2024]  Iteration number: 150 with current cost as 0.06128074761618159 and parameters 
+[-3.31365158  1.72086481 -2.42991141 -0.18561469  1.58853768]. 
+[Thu May 23 17:27:53 2024]  Iteration number: 200 with current cost as 0.056945509541980674 and parameters 
+[-3.30684936  1.64590119 -2.47727895 -0.19753919  1.6138023 ]. 
+[Thu May 23 17:28:11 2024]  Iteration number: 250 with current cost as 0.055861837350858076 and parameters 
+[-3.30694403  1.61423045 -2.49005811 -0.2048945   1.61965914]. 
+[Thu May 23 17:28:30 2024]  Iteration number: 300 with current cost as 0.05525618807283833 and parameters 
+[-3.31376921  1.59116789 -2.50426757 -0.20938215  1.63271406]. 
+[Thu May 23 17:28:48 2024]  Iteration number: 350 with current cost as 0.055035992273542875 and parameters 
+[-3.31438267  1.5801403  -2.51038294 -0.20947428  1.63203767]. 
+[Thu May 23 17:29:07 2024]  Iteration number: 400 with current cost as 0.05489900718758889 and parameters 
+[-3.31490858  1.57090744 -2.51467883 -0.21161739  1.63605945]. 
+[Thu May 23 17:29:26 2024]  Iteration number: 450 with current cost as 0.05482079294615969 and parameters 
+[-3.31468718  1.56387875 -2.51707361 -0.20950945  1.6373803 ]. 
+[Thu May 23 17:29:44 2024]  Iteration number: 500 with current cost as 0.054766761628437396 and parameters 
+[-3.31472204  1.55853766 -2.52002627 -0.21028497  1.63868222]. 
+[Thu May 23 17:30:03 2024]  Iteration number: 550 with current cost as 0.054747109904379955 and parameters 
+[-3.31502069  1.55595357 -2.52080957 -0.20917418  1.64049185]. 
+[Thu May 23 17:30:21 2024]  Iteration number: 600 with current cost as 0.0547296815333143 and parameters 
+[-3.31382558  1.55482899 -2.52306516 -0.20988078  1.64126627]. 
+[Thu May 23 17:30:40 2024]  Iteration number: 650 with current cost as 0.05470445317590704 and parameters 
+[-3.31368653  1.55235462 -2.52595058 -0.21148793  1.64166121]. 
+[Thu May 23 17:30:59 2024]  Iteration number: 700 with current cost as 0.05469936799772929 and parameters 
+[-3.31250792  1.55248399 -2.52725402 -0.21082082  1.64201058]. 
+[Thu May 23 17:31:18 2024]  Iteration number: 750 with current cost as 0.054674819064569724 and parameters 
+[-3.31360972  1.5489997  -2.53019476 -0.21217253  1.64303251]. 
+[Thu May 23 17:31:37 2024]  Iteration number: 800 with current cost as 0.05466897803271396 and parameters 
+[-3.31334656  1.54840951 -2.53161043 -0.2125859   1.64384852]. 
+[Thu May 23 17:31:55 2024]  Iteration number: 850 with current cost as 0.0546583606931347 and parameters 
+[-3.31321736  1.54665556 -2.53305046 -0.21136546  1.64391836]. 
+[Thu May 23 17:32:12 2024]  Iteration number: 900 with current cost as 0.05465487012557367 and parameters 
+[-3.31319962  1.54636665 -2.53357539 -0.21152218  1.64335943]. 
+[Thu May 23 17:32:30 2024]  Iteration number: 950 with current cost as 0.054649482564071664 and parameters 
+[-3.3129929   1.54627721 -2.53514852 -0.21006811  1.64350144]. 
+Training complete taking 366.88893127441406 total seconds. 
+Now scoring model... 
+Scoring complete taking 0.5025112628936768 seconds. 
+Saved predicted values as A2_Modified-Pauli-CRX_predicted_values.csv
+Model scores: {'MSE_train': (34.211372430785204,), 'R2_train': 0.8342573824540254, 'MAE_train': 4.2966597573305965, 'MSE_test': 37.365844834630806, 'R2_test': 0.7747656407454069, 'MAE_test': 4.146191444775043}. 
+Saved model results as A2_Modified-Pauli-CRX_results.json. 

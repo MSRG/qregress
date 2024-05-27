@@ -1,0 +1,72 @@
+Loading dataset from /home/gjones/scratch/fivequbit_tests/sine5qubits/sine_train.bin... 
+Successfully loaded /home/gjones/scratch/fivequbit_tests/sine5qubits/sine_train.bin into X and y data. 
+Loading dataset from /home/gjones/scratch/fivequbit_tests/sine5qubits/sine_test.bin... 
+Successfully loaded /home/gjones/scratch/fivequbit_tests/sine5qubits/sine_test.bin into X and y data. 
+Training model with dataset /home/gjones/scratch/fivequbit_tests/sine5qubits/sine_train.bin 
+ at time Sun May 26 03:14:42 2024... 
+[Sun May 26 03:14:44 2024]  Iteration number: 0 with current cost as 0.7377852543343761 and parameters 
+[-2.90793464  2.23268344 -2.11952844 -0.11177983  0.55863827 -2.77486017
+  3.06383379  2.19435265  1.18076879]. 
+[Sun May 26 03:15:19 2024]  Iteration number: 50 with current cost as 0.4006266988593117 and parameters 
+[-3.31821176  2.42039864 -2.15927886 -0.04084091  0.89237483 -2.32113168
+  3.08315297  2.08477914  0.95385745]. 
+[Sun May 26 03:15:44 2024]  Iteration number: 100 with current cost as 0.21178684462358616 and parameters 
+[-3.61744335  2.54023266 -2.21325847  0.07484781  1.06965966 -1.98507886
+  3.13101447  1.91488134  0.78894159]. 
+[Sun May 26 03:16:12 2024]  Iteration number: 150 with current cost as 0.1792057183814654 and parameters 
+[-3.63224479  2.58621184 -2.38233827  0.10148361  1.2030597  -1.90592945
+  3.14211154  1.911671    0.79309335]. 
+[Sun May 26 03:16:54 2024]  Iteration number: 200 with current cost as 0.16120902585316235 and parameters 
+[-3.63640372  2.59367263 -2.51531394  0.11811561  1.3058624  -1.86711729
+  3.16718884  1.94118001  0.81017587]. 
+[Sun May 26 03:17:14 2024]  Iteration number: 250 with current cost as 0.1487668811506011 and parameters 
+[-3.60688913  2.57638415 -2.61952891  0.1146087   1.36872789 -1.84417556
+  3.17429471  1.92417923  0.802959  ]. 
+[Sun May 26 03:17:42 2024]  Iteration number: 300 with current cost as 0.13947494593440607 and parameters 
+[-3.58538048  2.56796545 -2.70665382  0.10451653  1.4272353  -1.82612438
+  3.16717234  1.92717851  0.79906347]. 
+[Sun May 26 03:18:02 2024]  Iteration number: 350 with current cost as 0.1324096161169952 and parameters 
+[-3.58132347  2.54577186 -2.77943932  0.09967029  1.46476868 -1.8083739
+  3.15173852  1.90478687  0.78422708]. 
+[Sun May 26 03:18:21 2024]  Iteration number: 400 with current cost as 0.12651151694303087 and parameters 
+[-3.55468266  2.52859399 -2.83478986  0.09450508  1.50967899 -1.78395384
+  3.15364943  1.92252742  0.79209945]. 
+[Sun May 26 03:20:00 2024]  Iteration number: 450 with current cost as 0.12185940211847664 and parameters 
+[-3.54186577  2.51330094 -2.88757226  0.09457574  1.5442244  -1.77442365
+  3.15058607  1.91703887  0.80385875]. 
+[Sun May 26 03:21:13 2024]  Iteration number: 500 with current cost as 0.11836873538147877 and parameters 
+[-3.53118724  2.50260952 -2.93267008  0.0916414   1.57110545 -1.7718853
+  3.13804817  1.91666936  0.82970495]. 
+[Sun May 26 03:22:30 2024]  Iteration number: 550 with current cost as 0.11451771041718276 and parameters 
+[-3.52712657  2.49162806 -2.9798484   0.10475096  1.61227591 -1.76131514
+  3.13051886  1.91921888  0.82097196]. 
+[Sun May 26 03:24:24 2024]  Iteration number: 600 with current cost as 0.11188412370222948 and parameters 
+[-3.51232757  2.49334728 -3.01719745  0.10128606  1.63657527 -1.74845052
+  3.12966242  1.92257891  0.80698481]. 
+[Sun May 26 03:27:02 2024]  Iteration number: 650 with current cost as 0.10912223570466759 and parameters 
+[-3.49735652  2.48770288 -3.05436628  0.09840243  1.66644932 -1.7378532
+  3.13455454  1.92414295  0.80964531]. 
+[Sun May 26 03:29:25 2024]  Iteration number: 700 with current cost as 0.10756512420466038 and parameters 
+[-3.49288253  2.48378317 -3.0768765   0.09586738  1.68335263 -1.73098207
+  3.13448836  1.92402512  0.81411596]. 
+[Sun May 26 03:30:48 2024]  Iteration number: 750 with current cost as 0.10589059953512422 and parameters 
+[-3.48985136  2.47296943 -3.10232374  0.09064263  1.7006128  -1.7253201
+  3.14237676  1.9253225   0.8195019 ]. 
+[Sun May 26 03:31:18 2024]  Iteration number: 800 with current cost as 0.10401278058712238 and parameters 
+[-3.4836336   2.4760438  -3.12798365  0.09135811  1.7282126  -1.71345185
+  3.13817873  1.9256231   0.81627614]. 
+[Sun May 26 03:31:49 2024]  Iteration number: 850 with current cost as 0.10224010101080779 and parameters 
+[-3.47234652  2.4705436  -3.1543042   0.0931867   1.74765781 -1.70232363
+  3.13363924  1.91950848  0.8223423 ]. 
+[Sun May 26 03:32:33 2024]  Iteration number: 900 with current cost as 0.10078743435706075 and parameters 
+[-3.46073351  2.47470955 -3.17538995  0.09891332  1.76682842 -1.69274857
+  3.14038562  1.91653012  0.82404555]. 
+[Sun May 26 03:34:31 2024]  Iteration number: 950 with current cost as 0.09970043794606331 and parameters 
+[-3.44664849  2.47315087 -3.19385043  0.09849802  1.77544674 -1.68954015
+  3.14069621  1.91286316  0.82714831]. 
+Training complete taking 1231.555670261383 total seconds. 
+Now scoring model... 
+Scoring complete taking 0.46666979789733887 seconds. 
+Saved predicted values as A1-A1-CNOT_Full-Pauli-CRZ_predicted_values.csv
+Model scores: {'MSE_train': (0.16627200508169535,), 'R2_train': 0.6689132944890923, 'MAE_train': 0.342562177807158, 'MSE_test': 0.17439686999329646, 'R2_test': 0.6747559500069803, 'MAE_test': 0.371939181497303}. 
+Saved model results as A1-A1-CNOT_Full-Pauli-CRZ_results.json. 

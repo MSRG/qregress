@@ -1,0 +1,52 @@
+Loading dataset from /linear_train.bin... 
+Successfully loaded /linear_train.bin into X and y data. 
+Loading dataset from /linear_test.bin... 
+Successfully loaded /linear_test.bin into X and y data. 
+Training model with dataset /linear_train.bin 
+ at time Thu May 23 14:24:47 2024... 
+[Thu May 23 14:24:49 2024]  Iteration number: 0 with current cost as 1.2932774081135727 and parameters 
+[-2.85463359  2.28598449 -2.17282949 -0.16508088  0.60243693 -2.72155912]. 
+[Thu May 23 14:25:11 2024]  Iteration number: 50 with current cost as 0.1068947230386968 and parameters 
+[-3.41259313  3.60245526 -2.07858213 -0.15643787  0.21578507 -2.56691255]. 
+[Thu May 23 14:25:34 2024]  Iteration number: 100 with current cost as 0.021537909928977667 and parameters 
+[-3.60188245  3.86960156 -1.94408231 -0.1512513   0.19395624 -2.57388871]. 
+[Thu May 23 14:25:56 2024]  Iteration number: 150 with current cost as 0.0161259980027922 and parameters 
+[-3.61198167  3.95794472 -1.90319091 -0.148405    0.18614804 -2.55788067]. 
+[Thu May 23 14:26:18 2024]  Iteration number: 200 with current cost as 0.015669412697940432 and parameters 
+[-3.60892139  3.99115101 -1.89243439 -0.14695394  0.18866843 -2.56194878]. 
+[Thu May 23 14:26:41 2024]  Iteration number: 250 with current cost as 0.01568020467660281 and parameters 
+[-3.61261905  4.00476039 -1.88738076 -0.14893574  0.18679022 -2.56013678]. 
+[Thu May 23 14:27:03 2024]  Iteration number: 300 with current cost as 0.015722027633091325 and parameters 
+[-3.61303538  4.01158322 -1.88693057 -0.14637443  0.18827466 -2.56003821]. 
+[Thu May 23 14:27:26 2024]  Iteration number: 350 with current cost as 0.01574531256537439 and parameters 
+[-3.61516609  4.01386516 -1.88567923 -0.14640405  0.18914729 -2.56005041]. 
+[Thu May 23 14:27:49 2024]  Iteration number: 400 with current cost as 0.015758325696221615 and parameters 
+[-3.61523777  4.01574835 -1.88671631 -0.14563753  0.19018499 -2.55980191]. 
+[Thu May 23 14:28:12 2024]  Iteration number: 450 with current cost as 0.015758144283114145 and parameters 
+[-3.61563397  4.01571461 -1.88666988 -0.14597634  0.18915149 -2.55882804]. 
+[Thu May 23 14:28:37 2024]  Iteration number: 500 with current cost as 0.015760922154899153 and parameters 
+[-3.61745535  4.01624287 -1.88730451 -0.14552159  0.18872612 -2.55876941]. 
+[Thu May 23 14:29:01 2024]  Iteration number: 550 with current cost as 0.015751809573559587 and parameters 
+[-3.6178083   4.01569717 -1.88835396 -0.14478725  0.18870004 -2.55883827]. 
+[Thu May 23 14:29:24 2024]  Iteration number: 600 with current cost as 0.0157506346523515 and parameters 
+[-3.61930068  4.01584468 -1.88906218 -0.14514246  0.18843807 -2.558845  ]. 
+[Thu May 23 14:29:47 2024]  Iteration number: 650 with current cost as 0.0157486745841514 and parameters 
+[-3.62081227  4.01587373 -1.88972461 -0.14538928  0.18900741 -2.55890041]. 
+[Thu May 23 14:30:13 2024]  Iteration number: 700 with current cost as 0.015743890564089633 and parameters 
+[-3.62105393  4.01578645 -1.89081435 -0.14451561  0.18837339 -2.55912966]. 
+[Thu May 23 14:30:38 2024]  Iteration number: 750 with current cost as 0.01574459474653239 and parameters 
+[-3.6213827   4.01615571 -1.89160938 -0.14493012  0.18820366 -2.55869739]. 
+[Thu May 23 14:31:00 2024]  Iteration number: 800 with current cost as 0.015750797854908467 and parameters 
+[-3.62240725  4.01678443 -1.89138451 -0.14466512  0.18877334 -2.55853369]. 
+[Thu May 23 14:31:26 2024]  Iteration number: 850 with current cost as 0.015751124230291853 and parameters 
+[-3.62316843  4.01692944 -1.89165971 -0.14361055  0.18869108 -2.55846712]. 
+[Thu May 23 14:31:55 2024]  Iteration number: 900 with current cost as 0.015748494777104157 and parameters 
+[-3.62359153  4.01687805 -1.89225794 -0.14332346  0.18884736 -2.55796951]. 
+[Thu May 23 14:32:18 2024]  Iteration number: 950 with current cost as 0.015745697268136453 and parameters 
+[-3.6237384   4.01662372 -1.89240383 -0.1435886   0.18854153 -2.55818032]. 
+Training complete taking 472.81315088272095 total seconds. 
+Now scoring model... 
+Scoring complete taking 0.6162042617797852 seconds. 
+Saved predicted values as A1-A1-CZ_HWE-CZ_predicted_values.csv
+Model scores: {'MSE_train': (9.852194787996938,), 'R2_train': 0.9522694228055574, 'MAE_train': 2.553604411453041, 'MSE_test': 12.773649210691415, 'R2_test': 0.9230028196058196, 'MAE_test': 3.134409576973319}. 
+Saved model results as A1-A1-CZ_HWE-CZ_results.json. 

@@ -1,0 +1,16 @@
+#! /bin/bash
+#SBATCH -t 0-12:00:00
+#SBATCH -J 5quadratic_M-A1-CZ_Full-CRZ
+#SBATCH -N 1
+#SBATCH -n 12
+#SBATCH --account=rrg-jacobsen-ab
+#SBATCH --error=M-A1-CZ_Full-CRZ.e%J        # The file where run time errors will be dumped
+#SBATCH --output=M-A1-CZ_Full-CRZ.o%J               # The file where the output of the terminal will be dumped
+
+module load apptainer 
+cd /home/gjones/scratch/fivequbit_tests/quad5qubits/M-A1-CZ_Full-CRZ
+apptainer run -C -B /home/gjones/scratch/fivequbit_tests/quad5qubits ~/deb.sif /opt/miniconda/bin/python /home/gjones/scratch/fivequbit_tests/quad5qubits/main.py --save_path /home/gjones/scratch/fivequbit_tests/quad5qubits/M-A1-CZ_Full-CRZ  --settings /home/gjones/scratch/fivequbit_tests/quad5qubits/M-A1-CZ_Full-CRZ/M-A1-CZ_Full-CRZ.json --train_set /home/gjones/scratch/fivequbit_tests/quad5qubits/quadratic_train.bin --test_set /home/gjones/scratch/fivequbit_tests/quad5qubits/quadratic_test.bin --scaler /home/gjones/scratch/fivequbit_tests/quad5qubits/quadratic_scaler.bin >> M-A1-CZ_Full-CRZ.out 2>&1 
+
+cd ..
+touch M-A1-CZ_Full-CRZ.done
+

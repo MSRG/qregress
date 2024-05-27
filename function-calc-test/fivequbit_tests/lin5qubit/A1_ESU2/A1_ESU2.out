@@ -1,0 +1,52 @@
+Loading dataset from /linear_train.bin... 
+Successfully loaded /linear_train.bin into X and y data. 
+Loading dataset from /linear_test.bin... 
+Successfully loaded /linear_test.bin into X and y data. 
+Training model with dataset /linear_train.bin 
+ at time Fri May 24 02:50:30 2024... 
+[Fri May 24 02:50:34 2024]  Iteration number: 0 with current cost as 0.8180301413061258 and parameters 
+[-2.86593302  2.20018421 -2.08702921 -0.15378145]. 
+[Fri May 24 02:53:57 2024]  Iteration number: 50 with current cost as 0.009297661314316672 and parameters 
+[-1.6634358   2.24395093 -2.09171568 -0.13234378]. 
+[Fri May 24 02:57:25 2024]  Iteration number: 100 with current cost as 0.003786645242405711 and parameters 
+[-1.58271278  2.23123299 -2.11113716 -0.12579001]. 
+[Fri May 24 02:59:46 2024]  Iteration number: 150 with current cost as 0.0037598358787564665 and parameters 
+[-1.57740916  2.22995453 -2.11101472 -0.12567951]. 
+[Fri May 24 03:02:41 2024]  Iteration number: 200 with current cost as 0.003759442184262578 and parameters 
+[-1.57689047  2.2299045  -2.11093325 -0.12569603]. 
+[Fri May 24 03:05:03 2024]  Iteration number: 250 with current cost as 0.0037594188937650195 and parameters 
+[-1.57681837  2.22991007 -2.11094263 -0.12570259]. 
+[Fri May 24 03:07:37 2024]  Iteration number: 300 with current cost as 0.0037594146843974523 and parameters 
+[-1.57680204  2.22991048 -2.11094584 -0.1257047 ]. 
+[Fri May 24 03:10:52 2024]  Iteration number: 350 with current cost as 0.003759412982729759 and parameters 
+[-1.57679496  2.22991327 -2.1109475  -0.12570478]. 
+[Fri May 24 03:14:53 2024]  Iteration number: 400 with current cost as 0.0037594118689062276 and parameters 
+[-1.57679016  2.22991343 -2.11094727 -0.12570511]. 
+[Fri May 24 03:18:58 2024]  Iteration number: 450 with current cost as 0.003759410993252911 and parameters 
+[-1.57678627  2.22991311 -2.11094694 -0.12570558]. 
+[Fri May 24 03:23:02 2024]  Iteration number: 500 with current cost as 0.0037594102599510537 and parameters 
+[-1.57678294  2.22991338 -2.11094601 -0.12570665]. 
+[Fri May 24 03:26:05 2024]  Iteration number: 550 with current cost as 0.003759409628583836 and parameters 
+[-1.57678     2.22991315 -2.11094577 -0.1257063 ]. 
+[Fri May 24 03:29:55 2024]  Iteration number: 600 with current cost as 0.003759409075876306 and parameters 
+[-1.57677739  2.22991325 -2.11094554 -0.12570631]. 
+[Fri May 24 03:33:29 2024]  Iteration number: 650 with current cost as 0.0037594085861157867 and parameters 
+[-1.57677503  2.22991242 -2.11094563 -0.12570686]. 
+[Fri May 24 03:35:50 2024]  Iteration number: 700 with current cost as 0.0037594081478753 and parameters 
+[-1.57677288  2.22991251 -2.11094554 -0.12570679]. 
+[Fri May 24 03:38:26 2024]  Iteration number: 750 with current cost as 0.0037594077525087643 and parameters 
+[-1.57677092  2.2299122  -2.11094531 -0.12570625]. 
+[Fri May 24 03:42:18 2024]  Iteration number: 800 with current cost as 0.00375940739330474 and parameters 
+[-1.57676911  2.2299122  -2.11094574 -0.12570638]. 
+[Fri May 24 03:47:16 2024]  Iteration number: 850 with current cost as 0.003759407064952443 and parameters 
+[-1.57676743  2.22991206 -2.11094581 -0.12570618]. 
+[Fri May 24 03:52:17 2024]  Iteration number: 900 with current cost as 0.0037594067631828722 and parameters 
+[-1.57676587  2.22991175 -2.110946   -0.12570611]. 
+[Fri May 24 03:56:49 2024]  Iteration number: 950 with current cost as 0.003759406484518045 and parameters 
+[-1.57676442  2.22991198 -2.11094606 -0.12570606]. 
+Training complete taking 4221.3702800273895 total seconds. 
+Now scoring model... 
+Scoring complete taking 1.771735429763794 seconds. 
+Saved predicted values as A1_ESU2_predicted_values.csv
+Model scores: {'MSE_train': (2.353496830473671,), 'R2_train': 0.9885980977273554, 'MAE_train': 1.1412393614329701, 'MSE_test': 1.7752226918692326, 'R2_test': 0.9892992879645316, 'MAE_test': 1.1640546686673308}. 
+Saved model results as A1_ESU2_results.json. 

@@ -1,0 +1,58 @@
+/home/gjones/scratch/fivequbit_tests/quad5qubits/quantum/circuits/Encoders.py:12: RuntimeWarning: invalid value encountered in arcsin
+  if np.isnan(np.arcsin(features[feature_idx])) or np.isnan(np.arccos(features[feature_idx])):
+Loading dataset from /home/gjones/scratch/fivequbit_tests/quad5qubits/quadratic_train.bin... 
+Successfully loaded /home/gjones/scratch/fivequbit_tests/quad5qubits/quadratic_train.bin into X and y data. 
+Loading dataset from /home/gjones/scratch/fivequbit_tests/quad5qubits/quadratic_test.bin... 
+Successfully loaded /home/gjones/scratch/fivequbit_tests/quad5qubits/quadratic_test.bin into X and y data. 
+Training model with dataset /home/gjones/scratch/fivequbit_tests/quad5qubits/quadratic_train.bin 
+ at time Sun May 26 00:54:57 2024... 
+[Sun May 26 00:55:01 2024]  Iteration number: 0 with current cost as 0.7579027094544784 and parameters 
+[-2.89738722  2.2316384 ]. 
+[Sun May 26 00:55:30 2024]  Iteration number: 50 with current cost as 0.6744357913686322 and parameters 
+[-2.48345473  2.1275451 ]. 
+[Sun May 26 00:55:50 2024]  Iteration number: 100 with current cost as 0.5440278356556305 and parameters 
+[-2.00239003  2.16519511]. 
+[Sun May 26 00:56:11 2024]  Iteration number: 150 with current cost as 0.48507310394342174 and parameters 
+[-1.70484576  2.09772262]. 
+[Sun May 26 00:56:32 2024]  Iteration number: 200 with current cost as 0.46866044396153705 and parameters 
+[-1.55722134  2.08415175]. 
+[Sun May 26 00:56:53 2024]  Iteration number: 250 with current cost as 0.4640564388951862 and parameters 
+[-1.48260488  2.10314556]. 
+[Sun May 26 00:57:14 2024]  Iteration number: 300 with current cost as 0.46262257466788964 and parameters 
+[-1.44253894  2.10512237]. 
+[Sun May 26 00:57:35 2024]  Iteration number: 350 with current cost as 0.4621299711983406 and parameters 
+[-1.41980324  2.11021653]. 
+[Sun May 26 00:57:58 2024]  Iteration number: 400 with current cost as 0.46194678448593585 and parameters 
+[-1.40630612  2.11136512]. 
+[Sun May 26 00:58:19 2024]  Iteration number: 450 with current cost as 0.46187426233848683 and parameters 
+[-1.39799373  2.11206106]. 
+[Sun May 26 00:58:40 2024]  Iteration number: 500 with current cost as 0.4618441058391528 and parameters 
+[-1.39271662  2.11125557]. 
+[Sun May 26 00:59:02 2024]  Iteration number: 550 with current cost as 0.4618310834555457 and parameters 
+[-1.38927979  2.1110723 ]. 
+[Sun May 26 00:59:23 2024]  Iteration number: 600 with current cost as 0.461825304525187 and parameters 
+[-1.38699216  2.11154961]. 
+[Sun May 26 00:59:44 2024]  Iteration number: 650 with current cost as 0.46182269766294226 and parameters 
+[-1.38544056  2.11165463]. 
+[Sun May 26 01:00:09 2024]  Iteration number: 700 with current cost as 0.46182151786462333 and parameters 
+[-1.3843708   2.11185571]. 
+[Sun May 26 01:00:32 2024]  Iteration number: 750 with current cost as 0.46182099208056737 and parameters 
+[-1.38362262  2.11185572]. 
+[Sun May 26 01:00:54 2024]  Iteration number: 800 with current cost as 0.46182076870518723 and parameters 
+[-1.38309275  2.11189861]. 
+[Sun May 26 01:01:21 2024]  Iteration number: 850 with current cost as 0.46182068464351556 and parameters 
+[-1.38271334  2.11188789]. 
+[Sun May 26 01:01:52 2024]  Iteration number: 900 with current cost as 0.4618206633022817 and parameters 
+[-1.38243908  2.11183666]. 
+[Sun May 26 01:02:14 2024]  Iteration number: 950 with current cost as 0.46182066858761167 and parameters 
+[-1.3822392   2.11184296]. 
+Training complete taking 457.02524614334106 total seconds. 
+Now scoring model... 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Scoring complete taking 0.4773097038269043 seconds. 
+Saved predicted values as M-A1-CZ_Hadamard_predicted_values.csv
+Model scores: {'MSE_train': (10.145739963372625,), 'R2_train': -0.3930864719607927, 'MAE_train': 2.916370400360147, 'MSE_test': 12.475485069636886, 'R2_test': -0.24368931868600363, 'MAE_test': 3.1904977635653387}. 
+Saved model results as M-A1-CZ_Hadamard_results.json. 

@@ -1,0 +1,17 @@
+#! /bin/bash
+#SBATCH -t 1-00:00:00
+#SBATCH -J M-A1-CNOT_Full-CRX
+#SBATCH -N 1
+#SBATCH -n 12
+#SBATCH --account=rrg-jacobsen-ab
+#SBATCH --error=M-A1-CNOT_Full-CRX.e%J        # The file where run time errors will be dumped
+#SBATCH --output=M-A1-CNOT_Full-CRX.o%J               # The file where the output of the terminal will be dumped
+
+module load apptainer 
+cd /home/gjones/scratch/fivequbit_tests/lin5qubits/M-A1-CNOT_Full-CRX
+
+apptainer run -C -B /home/gjones/scratch/fivequbit_tests/lin5qubits ~/deb.sif /opt/miniconda/bin/python /home/gjones/scratch/fivequbit_tests/lin5qubits/main.py --save_path /home/gjones/scratch/fivequbit_tests/lin5qubits/M-A1-CNOT_Full-CRX  --settings /home/gjones/scratch/fivequbit_tests/lin5qubits/M-A1-CNOT_Full-CRX/M-A1-CNOT_Full-CRX.json --train_set /linear_train.bin --test_set /linear_test.bin --scaler /linear_scaler.bin >> M-A1-CNOT_Full-CRX.out 2>&1 
+
+cd ..
+touch M-A1-CNOT_Full-CRX.done
+

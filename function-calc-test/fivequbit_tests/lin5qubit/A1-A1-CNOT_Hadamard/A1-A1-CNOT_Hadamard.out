@@ -1,0 +1,52 @@
+Loading dataset from /linear_train.bin... 
+Successfully loaded /linear_train.bin into X and y data. 
+Loading dataset from /linear_test.bin... 
+Successfully loaded /linear_test.bin into X and y data. 
+Training model with dataset /linear_train.bin 
+ at time Thu May 23 19:21:13 2024... 
+[Thu May 23 19:21:13 2024]  Iteration number: 0 with current cost as 0.8581146654825613 and parameters 
+[-2.89394993  2.22820112]. 
+[Thu May 23 19:21:28 2024]  Iteration number: 50 with current cost as 0.5415023521168982 and parameters 
+[-2.09407318  2.0025729 ]. 
+[Thu May 23 19:21:43 2024]  Iteration number: 100 with current cost as 0.2990521167900639 and parameters 
+[-1.44892041  1.83405663]. 
+[Thu May 23 19:21:57 2024]  Iteration number: 150 with current cost as 0.2598947948841068 and parameters 
+[-1.20836646  1.78950724]. 
+[Thu May 23 19:22:12 2024]  Iteration number: 200 with current cost as 0.2520940902405482 and parameters 
+[-1.1057641   1.79995872]. 
+[Thu May 23 19:22:27 2024]  Iteration number: 250 with current cost as 0.24996045328404687 and parameters 
+[-1.05405527  1.79808306]. 
+[Thu May 23 19:22:42 2024]  Iteration number: 300 with current cost as 0.24924956922246996 and parameters 
+[-1.0250553   1.79741734]. 
+[Thu May 23 19:22:57 2024]  Iteration number: 350 with current cost as 0.2489813279263048 and parameters 
+[-1.00759504  1.7939318 ]. 
+[Thu May 23 19:23:12 2024]  Iteration number: 400 with current cost as 0.24887152643649926 and parameters 
+[-0.99653997  1.79575887]. 
+[Thu May 23 19:23:26 2024]  Iteration number: 450 with current cost as 0.2488241474574306 and parameters 
+[-0.98927162  1.79535215]. 
+[Thu May 23 19:23:41 2024]  Iteration number: 500 with current cost as 0.24880308028788917 and parameters 
+[-0.98435045  1.79419263]. 
+[Thu May 23 19:23:56 2024]  Iteration number: 550 with current cost as 0.2487936414700454 and parameters 
+[-0.98093894  1.79448261]. 
+[Thu May 23 19:24:11 2024]  Iteration number: 600 with current cost as 0.24878950350069223 and parameters 
+[-0.97852775  1.79508982]. 
+[Thu May 23 19:24:25 2024]  Iteration number: 650 with current cost as 0.24878781950402112 and parameters 
+[-0.97679593  1.79546348]. 
+[Thu May 23 19:24:40 2024]  Iteration number: 700 with current cost as 0.2487872684420458 and parameters 
+[-0.97553517  1.79538738]. 
+[Thu May 23 19:24:55 2024]  Iteration number: 750 with current cost as 0.24878722522558744 and parameters 
+[-0.97460689  1.79524321]. 
+[Thu May 23 19:25:10 2024]  Iteration number: 800 with current cost as 0.24878739190214327 and parameters 
+[-0.97391694  1.79521593]. 
+[Thu May 23 19:25:24 2024]  Iteration number: 850 with current cost as 0.24878762762645873 and parameters 
+[-0.97340015  1.79523201]. 
+[Thu May 23 19:25:39 2024]  Iteration number: 900 with current cost as 0.24878786796127478 and parameters 
+[-0.97301068  1.7952622 ]. 
+[Thu May 23 19:25:54 2024]  Iteration number: 950 with current cost as 0.2487880857161545 and parameters 
+[-0.97271583  1.79528723]. 
+Training complete taking 295.2646403312683 total seconds. 
+Now scoring model... 
+Scoring complete taking 0.5955178737640381 seconds. 
+Saved predicted values as A1-A1-CNOT_Hadamard_predicted_values.csv
+Model scores: {'MSE_train': (155.74863816444594,), 'R2_train': 0.2454501198155039, 'MAE_train': 8.879212367370075, 'MSE_test': 65.19050933272572, 'R2_test': 0.6070437410415872, 'MAE_test': 6.06286285333321}. 
+Saved model results as A1-A1-CNOT_Hadamard_results.json. 

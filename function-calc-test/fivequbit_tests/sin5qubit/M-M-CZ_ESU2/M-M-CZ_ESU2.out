@@ -1,0 +1,52 @@
+Loading dataset from /home/gjones/scratch/fivequbit_tests/sine5qubits/sine_train.bin... 
+Successfully loaded /home/gjones/scratch/fivequbit_tests/sine5qubits/sine_train.bin into X and y data. 
+Loading dataset from /home/gjones/scratch/fivequbit_tests/sine5qubits/sine_test.bin... 
+Successfully loaded /home/gjones/scratch/fivequbit_tests/sine5qubits/sine_test.bin into X and y data. 
+Training model with dataset /home/gjones/scratch/fivequbit_tests/sine5qubits/sine_train.bin 
+ at time Sun May 26 03:09:31 2024... 
+[Sun May 26 03:09:36 2024]  Iteration number: 0 with current cost as 0.827033225765266 and parameters 
+[-2.90098969  2.23962839 -2.12647339 -0.11872478]. 
+[Sun May 26 03:12:02 2024]  Iteration number: 50 with current cost as 0.7828776382547282 and parameters 
+[-2.62408922  2.17611265 -2.09613316 -0.06577355]. 
+[Sun May 26 03:14:21 2024]  Iteration number: 100 with current cost as 0.6039084830546262 and parameters 
+[-2.06419469  2.08029633 -2.12512234 -0.15430029]. 
+[Sun May 26 03:16:40 2024]  Iteration number: 150 with current cost as 0.538972383024355 and parameters 
+[-1.75945207  2.0539395  -2.06562887 -0.13229983]. 
+[Sun May 26 03:18:56 2024]  Iteration number: 200 with current cost as 0.5314812207044503 and parameters 
+[-1.66275262  2.07374249 -2.06451707 -0.11698221]. 
+[Sun May 26 03:21:23 2024]  Iteration number: 250 with current cost as 0.5306076581223902 and parameters 
+[-1.63125724  2.06970418 -2.06910638 -0.11623707]. 
+[Sun May 26 03:23:42 2024]  Iteration number: 300 with current cost as 0.5304854953857854 and parameters 
+[-1.61998489  2.06961973 -2.06725322 -0.11554713]. 
+[Sun May 26 03:25:58 2024]  Iteration number: 350 with current cost as 0.5304651972357336 and parameters 
+[-1.61559967  2.06899433 -2.06715543 -0.11558123]. 
+[Sun May 26 03:28:15 2024]  Iteration number: 400 with current cost as 0.5304612426799266 and parameters 
+[-1.61377086  2.06862043 -2.06710572 -0.11551395]. 
+[Sun May 26 03:30:29 2024]  Iteration number: 450 with current cost as 0.5304603405752539 and parameters 
+[-1.61296181  2.06842245 -2.06720558 -0.11567905]. 
+[Sun May 26 03:32:47 2024]  Iteration number: 500 with current cost as 0.5304600978230665 and parameters 
+[-1.61258491  2.06852599 -2.06721529 -0.11571237]. 
+[Sun May 26 03:34:55 2024]  Iteration number: 550 with current cost as 0.5304600202791236 and parameters 
+[-1.61240086  2.06851176 -2.06718647 -0.11569825]. 
+[Sun May 26 03:36:59 2024]  Iteration number: 600 with current cost as 0.5304599910445628 and parameters 
+[-1.61230682  2.0685044  -2.06718978 -0.11571381]. 
+[Sun May 26 03:39:06 2024]  Iteration number: 650 with current cost as 0.530459978287805 and parameters 
+[-1.61225651  2.06851439 -2.06719369 -0.1157216 ]. 
+[Sun May 26 03:41:37 2024]  Iteration number: 700 with current cost as 0.530459971998942 and parameters 
+[-1.61222822  2.06851412 -2.06718914 -0.11572072]. 
+[Sun May 26 03:43:48 2024]  Iteration number: 750 with current cost as 0.5304599685634387 and parameters 
+[-1.61221142  2.06851168 -2.06718914 -0.11571574]. 
+[Sun May 26 03:46:09 2024]  Iteration number: 800 with current cost as 0.530459966507723 and parameters 
+[-1.6122008   2.0685127  -2.06718754 -0.1157135 ]. 
+[Sun May 26 03:48:31 2024]  Iteration number: 850 with current cost as 0.5304599651691128 and parameters 
+[-1.61219362  2.06851305 -2.06718762 -0.11571296]. 
+[Sun May 26 03:50:53 2024]  Iteration number: 900 with current cost as 0.5304599642261503 and parameters 
+[-1.61218842  2.06851179 -2.06718851 -0.11571226]. 
+[Sun May 26 03:53:17 2024]  Iteration number: 950 with current cost as 0.530459963513537 and parameters 
+[-1.61218442  2.06851229 -2.06718837 -0.11571176]. 
+Training complete taking 2759.002801179886 total seconds. 
+Now scoring model... 
+Scoring complete taking 1.2115132808685303 seconds. 
+Saved predicted values as M-M-CZ_ESU2_predicted_values.csv
+Model scores: {'MSE_train': (0.8951805586483905,), 'R2_train': -0.7825152337261245, 'MAE_train': 0.8017070744813986, 'MSE_test': 1.0925559025849858, 'R2_test': -1.037578464648929, 'MAE_test': 0.9199212797818163}. 
+Saved model results as M-M-CZ_ESU2_results.json. 

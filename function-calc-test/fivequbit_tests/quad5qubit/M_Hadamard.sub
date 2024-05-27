@@ -1,0 +1,16 @@
+#! /bin/bash
+#SBATCH -t 0-12:00:00
+#SBATCH -J 5quadratic_M_Hadamard
+#SBATCH -N 1
+#SBATCH -n 12
+#SBATCH --account=rrg-jacobsen-ab
+#SBATCH --error=M_Hadamard.e%J        # The file where run time errors will be dumped
+#SBATCH --output=M_Hadamard.o%J               # The file where the output of the terminal will be dumped
+
+module load apptainer 
+cd /home/gjones/scratch/fivequbit_tests/quad5qubits/M_Hadamard
+apptainer run -C -B /home/gjones/scratch/fivequbit_tests/quad5qubits ~/deb.sif /opt/miniconda/bin/python /home/gjones/scratch/fivequbit_tests/quad5qubits/main.py --save_path /home/gjones/scratch/fivequbit_tests/quad5qubits/M_Hadamard  --settings /home/gjones/scratch/fivequbit_tests/quad5qubits/M_Hadamard/M_Hadamard.json --train_set /home/gjones/scratch/fivequbit_tests/quad5qubits/quadratic_train.bin --test_set /home/gjones/scratch/fivequbit_tests/quad5qubits/quadratic_test.bin --scaler /home/gjones/scratch/fivequbit_tests/quad5qubits/quadratic_scaler.bin >> M_Hadamard.out 2>&1 
+
+cd ..
+touch M_Hadamard.done
+
