@@ -1,0 +1,16 @@
+#! /bin/bash
+#SBATCH -t 0-12:00:00
+#SBATCH -J 5quadratic_helperfiles
+#SBATCH -N 1
+#SBATCH -n 12
+#SBATCH --account=rrg-jacobsen-ab
+#SBATCH --error=helperfiles.e%J        # The file where run time errors will be dumped
+#SBATCH --output=helperfiles.o%J               # The file where the output of the terminal will be dumped
+
+module load apptainer 
+cd /home/gjones/scratch/fivequbit_tests/quad5qubits/helperfiles
+apptainer run -C -B /home/gjones/scratch/fivequbit_tests/quad5qubits ~/deb.sif /opt/miniconda/bin/python /home/gjones/scratch/fivequbit_tests/quad5qubits/main.py --save_path /home/gjones/scratch/fivequbit_tests/quad5qubits/helperfiles  --settings /home/gjones/scratch/fivequbit_tests/quad5qubits/helperfiles/helperfiles.json --train_set /home/gjones/scratch/fivequbit_tests/quad5qubits/quadratic_train.bin --test_set /home/gjones/scratch/fivequbit_tests/quad5qubits/quadratic_test.bin --scaler /home/gjones/scratch/fivequbit_tests/quad5qubits/quadratic_scaler.bin >> helperfiles.out 2>&1 
+
+cd ..
+touch helperfiles.done
+

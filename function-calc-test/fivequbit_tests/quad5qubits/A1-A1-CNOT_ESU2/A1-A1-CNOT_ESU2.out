@@ -1,0 +1,52 @@
+Loading dataset from /home/gjones/scratch/fivequbit_tests/quad5qubits/quadratic_train.bin... 
+Successfully loaded /home/gjones/scratch/fivequbit_tests/quad5qubits/quadratic_train.bin into X and y data. 
+Loading dataset from /home/gjones/scratch/fivequbit_tests/quad5qubits/quadratic_test.bin... 
+Successfully loaded /home/gjones/scratch/fivequbit_tests/quad5qubits/quadratic_test.bin into X and y data. 
+Training model with dataset /home/gjones/scratch/fivequbit_tests/quad5qubits/quadratic_train.bin 
+ at time Sun May 26 01:06:58 2024... 
+[Sun May 26 01:07:02 2024]  Iteration number: 0 with current cost as 0.011480747747829593 and parameters 
+[-2.90441533  2.23620275 -2.12304775 -0.11776291]. 
+[Sun May 26 01:09:51 2024]  Iteration number: 50 with current cost as 0.01104703714755505 and parameters 
+[-2.93432536  2.23687857 -2.1192166  -0.11710054]. 
+[Sun May 26 01:13:15 2024]  Iteration number: 100 with current cost as 0.011015464045402018 and parameters 
+[-2.94200383  2.23734301 -2.11703361 -0.11694825]. 
+[Sun May 26 01:16:32 2024]  Iteration number: 150 with current cost as 0.011012165654977413 and parameters 
+[-2.94453959  2.23793217 -2.11735372 -0.11689374]. 
+[Sun May 26 01:19:48 2024]  Iteration number: 200 with current cost as 0.011011838713252484 and parameters 
+[-2.94550991  2.23800174 -2.11730899 -0.11664335]. 
+[Sun May 26 01:23:06 2024]  Iteration number: 250 with current cost as 0.011011855699495969 and parameters 
+[-2.94591747  2.23798584 -2.11732023 -0.11659975]. 
+[Sun May 26 01:26:15 2024]  Iteration number: 300 with current cost as 0.011011892491029443 and parameters 
+[-2.94609839  2.23803238 -2.11732422 -0.11660259]. 
+[Sun May 26 01:29:34 2024]  Iteration number: 350 with current cost as 0.011011915052918476 and parameters 
+[-2.94618027  2.23801919 -2.11735389 -0.11658381]. 
+[Sun May 26 01:32:40 2024]  Iteration number: 400 with current cost as 0.011011926122526813 and parameters 
+[-2.94621622  2.23801877 -2.11735035 -0.11658089]. 
+[Sun May 26 01:35:43 2024]  Iteration number: 450 with current cost as 0.011011930542305409 and parameters 
+[-2.94622997  2.23801648 -2.11734955 -0.11658253]. 
+[Sun May 26 01:38:47 2024]  Iteration number: 500 with current cost as 0.011011931434242107 and parameters 
+[-2.9462327   2.2380168  -2.11734986 -0.1165823 ]. 
+[Sun May 26 01:42:07 2024]  Iteration number: 550 with current cost as 0.011011930534698336 and parameters 
+[-2.94622994  2.23801725 -2.11735033 -0.11658196]. 
+[Sun May 26 01:45:24 2024]  Iteration number: 600 with current cost as 0.0110119287712921 and parameters 
+[-2.9462245   2.23801696 -2.11735151 -0.1165817 ]. 
+[Sun May 26 01:48:33 2024]  Iteration number: 650 with current cost as 0.011011926633329505 and parameters 
+[-2.94621783  2.23801697 -2.11735069 -0.11658192]. 
+[Sun May 26 01:51:27 2024]  Iteration number: 700 with current cost as 0.01101192437668461 and parameters 
+[-2.9462107   2.23801755 -2.11734955 -0.11658108]. 
+[Sun May 26 01:54:15 2024]  Iteration number: 750 with current cost as 0.01101192213290218 and parameters 
+[-2.94620353  2.23801755 -2.11734984 -0.11657879]. 
+[Sun May 26 01:57:00 2024]  Iteration number: 800 with current cost as 0.011011919967018311 and parameters 
+[-2.94619652  2.23801728 -2.1173504  -0.11657963]. 
+[Sun May 26 02:00:11 2024]  Iteration number: 850 with current cost as 0.011011917908409673 and parameters 
+[-2.94618977  2.23801862 -2.11734932 -0.11658017]. 
+[Sun May 26 02:03:12 2024]  Iteration number: 900 with current cost as 0.011011915967418365 and parameters 
+[-2.94618333  2.2380186  -2.11735084 -0.11658067]. 
+[Sun May 26 02:06:28 2024]  Iteration number: 950 with current cost as 0.011011914144395714 and parameters 
+[-2.94617722  2.23801884 -2.11735058 -0.1165792 ]. 
+Training complete taking 3757.5846133232117 total seconds. 
+Now scoring model... 
+Scoring complete taking 1.6853671073913574 seconds. 
+Saved predicted values as A1-A1-CNOT_ESU2_predicted_values.csv
+Model scores: {'MSE_train': (0.24192073771644468,), 'R2_train': 0.966782461583263, 'MAE_train': 0.3859177014533744, 'MSE_test': 0.5410135938961745, 'R2_test': 0.9460659986977016, 'MAE_test': 0.5327358719373764}. 
+Saved model results as A1-A1-CNOT_ESU2_results.json. 

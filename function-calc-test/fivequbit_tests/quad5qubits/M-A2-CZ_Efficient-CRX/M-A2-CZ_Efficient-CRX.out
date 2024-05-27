@@ -1,0 +1,58 @@
+/home/gjones/scratch/fivequbit_tests/quad5qubits/quantum/circuits/Encoders.py:12: RuntimeWarning: invalid value encountered in arcsin
+  if np.isnan(np.arcsin(features[feature_idx])) or np.isnan(np.arccos(features[feature_idx])):
+Loading dataset from /home/gjones/scratch/fivequbit_tests/quad5qubits/quadratic_train.bin... 
+Successfully loaded /home/gjones/scratch/fivequbit_tests/quad5qubits/quadratic_train.bin into X and y data. 
+Loading dataset from /home/gjones/scratch/fivequbit_tests/quad5qubits/quadratic_test.bin... 
+Successfully loaded /home/gjones/scratch/fivequbit_tests/quad5qubits/quadratic_test.bin into X and y data. 
+Training model with dataset /home/gjones/scratch/fivequbit_tests/quad5qubits/quadratic_train.bin 
+ at time Sun May 26 00:31:36 2024... 
+[Sun May 26 00:31:41 2024]  Iteration number: 0 with current cost as 0.10977506858145966 and parameters 
+[-2.91553562  2.24978681 -2.13663181 -0.1288832   0.56623925]. 
+[Sun May 26 00:34:13 2024]  Iteration number: 50 with current cost as 0.03599706441503124 and parameters 
+[-3.31077007  2.17354484 -2.14706804 -0.15891537  0.6337809 ]. 
+[Sun May 26 00:36:52 2024]  Iteration number: 100 with current cost as 0.02210401431599387 and parameters 
+[-3.463955    2.19215796 -2.18717573 -0.16919021  0.58991845]. 
+[Sun May 26 00:39:25 2024]  Iteration number: 150 with current cost as 0.01955899935883343 and parameters 
+[-3.52409068  2.18744236 -2.18892492 -0.16872344  0.59748221]. 
+[Sun May 26 00:41:54 2024]  Iteration number: 200 with current cost as 0.019036177963562197 and parameters 
+[-3.54929532  2.1874356  -2.18775994 -0.17903659  0.59758981]. 
+[Sun May 26 00:45:00 2024]  Iteration number: 250 with current cost as 0.018909831714112247 and parameters 
+[-3.5607012   2.18748653 -2.18849257 -0.179485    0.59922304]. 
+[Sun May 26 00:47:59 2024]  Iteration number: 300 with current cost as 0.018873724645582013 and parameters 
+[-3.56623893  2.1870719  -2.18836965 -0.1785301   0.59820482]. 
+[Sun May 26 00:51:12 2024]  Iteration number: 350 with current cost as 0.018861594515852887 and parameters 
+[-3.56909839  2.18650143 -2.18768997 -0.17763294  0.59855849]. 
+[Sun May 26 00:54:01 2024]  Iteration number: 400 with current cost as 0.018856857996210116 and parameters 
+[-3.57065737  2.18621258 -2.18752024 -0.17784662  0.5986149 ]. 
+[Sun May 26 00:56:47 2024]  Iteration number: 450 with current cost as 0.018854743081747942 and parameters 
+[-3.57155025  2.18638131 -2.18732602 -0.17779295  0.59862668]. 
+[Sun May 26 00:59:37 2024]  Iteration number: 500 with current cost as 0.018853683742552897 and parameters 
+[-3.5720858   2.18632617 -2.18741485 -0.17798102  0.59860628]. 
+[Sun May 26 01:02:12 2024]  Iteration number: 550 with current cost as 0.018853099465062768 and parameters 
+[-3.57242168  2.18630558 -2.18736434 -0.17791506  0.59855123]. 
+[Sun May 26 01:04:53 2024]  Iteration number: 600 with current cost as 0.018852750042973574 and parameters 
+[-3.57264181  2.18626657 -2.18740839 -0.17790531  0.59855875]. 
+[Sun May 26 01:07:28 2024]  Iteration number: 650 with current cost as 0.01885252607909847 and parameters 
+[-3.57279255  2.18630789 -2.18744996 -0.17790492  0.59855983]. 
+[Sun May 26 01:09:54 2024]  Iteration number: 700 with current cost as 0.018852373546346994 and parameters 
+[-3.57290035  2.18630542 -2.18744294 -0.17790414  0.59855993]. 
+[Sun May 26 01:12:46 2024]  Iteration number: 750 with current cost as 0.018852263912633595 and parameters 
+[-3.57298077  2.18628825 -2.18744655 -0.17792897  0.59855049]. 
+[Sun May 26 01:15:43 2024]  Iteration number: 800 with current cost as 0.018852181254929413 and parameters 
+[-3.57304319  2.18628066 -2.18744389 -0.17793893  0.5985579 ]. 
+[Sun May 26 01:18:39 2024]  Iteration number: 850 with current cost as 0.018852116269775333 and parameters 
+[-3.57309343  2.18628677 -2.18744575 -0.17793635  0.59855412]. 
+[Sun May 26 01:21:32 2024]  Iteration number: 900 with current cost as 0.01885206330540693 and parameters 
+[-3.5731352   2.18629685 -2.18744873 -0.17794326  0.59855927]. 
+[Sun May 26 01:24:20 2024]  Iteration number: 950 with current cost as 0.018852018809617833 and parameters 
+[-3.57317088  2.18629695 -2.18744161 -0.17794712  0.59857106]. 
+Training complete taking 3333.702629327774 total seconds. 
+Now scoring model... 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Scoring complete taking 1.3635187149047852 seconds. 
+Saved predicted values as M-A2-CZ_Efficient-CRX_predicted_values.csv
+Model scores: {'MSE_train': (0.4141592309283163,), 'R2_train': 0.9431328198902378, 'MAE_train': 0.4923676228178987, 'MSE_test': 6.076575331479378, 'R2_test': 0.3942222052475486, 'MAE_test': 1.5097191714136635}. 
+Saved model results as M-A2-CZ_Efficient-CRX_results.json. 

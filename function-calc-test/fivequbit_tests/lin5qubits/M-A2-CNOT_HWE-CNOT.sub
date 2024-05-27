@@ -1,0 +1,17 @@
+#! /bin/bash
+#SBATCH -t 1-00:00:00
+#SBATCH -J M-A2-CNOT_HWE-CNOT
+#SBATCH -N 1
+#SBATCH -n 12
+#SBATCH --account=rrg-jacobsen-ab
+#SBATCH --error=M-A2-CNOT_HWE-CNOT.e%J        # The file where run time errors will be dumped
+#SBATCH --output=M-A2-CNOT_HWE-CNOT.o%J               # The file where the output of the terminal will be dumped
+
+module load apptainer 
+cd /home/gjones/scratch/fivequbit_tests/lin5qubits/M-A2-CNOT_HWE-CNOT
+
+apptainer run -C -B /home/gjones/scratch/fivequbit_tests/lin5qubits ~/deb.sif /opt/miniconda/bin/python /home/gjones/scratch/fivequbit_tests/lin5qubits/main.py --save_path /home/gjones/scratch/fivequbit_tests/lin5qubits/M-A2-CNOT_HWE-CNOT  --settings /home/gjones/scratch/fivequbit_tests/lin5qubits/M-A2-CNOT_HWE-CNOT/M-A2-CNOT_HWE-CNOT.json --train_set /linear_train.bin --test_set /linear_test.bin --scaler /linear_scaler.bin >> M-A2-CNOT_HWE-CNOT.out 2>&1 
+
+cd ..
+touch M-A2-CNOT_HWE-CNOT.done
+

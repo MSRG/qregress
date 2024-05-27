@@ -1,0 +1,56 @@
+/home/gjones/scratch/fivequbit_tests/lin5qubits/quantum/circuits/Encoders.py:12: RuntimeWarning: invalid value encountered in arcsin
+  if np.isnan(np.arcsin(features[feature_idx])) or np.isnan(np.arccos(features[feature_idx])):
+Loading dataset from /linear_train.bin... 
+Successfully loaded /linear_train.bin into X and y data. 
+Loading dataset from /linear_test.bin... 
+Successfully loaded /linear_test.bin into X and y data. 
+Training model with dataset /linear_train.bin 
+ at time Thu May 23 15:07:35 2024... 
+[Thu May 23 15:07:39 2024]  Iteration number: 0 with current cost as 0.8166091142661802 and parameters 
+[-2.87335278  2.20760396 -2.09444896 -0.1463617 ]. 
+[Thu May 23 15:10:12 2024]  Iteration number: 50 with current cost as 0.08235392932129339 and parameters 
+[-1.69199609  2.35958842 -2.1165915  -0.31513326]. 
+[Thu May 23 15:12:16 2024]  Iteration number: 100 with current cost as 0.07336945080374817 and parameters 
+[-1.58734069  2.37680469 -2.10796116 -0.32115005]. 
+[Thu May 23 15:14:19 2024]  Iteration number: 150 with current cost as 0.07331473351899506 and parameters 
+[-1.57956382  2.37869426 -2.10737075 -0.32004852]. 
+[Thu May 23 15:16:15 2024]  Iteration number: 200 with current cost as 0.0733139279689899 and parameters 
+[-1.57872846  2.37878161 -2.10733085 -0.31998504]. 
+[Thu May 23 15:18:17 2024]  Iteration number: 250 with current cost as 0.07331389311428851 and parameters 
+[-1.57860858  2.37880368 -2.10735454 -0.31997716]. 
+[Thu May 23 15:20:19 2024]  Iteration number: 300 with current cost as 0.07331388862656016 and parameters 
+[-1.5785849   2.37880301 -2.10735779 -0.31996849]. 
+[Thu May 23 15:22:49 2024]  Iteration number: 350 with current cost as 0.07331388737073272 and parameters 
+[-1.5785774   2.3788021  -2.10735808 -0.31997051]. 
+[Thu May 23 15:24:42 2024]  Iteration number: 400 with current cost as 0.07331388673286691 and parameters 
+[-1.5785734   2.37880285 -2.10735789 -0.31997044]. 
+[Thu May 23 15:26:50 2024]  Iteration number: 450 with current cost as 0.07331388628003284 and parameters 
+[-1.57857047  2.37880276 -2.1073577  -0.31997079]. 
+[Thu May 23 15:28:50 2024]  Iteration number: 500 with current cost as 0.07331388591317393 and parameters 
+[-1.57856804  2.37880199 -2.10735758 -0.31997062]. 
+[Thu May 23 15:30:48 2024]  Iteration number: 550 with current cost as 0.07331388560062779 and parameters 
+[-1.57856592  2.37880183 -2.10735811 -0.31997061]. 
+[Thu May 23 15:32:47 2024]  Iteration number: 600 with current cost as 0.07331388532799352 and parameters 
+[-1.57856404  2.37880152 -2.10735774 -0.31997055]. 
+[Thu May 23 15:34:48 2024]  Iteration number: 650 with current cost as 0.07331388508673196 and parameters 
+[-1.57856234  2.37880132 -2.10735815 -0.31997033]. 
+[Thu May 23 15:36:57 2024]  Iteration number: 700 with current cost as 0.07331388487097683 and parameters 
+[-1.5785608   2.37880107 -2.10735809 -0.3199704 ]. 
+[Thu May 23 15:38:53 2024]  Iteration number: 750 with current cost as 0.07331388467639137 and parameters 
+[-1.57855938  2.37880107 -2.10735798 -0.31997017]. 
+[Thu May 23 15:40:56 2024]  Iteration number: 800 with current cost as 0.07331388449964102 and parameters 
+[-1.57855808  2.37880117 -2.10735782 -0.31997011]. 
+[Thu May 23 15:43:00 2024]  Iteration number: 850 with current cost as 0.0733138843380975 and parameters 
+[-1.57855688  2.37880112 -2.10735801 -0.31997016]. 
+[Thu May 23 15:44:58 2024]  Iteration number: 900 with current cost as 0.07331388418965211 and parameters 
+[-1.57855576  2.37880116 -2.10735792 -0.31997047]. 
+[Thu May 23 15:47:02 2024]  Iteration number: 950 with current cost as 0.07331388405258843 and parameters 
+[-1.57855471  2.3788012  -2.10735783 -0.31997039]. 
+Training complete taking 2492.1917810440063 total seconds. 
+Now scoring model... 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Scoring complete taking 1.811819076538086 seconds. 
+Saved predicted values as M_ESU2_predicted_values.csv
+Model scores: {'MSE_train': (45.896607828064035,), 'R2_train': 0.7776463387052196, 'MAE_train': 6.071694806290288, 'MSE_test': 94.24980758368135, 'R2_test': 0.43187969882846866, 'MAE_test': 8.020117013057318}. 
+Saved model results as M_ESU2_results.json. 

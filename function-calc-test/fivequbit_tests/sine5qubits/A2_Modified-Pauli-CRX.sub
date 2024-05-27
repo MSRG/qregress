@@ -1,0 +1,16 @@
+#! /bin/bash
+#SBATCH -t 0-12:00:00
+#SBATCH -J 5sine_A2_Modified-Pauli-CRX
+#SBATCH -N 1
+#SBATCH -n 12
+#SBATCH --account=rrg-jacobsen-ab
+#SBATCH --error=A2_Modified-Pauli-CRX.e%J        # The file where run time errors will be dumped
+#SBATCH --output=A2_Modified-Pauli-CRX.o%J               # The file where the output of the terminal will be dumped
+
+module load apptainer 
+cd /home/gjones/scratch/fivequbit_tests/sine5qubits/A2_Modified-Pauli-CRX
+apptainer run -C -B /home/gjones/scratch/fivequbit_tests/sine5qubits ~/deb.sif /opt/miniconda/bin/python /home/gjones/scratch/fivequbit_tests/sine5qubits/main.py --save_path /home/gjones/scratch/fivequbit_tests/sine5qubits/A2_Modified-Pauli-CRX  --settings /home/gjones/scratch/fivequbit_tests/sine5qubits/A2_Modified-Pauli-CRX/A2_Modified-Pauli-CRX.json --train_set /home/gjones/scratch/fivequbit_tests/sine5qubits/sine_train.bin --test_set /home/gjones/scratch/fivequbit_tests/sine5qubits/sine_test.bin --scaler /home/gjones/scratch/fivequbit_tests/sine5qubits/sine_scaler.bin >> A2_Modified-Pauli-CRX.out 2>&1 
+
+cd ..
+touch A2_Modified-Pauli-CRX.done
+

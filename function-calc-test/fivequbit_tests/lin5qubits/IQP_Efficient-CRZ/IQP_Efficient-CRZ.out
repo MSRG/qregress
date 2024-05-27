@@ -1,0 +1,52 @@
+Loading dataset from /linear_train.bin... 
+Successfully loaded /linear_train.bin into X and y data. 
+Loading dataset from /linear_test.bin... 
+Successfully loaded /linear_test.bin into X and y data. 
+Training model with dataset /linear_train.bin 
+ at time Thu May 23 17:38:54 2024... 
+[Thu May 23 17:38:58 2024]  Iteration number: 0 with current cost as 0.4650016507188278 and parameters 
+[-2.93897398  2.20164411 -2.08848911 -0.0807405   0.51809655]. 
+[Thu May 23 17:41:09 2024]  Iteration number: 50 with current cost as 0.0576953482633469 and parameters 
+[-3.82812147  2.28943046 -2.09827303 -0.17473191  0.77098275]. 
+[Thu May 23 17:43:20 2024]  Iteration number: 100 with current cost as 0.023410151916408772 and parameters 
+[-4.07320667  2.2755637  -2.03521786 -0.21558789  0.80590198]. 
+[Thu May 23 17:45:33 2024]  Iteration number: 150 with current cost as 0.014599154473259213 and parameters 
+[-4.19038427  2.27693478 -2.03514435 -0.20714739  0.82462189]. 
+[Thu May 23 17:47:39 2024]  Iteration number: 200 with current cost as 0.01093848106377988 and parameters 
+[-4.26195791  2.27809427 -2.04454139 -0.19374326  0.85287456]. 
+[Thu May 23 17:49:53 2024]  Iteration number: 250 with current cost as 0.009010725528402036 and parameters 
+[-4.31152646  2.2802288  -2.04790506 -0.19628552  0.85817936]. 
+[Thu May 23 17:52:03 2024]  Iteration number: 300 with current cost as 0.00784380160336643 and parameters 
+[-4.34855062  2.27592216 -2.04782409 -0.18705776  0.84890114]. 
+[Thu May 23 17:54:06 2024]  Iteration number: 350 with current cost as 0.0070701236535158 and parameters 
+[-4.37762966  2.27086611 -2.0441208  -0.18471098  0.85023541]. 
+[Thu May 23 17:56:17 2024]  Iteration number: 400 with current cost as 0.00652337895551898 and parameters 
+[-4.40129825  2.26911068 -2.04609374 -0.18377856  0.85498785]. 
+[Thu May 23 17:58:32 2024]  Iteration number: 450 with current cost as 0.006118403232380304 and parameters 
+[-4.42108216  2.27300505 -2.04995385 -0.18435882  0.85332204]. 
+[Thu May 23 18:00:35 2024]  Iteration number: 500 with current cost as 0.005807446084529764 and parameters 
+[-4.43796216  2.27438479 -2.04575833 -0.18377178  0.85087637]. 
+[Thu May 23 18:02:38 2024]  Iteration number: 550 with current cost as 0.005561812643155514 and parameters 
+[-4.45260146  2.27494748 -2.04037712 -0.18540075  0.85023552]. 
+[Thu May 23 18:04:41 2024]  Iteration number: 600 with current cost as 0.005363289487096105 and parameters 
+[-4.46546698  2.27446531 -2.03825937 -0.18340197  0.84923395]. 
+[Thu May 23 18:06:49 2024]  Iteration number: 650 with current cost as 0.005199792855052064 and parameters 
+[-4.47689849  2.27494633 -2.03960317 -0.18299317  0.8483161 ]. 
+[Thu May 23 18:08:51 2024]  Iteration number: 700 with current cost as 0.005063007407780232 and parameters 
+[-4.48715004  2.27287425 -2.04036725 -0.18094819  0.85075595]. 
+[Thu May 23 18:10:59 2024]  Iteration number: 750 with current cost as 0.004947032869659525 and parameters 
+[-4.49641605  2.27142795 -2.0414726  -0.18168152  0.85113131]. 
+[Thu May 23 18:13:13 2024]  Iteration number: 800 with current cost as 0.004847571973815676 and parameters 
+[-4.50484823  2.27275539 -2.04074384 -0.18297795  0.85045827]. 
+[Thu May 23 18:15:32 2024]  Iteration number: 850 with current cost as 0.004761423883168285 and parameters 
+[-4.51256704  2.27120489 -2.04013274 -0.18361555  0.85135691]. 
+[Thu May 23 18:17:39 2024]  Iteration number: 900 with current cost as 0.004686157433270979 and parameters 
+[-4.51966953  2.26979485 -2.03958611 -0.18333404  0.85198738]. 
+[Thu May 23 18:19:45 2024]  Iteration number: 950 with current cost as 0.00461989415493421 and parameters 
+[-4.52623494  2.26950768 -2.03798046 -0.18358671  0.85253159]. 
+Training complete taking 2579.725790500641 total seconds. 
+Now scoring model... 
+Scoring complete taking 1.2256498336791992 seconds. 
+Saved predicted values as IQP_Efficient-CRZ_predicted_values.csv
+Model scores: {'MSE_train': (2.856112325794902,), 'R2_train': 0.9861630943382851, 'MAE_train': 1.2571393376500026, 'MSE_test': 2.1139899292531696, 'R2_test': 0.9872572620987627, 'MAE_test': 1.2371054834222504}. 
+Saved model results as IQP_Efficient-CRZ_results.json. 

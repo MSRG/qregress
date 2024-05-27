@@ -1,0 +1,52 @@
+Loading dataset from /home/gjones/scratch/fivequbit_tests/sine5qubits/sine_train.bin... 
+Successfully loaded /home/gjones/scratch/fivequbit_tests/sine5qubits/sine_train.bin into X and y data. 
+Loading dataset from /home/gjones/scratch/fivequbit_tests/sine5qubits/sine_test.bin... 
+Successfully loaded /home/gjones/scratch/fivequbit_tests/sine5qubits/sine_test.bin into X and y data. 
+Training model with dataset /home/gjones/scratch/fivequbit_tests/sine5qubits/sine_train.bin 
+ at time Sun May 26 02:28:05 2024... 
+[Sun May 26 02:28:05 2024]  Iteration number: 0 with current cost as 1.1770686381574205 and parameters 
+[-2.95805649  2.29230768 -2.17915268 -0.17140407  0.49901404 -2.82498201]. 
+[Sun May 26 02:28:28 2024]  Iteration number: 50 with current cost as 0.1509577197368507 and parameters 
+[-3.40550649  3.46510829 -1.97685909 -0.071028    0.71912923 -3.1260932 ]. 
+[Sun May 26 02:28:52 2024]  Iteration number: 100 with current cost as 0.08126610240901251 and parameters 
+[-3.49597796  3.73795776 -1.87033108 -0.05233399  0.72006892 -3.05691758]. 
+[Sun May 26 02:29:25 2024]  Iteration number: 150 with current cost as 0.07807217428793352 and parameters 
+[-3.51472497  3.81049042 -1.84690152 -0.06527014  0.71868045 -3.0433188 ]. 
+[Sun May 26 02:29:48 2024]  Iteration number: 200 with current cost as 0.07799569379694404 and parameters 
+[-3.51220022  3.82957947 -1.84502704 -0.06999018  0.71629786 -3.04214791]. 
+[Sun May 26 02:30:12 2024]  Iteration number: 250 with current cost as 0.0780367077205492 and parameters 
+[-3.51605644  3.83699492 -1.84254319 -0.0682154   0.71611899 -3.04173819]. 
+[Sun May 26 02:30:35 2024]  Iteration number: 300 with current cost as 0.07806737450551242 and parameters 
+[-3.51750635  3.84041056 -1.84259304 -0.06749087  0.71713208 -3.04093062]. 
+[Sun May 26 02:30:59 2024]  Iteration number: 350 with current cost as 0.07806699803963432 and parameters 
+[-3.51828356  3.84082485 -1.84395395 -0.06745819  0.71860024 -3.0419809 ]. 
+[Sun May 26 02:31:26 2024]  Iteration number: 400 with current cost as 0.07808003975151803 and parameters 
+[-3.51860992  3.84220715 -1.84429834 -0.06737779  0.71759491 -3.04337543]. 
+[Sun May 26 02:31:49 2024]  Iteration number: 450 with current cost as 0.07807033981163256 and parameters 
+[-3.51952496  3.84145719 -1.84508925 -0.06666497  0.71754528 -3.04266713]. 
+[Sun May 26 02:32:12 2024]  Iteration number: 500 with current cost as 0.0780641025656873 and parameters 
+[-3.52123136  3.84129967 -1.84690182 -0.06709703  0.71794125 -3.04350727]. 
+[Sun May 26 02:32:44 2024]  Iteration number: 550 with current cost as 0.0780616950971589 and parameters 
+[-3.52193611  3.84119486 -1.84749937 -0.06761306  0.71774856 -3.04253498]. 
+[Sun May 26 02:33:09 2024]  Iteration number: 600 with current cost as 0.07806125444523267 and parameters 
+[-3.52234445  3.84119254 -1.84771878 -0.06765296  0.71804675 -3.04256286]. 
+[Sun May 26 02:33:34 2024]  Iteration number: 650 with current cost as 0.07805775179919808 and parameters 
+[-3.52394068  3.84110219 -1.84892321 -0.06901814  0.71844284 -3.04217266]. 
+[Sun May 26 02:33:58 2024]  Iteration number: 700 with current cost as 0.07806325987279392 and parameters 
+[-3.52402782  3.84181927 -1.84934699 -0.06943039  0.71824143 -3.0422186 ]. 
+[Sun May 26 02:34:22 2024]  Iteration number: 750 with current cost as 0.07806153675085076 and parameters 
+[-3.52451459  3.84191399 -1.85040643 -0.07072882  0.71778258 -3.04150904]. 
+[Sun May 26 02:34:48 2024]  Iteration number: 800 with current cost as 0.0780555698948096 and parameters 
+[-3.52496266  3.84143555 -1.85105555 -0.07031101  0.71665556 -3.04170047]. 
+[Sun May 26 02:35:12 2024]  Iteration number: 850 with current cost as 0.07805715167937025 and parameters 
+[-3.52557687  3.84154973 -1.85084904 -0.06948886  0.71579637 -3.04125948]. 
+[Sun May 26 02:35:36 2024]  Iteration number: 900 with current cost as 0.07805441678392103 and parameters 
+[-3.52647404  3.84138288 -1.85141948 -0.06865758  0.71562949 -3.04118496]. 
+[Sun May 26 02:36:02 2024]  Iteration number: 950 with current cost as 0.07804783141290784 and parameters 
+[-3.52701435  3.84087885 -1.85233243 -0.06827111  0.71513825 -3.04109396]. 
+Training complete taking 503.6445653438568 total seconds. 
+Now scoring model... 
+Scoring complete taking 0.48990464210510254 seconds. 
+Saved predicted values as A1-A1-CZ_HWE-CZ_predicted_values.csv
+Model scores: {'MSE_train': (0.13170991189072478,), 'R2_train': 0.7377345585650084, 'MAE_train': 0.29847696350548475, 'MSE_test': 0.14861764444268258, 'R2_test': 0.7228333021067483, 'MAE_test': 0.3324263465182882}. 
+Saved model results as A1-A1-CZ_HWE-CZ_results.json. 

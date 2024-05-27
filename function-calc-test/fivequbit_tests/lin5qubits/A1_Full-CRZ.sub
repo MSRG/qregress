@@ -1,0 +1,17 @@
+#! /bin/bash
+#SBATCH -t 1-00:00:00
+#SBATCH -J A1_Full-CRZ
+#SBATCH -N 1
+#SBATCH -n 12
+#SBATCH --account=rrg-jacobsen-ab
+#SBATCH --error=A1_Full-CRZ.e%J        # The file where run time errors will be dumped
+#SBATCH --output=A1_Full-CRZ.o%J               # The file where the output of the terminal will be dumped
+
+module load apptainer 
+cd /home/gjones/scratch/fivequbit_tests/lin5qubits/A1_Full-CRZ
+
+apptainer run -C -B /home/gjones/scratch/fivequbit_tests/lin5qubits ~/deb.sif /opt/miniconda/bin/python /home/gjones/scratch/fivequbit_tests/lin5qubits/main.py --save_path /home/gjones/scratch/fivequbit_tests/lin5qubits/A1_Full-CRZ  --settings /home/gjones/scratch/fivequbit_tests/lin5qubits/A1_Full-CRZ/A1_Full-CRZ.json --train_set /linear_train.bin --test_set /linear_test.bin --scaler /linear_scaler.bin >> A1_Full-CRZ.out 2>&1 
+
+cd ..
+touch A1_Full-CRZ.done
+

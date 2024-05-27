@@ -1,0 +1,52 @@
+Loading dataset from /linear_train.bin... 
+Successfully loaded /linear_train.bin into X and y data. 
+Loading dataset from /linear_test.bin... 
+Successfully loaded /linear_test.bin into X and y data. 
+Training model with dataset /linear_train.bin 
+ at time Fri May 24 02:50:55 2024... 
+[Fri May 24 02:50:59 2024]  Iteration number: 0 with current cost as 0.7802613298871865 and parameters 
+[-2.92266504  2.21795305 -2.14376122 -0.13601261  0.57336867]. 
+[Fri May 24 02:53:02 2024]  Iteration number: 50 with current cost as 0.207006469199068 and parameters 
+[-4.0326514   2.35892286 -2.12573037 -0.2366788   0.68335479]. 
+[Fri May 24 02:55:08 2024]  Iteration number: 100 with current cost as 0.12153784905643121 and parameters 
+[-4.39575782  2.36522167 -2.16112165 -0.10741687  0.67193514]. 
+[Fri May 24 02:57:12 2024]  Iteration number: 150 with current cost as 0.11750311677081453 and parameters 
+[-4.47016879  2.37180626 -2.13662329 -0.08297868  0.68230087]. 
+[Fri May 24 02:59:26 2024]  Iteration number: 200 with current cost as 0.11722822471069634 and parameters 
+[-4.48892891  2.37080263 -2.13717543 -0.07949445  0.68547687]. 
+[Fri May 24 03:01:32 2024]  Iteration number: 250 with current cost as 0.11720388658840589 and parameters 
+[-4.49448117  2.37045807 -2.13774623 -0.08076531  0.68662145]. 
+[Fri May 24 03:03:48 2024]  Iteration number: 300 with current cost as 0.1172015534507849 and parameters 
+[-4.49632346  2.37033521 -2.1378976  -0.08053207  0.68657652]. 
+[Fri May 24 03:05:56 2024]  Iteration number: 350 with current cost as 0.11720141356536522 and parameters 
+[-4.49698765  2.37028957 -2.13788157 -0.08059633  0.68667574]. 
+[Fri May 24 03:08:03 2024]  Iteration number: 400 with current cost as 0.11720145809188584 and parameters 
+[-4.49724095  2.37025851 -2.13783708 -0.08062372  0.68667462]. 
+[Fri May 24 03:10:10 2024]  Iteration number: 450 with current cost as 0.1172014902078244 and parameters 
+[-4.49734002  2.37022807 -2.13784443 -0.08061969  0.68666015]. 
+[Fri May 24 03:12:17 2024]  Iteration number: 500 with current cost as 0.11720150462403693 and parameters 
+[-4.49737778  2.37021922 -2.13784179 -0.0806228   0.68665333]. 
+[Fri May 24 03:14:20 2024]  Iteration number: 550 with current cost as 0.11720150959301878 and parameters 
+[-4.49739012  2.37021973 -2.1378402  -0.08062158  0.68665187]. 
+[Fri May 24 03:16:23 2024]  Iteration number: 600 with current cost as 0.11720151021369693 and parameters 
+[-4.49739164  2.3702199  -2.13783993 -0.08062158  0.68665183]. 
+[Fri May 24 03:18:38 2024]  Iteration number: 650 with current cost as 0.11720150895367105 and parameters 
+[-4.49738855  2.37021957 -2.13783954 -0.08062138  0.68665215]. 
+[Fri May 24 03:20:41 2024]  Iteration number: 700 with current cost as 0.11720150694302167 and parameters 
+[-4.49738358  2.37021818 -2.13783909 -0.08062257  0.68665267]. 
+[Fri May 24 03:22:44 2024]  Iteration number: 750 with current cost as 0.11720150469101895 and parameters 
+[-4.49737795  2.37021929 -2.13783976 -0.08062302  0.686652  ]. 
+[Fri May 24 03:24:52 2024]  Iteration number: 800 with current cost as 0.11720150242361338 and parameters 
+[-4.49737222  2.37021998 -2.13783884 -0.08062302  0.68665177]. 
+[Fri May 24 03:26:57 2024]  Iteration number: 850 with current cost as 0.11720150023711909 and parameters 
+[-4.49736662  2.37021955 -2.1378393  -0.0806219   0.68665222]. 
+[Fri May 24 03:29:03 2024]  Iteration number: 900 with current cost as 0.11720149816829475 and parameters 
+[-4.49736126  2.37021869 -2.13783823 -0.08062212  0.68665072]. 
+[Fri May 24 03:31:16 2024]  Iteration number: 950 with current cost as 0.11720149622667371 and parameters 
+[-4.49735617  2.3702193  -2.13783762 -0.08062375  0.68665114]. 
+Training complete taking 2552.126006126404 total seconds. 
+Now scoring model... 
+Scoring complete taking 1.4997825622558594 seconds. 
+Saved predicted values as A2-A2-CNOT_Efficient-CRX_predicted_values.csv
+Model scores: {'MSE_train': (73.37151899746607,), 'R2_train': 0.6445396151070131, 'MAE_train': 7.088834066324369, 'MSE_test': 102.19663796741922, 'R2_test': 0.38397768410064304, 'MAE_test': 7.690880972274212}. 
+Saved model results as A2-A2-CNOT_Efficient-CRX_results.json. 
