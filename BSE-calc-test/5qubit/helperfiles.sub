@@ -1,0 +1,16 @@
+#! /bin/bash
+#SBATCH -t 7-00:00:00
+#SBATCH -J PCA5_Morgan_helperfiles
+#SBATCH -N 1
+#SBATCH -n 16
+#SBATCH --account=rrg-jacobsen-ab
+#SBATCH --error=helperfiles.e%J        # The file where run time errors will be dumped
+#SBATCH --output=helperfiles.o%J               # The file where the output of the terminal will be dumped
+
+module load apptainer 
+cd /home/gjones/scratch/BSE-calc-test/5qubit/helperfiles
+apptainer run -C -B /home/gjones/scratch/BSE-calc-test/5qubit ~/deb.sif /opt/miniconda/bin/python /home/gjones/scratch/BSE-calc-test/5qubit/main.py --save_path /home/gjones/scratch/BSE-calc-test/5qubit/helperfiles  --settings /home/gjones/scratch/BSE-calc-test/5qubit/helperfiles/helperfiles.json --train_set /home/gjones/scratch/BSE-calc-test/5qubit/PCA5_Morgan_train.bin --test_set /home/gjones/scratch/BSE-calc-test/5qubit/PCA5_Morgan_test.bin --scaler /home/gjones/scratch/BSE-calc-test/5qubit/PCA5_Morgan_scaler.bin >> helperfiles.out 2>&1 
+
+cd ..
+touch helperfiles.done
+

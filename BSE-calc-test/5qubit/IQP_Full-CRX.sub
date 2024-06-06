@@ -1,0 +1,16 @@
+#! /bin/bash
+#SBATCH -t 7-00:00:00
+#SBATCH -J PCA5_Morgan_IQP_Full-CRX
+#SBATCH -N 1
+#SBATCH -n 16
+#SBATCH --account=rrg-jacobsen-ab
+#SBATCH --error=IQP_Full-CRX.e%J        # The file where run time errors will be dumped
+#SBATCH --output=IQP_Full-CRX.o%J               # The file where the output of the terminal will be dumped
+
+module load apptainer 
+cd /home/gjones/scratch/BSE-calc-test/5qubit/IQP_Full-CRX
+apptainer run -C -B /home/gjones/scratch/BSE-calc-test/5qubit ~/deb.sif /opt/miniconda/bin/python /home/gjones/scratch/BSE-calc-test/5qubit/main.py --save_path /home/gjones/scratch/BSE-calc-test/5qubit/IQP_Full-CRX  --settings /home/gjones/scratch/BSE-calc-test/5qubit/IQP_Full-CRX/IQP_Full-CRX.json --train_set /home/gjones/scratch/BSE-calc-test/5qubit/PCA5_Morgan_train.bin --test_set /home/gjones/scratch/BSE-calc-test/5qubit/PCA5_Morgan_test.bin --scaler /home/gjones/scratch/BSE-calc-test/5qubit/PCA5_Morgan_scaler.bin >> IQP_Full-CRX.out 2>&1 
+
+cd ..
+touch IQP_Full-CRX.done
+

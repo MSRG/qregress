@@ -1,0 +1,16 @@
+#! /bin/bash
+#SBATCH -t 7-00:00:00
+#SBATCH -J PCA16_Morgan_A2_Full-Pauli-CRZ
+#SBATCH -N 1
+#SBATCH -n 16
+#SBATCH --account=rrg-jacobsen-ab
+#SBATCH --error=A2_Full-Pauli-CRZ.e%J        # The file where run time errors will be dumped
+#SBATCH --output=A2_Full-Pauli-CRZ.o%J               # The file where the output of the terminal will be dumped
+
+module load apptainer 
+cd /home/gjones/scratch/BSE-calc-test/16qubit/A2_Full-Pauli-CRZ
+apptainer run -C -B /home/gjones/scratch/BSE-calc-test/16qubit ~/deb.sif /opt/miniconda/bin/python /home/gjones/scratch/BSE-calc-test/16qubit/main.py --save_path /home/gjones/scratch/BSE-calc-test/16qubit/A2_Full-Pauli-CRZ  --settings /home/gjones/scratch/BSE-calc-test/16qubit/A2_Full-Pauli-CRZ/A2_Full-Pauli-CRZ.json --train_set /home/gjones/scratch/BSE-calc-test/16qubit/PCA16_Morgan_train.bin --test_set /home/gjones/scratch/BSE-calc-test/16qubit/PCA16_Morgan_test.bin --scaler /home/gjones/scratch/BSE-calc-test/16qubit/PCA16_Morgan_scaler.bin >> A2_Full-Pauli-CRZ.out 2>&1 
+
+cd ..
+touch A2_Full-Pauli-CRZ.done
+

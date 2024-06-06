@@ -9,7 +9,7 @@ for i in */; do
         echo "${name}.done not found!"
     	cat > ${name}.sub <<EOF
 #! /bin/bash
-#SBATCH -t 0-12:00:00
+#SBATCH -t 1-00:00:00
 #SBATCH -J 16sine_${name}
 #SBATCH -N 1
 #SBATCH -n 12

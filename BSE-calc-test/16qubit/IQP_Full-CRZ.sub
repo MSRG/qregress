@@ -1,0 +1,16 @@
+#! /bin/bash
+#SBATCH -t 7-00:00:00
+#SBATCH -J PCA16_Morgan_IQP_Full-CRZ
+#SBATCH -N 1
+#SBATCH -n 16
+#SBATCH --account=rrg-jacobsen-ab
+#SBATCH --error=IQP_Full-CRZ.e%J        # The file where run time errors will be dumped
+#SBATCH --output=IQP_Full-CRZ.o%J               # The file where the output of the terminal will be dumped
+
+module load apptainer 
+cd /home/gjones/scratch/BSE-calc-test/16qubit/IQP_Full-CRZ
+apptainer run -C -B /home/gjones/scratch/BSE-calc-test/16qubit ~/deb.sif /opt/miniconda/bin/python /home/gjones/scratch/BSE-calc-test/16qubit/main.py --save_path /home/gjones/scratch/BSE-calc-test/16qubit/IQP_Full-CRZ  --settings /home/gjones/scratch/BSE-calc-test/16qubit/IQP_Full-CRZ/IQP_Full-CRZ.json --train_set /home/gjones/scratch/BSE-calc-test/16qubit/PCA16_Morgan_train.bin --test_set /home/gjones/scratch/BSE-calc-test/16qubit/PCA16_Morgan_test.bin --scaler /home/gjones/scratch/BSE-calc-test/16qubit/PCA16_Morgan_scaler.bin >> IQP_Full-CRZ.out 2>&1 
+
+cd ..
+touch IQP_Full-CRZ.done
+

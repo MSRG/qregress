@@ -1,0 +1,16 @@
+#! /bin/bash
+#SBATCH -t 7-00:00:00
+#SBATCH -J PCA16_Morgan_M-A1-CNOT_Efficient-CRZ
+#SBATCH -N 1
+#SBATCH -n 16
+#SBATCH --account=rrg-jacobsen-ab
+#SBATCH --error=M-A1-CNOT_Efficient-CRZ.e%J        # The file where run time errors will be dumped
+#SBATCH --output=M-A1-CNOT_Efficient-CRZ.o%J               # The file where the output of the terminal will be dumped
+
+module load apptainer 
+cd /home/gjones/scratch/BSE-calc-test/16qubit/M-A1-CNOT_Efficient-CRZ
+apptainer run -C -B /home/gjones/scratch/BSE-calc-test/16qubit ~/deb.sif /opt/miniconda/bin/python /home/gjones/scratch/BSE-calc-test/16qubit/main.py --save_path /home/gjones/scratch/BSE-calc-test/16qubit/M-A1-CNOT_Efficient-CRZ  --settings /home/gjones/scratch/BSE-calc-test/16qubit/M-A1-CNOT_Efficient-CRZ/M-A1-CNOT_Efficient-CRZ.json --train_set /home/gjones/scratch/BSE-calc-test/16qubit/PCA16_Morgan_train.bin --test_set /home/gjones/scratch/BSE-calc-test/16qubit/PCA16_Morgan_test.bin --scaler /home/gjones/scratch/BSE-calc-test/16qubit/PCA16_Morgan_scaler.bin >> M-A1-CNOT_Efficient-CRZ.out 2>&1 
+
+cd ..
+touch M-A1-CNOT_Efficient-CRZ.done
+
