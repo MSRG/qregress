@@ -1,0 +1,29 @@
+because user namespaces have been disabled
+/home/gjones/scratch/lin16qubit/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+Loading dataset from /linear_train.bin... 
+Successfully loaded /linear_train.bin into X and y data. 
+Loading dataset from /linear_test.bin... 
+Successfully loaded /linear_test.bin into X and y data. 
+Training model with dataset /linear_train.bin 
+ at time Fri Apr  5 20:32:40 2024... 
+[Fri Apr  5 20:44:20 2024]  Iteration number: 0 with current cost as 0.4762493632421486 and parameters 
+[-3.03151839  2.44510487 -1.65413234 -0.11653106  0.55388704 -2.77010895
+  3.06858495  2.18960147  1.18551997 -1.06648314  0.60271513  1.1443245
+  1.31029896 -1.87354682  0.72965081  2.88578413 -0.54534332 -0.47522484
+ -2.02654243  0.7289737   1.60512663  2.8307711  -1.26456704 -0.25136099
+ -2.39279213 -2.27309778  3.13337158  2.54856955 -0.6755079  -2.69002205
+  1.51701622 -0.04647228 -2.44339738  2.04043216  1.15216316 -0.65055501
+  1.04465365 -1.92056017 -0.32067993  2.32226035 -0.2058509   0.5663743
+  2.6898313   1.07273367  2.58102871  2.94254037  2.7651459  -2.9457857
+  0.36684061 -0.65725907  1.65159081  2.68042145 -0.25194952 -2.45807909
+  2.6357053  -3.07930426  0.79129723 -0.75901772 -1.81776565  2.99868862
+ -1.85887166 -1.63734088 -2.55370824  2.30926632 -2.25921323  1.98533552
+  1.90881014  1.42517315  2.59930885  2.87147469  1.84732041  1.52137428
+ -1.69866533 -2.34431217  1.23292411]. 
+Training complete taking 8628.347445011139 total seconds. 
+Now scoring model... 
+Scoring complete taking 2.0937747955322266 seconds. 
+Saved predicted values as A1_Modified-Pauli-CRX_predicted_values.csv
+Model scores: {'MSE_train': (10.989912879809678,), 'R2_train': 0.946757560487027, 'MAE_train': 2.3943777675717377, 'MSE_test': 12.006714910149839, 'R2_test': 0.9276257568507111, 'MAE_test': 2.3917070302899353}. 
+Saved model results as A1_Modified-Pauli-CRX_results.json. 

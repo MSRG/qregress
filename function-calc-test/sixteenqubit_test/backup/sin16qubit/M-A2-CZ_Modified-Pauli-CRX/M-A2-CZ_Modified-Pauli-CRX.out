@@ -1,0 +1,28 @@
+/home/gjones/scratch/sin16qubit/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+Loading dataset from /home/gjones/scratch/sin16qubit/sine_train.bin... 
+Successfully loaded /home/gjones/scratch/sin16qubit/sine_train.bin into X and y data. 
+Loading dataset from /home/gjones/scratch/sin16qubit/sine_test.bin... 
+Successfully loaded /home/gjones/scratch/sin16qubit/sine_test.bin into X and y data. 
+Training model with dataset /home/gjones/scratch/sin16qubit/sine_train.bin 
+ at time Wed Apr 10 07:16:11 2024... 
+[Wed Apr 10 07:25:41 2024]  Iteration number: 0 with current cost as 0.17737588018137943 and parameters 
+[-3.04308947  2.19691867 -1.69420065 -0.11653109  0.55388706 -2.77010902
+  3.06858495  2.1896014   1.18551993 -1.0664831   0.60271507  1.14432439
+  1.31029893 -1.87354685  0.72965077  2.88578415 -0.54534341 -0.47522488
+ -2.02654243  0.72897367  1.60512662  2.83077101 -1.26456711 -0.25136111
+ -2.39279222 -2.27309778  3.1333715   2.54856955 -0.67550793 -2.69002206
+  1.51701619 -0.04647228 -2.31264809  2.04043212  1.15216307 -0.65055505
+  1.04465366 -1.9205602  -0.32067995  2.32226029 -0.20585096  0.56637426
+  2.68983125  1.07273356  2.58102863  2.9425403   2.76514586 -2.94578575
+  0.36684054 -0.65725907  1.65159084  2.68042139 -0.25194957 -2.45807913
+  2.63570519 -3.07930433  0.79129721 -0.75901773 -1.81776563  2.99868855
+ -1.85887172 -1.63734088 -2.55370824  2.30926632 -2.25921323  1.98533552
+  1.90881014  1.42517315  2.59930885  2.87147469  1.84732041  1.52137428
+ -1.69866533 -2.34431217  1.23292411]. 
+Training complete taking 8829.806973457336 total seconds. 
+Now scoring model... 
+Scoring complete taking 3.7879161834716797 seconds. 
+Saved predicted values as M-A2-CZ_Modified-Pauli-CRX_predicted_values.csv
+Model scores: {'MSE_train': (0.09186342700475318,), 'R2_train': 0.8170782905456536, 'MAE_train': 0.24863275038187024, 'MSE_test': 0.09220058917696995, 'R2_test': 0.8280491327808064, 'MAE_test': 0.27041556014525264}. 
+Saved model results as M-A2-CZ_Modified-Pauli-CRX_results.json. 

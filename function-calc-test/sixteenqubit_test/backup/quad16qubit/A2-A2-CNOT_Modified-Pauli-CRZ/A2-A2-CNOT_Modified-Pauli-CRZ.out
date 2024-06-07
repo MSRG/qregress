@@ -1,0 +1,108 @@
+/home/gjones/scratch/quad16qubit/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+Loading dataset from /home/gjones/scratch/quad16qubit/quadratic_train.bin... 
+Successfully loaded /home/gjones/scratch/quad16qubit/quadratic_train.bin into X and y data. 
+Loading dataset from /home/gjones/scratch/quad16qubit/quadratic_test.bin... 
+Successfully loaded /home/gjones/scratch/quad16qubit/quadratic_test.bin into X and y data. 
+Training model with dataset /home/gjones/scratch/quad16qubit/quadratic_train.bin 
+ at time Wed Apr 10 07:32:24 2024... 
+[Wed Apr 10 07:44:25 2024]  Iteration number: 0 with current cost as 0.16053987763783564 and parameters 
+[-3.00881847  2.23743464 -2.12427961 -0.11653103  0.55388714 -2.77010897
+  3.06858495  2.18960148  1.18552008 -1.06648306  0.60271509  1.1443245
+  1.31029901 -1.87354674  0.72965087  2.88578427 -0.54534326 -0.47522483
+ -2.02654244  0.72897375  1.60512666  2.83077114 -1.26456702 -0.25136097
+ -2.39279211 -2.2730977   3.13337157  2.54856958 -0.67550781 -2.69002197
+  1.5170163  -0.04647228 -2.3427137   2.0404322   1.15216313 -0.65055496
+  1.04465374 -1.9205601  -0.32067985  2.3222604  -0.20585086  0.56637436
+  2.6898313   1.07273364  2.58102874  2.94254034  2.76514593 -2.94578568
+  0.36684059 -0.65725908  1.65159089  2.68042144 -0.25194952 -2.45807903
+  2.63570525 -3.07930429  0.79129724 -0.75901771 -1.81776562  2.9986886
+ -1.85887169 -1.63734088 -2.55370824  2.30926632 -2.25921323  1.98533552
+  1.90881014  1.42517315  2.59930885  2.87147469  1.84732041  1.52137428
+ -1.69866533 -2.34431217  1.23292411]. 
+Traceback (most recent call last):
+  File "/home/gjones/scratch/quad16qubit/main.py", line 329, in <module>
+    main()
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/gjones/scratch/quad16qubit/main.py", line 189, in main
+    model.fit(X_train, y_train, load_state=resume_file)
+  File "/home/gjones/scratch/quad16qubit/quantum/Quantum.py", line 321, in fit
+    self._save_partial_state(params, force=True)
+  File "/home/gjones/scratch/quad16qubit/quantum/Quantum.py", line 237, in _save_partial_state
+    os.remove('partial_state_model.bin')
+FileNotFoundError: [Errno 2] No such file or directory: 'partial_state_model.bin'
+/home/gjones/scratch/quad16qubit/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+Loading dataset from /home/gjones/scratch/quad16qubit/quadratic_train.bin... 
+Successfully loaded /home/gjones/scratch/quad16qubit/quadratic_train.bin into X and y data. 
+Loading dataset from /home/gjones/scratch/quad16qubit/quadratic_test.bin... 
+Successfully loaded /home/gjones/scratch/quad16qubit/quadratic_test.bin into X and y data. 
+Training model with dataset /home/gjones/scratch/quad16qubit/quadratic_train.bin 
+ at time Wed Apr 10 15:08:57 2024... 
+[Wed Apr 10 15:19:23 2024]  Iteration number: 0 with current cost as 0.16053987763783564 and parameters 
+[-3.00881847  2.23743464 -2.12427961 -0.11653103  0.55388714 -2.77010897
+  3.06858495  2.18960148  1.18552008 -1.06648306  0.60271509  1.1443245
+  1.31029901 -1.87354674  0.72965087  2.88578427 -0.54534326 -0.47522483
+ -2.02654244  0.72897375  1.60512666  2.83077114 -1.26456702 -0.25136097
+ -2.39279211 -2.2730977   3.13337157  2.54856958 -0.67550781 -2.69002197
+  1.5170163  -0.04647228 -2.3427137   2.0404322   1.15216313 -0.65055496
+  1.04465374 -1.9205601  -0.32067985  2.3222604  -0.20585086  0.56637436
+  2.6898313   1.07273364  2.58102874  2.94254034  2.76514593 -2.94578568
+  0.36684059 -0.65725908  1.65159089  2.68042144 -0.25194952 -2.45807903
+  2.63570525 -3.07930429  0.79129724 -0.75901771 -1.81776562  2.9986886
+ -1.85887169 -1.63734088 -2.55370824  2.30926632 -2.25921323  1.98533552
+  1.90881014  1.42517315  2.59930885  2.87147469  1.84732041  1.52137428
+ -1.69866533 -2.34431217  1.23292411]. 
+Traceback (most recent call last):
+  File "/home/gjones/scratch/quad16qubit/main.py", line 329, in <module>
+    main()
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/gjones/scratch/quad16qubit/main.py", line 189, in main
+    model.fit(X_train, y_train, load_state=resume_file)
+  File "/home/gjones/scratch/quad16qubit/quantum/Quantum.py", line 321, in fit
+    self._save_partial_state(params, force=True)
+  File "/home/gjones/scratch/quad16qubit/quantum/Quantum.py", line 237, in _save_partial_state
+    os.remove('partial_state_model.bin')
+FileNotFoundError: [Errno 2] No such file or directory: 'partial_state_model.bin'
+/home/gjones/scratch/quad16qubit/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+Loading dataset from /home/gjones/scratch/quad16qubit/quadratic_train.bin... 
+Successfully loaded /home/gjones/scratch/quad16qubit/quadratic_train.bin into X and y data. 
+Loading dataset from /home/gjones/scratch/quad16qubit/quadratic_test.bin... 
+Successfully loaded /home/gjones/scratch/quad16qubit/quadratic_test.bin into X and y data. 
+Training model with dataset /home/gjones/scratch/quad16qubit/quadratic_train.bin 
+ at time Wed Apr 10 18:14:02 2024... 
+[Wed Apr 10 18:26:13 2024]  Iteration number: 0 with current cost as 0.16053987763783564 and parameters 
+[-3.00881847  2.23743464 -2.12427961 -0.11653103  0.55388714 -2.77010897
+  3.06858495  2.18960148  1.18552008 -1.06648306  0.60271509  1.1443245
+  1.31029901 -1.87354674  0.72965087  2.88578427 -0.54534326 -0.47522483
+ -2.02654244  0.72897375  1.60512666  2.83077114 -1.26456702 -0.25136097
+ -2.39279211 -2.2730977   3.13337157  2.54856958 -0.67550781 -2.69002197
+  1.5170163  -0.04647228 -2.3427137   2.0404322   1.15216313 -0.65055496
+  1.04465374 -1.9205601  -0.32067985  2.3222604  -0.20585086  0.56637436
+  2.6898313   1.07273364  2.58102874  2.94254034  2.76514593 -2.94578568
+  0.36684059 -0.65725908  1.65159089  2.68042144 -0.25194952 -2.45807903
+  2.63570525 -3.07930429  0.79129724 -0.75901771 -1.81776562  2.9986886
+ -1.85887169 -1.63734088 -2.55370824  2.30926632 -2.25921323  1.98533552
+  1.90881014  1.42517315  2.59930885  2.87147469  1.84732041  1.52137428
+ -1.69866533 -2.34431217  1.23292411]. 
+Training complete taking 1331.292043685913 total seconds. 
+Now scoring model... 
+Scoring complete taking 2.158473253250122 seconds. 
+Saved predicted values as A2-A2-CNOT_Modified-Pauli-CRZ_predicted_values.csv
+Model scores: {'MSE_train': (3.4905096615626734,), 'R2_train': 0.5207267476471971, 'MAE_train': 1.5074617976573519, 'MSE_test': 5.3293943264643415, 'R2_test': 0.468709171475734, 'MAE_test': 1.7909733769543525}. 
+Saved model results as A2-A2-CNOT_Modified-Pauli-CRZ_results.json. 

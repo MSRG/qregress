@@ -1,0 +1,142 @@
+/home/gjones/scratch/quad16qubit/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+Loading dataset from /home/gjones/scratch/quad16qubit/quadratic_train.bin... 
+Successfully loaded /home/gjones/scratch/quad16qubit/quadratic_train.bin into X and y data. 
+Loading dataset from /home/gjones/scratch/quad16qubit/quadratic_test.bin... 
+Successfully loaded /home/gjones/scratch/quad16qubit/quadratic_test.bin into X and y data. 
+Training model with dataset /home/gjones/scratch/quad16qubit/quadratic_train.bin 
+ at time Wed Apr 10 07:19:00 2024... 
+[Wed Apr 10 07:32:37 2024]  Iteration number: 0 with current cost as 0.15839861706942543 and parameters 
+[-2.99083496  2.23743462 -2.12427957 -0.11653101  0.55388715 -2.770109
+  3.068585    2.18960142  1.18552    -1.06648299  0.6027151   1.14432455
+  1.31029904 -1.87354675  0.7296509   2.88578415 -0.54534328 -0.47522483
+ -2.02654243  0.72897368  1.60512666  2.83077113 -1.26456704 -0.25136101
+ -2.39279216 -2.27309772  3.13337155  2.54856959 -0.67550783 -2.69002197
+  1.51701633 -0.0464723  -2.34271372  2.04043216  1.15216314 -0.65055491
+  1.04465369 -1.9205601  -0.32067986  2.32226038 -0.20585092  0.56637436
+  2.68983135  1.07273366  2.58102857  2.94254035  2.76514596 -2.94578564
+  0.36684065 -0.65725907  1.65159087  2.68042142 -0.25194948 -2.45807903
+  2.63570525 -3.0793043   0.79129724 -0.75901772 -1.81776562  2.9986886
+ -1.85887169 -1.63734088 -2.55370824  2.30926632 -2.25921323  1.98533552
+  1.90881014  1.42517315  2.59930885  2.87147469  1.84732041  1.52137428
+ -1.69866533 -2.34431217  1.23292411]. 
+Traceback (most recent call last):
+  File "/home/gjones/scratch/quad16qubit/main.py", line 329, in <module>
+    main()
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/gjones/scratch/quad16qubit/main.py", line 189, in main
+    model.fit(X_train, y_train, load_state=resume_file)
+  File "/home/gjones/scratch/quad16qubit/quantum/Quantum.py", line 321, in fit
+    self._save_partial_state(params, force=True)
+  File "/home/gjones/scratch/quad16qubit/quantum/Quantum.py", line 237, in _save_partial_state
+    os.remove('partial_state_model.bin')
+FileNotFoundError: [Errno 2] No such file or directory: 'partial_state_model.bin'
+/home/gjones/scratch/quad16qubit/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+Loading dataset from /home/gjones/scratch/quad16qubit/quadratic_train.bin... 
+Successfully loaded /home/gjones/scratch/quad16qubit/quadratic_train.bin into X and y data. 
+Loading dataset from /home/gjones/scratch/quad16qubit/quadratic_test.bin... 
+Successfully loaded /home/gjones/scratch/quad16qubit/quadratic_test.bin into X and y data. 
+Training model with dataset /home/gjones/scratch/quad16qubit/quadratic_train.bin 
+ at time Wed Apr 10 15:08:57 2024... 
+[Wed Apr 10 15:21:32 2024]  Iteration number: 0 with current cost as 0.15839861706942543 and parameters 
+[-2.99083496  2.23743462 -2.12427957 -0.11653101  0.55388715 -2.770109
+  3.068585    2.18960142  1.18552    -1.06648299  0.6027151   1.14432455
+  1.31029904 -1.87354675  0.7296509   2.88578415 -0.54534328 -0.47522483
+ -2.02654243  0.72897368  1.60512666  2.83077113 -1.26456704 -0.25136101
+ -2.39279216 -2.27309772  3.13337155  2.54856959 -0.67550783 -2.69002197
+  1.51701633 -0.0464723  -2.34271372  2.04043216  1.15216314 -0.65055491
+  1.04465369 -1.9205601  -0.32067986  2.32226038 -0.20585092  0.56637436
+  2.68983135  1.07273366  2.58102857  2.94254035  2.76514596 -2.94578564
+  0.36684065 -0.65725907  1.65159087  2.68042142 -0.25194948 -2.45807903
+  2.63570525 -3.0793043   0.79129724 -0.75901772 -1.81776562  2.9986886
+ -1.85887169 -1.63734088 -2.55370824  2.30926632 -2.25921323  1.98533552
+  1.90881014  1.42517315  2.59930885  2.87147469  1.84732041  1.52137428
+ -1.69866533 -2.34431217  1.23292411]. 
+Traceback (most recent call last):
+  File "/home/gjones/scratch/quad16qubit/main.py", line 329, in <module>
+    main()
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/opt/miniconda/lib/python3.9/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/gjones/scratch/quad16qubit/main.py", line 189, in main
+    model.fit(X_train, y_train, load_state=resume_file)
+  File "/home/gjones/scratch/quad16qubit/quantum/Quantum.py", line 321, in fit
+    self._save_partial_state(params, force=True)
+  File "/home/gjones/scratch/quad16qubit/quantum/Quantum.py", line 237, in _save_partial_state
+    os.remove('partial_state_model.bin')
+FileNotFoundError: [Errno 2] No such file or directory: 'partial_state_model.bin'
+/home/gjones/scratch/quad16qubit/quantum/Quantum.py:302: OptimizeWarning: Unknown solver options: tol
+  opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback,
+/home/gjones/scratch/quad16qubit/quantum/circuits/Encoders.py:12: RuntimeWarning: invalid value encountered in arcsin
+  if np.isnan(np.arcsin(features[feature_idx])) or np.isnan(np.arccos(features[feature_idx])):
+Loading dataset from /home/gjones/scratch/quad16qubit/quadratic_train.bin... 
+Successfully loaded /home/gjones/scratch/quad16qubit/quadratic_train.bin into X and y data. 
+Loading dataset from /home/gjones/scratch/quad16qubit/quadratic_test.bin... 
+Successfully loaded /home/gjones/scratch/quad16qubit/quadratic_test.bin into X and y data. 
+Training model with dataset /home/gjones/scratch/quad16qubit/quadratic_train.bin 
+ at time Wed Apr 10 18:14:10 2024... 
+[Wed Apr 10 18:24:09 2024]  Iteration number: 0 with current cost as 0.15839861706942543 and parameters 
+[-2.99083496  2.23743462 -2.12427957 -0.11653101  0.55388715 -2.770109
+  3.068585    2.18960142  1.18552    -1.06648299  0.6027151   1.14432455
+  1.31029904 -1.87354675  0.7296509   2.88578415 -0.54534328 -0.47522483
+ -2.02654243  0.72897368  1.60512666  2.83077113 -1.26456704 -0.25136101
+ -2.39279216 -2.27309772  3.13337155  2.54856959 -0.67550783 -2.69002197
+  1.51701633 -0.0464723  -2.34271372  2.04043216  1.15216314 -0.65055491
+  1.04465369 -1.9205601  -0.32067986  2.32226038 -0.20585092  0.56637436
+  2.68983135  1.07273366  2.58102857  2.94254035  2.76514596 -2.94578564
+  0.36684065 -0.65725907  1.65159087  2.68042142 -0.25194948 -2.45807903
+  2.63570525 -3.0793043   0.79129724 -0.75901772 -1.81776562  2.9986886
+ -1.85887169 -1.63734088 -2.55370824  2.30926632 -2.25921323  1.98533552
+  1.90881014  1.42517315  2.59930885  2.87147469  1.84732041  1.52137428
+ -1.69866533 -2.34431217  1.23292411]. 
+Training complete taking 1170.939314365387 total seconds. 
+Now scoring model... 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0412371134020617. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Ignoring NaN found at index: 0. With feature: -1.0206185567010309. 
+Scoring complete taking 2.200356960296631 seconds. 
+Saved predicted values as M-A2-CNOT_Modified-Pauli-CRZ_predicted_values.csv
+Model scores: {'MSE_train': (3.4606293366758125,), 'R2_train': 0.5248295411869442, 'MAE_train': 1.5232540319490024, 'MSE_test': 5.944547076363117, 'R2_test': 0.4073841889088079, 'MAE_test': 1.911817854833697}. 
+Saved model results as M-A2-CNOT_Modified-Pauli-CRZ_results.json. 
