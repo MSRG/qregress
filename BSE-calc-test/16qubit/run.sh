@@ -13,6 +13,7 @@ for i in */; do
 #SBATCH -J PCA16_Morgan_${name}
 #SBATCH -N 1
 #SBATCH -n 16
+#SBATCH --mem-per-cpu=260M
 #SBATCH --account=rrg-jacobsen-ab
 #SBATCH --error=${name}.e%J        # The file where run time errors will be dumped
 #SBATCH --output=${name}.o%J               # The file where the output of the terminal will be dumped
