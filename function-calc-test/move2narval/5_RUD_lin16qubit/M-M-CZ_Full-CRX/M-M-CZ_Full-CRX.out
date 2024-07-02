@@ -1,0 +1,235 @@
+/opt/miniconda/bin/python: can't open file '/home/gjones/scratch/move2narval/5_RUD_lin16qubit/main.py--save_path': [Errno 2] No such file or directory
+/home/gjones/scratch/move2narval/5_RUD_lin16qubit/quantum/circuits/Encoders.py:12: RuntimeWarning: invalid value encountered in arcsin
+  if np.isnan(np.arcsin(features[feature_idx])) or np.isnan(np.arccos(features[feature_idx])):
+Loading dataset from /home/gjones/scratch/move2narval/5_RUD_lin16qubit/linear_train.bin... 
+Successfully loaded /home/gjones/scratch/move2narval/5_RUD_lin16qubit/linear_train.bin into X and y data. 
+Loading dataset from /home/gjones/scratch/move2narval/5_RUD_lin16qubit/linear_test.bin... 
+Successfully loaded /home/gjones/scratch/move2narval/5_RUD_lin16qubit/linear_test.bin into X and y data. 
+Training model with dataset /home/gjones/scratch/move2narval/5_RUD_lin16qubit/linear_train.bin 
+ at time Mon Jun 24 15:06:13 2024... 
+[Mon Jun 24 15:09:16 2024]  Iteration number: 0 with current cost as 0.3304551017618701 and parameters 
+[-2.90389823  2.23814941 -2.12499441 ... -0.65085262 -0.5972245
+  2.38467309]. 
+[Mon Jun 24 16:53:47 2024]  Iteration number: 50 with current cost as 0.3300017292457609 and parameters 
+[-2.90751631  2.24415131 -2.12402606 ... -0.65098182 -0.59881759
+  2.38895481]. 
+[Mon Jun 24 18:32:52 2024]  Iteration number: 100 with current cost as 0.32954108647708014 and parameters 
+[-2.91071951  2.24841475 -2.12306764 ... -0.64878351 -0.6028171
+  2.39104698]. 
+[Mon Jun 24 20:10:24 2024]  Iteration number: 150 with current cost as 0.3292494042958725 and parameters 
+[-2.91445501  2.2483325  -2.12482772 ... -0.65133319 -0.60483536
+  2.38996252]. 
+[Mon Jun 24 21:46:55 2024]  Iteration number: 200 with current cost as 0.3287997348304178 and parameters 
+[-2.91768841  2.25481908 -2.12148652 ... -0.65675763 -0.60081849
+  2.39425133]. 
+[Mon Jun 24 23:22:59 2024]  Iteration number: 250 with current cost as 0.3286042381774096 and parameters 
+[-2.91961147  2.25479869 -2.1195634  ... -0.65779172 -0.59591231
+  2.39387528]. 
+[Tue Jun 25 01:01:33 2024]  Iteration number: 300 with current cost as 0.32827988395130747 and parameters 
+[-2.92455317  2.25581302 -2.11834913 ... -0.65752037 -0.5940475
+  2.39471378]. 
+[Tue Jun 25 02:37:31 2024]  Iteration number: 350 with current cost as 0.3279400411367236 and parameters 
+[-2.92238224  2.25979029 -2.11591242 ... -0.66042406 -0.59533805
+  2.38983194]. 
+[Tue Jun 25 04:13:56 2024]  Iteration number: 400 with current cost as 0.32763271661544807 and parameters 
+[-2.92641238  2.25853659 -2.11488799 ... -0.66290652 -0.59214371
+  2.38953173]. 
+[Tue Jun 25 05:50:13 2024]  Iteration number: 450 with current cost as 0.3272995040479536 and parameters 
+[-2.93101598  2.26125465 -2.11118007 ... -0.66350144 -0.59096408
+  2.38988908]. 
+[Tue Jun 25 07:28:37 2024]  Iteration number: 500 with current cost as 0.3270967247535775 and parameters 
+[-2.92871634  2.2624115  -2.10621052 ... -0.66338626 -0.59081827
+  2.38860468]. 
+[Tue Jun 25 10:08:13 2024]  Iteration number: 550 with current cost as 0.32680681109809284 and parameters 
+[-2.93023154  2.26542348 -2.10218864 ... -0.66273068 -0.5872918
+  2.38897045]. 
+[Tue Jun 25 12:33:39 2024]  Iteration number: 600 with current cost as 0.3265230506865004 and parameters 
+[-2.93482845  2.27103049 -2.10135008 ... -0.66169024 -0.58880593
+  2.38756202]. 
+[Tue Jun 25 14:15:47 2024]  Iteration number: 650 with current cost as 0.3262802493815449 and parameters 
+[-2.93657067  2.27290949 -2.1021773  ... -0.6649011  -0.59297123
+  2.38883415]. 
+[Tue Jun 25 16:00:34 2024]  Iteration number: 700 with current cost as 0.3260227843697943 and parameters 
+[-2.93672997  2.27451245 -2.1000306  ... -0.66527167 -0.59245
+  2.3900915 ]. 
+[Tue Jun 25 17:47:17 2024]  Iteration number: 750 with current cost as 0.3257384173076516 and parameters 
+[-2.93950653  2.2761264  -2.10115946 ... -0.66764474 -0.59393837
+  2.38992283]. 
+[Tue Jun 25 19:25:45 2024]  Iteration number: 800 with current cost as 0.32540481014368194 and parameters 
+[-2.94082987  2.27924372 -2.10161135 ... -0.66845995 -0.59544877
+  2.38841837]. 
+[Tue Jun 25 21:17:18 2024]  Iteration number: 850 with current cost as 0.32514818360658043 and parameters 
+[-2.94054841  2.28234354 -2.10363772 ... -0.66882251 -0.59728253
+  2.38909073]. 
+[Tue Jun 25 22:56:25 2024]  Iteration number: 900 with current cost as 0.3248423766859683 and parameters 
+[-2.94080129  2.28305389 -2.1007099  ... -0.6684323  -0.59742833
+  2.38720075]. 
+[Wed Jun 26 00:35:24 2024]  Iteration number: 950 with current cost as 0.32447774878815794 and parameters 
+[-2.94145303  2.28855734 -2.09934195 ... -0.67227531 -0.6007765
+  2.38691327]. 
+Training complete taking 126507.09998965263 total seconds. 
+Now scoring model... 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Ignoring NaN found at index: 0. With feature: 1.020408163265306. 
+Scoring complete taking 64.10468578338623 seconds. 
+Saved predicted values as M-M-CZ_Full-CRX_predicted_values.csv
+Model scores: {'MSE_train': (202.96577227518324,), 'R2_train': 0.016698951870812828, 'MAE_train': 12.34041499429658, 'MSE_test': 182.73905286762496, 'R2_test': -0.10151700478305026, 'MAE_test': 11.616157780641222}. 
+Saved model results as M-M-CZ_Full-CRX_results.json. 
