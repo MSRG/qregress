@@ -5,6 +5,7 @@ from sklearn.metrics import mean_squared_error
 from scipy.optimize import minimize, basinhopping
 from qiskit_ibm_runtime import QiskitRuntimeService
 from qiskit_ibm_provider import IBMProvider
+from qiskit_ibm_runtime.fake_provider import FakeCairo
 from mitiq.zne.scaling import fold_global
 from mitiq.zne.inference import RichardsonFactory, LinearFactory
 import joblib
@@ -93,12 +94,14 @@ class QuantumRegressor:
             if token is None:
                 token = input('Enter IBMQ token')
             # QiskitRuntimeService.save_account(channel='ibm_quantum', instance=instance, token=token, overwrite=True)
-            self.device = qml.device(device, wires=self.num_qubits, backend=backend, shots=shots, provider=provider,
-                                     token=token)
+            self.device = qml.device(device, wires=self.num_qubits, backend=backend, shots=shots, provider=provider, token=token)
             service = QiskitRuntimeService()
             self._backend = service.backend(backend)
             if self.error_mitigation == 'TREX':
                 self.device.set_transpile_args(**{'resilience_level': 1})
+        elif device == 'qiskit.remote':
+            backend = FakeCairo()
+            self.device = qml.device(device, wires=self.num_qubits, backend=backend, shots=shots)
         else:
             self.device = qml.device(device, wires=self.num_qubits, shots=shots)
 
