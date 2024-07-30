@@ -12,7 +12,7 @@ RUN bash /opt/conda/miniconda.sh -b -p /opt/miniconda
 # Install your environment.yml deps into base env 
 # Uncomment once you are ready to start productionizing the image 
 
-RUN . /opt/miniconda/bin/activate && conda install -y python=3.9 && conda env update --name base --file qchem.yml 
+RUN . /opt/miniconda/bin/activate && conda install -y python=3.12 --yes && python3 -m pip install click joblib matplotlib mitiq mthree numpy pandas PennyLane pennylane-qiskit scikit_learn scipy
 # RUN . /opt/miniconda/bin/activate && conda install -y python=3.9
 # RUN cat uniq.txt | sort | xargs -n 1 /opt/miniconda/bin/python -m pip install 
 # Install your softwares 
