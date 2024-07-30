@@ -99,9 +99,12 @@ class QuantumRegressor:
             self._backend = service.backend(backend)
             if self.error_mitigation == 'TREX':
                 self.device.set_transpile_args(**{'resilience_level': 1})
-        elif device == 'qiskit.remote':
+        elif device == 'qiskit.remote' and backend == "cairo":
             backend = FakeCairo()
+            self._backend=backend
             self.device = qml.device(device, wires=self.num_qubits, backend=backend, shots=shots)
+            if self.error_mitigation == 'TREX':
+                self.device.set_transpile_args(**{'resilience_level': 1})
         else:
             self.device = qml.device(device, wires=self.num_qubits, shots=shots)
 
