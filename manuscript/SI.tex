@@ -1,0 +1,361 @@
+\documentclass[journal=jacsat,manuscript=article]{achemso}
+\usepackage{multicol}
+\usepackage{graphicx}% Include figure files
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+\usepackage{pgffor}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{listings}
+\lstset{language=Python}
+\usepackage{rotating} % Rotating table
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{color}
+\usepackage{dcolumn} % decimal align in tables
+\usepackage{bm} % bold math
+\usepackage{graphicx}
+\usepackage{multirow} % for table cells to span rows
+\usepackage{pifont} % for checkmarks
+\usepackage{epsfig}
+\usepackage{amsmath} % matrix
+% \usepackage{subfigure}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{natbib}
+\usepackage{gensymb}
+\setlength{\paperwidth}{8.5in}
+\setlength{\paperheight}{11.0in}
+\usepackage{rotating}
+\usepackage{threeparttable}
+\usepackage{comment}
+%for corrections
+\usepackage[normalem]{ulem}
+% \usepackage{xr-hyper}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Place any additional packages needed here.  Only include packages
+%% which are essential, to avoid problems later. Do NOT use any
+%% packages which require e-TeX (for example etoolbox): the e-TeX
+%% extensions are not currently available on the ACS conversion
+%% servers.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[version=3]{mhchem} % Formula subscripts using \ce{}
+\usepackage{xcolor}
+% \usepackage{xr-hyper}
+\usepackage{xr-hyper}
+\usepackage{xr}
+
+
+
+% \usepackage{hyperref}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools,physics}
+
+
+\usepackage{subcaption}
+\usepackage{caption}
+% \usepackage{titling}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% If issues arise when submitting your manuscript, you may want to
+%% un-comment the next line.  This provides information on the
+%% version of every file you have used.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%\listfiles
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Place any additional macros here.  Please use \newcommand* where
+%% possible, and avoid layout-changing macros (which are not used
+%% when typesetting).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Add line numbers, as requested by Nature
+\usepackage{lineno}
+% \linenumbers
+
+
+
+
+
+%%%% HELPER CODE FOR DEALING WITH EXTERNAL REFERENCES
+% (from an answer by cyberSingularity at http://tex.stackexchange.com/a/69832/226)
+%%%
+
+\usepackage{xcite}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%----Helper code for dealing with external references----
+% (by cyberSingularity at http://tex.stackexchange.com/a/69832/226)
+
+\usepackage{xr}
+\makeatletter
+
+\newcommand*{\addFileDependency}[1]{% argument=file name and extension
+	\typeout{(#1)}% latexmk will find this if $recorder=0
+	% however, in that case, it will ignore #1 if it is a .aux or 
+	% .pdf file etc and it exists! If it doesn't exist, it will appear 
+	% in the list of dependents regardless)
+	%
+	% Write the following if you want it to appear in \listfiles 
+	% --- although not really necessary and latexmk doesn't use this
+	%
+	\@addtofilelist{#1}
+	%
+	% latexmk will find this message if #1 doesn't exist (yet)
+	\IfFileExists{#1}{}{\typeout{No file #1.}}
+}\makeatother
+
+\newcommand*{\myexternaldocument}[1]{%
+	\externaldocument{#1}%
+	\addFileDependency{#1.tex}%
+	\addFileDependency{#1.aux}%
+}
+%------------End of helper code--------------
+
+% put all the external documents here!
+
+\newcommand{\siref}[1]{\ref{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The document title should be given as usual. Some journals require
+%% a running title from the author: this should be supplied as an
+%% optional argument to \title.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{A Combinatorial Search of Parameterized Quantum Circuit Learning for Chemical Applications}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Meta-data block
+%% ---------------
+%% Each author should be given as a separate \author command.
+%%
+%% Corresponding authors should have an e-mail given after the author
+%% name as an \email command. Phone and fax numbers can be given
+%% using \phone and \fax, respectively; this information is optional.
+%%
+%% The affiliation of authors is given after the authors; each
+%% \affiliation command applies to all preceding authors not already
+%% assigned an affiliation.
+%%
+%% The affiliation takes an option argument for the short name.  This
+%% will typically be something like "University of Somewhere".
+%%
+%% The \altaffiliation macro should be used for new address, etc.
+%% On the other hand, \alsoaffiliation is used on a per author basis
+%% when authors are associated with multiple institutions.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\author{Grier M. Jones}
+\affiliation[UTSG ECE]{
+	The Edward S. Rogers Sr. Department of Electrical and Computer Engineering, 
+	University of Toronto, 
+	10 Kings College Road, Toronto, Ontario, 
+	Canada M5S 3G4}
+\alsoaffiliation[UTM CHEM]{
+	Department of Chemical and Physical Sciences, 
+	University of Toronto Mississauga, 
+	3359 Mississauga Road, Mississauga, Ontario, 
+	Canada L5L 1C6}
+
+\author{Nick Taylor}
+\affiliation[UTSG ECE]{
+	The Edward S. Rogers Sr. Department of Electrical and Computer Engineering, 
+	University of Toronto, 
+	10 Kings College Road, Toronto, Ontario, 
+	Canada M5S 3G4}
+
+\author{Viki Kumar Prasad}
+\affiliation[UTSG ECE]{
+	The Edward S. Rogers Sr. Department of Electrical and Computer Engineering, 
+	University of Toronto, 
+	10 Kings College Road, Toronto, Ontario, 
+	Canada M5S 3G4}
+\alsoaffiliation[UTM CHEM]{
+	Department of Chemical and Physical Sciences, 
+	University of Toronto Mississauga, 
+	3359 Mississauga Road, Mississauga, Ontario, 
+	Canada L5L 1C6}
+
+
+
+\author{Ulrich Fekl}
+\affiliation[UTM CHEM]{
+	Department of Chemical and Physical Sciences, 
+	University of Toronto Mississauga, 
+	3359 Mississauga Road, Mississauga, Ontario, 
+	Canada L5L 1C6}
+\email{ulrich.fekl@utoronto.ca}
+
+\author{Hans-Arno Jacobsen}
+\affiliation[UTSG ECE]{
+	The Edward S. Rogers Sr. Department of Electrical and Computer Engineering, 
+	University of Toronto, 
+	10 Kings College Road, Toronto, Ontario, 
+	Canada M5S 3G4}
+\email{jacobsen@eecg.toronto.edu}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Some journals require a list of abbreviations or keywords to be
+%% supplied. These should be set up here, and will be printed after
+%% the title and author information, if needed.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\abbreviations{}
+\keywords{American Chemical Society, \LaTeX}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The manuscript does not need to include \maketitle, which is
+%% executed automatically.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\R}{\mathbb{R}}
+
+\begin{document}
+
+\newpage
+\section{Electronic Supplementary Information}
+\setcounter{page}{1}
+\renewcommand{\thepage}{S-\arabic{page}}
+
+
+\subsection*{Table of Contents}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{Section} & \textbf{Page} \\
+		\hline
+		S1. Classical Function Fitting & \pageref{SI_subsection:classical_funct_fit} \\
+		\hline
+		S2. Simulator Function Fitting & \pageref{SI_subsection:Simulator_Function_Fitting} \\
+		\hline
+		S3. Classical BSE Fitting & \pageref{SI_subsection:Classical_BSE_Fitting} \\
+		\hline
+		S4. Simulator BSE Fitting & \pageref{SI_subsection:simulator_BSE_Fitting} \\
+		\hline
+	\end{tabular}
+	\label{tab:my_label}
+\end{table}
+
+\newpage
+
+
+
+
+\setcounter{figure}{0}
+\renewcommand{\figurename}{Figure}
+\renewcommand{\thefigure}{S\arabic{figure}}
+
+
+
+
+\subsection*{S1. Classical Function Fitting}\label{SI_subsection:classical_funct_fit}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{images/linear.png}
+	\caption{linear}
+	\label{fig:linear}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{images/quadratic.png}
+	\caption{quadratic}
+	\label{fig:quadratic}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{images/sine.png}
+	\caption{sine}
+	\label{fig:sine}
+\end{figure}
+
+
+\newpage
+\subsection*{S2. Simulator Function Fitting}\label{SI_subsection:Simulator_Function_Fitting}
+
+\subsubsection{5 Qubit Function Fitting}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/5qubit_Linear_funcfit_R2.png}
+	\caption{lin5qubits metric 0.8}
+	\label{fig:lin5qubits_metric}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/5qubit_Quadratic_funcfit_R2.png}
+	\caption{quad5qubits metric}
+	\label{fig:quad5qubits_metric}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/5qubit_Sine_funcfit_R2.png}
+	\caption{sine5qubits metric}
+	\label{fig:sine5qubits_metric}
+\end{figure}
+
+
+\subsubsection{16 Qubit Function Fitting}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/16qubit_Linear_funcfit_R2.png}
+	\caption{lin16qubits metric 0.8}
+	\label{fig:lin16qubits_metric}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/16qubit_Quadratic_funcfit_R2.png}
+	\caption{quad16qubits metric}
+	\label{fig:quad16qubits_metric}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/16qubit_Sine_funcfit_R2.png}
+	\caption{sine16qubits metric}
+	\label{fig:sine16qubits_metric}
+\end{figure}
+
+\newpage
+\subsection*{S3. Classical BSE Fitting}\label{SI_subsection:Classical_BSE_Fitting}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{images/classical_funcfit.png}
+	\caption{classical funcfit}
+	\label{fig:classical_funcfit}
+\end{figure}
+
+
+
+
+\newpage
+\subsection*{S4. Simulator BSE Fitting}\label{SI_subsection:simulator_BSE_Fitting}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/5qubit_BSE_R2.png}
+	\caption{5qubit BSE R2}
+	\label{fig:5qubit_BSE_R2}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{images/16qubit_BSE_R2.png}
+	\caption{16qubit BSE R2}
+	\label{fig:16qubit_BSE_R2}
+\end{figure}
+
+
+\end{document}

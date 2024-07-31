@@ -1,0 +1,104 @@
+\providecommand{\latin}[1]{#1}
+\makeatletter
+\providecommand{\doi}
+  {\begingroup\let\do\@makeother\dospecials
+  \catcode`\{=1 \catcode`\}=2 \doi@aux}
+\providecommand{\doi@aux}[1]{\endgroup\texttt{#1}}
+\makeatother
+\providecommand*\mcitethebibliography{\thebibliography}
+\csname @ifundefined\endcsname{endmcitethebibliography}
+  {\let\endmcitethebibliography\endthebibliography}{}
+\begin{mcitethebibliography}{9}
+\providecommand*\natexlab[1]{#1}
+\providecommand*\mciteSetBstSublistMode[1]{}
+\providecommand*\mciteSetBstMaxWidthForm[2]{}
+\providecommand*\mciteBstWouldAddEndPuncttrue
+  {\def\EndOfBibitem{\unskip.}}
+\providecommand*\mciteBstWouldAddEndPunctfalse
+  {\let\EndOfBibitem\relax}
+\providecommand*\mciteSetBstMidEndSepPunct[3]{}
+\providecommand*\mciteSetBstSublistLabelBeginEnd[3]{}
+\providecommand*\EndOfBibitem{}
+\mciteSetBstSublistMode{f}
+\mciteSetBstMaxWidthForm{subitem}{(\alph{mcitesubitemcount})}
+\mciteSetBstSublistLabelBeginEnd
+  {\mcitemaxwidthsubitemform\space}
+  {\relax}
+  {\relax}
+
+\bibitem[Prasad \latin{et~al.}(2024)Prasad, Cheng, Fekl, and
+  Jacobsen]{prasad_applications_2024}
+Prasad,~V.~K.; Cheng,~F.; Fekl,~U.; Jacobsen,~H.-A. Applications of noisy
+  quantum computing and quantum error mitigation to “adamantaneland”: a
+  benchmarking study for quantum chemistry. \emph{Phys. Chem. Chem. Phys.}
+  \textbf{2024}, \emph{26}, 4071--4082, Publisher: The Royal Society of
+  Chemistry\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Suzuki and Katouda(2020)Suzuki, and Katouda]{suzuki_predicting_2020}
+Suzuki,~T.; Katouda,~M. Predicting toxicity by quantum machine learning.
+  \emph{J. Phys. Commun.} \textbf{2020}, \emph{4}, 125012\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Mitarai \latin{et~al.}(2018)Mitarai, Negoro, Kitagawa, and
+  Fujii]{mitarai_quantum_2018}
+Mitarai,~K.; Negoro,~M.; Kitagawa,~M.; Fujii,~K. Quantum circuit learning.
+  \emph{Phys. Rev. A} \textbf{2018}, \emph{98}, 032309, Publisher: American
+  Physical Society\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Sim \latin{et~al.}(2019)Sim, Johnson, and
+  Aspuru-Guzik]{sim_expressibility_2019}
+Sim,~S.; Johnson,~P.~D.; Aspuru-Guzik,~A. Expressibility and {Entangling}
+  {Capability} of {Parameterized} {Quantum} {Circuits} for {Hybrid}
+  {Quantum}-{Classical} {Algorithms}. \emph{Advanced Quantum Technologies}
+  \textbf{2019}, \emph{2}, 1900070, \_eprint:
+  https://onlinelibrary.wiley.com/doi/pdf/10.1002/qute.201900070\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Hatakeyama-Sato \latin{et~al.}(2023)Hatakeyama-Sato, Igarashi,
+  Kashikawa, Kimura, and Oyaizu]{hatakeyama-sato_quantum_2023}
+Hatakeyama-Sato,~K.; Igarashi,~Y.; Kashikawa,~T.; Kimura,~K.; Oyaizu,~K.
+  Quantum circuit learning as a potential algorithm to predict experimental
+  chemical properties. \emph{Digital Discovery} \textbf{2023}, \emph{2},
+  165--176, Publisher: RSC\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Krenn \latin{et~al.}(2023)Krenn, Landgraf, Foesel, and
+  Marquardt]{krenn_artificial_2023}
+Krenn,~M.; Landgraf,~J.; Foesel,~T.; Marquardt,~F. Artificial intelligence and
+  machine learning for quantum technologies. \emph{Phys. Rev. A} \textbf{2023},
+  \emph{107}, 010101, Publisher: American Physical Society\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Benedetti \latin{et~al.}(2019)Benedetti, Lloyd, Sack, and
+  Fiorentini]{benedetti_parameterized_2019}
+Benedetti,~M.; Lloyd,~E.; Sack,~S.; Fiorentini,~M. Parameterized quantum
+  circuits as machine learning models. \emph{Quantum Sci. Technol.}
+  \textbf{2019}, \emph{4}, 043001, Publisher: IOP Publishing\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Biamonte \latin{et~al.}(2017)Biamonte, Wittek, Pancotti, Rebentrost,
+  Wiebe, and Lloyd]{biamonte_quantum_2017}
+Biamonte,~J.; Wittek,~P.; Pancotti,~N.; Rebentrost,~P.; Wiebe,~N.; Lloyd,~S.
+  Quantum machine learning. \emph{Nature} \textbf{2017}, \emph{549}, 195--202,
+  Publisher: Nature Publishing Group\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\end{mcitethebibliography}

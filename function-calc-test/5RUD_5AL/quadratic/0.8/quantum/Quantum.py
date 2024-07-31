@@ -222,7 +222,7 @@ class QuantumRegressor:
         self.fit_count += 1
         self._save_partial_state(xk)
 
-    def _save_partial_state(self, param_vector, force=False):
+    def _save_partial_state(self, param_vector, force=True):
         # saves every call to a bin file able to be loaded later by calling fit with load_state set to filename
         interval = self.callback_interval
         if interval is None:
