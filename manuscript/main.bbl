@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{9}
+\begin{mcitethebibliography}{11}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -31,8 +31,7 @@
 Prasad,~V.~K.; Cheng,~F.; Fekl,~U.; Jacobsen,~H.-A. Applications of noisy
   quantum computing and quantum error mitigation to “adamantaneland”: a
   benchmarking study for quantum chemistry. \emph{Phys. Chem. Chem. Phys.}
-  \textbf{2024}, \emph{26}, 4071--4082, Publisher: The Royal Society of
-  Chemistry\relax
+  \textbf{2024}, \emph{26}, 4071--4082\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -47,8 +46,7 @@ Suzuki,~T.; Katouda,~M. Predicting toxicity by quantum machine learning.
 \bibitem[Mitarai \latin{et~al.}(2018)Mitarai, Negoro, Kitagawa, and
   Fujii]{mitarai_quantum_2018}
 Mitarai,~K.; Negoro,~M.; Kitagawa,~M.; Fujii,~K. Quantum circuit learning.
-  \emph{Phys. Rev. A} \textbf{2018}, \emph{98}, 032309, Publisher: American
-  Physical Society\relax
+  \emph{Phys. Rev. A} \textbf{2018}, \emph{98}, 032309\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -58,8 +56,7 @@ Mitarai,~K.; Negoro,~M.; Kitagawa,~M.; Fujii,~K. Quantum circuit learning.
 Sim,~S.; Johnson,~P.~D.; Aspuru-Guzik,~A. Expressibility and {Entangling}
   {Capability} of {Parameterized} {Quantum} {Circuits} for {Hybrid}
   {Quantum}-{Classical} {Algorithms}. \emph{Advanced Quantum Technologies}
-  \textbf{2019}, \emph{2}, 1900070, \_eprint:
-  https://onlinelibrary.wiley.com/doi/pdf/10.1002/qute.201900070\relax
+  \textbf{2019}, \emph{2}, 1900070\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -69,7 +66,7 @@ Sim,~S.; Johnson,~P.~D.; Aspuru-Guzik,~A. Expressibility and {Entangling}
 Hatakeyama-Sato,~K.; Igarashi,~Y.; Kashikawa,~T.; Kimura,~K.; Oyaizu,~K.
   Quantum circuit learning as a potential algorithm to predict experimental
   chemical properties. \emph{Digital Discovery} \textbf{2023}, \emph{2},
-  165--176, Publisher: RSC\relax
+  165--176\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -78,7 +75,7 @@ Hatakeyama-Sato,~K.; Igarashi,~Y.; Kashikawa,~T.; Kimura,~K.; Oyaizu,~K.
   Marquardt]{krenn_artificial_2023}
 Krenn,~M.; Landgraf,~J.; Foesel,~T.; Marquardt,~F. Artificial intelligence and
   machine learning for quantum technologies. \emph{Phys. Rev. A} \textbf{2023},
-  \emph{107}, 010101, Publisher: American Physical Society\relax
+  \emph{107}, 010101\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -87,7 +84,7 @@ Krenn,~M.; Landgraf,~J.; Foesel,~T.; Marquardt,~F. Artificial intelligence and
   Fiorentini]{benedetti_parameterized_2019}
 Benedetti,~M.; Lloyd,~E.; Sack,~S.; Fiorentini,~M. Parameterized quantum
   circuits as machine learning models. \emph{Quantum Sci. Technol.}
-  \textbf{2019}, \emph{4}, 043001, Publisher: IOP Publishing\relax
+  \textbf{2019}, \emph{4}, 043001\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -95,8 +92,26 @@ Benedetti,~M.; Lloyd,~E.; Sack,~S.; Fiorentini,~M. Parameterized quantum
 \bibitem[Biamonte \latin{et~al.}(2017)Biamonte, Wittek, Pancotti, Rebentrost,
   Wiebe, and Lloyd]{biamonte_quantum_2017}
 Biamonte,~J.; Wittek,~P.; Pancotti,~N.; Rebentrost,~P.; Wiebe,~N.; Lloyd,~S.
-  Quantum machine learning. \emph{Nature} \textbf{2017}, \emph{549}, 195--202,
-  Publisher: Nature Publishing Group\relax
+  Quantum machine learning. \emph{Nature} \textbf{2017}, \emph{549},
+  195--202\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Townsend and Vogiatzis(2019)Townsend, and
+  Vogiatzis]{townsend_data-driven_2019}
+Townsend,~J.; Vogiatzis,~K.~D. Data-{Driven} {Acceleration} of the
+  {Coupled}-{Cluster} {Singles} and {Doubles} {Iterative} {Solver}. \emph{J.
+  Phys. Chem. Lett.} \textbf{2019}, \emph{10}, 4129--4135, Publisher: American
+  Chemical Society\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Lundberg and Lee(2017)Lundberg, and Lee]{lundberg_unified_2017}
+Lundberg,~S.~M.; Lee,~S.-I. A {Unified} {Approach} to {Interpreting} {Model}
+  {Predictions}. Advances in {Neural} {Information} {Processing} {Systems}.
+  2017\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax

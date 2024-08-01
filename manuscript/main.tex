@@ -305,12 +305,20 @@ Our work was implemented in Python using PennyLane for constructing the quantum 
 Simulated using FakeCairo backend
 
 \subsection{Dataset}
-We trained our models using three datasets: a function fitting dataset, consisting of a noisy linear, quadratic, and sine function, used for model calibration; a dataset consisting of electronic structure features to predict wavefunctions using the data-driven coupled-cluster scheme of Townsend and Vogiatzis (cite Jacob); and a dataset of bond separation energies (BSE) of molecules, where the feature set encodes structural information of each molecule. 
+We trained our models using three datasets: a function fitting dataset, consisting of a noisy linear, quadratic, and sine function, used for model calibration; a dataset consisting of electronic structure features to predict wavefunctions using the data-driven coupled-cluster scheme of Townsend and Vogiatzis \cite{townsend_data-driven_2019}; and a dataset of bond separation energies (BSE) of molecules, where the feature set encodes structural information of each molecule. 
 
 For the function fitting dataset, there is only one feature per target value.
-For the DDCC dataset, there are initially X features, reduced down to 5 and 16 features, respectively, using SHapley Additive exPlanation (SHAP) values. 
+For the DDCC dataset, there are initially X features, reduced down to 5 and 16 features, respectively, using SHapley Additive exPlanation (SHAP) values.\cite{lundberg_unified_2017} 
 
-*LIST THE INITIAL AND REDUCED FEATURES IN THE SI FOR DDCC*
+
+\begin{equation}
+	t^{ab}_{ij(\text{MP2})} = \frac{\mel{ij}{}{ab}}{\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}}
+	\label{eq:MP2_t2}
+\end{equation}
+
+For each $t^{ab}_{ij(\text{CCSD})}$, orbital energies ($\varepsilon_{i},\varepsilon_{j},\varepsilon_{a},\varepsilon_{b}$), Coulomb and exchange integrals ($J^{i}_{a},J^{j}_{b},K^{a}_{i},K^{b}_{j}$), binary feature whether two electrons are promoted to the same virtual orbital, the initial MP2 amplitudes, along with the numerator (two-electron integrals ($\mel{ij}{}{ab}$)) and denominator $\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}$.
+
+
 
 For the BSE dataset, various molecular representations are explored, and we settled on using Morgan fingerprints with X parameters. 
 For the feature reduction, we use PCA, as explained in Section \ref{subsubsection:BSE}.
