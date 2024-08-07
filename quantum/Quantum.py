@@ -5,7 +5,7 @@ from sklearn.metrics import mean_squared_error
 from scipy.optimize import minimize, basinhopping
 from qiskit_ibm_runtime import QiskitRuntimeService
 from qiskit_ibm_provider import IBMProvider
-from qiskit_ibm_runtime.fake_provider import FakeCairo
+from qiskit_ibm_runtime.fake_provider import FakeCairoV2
 from mitiq.zne.scaling import fold_global
 from mitiq.zne.inference import RichardsonFactory, LinearFactory
 import joblib
@@ -100,7 +100,7 @@ class QuantumRegressor:
             if self.error_mitigation == 'TREX':
                 self.device.set_transpile_args(**{'resilience_level': 1})
         elif device == 'qiskit.remote' and backend == "cairo":
-            backend = FakeCairo()
+            backend = FakeCairoV2()
             self._backend=backend
             self.device = qml.device(device, wires=self.num_qubits, backend=backend, shots=shots)
             if self.error_mitigation == 'TREX':

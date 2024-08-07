@@ -5,12 +5,12 @@ from qiskit.circuit.library import n_local
 
 def rotation_layer(parameters, wires, three_rotations=True):
     if not three_rotations:
-        if len(parameters) != 2 * len(wires):
-            raise ValueError("Unsopported number of parameters. Expected amount should be", 3 * len(wires))
+        if len(parameters) != 2 * len(self._wires):
+            raise ValueError("Unsopported number of parameters. Expected amount should be", 3 * len(self._wires))
     else:
-        if len(parameters) != 3 * len(wires):
-            raise ValueError("Unsupported number of parameters. Expected amount should be", 3 * len(wires))
-    for i in range(len(wires)):
+        if len(parameters) != 3 * len(self._wires):
+            raise ValueError("Unsupported number of parameters. Expected amount should be", 3 * len(self._wires))
+    for i in range(len(self._wires)):
         if three_rotations:
             qml.RX(parameters[3 * i], wires=wires[i])
             qml.RZ(parameters[3 * i + 1], wires=wires[i])
@@ -82,7 +82,7 @@ class EfficientSU2:
 
     def __call__(self, parameters, wires: list = None):
         if wires is not None:
-            if len(wires) != len(self._wires):
+            if len(self._wires) != len(self._wires):
                 raise ValueError("Cannot override wires instance of different length")
             self._wires = wires
         qc = self._qc
@@ -130,7 +130,7 @@ class ExcitationPreserving:
 
     def __call__(self, parameters, wires: list = None):
         if wires is not None:
-            if len(wires) != len(self._wires):
+            if len(self._wires) != len(self._wires):
                 raise ValueError("Cannot override wires instance of different length")
         qc = self._qc
         if qc.num_parameters_settable != len(parameters):
@@ -182,7 +182,7 @@ class TwoLocal:
 
     def __call__(self, parameters, wires: list = None):
         if wires is not None:
-            if len(self._wires) != len(wires):
+            if len(self._wires) != len(self._wires):
                 raise ValueError("Cannot override wires instance of different length")
             self._wires = wires
         qc = self._qc
@@ -232,7 +232,7 @@ class PauliTwoDesign:
 
     def __call__(self, parameters, wires: list = None):
         if wires is not None:
-            if len(wires) != len(self._wires):
+            if len(self._wires) != len(self._wires):
                 raise ValueError("Cannot override wires instance of different length")
             self._wires = wires
         qc = self._qc
@@ -274,7 +274,7 @@ class RealAmplitudes:
 
     def __call__(self, parameters, wires: list = None):
         if wires is not None:
-            if len(wires) != len(self._wires):
+            if len(self._wires) != len(self._wires):
                 raise ValueError("Cannot override wires instance of different length")
             self._wires = wires
         qc = self._qc
@@ -324,7 +324,7 @@ class NLocal:
 
     def __call__(self, parameters, wires: list = None):
         if wires is not None:
-            if len(wires) != len(self._wires):
+            if len(self._wires) != len(self._wires):
                 raise ValueError("Cannot override wires instance of different length")
             self._wires = wires
         qc = self._qc
@@ -409,19 +409,19 @@ class ModifiedPauliTwo:
                     else:
                         self._entangler((j + 1, j))
 
-            for j in range(len(wires)):
+            for j in range(len(self._wires)):
                 if self._full_rotation:
                     self.rotations[self._rotation_block[0]](parameters[counter], j)
                     counter += 1
                     self.rotations[self._rotation_block[1]](parameters[counter], j)
                     counter += 1
                 elif not self._full_rotation:
-                    if j != 0 and j != len(wires) - 1:
+                    if j != 0 and j != len(self._wires) - 1:
                         self.rotations[self._rotation_block[0]](parameters[counter], j)
                         counter += 1
                         self.rotations[self._rotation_block[1]](parameters[counter], j)
-            for j in range(len(wires)):
-                if j % 2 != 0 and j != len(wires) - 1:
+            for j in range(len(self._wires)):
+                if j % 2 != 0 and j != len(self._wires) - 1:
                     if self._entangle_params:
                         self._entangler(parameters[counter], (j + 1, j))
                         counter += 1

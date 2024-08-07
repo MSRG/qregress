@@ -5,7 +5,7 @@ from sklearn.metrics import mean_squared_error
 from scipy.optimize import minimize, basinhopping
 from qiskit_ibm_runtime import QiskitRuntimeService
 from qiskit_ibm_provider import IBMProvider
-from qiskit_ibm_runtime.fake_provider import FakeCairo
+from qiskit_ibm_runtime.fake_provider import FakeCairoV2
 from mitiq.zne.scaling import fold_global
 from mitiq.zne.inference import RichardsonFactory, LinearFactory
 import joblib
@@ -100,7 +100,7 @@ class QuantumRegressor:
             if self.error_mitigation == 'TREX':
                 self.device.set_transpile_args(**{'resilience_level': 1})
         elif device == 'qiskit.remote' and backend=='cairo':
-            backend = FakeCairo()
+            backend = FakeCairoV2()
             self.device = qml.device(device, wires=self.num_qubits, backend=backend, shots=shots)
             if self.error_mitigation == 'TREX':
                 self.device.set_transpile_args(**{'resilience_level': 1})
@@ -216,7 +216,7 @@ class QuantumRegressor:
 
     def _callback(self, xk):
         cost_at_step = self._cost_wrapper(xk)
-        if self.fit_count % 50 == 0:
+        if self.fit_count % 1 == 0:
             print(f'[{time.asctime()}]  Iteration number: {self.fit_count} with current cost as {cost_at_step} and '
                   f'parameters \n{xk}. ')
         filename = 'model_log.csv'
