@@ -1,0 +1,17 @@
+#! /bin/bash
+#SBATCH -t 7-00:00:00
+#SBATCH -J PCA16_Morgan_M_Efficient-CRX
+#SBATCH -N 1
+#SBATCH -n 16
+#SBATCH --mem-per-cpu=260M
+#SBATCH --account=rrg-jacobsen-ab
+#SBATCH --error=M_Efficient-CRX.e%J        # The file where run time errors will be dumped
+#SBATCH --output=M_Efficient-CRX.o%J               # The file where the output of the terminal will be dumped
+
+module load apptainer 
+cd /home/gjones/scratch/BSE-calc-test/16qubit/M_Efficient-CRX
+apptainer run -C -B /home/gjones/scratch/BSE-calc-test/16qubit /home/gjones/projects/def-jacobsen/gjones/deb.sif /opt/miniconda/bin/python /home/gjones/scratch/BSE-calc-test/16qubit/main.py --save_path /home/gjones/scratch/BSE-calc-test/16qubit/M_Efficient-CRX  --settings /home/gjones/scratch/BSE-calc-test/16qubit/M_Efficient-CRX/M_Efficient-CRX.json --train_set /home/gjones/scratch/BSE-calc-test/16qubit/PCA16_Morgan_train.bin --test_set /home/gjones/scratch/BSE-calc-test/16qubit/PCA16_Morgan_test.bin --scaler /home/gjones/scratch/BSE-calc-test/16qubit/PCA16_Morgan_scaler.bin >> M_Efficient-CRX.out 2>&1 
+
+cd ..
+touch M_Efficient-CRX.done
+
