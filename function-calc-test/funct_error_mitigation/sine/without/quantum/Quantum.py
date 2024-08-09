@@ -217,7 +217,7 @@ class QuantumRegressor:
 
     def _callback(self, xk):
         cost_at_step = self._cost_wrapper(xk)
-        if self.fit_count % 1 == 0:
+        if self.fit_count % 50 == 0:
             print(f'[{time.asctime()}]  Iteration number: {self.fit_count} with current cost as {cost_at_step} and '
                   f'parameters \n{xk}. ')
         filename = 'model_log.csv'
@@ -316,7 +316,6 @@ class QuantumRegressor:
             self.params = opt_result['x']
         else:
             opt = qml.SPSAOptimizer(maxiter=self.max_iterations)
-            print(self._cost_wrapper,params)
             cost = []
             for _ in range(self.max_iterations):
                 params, temp_cost = opt.step_and_cost(self._cost_wrapper, params)
