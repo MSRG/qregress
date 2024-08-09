@@ -91,7 +91,7 @@ class EfficientSU2:
                              len(parameters))
         qc = qc.decompose()
         parameters = parameters.tolist()
-        qc = qc.assign_parameters(parameters)
+        qc = qc.bind_parameters(parameters)
         qml_circuit = qml.from_qiskit(qc)
         qml_circuit(wires=self._wires)
 
@@ -138,7 +138,7 @@ class ExcitationPreserving:
                              len(parameters))
         qc = qc.decompose()
         parameters = parameters.tolist()
-        qc = qc.assign_parameters(parameters)
+        qc = qc.bind_parameters(parameters)
         qml_circuit = qml.from_qiskit(qc)
         qml_circuit(wires=self._wires)
 
@@ -191,7 +191,7 @@ class TwoLocal:
                              len(parameters))
         qc = qc.decompose()
         parameters = parameters.tolist()
-        qc = qc.assign_parameters(parameters)
+        qc = qc.bind_parameters(parameters)
         qml_circuit = qml.from_qiskit(qc)
         qml_circuit(wires=self._wires)
 
@@ -241,7 +241,7 @@ class PauliTwoDesign:
                              len(parameters))
         qc = qc.decompose()
         parameters = parameters.tolist()
-        qc = qc.assign_parameters(parameters)
+        qc = qc.bind_parameters(parameters)
         qml_circuit = qml.from_qiskit(qc)
         qml_circuit(wires=self._wires)
 
@@ -283,7 +283,7 @@ class RealAmplitudes:
                              len(parameters))
         qc = qc.decompose()
         parameters = parameters.tolist()
-        qc = qc.assign_parameters(parameters)
+        qc = qc.bind_parameters(parameters)
         qml_circuit = qml.from_qiskit(qc)
         qml_circuit(wires=self._wires)
 
@@ -333,7 +333,7 @@ class NLocal:
                              len(parameters))
         qc = qc.decompose()
         parameters = parameters.tolist()
-        qc = qc.assign_parameters(parameters)
+        qc = qc.bind_parameters(parameters)
         qml_circuit = qml.from_qiskit(qc)
         qml_circuit(wires=self._wires)
 
