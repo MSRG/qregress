@@ -12,7 +12,7 @@ for i in */; do
         echo "${name}.done not found!"
     	cat > ${name}.sub <<EOF
 #! /bin/bash
-#SBATCH -t 7-00:00:00
+#SBATCH -t 1-00:00:00
 #SBATCH -J ${ddirname}_${errorname}_0.8_${name}
 #SBATCH -N 1
 #SBATCH -n 12

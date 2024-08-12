@@ -1,5 +1,5 @@
 #! /bin/bash
-#SBATCH -t 7-00:00:00
+#SBATCH -t 1-00:00:00
 #SBATCH -J linear_MITIQ_ZNE_Richardson_0.8_IQP_Full-Pauli-CRX
 #SBATCH -N 1
 #SBATCH -n 12

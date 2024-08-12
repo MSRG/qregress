@@ -317,14 +317,10 @@ class QuantumRegressor:
         else:
             opt = qml.SPSAOptimizer(maxiter=self.max_iterations)
             cost = []
-            t0=time.time()
-            iter_idx = 0
             for _ in range(self.max_iterations):
                 params, temp_cost = opt.step_and_cost(self._cost_wrapper, params)
                 cost.append(temp_cost)
                 self._callback(params)
-                print(f"Step {iter_idx}: cost = {temp_cost:.4f}\nTime = {time.time()-t0:.4f} s")
-                iter_idx+=1
             opt_result = [params, cost]
             self.params = params
 
