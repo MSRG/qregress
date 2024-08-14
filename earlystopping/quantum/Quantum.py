@@ -176,11 +176,9 @@ class QuantumRegressor:
     def _cost(self, parameters):
         # GMJ Batch loss
         if self._batch_size is not None and self.njobs is not None:
-            print('Parallel')
             batch_partititions = np.array_split(np.random.randint(0, len(self.x), len(self.x)),len(self.x)//self._batch_size)
             base_cost = np.mean(joblib.Parallel(n_jobs=self.njobs,verbose=0)(joblib.delayed(mean_squared_error)(self.y[i], self.predict(self.x[i], params=parameters)) for i in batch_partititions))
         else:
-            print('No Parallel')
             pred = self.predict(self.x, params=parameters)
             base_cost = mean_squared_error(self.y, pred)        
             
