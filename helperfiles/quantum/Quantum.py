@@ -8,6 +8,7 @@ from qiskit_ibm_provider import IBMProvider
 from qiskit_ibm_runtime.fake_provider import FakeCairoV2
 from mitiq.zne.scaling import fold_global
 from mitiq.zne.inference import RichardsonFactory, LinearFactory
+from qiskit_aer import AerSimulator
 import joblib
 import mthree
 import os
@@ -106,10 +107,12 @@ class QuantumRegressor:
             self._backend = service.backend(backend)
             if self.error_mitigation == 'TREX':
                 self.device.set_transpile_args(**{'resilience_level': 1})
-        elif device == 'qiskit.remote' and backend == "cairo":
-            backend = FakeCairoV2()
+        elif device == 'qiskit.aer' and backend == "cairo":
+            device_backend = FakeCairoV2()
+            backend = AerSimulator.from_backend(device_backend)
             self._backend=backend
-            self.device = qml.device(device, wires=self.num_qubits, backend=backend, shots=shots)
+
+            self.device = qml.device(device, wires=self.num_qubits, backend=self._backend, shots=shots)
             if self.error_mitigation == 'TREX':
                 self.device.set_transpile_args(**{'resilience_level': 1})
         else:
