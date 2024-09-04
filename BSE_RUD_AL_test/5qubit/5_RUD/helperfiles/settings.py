@@ -1,5 +1,6 @@
 import json
 import click
+import os
 from quantum.circuits.Encoders import double_angle, single_angle, iqp_embedding, mitarai, composer, \
     entangle_cz, entangle_cnot
 from quantum.circuits.Ansatz import HardwareEfficient, EfficientSU2, TwoLocal, ModifiedPauliTwo, HadamardAnsatz
@@ -93,8 +94,12 @@ def create_settings(filename: str, settings: dict, postprocess, error_mitigation
     settings['HYPERPARAMETERS'] = hyperparameters
     settings['BATCH_SIZE'] = batch_size
     settings['NUM_CORES'] = njobs
-
-    filename = filename + '.json'
+    
+    dirname = filename
+    if os.path.exists(dirname)==False:
+        os.mkdir(dirname)
+        
+    filename = os.path.join(dirname,filename + '.json')
 
     with open(filename, 'w') as outfile:
         json.dump(settings, outfile)

@@ -9,7 +9,12 @@ for i in */; do
     	echo $path
         echo "${name}.done not found!"
  	cd $path 
- 	python3 ${cwd}/main.py --save_path ${path}  --settings ${path}/${name}.json --train_set ${cwd}/PCA5_Morgan_train.bin --test_set ${cwd}/PCA5_Morgan_test.bin --scaler ${cwd}/PCA5_Morgan_scaler.bin >> ${name}.out
+
+	if [ -f ${path}/partial_state_model.bin ]; then
+	     python3 ${cwd}/main.py --save_path ${path}  --settings ${path}/${name}.json --train_set ${cwd}/PCA5_Morgan_train.bin --test_set ${cwd}/PCA5_Morgan_test.bin --scaler ${cwd}/PCA5_Morgan_scaler.bin --resume_file ${path}/partial_state_model.bin > ${name}.out
+	else
+	     python3 ${cwd}/main.py --save_path ${path}  --settings ${path}/${name}.json --train_set ${cwd}/PCA5_Morgan_train.bin --test_set ${cwd}/PCA5_Morgan_test.bin --scaler ${cwd}/PCA5_Morgan_scaler.bin  > ${name}.out
+	fi
 	cd ..
     fi
     echo $(pwd)
