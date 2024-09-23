@@ -6,7 +6,7 @@ from scipy.optimize import minimize, basinhopping
 from qiskit_ibm_runtime import QiskitRuntimeService
 #from qiskit_ibm_provider import IBMProvider
 from qiskit_aer.noise import NoiseModel
-from qiskit_ibm_runtime.fake_provider import FakeCairoV2
+from qiskit_ibm_runtime.fake_provider import FakeQuebec
 from mitiq.zne.scaling import fold_global
 from mitiq.zne.inference import RichardsonFactory, LinearFactory
 from qiskit_aer import AerSimulator
@@ -111,7 +111,7 @@ class QuantumRegressor:
 
         elif device == 'qiskit.aer' and backend == "cairo":
             # Example based on https://pennylane.ai/qml/demos/tutorial_error_mitigation/
-            device_backend = FakeCairoV2()
+            device_backend = FakeQuebec()
             backend = AerSimulator.from_backend(device_backend)
             noise_model = NoiseModel.from_backend(backend)
             self._backend=backend
