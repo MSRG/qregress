@@ -236,6 +236,45 @@ Canada M5S 3G4}
 The rapid growth of quantum computing has seen a rise in the development of applicable near-term quantum algorithms. A promising candidate to run on current noisy intermediate-scale quantum (NISQ) hardware is quantum machine learning (QML). Parameterized quantum circuits can be learned as models in a hybrid classical-quantum approach. It has been shown that QML models may need less training data to generalize compared to classical methods. Although QML has been explored largely within classification tasks, regression tasks have received much less attention. Existing studies have only utilized few qubits and lack relevant practical applications. We will discuss our work on the development and comparisons of QML models for highly desired prediction of chemical properties such as bond dissociation energies and barrier height energies. Our work investigates the trainability, expressibility, and generalization capability of various quantum models for the purpose of regression of molecular properties. Our work also provides a benchmark against classical machine learning models and implications of using error mitigation techniques for QML. \par
 
 \newpage
+\textcolor{red}{Reorganize}
+\begin{itemize}
+	\item Abstract
+	\item Introduction
+	\item Methods
+	\item Datasets
+	\item Results
+	\begin{itemize}
+		\item Function fitting 
+		\begin{itemize}
+			\item Classical testing
+			\item All (5 + 16 qubit)
+			\item RUD + AL (5 + 16 qubit)
+			\item Error mitigation
+			\item Real device
+		\end{itemize}
+		\item BSE
+		\begin{itemize}
+			\item Classical testing
+			\item All 5 qubit
+			\item Truncated 16 qubit set (cost analysis 5 qubit)
+			\item RUD + AL (5 + 16 qubit)
+			\item Error mitigation
+			\item Real device
+		\end{itemize}		
+		\item DDCC
+		\begin{itemize}
+			\item Classical testing
+			\item Truncated  5 qubit set (based on BSE 5 qubit cost analysis)
+			\item Truncated 16 qubit set (based on BSE 5 qubit cost analysis)
+			\item RUD + AL (5 + 16 qubit)
+			\item Error mitigation
+			\item Real device
+		\end{itemize}		
+	\end{itemize}
+	\item Discussion and Conclusion
+\end{itemize}
+
+\newpage
 \section{Introduction}
 \cite{prasad_applications_2024}
 \cite{suzuki_predicting_2020}
