@@ -14,7 +14,7 @@ for i in */; do
 #SBATCH -t 7-00:00:00
 #SBATCH -J ${errorname}_DDCC_${name}
 #SBATCH -N 1
-#SBATCH -n 16
+#SBATCH -n 36
 #SBATCH --mem-per-cpu=300           # memory per cpu
 #SBATCH --account=rrg-jacobsen-ab
 #SBATCH --error=${name}.e%J        # The file where run time errors will be dumped

@@ -4,10 +4,12 @@ from pennylane import numpy as np
 from sklearn.metrics import mean_squared_error
 from scipy.optimize import minimize, basinhopping
 from qiskit_ibm_runtime import QiskitRuntimeService
-from qiskit_ibm_provider import IBMProvider
-from qiskit_ibm_runtime.fake_provider import FakeCairoV2
+#from qiskit_ibm_provider import IBMProvider
+from qiskit_aer.noise import NoiseModel
+from qiskit_ibm_runtime.fake_provider import FakeQuebec
 from mitiq.zne.scaling import fold_global
 from mitiq.zne.inference import RichardsonFactory, LinearFactory
+from qiskit_aer import AerSimulator
 import joblib
 import mthree
 import os
@@ -106,10 +108,16 @@ class QuantumRegressor:
             self._backend = service.backend(backend)
             if self.error_mitigation == 'TREX':
                 self.device.set_transpile_args(**{'resilience_level': 1})
-        elif device == 'qiskit.remote' and backend == "cairo":
-            backend = FakeCairoV2()
+
+        elif device == 'qiskit.aer' and backend == "cairo":
+            # Example based on https://pennylane.ai/qml/demos/tutorial_error_mitigation/
+            device_backend = FakeQuebec()
+            backend = AerSimulator.from_backend(device_backend)
+            noise_model = NoiseModel.from_backend(backend)
             self._backend=backend
-            self.device = qml.device(device, wires=self.num_qubits, backend=backend, shots=shots)
+            self.device = qml.device(device, wires=self.num_qubits, noise_model=noise_model, optimization_level=0,shots=shots)
+
+
             if self.error_mitigation == 'TREX':
                 self.device.set_transpile_args(**{'resilience_level': 1})
         else:
