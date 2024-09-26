@@ -1,0 +1,17 @@
+#! /bin/bash
+#SBATCH -t 0-23:59:59
+#SBATCH -J 0.1_sine_A2_HWE-CZ
+#SBATCH -N 1
+#SBATCH -n 80
+#SBATCH --account=rrg-fekl-ac
+#SBATCH --error=A2_HWE-CZ.e%J        # The file where run time errors will be dumped
+#SBATCH --output=A2_HWE-CZ.o%J               # The file where the output of the terminal will be dumped
+
+module load apptainer
+cd /scratch/j/jacobsen/gjones/funct_specific/sine/learning_curves/0.1/A2_HWE-CZ
+
+apptainer run -C -B /scratch/j/jacobsen/gjones/funct_specific/sine/learning_curves/0.1 /home/j/jacobsen/gjones/deb.sif /opt/miniconda/bin/python /scratch/j/jacobsen/gjones/funct_specific/sine/learning_curves/0.1/main.py --save_path /scratch/j/jacobsen/gjones/funct_specific/sine/learning_curves/0.1/A2_HWE-CZ  --settings /scratch/j/jacobsen/gjones/funct_specific/sine/learning_curves/0.1/A2_HWE-CZ/A2_HWE-CZ.json --train_set /scratch/j/jacobsen/gjones/funct_specific/sine/learning_curves/0.1/0.1_sine_train.bin --test_set /scratch/j/jacobsen/gjones/funct_specific/sine/learning_curves/0.1/sine_test.bin --scaler /scratch/j/jacobsen/gjones/funct_specific/sine/learning_curves/0.1/sine_scaler.bin >> A2_HWE-CZ.out 2>&1
+
+cd ..
+touch A2_HWE-CZ.done
+
