@@ -1,0 +1,17 @@
+#! /bin/bash
+#SBATCH -t 0-23:59:59
+#SBATCH -J 0.3_linear_IQP_Full-Pauli-CRZ
+#SBATCH -N 1
+#SBATCH -n 80
+#SBATCH --account=rrg-fekl-ac
+#SBATCH --error=IQP_Full-Pauli-CRZ.e%J        # The file where run time errors will be dumped
+#SBATCH --output=IQP_Full-Pauli-CRZ.o%J               # The file where the output of the terminal will be dumped
+
+module load apptainer
+cd /scratch/j/jacobsen/gjones/funct_specific/linear/learning_curves/0.3/IQP_Full-Pauli-CRZ
+
+apptainer run -C -B /scratch/j/jacobsen/gjones/funct_specific/linear/learning_curves/0.3 /home/j/jacobsen/gjones/deb.sif /opt/miniconda/bin/python /scratch/j/jacobsen/gjones/funct_specific/linear/learning_curves/0.3/main.py --save_path /scratch/j/jacobsen/gjones/funct_specific/linear/learning_curves/0.3/IQP_Full-Pauli-CRZ  --settings /scratch/j/jacobsen/gjones/funct_specific/linear/learning_curves/0.3/IQP_Full-Pauli-CRZ/IQP_Full-Pauli-CRZ.json --train_set /scratch/j/jacobsen/gjones/funct_specific/linear/learning_curves/0.3/0.3_linear_train.bin --test_set /scratch/j/jacobsen/gjones/funct_specific/linear/learning_curves/0.3/linear_test.bin --scaler /scratch/j/jacobsen/gjones/funct_specific/linear/learning_curves/0.3/linear_scaler.bin >> IQP_Full-Pauli-CRZ.out 2>&1
+
+cd ..
+touch IQP_Full-Pauli-CRZ.done
+

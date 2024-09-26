@@ -1,0 +1,42 @@
+
+scontrol show job 13624330
+JobId=13624330 JobName=0.7_linear_IQP_Full-Pauli-CRZ
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=2208429 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=01:00:36 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2024-09-26T12:34:03 EligibleTime=2024-09-26T12:34:03
+   AccrueTime=2024-09-26T12:34:03
+   StartTime=2024-09-26T12:34:25 EndTime=2024-09-26T13:35:01 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2024-09-26T12:34:25 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login03:463
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia0418
+   BatchHost=nia0418
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=175000M MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=./IQP_Full-Pauli-CRZ.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/funct_specific/linear/learning_curves/0.7
+   Comment=/opt/slurm/bin/sbatch ./IQP_Full-Pauli-CRZ.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/funct_specific/linear/learning_curves/0.7/IQP_Full-Pauli-CRZ.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/funct_specific/linear/learning_curves/0.7/IQP_Full-Pauli-CRZ.o%J
+   Power=
+   
+
+sacct -j 13624330
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+13624330     0.7_linea+ rrg-fekl-+   01:00:36                        01:15.267 3-06:12:01      0:0 
+13624330.ba+      batch rrg-fekl-+   01:00:36  28635256K   6739584K  01:15.267 3-06:12:01      0:0 
+13624330.ex+     extern rrg-fekl-+   01:00:36    148744K       900K   00:00:00   00:00:00      0:0 
+
+kernel messages produced during job executions:
+[Sep26 12:26] TECH PREVIEW: Overlay filesystem may not be fully supported.
+Please review provided documentation for limitations.
