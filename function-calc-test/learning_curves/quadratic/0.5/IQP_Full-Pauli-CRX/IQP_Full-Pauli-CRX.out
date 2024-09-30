@@ -1,0 +1,3018 @@
+/home/gjones/scratch/NARVAL_FINISH/funct_specific/quadratic/learning_curves/0.5/main.py:17: DeprecationWarning: The package qiskit_ibm_provider is being deprecated. Please see https://docs.quantum.ibm.com/api/migration-guides/qiskit-runtime to get instructions on how to migrate to qiskit-ibm-runtime (https://github.com/Qiskit/qiskit-ibm-runtime).
+  from qiskit_ibm_provider import IBMProvider
+Loading dataset from /home/gjones/scratch/NARVAL_FINISH/funct_specific/quadratic/learning_curves/0.5/0.5_quadratic_train.bin... 
+Successfully loaded /home/gjones/scratch/NARVAL_FINISH/funct_specific/quadratic/learning_curves/0.5/0.5_quadratic_train.bin into X and y data. 
+Loading dataset from /home/gjones/scratch/NARVAL_FINISH/funct_specific/quadratic/learning_curves/0.5/quadratic_test.bin... 
+Successfully loaded /home/gjones/scratch/NARVAL_FINISH/funct_specific/quadratic/learning_curves/0.5/quadratic_test.bin into X and y data. 
+Training model with dataset /home/gjones/scratch/NARVAL_FINISH/funct_specific/quadratic/learning_curves/0.5/0.5_quadratic_train.bin 
+ at time Fri Sep 13 16:11:18 2024... 
+36
+36
+[Fri Sep 13 16:29:06 2024]  Iteration number: 0 with current cost as 0.48666261236774505 and parameters 
+[-2.89732431  2.24329378 -2.1184205  ... -0.84743233 -2.62315195
+ -2.07057567]. 
+[Fri Sep 13 16:30:19 2024]  Iteration number: 1 with current cost as 0.38157693776992285 and parameters 
+[-2.89518191  2.24543618 -2.11627809 ... -0.84957473 -2.62100954
+ -2.06843327]. 
+[Fri Sep 13 16:31:14 2024]  Iteration number: 2 with current cost as 0.5095142655436058 and parameters 
+[-2.90188575  2.25214002 -2.10957425 ... -0.84287089 -2.6143057
+ -2.06172943]. 
+[Fri Sep 13 16:33:55 2024]  Iteration number: 3 with current cost as 0.4380169439143633 and parameters 
+[-2.90085347  2.25317231 -2.10854196 ... -0.8418386  -2.61533798
+ -2.06276171]. 
+[Fri Sep 13 16:35:07 2024]  Iteration number: 4 with current cost as 0.4806927892541045 and parameters 
+[-2.92861211  2.28093095 -2.08078332 ... -0.86959724 -2.64309662
+ -2.09052035]. 
+[Fri Sep 13 16:36:36 2024]  Iteration number: 5 with current cost as 0.4841661991941203 and parameters 
+[-2.9222998   2.28724326 -2.07447101 ... -0.87590955 -2.64940893
+ -2.08420804]. 
+[Fri Sep 13 16:39:25 2024]  Iteration number: 6 with current cost as 0.4329487041189696 and parameters 
+[-2.91100659  2.29853647 -2.08576422 ... -0.86461634 -2.63811572
+ -2.09550125]. 
+[Fri Sep 13 16:41:05 2024]  Iteration number: 7 with current cost as 0.4889532002314583 and parameters 
+[-2.87123916  2.3383039  -2.12553165 ... -0.82484891 -2.59834829
+ -2.13526868]. 
+[Fri Sep 13 16:42:38 2024]  Iteration number: 8 with current cost as 0.5697389730740914 and parameters 
+[-2.85688227  2.35266078 -2.13988854 ... -0.81049202 -2.58399141
+ -2.1209118 ]. 
+[Fri Sep 13 16:44:22 2024]  Iteration number: 9 with current cost as 0.5736162305150978 and parameters 
+[-2.86654456  2.36232306 -2.14955082 ... -0.80082974 -2.59365369
+ -2.13057408]. 
+[Fri Sep 13 16:45:45 2024]  Iteration number: 10 with current cost as 0.5477061502721835 and parameters 
+[-2.86019203  2.36867559 -2.15590335 ... -0.79447721 -2.58730117
+ -2.12422155]. 
+[Fri Sep 13 16:47:03 2024]  Iteration number: 11 with current cost as 0.49336669938657446 and parameters 
+[-2.86719488  2.37567843 -2.1489005  ... -0.80148006 -2.58029832
+ -2.11721871]. 
+[Fri Sep 13 16:48:09 2024]  Iteration number: 12 with current cost as 0.5021738997856429 and parameters 
+[-2.85427146  2.36275502 -2.16182392 ... -0.78855664 -2.56737491
+ -2.1042953 ]. 
+[Fri Sep 13 16:49:12 2024]  Iteration number: 13 with current cost as 0.43541383979071935 and parameters 
+[-2.8560653   2.36096118 -2.16003007 ... -0.79035049 -2.56558107
+ -2.10250145]. 
+[Fri Sep 13 16:50:35 2024]  Iteration number: 14 with current cost as 0.5474881197394521 and parameters 
+[-2.83394359  2.38308289 -2.18215179 ... -0.8124722  -2.58770278
+ -2.08037974]. 
+[Fri Sep 13 16:52:04 2024]  Iteration number: 15 with current cost as 0.5476888646181324 and parameters 
+[-2.83035255  2.38667393 -2.18574283 ... -0.81606324 -2.59129382
+ -2.08397078]. 
+[Fri Sep 13 16:53:59 2024]  Iteration number: 16 with current cost as 0.559135178356278 and parameters 
+[-2.82992478  2.3871017  -2.18531505 ... -0.81649101 -2.59172159
+ -2.08354301]. 
+[Fri Sep 13 16:56:25 2024]  Iteration number: 17 with current cost as 0.5250682489013209 and parameters 
+[-2.82063749  2.396389   -2.17602776 ... -0.8257783  -2.60100889
+ -2.07425571]. 
+[Fri Sep 13 16:58:19 2024]  Iteration number: 18 with current cost as 0.4681770375260085 and parameters 
+[-2.82429249  2.392734   -2.17968276 ... -0.8221233  -2.59735388
+ -2.07060071]. 
+[Fri Sep 13 17:00:00 2024]  Iteration number: 19 with current cost as 0.5781516639922633 and parameters 
+[-2.82082868  2.38927019 -2.17621895 ... -0.8186595  -2.60081769
+ -2.07406452]. 
+[Fri Sep 13 17:01:11 2024]  Iteration number: 20 with current cost as 0.45548403053315584 and parameters 
+[-2.79678585  2.36522736 -2.20026179 ... -0.79461666 -2.62486052
+ -2.09810735]. 
+[Fri Sep 13 17:02:34 2024]  Iteration number: 21 with current cost as 0.3868270529187099 and parameters 
+[-2.80946358  2.37790509 -2.21293952 ... -0.78193893 -2.63753826
+ -2.11078509]. 
+[Fri Sep 13 17:03:36 2024]  Iteration number: 22 with current cost as 0.4757857225830483 and parameters 
+[-2.79261279  2.3610543  -2.19608872 ... -0.79878973 -2.62068746
+ -2.09393429]. 
+[Fri Sep 13 17:04:54 2024]  Iteration number: 23 with current cost as 0.4846414102681047 and parameters 
+[-2.77696208  2.376705   -2.18043802 ... -0.78313902 -2.63633816
+ -2.07828359]. 
+[Fri Sep 13 17:06:15 2024]  Iteration number: 24 with current cost as 0.39974864113521297 and parameters 
+[-2.76976318  2.36950609 -2.17323912 ... -0.79033793 -2.62913926
+ -2.08548249]. 
+[Fri Sep 13 17:07:48 2024]  Iteration number: 25 with current cost as 0.4710473288034261 and parameters 
+[-2.78431828  2.3840612  -2.15868401 ... -0.80489303 -2.64369436
+ -2.1000376 ]. 
+[Fri Sep 13 17:08:59 2024]  Iteration number: 26 with current cost as 0.582864952016477 and parameters 
+[-2.7921462   2.39188911 -2.16651193 ... -0.81272095 -2.63586644
+ -2.09220968]. 
+[Fri Sep 13 17:11:02 2024]  Iteration number: 27 with current cost as 0.49601622842353643 and parameters 
+[-2.79128139  2.3910243  -2.16564712 ... -0.81358576 -2.63673125
+ -2.09307449]. 
+[Fri Sep 13 17:12:33 2024]  Iteration number: 28 with current cost as 0.4674045742055722 and parameters 
+[-2.78534946  2.39695623 -2.15971519 ... -0.81951769 -2.64266318
+ -2.08714256]. 
+[Fri Sep 13 17:14:37 2024]  Iteration number: 29 with current cost as 0.42001021770092506 and parameters 
+[-2.79166116  2.40326793 -2.15340349 ... -0.82582939 -2.63635148
+ -2.09345426]. 
+[Fri Sep 13 17:16:14 2024]  Iteration number: 30 with current cost as 0.4366660329084586 and parameters 
+[-2.80450769  2.41611446 -2.16625003 ... -0.81298285 -2.62350494
+ -2.08060773]. 
+[Fri Sep 13 17:17:58 2024]  Iteration number: 31 with current cost as 0.547685728362318 and parameters 
+[-2.81840794  2.40221422 -2.15234979 ... -0.79908261 -2.63740519
+ -2.09450797]. 
+[Fri Sep 13 17:19:06 2024]  Iteration number: 32 with current cost as 0.46642011081897894 and parameters 
+[-2.82754362  2.4113499  -2.1432141  ... -0.78994692 -2.62826951
+ -2.08537229]. 
+[Fri Sep 13 17:20:27 2024]  Iteration number: 33 with current cost as 0.3826721256678696 and parameters 
+[-2.82649283  2.4102991  -2.1421633  ... -0.79099772 -2.6293203
+ -2.08642309]. 
+[Fri Sep 13 17:21:59 2024]  Iteration number: 34 with current cost as 0.5125119785301483 and parameters 
+[-2.82304756  2.40685384 -2.13871804 ... -0.79444298 -2.62587504
+ -2.08297783]. 
+[Fri Sep 13 17:23:11 2024]  Iteration number: 35 with current cost as 0.5352804422177748 and parameters 
+[-2.82194782  2.40795359 -2.13981779 ... -0.79334324 -2.6247753
+ -2.08187808]. 
+[Fri Sep 13 17:24:31 2024]  Iteration number: 36 with current cost as 0.518276301168364 and parameters 
+[-2.82696706  2.41297283 -2.13479854 ... -0.79836248 -2.62979454
+ -2.07685884]. 
+[Fri Sep 13 17:26:03 2024]  Iteration number: 37 with current cost as 0.3981404189680804 and parameters 
+[-2.8268732   2.41306669 -2.13470468 ... -0.79845634 -2.62970068
+ -2.0769527 ]. 
+[Fri Sep 13 17:27:41 2024]  Iteration number: 38 with current cost as 0.46713353913510536 and parameters 
+[-2.82727213  2.41266777 -2.13510361 ... -0.79805742 -2.62930175
+ -2.07735163]. 
+[Fri Sep 13 17:29:02 2024]  Iteration number: 39 with current cost as 0.3903928812945645 and parameters 
+[-2.83041418  2.41580982 -2.13824566 ... -0.80119947 -2.6324438
+ -2.08049368]. 
+[Fri Sep 13 17:30:31 2024]  Iteration number: 40 with current cost as 0.4373304837280615 and parameters 
+[-2.83967712  2.42507275 -2.12898273 ... -0.8104624  -2.62318087
+ -2.07123074]. 
+[Fri Sep 13 17:32:09 2024]  Iteration number: 41 with current cost as 0.40849229789776137 and parameters 
+[-2.8496443   2.43503994 -2.11901554 ... -0.82042959 -2.61321368
+ -2.08119793]. 
+[Fri Sep 13 17:33:42 2024]  Iteration number: 42 with current cost as 0.4652432978673666 and parameters 
+[-2.84691614  2.43231178 -2.1217437  ... -0.81770143 -2.61048552
+ -2.07846977]. 
+[Fri Sep 13 17:34:43 2024]  Iteration number: 43 with current cost as 0.5269909869400622 and parameters 
+[-2.84435862  2.42975426 -2.11918619 ... -0.82025894 -2.61304303
+ -2.08102728]. 
+[Fri Sep 13 17:35:46 2024]  Iteration number: 44 with current cost as 0.48452448971711537 and parameters 
+[-2.82988945  2.44422343 -2.13365536 ... -0.80578977 -2.59857386
+ -2.09549645]. 
+[Fri Sep 13 17:36:53 2024]  Iteration number: 45 with current cost as 0.5024190329874865 and parameters 
+[-2.81759182  2.4319258  -2.14595299 ... -0.79349214 -2.61087149
+ -2.08319882]. 
+[Fri Sep 13 17:38:13 2024]  Iteration number: 46 with current cost as 0.4073255161056766 and parameters 
+[-2.80578052  2.42011449 -2.15776429 ... -0.80530345 -2.6226828
+ -2.07138752]. 
+[Fri Sep 13 17:39:23 2024]  Iteration number: 47 with current cost as 0.4193771805242289 and parameters 
+[-2.81447574  2.41141927 -2.16645952 ... -0.81399867 -2.61398758
+ -2.08008274]. 
+[Fri Sep 13 17:40:24 2024]  Iteration number: 48 with current cost as 0.4483857394352749 and parameters 
+[-2.81715101  2.408744   -2.16913479 ... -0.8113234  -2.61131231
+ -2.07740747]. 
+[Fri Sep 13 17:41:44 2024]  Iteration number: 49 with current cost as 0.5102786384022089 and parameters 
+[-2.80638265  2.41951236 -2.15836643 ... -0.82209176 -2.60054395
+ -2.08817583]. 
+[Fri Sep 13 17:42:48 2024]  Iteration number: 50 with current cost as 0.49549017749984303 and parameters 
+[-2.81751512  2.40837989 -2.14723396 ... -0.81095929 -2.61167642
+ -2.0993083 ]. 
+[Fri Sep 13 17:44:30 2024]  Iteration number: 51 with current cost as 0.4856645055766828 and parameters 
+[-2.84550148  2.38039354 -2.11924761 ... -0.78297294 -2.58369007
+ -2.12729465]. 
+[Fri Sep 13 17:45:53 2024]  Iteration number: 52 with current cost as 0.36391127848901117 and parameters 
+[-2.82932908  2.36422114 -2.13542    ... -0.79914534 -2.56751767
+ -2.14346705]. 
+[Fri Sep 13 17:47:03 2024]  Iteration number: 53 with current cost as 0.40308738938794975 and parameters 
+[-2.8476184   2.38251046 -2.11713068 ... -0.81743465 -2.54922835
+ -2.16175637]. 
+[Fri Sep 13 17:48:14 2024]  Iteration number: 54 with current cost as 0.4580909607423538 and parameters 
+[-2.86908383  2.36104502 -2.09566525 ... -0.83890009 -2.52776292
+ -2.14029093]. 
+[Fri Sep 13 17:49:51 2024]  Iteration number: 55 with current cost as 0.5307512979758464 and parameters 
+[-2.88742145  2.3427074  -2.11400286 ... -0.82056247 -2.54610053
+ -2.12195332]. 
+[Fri Sep 13 17:51:00 2024]  Iteration number: 56 with current cost as 0.3804580682235309 and parameters 
+[-2.89099836  2.3391305  -2.11042596 ... -0.81698557 -2.54967744
+ -2.12553022]. 
+[Fri Sep 13 17:52:03 2024]  Iteration number: 57 with current cost as 0.558015457923372 and parameters 
+[-2.89566567  2.34379781 -2.10575865 ... -0.82165288 -2.55434475
+ -2.12086291]. 
+[Fri Sep 13 17:53:06 2024]  Iteration number: 58 with current cost as 0.45163464462003966 and parameters 
+[-2.89387355  2.34200569 -2.10755076 ... -0.823445   -2.55613687
+ -2.11907079]. 
+[Fri Sep 13 17:54:45 2024]  Iteration number: 59 with current cost as 0.33972378964467 and parameters 
+[-2.88584212  2.35003712 -2.09951933 ... -0.83147643 -2.5641683
+ -2.12710222]. 
+[Fri Sep 13 17:57:06 2024]  Iteration number: 60 with current cost as 0.45805396382173247 and parameters 
+[-2.87712574  2.34132074 -2.09080295 ... -0.84019281 -2.55545192
+ -2.13581861]. 
+[Fri Sep 13 17:58:12 2024]  Iteration number: 61 with current cost as 0.4273192845687035 and parameters 
+[-2.88991643  2.35411143 -2.07801226 ... -0.85298351 -2.56824261
+ -2.12302791]. 
+[Fri Sep 13 17:59:39 2024]  Iteration number: 62 with current cost as 0.4383463346711878 and parameters 
+[-2.87375882  2.33795382 -2.06185465 ... -0.8368259  -2.58440021
+ -2.10687031]. 
+[Fri Sep 13 18:01:26 2024]  Iteration number: 63 with current cost as 0.32454811506477854 and parameters 
+[-2.87233601  2.33937664 -2.06327746 ... -0.83824871 -2.5829774
+ -2.10829312]. 
+[Fri Sep 13 18:02:37 2024]  Iteration number: 64 with current cost as 0.3321357667423148 and parameters 
+[-2.8889912   2.32272145 -2.04662228 ... -0.8549039  -2.59963259
+ -2.09163794]. 
+[Fri Sep 13 18:04:44 2024]  Iteration number: 65 with current cost as 0.43336915122721886 and parameters 
+[-2.90432845  2.3380587  -2.03128503 ... -0.87024115 -2.58429534
+ -2.10697519]. 
+[Fri Sep 13 18:06:19 2024]  Iteration number: 66 with current cost as 0.4324314837315884 and parameters 
+[-2.90039972  2.33412998 -2.03521375 ... -0.87416987 -2.58036661
+ -2.10304646]. 
+[Fri Sep 13 18:07:52 2024]  Iteration number: 67 with current cost as 0.3609774777450479 and parameters 
+[-2.87556048  2.35896922 -2.01037451 ... -0.89900912 -2.55552737
+ -2.07820722]. 
+[Fri Sep 13 18:09:38 2024]  Iteration number: 68 with current cost as 0.32682172839624807 and parameters 
+[-2.86246772  2.34587647 -1.99728175 ... -0.91210188 -2.54243461
+ -2.09129997]. 
+[Fri Sep 13 18:11:16 2024]  Iteration number: 69 with current cost as 0.3038309360698445 and parameters 
+[-2.86345744  2.34686619 -1.99629203 ... -0.91309159 -2.54144489
+ -2.09228969]. 
+[Fri Sep 13 18:12:18 2024]  Iteration number: 70 with current cost as 0.30977247083270254 and parameters 
+[-2.85867632  2.35164731 -1.99151091 ... -0.90831047 -2.53666377
+ -2.08750857]. 
+[Fri Sep 13 18:13:33 2024]  Iteration number: 71 with current cost as 0.3606205449611529 and parameters 
+[-2.84317584  2.36714779 -2.00701139 ... -0.89280999 -2.55216425
+ -2.07200809]. 
+[Fri Sep 13 18:15:00 2024]  Iteration number: 72 with current cost as 0.39594217910721996 and parameters 
+[-2.84953994  2.36078368 -2.00064728 ... -0.8991741  -2.55852835
+ -2.06564399]. 
+[Fri Sep 13 18:16:53 2024]  Iteration number: 73 with current cost as 0.39693830361064353 and parameters 
+[-2.8406376   2.35188134 -1.99174494 ... -0.90807644 -2.54962601
+ -2.07454633]. 
+[Fri Sep 13 18:17:55 2024]  Iteration number: 74 with current cost as 0.33969234472121246 and parameters 
+[-2.82147239  2.33271613 -1.97257973 ... -0.88891123 -2.5304608
+ -2.05538112]. 
+[Fri Sep 13 18:19:01 2024]  Iteration number: 75 with current cost as 0.3736762098425387 and parameters 
+[-2.83698959  2.34823333 -1.98809693 ... -0.87339402 -2.51494359
+ -2.07089832]. 
+[Fri Sep 13 18:20:04 2024]  Iteration number: 76 with current cost as 0.39592154867158214 and parameters 
+[-2.82757855  2.35764437 -1.99750797 ... -0.86398299 -2.52435463
+ -2.08030936]. 
+[Fri Sep 13 18:21:36 2024]  Iteration number: 77 with current cost as 0.3636428803673787 and parameters 
+[-2.83497587  2.36504169 -1.99011065 ... -0.85658567 -2.53175195
+ -2.08770667]. 
+[Fri Sep 13 18:23:08 2024]  Iteration number: 78 with current cost as 0.3488757683496625 and parameters 
+[-2.82316358  2.3532294  -1.97829836 ... -0.84477338 -2.51993966
+ -2.09951896]. 
+[Fri Sep 13 18:25:21 2024]  Iteration number: 79 with current cost as 0.366158419522012 and parameters 
+[-2.83400914  2.36407496 -1.98914392 ... -0.85561894 -2.53078522
+ -2.11036452]. 
+[Fri Sep 13 18:26:48 2024]  Iteration number: 80 with current cost as 0.3793470302360987 and parameters 
+[-2.83061995  2.36068577 -1.99253311 ... -0.85900813 -2.53417441
+ -2.11375371]. 
+[Fri Sep 13 18:28:18 2024]  Iteration number: 81 with current cost as 0.39053530938926895 and parameters 
+[-2.80501892  2.33508474 -2.01813414 ... -0.8334071  -2.55977544
+ -2.08815268]. 
+[Fri Sep 13 18:29:28 2024]  Iteration number: 82 with current cost as 0.3537349871177302 and parameters 
+[-2.80553032  2.33457334 -2.01864554 ... -0.83391849 -2.55926405
+ -2.08866407]. 
+[Fri Sep 13 18:30:40 2024]  Iteration number: 83 with current cost as 0.37149249088835196 and parameters 
+[-2.80909511  2.33100855 -2.01508075 ... -0.83748328 -2.56282884
+ -2.09222886]. 
+[Fri Sep 13 18:31:53 2024]  Iteration number: 84 with current cost as 0.35547136260518053 and parameters 
+[-2.81005225  2.3300514  -2.0141236  ... -0.83652614 -2.56378598
+ -2.09318601]. 
+[Fri Sep 13 18:33:00 2024]  Iteration number: 85 with current cost as 0.3792675914213591 and parameters 
+[-2.81897151  2.32113214 -2.00520434 ... -0.82760688 -2.55486672
+ -2.10210527]. 
+[Fri Sep 13 18:34:08 2024]  Iteration number: 86 with current cost as 0.34215349041045084 and parameters 
+[-2.83327859  2.33543922 -1.99089726 ... -0.8132998  -2.54055964
+ -2.08779819]. 
+[Fri Sep 13 18:35:28 2024]  Iteration number: 87 with current cost as 0.2975004209769338 and parameters 
+[-2.83400944  2.33470837 -1.99162811 ... -0.81256895 -2.54129049
+ -2.08852904]. 
+[Fri Sep 13 18:36:39 2024]  Iteration number: 88 with current cost as 0.3447861022945373 and parameters 
+[-2.83532596  2.33602489 -1.99031159 ... -0.81388546 -2.53997398
+ -2.08984555]. 
+[Fri Sep 13 18:38:01 2024]  Iteration number: 89 with current cost as 0.35687597423822615 and parameters 
+[-2.84341342  2.34411235 -1.99839906 ... -0.805798   -2.54806144
+ -2.08175809]. 
+[Fri Sep 13 18:39:03 2024]  Iteration number: 90 with current cost as 0.2975806167928964 and parameters 
+[-2.85629299  2.35699192 -1.98551948 ... -0.79291843 -2.56094101
+ -2.06887852]. 
+[Fri Sep 13 18:40:41 2024]  Iteration number: 91 with current cost as 0.29981270375975977 and parameters 
+[-2.87462549  2.33865943 -2.00385198 ... -0.77458593 -2.54260852
+ -2.08721101]. 
+[Fri Sep 13 18:42:50 2024]  Iteration number: 92 with current cost as 0.22873907551029438 and parameters 
+[-2.87846006  2.33482486 -2.00768655 ... -0.7784205  -2.53877395
+ -2.08337644]. 
+[Fri Sep 13 18:43:56 2024]  Iteration number: 93 with current cost as 0.28034612961145766 and parameters 
+[-2.90269529  2.31058963 -1.98345131 ... -0.75418527 -2.56300918
+ -2.05914121]. 
+[Fri Sep 13 18:45:44 2024]  Iteration number: 94 with current cost as 0.28359021244055804 and parameters 
+[-2.90319062  2.3100943  -1.98394664 ... -0.75368994 -2.56350451
+ -2.05864588]. 
+[Fri Sep 13 18:47:14 2024]  Iteration number: 95 with current cost as 0.25612415688936097 and parameters 
+[-2.88746195  2.29436563 -1.99967531 ... -0.76941861 -2.57923318
+ -2.07437455]. 
+[Fri Sep 13 18:48:50 2024]  Iteration number: 96 with current cost as 0.3087610183981358 and parameters 
+[-2.88169845  2.28860213 -1.99391181 ... -0.76365511 -2.57346968
+ -2.08013805]. 
+[Fri Sep 13 18:49:53 2024]  Iteration number: 97 with current cost as 0.2731285618472926 and parameters 
+[-2.86232903  2.30797156 -1.97454238 ... -0.78302453 -2.55410025
+ -2.06076862]. 
+[Fri Sep 13 18:51:28 2024]  Iteration number: 98 with current cost as 0.281444269863881 and parameters 
+[-2.86713199  2.3031686  -1.96973942 ... -0.78782749 -2.55890321
+ -2.05596566]. 
+[Fri Sep 13 18:52:33 2024]  Iteration number: 99 with current cost as 0.3701673540127844 and parameters 
+[-2.88136388  2.2889367  -1.95550753 ... -0.80205939 -2.54467132
+ -2.07019756]. 
+[Fri Sep 13 18:54:00 2024]  Iteration number: 100 with current cost as 0.24891085772102894 and parameters 
+[-2.88991408  2.2974869  -1.94695733 ... -0.81060959 -2.53612111
+ -2.07874776]. 
+[Fri Sep 13 18:55:47 2024]  Iteration number: 101 with current cost as 0.279428334957989 and parameters 
+[-2.90019998  2.3077728  -1.95724322 ... -0.82089548 -2.52583522
+ -2.08903366]. 
+[Fri Sep 13 18:57:02 2024]  Iteration number: 102 with current cost as 0.2745093617426722 and parameters 
+[-2.92466546  2.33223828 -1.9817087  ... -0.84536096 -2.5503007
+ -2.06456818]. 
+[Fri Sep 13 18:58:33 2024]  Iteration number: 103 with current cost as 0.3357192316207833 and parameters 
+[-2.92948847  2.32741527 -1.97688569 ... -0.85018398 -2.55512371
+ -2.06939119]. 
+[Fri Sep 13 19:00:24 2024]  Iteration number: 104 with current cost as 0.2800252215773382 and parameters 
+[-2.91749908  2.33940466 -1.96489629 ... -0.86217337 -2.5671131
+ -2.0574018 ]. 
+[Fri Sep 13 19:01:50 2024]  Iteration number: 105 with current cost as 0.3221944849824004 and parameters 
+[-2.92709634  2.34900193 -1.95529903 ... -0.8525761  -2.55751584
+ -2.04780453]. 
+[Fri Sep 13 19:03:26 2024]  Iteration number: 106 with current cost as 0.2667665532119736 and parameters 
+[-2.91875754  2.34066312 -1.96363783 ... -0.8442373  -2.56585464
+ -2.03946573]. 
+[Fri Sep 13 19:05:18 2024]  Iteration number: 107 with current cost as 0.2943867532325677 and parameters 
+[-2.93492861  2.35683419 -1.94746676 ... -0.86040837 -2.54968357
+ -2.02329466]. 
+[Fri Sep 13 19:06:34 2024]  Iteration number: 108 with current cost as 0.2782996420478424 and parameters 
+[-2.94169616  2.35006665 -1.9542343  ... -0.85364083 -2.54291602
+ -2.01652712]. 
+[Fri Sep 13 19:07:40 2024]  Iteration number: 109 with current cost as 0.28907868944928916 and parameters 
+[-2.92220384  2.33057433 -1.97372662 ... -0.87313315 -2.5234237
+ -2.03601944]. 
+[Fri Sep 13 19:08:55 2024]  Iteration number: 110 with current cost as 0.29606215119536583 and parameters 
+[-2.91059889  2.31896939 -1.98533156 ... -0.88473809 -2.51181876
+ -2.0244145 ]. 
+[Fri Sep 13 19:11:00 2024]  Iteration number: 111 with current cost as 0.2908727108826179 and parameters 
+[-2.89839304  2.33117525 -1.97312571 ... -0.87253223 -2.49961291
+ -2.03662035]. 
+[Fri Sep 13 19:13:17 2024]  Iteration number: 112 with current cost as 0.21860353925913234 and parameters 
+[-2.89300711  2.33656117 -1.97851164 ... -0.87791816 -2.50499883
+ -2.04200628]. 
+[Fri Sep 13 19:14:37 2024]  Iteration number: 113 with current cost as 0.25637221672856203 and parameters 
+[-2.88670258  2.3428657  -1.97220711 ... -0.87161364 -2.49869431
+ -2.03570176]. 
+[Fri Sep 13 19:16:52 2024]  Iteration number: 114 with current cost as 0.26758931762542093 and parameters 
+[-2.88098651  2.34858177 -1.97792318 ... -0.86589757 -2.49297824
+ -2.02998569]. 
+[Fri Sep 13 19:17:59 2024]  Iteration number: 115 with current cost as 0.2709381273962442 and parameters 
+[-2.87859315  2.35097513 -1.98031655 ... -0.86829093 -2.4953716
+ -2.03237905]. 
+[Fri Sep 13 19:19:23 2024]  Iteration number: 116 with current cost as 0.28863763444681356 and parameters 
+[-2.88154451  2.35392649 -1.97736519 ... -0.86533957 -2.49832297
+ -2.02942769]. 
+[Fri Sep 13 19:21:05 2024]  Iteration number: 117 with current cost as 0.24226285039586537 and parameters 
+[-2.87035234  2.34273432 -1.98855736 ... -0.87653175 -2.48713079
+ -2.04061986]. 
+[Fri Sep 13 19:22:51 2024]  Iteration number: 118 with current cost as 0.26234984708896597 and parameters 
+[-2.85864984  2.35443682 -2.00025986 ... -0.86482925 -2.49883329
+ -2.02891737]. 
+[Fri Sep 13 19:25:18 2024]  Iteration number: 119 with current cost as 0.2687063298627036 and parameters 
+[-2.84891229  2.34469927 -2.00999741 ... -0.87456679 -2.50857084
+ -2.03865491]. 
+[Fri Sep 13 19:26:57 2024]  Iteration number: 120 with current cost as 0.2126004921449682 and parameters 
+[-2.83766044  2.33344742 -2.02124925 ... -0.88581864 -2.49731899
+ -2.02740306]. 
+[Fri Sep 13 19:28:18 2024]  Iteration number: 121 with current cost as 0.20757911600625736 and parameters 
+[-2.83319078  2.32897777 -2.02571891 ... -0.8902883  -2.49284933
+ -2.02293341]. 
+[Fri Sep 13 19:30:33 2024]  Iteration number: 122 with current cost as 0.2841695217883119 and parameters 
+[-2.82580981  2.32159679 -2.03309989 ... -0.89766928 -2.50023031
+ -2.03031438]. 
+[Fri Sep 13 19:31:45 2024]  Iteration number: 123 with current cost as 0.2942850103990188 and parameters 
+[-2.82443064  2.32297596 -2.03172072 ... -0.89629011 -2.49885114
+ -2.03169355]. 
+[Fri Sep 13 19:33:38 2024]  Iteration number: 124 with current cost as 0.262207349450228 and parameters 
+[-2.82223991  2.32078523 -2.02952999 ... -0.89848084 -2.50104187
+ -2.02950282]. 
+[Fri Sep 13 19:35:17 2024]  Iteration number: 125 with current cost as 0.29004386585565134 and parameters 
+[-2.83092155  2.31210358 -2.02084835 ... -0.90716248 -2.50972351
+ -2.03818447]. 
+[Fri Sep 13 19:36:40 2024]  Iteration number: 126 with current cost as 0.2385974476297988 and parameters 
+[-2.8291439   2.31032593 -2.022626   ... -0.90894014 -2.51150117
+ -2.03996213]. 
+[Fri Sep 13 19:38:03 2024]  Iteration number: 127 with current cost as 0.30247798398530334 and parameters 
+[-2.84046682  2.299003   -2.03394893 ... -0.89761721 -2.50017824
+ -2.0286392 ]. 
+[Fri Sep 13 19:39:42 2024]  Iteration number: 128 with current cost as 0.29435299140062876 and parameters 
+[-2.82898173  2.2875179  -2.04543403 ... -0.90910231 -2.48869315
+ -2.0401243 ]. 
+[Fri Sep 13 19:41:40 2024]  Iteration number: 129 with current cost as 0.22923994734259567 and parameters 
+[-2.80949302  2.2680292  -2.02594533 ... -0.92859101 -2.46920444
+ -2.059613  ]. 
+[Fri Sep 13 19:43:00 2024]  Iteration number: 130 with current cost as 0.2679978817569127 and parameters 
+[-2.80239063  2.26092681 -2.03304772 ... -0.9356934  -2.46210205
+ -2.06671539]. 
+[Fri Sep 13 19:44:18 2024]  Iteration number: 131 with current cost as 0.3000176976570978 and parameters 
+[-2.80720102  2.25611642 -2.02823733 ... -0.93088302 -2.45729167
+ -2.061905  ]. 
+[Fri Sep 13 19:45:21 2024]  Iteration number: 132 with current cost as 0.2244810381142314 and parameters 
+[-2.7982651   2.26505235 -2.0193014  ... -0.93981894 -2.44835574
+ -2.07084093]. 
+[Fri Sep 13 19:48:05 2024]  Iteration number: 133 with current cost as 0.23962779957094796 and parameters 
+[-2.8443755   2.21894194 -2.06541181 ... -0.89370854 -2.40224534
+ -2.02473052]. 
+[Fri Sep 13 19:49:12 2024]  Iteration number: 134 with current cost as 0.23904151992312594 and parameters 
+[-2.84982848  2.21348897 -2.05995884 ... -0.89916151 -2.40769831
+ -2.0301835 ]. 
+[Fri Sep 13 19:52:37 2024]  Iteration number: 135 with current cost as 0.21276899259891924 and parameters 
+[-2.84911261  2.21420484 -2.06067471 ... -0.89844564 -2.40698244
+ -2.02946763]. 
+[Fri Sep 13 19:56:35 2024]  Iteration number: 136 with current cost as 0.18986687108358388 and parameters 
+[-2.85598759  2.20732985 -2.06754969 ... -0.90532063 -2.40010745
+ -2.03634261]. 
+[Fri Sep 13 19:57:35 2024]  Iteration number: 137 with current cost as 0.21403734005615294 and parameters 
+[-2.84438407  2.21893337 -2.07915321 ... -0.91692415 -2.41171097
+ -2.04794613]. 
+[Fri Sep 13 20:01:09 2024]  Iteration number: 138 with current cost as 0.22190683592590643 and parameters 
+[-2.84700844  2.22155774 -2.08177758 ... -0.91954851 -2.40908661
+ -2.04532177]. 
+[Fri Sep 13 20:05:43 2024]  Iteration number: 139 with current cost as 0.22194811381269575 and parameters 
+[-2.84310564  2.22546053 -2.08568037 ... -0.91564572 -2.40518382
+ -2.04141898]. 
+[Fri Sep 13 20:08:04 2024]  Iteration number: 140 with current cost as 0.2984993220072007 and parameters 
+[-2.85366228  2.23601717 -2.07512373 ... -0.90508908 -2.41574045
+ -2.05197561]. 
+[Fri Sep 13 20:14:54 2024]  Iteration number: 141 with current cost as 0.21404744702615125 and parameters 
+[-2.85279423  2.23514912 -2.07599178 ... -0.90595713 -2.4166085
+ -2.05284366]. 
+[Fri Sep 13 20:18:28 2024]  Iteration number: 142 with current cost as 0.24398609956275064 and parameters 
+[-2.84730667  2.24063669 -2.08147935 ... -0.90046956 -2.42209607
+ -2.04735609]. 
+[Fri Sep 13 20:28:50 2024]  Iteration number: 143 with current cost as 0.20141533932314207 and parameters 
+[-2.86190972  2.25523974 -2.0960824  ... -0.91507262 -2.40749301
+ -2.03275304]. 
+[Fri Sep 13 20:34:02 2024]  Iteration number: 144 with current cost as 0.23613447436849258 and parameters 
+[-2.86116397  2.25449399 -2.09533665 ... -0.91581837 -2.40823877
+ -2.03349879]. 
+[Fri Sep 13 20:36:10 2024]  Iteration number: 145 with current cost as 0.22800735600352484 and parameters 
+[-2.85040136  2.26525659 -2.08457404 ... -0.92658098 -2.41900137
+ -2.0442614 ]. 
+[Fri Sep 13 20:37:19 2024]  Iteration number: 146 with current cost as 0.18024945842827023 and parameters 
+[-2.85805307  2.25760489 -2.07692234 ... -0.91892927 -2.42665308
+ -2.03660969]. 
+[Fri Sep 13 20:39:20 2024]  Iteration number: 147 with current cost as 0.20528701376950603 and parameters 
+[-2.86477086  2.2508871  -2.07020455 ... -0.92564706 -2.43337087
+ -2.04332748]. 
+[Fri Sep 13 20:41:03 2024]  Iteration number: 148 with current cost as 0.18464492789210327 and parameters 
+[-2.87605184  2.26216808 -2.05892357 ... -0.93692804 -2.42208989
+ -2.0320465 ]. 
+[Fri Sep 13 20:42:06 2024]  Iteration number: 149 with current cost as 0.2754147713443282 and parameters 
+[-2.86113544  2.27708447 -2.07383996 ... -0.95184444 -2.40717349
+ -2.0469629 ]. 
+[Fri Sep 13 20:43:32 2024]  Iteration number: 150 with current cost as 0.23365326421708482 and parameters 
+[-2.87481025  2.29075928 -2.06016516 ... -0.96551924 -2.4208483
+ -2.03328809]. 
+[Fri Sep 13 20:45:22 2024]  Iteration number: 151 with current cost as 0.2332386038644561 and parameters 
+[-2.87056797  2.286517   -2.06440744 ... -0.96976153 -2.42509058
+ -2.02904581]. 
+[Fri Sep 13 20:46:37 2024]  Iteration number: 152 with current cost as 0.21646665607426033 and parameters 
+[-2.85347715  2.26942618 -2.04731662 ... -0.95267071 -2.4421814
+ -2.04613663]. 
+[Fri Sep 13 20:48:20 2024]  Iteration number: 153 with current cost as 0.19757953031079128 and parameters 
+[-2.83795929  2.25390832 -2.03179876 ... -0.96818857 -2.45769926
+ -2.06165449]. 
+[Fri Sep 13 20:49:35 2024]  Iteration number: 154 with current cost as 0.20132160879330535 and parameters 
+[-2.84609344  2.24577417 -2.03993291 ... -0.96005442 -2.46583341
+ -2.05352034]. 
+[Fri Sep 13 20:50:45 2024]  Iteration number: 155 with current cost as 0.24598627454108596 and parameters 
+[-2.83433328  2.25753433 -2.05169307 ... -0.94829426 -2.45407325
+ -2.04176018]. 
+[Fri Sep 13 20:52:03 2024]  Iteration number: 156 with current cost as 0.21779258038359156 and parameters 
+[-2.82895144  2.26291617 -2.0570749  ... -0.94291242 -2.44869141
+ -2.03637835]. 
+[Fri Sep 13 20:53:18 2024]  Iteration number: 157 with current cost as 0.27218457513593697 and parameters 
+[-2.81704241  2.25100713 -2.06898394 ... -0.95482146 -2.43678237
+ -2.04828738]. 
+[Fri Sep 13 20:54:34 2024]  Iteration number: 158 with current cost as 0.25219125879442517 and parameters 
+[-2.8123825   2.24634723 -2.06432403 ... -0.95948136 -2.43212247
+ -2.04362748]. 
+[Fri Sep 13 20:57:23 2024]  Iteration number: 159 with current cost as 0.1832604877209696 and parameters 
+[-2.80463534  2.23860006 -2.07207119 ... -0.9517342  -2.42437531
+ -2.03588031]. 
+[Fri Sep 13 20:58:40 2024]  Iteration number: 160 with current cost as 0.21692870194809588 and parameters 
+[-2.81898422  2.25294894 -2.05772232 ... -0.93738532 -2.43872419
+ -2.05022919]. 
+[Fri Sep 13 20:59:53 2024]  Iteration number: 161 with current cost as 0.23164454674696588 and parameters 
+[-2.83389283  2.23804033 -2.07263093 ... -0.92247671 -2.4536328
+ -2.03532058]. 
+/opt/miniconda/lib/python3.12/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Sep 13 21:00:59 2024]  Iteration number: 162 with current cost as 0.20588254589037794 and parameters 
+[-2.84596497  2.25011247 -2.08470307 ... -0.91040457 -2.44156066
+ -2.02324844]. 
+[Fri Sep 13 21:02:12 2024]  Iteration number: 163 with current cost as 0.17587714249698697 and parameters 
+[-2.85169857  2.24437887 -2.09043667 ... -0.91613818 -2.44729426
+ -2.01751484]. 
+[Fri Sep 13 21:03:26 2024]  Iteration number: 164 with current cost as 0.21384501633954922 and parameters 
+[-2.86708554  2.22899189 -2.10582364 ... -0.9007512  -2.46268123
+ -2.03290181]. 
+[Fri Sep 13 21:05:03 2024]  Iteration number: 165 with current cost as 0.1940862826922222 and parameters 
+[-2.87996002  2.24186637 -2.11869812 ... -0.91362568 -2.44980676
+ -2.04577629]. 
+[Fri Sep 13 21:06:20 2024]  Iteration number: 166 with current cost as 0.2216573764959518 and parameters 
+[-2.87694491  2.24488148 -2.12171322 ... -0.91061057 -2.44679165
+ -2.04276118]. 
+[Fri Sep 13 21:07:31 2024]  Iteration number: 167 with current cost as 0.17671629216519036 and parameters 
+[-2.89039714  2.2583337  -2.108261   ... -0.89715835 -2.46024388
+ -2.05621341]. 
+[Fri Sep 13 21:08:55 2024]  Iteration number: 168 with current cost as 0.1971822468244625 and parameters 
+[-2.89773184  2.25099901 -2.11559569 ... -0.88982365 -2.46757858
+ -2.06354811]. 
+[Fri Sep 13 21:10:27 2024]  Iteration number: 169 with current cost as 0.26029170290581666 and parameters 
+[-2.88335702  2.26537383 -2.12997051 ... -0.87544883 -2.45320375
+ -2.07792293]. 
+[Fri Sep 13 21:12:34 2024]  Iteration number: 170 with current cost as 0.18608695523875585 and parameters 
+[-2.87733103  2.27139982 -2.12394452 ... -0.86942284 -2.45922974
+ -2.07189694]. 
+[Fri Sep 13 21:14:04 2024]  Iteration number: 171 with current cost as 0.20124666659636758 and parameters 
+[-2.88185838  2.26687246 -2.11941717 ... -0.86489549 -2.4637571
+ -2.07642429]. 
+[Fri Sep 13 21:15:46 2024]  Iteration number: 172 with current cost as 0.22261180688064622 and parameters 
+[-2.88471276  2.26401808 -2.12227155 ... -0.8620411  -2.46090271
+ -2.07356991]. 
+[Fri Sep 13 21:17:38 2024]  Iteration number: 173 with current cost as 0.16278477700318097 and parameters 
+[-2.88687529  2.26618061 -2.12010902 ... -0.86420363 -2.46306524
+ -2.07573244]. 
+[Fri Sep 13 21:19:13 2024]  Iteration number: 174 with current cost as 0.22446431809628672 and parameters 
+[-2.8921708   2.2608851  -2.12540453 ... -0.86949915 -2.46836075
+ -2.08102795]. 
+[Fri Sep 13 21:20:26 2024]  Iteration number: 175 with current cost as 0.19199024258601674 and parameters 
+[-2.88715531  2.25586961 -2.12038904 ... -0.87451464 -2.46334526
+ -2.07601246]. 
+[Fri Sep 13 21:21:42 2024]  Iteration number: 176 with current cost as 0.16296177594093653 and parameters 
+[-2.89798704  2.26670134 -2.1095573  ... -0.88534638 -2.474177
+ -2.06518072]. 
+[Fri Sep 13 21:23:37 2024]  Iteration number: 177 with current cost as 0.2342307545395133 and parameters 
+[-2.88992406  2.25863835 -2.11762029 ... -0.87728339 -2.48223998
+ -2.05711773]. 
+[Fri Sep 13 21:24:45 2024]  Iteration number: 178 with current cost as 0.1316551357086215 and parameters 
+[-2.89790259  2.25065982 -2.10964175 ... -0.88526193 -2.47426144
+ -2.06509627]. 
+[Fri Sep 13 21:26:18 2024]  Iteration number: 179 with current cost as 0.15773945554209043 and parameters 
+[-2.89538267  2.24813989 -2.11216167 ... -0.88274201 -2.47678137
+ -2.06257635]. 
+[Fri Sep 13 21:27:41 2024]  Iteration number: 180 with current cost as 0.1890388306662023 and parameters 
+[-2.88628992  2.23904714 -2.10306893 ... -0.87364926 -2.48587412
+ -2.0716691 ]. 
+[Fri Sep 13 21:29:22 2024]  Iteration number: 181 with current cost as 0.17455395525549236 and parameters 
+[-2.87332194  2.22607916 -2.09010094 ... -0.88661724 -2.4988421
+ -2.05870111]. 
+[Fri Sep 13 21:30:47 2024]  Iteration number: 182 with current cost as 0.16888730791376264 and parameters 
+[-2.86137717  2.21413439 -2.07815618 ... -0.89856201 -2.48689734
+ -2.07064588]. 
+[Fri Sep 13 21:32:43 2024]  Iteration number: 183 with current cost as 0.11987306852405555 and parameters 
+[-2.87389847  2.20161309 -2.09067748 ... -0.91108331 -2.49941864
+ -2.05812458]. 
+[Fri Sep 13 21:34:11 2024]  Iteration number: 184 with current cost as 0.2210545541860857 and parameters 
+[-2.87877942  2.19673214 -2.08579653 ... -0.91596425 -2.49453769
+ -2.05324363]. 
+[Fri Sep 13 21:35:17 2024]  Iteration number: 185 with current cost as 0.17283655877067428 and parameters 
+[-2.87412677  2.2013848  -2.08114388 ... -0.9113116  -2.48988504
+ -2.04859098]. 
+[Fri Sep 13 21:37:15 2024]  Iteration number: 186 with current cost as 0.21945361773344774 and parameters 
+[-2.8726708   2.20284076 -2.07968791 ... -0.90985563 -2.491341
+ -2.05004694]. 
+[Fri Sep 13 21:40:23 2024]  Iteration number: 187 with current cost as 0.22563669770845068 and parameters 
+[-2.87539089  2.20012068 -2.082408   ... -0.91257572 -2.49406109
+ -2.04732686]. 
+[Fri Sep 13 21:41:44 2024]  Iteration number: 188 with current cost as 0.17809434354271558 and parameters 
+[-2.88986748  2.18564409 -2.0679314  ... -0.92705231 -2.47958449
+ -2.03285026]. 
+[Fri Sep 13 21:43:34 2024]  Iteration number: 189 with current cost as 0.1866135736173825 and parameters 
+[-2.87620001  2.19931156 -2.08159888 ... -0.94071979 -2.49325197
+ -2.01918279]. 
+[Fri Sep 13 21:44:47 2024]  Iteration number: 190 with current cost as 0.1725754581261651 and parameters 
+[-2.87076368  2.20474789 -2.07616255 ... -0.94615611 -2.49868829
+ -2.02461911]. 
+[Fri Sep 13 21:46:10 2024]  Iteration number: 191 with current cost as 0.16164182754885237 and parameters 
+[-2.86425107  2.2112605  -2.08267516 ... -0.95266873 -2.50520091
+ -2.03113172]. 
+[Fri Sep 13 21:47:42 2024]  Iteration number: 192 with current cost as 0.14302527926213937 and parameters 
+[-2.87197792  2.21898735 -2.09040201 ... -0.96039558 -2.51292775
+ -2.02340487]. 
+[Fri Sep 13 21:49:09 2024]  Iteration number: 193 with current cost as 0.18812110636648066 and parameters 
+[-2.88631348  2.20465179 -2.10473757 ... -0.94606002 -2.52726331
+ -2.00906931]. 
+[Fri Sep 13 21:50:19 2024]  Iteration number: 194 with current cost as 0.19063858403522294 and parameters 
+[-2.90649947  2.22483778 -2.08455158 ... -0.96624601 -2.50707733
+ -2.0292553 ]. 
+[Fri Sep 13 21:52:12 2024]  Iteration number: 195 with current cost as 0.16622090204327433 and parameters 
+[-2.89249577  2.21083408 -2.07054788 ... -0.9802497  -2.49307363
+ -2.043259  ]. 
+[Fri Sep 13 21:53:12 2024]  Iteration number: 196 with current cost as 0.207905108202244 and parameters 
+[-2.90390967  2.19942018 -2.08196179 ... -0.99166361 -2.50448753
+ -2.0318451 ]. 
+[Fri Sep 13 21:55:10 2024]  Iteration number: 197 with current cost as 0.21394992182803924 and parameters 
+[-2.90272065  2.2006092  -2.08077277 ... -0.99047459 -2.50329851
+ -2.03065608]. 
+[Fri Sep 13 21:57:15 2024]  Iteration number: 198 with current cost as 0.1795237180928799 and parameters 
+[-2.89658644  2.20674341 -2.07463856 ... -0.9966088  -2.4971643
+ -2.03679029]. 
+[Fri Sep 13 21:58:32 2024]  Iteration number: 199 with current cost as 0.1563086514962052 and parameters 
+[-2.89514104  2.20818881 -2.07608396 ... -0.99516339 -2.4957189
+ -2.03534488]. 
+[Fri Sep 13 21:59:42 2024]  Iteration number: 200 with current cost as 0.14344574030099236 and parameters 
+[-2.90575647  2.21880424 -2.08669939 ... -1.00577883 -2.48510346
+ -2.04596032]. 
+[Fri Sep 13 22:00:53 2024]  Iteration number: 201 with current cost as 0.1546912400264045 and parameters 
+[-2.91357552  2.21098519 -2.07888034 ... -0.99795977 -2.49292252
+ -2.03814127]. 
+[Fri Sep 13 22:01:59 2024]  Iteration number: 202 with current cost as 0.22008176453037395 and parameters 
+[-2.91452481  2.21193447 -2.07982962 ... -0.99890906 -2.49197323
+ -2.03719198]. 
+[Fri Sep 13 22:03:20 2024]  Iteration number: 203 with current cost as 0.1906178360200075 and parameters 
+[-2.89518287  2.23127641 -2.09917156 ... -0.97956712 -2.51131517
+ -2.05653392]. 
+[Fri Sep 13 22:04:33 2024]  Iteration number: 204 with current cost as 0.20093764025745417 and parameters 
+[-2.90908602  2.21737326 -2.11307471 ... -0.96566397 -2.52521832
+ -2.04263077]. 
+[Fri Sep 13 22:05:51 2024]  Iteration number: 205 with current cost as 0.1613197068855159 and parameters 
+[-2.90641909  2.21470632 -2.11574165 ... -0.9683309  -2.52788526
+ -2.03996383]. 
+[Fri Sep 13 22:07:07 2024]  Iteration number: 206 with current cost as 0.2211370565079354 and parameters 
+[-2.89905917  2.22206624 -2.10838173 ... -0.97569082 -2.53524518
+ -2.03260391]. 
+[Fri Sep 13 22:08:17 2024]  Iteration number: 207 with current cost as 0.11175340653402448 and parameters 
+[-2.89477046  2.21777753 -2.11267044 ... -0.97997952 -2.53095647
+ -2.02831521]. 
+[Fri Sep 13 22:09:30 2024]  Iteration number: 208 with current cost as 0.1831295170120339 and parameters 
+[-2.87858792  2.20159499 -2.09648789 ... -0.99616207 -2.54713901
+ -2.01213267]. 
+[Fri Sep 13 22:10:58 2024]  Iteration number: 209 with current cost as 0.13694689721191994 and parameters 
+[-2.85463423  2.1776413  -2.12044158 ... -1.02011576 -2.5710927
+ -2.03608635]. 
+[Fri Sep 13 22:12:15 2024]  Iteration number: 210 with current cost as 0.13762174862149035 and parameters 
+[-2.86362906  2.18663613 -2.12943641 ... -1.01112093 -2.58008753
+ -2.04508118]. 
+[Fri Sep 13 22:20:10 2024]  Iteration number: 211 with current cost as 0.22244976171456926 and parameters 
+[-2.8697538   2.18051139 -2.13556115 ... -1.01724567 -2.57396279
+ -2.05120592]. 
+[Fri Sep 13 22:21:20 2024]  Iteration number: 212 with current cost as 0.16284017681663163 and parameters 
+[-2.86932607  2.18008365 -2.13513342 ... -1.0176734  -2.57353506
+ -2.05163366]. 
+[Fri Sep 13 22:25:35 2024]  Iteration number: 213 with current cost as 0.1964411465078805 and parameters 
+[-2.89143784  2.15797188 -2.11302164 ... -0.99556163 -2.55142328
+ -2.02952189]. 
+[Fri Sep 13 22:26:49 2024]  Iteration number: 214 with current cost as 0.2214557096297336 and parameters 
+[-2.89931643  2.15009329 -2.12090023 ... -1.00344022 -2.55930187
+ -2.03740048]. 
+[Fri Sep 13 22:29:07 2024]  Iteration number: 215 with current cost as 0.1827684804624885 and parameters 
+[-2.907831    2.15860786 -2.1294148  ... -0.99492565 -2.5507873
+ -2.04591505]. 
+[Fri Sep 13 22:35:48 2024]  Iteration number: 216 with current cost as 0.16749561384160433 and parameters 
+[-2.90927451  2.16005137 -2.13085832 ... -0.99348214 -2.54934379
+ -2.04447154]. 
+[Fri Sep 13 22:37:18 2024]  Iteration number: 217 with current cost as 0.16674091038322325 and parameters 
+[-2.90038454  2.16894135 -2.12196834 ... -0.98459216 -2.55823377
+ -2.03558156]. 
+[Fri Sep 13 22:44:08 2024]  Iteration number: 218 with current cost as 0.20899924636503656 and parameters 
+[-2.90603614  2.16328974 -2.12761994 ... -0.99024377 -2.55258216
+ -2.02992996]. 
+[Fri Sep 13 22:45:56 2024]  Iteration number: 219 with current cost as 0.1661602230360649 and parameters 
+[-2.89495566  2.17437022 -2.13870043 ... -0.97916328 -2.54150168
+ -2.01884947]. 
+[Fri Sep 13 22:51:18 2024]  Iteration number: 220 with current cost as 0.11571042762721512 and parameters 
+[-2.89891807  2.17833263 -2.14266284 ... -0.98312569 -2.53753927
+ -2.01488706]. 
+[Fri Sep 13 22:53:57 2024]  Iteration number: 221 with current cost as 0.19145517840570883 and parameters 
+[-2.91310301  2.19251757 -2.15684778 ... -0.99731063 -2.55172421
+ -2.029072  ]. 
+[Fri Sep 13 22:56:47 2024]  Iteration number: 222 with current cost as 0.14902402376279444 and parameters 
+[-2.91605426  2.18956632 -2.15389652 ... -0.99435938 -2.54877295
+ -2.02612075]. 
+[Fri Sep 13 22:57:56 2024]  Iteration number: 223 with current cost as 0.15280858673509146 and parameters 
+[-2.92107746  2.19458952 -2.15891972 ... -0.99938258 -2.54374975
+ -2.02109755]. 
+[Fri Sep 13 23:00:00 2024]  Iteration number: 224 with current cost as 0.16313995412646 and parameters 
+[-2.92605723  2.18960975 -2.16389949 ... -1.00436234 -2.53876999
+ -2.02607732]. 
+[Fri Sep 13 23:02:15 2024]  Iteration number: 225 with current cost as 0.1884343873178524 and parameters 
+[-2.91651656  2.19915042 -2.17344015 ... -0.99482168 -2.54831066
+ -2.03561798]. 
+[Fri Sep 13 23:03:34 2024]  Iteration number: 226 with current cost as 0.17278983967851366 and parameters 
+[-2.91235333  2.19498719 -2.17760339 ... -0.99065845 -2.55247389
+ -2.03978121]. 
+[Fri Sep 13 23:05:53 2024]  Iteration number: 227 with current cost as 0.196167670726899 and parameters 
+[-2.90259791  2.20474261 -2.16784797 ... -1.00041386 -2.5622293
+ -2.04953663]. 
+[Fri Sep 13 23:06:54 2024]  Iteration number: 228 with current cost as 0.2137225890531982 and parameters 
+[-2.92008698  2.18725354 -2.15035891 ... -1.01790293 -2.57971837
+ -2.06702569]. 
+[Fri Sep 13 23:08:57 2024]  Iteration number: 229 with current cost as 0.1619684264423157 and parameters 
+[-2.92864004  2.19580661 -2.14180584 ... -1.00934986 -2.58827144
+ -2.07557876]. 
+[Fri Sep 13 23:10:29 2024]  Iteration number: 230 with current cost as 0.18796496167008037 and parameters 
+[-2.95182643  2.21899299 -2.16499222 ... -0.98616348 -2.61145782
+ -2.05239238]. 
+[Fri Sep 13 23:12:41 2024]  Iteration number: 231 with current cost as 0.22591793326777315 and parameters 
+[-2.96388551  2.2069339  -2.15293313 ... -0.97410439 -2.59939873
+ -2.06445147]. 
+[Fri Sep 13 23:14:05 2024]  Iteration number: 232 with current cost as 0.1736968661985584 and parameters 
+[-2.96500459  2.20581483 -2.15405221 ... -0.97298532 -2.6005178
+ -2.06557054]. 
+[Fri Sep 13 23:15:18 2024]  Iteration number: 233 with current cost as 0.14190580682984405 and parameters 
+[-2.9620303   2.20878912 -2.15702649 ... -0.97001103 -2.59754352
+ -2.06854482]. 
+[Fri Sep 13 23:17:47 2024]  Iteration number: 234 with current cost as 0.1707392085872072 and parameters 
+[-2.96274496  2.20807446 -2.15774115 ... -0.97072569 -2.59682886
+ -2.06783016]. 
+[Fri Sep 13 23:20:10 2024]  Iteration number: 235 with current cost as 0.14808324887026608 and parameters 
+[-2.9718443   2.21717379 -2.14864181 ... -0.96162635 -2.58772952
+ -2.0769295 ]. 
+[Fri Sep 13 23:22:35 2024]  Iteration number: 236 with current cost as 0.15743999918350804 and parameters 
+[-2.97188138  2.21713671 -2.14860473 ... -0.96166344 -2.5877666
+ -2.07689242]. 
+[Fri Sep 13 23:23:44 2024]  Iteration number: 237 with current cost as 0.1309587822120324 and parameters 
+[-2.97545895  2.21355914 -2.14502716 ... -0.96524101 -2.59134417
+ -2.08046999]. 
+[Fri Sep 13 23:25:41 2024]  Iteration number: 238 with current cost as 0.17967397986707348 and parameters 
+[-2.97265358  2.21075377 -2.14222178 ... -0.96804638 -2.59414955
+ -2.08327536]. 
+[Fri Sep 13 23:27:50 2024]  Iteration number: 239 with current cost as 0.17648998404149463 and parameters 
+[-2.96933919  2.21406815 -2.1389074  ... -0.96473199 -2.59083516
+ -2.07996097]. 
+[Fri Sep 13 23:29:38 2024]  Iteration number: 240 with current cost as 0.17346082929233128 and parameters 
+[-2.96524499  2.20997395 -2.1430016  ... -0.96063779 -2.58674096
+ -2.08405518]. 
+[Fri Sep 13 23:30:53 2024]  Iteration number: 241 with current cost as 0.18065037738732398 and parameters 
+[-2.96557708  2.21030604 -2.14266951 ... -0.96096988 -2.58707304
+ -2.08372309]. 
+[Fri Sep 13 23:32:32 2024]  Iteration number: 242 with current cost as 0.15269585464430813 and parameters 
+[-2.96943336  2.21416232 -2.13881323 ... -0.9571136  -2.58321676
+ -2.07986681]. 
+[Fri Sep 13 23:33:56 2024]  Iteration number: 243 with current cost as 0.1306859728952136 and parameters 
+[-2.96475145  2.20948042 -2.13413132 ... -0.95243169 -2.58789867
+ -2.08454871]. 
+[Fri Sep 13 23:37:06 2024]  Iteration number: 244 with current cost as 0.16729457808263526 and parameters 
+[-2.97087837  2.2033535  -2.14025824 ... -0.94630477 -2.59402558
+ -2.09067563]. 
+[Fri Sep 13 23:39:07 2024]  Iteration number: 245 with current cost as 0.13016520013961355 and parameters 
+[-2.96799819  2.20623368 -2.13737806 ... -0.94918496 -2.59690577
+ -2.08779545]. 
+[Fri Sep 13 23:40:10 2024]  Iteration number: 246 with current cost as 0.14906663030868084 and parameters 
+[-2.98111245  2.19311942 -2.15049232 ... -0.9360707  -2.58379151
+ -2.07468119]. 
+[Fri Sep 13 23:44:16 2024]  Iteration number: 247 with current cost as 0.19322115548084473 and parameters 
+[-2.98721783  2.1992248  -2.1565977  ... -0.92996532 -2.57768613
+ -2.08078657]. 
+[Fri Sep 13 23:45:44 2024]  Iteration number: 248 with current cost as 0.18489645161793694 and parameters 
+[-2.98850921  2.20051619 -2.15530631 ... -0.93125671 -2.57897752
+ -2.08207796]. 
+[Fri Sep 13 23:46:57 2024]  Iteration number: 249 with current cost as 0.1432803434131586 and parameters 
+[-2.98858479  2.20044061 -2.15538188 ... -0.93133228 -2.57905309
+ -2.08215353]. 
+[Fri Sep 13 23:49:18 2024]  Iteration number: 250 with current cost as 0.14482671417166626 and parameters 
+[-2.98595388  2.19780971 -2.15275098 ... -0.93396319 -2.581684
+ -2.08478444]. 
+[Fri Sep 13 23:50:26 2024]  Iteration number: 251 with current cost as 0.1912431390774354 and parameters 
+[-2.99976822  2.18399537 -2.16656531 ... -0.94777752 -2.59549834
+ -2.0709701 ]. 
+[Fri Sep 13 23:52:18 2024]  Iteration number: 252 with current cost as 0.14738501568272266 and parameters 
+[-3.0105114   2.17325219 -2.1773085  ... -0.95852071 -2.60624152
+ -2.06022691]. 
+[Fri Sep 13 23:54:10 2024]  Iteration number: 253 with current cost as 0.19193892544959715 and parameters 
+[-3.00331616  2.18044743 -2.18450374 ... -0.95132547 -2.59904628
+ -2.06742216]. 
+[Fri Sep 13 23:55:53 2024]  Iteration number: 254 with current cost as 0.1494930992763869 and parameters 
+[-3.00893385  2.18606512 -2.17888605 ... -0.94570777 -2.60466397
+ -2.06180447]. 
+[Fri Sep 13 23:57:50 2024]  Iteration number: 255 with current cost as 0.16929604366175274 and parameters 
+[-2.99870467  2.1962943  -2.16865687 ... -0.95593695 -2.61489314
+ -2.05157529]. 
+[Fri Sep 13 23:59:08 2024]  Iteration number: 256 with current cost as 0.13686836739763608 and parameters 
+[-2.9978831   2.19711587 -2.1678353  ... -0.95675852 -2.61571472
+ -2.05075372]. 
+[Sat Sep 14 00:00:35 2024]  Iteration number: 257 with current cost as 0.21148347968283743 and parameters 
+[-2.98940209  2.18863486 -2.17631631 ... -0.96523953 -2.62419573
+ -2.04227271]. 
+[Sat Sep 14 00:03:48 2024]  Iteration number: 258 with current cost as 0.157149962460668 and parameters 
+[-2.99625746  2.18177948 -2.16946094 ... -0.95838416 -2.61734036
+ -2.04912808]. 
+[Sat Sep 14 00:06:10 2024]  Iteration number: 259 with current cost as 0.16235516485753726 and parameters 
+[-2.98948969  2.17501171 -2.17622872 ... -0.96515194 -2.61057258
+ -2.0423603 ]. 
+[Sat Sep 14 00:08:20 2024]  Iteration number: 260 with current cost as 0.1458044388403476 and parameters 
+[-2.97124936  2.19325203 -2.15798839 ... -0.98339226 -2.59233226
+ -2.02411998]. 
+[Sat Sep 14 00:09:55 2024]  Iteration number: 261 with current cost as 0.16245843636243734 and parameters 
+[-2.96606601  2.19843538 -2.16317174 ... -0.97820892 -2.58714891
+ -2.02930332]. 
+[Sat Sep 14 00:11:21 2024]  Iteration number: 262 with current cost as 0.11852428057322302 and parameters 
+[-2.96153263  2.20296877 -2.16770512 ... -0.97367553 -2.58261552
+ -2.02476994]. 
+[Sat Sep 14 00:13:31 2024]  Iteration number: 263 with current cost as 0.17068956518093767 and parameters 
+[-2.95560219  2.19703833 -2.16177468 ... -0.97960597 -2.58854596
+ -2.01883949]. 
+[Sat Sep 14 00:18:37 2024]  Iteration number: 264 with current cost as 0.11981096175575358 and parameters 
+[-2.96017733  2.19246318 -2.15719954 ... -0.97503083 -2.58397082
+ -2.01426435]. 
+[Sat Sep 14 00:21:23 2024]  Iteration number: 265 with current cost as 0.20280149133774372 and parameters 
+[-2.96285447  2.18978605 -2.15987668 ... -0.97235369 -2.58664796
+ -2.01694149]. 
+[Sat Sep 14 00:23:17 2024]  Iteration number: 266 with current cost as 0.1567364192987615 and parameters 
+[-2.97673705  2.20366863 -2.17375926 ... -0.98623628 -2.60053055
+ -2.00305891]. 
+[Sat Sep 14 00:25:29 2024]  Iteration number: 267 with current cost as 0.1568982286117861 and parameters 
+[-2.97174659  2.19867817 -2.1687688  ... -0.98124581 -2.60552101
+ -2.00804937]. 
+[Sat Sep 14 00:26:54 2024]  Iteration number: 268 with current cost as 0.13767547383519702 and parameters 
+[-2.96063817  2.18756975 -2.15766038 ... -0.9701374  -2.59441259
+ -2.01915779]. 
+[Sat Sep 14 00:28:53 2024]  Iteration number: 269 with current cost as 0.14946181063569666 and parameters 
+[-2.97330054  2.20023212 -2.14499801 ... -0.98279977 -2.60707496
+ -2.00649542]. 
+[Sat Sep 14 00:30:05 2024]  Iteration number: 270 with current cost as 0.13846869237882686 and parameters 
+[-2.97035124  2.19728282 -2.14204871 ... -0.98574907 -2.61002426
+ -2.00944472]. 
+[Sat Sep 14 00:31:20 2024]  Iteration number: 271 with current cost as 0.11236467671969524 and parameters 
+[-2.97955076  2.20648234 -2.1328492  ... -0.97654955 -2.60082475
+ -2.01864423]. 
+[Sat Sep 14 00:32:54 2024]  Iteration number: 272 with current cost as 0.1266131532297037 and parameters 
+[-2.9859187   2.21285028 -2.12648125 ... -0.9829175  -2.5944568
+ -2.01227629]. 
+[Sat Sep 14 00:34:37 2024]  Iteration number: 273 with current cost as 0.183553094493585 and parameters 
+[-2.98390064  2.21486835 -2.12849932 ... -0.98493557 -2.59243873
+ -2.01429435]. 
+[Sat Sep 14 00:37:13 2024]  Iteration number: 274 with current cost as 0.14496888730644536 and parameters 
+[-2.98698696  2.21178203 -2.13158565 ... -0.98802189 -2.58935241
+ -2.01120803]. 
+[Sat Sep 14 00:39:30 2024]  Iteration number: 275 with current cost as 0.13775634562249917 and parameters 
+[-2.98004496  2.21872403 -2.13852765 ... -0.9949639  -2.5824104
+ -2.01815003]. 
+[Sat Sep 14 00:42:30 2024]  Iteration number: 276 with current cost as 0.1254076224931775 and parameters 
+[-2.98448029  2.22315936 -2.13409232 ... -0.99939923 -2.58684574
+ -2.02258536]. 
+[Sat Sep 14 00:44:24 2024]  Iteration number: 277 with current cost as 0.14811883610337157 and parameters 
+[-2.9824132   2.22109227 -2.13615941 ... -0.99733213 -2.58477864
+ -2.02051827]. 
+[Sat Sep 14 00:45:44 2024]  Iteration number: 278 with current cost as 0.125922777589693 and parameters 
+[-2.98053408  2.22297138 -2.13803853 ... -0.99545302 -2.58289953
+ -2.01863915]. 
+[Sat Sep 14 00:47:29 2024]  Iteration number: 279 with current cost as 0.14229378610640275 and parameters 
+[-2.98750313  2.22994043 -2.13106948 ... -0.98848397 -2.58986858
+ -2.0256082 ]. 
+[Sat Sep 14 00:48:57 2024]  Iteration number: 280 with current cost as 0.10028305909981225 and parameters 
+[-2.98574415  2.23169941 -2.13282845 ... -0.986725   -2.59162755
+ -2.02384923]. 
+[Sat Sep 14 00:51:15 2024]  Iteration number: 281 with current cost as 0.16562685015034684 and parameters 
+[-2.98741265  2.23003091 -2.13449695 ... -0.9850565  -2.58995906
+ -2.02218073]. 
+[Sat Sep 14 00:53:37 2024]  Iteration number: 282 with current cost as 0.13425782089220537 and parameters 
+[-2.99057755  2.23319581 -2.13766185 ... -0.9882214  -2.58679416
+ -2.01901583]. 
+[Sat Sep 14 00:55:58 2024]  Iteration number: 283 with current cost as 0.1527911179392228 and parameters 
+[-3.00173577  2.22203759 -2.12650363 ... -0.97706318 -2.59795238
+ -2.03017405]. 
+[Sat Sep 14 01:00:15 2024]  Iteration number: 284 with current cost as 0.16904473570244782 and parameters 
+[-3.00333311  2.22044025 -2.12810096 ... -0.97866051 -2.59635505
+ -2.03177139]. 
+[Sat Sep 14 01:02:48 2024]  Iteration number: 285 with current cost as 0.14441192879644948 and parameters 
+[-3.00670519  2.22381234 -2.13147305 ... -0.97528843 -2.59298296
+ -2.0283993 ]. 
+[Sat Sep 14 01:04:40 2024]  Iteration number: 286 with current cost as 0.19680173805877316 and parameters 
+[-3.00443211  2.22153926 -2.13374613 ... -0.97301534 -2.59070988
+ -2.03067238]. 
+[Sat Sep 14 01:06:19 2024]  Iteration number: 287 with current cost as 0.15649372615828167 and parameters 
+[-3.00110902  2.22486234 -2.13042304 ... -0.97633843 -2.59403297
+ -2.03399547]. 
+[Sat Sep 14 01:07:45 2024]  Iteration number: 288 with current cost as 0.15587636909949035 and parameters 
+[-2.97793541  2.20168873 -2.15359665 ... -0.95316482 -2.57085935
+ -2.01082186]. 
+[Sat Sep 14 01:10:09 2024]  Iteration number: 289 with current cost as 0.1801316746131008 and parameters 
+[-2.97419587  2.19794919 -2.14985711 ... -0.95690436 -2.57459889
+ -2.0145614 ]. 
+[Sat Sep 14 01:12:00 2024]  Iteration number: 290 with current cost as 0.17997744878198815 and parameters 
+[-2.96681271  2.20533235 -2.14247395 ... -0.9495212  -2.58198205
+ -2.02194456]. 
+[Sat Sep 14 01:14:00 2024]  Iteration number: 291 with current cost as 0.2003592089338297 and parameters 
+[-2.96551006  2.20402971 -2.1437766  ... -0.94821855 -2.5832847
+ -2.0232472 ]. 
+[Sat Sep 14 01:15:43 2024]  Iteration number: 292 with current cost as 0.15194843656018242 and parameters 
+[-2.95278401  2.21675576 -2.13105054 ... -0.96094461 -2.57055864
+ -2.01052114]. 
+[Sat Sep 14 01:18:16 2024]  Iteration number: 293 with current cost as 0.1377647242453509 and parameters 
+[-2.95316314  2.21637663 -2.13142967 ... -0.96132374 -2.57093777
+ -2.01014201]. 
+[Sat Sep 14 01:19:48 2024]  Iteration number: 294 with current cost as 0.1380649977862502 and parameters 
+[-2.95305672  2.21627021 -2.13153609 ... -0.96143016 -2.57104419
+ -2.01003559]. 
+[Sat Sep 14 01:21:18 2024]  Iteration number: 295 with current cost as 0.17415877499230786 and parameters 
+[-2.95946282  2.22267631 -2.12512999 ... -0.95502406 -2.57745029
+ -2.00362949]. 
+[Sat Sep 14 01:24:13 2024]  Iteration number: 296 with current cost as 0.12372080333637804 and parameters 
+[-2.94512362  2.23701551 -2.11079079 ... -0.96936326 -2.59178949
+ -1.98929029]. 
+[Sat Sep 14 01:25:46 2024]  Iteration number: 297 with current cost as 0.19815826967076866 and parameters 
+[-2.95116564  2.2309735  -2.10474877 ... -0.97540528 -2.58574748
+ -1.98324827]. 
+[Sat Sep 14 01:27:53 2024]  Iteration number: 298 with current cost as 0.1670616858198323 and parameters 
+[-2.9441648   2.22397265 -2.09774793 ... -0.98240612 -2.59274832
+ -1.97624743]. 
+[Sat Sep 14 01:29:38 2024]  Iteration number: 299 with current cost as 0.17648382209042557 and parameters 
+[-2.93390939  2.23422806 -2.08749252 ... -0.99266153 -2.58249291
+ -1.96599202]. 
+[Sat Sep 14 01:31:28 2024]  Iteration number: 300 with current cost as 0.155435217689413 and parameters 
+[-2.9357681   2.23608678 -2.08563381 ... -0.99452025 -2.58435162
+ -1.96785074]. 
+[Sat Sep 14 01:33:17 2024]  Iteration number: 301 with current cost as 0.20811175562864337 and parameters 
+[-2.94382596  2.24414464 -2.07757594 ... -1.00257811 -2.57629376
+ -1.9759086 ]. 
+[Sat Sep 14 01:35:47 2024]  Iteration number: 302 with current cost as 0.14976495156027475 and parameters 
+[-2.94551131  2.24582999 -2.0758906  ... -1.00089276 -2.57460842
+ -1.97422325]. 
+[Sat Sep 14 01:37:41 2024]  Iteration number: 303 with current cost as 0.16743673744786441 and parameters 
+[-2.95861083  2.23273047 -2.08899012 ... -1.01399228 -2.5615089
+ -1.98732277]. 
+[Sat Sep 14 01:39:03 2024]  Iteration number: 304 with current cost as 0.21115115995466263 and parameters 
+[-2.97199789  2.24611752 -2.10237718 ... -1.02737934 -2.54812184
+ -1.97393572]. 
+[Sat Sep 14 01:41:06 2024]  Iteration number: 305 with current cost as 0.21099350509647802 and parameters 
+[-2.97984736  2.25396699 -2.09452771 ... -1.03522881 -2.55597131
+ -1.96608625]. 
+[Sat Sep 14 01:43:28 2024]  Iteration number: 306 with current cost as 0.12946855923977063 and parameters 
+[-2.9868225   2.26094214 -2.10150285 ... -1.02825366 -2.56294646
+ -1.9591111 ]. 
+[Sat Sep 14 01:45:53 2024]  Iteration number: 307 with current cost as 0.1538425927890188 and parameters 
+[-2.99659111  2.27071075 -2.09173425 ... -1.03802227 -2.57271507
+ -1.96887971]. 
+[Sat Sep 14 01:48:15 2024]  Iteration number: 308 with current cost as 0.2040510395860003 and parameters 
+[-2.98624748  2.26036711 -2.08139061 ... -1.0483659  -2.5830587
+ -1.97922334]. 
+[Sat Sep 14 01:49:52 2024]  Iteration number: 309 with current cost as 0.1363612479666102 and parameters 
+[-2.97535546  2.2494751  -2.0704986  ... -1.03747389 -2.59395072
+ -1.99011535]. 
+[Sat Sep 14 01:51:06 2024]  Iteration number: 310 with current cost as 0.1639631123590362 and parameters 
+[-2.96963189  2.25519867 -2.06477503 ... -1.04319746 -2.59967429
+ -1.99583893]. 
+[Sat Sep 14 01:53:33 2024]  Iteration number: 311 with current cost as 0.16468908619684952 and parameters 
+[-2.96228829  2.24785508 -2.05743143 ... -1.05054106 -2.60701788
+ -1.98849533]. 
+[Sat Sep 14 01:54:49 2024]  Iteration number: 312 with current cost as 0.1466686461365248 and parameters 
+[-2.96814625  2.24199712 -2.05157347 ... -1.0446831  -2.60115992
+ -1.99435329]. 
+[Sat Sep 14 01:57:37 2024]  Iteration number: 313 with current cost as 0.12131594204034671 and parameters 
+[-2.96725256  2.24110342 -2.05067977 ... -1.0455768  -2.60026622
+ -1.99345959]. 
+[Sat Sep 14 01:59:41 2024]  Iteration number: 314 with current cost as 0.13715376519024006 and parameters 
+[-2.96236182  2.23621268 -2.04578903 ... -1.05046754 -2.59537548
+ -1.99835033]. 
+[Sat Sep 14 02:01:45 2024]  Iteration number: 315 with current cost as 0.12922098407795027 and parameters 
+[-2.95180457  2.24676993 -2.05634628 ... -1.06102478 -2.60593273
+ -1.98779309]. 
+[Sat Sep 14 02:04:01 2024]  Iteration number: 316 with current cost as 0.16271863085988442 and parameters 
+[-2.96091686  2.23765763 -2.06545857 ... -1.05191249 -2.59682044
+ -1.99690538]. 
+[Sat Sep 14 02:06:51 2024]  Iteration number: 317 with current cost as 0.1847477040532364 and parameters 
+[-2.95892756  2.23964694 -2.06346927 ... -1.04992319 -2.59483113
+ -1.99491608]. 
+[Sat Sep 14 02:08:26 2024]  Iteration number: 318 with current cost as 0.16575312431510913 and parameters 
+[-2.96905492  2.2497743  -2.0533419  ... -1.06005055 -2.60495849
+ -2.00504344]. 
+[Sat Sep 14 02:09:43 2024]  Iteration number: 319 with current cost as 0.157428672594835 and parameters 
+[-2.96648092  2.2472003  -2.05076791 ... -1.05747655 -2.60753249
+ -2.00761744]. 
+[Sat Sep 14 02:11:43 2024]  Iteration number: 320 with current cost as 0.13861138602884376 and parameters 
+[-2.97289074  2.25361012 -2.04435808 ... -1.06388637 -2.60112267
+ -2.01402726]. 
+[Sat Sep 14 02:13:50 2024]  Iteration number: 321 with current cost as 0.19596593890708439 and parameters 
+[-2.97268129  2.25340067 -2.04456754 ... -1.06367692 -2.60133212
+ -2.01381781]. 
+[Sat Sep 14 02:15:26 2024]  Iteration number: 322 with current cost as 0.1780628718544979 and parameters 
+[-2.97675308  2.25747246 -2.04863932 ... -1.05960513 -2.59726034
+ -2.01788959]. 
+[Sat Sep 14 02:18:02 2024]  Iteration number: 323 with current cost as 0.1577536432860051 and parameters 
+[-2.9802873   2.26100668 -2.05217355 ... -1.05607091 -2.60079456
+ -2.02142382]. 
+[Sat Sep 14 02:20:19 2024]  Iteration number: 324 with current cost as 0.1410366173369465 and parameters 
+[-2.96413409  2.24485347 -2.03602034 ... -1.07222411 -2.61694777
+ -2.03757702]. 
+[Sat Sep 14 02:21:40 2024]  Iteration number: 325 with current cost as 0.14657398353485881 and parameters 
+[-2.95945944  2.24017882 -2.04069499 ... -1.07689877 -2.61227311
+ -2.04225168]. 
+[Sat Sep 14 02:23:02 2024]  Iteration number: 326 with current cost as 0.09389589291212645 and parameters 
+[-2.95228399  2.24735427 -2.03351954 ... -1.06972332 -2.60509766
+ -2.03507622]. 
+[Sat Sep 14 02:24:58 2024]  Iteration number: 327 with current cost as 0.1569435186035264 and parameters 
+[-2.94382949  2.25580877 -2.04197404 ... -1.06126882 -2.59664316
+ -2.02662172]. 
+[Sat Sep 14 02:27:37 2024]  Iteration number: 328 with current cost as 0.16298697407432933 and parameters 
+[-2.94693333  2.25891262 -2.0388702  ... -1.06437266 -2.59353931
+ -2.02972557]. 
+[Sat Sep 14 02:29:03 2024]  Iteration number: 329 with current cost as 0.17410784456882566 and parameters 
+[-2.94562649  2.25760577 -2.04017704 ... -1.06306581 -2.59223247
+ -2.03103242]. 
+[Sat Sep 14 02:30:28 2024]  Iteration number: 330 with current cost as 0.136696458036413 and parameters 
+[-2.93835481  2.26487745 -2.03290536 ... -1.07033749 -2.58496079
+ -2.0383041 ]. 
+[Sat Sep 14 02:31:53 2024]  Iteration number: 331 with current cost as 0.15644915010371668 and parameters 
+[-2.93626777  2.26696449 -2.0349924  ... -1.06825046 -2.58287375
+ -2.04039113]. 
+[Sat Sep 14 02:33:49 2024]  Iteration number: 332 with current cost as 0.12797192352274236 and parameters 
+[-2.95101086  2.25222139 -2.04973549 ... -1.08299355 -2.56813066
+ -2.05513423]. 
+[Sat Sep 14 02:35:14 2024]  Iteration number: 333 with current cost as 0.11830522363979434 and parameters 
+[-2.96185634  2.24137591 -2.06058097 ... -1.07214807 -2.55728518
+ -2.04428875]. 
+[Sat Sep 14 02:36:29 2024]  Iteration number: 334 with current cost as 0.14072701361563916 and parameters 
+[-2.96725108  2.24677066 -2.06597571 ... -1.07754281 -2.56267992
+ -2.04968349]. 
+[Sat Sep 14 02:37:43 2024]  Iteration number: 335 with current cost as 0.14067577332527859 and parameters 
+[-2.963119    2.25090274 -2.06184363 ... -1.08167489 -2.55854784
+ -2.04555141]. 
+[Sat Sep 14 02:39:33 2024]  Iteration number: 336 with current cost as 0.12869225339639379 and parameters 
+[-2.95932852  2.25469322 -2.05805315 ... -1.07788441 -2.56233832
+ -2.04176092]. 
+[Sat Sep 14 02:41:03 2024]  Iteration number: 337 with current cost as 0.1388254244986621 and parameters 
+[-2.95642455  2.25759719 -2.05514918 ... -1.08078838 -2.55943435
+ -2.03885695]. 
+[Sat Sep 14 02:42:09 2024]  Iteration number: 338 with current cost as 0.12684473368191626 and parameters 
+[-2.96672161  2.26789425 -2.04485212 ... -1.07049132 -2.54913729
+ -2.02855989]. 
+[Sat Sep 14 02:43:32 2024]  Iteration number: 339 with current cost as 0.1375372142243884 and parameters 
+[-2.96932572  2.27049836 -2.04745622 ... -1.07309542 -2.54653319
+ -2.031164  ]. 
+[Sat Sep 14 02:44:48 2024]  Iteration number: 340 with current cost as 0.11913113793083441 and parameters 
+[-2.96527542  2.27454865 -2.05150652 ... -1.06904513 -2.54248289
+ -2.03521429]. 
+[Sat Sep 14 02:46:20 2024]  Iteration number: 341 with current cost as 0.12589070969368246 and parameters 
+[-2.96267218  2.27194541 -2.05410976 ... -1.07164837 -2.54508613
+ -2.03261105]. 
+[Sat Sep 14 02:47:24 2024]  Iteration number: 342 with current cost as 0.11412942291147059 and parameters 
+[-2.95627134  2.26554457 -2.04770892 ... -1.06524753 -2.55148697
+ -2.03901189]. 
+[Sat Sep 14 02:48:43 2024]  Iteration number: 343 with current cost as 0.15427272893888605 and parameters 
+[-2.95788581  2.26715904 -2.04609445 ... -1.06363306 -2.55310144
+ -2.03739742]. 
+[Sat Sep 14 02:50:29 2024]  Iteration number: 344 with current cost as 0.1799568102526624 and parameters 
+[-2.9743541   2.25069075 -2.02962616 ... -1.04716478 -2.56956973
+ -2.02092913]. 
+[Sat Sep 14 02:52:35 2024]  Iteration number: 345 with current cost as 0.12358099276202941 and parameters 
+[-2.95803985  2.267005   -2.01331191 ... -1.06347902 -2.55325548
+ -2.03724338]. 
+[Sat Sep 14 02:54:49 2024]  Iteration number: 346 with current cost as 0.12579962933641414 and parameters 
+[-2.9501407   2.27490415 -2.02121106 ... -1.05557987 -2.54535633
+ -2.04514253]. 
+[Sat Sep 14 02:56:10 2024]  Iteration number: 347 with current cost as 0.1169942360411742 and parameters 
+[-2.95828094  2.26676391 -2.01307082 ... -1.04743963 -2.53721609
+ -2.03700229]. 
+[Sat Sep 14 02:58:33 2024]  Iteration number: 348 with current cost as 0.13390867806164009 and parameters 
+[-2.96639594  2.27487891 -2.02118582 ... -1.05555463 -2.52910109
+ -2.02888729]. 
+[Sat Sep 14 02:59:57 2024]  Iteration number: 349 with current cost as 0.15304244633434486 and parameters 
+[-2.97597435  2.28445732 -2.01160741 ... -1.04597622 -2.51952268
+ -2.03846571]. 
+[Sat Sep 14 03:01:20 2024]  Iteration number: 350 with current cost as 0.14481978391432854 and parameters 
+[-2.97155084  2.28888083 -2.00718389 ... -1.0415527  -2.51509916
+ -2.03404219]. 
+[Sat Sep 14 03:02:46 2024]  Iteration number: 351 with current cost as 0.12474131213557545 and parameters 
+[-2.96657692  2.29385475 -2.00220998 ... -1.03657878 -2.52007308
+ -2.02906827]. 
+[Sat Sep 14 03:03:49 2024]  Iteration number: 352 with current cost as 0.12160212236163226 and parameters 
+[-2.96332245  2.29060028 -2.00546445 ... -1.03332431 -2.52332756
+ -2.0258138 ]. 
+[Sat Sep 14 03:05:29 2024]  Iteration number: 353 with current cost as 0.12865193716462986 and parameters 
+[-2.9632195   2.29049733 -2.00536151 ... -1.03342725 -2.5234305
+ -2.02571085]. 
+[Sat Sep 14 03:07:24 2024]  Iteration number: 354 with current cost as 0.14183593606206746 and parameters 
+[-2.98075462  2.27296221 -2.02289662 ... -1.01589213 -2.54096562
+ -2.04324597]. 
+[Sat Sep 14 03:08:27 2024]  Iteration number: 355 with current cost as 0.16564824568401065 and parameters 
+[-2.97941061  2.2716182  -2.02155261 ... -1.01723614 -2.53962161
+ -2.04190196]. 
+[Sat Sep 14 03:09:38 2024]  Iteration number: 356 with current cost as 0.13773472024398614 and parameters 
+[-2.9789445   2.27208431 -2.02108651 ... -1.01770225 -2.54008772
+ -2.04236807]. 
+[Sat Sep 14 03:10:58 2024]  Iteration number: 357 with current cost as 0.1417437740695912 and parameters 
+[-2.9797107   2.27131811 -2.0203203  ... -1.01846846 -2.53932152
+ -2.04313427]. 
+[Sat Sep 14 03:12:16 2024]  Iteration number: 358 with current cost as 0.12669383501111253 and parameters 
+[-2.97169678  2.26330419 -2.01230638 ... -1.01045453 -2.53130759
+ -2.03512035]. 
+[Sat Sep 14 03:13:36 2024]  Iteration number: 359 with current cost as 0.14947508821170413 and parameters 
+[-2.96483267  2.25644008 -2.00544227 ... -1.00359042 -2.5381717
+ -2.04198445]. 
+[Sat Sep 14 03:15:03 2024]  Iteration number: 360 with current cost as 0.13739847709238234 and parameters 
+[-2.95403563  2.24564304 -1.99464523 ... -0.99279339 -2.52737466
+ -2.05278149]. 
+[Sat Sep 14 03:16:32 2024]  Iteration number: 361 with current cost as 0.1330394248566524 and parameters 
+[-2.94653626  2.23814366 -2.00214461 ... -1.00029276 -2.53487403
+ -2.06028087]. 
+[Sat Sep 14 03:18:23 2024]  Iteration number: 362 with current cost as 0.13727038564988758 and parameters 
+[-2.94501687  2.23966305 -2.003664   ... -0.99877338 -2.53335465
+ -2.06180026]. 
+[Sat Sep 14 03:20:23 2024]  Iteration number: 363 with current cost as 0.15236999154567052 and parameters 
+[-2.94494752  2.2395937  -2.00373335 ... -0.99870403 -2.5332853
+ -2.06173091]. 
+[Sat Sep 14 03:22:00 2024]  Iteration number: 364 with current cost as 0.15035884278405864 and parameters 
+[-2.94511142  2.2394298  -2.00356945 ... -0.99854013 -2.5331214
+ -2.06189481]. 
+[Sat Sep 14 03:23:06 2024]  Iteration number: 365 with current cost as 0.11530395112562473 and parameters 
+[-2.94068438  2.23500277 -1.99914242 ... -0.99411309 -2.52869436
+ -2.05746777]. 
+[Sat Sep 14 03:24:16 2024]  Iteration number: 366 with current cost as 0.20826093604375004 and parameters 
+[-2.95197277  2.24629115 -2.0104308  ... -0.98282471 -2.53998275
+ -2.06875616]. 
+[Sat Sep 14 03:25:22 2024]  Iteration number: 367 with current cost as 0.12575071827315254 and parameters 
+[-2.94441612  2.2538478  -2.01798745 ... -0.99038136 -2.5475394
+ -2.06119951]. 
+[Sat Sep 14 03:27:14 2024]  Iteration number: 368 with current cost as 0.12071662551300623 and parameters 
+[-2.94530717  2.25295675 -2.0170964  ... -0.99127241 -2.54843046
+ -2.06030845]. 
+[Sat Sep 14 03:29:03 2024]  Iteration number: 369 with current cost as 0.14616639036015183 and parameters 
+[-2.9339146   2.26434932 -2.02848897 ... -1.00266498 -2.55982302
+ -2.07170102]. 
+[Sat Sep 14 03:31:39 2024]  Iteration number: 370 with current cost as 0.1748235073738072 and parameters 
+[-2.927473    2.27079092 -2.02204736 ... -1.00910658 -2.56626463
+ -2.06525942]. 
+[Sat Sep 14 03:33:50 2024]  Iteration number: 371 with current cost as 0.16471109251698882 and parameters 
+[-2.92334851  2.26666644 -2.01792288 ... -1.0049821  -2.56214014
+ -2.0693839 ]. 
+[Sat Sep 14 03:35:15 2024]  Iteration number: 372 with current cost as 0.19441277824370298 and parameters 
+[-2.9215954   2.26491332 -2.01616977 ... -1.00322899 -2.56389325
+ -2.06763079]. 
+[Sat Sep 14 03:36:33 2024]  Iteration number: 373 with current cost as 0.1805313212815618 and parameters 
+[-2.92532866  2.26864658 -2.01243651 ... -1.00696224 -2.56762651
+ -2.07136405]. 
+[Sat Sep 14 03:37:47 2024]  Iteration number: 374 with current cost as 0.11285758698705703 and parameters 
+[-2.93030347  2.26367177 -2.0074617  ... -1.00198743 -2.5626517
+ -2.07633886]. 
+[Sat Sep 14 03:39:25 2024]  Iteration number: 375 with current cost as 0.16751844017536455 and parameters 
+[-2.92986311  2.26323141 -2.00702134 ... -1.00242779 -2.56309206
+ -2.0758985 ]. 
+[Sat Sep 14 03:41:53 2024]  Iteration number: 376 with current cost as 0.14596648011932395 and parameters 
+[-2.93192814  2.26529643 -2.00495631 ... -1.00036277 -2.56102703
+ -2.07796352]. 
+[Sat Sep 14 03:43:19 2024]  Iteration number: 377 with current cost as 0.169579531009816 and parameters 
+[-2.938182    2.25904256 -1.99870245 ... -1.00661663 -2.55477316
+ -2.07170965]. 
+[Sat Sep 14 03:45:29 2024]  Iteration number: 378 with current cost as 0.1255376413932972 and parameters 
+[-2.93558738  2.25644794 -1.99610782 ... -1.00921126 -2.55736779
+ -2.07430428]. 
+[Sat Sep 14 03:46:48 2024]  Iteration number: 379 with current cost as 0.1326443458045506 and parameters 
+[-2.93033543  2.26169988 -1.99085588 ... -1.00395932 -2.56261973
+ -2.06905234]. 
+[Sat Sep 14 03:47:55 2024]  Iteration number: 380 with current cost as 0.13590032937990007 and parameters 
+[-2.92979197  2.26224335 -1.99139934 ... -1.00341585 -2.56207627
+ -2.06850887]. 
+[Sat Sep 14 03:50:25 2024]  Iteration number: 381 with current cost as 0.12820216325907907 and parameters 
+[-2.93184828  2.26429966 -1.99345565 ... -1.00135954 -2.56413258
+ -2.07056518]. 
+[Sat Sep 14 03:51:36 2024]  Iteration number: 382 with current cost as 0.09268472949393866 and parameters 
+[-2.94595047  2.25019747 -2.00755784 ... -1.01546173 -2.57823477
+ -2.05646299]. 
+[Sat Sep 14 03:52:49 2024]  Iteration number: 383 with current cost as 0.10510134621684732 and parameters 
+[-2.9477775   2.24837044 -2.00938487 ... -1.01728876 -2.57640774
+ -2.05829002]. 
+[Sat Sep 14 03:53:55 2024]  Iteration number: 384 with current cost as 0.1358471991323858 and parameters 
+[-2.94414693  2.25200101 -2.01301544 ... -1.02091932 -2.57277717
+ -2.06192059]. 
+[Sat Sep 14 03:57:46 2024]  Iteration number: 385 with current cost as 0.15245806332855205 and parameters 
+[-2.94152251  2.25462542 -2.01563985 ... -1.02354374 -2.57015276
+ -2.064545  ]. 
+[Sat Sep 14 03:59:08 2024]  Iteration number: 386 with current cost as 0.14596254986357116 and parameters 
+[-2.94985926  2.26296217 -2.0239766  ... -1.03188049 -2.57848951
+ -2.07288175]. 
+[Sat Sep 14 04:02:19 2024]  Iteration number: 387 with current cost as 0.08687998960320448 and parameters 
+[-2.94379069  2.2568936  -2.01790803 ... -1.02581191 -2.57242093
+ -2.06681317]. 
+[Sat Sep 14 04:05:08 2024]  Iteration number: 388 with current cost as 0.08234822846410134 and parameters 
+[-2.94264324  2.25574615 -2.01905548 ... -1.02695936 -2.57356839
+ -2.06566572]. 
+[Sat Sep 14 04:06:38 2024]  Iteration number: 389 with current cost as 0.1717811448414167 and parameters 
+[-2.951482    2.24690739 -2.01021671 ... -1.0181206  -2.56472962
+ -2.07450448]. 
+[Sat Sep 14 04:07:52 2024]  Iteration number: 390 with current cost as 0.11964857684490038 and parameters 
+[-2.94401132  2.25437806 -2.00274604 ... -1.01064992 -2.55725894
+ -2.06703381]. 
+[Sat Sep 14 04:09:26 2024]  Iteration number: 391 with current cost as 0.14110414959532686 and parameters 
+[-2.9436006   2.25478878 -2.00315675 ... -1.01106064 -2.55766966
+ -2.06662309]. 
+[Sat Sep 14 04:11:27 2024]  Iteration number: 392 with current cost as 0.14056036702778602 and parameters 
+[-2.95114324  2.26233142 -1.99561412 ... -1.01860327 -2.55012703
+ -2.07416572]. 
+[Sat Sep 14 04:14:36 2024]  Iteration number: 393 with current cost as 0.14292221776712413 and parameters 
+[-2.95342543  2.2646136  -1.99789631 ... -1.02088546 -2.55240922
+ -2.07644791]. 
+[Sat Sep 14 04:16:50 2024]  Iteration number: 394 with current cost as 0.11020427607551103 and parameters 
+[-2.95656871  2.26147032 -1.99475303 ... -1.02402875 -2.5555525
+ -2.07959119]. 
+[Sat Sep 14 04:18:15 2024]  Iteration number: 395 with current cost as 0.14872717594942875 and parameters 
+[-2.94652891  2.25143053 -1.98471323 ... -1.01398895 -2.54551271
+ -2.08963099]. 
+[Sat Sep 14 04:20:16 2024]  Iteration number: 396 with current cost as 0.09867713118586086 and parameters 
+[-2.93587897  2.24078059 -1.99536318 ... -1.00333901 -2.53486277
+ -2.07898105]. 
+[Sat Sep 14 04:22:35 2024]  Iteration number: 397 with current cost as 0.11648045338510479 and parameters 
+[-2.93357776  2.23847937 -1.99766439 ... -1.0010378  -2.53716398
+ -2.07667983]. 
+[Sat Sep 14 04:24:13 2024]  Iteration number: 398 with current cost as 0.13543530197114426 and parameters 
+[-2.94326812  2.22878902 -1.98797403 ... -0.99134744 -2.54685434
+ -2.08637019]. 
+[Sat Sep 14 04:25:46 2024]  Iteration number: 399 with current cost as 0.1365600165408752 and parameters 
+[-2.94115375  2.22667464 -1.98585965 ... -0.98923306 -2.54473996
+ -2.08425582]. 
+[Sat Sep 14 04:27:21 2024]  Iteration number: 400 with current cost as 0.15841801350680196 and parameters 
+[-2.9368851   2.222406   -1.98159101 ... -0.98496442 -2.54900861
+ -2.08852446]. 
+[Sat Sep 14 04:29:43 2024]  Iteration number: 401 with current cost as 0.14677791909492535 and parameters 
+[-2.92772919  2.21325008 -1.97243509 ... -0.9758085  -2.55816452
+ -2.09768038]. 
+[Sat Sep 14 04:30:46 2024]  Iteration number: 402 with current cost as 0.15714867442771835 and parameters 
+[-2.91957033  2.20509123 -1.96427624 ... -0.98396736 -2.56632338
+ -2.10583924]. 
+[Sat Sep 14 04:33:25 2024]  Iteration number: 403 with current cost as 0.14343142308595314 and parameters 
+[-2.91338092  2.19890181 -1.95808683 ... -0.99015677 -2.57251279
+ -2.09964982]. 
+[Sat Sep 14 04:35:18 2024]  Iteration number: 404 with current cost as 0.14681321127637828 and parameters 
+[-2.91187671  2.1973976  -1.95959104 ... -0.99166099 -2.574017
+ -2.10115404]. 
+[Sat Sep 14 04:37:06 2024]  Iteration number: 405 with current cost as 0.1591034863229568 and parameters 
+[-2.90327472  2.18879561 -1.95098905 ... -1.00026297 -2.56541502
+ -2.10975602]. 
+[Sat Sep 14 04:39:57 2024]  Iteration number: 406 with current cost as 0.162672249847856 and parameters 
+[-2.91037553  2.1816948  -1.95808987 ... -1.00736379 -2.57251583
+ -2.11685684]. 
+[Sat Sep 14 04:41:24 2024]  Iteration number: 407 with current cost as 0.12798913481997376 and parameters 
+[-2.90636044  2.17767971 -1.95407478 ... -1.0033487  -2.56850074
+ -2.11284175]. 
+[Sat Sep 14 04:42:38 2024]  Iteration number: 408 with current cost as 0.12741383890831692 and parameters 
+[-2.9027396   2.17405886 -1.95045393 ... -0.99972785 -2.57212159
+ -2.1164626 ]. 
+[Sat Sep 14 04:44:48 2024]  Iteration number: 409 with current cost as 0.1844372552100224 and parameters 
+[-2.91278596  2.1640125  -1.94040757 ... -1.00977421 -2.58216795
+ -2.10641624]. 
+[Sat Sep 14 04:46:22 2024]  Iteration number: 410 with current cost as 0.15934610813770553 and parameters 
+[-2.91744438  2.15935408 -1.945066   ... -1.00511579 -2.58682637
+ -2.11107466]. 
+[Sat Sep 14 04:47:21 2024]  Iteration number: 411 with current cost as 0.12313264997856352 and parameters 
+[-2.92229788  2.16420758 -1.9499195  ... -1.00026229 -2.58197287
+ -2.11592816]. 
+[Sat Sep 14 04:48:58 2024]  Iteration number: 412 with current cost as 0.13823520629178798 and parameters 
+[-2.91477455  2.17173092 -1.95744283 ... -1.00778562 -2.57444954
+ -2.1234515 ]. 
+[Sat Sep 14 04:50:52 2024]  Iteration number: 413 with current cost as 0.139836568756802 and parameters 
+[-2.91928734  2.17624371 -1.95293004 ... -1.00327283 -2.57896233
+ -2.1189387 ]. 
+[Sat Sep 14 04:52:23 2024]  Iteration number: 414 with current cost as 0.12075877244508595 and parameters 
+[-2.91759082  2.17794023 -1.95123351 ... -1.00496935 -2.58065885
+ -2.11724218]. 
+[Sat Sep 14 04:53:29 2024]  Iteration number: 415 with current cost as 0.11087265835483309 and parameters 
+[-2.92689435  2.18724376 -1.94192998 ... -1.01427288 -2.57135532
+ -2.12654571]. 
+[Sat Sep 14 04:56:19 2024]  Iteration number: 416 with current cost as 0.11458295558739418 and parameters 
+[-2.92529564  2.18884248 -1.94033127 ... -1.01267416 -2.56975661
+ -2.12494699]. 
+[Sat Sep 14 04:57:45 2024]  Iteration number: 417 with current cost as 0.12306420337755401 and parameters 
+[-2.93171038  2.18242773 -1.94674602 ... -1.00625942 -2.56334186
+ -2.11853225]. 
+[Sat Sep 14 04:59:21 2024]  Iteration number: 418 with current cost as 0.11721836776972638 and parameters 
+[-2.93081001  2.18332811 -1.94764639 ... -1.00715979 -2.56244149
+ -2.11943262]. 
+[Sat Sep 14 05:00:27 2024]  Iteration number: 419 with current cost as 0.1312630405928425 and parameters 
+[-2.92761273  2.18652538 -1.94444911 ... -1.01035707 -2.55924421
+ -2.1226299 ]. 
+[Sat Sep 14 05:02:57 2024]  Iteration number: 420 with current cost as 0.09755410501662895 and parameters 
+[-2.93164984  2.19056249 -1.94848622 ... -1.00631996 -2.5552071
+ -2.11859279]. 
+[Sat Sep 14 05:04:24 2024]  Iteration number: 421 with current cost as 0.1509701720178679 and parameters 
+[-2.9261851   2.19602723 -1.95395096 ... -1.00085522 -2.54974236
+ -2.12405753]. 
+[Sat Sep 14 05:05:53 2024]  Iteration number: 422 with current cost as 0.13933733231118053 and parameters 
+[-2.92639136  2.19623349 -1.95415722 ... -1.00106147 -2.5495361
+ -2.12385127]. 
+[Sat Sep 14 05:07:55 2024]  Iteration number: 423 with current cost as 0.07774561262123045 and parameters 
+[-2.93018383  2.19244103 -1.95036476 ... -1.00485394 -2.54574364
+ -2.1200588 ]. 
+[Sat Sep 14 05:09:53 2024]  Iteration number: 424 with current cost as 0.13282425957434665 and parameters 
+[-2.93249521  2.19475241 -1.95267614 ... -1.00716532 -2.54805502
+ -2.12237019]. 
+[Sat Sep 14 05:12:59 2024]  Iteration number: 425 with current cost as 0.12068911058304495 and parameters 
+[-2.93451314  2.19677034 -1.95469407 ... -1.00918326 -2.54603709
+ -2.12035225]. 
+[Sat Sep 14 05:16:46 2024]  Iteration number: 426 with current cost as 0.15231921229051473 and parameters 
+[-2.92568334  2.20560015 -1.94586427 ... -1.00035345 -2.53720729
+ -2.11152245]. 
+[Sat Sep 14 05:18:26 2024]  Iteration number: 427 with current cost as 0.14530192454628377 and parameters 
+[-2.93307809  2.2129949  -1.93846952 ... -1.0077482  -2.54460204
+ -2.1189172 ]. 
+[Sat Sep 14 05:21:42 2024]  Iteration number: 428 with current cost as 0.1265203627842295 and parameters 
+[-2.93692823  2.21684504 -1.94231966 ... -1.00389806 -2.54845218
+ -2.12276734]. 
+[Sat Sep 14 05:23:50 2024]  Iteration number: 429 with current cost as 0.11917618797630081 and parameters 
+[-2.93704264  2.21673062 -1.94220525 ... -1.00401247 -2.54833777
+ -2.12288176]. 
+[Sat Sep 14 05:25:44 2024]  Iteration number: 430 with current cost as 0.1734271739572738 and parameters 
+[-2.94933376  2.20443951 -1.95449636 ... -1.01630359 -2.56062888
+ -2.11059064]. 
+[Sat Sep 14 05:28:14 2024]  Iteration number: 431 with current cost as 0.15809946880112952 and parameters 
+[-2.94743264  2.20253839 -1.95639748 ... -1.01440247 -2.55872776
+ -2.10868952]. 
+[Sat Sep 14 05:30:37 2024]  Iteration number: 432 with current cost as 0.11456735730688802 and parameters 
+[-2.965357    2.18461403 -1.97432184 ... -1.03232683 -2.57665212
+ -2.09076516]. 
+[Sat Sep 14 05:31:55 2024]  Iteration number: 433 with current cost as 0.06360998504457144 and parameters 
+[-2.96759385  2.18685089 -1.97208499 ... -1.03008998 -2.57441527
+ -2.08852831]. 
+[Sat Sep 14 05:34:05 2024]  Iteration number: 434 with current cost as 0.1601615271382015 and parameters 
+[-2.97522267  2.17922206 -1.97971381 ... -1.02246116 -2.58204409
+ -2.08089949]. 
+[Sat Sep 14 05:35:48 2024]  Iteration number: 435 with current cost as 0.13457750307356908 and parameters 
+[-2.97752585  2.17691889 -1.98201698 ... -1.02015798 -2.58434727
+ -2.08320266]. 
+[Sat Sep 14 05:39:42 2024]  Iteration number: 436 with current cost as 0.12234074039933333 and parameters 
+[-2.98456417  2.16988057 -1.9890553  ... -1.01311967 -2.57730895
+ -2.09024098]. 
+[Sat Sep 14 05:40:40 2024]  Iteration number: 437 with current cost as 0.10951169554173518 and parameters 
+[-2.9914107   2.17672711 -1.99590184 ... -1.0199662  -2.57046241
+ -2.09708752]. 
+[Sat Sep 14 05:43:52 2024]  Iteration number: 438 with current cost as 0.0753297153022972 and parameters 
+[-2.99122287  2.17653928 -1.99608967 ... -1.02015404 -2.57065024
+ -2.09689969]. 
+[Sat Sep 14 05:45:19 2024]  Iteration number: 439 with current cost as 0.12106206398571195 and parameters 
+[-3.00504464  2.16271751 -2.00991144 ... -1.00633227 -2.55682847
+ -2.11072146]. 
+[Sat Sep 14 05:48:24 2024]  Iteration number: 440 with current cost as 0.12228987220498802 and parameters 
+[-3.00056956  2.1671926  -2.00543635 ... -1.00185718 -2.56130356
+ -2.10624637]. 
+[Sat Sep 14 05:50:18 2024]  Iteration number: 441 with current cost as 0.13691668882567742 and parameters 
+[-3.0014938   2.16811684 -2.0063606  ... -1.00093294 -2.56037931
+ -2.10532213]. 
+[Sat Sep 14 05:51:30 2024]  Iteration number: 442 with current cost as 0.11888020131331542 and parameters 
+[-2.99765325  2.16427629 -2.00252004 ... -1.00477349 -2.56421987
+ -2.10148157]. 
+[Sat Sep 14 05:53:02 2024]  Iteration number: 443 with current cost as 0.11648291247258301 and parameters 
+[-2.98737844  2.17455109 -1.99224524 ... -1.0150483  -2.55394506
+ -2.09120676]. 
+[Sat Sep 14 05:55:10 2024]  Iteration number: 444 with current cost as 0.07934134163904755 and parameters 
+[-2.98550145  2.17642808 -1.99412222 ... -1.01692528 -2.55206807
+ -2.09308375]. 
+[Sat Sep 14 05:57:08 2024]  Iteration number: 445 with current cost as 0.12567083871413126 and parameters 
+[-2.98891502  2.17301451 -1.99753579 ... -1.01351172 -2.5486545
+ -2.09649732]. 
+[Sat Sep 14 05:59:08 2024]  Iteration number: 446 with current cost as 0.1313319570385753 and parameters 
+[-2.99358385  2.17768334 -2.00220462 ... -1.01818055 -2.55332333
+ -2.10116615]. 
+[Sat Sep 14 06:01:29 2024]  Iteration number: 447 with current cost as 0.09557192141529547 and parameters 
+[-2.9820633   2.16616279 -2.01372518 ... -1.00665999 -2.56484389
+ -2.1126867 ]. 
+[Sat Sep 14 06:02:49 2024]  Iteration number: 448 with current cost as 0.11705233441522332 and parameters 
+[-2.97153123  2.15563071 -2.0031931  ... -0.99612792 -2.55431182
+ -2.10215463]. 
+[Sat Sep 14 06:04:02 2024]  Iteration number: 449 with current cost as 0.09645270494486768 and parameters 
+[-2.97579915  2.15136278 -2.00746103 ... -1.00039585 -2.55857974
+ -2.10642256]. 
+[Sat Sep 14 06:06:35 2024]  Iteration number: 450 with current cost as 0.15573709280441078 and parameters 
+[-2.98100385  2.14615809 -2.01266572 ... -0.99519115 -2.56378444
+ -2.10121786]. 
+[Sat Sep 14 06:08:10 2024]  Iteration number: 451 with current cost as 0.10890145127205735 and parameters 
+[-2.98681197  2.15196622 -2.01847385 ... -1.00099928 -2.55797631
+ -2.10702599]. 
+[Sat Sep 14 06:10:00 2024]  Iteration number: 452 with current cost as 0.15572594738223633 and parameters 
+[-2.98611801  2.15127225 -2.01777989 ... -1.00030532 -2.55867027
+ -2.10633203]. 
+[Sat Sep 14 06:12:29 2024]  Iteration number: 453 with current cost as 0.12102788280961038 and parameters 
+[-2.99046424  2.14692603 -2.02212611 ... -0.99595909 -2.55432405
+ -2.1019858 ]. 
+[Sat Sep 14 06:13:56 2024]  Iteration number: 454 with current cost as 0.1108920974670748 and parameters 
+[-2.99719341  2.14019686 -2.01539694 ... -1.00268826 -2.56105322
+ -2.10871497]. 
+[Sat Sep 14 06:15:38 2024]  Iteration number: 455 with current cost as 0.12226905949301896 and parameters 
+[-2.9982197   2.13917056 -2.01642324 ... -1.00166196 -2.56002692
+ -2.10768867]. 
+[Sat Sep 14 06:16:57 2024]  Iteration number: 456 with current cost as 0.09165053902201353 and parameters 
+[-2.99536964  2.14202063 -2.01357318 ... -0.9988119  -2.55717686
+ -2.10483861]. 
+[Sat Sep 14 06:18:49 2024]  Iteration number: 457 with current cost as 0.06795721560339948 and parameters 
+[-2.99339928  2.14399099 -2.01554353 ... -1.00078226 -2.55914721
+ -2.10680897]. 
+[Sat Sep 14 06:20:11 2024]  Iteration number: 458 with current cost as 0.09721327594698442 and parameters 
+[-2.98738134  2.15000892 -2.02156147 ... -0.99476432 -2.56516515
+ -2.11282691]. 
+[Sat Sep 14 06:21:41 2024]  Iteration number: 459 with current cost as 0.12133832606559647 and parameters 
+[-2.98294855  2.15444171 -2.01712868 ... -0.99919711 -2.56073236
+ -2.11725969]. 
+[Sat Sep 14 06:23:07 2024]  Iteration number: 460 with current cost as 0.11048289993781366 and parameters 
+[-2.98097874  2.15247191 -2.01515888 ... -1.00116692 -2.56270217
+ -2.11528989]. 
+[Sat Sep 14 06:24:19 2024]  Iteration number: 461 with current cost as 0.11695664217801599 and parameters 
+[-2.96520109  2.13669425 -1.99938122 ... -0.98538926 -2.57847983
+ -2.13106754]. 
+[Sat Sep 14 06:26:38 2024]  Iteration number: 462 with current cost as 0.12793144320407163 and parameters 
+[-2.97810488  2.14959805 -2.01228502 ... -0.97248546 -2.56557603
+ -2.11816374]. 
+[Sat Sep 14 06:29:23 2024]  Iteration number: 463 with current cost as 0.14555335380171228 and parameters 
+[-2.99190686  2.13579607 -1.99848304 ... -0.98628744 -2.57937801
+ -2.10436177]. 
+[Sat Sep 14 06:30:31 2024]  Iteration number: 464 with current cost as 0.11170532037228026 and parameters 
+[-2.98051968  2.12440889 -2.00987023 ... -0.97490026 -2.59076519
+ -2.11574895]. 
+[Sat Sep 14 06:32:20 2024]  Iteration number: 465 with current cost as 0.11996860224058853 and parameters 
+[-2.97501664  2.12991193 -2.01537327 ... -0.96939722 -2.58526215
+ -2.12125199]. 
+[Sat Sep 14 06:33:30 2024]  Iteration number: 466 with current cost as 0.12834969396458656 and parameters 
+[-2.9750206   2.12990797 -2.01536931 ... -0.96939326 -2.58526611
+ -2.12125595]. 
+[Sat Sep 14 06:36:26 2024]  Iteration number: 467 with current cost as 0.14978188689456962 and parameters 
+[-2.97753083  2.12739773 -2.01787954 ... -0.97190349 -2.58275588
+ -2.12376618]. 
+[Sat Sep 14 06:37:39 2024]  Iteration number: 468 with current cost as 0.1075000782279909 and parameters 
+[-2.98806369  2.13793059 -2.00734668 ... -0.98243634 -2.59328874
+ -2.11323333]. 
+[Sat Sep 14 06:39:01 2024]  Iteration number: 469 with current cost as 0.09029148522159328 and parameters 
+[-2.99241038  2.14227729 -2.00299998 ... -0.98678304 -2.58894204
+ -2.11758003]. 
+[Sat Sep 14 06:40:49 2024]  Iteration number: 470 with current cost as 0.11355516436469007 and parameters 
+[-2.98287215  2.13273905 -1.99346175 ... -0.97724481 -2.59848027
+ -2.12711826]. 
+[Sat Sep 14 06:42:28 2024]  Iteration number: 471 with current cost as 0.08035701342777765 and parameters 
+[-2.99128618  2.12432502 -1.98504772 ... -0.98565884 -2.59006624
+ -2.13553229]. 
+[Sat Sep 14 06:44:35 2024]  Iteration number: 472 with current cost as 0.13644581310183967 and parameters 
+[-2.98866139  2.12170023 -1.98242293 ... -0.98303404 -2.59269104
+ -2.13815708]. 
+[Sat Sep 14 06:46:24 2024]  Iteration number: 473 with current cost as 0.12095776756560839 and parameters 
+[-2.97962493  2.11266378 -1.97338647 ... -0.97399759 -2.58365458
+ -2.12912063]. 
+[Sat Sep 14 06:47:59 2024]  Iteration number: 474 with current cost as 0.11233771131597849 and parameters 
+[-2.97769365  2.11459505 -1.97145519 ... -0.97592887 -2.58558586
+ -2.1310519 ]. 
+[Sat Sep 14 06:49:36 2024]  Iteration number: 475 with current cost as 0.11151251187436245 and parameters 
+[-2.97874077  2.11564217 -1.97250231 ... -0.97488175 -2.58453874
+ -2.13000479]. 
+[Sat Sep 14 06:52:18 2024]  Iteration number: 476 with current cost as 0.10747659071720679 and parameters 
+[-2.97868241  2.1155838  -1.97256068 ... -0.97494011 -2.58448037
+ -2.12994642]. 
+[Sat Sep 14 06:53:49 2024]  Iteration number: 477 with current cost as 0.09528879991278338 and parameters 
+[-2.97250935  2.12175686 -1.96638762 ... -0.96876706 -2.57830732
+ -2.13611947]. 
+[Sat Sep 14 06:57:10 2024]  Iteration number: 478 with current cost as 0.14811294526890711 and parameters 
+[-2.97919705  2.12844456 -1.97307532 ... -0.97545476 -2.58499502
+ -2.12943178]. 
+[Sat Sep 14 06:58:53 2024]  Iteration number: 479 with current cost as 0.12593323739513795 and parameters 
+[-2.98908085  2.13832836 -1.96319152 ... -0.98533856 -2.57511122
+ -2.13931557]. 
+[Sat Sep 14 07:00:25 2024]  Iteration number: 480 with current cost as 0.12297267281665986 and parameters 
+[-2.99265698  2.14190449 -1.95961539 ... -0.98891469 -2.57868735
+ -2.13573944]. 
+[Sat Sep 14 07:02:18 2024]  Iteration number: 481 with current cost as 0.11037954315747761 and parameters 
+[-2.98360991  2.13285742 -1.95056833 ... -0.99796175 -2.56964028
+ -2.12669238]. 
+[Sat Sep 14 07:03:28 2024]  Iteration number: 482 with current cost as 0.12726781963470685 and parameters 
+[-2.9807779   2.13002541 -1.95340034 ... -0.99512974 -2.56680827
+ -2.12386037]. 
+[Sat Sep 14 07:05:02 2024]  Iteration number: 483 with current cost as 0.1248310302618389 and parameters 
+[-2.98303818  2.12776512 -1.95566062 ... -0.99739002 -2.56906856
+ -2.12160008]. 
+[Sat Sep 14 07:10:54 2024]  Iteration number: 484 with current cost as 0.09702438472021672 and parameters 
+[-2.9912675   2.11953581 -1.94743131 ... -0.98916071 -2.56083924
+ -2.11337077]. 
+[Sat Sep 14 07:12:22 2024]  Iteration number: 485 with current cost as 0.10646493490734209 and parameters 
+[-2.99759212  2.11321118 -1.95375594 ... -0.98283608 -2.55451462
+ -2.10704614]. 
+[Sat Sep 14 07:14:24 2024]  Iteration number: 486 with current cost as 0.09028201827828142 and parameters 
+[-2.99606856  2.11168762 -1.95223237 ... -0.98435965 -2.55299105
+ -2.10856971]. 
+[Sat Sep 14 07:15:38 2024]  Iteration number: 487 with current cost as 0.15313184899060478 and parameters 
+[-2.99977335  2.11539241 -1.95593716 ... -0.98806445 -2.54928626
+ -2.10486492]. 
+[Sat Sep 14 07:17:14 2024]  Iteration number: 488 with current cost as 0.08552982496623694 and parameters 
+[-2.99345985  2.12170591 -1.96225066 ... -0.99437794 -2.54297276
+ -2.11117841]. 
+[Sat Sep 14 07:18:23 2024]  Iteration number: 489 with current cost as 0.0992200426386709 and parameters 
+[-2.99486067  2.12310673 -1.96084984 ... -0.99577876 -2.54157194
+ -2.11257923]. 
+[Sat Sep 14 07:20:04 2024]  Iteration number: 490 with current cost as 0.1153409979589998 and parameters 
+[-2.99565655  2.1239026  -1.96005397 ... -0.99498289 -2.54236781
+ -2.11337511]. 
+[Sat Sep 14 07:22:08 2024]  Iteration number: 491 with current cost as 0.11858843385102347 and parameters 
+[-2.99489205  2.12313811 -1.95928947 ... -0.9942184  -2.54160332
+ -2.1141396 ]. 
+[Sat Sep 14 07:24:20 2024]  Iteration number: 492 with current cost as 0.10120776479435875 and parameters 
+[-3.00082184  2.12906789 -1.95335969 ... -0.98828862 -2.5475331
+ -2.12006938]. 
+[Sat Sep 14 07:25:55 2024]  Iteration number: 493 with current cost as 0.10030526682537722 and parameters 
+[-3.00596711  2.13421317 -1.95850497 ... -0.98314334 -2.55267838
+ -2.12521466]. 
+[Sat Sep 14 07:27:51 2024]  Iteration number: 494 with current cost as 0.11398086592853768 and parameters 
+[-3.00026018  2.13992011 -1.95279803 ... -0.98885028 -2.55838532
+ -2.11950772]. 
+[Sat Sep 14 07:30:44 2024]  Iteration number: 495 with current cost as 0.08631161830995049 and parameters 
+[-3.01015414  2.14981407 -1.94290407 ... -0.97895631 -2.54849135
+ -2.12940168]. 
+[Sat Sep 14 07:33:02 2024]  Iteration number: 496 with current cost as 0.12709910981298284 and parameters 
+[-3.01448273  2.15414267 -1.93857548 ... -0.98328491 -2.55281995
+ -2.12507309]. 
+[Sat Sep 14 07:35:09 2024]  Iteration number: 497 with current cost as 0.08539318484773772 and parameters 
+[-3.01422673  2.15439867 -1.93883148 ... -0.9830289  -2.55256394
+ -2.12481708]. 
+[Sat Sep 14 07:37:35 2024]  Iteration number: 498 with current cost as 0.11598467352119005 and parameters 
+[-3.01902796  2.14959744 -1.94363272 ... -0.97822767 -2.54776271
+ -2.12961832]. 
+[Sat Sep 14 07:39:21 2024]  Iteration number: 499 with current cost as 0.09041739053179751 and parameters 
+[-3.02106342  2.14756198 -1.94566818 ... -0.98026313 -2.54572724
+ -2.12758285]. 
+[Sat Sep 14 07:40:55 2024]  Iteration number: 500 with current cost as 0.14268911336507792 and parameters 
+[-3.02098992  2.14748848 -1.94574168 ... -0.98018963 -2.54580074
+ -2.12765636]. 
+[Sat Sep 14 07:43:12 2024]  Iteration number: 501 with current cost as 0.09167025985274505 and parameters 
+[-3.02908985  2.13938855 -1.95384161 ... -0.9720897  -2.55390067
+ -2.11955643]. 
+[Sat Sep 14 07:45:21 2024]  Iteration number: 502 with current cost as 0.1197933578974045 and parameters 
+[-3.02618716  2.13648585 -1.9567443  ... -0.96918701 -2.55680337
+ -2.11665373]. 
+[Sat Sep 14 07:46:37 2024]  Iteration number: 503 with current cost as 0.14893523630551186 and parameters 
+[-3.02693139  2.13574162 -1.95600006 ... -0.96844277 -2.55605913
+ -2.11739797]. 
+[Sat Sep 14 07:47:52 2024]  Iteration number: 504 with current cost as 0.08492976385915889 and parameters 
+[-3.02263888  2.14003413 -1.95170755 ... -0.96415026 -2.55176661
+ -2.12169049]. 
+[Sat Sep 14 07:49:36 2024]  Iteration number: 505 with current cost as 0.14225531948921516 and parameters 
+[-3.03081076  2.13186225 -1.95987943 ... -0.95597838 -2.55993849
+ -2.11351861]. 
+[Sat Sep 14 07:50:48 2024]  Iteration number: 506 with current cost as 0.10117087613760953 and parameters 
+[-3.03918895  2.12348406 -1.96825762 ... -0.96435657 -2.5515603
+ -2.10514041]. 
+[Sat Sep 14 07:53:03 2024]  Iteration number: 507 with current cost as 0.11662679832247307 and parameters 
+[-3.04650707  2.11616594 -1.97557574 ... -0.95703845 -2.55887841
+ -2.11245853]. 
+[Sat Sep 14 07:54:32 2024]  Iteration number: 508 with current cost as 0.14840566436656488 and parameters 
+[-3.05186596  2.12152483 -1.97021685 ... -0.95167956 -2.56423731
+ -2.10709963]. 
+[Sat Sep 14 07:56:33 2024]  Iteration number: 509 with current cost as 0.09761712461201155 and parameters 
+[-3.0470479   2.11670677 -1.96539878 ... -0.95649763 -2.56905537
+ -2.10228157]. 
+[Sat Sep 14 07:59:04 2024]  Iteration number: 510 with current cost as 0.10849676227133984 and parameters 
+[-3.0401872   2.10984607 -1.97225948 ... -0.94963693 -2.56219468
+ -2.09542087]. 
+[Sat Sep 14 08:00:32 2024]  Iteration number: 511 with current cost as 0.1448506876790025 and parameters 
+[-3.05094662  2.12060549 -1.96150006 ... -0.93887751 -2.57295409
+ -2.08466146]. 
+[Sat Sep 14 08:02:18 2024]  Iteration number: 512 with current cost as 0.09486745966556992 and parameters 
+[-3.05626557  2.11528654 -1.95618111 ... -0.93355857 -2.57827304
+ -2.08998041]. 
+[Sat Sep 14 08:04:03 2024]  Iteration number: 513 with current cost as 0.0832949556360209 and parameters 
+[-3.05969417  2.11871514 -1.95960971 ... -0.93012997 -2.57484444
+ -2.08655181]. 
+[Sat Sep 14 08:05:59 2024]  Iteration number: 514 with current cost as 0.07915237574301524 and parameters 
+[-3.06386212  2.11454718 -1.96377767 ... -0.93429793 -2.5790124
+ -2.08238385]. 
+[Sat Sep 14 08:07:31 2024]  Iteration number: 515 with current cost as 0.08152982801025732 and parameters 
+[-3.06377835  2.11463096 -1.96386145 ... -0.9343817  -2.57909618
+ -2.08246763]. 
+[Sat Sep 14 08:09:08 2024]  Iteration number: 516 with current cost as 0.09738238405040595 and parameters 
+[-3.06034716  2.11806215 -1.96729263 ... -0.93781289 -2.58252737
+ -2.07903644]. 
+[Sat Sep 14 08:10:41 2024]  Iteration number: 517 with current cost as 0.06938122769696295 and parameters 
+[-3.06431834  2.11409097 -1.96332145 ... -0.93384171 -2.57855619
+ -2.08300762]. 
+[Sat Sep 14 08:12:08 2024]  Iteration number: 518 with current cost as 0.0556517074543182 and parameters 
+[-3.06468127  2.11372804 -1.96368438 ... -0.93420464 -2.57819326
+ -2.08337055]. 
+[Sat Sep 14 08:13:46 2024]  Iteration number: 519 with current cost as 0.1277290712327458 and parameters 
+[-3.07352206  2.10488725 -1.95484359 ... -0.92536385 -2.56935247
+ -2.09221134]. 
+[Sat Sep 14 08:15:02 2024]  Iteration number: 520 with current cost as 0.13863640836263535 and parameters 
+[-3.07366355  2.10474575 -1.9547021  ... -0.92550534 -2.56921098
+ -2.09206985]. 
+[Sat Sep 14 08:16:29 2024]  Iteration number: 521 with current cost as 0.12018203447440798 and parameters 
+[-3.07436289  2.10544509 -1.95400276 ... -0.92480601 -2.56991031
+ -2.09276918]. 
+[Sat Sep 14 08:17:46 2024]  Iteration number: 522 with current cost as 0.1465673106593246 and parameters 
+[-3.07140751  2.10248972 -1.95104739 ... -0.92185063 -2.56695494
+ -2.08981381]. 
+[Sat Sep 14 08:19:07 2024]  Iteration number: 523 with current cost as 0.08406614330989257 and parameters 
+[-3.06116508  2.11273215 -1.96128983 ... -0.93209307 -2.5567125
+ -2.07957137]. 
+[Sat Sep 14 08:21:02 2024]  Iteration number: 524 with current cost as 0.11140281031028842 and parameters 
+[-3.0588269   2.11039398 -1.963628   ... -0.9297549  -2.55437433
+ -2.0772332 ]. 
+[Sat Sep 14 08:25:17 2024]  Iteration number: 525 with current cost as 0.0771725171328872 and parameters 
+[-3.05140345  2.10297053 -1.97105145 ... -0.92233145 -2.56179778
+ -2.08465665]. 
+[Sat Sep 14 08:27:15 2024]  Iteration number: 526 with current cost as 0.06851935663975774 and parameters 
+[-3.054422    2.10598908 -1.9680329  ... -0.9193129  -2.55877923
+ -2.0816381 ]. 
+[Sat Sep 14 08:28:38 2024]  Iteration number: 527 with current cost as 0.09669314202768728 and parameters 
+[-3.05350103  2.10506811 -1.96895387 ... -0.91839193 -2.55785826
+ -2.08071713]. 
+[Sat Sep 14 08:30:31 2024]  Iteration number: 528 with current cost as 0.08110682055227567 and parameters 
+[-3.0593797   2.09918944 -1.97483254 ... -0.9242706  -2.56373693
+ -2.0865958 ]. 
+[Sat Sep 14 08:33:09 2024]  Iteration number: 529 with current cost as 0.08261610093902946 and parameters 
+[-3.06079121  2.09777793 -1.97342103 ... -0.92568211 -2.56514844
+ -2.08518429]. 
+[Sat Sep 14 08:34:40 2024]  Iteration number: 530 with current cost as 0.09197885680742962 and parameters 
+[-3.05889436  2.09588108 -1.97152419 ... -0.92378526 -2.56325159
+ -2.08708114]. 
+[Sat Sep 14 08:36:50 2024]  Iteration number: 531 with current cost as 0.09590198277637417 and parameters 
+[-3.05335141  2.09033813 -1.97706714 ... -0.92932821 -2.55770864
+ -2.08153819]. 
+[Sat Sep 14 08:38:29 2024]  Iteration number: 532 with current cost as 0.06289438942544036 and parameters 
+[-3.05709064  2.0865989  -1.97332791 ... -0.93306744 -2.55396941
+ -2.08527742]. 
+[Sat Sep 14 08:42:29 2024]  Iteration number: 533 with current cost as 0.09619171438254992 and parameters 
+[-3.05379562  2.08330388 -1.97662293 ... -0.92977242 -2.55726443
+ -2.0819824 ]. 
+[Sat Sep 14 08:44:28 2024]  Iteration number: 534 with current cost as 0.06352360741573417 and parameters 
+[-3.05630172  2.08580998 -1.97411683 ... -0.92726632 -2.55475834
+ -2.0794763 ]. 
+[Sat Sep 14 08:46:17 2024]  Iteration number: 535 with current cost as 0.06253651850806256 and parameters 
+[-3.05591589  2.08542416 -1.97450265 ... -0.92765215 -2.55437251
+ -2.07986212]. 
+[Sat Sep 14 08:49:46 2024]  Iteration number: 536 with current cost as 0.09259128482591586 and parameters 
+[-3.05728173  2.08679    -1.97313681 ... -0.92628631 -2.55300667
+ -2.08122796]. 
+[Sat Sep 14 08:52:02 2024]  Iteration number: 537 with current cost as 0.1285255543593267 and parameters 
+[-3.06254737  2.09205563 -1.97840245 ... -0.93155194 -2.54774104
+ -2.08649359]. 
+[Sat Sep 14 08:53:49 2024]  Iteration number: 538 with current cost as 0.12249842407832262 and parameters 
+[-3.07057832  2.08402468 -1.97037149 ... -0.92352099 -2.55577199
+ -2.09452455]. 
+[Sat Sep 14 08:56:12 2024]  Iteration number: 539 with current cost as 0.04162771072601222 and parameters 
+[-3.06283062  2.09177238 -1.9781192  ... -0.93126869 -2.5635197
+ -2.08677684]. 
+[Sat Sep 14 08:59:25 2024]  Iteration number: 540 with current cost as 0.08138988265662035 and parameters 
+[-3.06738692  2.08721608 -1.9826755  ... -0.92671239 -2.568076
+ -2.09133315]. 
+[Sat Sep 14 09:00:44 2024]  Iteration number: 541 with current cost as 0.0942947456303937 and parameters 
+[-3.06449678  2.08432593 -1.98556565 ... -0.92960253 -2.57096615
+ -2.0942233 ]. 
+[Sat Sep 14 09:02:44 2024]  Iteration number: 542 with current cost as 0.12208819972288373 and parameters 
+[-3.06032714  2.08849556 -1.98973528 ... -0.93377217 -2.56679652
+ -2.09005366]. 
+[Sat Sep 14 09:03:50 2024]  Iteration number: 543 with current cost as 0.11104078899688288 and parameters 
+[-3.06263401  2.0861887  -1.99204215 ... -0.9314653  -2.56448965
+ -2.09236053]. 
+[Sat Sep 14 09:05:52 2024]  Iteration number: 544 with current cost as 0.08651525590977185 and parameters 
+[-3.07128403  2.09483871 -1.98339213 ... -0.94011531 -2.55583964
+ -2.08371052]. 
+[Sat Sep 14 09:08:17 2024]  Iteration number: 545 with current cost as 0.09526358722035473 and parameters 
+[-3.07792491  2.10147959 -1.99003301 ... -0.94675619 -2.54919876
+ -2.09035139]. 
+[Sat Sep 14 09:11:00 2024]  Iteration number: 546 with current cost as 0.11426161472348673 and parameters 
+[-3.07230872  2.10709578 -1.98441682 ... -0.95237238 -2.55481495
+ -2.08473521]. 
+[Sat Sep 14 09:12:10 2024]  Iteration number: 547 with current cost as 0.08718567245814435 and parameters 
+[-3.07074825  2.10865624 -1.98285636 ... -0.95081192 -2.55637541
+ -2.08317474]. 
+[Sat Sep 14 09:14:51 2024]  Iteration number: 548 with current cost as 0.09153940621859001 and parameters 
+[-3.0626753   2.10058329 -1.9747834  ... -0.94273896 -2.56444837
+ -2.0912477 ]. 
+[Sat Sep 14 09:17:27 2024]  Iteration number: 549 with current cost as 0.09045494569262638 and parameters 
+[-3.06394377  2.09931482 -1.97351494 ... -0.94400743 -2.5631799
+ -2.08997923]. 
+[Sat Sep 14 09:18:34 2024]  Iteration number: 550 with current cost as 0.06466329035872904 and parameters 
+[-3.05805743  2.09342849 -1.9676286  ... -0.94989376 -2.55729356
+ -2.08409289]. 
+[Sat Sep 14 09:20:03 2024]  Iteration number: 551 with current cost as 0.12223140817764513 and parameters 
+[-3.05736207  2.09412384 -1.96693325 ... -0.95058912 -2.55798892
+ -2.08478825]. 
+[Sat Sep 14 09:22:18 2024]  Iteration number: 552 with current cost as 0.06355718386377124 and parameters 
+[-3.05890187  2.09566364 -1.96847305 ... -0.94904932 -2.55952872
+ -2.08324845]. 
+[Sat Sep 14 09:24:54 2024]  Iteration number: 553 with current cost as 0.07730751245210887 and parameters 
+[-3.0675886   2.08697692 -1.97715977 ... -0.9403626  -2.56821544
+ -2.09193517]. 
+[Sat Sep 14 09:26:57 2024]  Iteration number: 554 with current cost as 0.06688157148094039 and parameters 
+[-3.06342871  2.08281703 -1.98131966 ... -0.93620271 -2.56405556
+ -2.08777529]. 
+[Sat Sep 14 09:28:38 2024]  Iteration number: 555 with current cost as 0.10297309164092341 and parameters 
+[-3.05386607  2.0732544  -1.97175702 ... -0.94576534 -2.57361819
+ -2.07821265]. 
+[Sat Sep 14 09:30:48 2024]  Iteration number: 556 with current cost as 0.06384045206255687 and parameters 
+[-3.04906007  2.06844839 -1.97656303 ... -0.94095934 -2.56881218
+ -2.08301866]. 
+[Sat Sep 14 09:33:52 2024]  Iteration number: 557 with current cost as 0.07722385329249684 and parameters 
+[-3.05232184  2.07171016 -1.97330126 ... -0.94422111 -2.56555041
+ -2.07975689]. 
+[Sat Sep 14 09:35:17 2024]  Iteration number: 558 with current cost as 0.1348775258398678 and parameters 
+[-3.05608439  2.06794761 -1.96953871 ... -0.94798366 -2.56931296
+ -2.08351944]. 
+[Sat Sep 14 09:37:11 2024]  Iteration number: 559 with current cost as 0.10491353220017052 and parameters 
+[-3.05536538  2.06866661 -1.97025771 ... -0.94870266 -2.56859396
+ -2.08423844]. 
+[Sat Sep 14 09:38:17 2024]  Iteration number: 560 with current cost as 0.06081527724890445 and parameters 
+[-3.04720623  2.06050746 -1.96209856 ... -0.95686181 -2.57675311
+ -2.0923976 ]. 
+[Sat Sep 14 09:39:45 2024]  Iteration number: 561 with current cost as 0.09165556000640437 and parameters 
+[-3.04682077  2.06089292 -1.9617131  ... -0.95647635 -2.57713857
+ -2.09201214]. 
+[Sat Sep 14 09:42:43 2024]  Iteration number: 562 with current cost as 0.0762995366615603 and parameters 
+[-3.04747243  2.06024126 -1.96236476 ... -0.95712801 -2.57779023
+ -2.0926638 ]. 
+[Sat Sep 14 09:44:34 2024]  Iteration number: 563 with current cost as 0.10147428699276491 and parameters 
+[-3.03322828  2.04599711 -1.94812061 ... -0.94288386 -2.59203438
+ -2.10690795]. 
+[Sat Sep 14 09:46:53 2024]  Iteration number: 564 with current cost as 0.10757649732680483 and parameters 
+[-3.03494533  2.04771416 -1.94640356 ... -0.94116681 -2.59031733
+ -2.1051909 ]. 
+[Sat Sep 14 09:49:41 2024]  Iteration number: 565 with current cost as 0.11454072284441383 and parameters 
+[-3.0343818   2.04715064 -1.94584003 ... -0.94173033 -2.58975381
+ -2.10462737]. 
+[Sat Sep 14 09:51:09 2024]  Iteration number: 566 with current cost as 0.06772205727204805 and parameters 
+[-3.04055844  2.05332727 -1.95201667 ... -0.94790697 -2.58357717
+ -2.11080401]. 
+[Sat Sep 14 09:52:24 2024]  Iteration number: 567 with current cost as 0.0639370216555851 and parameters 
+[-3.04408561  2.04980011 -1.9484895  ... -0.95143414 -2.58005001
+ -2.11433117]. 
+[Sat Sep 14 09:54:00 2024]  Iteration number: 568 with current cost as 0.07472586252061017 and parameters 
+[-3.04614548  2.04774023 -1.95054938 ... -0.95349401 -2.58210988
+ -2.1122713 ]. 
+[Sat Sep 14 09:55:35 2024]  Iteration number: 569 with current cost as 0.09852676641111921 and parameters 
+[-3.04586144  2.04745619 -1.95083342 ... -0.95377805 -2.58239392
+ -2.11198726]. 
+[Sat Sep 14 09:56:39 2024]  Iteration number: 570 with current cost as 0.07928463487450112 and parameters 
+[-3.04563438  2.04768325 -1.95060636 ... -0.95355099 -2.58216686
+ -2.11221432]. 
+[Sat Sep 14 09:58:01 2024]  Iteration number: 571 with current cost as 0.06501519375390531 and parameters 
+[-3.0375697   2.03961857 -1.95867104 ... -0.94548631 -2.57410218
+ -2.10414964]. 
+[Sat Sep 14 10:00:01 2024]  Iteration number: 572 with current cost as 0.10319700383171033 and parameters 
+[-3.03173414  2.04545413 -1.95283548 ... -0.93965075 -2.57993774
+ -2.1099852 ]. 
+[Sat Sep 14 10:02:29 2024]  Iteration number: 573 with current cost as 0.07580079720306204 and parameters 
+[-3.03533539  2.04905538 -1.94923423 ... -0.9360495  -2.57633649
+ -2.11358645]. 
+[Sat Sep 14 10:03:53 2024]  Iteration number: 574 with current cost as 0.07663832405819399 and parameters 
+[-3.03208948  2.0523013  -1.94598832 ... -0.93280358 -2.57309057
+ -2.11034053]. 
+[Sat Sep 14 10:05:47 2024]  Iteration number: 575 with current cost as 0.08619499259316406 and parameters 
+[-3.02749451  2.04770633 -1.94139335 ... -0.92820862 -2.57768554
+ -2.10574557]. 
+[Sat Sep 14 10:07:38 2024]  Iteration number: 576 with current cost as 0.06701869122765661 and parameters 
+[-3.02768243  2.04789425 -1.94120543 ... -0.92839654 -2.57749762
+ -2.10555765]. 
+[Sat Sep 14 10:08:40 2024]  Iteration number: 577 with current cost as 0.08623291015077612 and parameters 
+[-3.02476888  2.0449807  -1.93829188 ... -0.92548299 -2.58041117
+ -2.1084712 ]. 
+[Sat Sep 14 10:09:46 2024]  Iteration number: 578 with current cost as 0.08397828420626158 and parameters 
+[-3.03002301  2.03972658 -1.93303776 ... -0.92022886 -2.57515704
+ -2.10321707]. 
+[Sat Sep 14 10:11:23 2024]  Iteration number: 579 with current cost as 0.12963476860570106 and parameters 
+[-3.02907946  2.03878303 -1.93209421 ... -0.91928531 -2.57610059
+ -2.10227352]. 
+[Sat Sep 14 10:12:47 2024]  Iteration number: 580 with current cost as 0.08923811494093756 and parameters 
+[-3.03728775  2.04699132 -1.92388591 ... -0.91107702 -2.58430889
+ -2.11048182]. 
+[Sat Sep 14 10:15:09 2024]  Iteration number: 581 with current cost as 0.08648266603850689 and parameters 
+[-3.03883988  2.04543919 -1.92543804 ... -0.91262915 -2.58586102
+ -2.11203395]. 
+[Sat Sep 14 10:17:02 2024]  Iteration number: 582 with current cost as 0.10749762947190117 and parameters 
+[-3.03503234  2.04924673 -1.9216305  ... -0.90882161 -2.58205348
+ -2.10822641]. 
+[Sat Sep 14 10:19:24 2024]  Iteration number: 583 with current cost as 0.07830762314737572 and parameters 
+[-3.02460545  2.03881984 -1.9320574  ... -0.89839472 -2.57162658
+ -2.1186533 ]. 
+[Sat Sep 14 10:20:45 2024]  Iteration number: 584 with current cost as 0.08848187927836644 and parameters 
+[-3.0218541   2.03606849 -1.92930605 ... -0.89564337 -2.57437793
+ -2.12140465]. 
+[Sat Sep 14 10:22:21 2024]  Iteration number: 585 with current cost as 0.06606197505773156 and parameters 
+[-3.02644042  2.04065481 -1.93389237 ... -0.89105705 -2.56979161
+ -2.11681833]. 
+[Sat Sep 14 10:24:24 2024]  Iteration number: 586 with current cost as 0.05641572495392784 and parameters 
+[-3.02040475  2.04669048 -1.93992804 ... -0.89709272 -2.57582728
+ -2.11078266]. 
+[Sat Sep 14 10:27:28 2024]  Iteration number: 587 with current cost as 0.0874635201861252 and parameters 
+[-3.01616868  2.04245441 -1.94416411 ... -0.90132879 -2.57159122
+ -2.10654659]. 
+[Sat Sep 14 10:30:50 2024]  Iteration number: 588 with current cost as 0.1246778868644183 and parameters 
+[-3.00805179  2.03433752 -1.952281   ... -0.8932119  -2.57970811
+ -2.11466348]. 
+[Sat Sep 14 10:32:13 2024]  Iteration number: 589 with current cost as 0.11338269264710113 and parameters 
+[-3.00102103  2.04136828 -1.94525024 ... -0.88618114 -2.57267735
+ -2.12169424]. 
+[Sat Sep 14 10:33:32 2024]  Iteration number: 590 with current cost as 0.10123421859498222 and parameters 
+[-3.0003923   2.04199701 -1.94462151 ... -0.88555241 -2.57330607
+ -2.12232297]. 
+[Sat Sep 14 10:34:59 2024]  Iteration number: 591 with current cost as 0.058355529452298806 and parameters 
+[-2.99986286  2.04146757 -1.94515095 ... -0.88608185 -2.57383551
+ -2.12285241]. 
+[Sat Sep 14 10:36:47 2024]  Iteration number: 592 with current cost as 0.07260176561556139 and parameters 
+[-3.00335266  2.04495737 -1.94166115 ... -0.88957164 -2.57732531
+ -2.1263422 ]. 
+[Sat Sep 14 10:38:37 2024]  Iteration number: 593 with current cost as 0.06639176467246949 and parameters 
+[-3.0051048   2.04320523 -1.94341329 ... -0.89132378 -2.57557317
+ -2.12809434]. 
+[Sat Sep 14 10:40:24 2024]  Iteration number: 594 with current cost as 0.1135934781995348 and parameters 
+[-3.00131901  2.03941944 -1.94719908 ... -0.89510957 -2.57178738
+ -2.12430856]. 
+[Sat Sep 14 10:41:36 2024]  Iteration number: 595 with current cost as 0.10168711380537714 and parameters 
+[-3.00278796  2.03795049 -1.94573013 ... -0.89364062 -2.57031843
+ -2.12283961]. 
+[Sat Sep 14 10:42:58 2024]  Iteration number: 596 with current cost as 0.10182688691062092 and parameters 
+[-3.00505126  2.03568719 -1.94799343 ... -0.89137732 -2.56805513
+ -2.12057631]. 
+[Sat Sep 14 10:44:16 2024]  Iteration number: 597 with current cost as 0.09832471477734464 and parameters 
+[-3.00491996  2.03555588 -1.94786213 ... -0.89124601 -2.56818644
+ -2.120445  ]. 
+[Sat Sep 14 10:45:38 2024]  Iteration number: 598 with current cost as 0.08876529472716418 and parameters 
+[-3.00565586  2.03481998 -1.94712623 ... -0.89198191 -2.56745054
+ -2.1211809 ]. 
+[Sat Sep 14 10:47:47 2024]  Iteration number: 599 with current cost as 0.08052657007681127 and parameters 
+[-3.00452553  2.03368965 -1.9459959  ... -0.89085158 -2.56632021
+ -2.12231123]. 
+[Sat Sep 14 10:50:08 2024]  Iteration number: 600 with current cost as 0.08841624959375363 and parameters 
+[-3.00471562  2.03349956 -1.94580581 ... -0.89066149 -2.56613012
+ -2.12212114]. 
+[Sat Sep 14 10:51:44 2024]  Iteration number: 601 with current cost as 0.09005829086978356 and parameters 
+[-3.0023396   2.03112354 -1.94818183 ... -0.89303752 -2.56850614
+ -2.12449716]. 
+[Sat Sep 14 10:53:34 2024]  Iteration number: 602 with current cost as 0.0752819941059157 and parameters 
+[-3.00074821  2.02953215 -1.94977321 ... -0.89144613 -2.56691476
+ -2.12290578]. 
+[Sat Sep 14 10:54:53 2024]  Iteration number: 603 with current cost as 0.10323102790852848 and parameters 
+[-2.9985457   2.02732964 -1.95197572 ... -0.89364864 -2.56471225
+ -2.12510829]. 
+[Sat Sep 14 10:57:12 2024]  Iteration number: 604 with current cost as 0.10438789184275904 and parameters 
+[-2.99765166  2.0264356  -1.95286977 ... -0.89275459 -2.5638182
+ -2.12600234]. 
+[Sat Sep 14 10:59:37 2024]  Iteration number: 605 with current cost as 0.07654301420179507 and parameters 
+[-2.99989198  2.02419527 -1.95062944 ... -0.89499492 -2.56605853
+ -2.12824266]. 
+[Sat Sep 14 11:01:03 2024]  Iteration number: 606 with current cost as 0.08813967595573746 and parameters 
+[-3.00061234  2.02491563 -1.94990908 ... -0.89427456 -2.56533817
+ -2.12896302]. 
+[Sat Sep 14 11:02:10 2024]  Iteration number: 607 with current cost as 0.07558983809632569 and parameters 
+[-3.01132916  2.03563245 -1.93919226 ... -0.90499138 -2.55462135
+ -2.13967984]. 
+[Sat Sep 14 11:04:05 2024]  Iteration number: 608 with current cost as 0.1065563503600758 and parameters 
+[-3.01434312  2.0386464  -1.94220622 ... -0.90197742 -2.55763531
+ -2.13666588]. 
+[Sat Sep 14 11:05:18 2024]  Iteration number: 609 with current cost as 0.06355279549065619 and parameters 
+[-3.02059273  2.03239679 -1.93595661 ... -0.89572781 -2.5513857
+ -2.13041627]. 
+[Sat Sep 14 11:06:29 2024]  Iteration number: 610 with current cost as 0.057306495512733736 and parameters 
+[-3.01992666  2.03306286 -1.93662268 ... -0.89639388 -2.55205177
+ -2.13108234]. 
+[Sat Sep 14 11:08:40 2024]  Iteration number: 611 with current cost as 0.08319221304538332 and parameters 
+[-3.01956172  2.03269792 -1.93698762 ... -0.89675883 -2.55241671
+ -2.1307174 ]. 
+[Sat Sep 14 11:10:19 2024]  Iteration number: 612 with current cost as 0.07085409834042032 and parameters 
+[-3.01633713  2.02947334 -1.94021221 ... -0.89353424 -2.54919213
+ -2.13394198]. 
+[Sat Sep 14 11:12:24 2024]  Iteration number: 613 with current cost as 0.11077140662251074 and parameters 
+[-3.01259659  2.02573279 -1.93647166 ... -0.89727479 -2.55293267
+ -2.13768253]. 
+[Sat Sep 14 11:14:48 2024]  Iteration number: 614 with current cost as 0.05638965642925845 and parameters 
+[-3.01201802  2.02515422 -1.93705023 ... -0.89785336 -2.55351124
+ -2.13710396]. 
+[Sat Sep 14 11:16:21 2024]  Iteration number: 615 with current cost as 0.07000384856118842 and parameters 
+[-3.0138555   2.02331674 -1.93888772 ... -0.89601588 -2.55167376
+ -2.13526648]. 
+[Sat Sep 14 11:19:17 2024]  Iteration number: 616 with current cost as 0.10684155986384064 and parameters 
+[-3.00028269  2.03688955 -1.95246052 ... -0.90958868 -2.56524657
+ -2.12169367]. 
+[Sat Sep 14 11:20:58 2024]  Iteration number: 617 with current cost as 0.08725265037008484 and parameters 
+[-3.0011042   2.03606804 -1.95328203 ... -0.91041019 -2.56606807
+ -2.12251517]. 
+[Sat Sep 14 11:22:10 2024]  Iteration number: 618 with current cost as 0.06605160145782471 and parameters 
+[-2.99939692  2.03436077 -1.95157476 ... -0.90870292 -2.56777535
+ -2.1208079 ]. 
+[Sat Sep 14 11:25:19 2024]  Iteration number: 619 with current cost as 0.1280802703691322 and parameters 
+[-2.99336205  2.04039565 -1.95760964 ... -0.90266804 -2.56174047
+ -2.11477302]. 
+[Sat Sep 14 11:27:30 2024]  Iteration number: 620 with current cost as 0.11435215695106177 and parameters 
+[-2.98658339  2.03361699 -1.95083098 ... -0.9094467  -2.55496181
+ -2.12155168]. 
+[Sat Sep 14 11:28:35 2024]  Iteration number: 621 with current cost as 0.12760451402097658 and parameters 
+[-2.98623636  2.03396401 -1.95048395 ... -0.90909967 -2.55530883
+ -2.12189871]. 
+[Sat Sep 14 11:32:44 2024]  Iteration number: 622 with current cost as 0.09052720316896706 and parameters 
+[-2.98247412  2.03020177 -1.94672171 ... -0.90533744 -2.55907107
+ -2.12566094]. 
+[Sat Sep 14 11:34:24 2024]  Iteration number: 623 with current cost as 0.08303209797181477 and parameters 
+[-2.97707924  2.03559666 -1.9521166  ... -0.89994255 -2.55367618
+ -2.12026606]. 
+[Sat Sep 14 11:36:55 2024]  Iteration number: 624 with current cost as 0.14081205644638278 and parameters 
+[-2.97281136  2.03986454 -1.94784873 ... -0.90421042 -2.54940831
+ -2.12453393]. 
+[Sat Sep 14 11:38:52 2024]  Iteration number: 625 with current cost as 0.16533828407821843 and parameters 
+[-2.97059352  2.0376467  -1.95006657 ... -0.90642826 -2.55162615
+ -2.12231609]. 
+[Sat Sep 14 11:40:52 2024]  Iteration number: 626 with current cost as 0.11126004947747509 and parameters 
+[-2.96662353  2.03367671 -1.95403656 ... -0.90245827 -2.54765616
+ -2.12628608]. 
+[Sat Sep 14 11:43:37 2024]  Iteration number: 627 with current cost as 0.06413916047961389 and parameters 
+[-2.96833913  2.0353923  -1.95232096 ... -0.90417386 -2.54594057
+ -2.12800167]. 
+[Sat Sep 14 11:44:55 2024]  Iteration number: 628 with current cost as 0.09014472034250987 and parameters 
+[-2.97849478  2.02523664 -1.96247662 ... -0.89401821 -2.53578491
+ -2.13815733]. 
+[Sat Sep 14 11:47:16 2024]  Iteration number: 629 with current cost as 0.05672108397522163 and parameters 
+[-2.97579603  2.0279354  -1.95977787 ... -0.89131945 -2.53848367
+ -2.14085608]. 
+[Sat Sep 14 11:49:32 2024]  Iteration number: 630 with current cost as 0.06445843849601829 and parameters 
+[-2.97264814  2.02478751 -1.96292576 ... -0.88817156 -2.54163156
+ -2.14400397]. 
+[Sat Sep 14 11:52:29 2024]  Iteration number: 631 with current cost as 0.10144036281588423 and parameters 
+[-2.97336587  2.02406977 -1.96220802 ... -0.88888929 -2.54091382
+ -2.1447217 ]. 
+[Sat Sep 14 11:53:52 2024]  Iteration number: 632 with current cost as 0.058511083742566555 and parameters 
+[-2.96996388  2.02066778 -1.96561002 ... -0.89229129 -2.53751183
+ -2.1481237 ]. 
+[Sat Sep 14 11:55:14 2024]  Iteration number: 633 with current cost as 0.09111460157917163 and parameters 
+[-2.9757794   2.01485226 -1.97142554 ... -0.88647576 -2.54332736
+ -2.14230817]. 
+[Sat Sep 14 11:56:22 2024]  Iteration number: 634 with current cost as 0.11529576621595014 and parameters 
+[-2.97483717  2.01391002 -1.9704833  ... -0.88553352 -2.54238512
+ -2.14325041]. 
+[Sat Sep 14 11:57:57 2024]  Iteration number: 635 with current cost as 0.06458348582023739 and parameters 
+[-2.9773863   2.01645916 -1.97303244 ... -0.88808266 -2.54493426
+ -2.14579955]. 
+[Sat Sep 14 11:59:03 2024]  Iteration number: 636 with current cost as 0.07794690175298859 and parameters 
+[-2.98017357  2.01924642 -1.97024517 ... -0.89086993 -2.54214699
+ -2.14858681]. 
+[Sat Sep 14 12:00:50 2024]  Iteration number: 637 with current cost as 0.10052862758721864 and parameters 
+[-2.97316206  2.02625794 -1.97725669 ... -0.88385842 -2.5491585
+ -2.1415753 ]. 
+[Sat Sep 14 12:02:06 2024]  Iteration number: 638 with current cost as 0.08015642529324073 and parameters 
+[-2.97849211  2.03158799 -1.97192664 ... -0.88918846 -2.55448855
+ -2.13624525]. 
+[Sat Sep 14 12:03:41 2024]  Iteration number: 639 with current cost as 0.10305782650787684 and parameters 
+[-2.98273112  2.035827   -1.96768762 ... -0.89342748 -2.55024953
+ -2.13200623]. 
+[Sat Sep 14 12:05:00 2024]  Iteration number: 640 with current cost as 0.09546375527606776 and parameters 
+[-2.9799604   2.03859773 -1.97045834 ... -0.8961982  -2.55302026
+ -2.12923551]. 
+[Sat Sep 14 12:06:11 2024]  Iteration number: 641 with current cost as 0.08761556874299797 and parameters 
+[-2.97615901  2.03479633 -1.96665695 ... -0.89239681 -2.54921886
+ -2.12543412]. 
+[Sat Sep 14 12:09:02 2024]  Iteration number: 642 with current cost as 0.08604369886041535 and parameters 
+[-2.96319923  2.02183655 -1.97961674 ... -0.9053566  -2.56217865
+ -2.11247434]. 
+[Sat Sep 14 12:12:06 2024]  Iteration number: 643 with current cost as 0.09216830278812493 and parameters 
+[-2.96214902  2.02288675 -1.97856653 ... -0.9043064  -2.56322885
+ -2.11142413]. 
+[Sat Sep 14 12:14:03 2024]  Iteration number: 644 with current cost as 0.09958931020903664 and parameters 
+[-2.9601642   2.02487157 -1.98055136 ... -0.90629122 -2.56124403
+ -2.11340896]. 
+[Sat Sep 14 12:17:24 2024]  Iteration number: 645 with current cost as 0.08628467437854374 and parameters 
+[-2.96208976  2.02294602 -1.9786258  ... -0.90436566 -2.55931847
+ -2.11533452]. 
+[Sat Sep 14 12:19:38 2024]  Iteration number: 646 with current cost as 0.08026431223255552 and parameters 
+[-2.9613797   2.02365608 -1.97933586 ... -0.90507572 -2.56002854
+ -2.11604458]. 
+[Sat Sep 14 12:20:42 2024]  Iteration number: 647 with current cost as 0.07819379369740219 and parameters 
+[-2.96155243  2.02382882 -1.97916312 ... -0.90524846 -2.5598558
+ -2.11587184]. 
+[Sat Sep 14 12:22:16 2024]  Iteration number: 648 with current cost as 0.09472567160311139 and parameters 
+[-2.95914192  2.0214183  -1.98157364 ... -0.90283795 -2.55744528
+ -2.11828236]. 
+[Sat Sep 14 12:23:21 2024]  Iteration number: 649 with current cost as 0.09280150545415924 and parameters 
+[-2.95710403  2.02345619 -1.97953575 ... -0.90487584 -2.55540739
+ -2.12032024]. 
+[Sat Sep 14 12:24:54 2024]  Iteration number: 650 with current cost as 0.11377129099513808 and parameters 
+[-2.96145365  2.02780581 -1.98388536 ... -0.90922545 -2.55975701
+ -2.11597063]. 
+[Sat Sep 14 12:26:36 2024]  Iteration number: 651 with current cost as 0.11174957185642137 and parameters 
+[-2.96317123  2.02608822 -1.98216778 ... -0.91094304 -2.55803942
+ -2.11768822]. 
+[Sat Sep 14 12:28:50 2024]  Iteration number: 652 with current cost as 0.07340065638465222 and parameters 
+[-2.96118929  2.02807016 -1.98414972 ... -0.90896109 -2.56002136
+ -2.11570627]. 
+[Sat Sep 14 12:30:37 2024]  Iteration number: 653 with current cost as 0.06268740301612122 and parameters 
+[-2.96255868  2.02670078 -1.98278033 ... -0.91033048 -2.56139075
+ -2.11433689]. 
+[Sat Sep 14 12:32:14 2024]  Iteration number: 654 with current cost as 0.06656737786817929 and parameters 
+[-2.97259128  2.01666817 -1.97274773 ... -0.92036308 -2.57142335
+ -2.12436949]. 
+[Sat Sep 14 12:33:58 2024]  Iteration number: 655 with current cost as 0.11777593517806376 and parameters 
+[-2.97597035  2.0132891  -1.9761268  ... -0.91698401 -2.57480242
+ -2.12099042]. 
+[Sat Sep 14 12:36:41 2024]  Iteration number: 656 with current cost as 0.08086044704787249 and parameters 
+[-2.9796616   2.00959786 -1.97981805 ... -0.92067526 -2.57111118
+ -2.12468166]. 
+[Sat Sep 14 12:38:06 2024]  Iteration number: 657 with current cost as 0.07801209198839576 and parameters 
+[-2.98305107  2.01298733 -1.98320752 ... -0.91728579 -2.57450065
+ -2.12129219]. 
+[Sat Sep 14 12:39:33 2024]  Iteration number: 658 with current cost as 0.11758219862414858 and parameters 
+[-2.99154658  2.00449182 -1.99170304 ... -0.90879027 -2.58299616
+ -2.1297877 ]. 
+[Sat Sep 14 12:40:56 2024]  Iteration number: 659 with current cost as 0.10141800343698135 and parameters 
+[-2.99677392  1.99926448 -1.99693037 ... -0.9140176  -2.57776883
+ -2.13501504]. 
+[Sat Sep 14 12:42:10 2024]  Iteration number: 660 with current cost as 0.08804004679862876 and parameters 
+[-2.99331102  2.00272738 -1.99346748 ... -0.91055471 -2.58123172
+ -2.13847793]. 
+[Sat Sep 14 12:44:33 2024]  Iteration number: 661 with current cost as 0.121979398462456 and parameters 
+[-2.99622825  1.99981015 -1.99638471 ... -0.90763748 -2.57831449
+ -2.1355607 ]. 
+[Sat Sep 14 12:46:24 2024]  Iteration number: 662 with current cost as 0.07856317304296342 and parameters 
+[-3.00192362  1.99411477 -2.00208008 ... -0.91333285 -2.57261912
+ -2.14125607]. 
+[Sat Sep 14 12:50:26 2024]  Iteration number: 663 with current cost as 0.12125672553271186 and parameters 
+[-2.99741228  1.99862612 -2.00659142 ... -0.9178442  -2.57713047
+ -2.14576742]. 
+[Sat Sep 14 12:53:09 2024]  Iteration number: 664 with current cost as 0.08488427216804333 and parameters 
+[-2.99000909  2.00602931 -1.99918824 ... -0.92524739 -2.58453365
+ -2.15317061]. 
+[Sat Sep 14 12:55:58 2024]  Iteration number: 665 with current cost as 0.08996721817377729 and parameters 
+[-2.98786455  2.00817385 -2.00133278 ... -0.92310285 -2.58667819
+ -2.15102607]. 
+[Sat Sep 14 12:58:06 2024]  Iteration number: 666 with current cost as 0.12045803264469525 and parameters 
+[-2.99539452  2.01570382 -2.00886275 ... -0.91557288 -2.57914822
+ -2.15855604]. 
+[Sat Sep 14 13:02:07 2024]  Iteration number: 667 with current cost as 0.11390829311347637 and parameters 
+[-2.98691269  2.02418565 -2.01734458 ... -0.90709104 -2.58763006
+ -2.16703787]. 
+[Sat Sep 14 13:03:30 2024]  Iteration number: 668 with current cost as 0.12484763825308251 and parameters 
+[-2.98355897  2.02083193 -2.0206983  ... -0.90373732 -2.59098378
+ -2.16368415]. 
+[Sat Sep 14 13:05:58 2024]  Iteration number: 669 with current cost as 0.11120130402636909 and parameters 
+[-2.97616777  2.02822313 -2.0133071  ... -0.89634613 -2.59837497
+ -2.15629295]. 
+[Sat Sep 14 13:07:33 2024]  Iteration number: 670 with current cost as 0.12182607215978986 and parameters 
+[-2.97512529  2.02718065 -2.01226462 ... -0.8973886  -2.59941745
+ -2.15733543]. 
+[Sat Sep 14 13:09:21 2024]  Iteration number: 671 with current cost as 0.09319134892709441 and parameters 
+[-2.97709084  2.0291462  -2.01029908 ... -0.89542306 -2.601383
+ -2.15930097]. 
+[Sat Sep 14 13:11:55 2024]  Iteration number: 672 with current cost as 0.06956428743855382 and parameters 
+[-2.9774719   2.02952726 -2.00991801 ... -0.89580412 -2.60176406
+ -2.15968204]. 
+[Sat Sep 14 13:14:11 2024]  Iteration number: 673 with current cost as 0.1399515050759278 and parameters 
+[-2.98557734  2.0376327  -2.00181258 ... -0.90390956 -2.6098695
+ -2.16778747]. 
+[Sat Sep 14 13:17:16 2024]  Iteration number: 674 with current cost as 0.0805583909979679 and parameters 
+[-2.99314855  2.03006149 -1.99424137 ... -0.89633835 -2.60229828
+ -2.17535869]. 
+[Sat Sep 14 13:18:47 2024]  Iteration number: 675 with current cost as 0.08958253954537969 and parameters 
+[-2.99123397  2.02814691 -1.99232679 ... -0.89825293 -2.60421286
+ -2.17727327]. 
+[Sat Sep 14 13:21:57 2024]  Iteration number: 676 with current cost as 0.06995312938018088 and parameters 
+[-3.00186475  2.01751612 -1.981696   ... -0.88762214 -2.61484365
+ -2.18790405]. 
+[Sat Sep 14 13:24:04 2024]  Iteration number: 677 with current cost as 0.053171722071979025 and parameters 
+[-2.99965014  2.01973074 -1.97948139 ... -0.88983676 -2.61262903
+ -2.19011867]. 
+[Sat Sep 14 13:25:21 2024]  Iteration number: 678 with current cost as 0.05210187986935481 and parameters 
+[-2.99433125  2.01441186 -1.9741625  ... -0.89515564 -2.61794791
+ -2.18479978]. 
+[Sat Sep 14 13:26:35 2024]  Iteration number: 679 with current cost as 0.09265500582897018 and parameters 
+[-2.99545012  2.01553073 -1.97528137 ... -0.89403677 -2.61682904
+ -2.18368091]. 
+[Sat Sep 14 13:29:04 2024]  Iteration number: 680 with current cost as 0.1338141079159047 and parameters 
+[-2.99840467  2.01257618 -1.97823592 ... -0.89108223 -2.6138745
+ -2.18072637]. 
+[Sat Sep 14 13:31:52 2024]  Iteration number: 681 with current cost as 0.10379422136403732 and parameters 
+[-3.00343808  2.00754277 -1.98326933 ... -0.88604882 -2.61890791
+ -2.18575978]. 
+[Sat Sep 14 13:33:10 2024]  Iteration number: 682 with current cost as 0.10407870040740036 and parameters 
+[-3.00374754  2.00723331 -1.98295986 ... -0.88573935 -2.61921737
+ -2.18606924]. 
+[Sat Sep 14 13:35:06 2024]  Iteration number: 683 with current cost as 0.11657170638952345 and parameters 
+[-3.00527516  2.00570568 -1.98448748 ... -0.88421173 -2.620745
+ -2.18454162]. 
+[Sat Sep 14 13:38:17 2024]  Iteration number: 684 with current cost as 0.08925833420175688 and parameters 
+[-3.00714441  2.00383643 -1.98261823 ... -0.88234248 -2.61887575
+ -2.18641087]. 
+[Sat Sep 14 13:39:23 2024]  Iteration number: 685 with current cost as 0.09744781336882141 and parameters 
+[-2.99994804  1.99664006 -1.98981461 ... -0.88953886 -2.62607212
+ -2.1792145 ]. 
+[Sat Sep 14 13:41:04 2024]  Iteration number: 686 with current cost as 0.08235378573374019 and parameters 
+[-2.99511816  2.00146994 -1.98498473 ... -0.89436874 -2.630902
+ -2.18404437]. 
+[Sat Sep 14 13:44:47 2024]  Iteration number: 687 with current cost as 0.06022556105108068 and parameters 
+[-2.99547215  2.00182393 -1.98463074 ... -0.89401475 -2.63125599
+ -2.18369038]. 
+[Sat Sep 14 13:46:24 2024]  Iteration number: 688 with current cost as 0.07059651732331679 and parameters 
+[-3.00042444  2.00677621 -1.97967845 ... -0.88906246 -2.63620828
+ -2.18864267]. 
+[Sat Sep 14 13:49:09 2024]  Iteration number: 689 with current cost as 0.08954542191390961 and parameters 
+[-2.9930417   2.01415895 -1.97229572 ... -0.8964452  -2.64359101
+ -2.18125994]. 
+[Sat Sep 14 13:51:03 2024]  Iteration number: 690 with current cost as 0.08128063040516001 and parameters 
+[-3.00073175  2.021849   -1.97998577 ... -0.90413525 -2.65128106
+ -2.18894999]. 
+[Sat Sep 14 13:54:00 2024]  Iteration number: 691 with current cost as 0.07135013471791549 and parameters 
+[-3.00343744  2.02455469 -1.98269146 ... -0.90684093 -2.64857538
+ -2.1862443 ]. 
+[Sat Sep 14 13:56:51 2024]  Iteration number: 692 with current cost as 0.08097612705995838 and parameters 
+[-3.00367156  2.02478881 -1.98292558 ... -0.90707506 -2.64834125
+ -2.18647843]. 
+[Sat Sep 14 13:59:03 2024]  Iteration number: 693 with current cost as 0.10155908275488783 and parameters 
+[-3.00552832  2.02664557 -1.98478234 ... -0.9052183  -2.64648449
+ -2.18833519]. 
+[Sat Sep 14 14:02:30 2024]  Iteration number: 694 with current cost as 0.09468989742569463 and parameters 
+[-3.00200094  2.03017296 -1.98125495 ... -0.90169091 -2.65001188
+ -2.1848078 ]. 
+[Sat Sep 14 14:05:22 2024]  Iteration number: 695 with current cost as 0.07931034552413725 and parameters 
+[-3.00365208  2.02852181 -1.9829061  ... -0.90003976 -2.65166303
+ -2.18315665]. 
+[Sat Sep 14 14:07:03 2024]  Iteration number: 696 with current cost as 0.07590260820421643 and parameters 
+[-3.00448478  2.02935451 -1.98207341 ... -0.90087246 -2.65249572
+ -2.18398935]. 
+[Sat Sep 14 14:09:37 2024]  Iteration number: 697 with current cost as 0.13394820534367002 and parameters 
+[-2.99873798  2.0351013  -1.97632661 ... -0.90661926 -2.65824252
+ -2.18973615]. 
+[Sat Sep 14 14:11:14 2024]  Iteration number: 698 with current cost as 0.06843344604614052 and parameters 
+[-2.98961768  2.0442216  -1.96720631 ... -0.91573955 -2.64912222
+ -2.18061585]. 
+[Sat Sep 14 14:12:50 2024]  Iteration number: 699 with current cost as 0.0959173186742454 and parameters 
+[-2.99686143  2.03697786 -1.95996257 ... -0.90849581 -2.65636596
+ -2.17337211]. 
+[Sat Sep 14 14:15:15 2024]  Iteration number: 700 with current cost as 0.06328188575955529 and parameters 
+[-2.98974706  2.02986349 -1.96707694 ... -0.90138144 -2.6492516
+ -2.18048648]. 
+[Sat Sep 14 14:16:23 2024]  Iteration number: 701 with current cost as 0.08508130521001504 and parameters 
+[-2.9972374   2.03735383 -1.97456728 ... -0.8938911  -2.64176125
+ -2.17299613]. 
+[Sat Sep 14 14:18:06 2024]  Iteration number: 702 with current cost as 0.08063144666367228 and parameters 
+[-3.00324278  2.04335921 -1.98057266 ... -0.88788572 -2.64776663
+ -2.16699076]. 
+[Sat Sep 14 14:21:39 2024]  Iteration number: 703 with current cost as 0.07762288349919323 and parameters 
+[-2.99747944  2.03759588 -1.98633599 ... -0.88212239 -2.65352996
+ -2.16122742]. 
+[Sat Sep 14 14:25:58 2024]  Iteration number: 704 with current cost as 0.06801579714386864 and parameters 
+[-2.99352636  2.04154896 -1.98238291 ... -0.88607547 -2.65748305
+ -2.16518051]. 
+[Sat Sep 14 14:28:50 2024]  Iteration number: 705 with current cost as 0.09329915139817996 and parameters 
+[-2.99741747  2.03765785 -1.98627402 ... -0.88996659 -2.65359194
+ -2.16907162]. 
+[Sat Sep 14 14:31:47 2024]  Iteration number: 706 with current cost as 0.1483738657681969 and parameters 
+[-2.99630801  2.03654839 -1.98738348 ... -0.89107604 -2.65248248
+ -2.17018108]. 
+[Sat Sep 14 14:33:50 2024]  Iteration number: 707 with current cost as 0.10058858964644916 and parameters 
+[-2.99006941  2.03030979 -1.98114488 ... -0.88483744 -2.65872108
+ -2.16394248]. 
+[Sat Sep 14 14:36:38 2024]  Iteration number: 708 with current cost as 0.11590761883402886 and parameters 
+[-2.98052591  2.03985329 -1.99068838 ... -0.87529394 -2.66826458
+ -2.15439897]. 
+[Sat Sep 14 14:39:00 2024]  Iteration number: 709 with current cost as 0.09710549102446464 and parameters 
+[-2.97308445  2.04729475 -1.98324692 ... -0.86785248 -2.67570604
+ -2.14695751]. 
+[Sat Sep 14 14:40:47 2024]  Iteration number: 710 with current cost as 0.0815981258896684 and parameters 
+[-2.98398469  2.03639451 -1.97234667 ... -0.85695223 -2.6648058
+ -2.13605726]. 
+[Sat Sep 14 14:42:41 2024]  Iteration number: 711 with current cost as 0.16014726660372547 and parameters 
+[-2.98306051  2.03547033 -1.97327085 ... -0.85787641 -2.66572997
+ -2.13513309]. 
+[Sat Sep 14 14:45:06 2024]  Iteration number: 712 with current cost as 0.09752058683216638 and parameters 
+[-2.99192838  2.0443382  -1.96440298 ... -0.86674428 -2.65686211
+ -2.14400095]. 
+[Sat Sep 14 14:47:18 2024]  Iteration number: 713 with current cost as 0.14237264556759513 and parameters 
+[-2.99576928  2.0404973  -1.96056208 ... -0.86290338 -2.66070301
+ -2.14016005]. 
+[Sat Sep 14 14:50:55 2024]  Iteration number: 714 with current cost as 0.08181815999861881 and parameters 
+[-2.98716728  2.0490993  -1.96916409 ... -0.85430138 -2.652101
+ -2.13155805]. 
+[Sat Sep 14 14:52:48 2024]  Iteration number: 715 with current cost as 0.07293692306119483 and parameters 
+[-2.98265341  2.05361317 -1.97367795 ... -0.84978751 -2.65661487
+ -2.13607192]. 
+[Sat Sep 14 14:55:10 2024]  Iteration number: 716 with current cost as 0.10646012731498863 and parameters 
+[-2.9908316   2.06179135 -1.96549977 ... -0.84160933 -2.66479306
+ -2.12789373]. 
+[Sat Sep 14 14:56:47 2024]  Iteration number: 717 with current cost as 0.048219496156789984 and parameters 
+[-2.99074311  2.06170286 -1.96558826 ... -0.84169782 -2.66488155
+ -2.12780524]. 
+[Sat Sep 14 14:58:39 2024]  Iteration number: 718 with current cost as 0.07413570650124007 and parameters 
+[-2.99412609  2.05831987 -1.96220527 ... -0.8450808  -2.66149856
+ -2.13118823]. 
+[Sat Sep 14 15:01:00 2024]  Iteration number: 719 with current cost as 0.10035896360977586 and parameters 
+[-2.99841368  2.05403229 -1.95791768 ... -0.84079322 -2.65721097
+ -2.12690065]. 
+[Sat Sep 14 15:02:55 2024]  Iteration number: 720 with current cost as 0.09752936113229302 and parameters 
+[-2.99123167  2.04685028 -1.95073567 ... -0.84797523 -2.65002896
+ -2.13408266]. 
+[Sat Sep 14 15:07:03 2024]  Iteration number: 721 with current cost as 0.07891628230772765 and parameters 
+[-2.9938675   2.04421445 -1.94809984 ... -0.85061106 -2.64739313
+ -2.13144683]. 
+[Sat Sep 14 15:08:49 2024]  Iteration number: 722 with current cost as 0.1027124496290725 and parameters 
+[-2.9940543   2.04402764 -1.94791304 ... -0.85079786 -2.64720633
+ -2.13126003]. 
+[Sat Sep 14 15:11:56 2024]  Iteration number: 723 with current cost as 0.0995211286343691 and parameters 
+[-2.99225235  2.0458296  -1.94971499 ... -0.85259982 -2.64540437
+ -2.12945807]. 
+[Sat Sep 14 15:14:52 2024]  Iteration number: 724 with current cost as 0.10447850486781801 and parameters 
+[-3.00089441  2.03718754 -1.94107293 ... -0.84395776 -2.65404643
+ -2.12081601]. 
+[Sat Sep 14 15:18:36 2024]  Iteration number: 725 with current cost as 0.07945678943299865 and parameters 
+[-3.00050752  2.03757443 -1.94068605 ... -0.84434465 -2.65365954
+ -2.12042913]. 
+[Sat Sep 14 15:21:20 2024]  Iteration number: 726 with current cost as 0.11111030076964755 and parameters 
+[-3.00041421  2.03766774 -1.94059274 ... -0.84425134 -2.65356623
+ -2.12033582]. 
+[Sat Sep 14 15:22:53 2024]  Iteration number: 727 with current cost as 0.10929868129660028 and parameters 
+[-3.00413709  2.04139062 -1.93686986 ... -0.84797422 -2.64984335
+ -2.11661294]. 
+[Sat Sep 14 15:25:38 2024]  Iteration number: 728 with current cost as 0.05257973792265674 and parameters 
+[-3.00172697  2.0389805  -1.93927997 ... -0.85038433 -2.64743324
+ -2.11902305]. 
+[Sat Sep 14 15:27:04 2024]  Iteration number: 729 with current cost as 0.0693857094574573 and parameters 
+[-3.00544369  2.04269722 -1.93556325 ... -0.84666761 -2.65114996
+ -2.11530633]. 
+[Sat Sep 14 15:28:56 2024]  Iteration number: 730 with current cost as 0.0864484893631198 and parameters 
+[-2.99890618  2.03615971 -1.94210076 ... -0.8401301  -2.64461245
+ -2.12184384]. 
+[Sat Sep 14 15:31:11 2024]  Iteration number: 731 with current cost as 0.07656556067733122 and parameters 
+[-2.99608389  2.03898199 -1.94492305 ... -0.83730781 -2.64743473
+ -2.12466613]. 
+[Sat Sep 14 15:32:51 2024]  Iteration number: 732 with current cost as 0.0957574595003846 and parameters 
+[-2.9909376   2.0338357  -1.93977675 ... -0.84245411 -2.64228844
+ -2.12981242]. 
+[Sat Sep 14 15:34:00 2024]  Iteration number: 733 with current cost as 0.07977008639376673 and parameters 
+[-2.99256702  2.03220627 -1.93814733 ... -0.84408353 -2.64391786
+ -2.128183  ]. 
+[Sat Sep 14 15:36:04 2024]  Iteration number: 734 with current cost as 0.07103093009805948 and parameters 
+[-3.00132536  2.02344794 -1.94690567 ... -0.8353252  -2.6526762
+ -2.13694134]. 
+[Sat Sep 14 15:37:36 2024]  Iteration number: 735 with current cost as 0.06715696557432721 and parameters 
+[-3.00397092  2.0260935  -1.94955123 ... -0.83797076 -2.65532176
+ -2.13429578]. 
+[Sat Sep 14 15:40:13 2024]  Iteration number: 736 with current cost as 0.05160924839666422 and parameters 
+[-3.0038393   2.02622512 -1.94968286 ... -0.83783913 -2.65519013
+ -2.13416415]. 
+[Sat Sep 14 15:42:22 2024]  Iteration number: 737 with current cost as 0.08803840598039853 and parameters 
+[-2.99584991  2.03421451 -1.94169347 ... -0.82984975 -2.66317952
+ -2.14215354]. 
+[Sat Sep 14 15:43:38 2024]  Iteration number: 738 with current cost as 0.06750071571363783 and parameters 
+[-3.00234535  2.04070994 -1.93519804 ... -0.82335431 -2.66967495
+ -2.1356581 ]. 
+[Sat Sep 14 15:46:01 2024]  Iteration number: 739 with current cost as 0.08635049469175012 and parameters 
+[-3.00642696  2.03662833 -1.93111643 ... -0.8192727  -2.67375656
+ -2.13973971]. 
+[Sat Sep 14 15:47:24 2024]  Iteration number: 740 with current cost as 0.0717495842662865 and parameters 
+[-3.01055638  2.03249891 -1.93524585 ... -0.82340212 -2.66962714
+ -2.14386913]. 
+[Sat Sep 14 15:50:34 2024]  Iteration number: 741 with current cost as 0.06847240087914096 and parameters 
+[-3.01792278  2.02513251 -1.94261225 ... -0.83076852 -2.66226074
+ -2.15123553]. 
+[Sat Sep 14 15:52:21 2024]  Iteration number: 742 with current cost as 0.08374368737101157 and parameters 
+[-3.01994416  2.02311112 -1.94059086 ... -0.82874713 -2.66023935
+ -2.14921414]. 
+[Sat Sep 14 15:54:15 2024]  Iteration number: 743 with current cost as 0.0988951110657615 and parameters 
+[-3.02783554  2.0310025  -1.93269949 ... -0.83663851 -2.66813073
+ -2.14132277]. 
+[Sat Sep 14 15:57:42 2024]  Iteration number: 744 with current cost as 0.10080256514383712 and parameters 
+[-3.02807941  2.03124637 -1.93294336 ... -0.83688238 -2.6683746
+ -2.14156665]. 
+[Sat Sep 14 15:59:36 2024]  Iteration number: 745 with current cost as 0.12307560347438895 and parameters 
+[-3.02564885  2.02881581 -1.9305128  ... -0.83931294 -2.66594404
+ -2.13913609]. 
+[Sat Sep 14 16:03:50 2024]  Iteration number: 746 with current cost as 0.13335290439750716 and parameters 
+[-3.02610421  2.02927117 -1.93005744 ... -0.83885758 -2.66548868
+ -2.13868073]. 
+[Sat Sep 14 16:05:33 2024]  Iteration number: 747 with current cost as 0.0908724642795102 and parameters 
+[-3.0151145   2.01828146 -1.91906773 ... -0.84984729 -2.6764784
+ -2.12769101]. 
+[Sat Sep 14 16:09:15 2024]  Iteration number: 748 with current cost as 0.11494866826235813 and parameters 
+[-3.0172829   2.02044986 -1.91689933 ... -0.85201569 -2.67430999
+ -2.12552261]. 
+[Sat Sep 14 16:10:48 2024]  Iteration number: 749 with current cost as 0.10325032012693029 and parameters 
+[-3.020234    2.02340096 -1.91985043 ... -0.85496679 -2.67726109
+ -2.12257151]. 
+[Sat Sep 14 16:12:22 2024]  Iteration number: 750 with current cost as 0.09393032474357356 and parameters 
+[-3.01885418  2.02478078 -1.92123025 ... -0.85634661 -2.67588128
+ -2.1211917 ]. 
+[Sat Sep 14 16:15:01 2024]  Iteration number: 751 with current cost as 0.11145101583517894 and parameters 
+[-3.01621054  2.02742442 -1.9185866  ... -0.85370297 -2.67323763
+ -2.11854805]. 
+[Sat Sep 14 16:18:01 2024]  Iteration number: 752 with current cost as 0.07911005225565824 and parameters 
+[-3.01477535  2.02598923 -1.9200218  ... -0.85226778 -2.67180244
+ -2.11998325]. 
+[Sat Sep 14 16:19:54 2024]  Iteration number: 753 with current cost as 0.11226045343585611 and parameters 
+[-3.01056257  2.02177645 -1.92423457 ... -0.85648055 -2.67601522
+ -2.12419602]. 
+[Sat Sep 14 16:22:16 2024]  Iteration number: 754 with current cost as 0.1387911562430036 and parameters 
+[-3.01072918  2.02160985 -1.92406797 ... -0.85664716 -2.67618182
+ -2.12436263]. 
+[Sat Sep 14 16:25:09 2024]  Iteration number: 755 with current cost as 0.08544495194428176 and parameters 
+[-3.01014817  2.02219085 -1.92464898 ... -0.85606615 -2.67560081
+ -2.12494363]. 
+[Sat Sep 14 16:26:56 2024]  Iteration number: 756 with current cost as 0.11134836596992496 and parameters 
+[-3.01041704  2.02192199 -1.92491784 ... -0.85579728 -2.67533195
+ -2.12467476]. 
+[Sat Sep 14 16:28:39 2024]  Iteration number: 757 with current cost as 0.1442395038747125 and parameters 
+[-3.00540159  2.01690654 -1.92993329 ... -0.85078183 -2.6803474
+ -2.11965931]. 
+[Sat Sep 14 16:30:22 2024]  Iteration number: 758 with current cost as 0.0954609108462882 and parameters 
+[-3.01038365  2.0218886  -1.93491535 ... -0.84579977 -2.67536534
+ -2.12464137]. 
+[Sat Sep 14 16:32:21 2024]  Iteration number: 759 with current cost as 0.12319564631753371 and parameters 
+[-3.00584965  2.02642259 -1.93944935 ... -0.85033377 -2.67083134
+ -2.12917537]. 
+[Sat Sep 14 16:34:39 2024]  Iteration number: 760 with current cost as 0.10937031890795501 and parameters 
+[-3.00953141  2.02274083 -1.93576759 ... -0.85401553 -2.66714958
+ -2.12549361]. 
+[Sat Sep 14 16:37:21 2024]  Iteration number: 761 with current cost as 0.10004032783810894 and parameters 
+[-3.00879845  2.02347379 -1.93650055 ... -0.85328257 -2.66788254
+ -2.12622657]. 
+[Sat Sep 14 16:39:40 2024]  Iteration number: 762 with current cost as 0.0808115930265431 and parameters 
+[-3.00582394  2.0264483  -1.93947506 ... -0.85625708 -2.67085705
+ -2.12325206]. 
+[Sat Sep 14 16:40:53 2024]  Iteration number: 763 with current cost as 0.15761597141259936 and parameters 
+[-3.00859715  2.02922151 -1.94224827 ... -0.85903029 -2.67363026
+ -2.12602527]. 
+[Sat Sep 14 16:43:37 2024]  Iteration number: 764 with current cost as 0.14389723709077865 and parameters 
+[-3.0121316   2.02568706 -1.94578272 ... -0.86256474 -2.67009581
+ -2.12955972]. 
+[Sat Sep 14 16:45:15 2024]  Iteration number: 765 with current cost as 0.0794149145940563 and parameters 
+[-3.00910852  2.02266398 -1.94275963 ... -0.86558782 -2.67311889
+ -2.12653664]. 
+[Sat Sep 14 16:47:36 2024]  Iteration number: 766 with current cost as 0.0866592320950026 and parameters 
+[-3.00496316  2.02680933 -1.93861428 ... -0.86973318 -2.66897354
+ -2.13068199]. 
+[Sat Sep 14 16:49:21 2024]  Iteration number: 767 with current cost as 0.12162406418443142 and parameters 
+[-3.00845674  2.02331576 -1.94210785 ... -0.8662396  -2.67246711
+ -2.12718842]. 
+[Sat Sep 14 16:50:41 2024]  Iteration number: 768 with current cost as 0.08005888568193606 and parameters 
+[-3.00800645  2.02286547 -1.94165756 ... -0.86668989 -2.67201682
+ -2.12673813]. 
+[Sat Sep 14 16:51:58 2024]  Iteration number: 769 with current cost as 0.0925263587013232 and parameters 
+[-3.00751812  2.02237714 -1.94116924 ... -0.86717821 -2.67250515
+ -2.12722646]. 
+[Sat Sep 14 16:53:46 2024]  Iteration number: 770 with current cost as 0.09514770536346134 and parameters 
+[-3.0049065   2.02498876 -1.93855762 ... -0.86978983 -2.66989353
+ -2.12461484]. 
+[Sat Sep 14 16:55:21 2024]  Iteration number: 771 with current cost as 0.11615315830222064 and parameters 
+[-3.01201201  2.01788325 -1.9314521  ... -0.87689535 -2.67699904
+ -2.13172035]. 
+[Sat Sep 14 16:57:06 2024]  Iteration number: 772 with current cost as 0.09992964696036669 and parameters 
+[-3.0152042   2.02107543 -1.92825992 ... -0.87370317 -2.68019122
+ -2.12852817]. 
+[Sat Sep 14 16:58:21 2024]  Iteration number: 773 with current cost as 0.13395569530425297 and parameters 
+[-3.02010967  2.01616995 -1.92335444 ... -0.86879769 -2.6850967
+ -2.12362269]. 
+[Sat Sep 14 17:00:47 2024]  Iteration number: 774 with current cost as 0.10219522073753698 and parameters 
+[-3.01318669  2.02309293 -1.93027743 ... -0.86187471 -2.69201969
+ -2.13054567]. 
+[Sat Sep 14 17:02:52 2024]  Iteration number: 775 with current cost as 0.08758316136518454 and parameters 
+[-3.01526796  2.0251742  -1.92819616 ... -0.85979344 -2.69410095
+ -2.1284644 ]. 
+[Sat Sep 14 17:04:07 2024]  Iteration number: 776 with current cost as 0.09451259043363638 and parameters 
+[-3.0134973   2.02694486 -1.92996682 ... -0.85802277 -2.69587162
+ -2.12669374]. 
+[Sat Sep 14 17:05:40 2024]  Iteration number: 777 with current cost as 0.11639152279718795 and parameters 
+[-3.00881613  2.03162603 -1.93464799 ... -0.8533416  -2.69119045
+ -2.13137491]. 
+[Sat Sep 14 17:08:37 2024]  Iteration number: 778 with current cost as 0.112328244112189 and parameters 
+[-3.01596773  2.02447443 -1.9417996  ... -0.84619    -2.68403884
+ -2.13852652]. 
+[Sat Sep 14 17:11:42 2024]  Iteration number: 779 with current cost as 0.047417655185502075 and parameters 
+[-3.00980495  2.01831164 -1.94796238 ... -0.84002721 -2.69020163
+ -2.13236373]. 
+[Sat Sep 14 17:13:35 2024]  Iteration number: 780 with current cost as 0.0908215139658989 and parameters 
+[-2.99949843  2.02861815 -1.9582689  ... -0.85033372 -2.67989511
+ -2.14267024]. 
+[Sat Sep 14 17:15:05 2024]  Iteration number: 781 with current cost as 0.09695247333673154 and parameters 
+[-2.99943699  2.02855671 -1.95820745 ... -0.85027228 -2.67995656
+ -2.1426088 ]. 
+[Sat Sep 14 17:17:15 2024]  Iteration number: 782 with current cost as 0.1509248286604057 and parameters 
+[-3.00021954  2.02777416 -1.95742491 ... -0.84948973 -2.68073911
+ -2.14182625]. 
+[Sat Sep 14 17:18:51 2024]  Iteration number: 783 with current cost as 0.10641335161547325 and parameters 
+[-2.99620823  2.02376285 -1.9534136  ... -0.85350104 -2.68475041
+ -2.14583756]. 
+[Sat Sep 14 17:20:46 2024]  Iteration number: 784 with current cost as 0.08976999953463699 and parameters 
+[-2.99657743  2.02413206 -1.95304439 ... -0.85387025 -2.68511962
+ -2.14546836]. 
+[Sat Sep 14 17:22:45 2024]  Iteration number: 785 with current cost as 0.057878945796000156 and parameters 
+[-2.99472605  2.02598343 -1.95119302 ... -0.85201887 -2.68326824
+ -2.14731973]. 
+[Sat Sep 14 17:24:24 2024]  Iteration number: 786 with current cost as 0.16357335497184317 and parameters 
+[-2.99606844  2.02464105 -1.9525354  ... -0.85067649 -2.68461063
+ -2.14597735]. 
+[Sat Sep 14 17:26:23 2024]  Iteration number: 787 with current cost as 0.06743836525848712 and parameters 
+[-2.99892286  2.02178662 -1.94968098 ... -0.84782206 -2.68746505
+ -2.14883178]. 
+[Sat Sep 14 17:27:56 2024]  Iteration number: 788 with current cost as 0.08245840448977151 and parameters 
+[-2.99632606  2.01918981 -1.94708417 ... -0.85041887 -2.68486824
+ -2.15142858]. 
+[Sat Sep 14 17:30:28 2024]  Iteration number: 789 with current cost as 0.06907511320753801 and parameters 
+[-3.00326768  2.01224819 -1.94014255 ... -0.85736049 -2.67792663
+ -2.14448696]. 
+[Sat Sep 14 17:32:19 2024]  Iteration number: 790 with current cost as 0.12504910134764047 and parameters 
+[-2.99662698  2.01888889 -1.93350185 ... -0.86400118 -2.68456732
+ -2.13784627]. 
+[Sat Sep 14 17:33:59 2024]  Iteration number: 791 with current cost as 0.08674625246226586 and parameters 
+[-2.99991925  2.02218116 -1.93679412 ... -0.86070892 -2.68785959
+ -2.14113854]. 
+[Sat Sep 14 17:36:00 2024]  Iteration number: 792 with current cost as 0.1608975913251195 and parameters 
+[-3.00370378  2.02596569 -1.93300959 ... -0.85692439 -2.68407506
+ -2.13735401]. 
+[Sat Sep 14 17:37:08 2024]  Iteration number: 793 with current cost as 0.10809461070177387 and parameters 
+[-2.99783419  2.0200961  -1.93887918 ... -0.86279397 -2.68994464
+ -2.14322359]. 
+[Sat Sep 14 17:40:07 2024]  Iteration number: 794 with current cost as 0.0857933746944328 and parameters 
+[-3.00084246  2.01708784 -1.94188744 ... -0.86580223 -2.68693638
+ -2.14021533]. 
+[Sat Sep 14 17:42:19 2024]  Iteration number: 795 with current cost as 0.1743398635487497 and parameters 
+[-3.00654402  2.02278941 -1.93618587 ... -0.86010067 -2.69263795
+ -2.13451376]. 
+[Sat Sep 14 17:44:09 2024]  Iteration number: 796 with current cost as 0.06614639659894625 and parameters 
+[-3.00444367  2.02488976 -1.93408552 ... -0.86220102 -2.6905376
+ -2.13241341]. 
+[Sat Sep 14 17:46:50 2024]  Iteration number: 797 with current cost as 0.14533838397789098 and parameters 
+[-3.00992129  2.01941214 -1.93956314 ... -0.86767864 -2.69601522
+ -2.13789103]. 
+[Sat Sep 14 17:50:38 2024]  Iteration number: 798 with current cost as 0.0806979190151348 and parameters 
+[-3.0019315   2.01142235 -1.93157335 ... -0.85968885 -2.70400501
+ -2.12990124]. 
+[Sat Sep 14 17:53:14 2024]  Iteration number: 799 with current cost as 0.060530193548813144 and parameters 
+[-2.99839739  2.01495646 -1.93510746 ... -0.85615474 -2.70753912
+ -2.12636713]. 
+[Sat Sep 14 17:54:50 2024]  Iteration number: 800 with current cost as 0.13305040563399623 and parameters 
+[-3.00505113  2.00830273 -1.94176119 ... -0.86280847 -2.70088538
+ -2.13302086]. 
+[Sat Sep 14 17:57:24 2024]  Iteration number: 801 with current cost as 0.07904209321443362 and parameters 
+[-3.00219684  2.01115701 -1.93890691 ... -0.86566276 -2.6980311
+ -2.13016658]. 
+[Sat Sep 14 17:59:29 2024]  Iteration number: 802 with current cost as 0.09718374740536904 and parameters 
+[-2.99676741  2.00572758 -1.93347748 ... -0.87109218 -2.70346053
+ -2.135596  ]. 
+[Sat Sep 14 18:01:17 2024]  Iteration number: 803 with current cost as 0.09228093696361689 and parameters 
+[-3.00297199  1.99952301 -1.9272729  ... -0.86488761 -2.69725595
+ -2.12939143]. 
+[Sat Sep 14 18:03:33 2024]  Iteration number: 804 with current cost as 0.11838941090800575 and parameters 
+[-3.00390973  2.00046075 -1.92821064 ... -0.86582535 -2.69631821
+ -2.13032917]. 
+[Sat Sep 14 18:05:03 2024]  Iteration number: 805 with current cost as 0.07569761292279331 and parameters 
+[-3.00504925  1.99932123 -1.92935016 ... -0.86696486 -2.6951787
+ -2.13146868]. 
+[Sat Sep 14 18:06:49 2024]  Iteration number: 806 with current cost as 0.11269320975728189 and parameters 
+[-3.00708436  2.00135635 -1.93138527 ... -0.86492975 -2.69721381
+ -2.1335038 ]. 
+[Sat Sep 14 18:09:45 2024]  Iteration number: 807 with current cost as 0.1005163940841102 and parameters 
+[-3.01566242  1.99277829 -1.92280722 ... -0.8735078  -2.68863576
+ -2.14208186]. 
+[Sat Sep 14 18:12:51 2024]  Iteration number: 808 with current cost as 0.05813276799191595 and parameters 
+[-3.01124399  1.98835986 -1.91838879 ... -0.86908937 -2.69305419
+ -2.13766343]. 
+[Sat Sep 14 18:16:14 2024]  Iteration number: 809 with current cost as 0.12375641261895402 and parameters 
+[-3.01804048  1.98156337 -1.92518528 ... -0.86229288 -2.69985068
+ -2.13086693]. 
+[Sat Sep 14 18:18:21 2024]  Iteration number: 810 with current cost as 0.08275567024816283 and parameters 
+[-3.02287157  1.98639446 -1.92035419 ... -0.85746179 -2.70468177
+ -2.13569803]. 
+[Sat Sep 14 18:21:39 2024]  Iteration number: 811 with current cost as 0.07854890337650927 and parameters 
+[-3.025304    1.98396204 -1.92278661 ... -0.85502936 -2.70224934
+ -2.13813045]. 
+[Sat Sep 14 18:23:49 2024]  Iteration number: 812 with current cost as 0.08223515106334744 and parameters 
+[-3.023514    1.98575203 -1.92099662 ... -0.85681936 -2.70045935
+ -2.13992045]. 
+[Sat Sep 14 18:25:09 2024]  Iteration number: 813 with current cost as 0.05018075579924268 and parameters 
+[-3.02249166  1.98472969 -1.91997428 ... -0.8578417  -2.69943701
+ -2.13889811]. 
+[Sat Sep 14 18:27:27 2024]  Iteration number: 814 with current cost as 0.08636747147414922 and parameters 
+[-3.02090299  1.98314102 -1.91838561 ... -0.85625303 -2.69784834
+ -2.13730944]. 
+[Sat Sep 14 18:29:06 2024]  Iteration number: 815 with current cost as 0.09645204996428573 and parameters 
+[-3.02080283  1.98304086 -1.91828544 ... -0.85615287 -2.69794851
+ -2.13740961]. 
+[Sat Sep 14 18:31:30 2024]  Iteration number: 816 with current cost as 0.09183319250638186 and parameters 
+[-3.01760112  1.97983915 -1.92148715 ... -0.85295116 -2.70115021
+ -2.1342079 ]. 
+[Sat Sep 14 18:33:41 2024]  Iteration number: 817 with current cost as 0.10297165265093253 and parameters 
+[-3.01245839  1.98498188 -1.91634442 ... -0.85809389 -2.69600748
+ -2.12906517]. 
+[Sat Sep 14 18:36:54 2024]  Iteration number: 818 with current cost as 0.08656442375418764 and parameters 
+[-3.0171698   1.98969329 -1.91163301 ... -0.85338248 -2.69129607
+ -2.13377658]. 
+[Sat Sep 14 18:40:34 2024]  Iteration number: 819 with current cost as 0.07164193781139072 and parameters 
+[-3.0149006   1.99196248 -1.9139022  ... -0.85111329 -2.68902688
+ -2.13150738]. 
+[Sat Sep 14 18:42:50 2024]  Iteration number: 820 with current cost as 0.07567176427772046 and parameters 
+[-3.01407972  1.9911416  -1.91308132 ... -0.85193417 -2.688206
+ -2.1306865 ]. 
+[Sat Sep 14 18:44:52 2024]  Iteration number: 821 with current cost as 0.11769925557810154 and parameters 
+[-3.00695204  1.98401392 -1.920209   ... -0.84480649 -2.68107832
+ -2.13781418]. 
+[Sat Sep 14 18:47:29 2024]  Iteration number: 822 with current cost as 0.10033804740596004 and parameters 
+[-3.00144227  1.97850415 -1.92571878 ... -0.83929671 -2.6865881
+ -2.14332396]. 
+[Sat Sep 14 18:48:51 2024]  Iteration number: 823 with current cost as 0.09271583096926 and parameters 
+[-3.00041978  1.97952663 -1.92674126 ... -0.83827423 -2.68761059
+ -2.14434644]. 
+[Sat Sep 14 18:51:12 2024]  Iteration number: 824 with current cost as 0.11926527861864844 and parameters 
+[-3.00124191  1.97870451 -1.92756339 ... -0.8374521  -2.68678846
+ -2.14516857]. 
+[Sat Sep 14 18:53:33 2024]  Iteration number: 825 with current cost as 0.10019889434587892 and parameters 
+[-3.00131205  1.97863436 -1.92763354 ... -0.83738195 -2.68685861
+ -2.14509842]. 
+[Sat Sep 14 18:54:47 2024]  Iteration number: 826 with current cost as 0.1564135636317711 and parameters 
+[-2.99826154  1.98168487 -1.92458303 ... -0.83433145 -2.6838081
+ -2.14814893]. 
+[Sat Sep 14 18:56:28 2024]  Iteration number: 827 with current cost as 0.059783011212051 and parameters 
+[-2.99889915  1.98104726 -1.92522064 ... -0.83496905 -2.68317049
+ -2.14751132]. 
+[Sat Sep 14 18:58:13 2024]  Iteration number: 828 with current cost as 0.07297838710289128 and parameters 
+[-3.00177494  1.97817147 -1.92234485 ... -0.83209326 -2.6802947
+ -2.15038711]. 
+[Sat Sep 14 19:01:00 2024]  Iteration number: 829 with current cost as 0.10101464956103651 and parameters 
+[-3.00367522  1.9762712  -1.92424512 ... -0.83399354 -2.68219498
+ -2.14848684]. 
+[Sat Sep 14 19:02:49 2024]  Iteration number: 830 with current cost as 0.07668922184528246 and parameters 
+[-3.00405383  1.97664981 -1.92386651 ... -0.83361493 -2.68257359
+ -2.14886545]. 
+[Sat Sep 14 19:06:00 2024]  Iteration number: 831 with current cost as 0.09069581768245716 and parameters 
+[-3.00296292  1.9755589  -1.92495742 ... -0.83470583 -2.6836645
+ -2.14995636]. 
+[Sat Sep 14 19:07:21 2024]  Iteration number: 832 with current cost as 0.12526121799506504 and parameters 
+[-3.00041854  1.97301452 -1.9275018  ... -0.83216145 -2.68620888
+ -2.15250074]. 
+[Sat Sep 14 19:09:37 2024]  Iteration number: 833 with current cost as 0.11088698778521927 and parameters 
+[-3.00198019  1.97457617 -1.92594015 ... -0.83059981 -2.68464723
+ -2.15093909]. 
+[Sat Sep 14 19:12:32 2024]  Iteration number: 834 with current cost as 0.10862354248046409 and parameters 
+[-3.00205359  1.97450277 -1.92601355 ... -0.83052641 -2.68457383
+ -2.15086569]. 
+[Sat Sep 14 19:14:54 2024]  Iteration number: 835 with current cost as 0.11711571684210793 and parameters 
+[-3.00015531  1.97260449 -1.92411527 ... -0.82862813 -2.68267556
+ -2.15276397]. 
+[Sat Sep 14 19:16:44 2024]  Iteration number: 836 with current cost as 0.08019596839132659 and parameters 
+[-3.00435106  1.96840874 -1.91991952 ... -0.82443238 -2.67847981
+ -2.14856822]. 
+[Sat Sep 14 19:18:07 2024]  Iteration number: 837 with current cost as 0.12953433854987556 and parameters 
+[-3.00711252  1.96564729 -1.91715807 ... -0.82167092 -2.67571835
+ -2.14580676]. 
+[Sat Sep 14 19:19:41 2024]  Iteration number: 838 with current cost as 0.07905078222613621 and parameters 
+[-3.00507056  1.96360534 -1.91511611 ... -0.82371288 -2.67776031
+ -2.14376481]. 
+[Sat Sep 14 19:21:32 2024]  Iteration number: 839 with current cost as 0.10748544195572599 and parameters 
+[-2.99485518  1.95338995 -1.90490073 ... -0.8134975  -2.66754493
+ -2.15398019]. 
+[Sat Sep 14 19:24:21 2024]  Iteration number: 840 with current cost as 0.08996400842972908 and parameters 
+[-3.00490244  1.9433427  -1.91494799 ... -0.80345024 -2.67759218
+ -2.16402744]. 
+[Sat Sep 14 19:26:20 2024]  Iteration number: 841 with current cost as 0.08657333589342352 and parameters 
+[-3.00703986  1.94548012 -1.91708541 ... -0.80558766 -2.6797296
+ -2.16189002]. 
+[Sat Sep 14 19:28:11 2024]  Iteration number: 842 with current cost as 0.07478095883717222 and parameters 
+[-3.00914992  1.94337005 -1.91497534 ... -0.80769773 -2.67761953
+ -2.16400009]. 
+[Sat Sep 14 19:31:02 2024]  Iteration number: 843 with current cost as 0.07144872533907257 and parameters 
+[-3.00376123  1.93798136 -1.92036403 ... -0.81308642 -2.67223084
+ -2.16938878]. 
+[Sat Sep 14 19:33:48 2024]  Iteration number: 844 with current cost as 0.07897168665391056 and parameters 
+[-3.00647439  1.93526821 -1.92307719 ... -0.81579958 -2.66951769
+ -2.17210193]. 
+[Sat Sep 14 19:36:17 2024]  Iteration number: 845 with current cost as 0.07397783209679554 and parameters 
+[-3.00525665  1.93648595 -1.92185944 ... -0.81458183 -2.67073543
+ -2.17331968]. 
+[Sat Sep 14 19:38:04 2024]  Iteration number: 846 with current cost as 0.1031236344375267 and parameters 
+[-3.00676885  1.93799816 -1.92034724 ... -0.81306963 -2.66922323
+ -2.17483188]. 
+[Sat Sep 14 19:39:26 2024]  Iteration number: 847 with current cost as 0.09344986486993834 and parameters 
+[-3.00683241  1.93806172 -1.92028368 ... -0.81300607 -2.66915967
+ -2.17476832]. 
+[Sat Sep 14 19:42:14 2024]  Iteration number: 848 with current cost as 0.08802627495524533 and parameters 
+[-3.00295356  1.94194056 -1.91640483 ... -0.80912722 -2.66528082
+ -2.17088948]. 
+[Sat Sep 14 19:44:08 2024]  Iteration number: 849 with current cost as 0.07529710923199043 and parameters 
+[-3.0066994   1.94568641 -1.91265899 ... -0.81287306 -2.66902666
+ -2.16714363]. 
+[Sat Sep 14 19:45:23 2024]  Iteration number: 850 with current cost as 0.061777573049133325 and parameters 
+[-3.00350064  1.94888517 -1.90946022 ... -0.8096743  -2.6658279
+ -2.1703424 ]. 
+[Sat Sep 14 19:47:24 2024]  Iteration number: 851 with current cost as 0.12488939131180946 and parameters 
+[-3.00661285  1.94577296 -1.90634801 ... -0.81278651 -2.66271569
+ -2.16723019]. 
+[Sat Sep 14 19:49:39 2024]  Iteration number: 852 with current cost as 0.08628826692080564 and parameters 
+[-3.00625789  1.94541801 -1.90670296 ... -0.81243156 -2.66236074
+ -2.16758514]. 
+[Sat Sep 14 19:52:42 2024]  Iteration number: 853 with current cost as 0.07282395958575602 and parameters 
+[-3.00121748  1.94037759 -1.90166255 ... -0.80739114 -2.66740115
+ -2.16254472]. 
+[Sat Sep 14 19:54:48 2024]  Iteration number: 854 with current cost as 0.12783337987287494 and parameters 
+[-3.00329116  1.94245128 -1.89958886 ... -0.80946482 -2.66947484
+ -2.16461841]. 
+[Sat Sep 14 19:55:52 2024]  Iteration number: 855 with current cost as 0.12932615855097995 and parameters 
+[-2.99770476  1.94803767 -1.90517526 ... -0.80387842 -2.66388844
+ -2.15903201]. 
+[Sat Sep 14 19:59:30 2024]  Iteration number: 856 with current cost as 0.08876384209094106 and parameters 
+[-2.99273106  1.95301137 -1.91014896 ... -0.80885212 -2.66886214
+ -2.15405831]. 
+[Sat Sep 14 20:02:33 2024]  Iteration number: 857 with current cost as 0.05938592101145292 and parameters 
+[-2.99399935  1.95427966 -1.90888067 ... -0.80758384 -2.67013043
+ -2.15279003]. 
+[Sat Sep 14 20:04:19 2024]  Iteration number: 858 with current cost as 0.08066366351736803 and parameters 
+[-2.9930497   1.95333001 -1.90793102 ... -0.80853349 -2.66918078
+ -2.15373967]. 
+[Sat Sep 14 20:05:55 2024]  Iteration number: 859 with current cost as 0.05398828684462334 and parameters 
+[-2.98801431  1.94829462 -1.90289564 ... -0.8034981  -2.66414539
+ -2.15877506]. 
+[Sat Sep 14 20:07:39 2024]  Iteration number: 860 with current cost as 0.08405166488665769 and parameters 
+[-2.98737314  1.94765345 -1.90225447 ... -0.80413927 -2.66350422
+ -2.15813389]. 
+[Sat Sep 14 20:09:48 2024]  Iteration number: 861 with current cost as 0.051261513000917795 and parameters 
+[-2.98537732  1.94964928 -1.90425029 ... -0.80214344 -2.66550004
+ -2.16012972]. 
+[Sat Sep 14 20:13:35 2024]  Iteration number: 862 with current cost as 0.10028943338878851 and parameters 
+[-2.98789053  1.95216248 -1.90173708 ... -0.80465665 -2.66298684
+ -2.15761651]. 
+[Sat Sep 14 20:15:58 2024]  Iteration number: 863 with current cost as 0.09921713446095606 and parameters 
+[-2.98722742  1.9528256  -1.90107397 ... -0.80399354 -2.66364995
+ -2.15827962]. 
+[Sat Sep 14 20:18:32 2024]  Iteration number: 864 with current cost as 0.10427943898971735 and parameters 
+[-2.98462148  1.95543153 -1.90367991 ... -0.80659948 -2.66625588
+ -2.15567368]. 
+[Sat Sep 14 20:21:49 2024]  Iteration number: 865 with current cost as 0.08002068775737925 and parameters 
+[-2.98036968  1.95968333 -1.90793171 ... -0.81085128 -2.66200408
+ -2.15992548]. 
+[Sat Sep 14 20:26:29 2024]  Iteration number: 866 with current cost as 0.0880978595031673 and parameters 
+[-2.98026539  1.95978762 -1.908036   ... -0.81095557 -2.66189979
+ -2.16002977]. 
+[Sat Sep 14 20:28:04 2024]  Iteration number: 867 with current cost as 0.05669965056486066 and parameters 
+[-2.97927284  1.96078017 -1.90704345 ... -0.81194811 -2.66090725
+ -2.16102232]. 
+[Sat Sep 14 20:29:20 2024]  Iteration number: 868 with current cost as 0.057958829462647944 and parameters 
+[-2.97928339  1.96079071 -1.907054   ... -0.81195865 -2.66091779
+ -2.16103286]. 
+[Sat Sep 14 20:32:22 2024]  Iteration number: 869 with current cost as 0.12977289966972416 and parameters 
+[-2.97828264  1.95978997 -1.90605325 ... -0.81095791 -2.65991705
+ -2.16203361]. 
+[Sat Sep 14 20:33:41 2024]  Iteration number: 870 with current cost as 0.09601013758530011 and parameters 
+[-2.97700132  1.95850865 -1.90733457 ... -0.81223923 -2.65863573
+ -2.16331493]. 
+[Sat Sep 14 20:36:16 2024]  Iteration number: 871 with current cost as 0.17848330398393686 and parameters 
+[-2.98030457  1.9552054  -1.91063782 ... -0.81554248 -2.66193897
+ -2.16001168]. 
+[Sat Sep 14 20:38:01 2024]  Iteration number: 872 with current cost as 0.11756351372119947 and parameters 
+[-2.98742975  1.96233058 -1.90351264 ... -0.82266766 -2.6548138
+ -2.1528865 ]. 
+[Sat Sep 14 20:40:25 2024]  Iteration number: 873 with current cost as 0.06653643827065388 and parameters 
+[-2.97910758  1.95400841 -1.91183481 ... -0.81434549 -2.64649163
+ -2.14456434]. 
+[Sat Sep 14 20:43:13 2024]  Iteration number: 874 with current cost as 0.06881379513521432 and parameters 
+[-2.98738659  1.96228742 -1.92011382 ... -0.8226245  -2.65477064
+ -2.15284334]. 
+[Sat Sep 14 20:45:14 2024]  Iteration number: 875 with current cost as 0.10724060591454393 and parameters 
+[-2.97944109  1.97023291 -1.92805931 ... -0.814679   -2.66271613
+ -2.14489785]. 
+[Sat Sep 14 20:48:46 2024]  Iteration number: 876 with current cost as 0.09011243536793312 and parameters 
+[-2.97799864  1.96879046 -1.92661686 ... -0.81323655 -2.66415859
+ -2.1463403 ]. 
+[Sat Sep 14 20:49:58 2024]  Iteration number: 877 with current cost as 0.0645744918799817 and parameters 
+[-2.98128666  1.97207848 -1.92990488 ... -0.80994852 -2.66087056
+ -2.14962833]. 
+[Sat Sep 14 20:52:51 2024]  Iteration number: 878 with current cost as 0.04946539233829789 and parameters 
+[-2.98519658  1.9759884  -1.92599497 ... -0.80603861 -2.65696065
+ -2.15353824]. 
+[Sat Sep 14 20:54:47 2024]  Iteration number: 879 with current cost as 0.11822608920392938 and parameters 
+[-2.98741858  1.9737664  -1.92377297 ... -0.80381661 -2.65918265
+ -2.15576024]. 
+[Sat Sep 14 20:57:01 2024]  Iteration number: 880 with current cost as 0.07669222627672723 and parameters 
+[-2.98928681  1.97563463 -1.92190474 ... -0.80194838 -2.65731442
+ -2.15389201]. 
+[Sat Sep 14 20:59:37 2024]  Iteration number: 881 with current cost as 0.09411426600626545 and parameters 
+[-2.99090072  1.97402071 -1.92029082 ... -0.80356229 -2.65570051
+ -2.15550592]. 
+[Sat Sep 14 21:01:08 2024]  Iteration number: 882 with current cost as 0.08257765864928221 and parameters 
+[-2.99070905  1.97382904 -1.92048249 ... -0.80337062 -2.65589218
+ -2.15569759]. 
+[Sat Sep 14 21:02:21 2024]  Iteration number: 883 with current cost as 0.0792391476412205 and parameters 
+[-2.98987278  1.97299277 -1.92131877 ... -0.8042069  -2.65672845
+ -2.15653387]. 
+[Sat Sep 14 21:04:14 2024]  Iteration number: 884 with current cost as 0.11533202879807003 and parameters 
+[-2.99076013  1.97210541 -1.92220613 ... -0.80331954 -2.6558411
+ -2.15564652]. 
+[Sat Sep 14 21:06:40 2024]  Iteration number: 885 with current cost as 0.10227764676006323 and parameters 
+[-2.99215484  1.9707107  -1.92360084 ... -0.80471425 -2.65444639
+ -2.15425181]. 
+[Sat Sep 14 21:08:20 2024]  Iteration number: 886 with current cost as 0.11213192886308737 and parameters 
+[-2.99088659  1.96944244 -1.92486909 ... -0.80598251 -2.65317813
+ -2.15552006]. 
+[Sat Sep 14 21:10:17 2024]  Iteration number: 887 with current cost as 0.07740715074097843 and parameters 
+[-2.98840923  1.9719198  -1.92734645 ... -0.80350515 -2.65565549
+ -2.15799742]. 
+[Sat Sep 14 21:11:37 2024]  Iteration number: 888 with current cost as 0.06023264074117314 and parameters 
+[-2.986921    1.97043158 -1.92883467 ... -0.80499337 -2.65714371
+ -2.1565092 ]. 
+[Sat Sep 14 21:13:39 2024]  Iteration number: 889 with current cost as 0.07231862481182957 and parameters 
+[-2.98411449  1.96762507 -1.92602816 ... -0.80218686 -2.6543372
+ -2.15931571]. 
+[Sat Sep 14 21:16:42 2024]  Iteration number: 890 with current cost as 0.11954687449515886 and parameters 
+[-2.99258581  1.97609639 -1.91755684 ... -0.79371553 -2.64586587
+ -2.15084439]. 
+[Sat Sep 14 21:18:30 2024]  Iteration number: 891 with current cost as 0.13299000023781588 and parameters 
+[-2.98794475  1.97145532 -1.91291577 ... -0.7983566  -2.65050694
+ -2.15548546]. 
+[Sat Sep 14 21:20:40 2024]  Iteration number: 892 with current cost as 0.05094078491971534 and parameters 
+[-2.99148522  1.96791485 -1.9093753  ... -0.79481613 -2.65404741
+ -2.15902593]. 
+[Sat Sep 14 21:22:33 2024]  Iteration number: 893 with current cost as 0.10759670453828864 and parameters 
+[-2.99371803  1.96568203 -1.90714248 ... -0.79258331 -2.6518146
+ -2.15679312]. 
+[Sat Sep 14 21:23:42 2024]  Iteration number: 894 with current cost as 0.07374603231299712 and parameters 
+[-2.99469076  1.96665476 -1.9081152  ... -0.79161059 -2.65278732
+ -2.1558204 ]. 
+[Sat Sep 14 21:27:16 2024]  Iteration number: 895 with current cost as 0.052787063382761734 and parameters 
+[-2.99568685  1.96565866 -1.9091113  ... -0.79260669 -2.65378342
+ -2.1548243 ]. 
+[Sat Sep 14 21:29:07 2024]  Iteration number: 896 with current cost as 0.08595771243592087 and parameters 
+[-2.99578983  1.96576163 -1.90900832 ... -0.79270967 -2.65368044
+ -2.15492727]. 
+[Sat Sep 14 21:30:19 2024]  Iteration number: 897 with current cost as 0.11619459693454814 and parameters 
+[-2.99670692  1.96667872 -1.90809124 ... -0.79362675 -2.65276335
+ -2.15584436]. 
+[Sat Sep 14 21:32:14 2024]  Iteration number: 898 with current cost as 0.13639678311717843 and parameters 
+[-2.99311251  1.96308432 -1.90449683 ... -0.79003235 -2.64916895
+ -2.15224996]. 
+[Sat Sep 14 21:34:06 2024]  Iteration number: 899 with current cost as 0.1036268443237312 and parameters 
+[-2.99734791  1.95884891 -1.90026143 ... -0.79426775 -2.65340435
+ -2.14801455]. 
+[Sat Sep 14 21:35:43 2024]  Iteration number: 900 with current cost as 0.06844681004877766 and parameters 
+[-2.99314026  1.96305657 -1.89605377 ... -0.79006009 -2.6491967
+ -2.1438069 ]. 
+[Sat Sep 14 21:38:23 2024]  Iteration number: 901 with current cost as 0.06858599924292944 and parameters 
+[-2.98947008  1.9593864  -1.8923836  ... -0.78638992 -2.64552652
+ -2.14747707]. 
+[Sat Sep 14 21:40:33 2024]  Iteration number: 902 with current cost as 0.07726831227936928 and parameters 
+[-2.9949699   1.96488622 -1.89788342 ... -0.7808901  -2.65102634
+ -2.14197725]. 
+[Sat Sep 14 21:46:47 2024]  Iteration number: 903 with current cost as 0.07922371793249929 and parameters 
+[-2.99654701  1.96646333 -1.89946053 ... -0.77931299 -2.65260345
+ -2.14040014]. 
+[Sat Sep 14 21:47:58 2024]  Iteration number: 904 with current cost as 0.13623177831587674 and parameters 
+[-2.9937373   1.96927304 -1.90227024 ... -0.7821227  -2.64979374
+ -2.13759043]. 
+[Sat Sep 14 21:49:09 2024]  Iteration number: 905 with current cost as 0.10884330481531274 and parameters 
+[-2.99494078  1.97047652 -1.90106676 ... -0.78332618 -2.64859026
+ -2.13879391]. 
+[Sat Sep 14 21:50:25 2024]  Iteration number: 906 with current cost as 0.09400047026118138 and parameters 
+[-2.99459779  1.97081951 -1.90072377 ... -0.78298319 -2.64893325
+ -2.13845092]. 
+[Sat Sep 14 21:52:16 2024]  Iteration number: 907 with current cost as 0.11291465825756283 and parameters 
+[-3.00099674  1.97721846 -1.89432483 ... -0.77658424 -2.6553322
+ -2.13205198]. 
+[Sat Sep 14 21:54:29 2024]  Iteration number: 908 with current cost as 0.09438183405444239 and parameters 
+[-3.00056386  1.97678558 -1.89389195 ... -0.77701712 -2.65489932
+ -2.13248485]. 
+[Sat Sep 14 21:56:14 2024]  Iteration number: 909 with current cost as 0.06623586162770148 and parameters 
+[-2.99600082  1.98134863 -1.898455   ... -0.77245407 -2.65033628
+ -2.13704789]. 
+[Sat Sep 14 21:58:32 2024]  Iteration number: 910 with current cost as 0.09291657053052475 and parameters 
+[-2.99672456  1.98207237 -1.89917874 ... -0.77317781 -2.65106002
+ -2.13777163]. 
+[Sat Sep 14 21:59:51 2024]  Iteration number: 911 with current cost as 0.10399757353466224 and parameters 
+[-2.98820903  1.99058789 -1.90769426 ... -0.78169334 -2.65957554
+ -2.12925611]. 
+[Sat Sep 14 22:01:51 2024]  Iteration number: 912 with current cost as 0.07541261311962615 and parameters 
+[-2.99076529  1.99314415 -1.91025052 ... -0.77913708 -2.65701929
+ -2.12669985]. 
+[Sat Sep 14 22:04:00 2024]  Iteration number: 913 with current cost as 0.04518737810909389 and parameters 
+[-2.99168638  1.99406524 -1.91117161 ... -0.78005817 -2.6560982
+ -2.12762094]. 
+[Sat Sep 14 22:05:09 2024]  Iteration number: 914 with current cost as 0.08529291996335345 and parameters 
+[-2.99326077  1.99563963 -1.90959721 ... -0.77848378 -2.6545238
+ -2.12604655]. 
+[Sat Sep 14 22:07:05 2024]  Iteration number: 915 with current cost as 0.05243440397385389 and parameters 
+[-2.99215045  1.99452931 -1.91070754 ... -0.77737346 -2.65563413
+ -2.12715687]. 
+[Sat Sep 14 22:08:32 2024]  Iteration number: 916 with current cost as 0.11898283080213458 and parameters 
+[-2.99173567  1.99411452 -1.91112232 ... -0.77695867 -2.65604891
+ -2.12674208]. 
+[Sat Sep 14 22:10:04 2024]  Iteration number: 917 with current cost as 0.13428108309363074 and parameters 
+[-2.99375342  1.99209677 -1.90910457 ... -0.77494092 -2.65806667
+ -2.12472433]. 
+[Sat Sep 14 22:11:36 2024]  Iteration number: 918 with current cost as 0.0739517992745648 and parameters 
+[-2.9942332   1.99257654 -1.90958434 ... -0.77446114 -2.65758689
+ -2.12424455]. 
+[Sat Sep 14 22:14:02 2024]  Iteration number: 919 with current cost as 0.13259748280476621 and parameters 
+[-2.99479158  1.99201816 -1.91014272 ... -0.77390276 -2.65702851
+ -2.12480294]. 
+[Sat Sep 14 22:16:18 2024]  Iteration number: 920 with current cost as 0.10285309605384883 and parameters 
+[-2.99935717  1.98745257 -1.90557713 ... -0.77846835 -2.6615941
+ -2.12936853]. 
+[Sat Sep 14 22:18:35 2024]  Iteration number: 921 with current cost as 0.07328520515733405 and parameters 
+[-3.0045048   1.99260021 -1.91072477 ... -0.78361599 -2.66674173
+ -2.13451616]. 
+[Sat Sep 14 22:20:15 2024]  Iteration number: 922 with current cost as 0.10213666976226168 and parameters 
+[-3.0068871   1.9949825  -1.90834247 ... -0.78599828 -2.66435944
+ -2.13213387]. 
+[Sat Sep 14 22:22:19 2024]  Iteration number: 923 with current cost as 0.0626333868445831 and parameters 
+[-3.00629948  1.99439488 -1.90893009 ... -0.7865859  -2.66494706
+ -2.13154625]. 
+[Sat Sep 14 22:24:03 2024]  Iteration number: 924 with current cost as 0.13340764211302159 and parameters 
+[-3.0053796   1.99531476 -1.90801021 ... -0.78566602 -2.66402718
+ -2.13062637]. 
+[Sat Sep 14 22:25:22 2024]  Iteration number: 925 with current cost as 0.0860845687206746 and parameters 
+[-2.99974607  2.00094829 -1.90237668 ... -0.78003249 -2.66966071
+ -2.1362599 ]. 
+[Sat Sep 14 22:26:45 2024]  Iteration number: 926 with current cost as 0.10053928991277135 and parameters 
+[-3.00229964  1.99839472 -1.8998231  ... -0.78258606 -2.66710713
+ -2.13881348]. 
+[Sat Sep 14 22:28:20 2024]  Iteration number: 927 with current cost as 0.05320292378635479 and parameters 
+[-2.99814921  2.00254516 -1.90397354 ... -0.7867365  -2.6629567
+ -2.13466304]. 
+[Sat Sep 14 22:30:06 2024]  Iteration number: 928 with current cost as 0.07525599691040394 and parameters 
+[-2.99957368  2.00396962 -1.90539801 ... -0.78816097 -2.66153223
+ -2.13323857]. 
+[Sat Sep 14 22:32:10 2024]  Iteration number: 929 with current cost as 0.10021560304182933 and parameters 
+[-3.00213929  2.00140401 -1.90796362 ... -0.78559536 -2.66409784
+ -2.13580418]. 
+[Sat Sep 14 22:34:30 2024]  Iteration number: 930 with current cost as 0.05257120250731404 and parameters 
+[-3.00276512  2.00202985 -1.90858945 ... -0.78622119 -2.66472368
+ -2.13643002]. 
+[Sat Sep 14 22:36:13 2024]  Iteration number: 931 with current cost as 0.09741924400106938 and parameters 
+[-3.00335121  2.00261594 -1.90917554 ... -0.78680728 -2.66413758
+ -2.13701611]. 
+[Sat Sep 14 22:38:33 2024]  Iteration number: 932 with current cost as 0.0797522365180687 and parameters 
+[-3.00872628  1.99724088 -1.91455061 ... -0.79218235 -2.65876252
+ -2.14239117]. 
+[Sat Sep 14 22:40:43 2024]  Iteration number: 933 with current cost as 0.09581681106850741 and parameters 
+[-3.00269847  2.00326868 -1.92057841 ... -0.78615454 -2.65273472
+ -2.14841898]. 
+[Sat Sep 14 22:42:00 2024]  Iteration number: 934 with current cost as 0.10949558894613873 and parameters 
+[-2.99807828  2.00788888 -1.91595821 ... -0.78153435 -2.65735491
+ -2.15303917]. 
+[Sat Sep 14 22:44:02 2024]  Iteration number: 935 with current cost as 0.07160183398797718 and parameters 
+[-2.99329167  2.01267548 -1.91117161 ... -0.77674774 -2.66214152
+ -2.15782577]. 
+[Sat Sep 14 22:45:53 2024]  Iteration number: 936 with current cost as 0.13832817140695822 and parameters 
+[-2.99735782  2.00860933 -1.90710546 ... -0.78081389 -2.65807536
+ -2.16189192]. 
+[Sat Sep 14 22:48:15 2024]  Iteration number: 937 with current cost as 0.10913867604264163 and parameters 
+[-2.99938382  2.01063533 -1.90507947 ... -0.7787879  -2.65604937
+ -2.15986593]. 
+[Sat Sep 14 22:49:31 2024]  Iteration number: 938 with current cost as 0.13093350253947658 and parameters 
+[-2.99976689  2.01101839 -1.90546253 ... -0.77840483 -2.65643244
+ -2.16024899]. 
+[Sat Sep 14 22:51:36 2024]  Iteration number: 939 with current cost as 0.1277142686860197 and parameters 
+[-3.00099343  2.00979186 -1.90668907 ... -0.77717829 -2.65765897
+ -2.16147553]. 
+[Sat Sep 14 22:53:11 2024]  Iteration number: 940 with current cost as 0.09799266680469351 and parameters 
+[-2.99903437  2.01175091 -1.90473001 ... -0.77521923 -2.65961803
+ -2.16343459]. 
+[Sat Sep 14 22:54:24 2024]  Iteration number: 941 with current cost as 0.07445772707062275 and parameters 
+[-2.99943786  2.0121544  -1.90432653 ... -0.77562272 -2.65921454
+ -2.1630311 ]. 
+[Sat Sep 14 22:56:20 2024]  Iteration number: 942 with current cost as 0.1169333987884665 and parameters 
+[-3.00589652  2.00569574 -1.89786787 ... -0.76916406 -2.65275588
+ -2.16948976]. 
+[Sat Sep 14 22:58:06 2024]  Iteration number: 943 with current cost as 0.12993662837209818 and parameters 
+[-3.0065667   2.00502556 -1.89719769 ... -0.76983424 -2.6520857
+ -2.16881958]. 
+[Sat Sep 14 23:00:18 2024]  Iteration number: 944 with current cost as 0.10061233071770455 and parameters 
+[-3.009416    2.00787486 -1.89434838 ... -0.76698494 -2.65493501
+ -2.16597028]. 
+[Sat Sep 14 23:02:40 2024]  Iteration number: 945 with current cost as 0.05160718947425587 and parameters 
+[-3.00336699  2.00182585 -1.9003974  ... -0.77303395 -2.66098402
+ -2.15992127]. 
+[Sat Sep 14 23:04:08 2024]  Iteration number: 946 with current cost as 0.06919207286130291 and parameters 
+[-3.00727694  1.9979159  -1.90430735 ... -0.77694391 -2.66489397
+ -2.15601131]. 
+[Sat Sep 14 23:05:37 2024]  Iteration number: 947 with current cost as 0.0902315337302377 and parameters 
+[-3.01004892  1.99514392 -1.90707933 ... -0.77971588 -2.66766595
+ -2.15878329]. 
+[Sat Sep 14 23:07:54 2024]  Iteration number: 948 with current cost as 0.05112667169455828 and parameters 
+[-3.00964715  1.99474215 -1.90667756 ... -0.78011765 -2.66726419
+ -2.15838153]. 
+[Sat Sep 14 23:10:08 2024]  Iteration number: 949 with current cost as 0.09517218817814999 and parameters 
+[-3.00663392  1.99775538 -1.90366433 ... -0.77710442 -2.66425095
+ -2.1553683 ]. 
+[Sat Sep 14 23:11:46 2024]  Iteration number: 950 with current cost as 0.07912525824810884 and parameters 
+[-3.00423097  1.99535243 -1.90126138 ... -0.77470146 -2.661848
+ -2.15296534]. 
+[Sat Sep 14 23:14:08 2024]  Iteration number: 951 with current cost as 0.11922059829099713 and parameters 
+[-2.99813841  2.00144499 -1.90735393 ... -0.76860891 -2.65575545
+ -2.14687279]. 
+[Sat Sep 14 23:16:07 2024]  Iteration number: 952 with current cost as 0.1297536991565007 and parameters 
+[-3.00063614  1.99894725 -1.90985166 ... -0.76611118 -2.65825318
+ -2.14437505]. 
+[Sat Sep 14 23:19:20 2024]  Iteration number: 953 with current cost as 0.09620589642804431 and parameters 
+[-2.99753617  1.99584728 -1.91295163 ... -0.76921115 -2.65515321
+ -2.14127509]. 
+[Sat Sep 14 23:22:30 2024]  Iteration number: 954 with current cost as 0.07730251473556071 and parameters 
+[-2.99909764  1.99428582 -1.91139017 ... -0.76764968 -2.65359174
+ -2.14283655]. 
+[Sat Sep 14 23:24:50 2024]  Iteration number: 955 with current cost as 0.0685897888850859 and parameters 
+[-3.00373689  1.99892507 -1.90675092 ... -0.76301043 -2.65823099
+ -2.1474758 ]. 
+[Sat Sep 14 23:26:25 2024]  Iteration number: 956 with current cost as 0.06407987545806253 and parameters 
+[-3.00397571  1.99868625 -1.90698975 ... -0.76324926 -2.65846982
+ -2.14723697]. 
+[Sat Sep 14 23:28:09 2024]  Iteration number: 957 with current cost as 0.10967309412637494 and parameters 
+[-3.00470351  1.99795845 -1.90771754 ... -0.76397705 -2.65774202
+ -2.14796477]. 
+[Sat Sep 14 23:30:13 2024]  Iteration number: 958 with current cost as 0.07868358920523227 and parameters 
+[-3.01010093  2.00335587 -1.91311496 ... -0.75857964 -2.66313944
+ -2.15336219]. 
+[Sat Sep 14 23:32:01 2024]  Iteration number: 959 with current cost as 0.06746342536227794 and parameters 
+[-3.00836185  2.00161679 -1.91137588 ... -0.76031871 -2.66487852
+ -2.15162311]. 
+[Sat Sep 14 23:33:56 2024]  Iteration number: 960 with current cost as 0.04430134910916382 and parameters 
+[-3.01190496  2.0051599  -1.914919   ... -0.7567756  -2.6613354
+ -2.14808   ]. 
+[Sat Sep 14 23:36:28 2024]  Iteration number: 961 with current cost as 0.06754216160455946 and parameters 
+[-3.00981084  2.00306578 -1.91701312 ... -0.75886972 -2.66342953
+ -2.14598588]. 
+[Sat Sep 14 23:38:35 2024]  Iteration number: 962 with current cost as 0.08205971982209123 and parameters 
+[-3.01236307  2.00561801 -1.91446089 ... -0.7563175  -2.6608773
+ -2.14343365]. 
+[Sat Sep 14 23:41:06 2024]  Iteration number: 963 with current cost as 0.09169369839050943 and parameters 
+[-3.01247416  2.00550691 -1.91457199 ... -0.75642859 -2.6609884
+ -2.14354475]. 
+[Sat Sep 14 23:43:03 2024]  Iteration number: 964 with current cost as 0.05695531725346335 and parameters 
+[-3.01088029  2.00391304 -1.91616586 ... -0.75802246 -2.66258227
+ -2.14513862]. 
+[Sat Sep 14 23:44:10 2024]  Iteration number: 965 with current cost as 0.12217411491519604 and parameters 
+[-3.00296774  1.99600049 -1.92407841 ... -0.76593501 -2.65466972
+ -2.15305117]. 
+[Sat Sep 14 23:45:47 2024]  Iteration number: 966 with current cost as 0.06227921785628196 and parameters 
+[-3.00101628  1.99404903 -1.92212695 ... -0.76398355 -2.65271826
+ -2.1510997 ]. 
+[Sat Sep 14 23:47:29 2024]  Iteration number: 967 with current cost as 0.0690600956032763 and parameters 
+[-2.99679715  1.99826816 -1.92634607 ... -0.75976442 -2.64849913
+ -2.14688057]. 
+[Sat Sep 14 23:49:16 2024]  Iteration number: 968 with current cost as 0.04157375047446381 and parameters 
+[-2.99943102  1.99563429 -1.92371221 ... -0.75713055 -2.64586526
+ -2.14951444]. 
+[Sat Sep 14 23:50:34 2024]  Iteration number: 969 with current cost as 0.09406475417801487 and parameters 
+[-2.99789147  1.99409475 -1.92217267 ... -0.75559101 -2.6474048
+ -2.1479749 ]. 
+[Sat Sep 14 23:52:30 2024]  Iteration number: 970 with current cost as 0.05089050153067538 and parameters 
+[-2.99493268  1.99113595 -1.91921387 ... -0.75854981 -2.64444601
+ -2.1450161 ]. 
+[Sat Sep 14 23:54:52 2024]  Iteration number: 971 with current cost as 0.10520813079460449 and parameters 
+[-3.00349527  1.99969854 -1.91065127 ... -0.76711241 -2.63588341
+ -2.13645351]. 
+[Sat Sep 14 23:55:55 2024]  Iteration number: 972 with current cost as 0.060939417984915464 and parameters 
+[-3.00903785  2.00524112 -1.91619385 ... -0.77265498 -2.63034084
+ -2.13091093]. 
+[Sat Sep 14 23:57:39 2024]  Iteration number: 973 with current cost as 0.09768186922795605 and parameters 
+[-3.0082695   2.00447277 -1.9154255  ... -0.77342333 -2.63110918
+ -2.13014258]. 
+[Sat Sep 14 23:59:40 2024]  Iteration number: 974 with current cost as 0.08974446616777554 and parameters 
+[-3.00661876  2.00282204 -1.91707624 ... -0.77507406 -2.63275992
+ -2.12849185]. 
+[Sun Sep 15 00:02:07 2024]  Iteration number: 975 with current cost as 0.0757582085490131 and parameters 
+[-3.0015193   2.0079215  -1.9221757  ... -0.7699746  -2.63785938
+ -2.13359131]. 
+[Sun Sep 15 00:03:19 2024]  Iteration number: 976 with current cost as 0.07734977118040379 and parameters 
+[-3.00526508  2.01166728 -1.92592148 ... -0.76622882 -2.63411361
+ -2.12984553]. 
+[Sun Sep 15 00:04:56 2024]  Iteration number: 977 with current cost as 0.0553358114866218 and parameters 
+[-3.01371985  2.00321251 -1.91746671 ... -0.75777405 -2.62565883
+ -2.12139076]. 
+[Sun Sep 15 00:06:51 2024]  Iteration number: 978 with current cost as 0.0825929613683338 and parameters 
+[-3.00792314  2.00900921 -1.91167    ... -0.75197735 -2.63145554
+ -2.11559406]. 
+[Sun Sep 15 00:08:06 2024]  Iteration number: 979 with current cost as 0.11028050313126611 and parameters 
+[-3.00767082  2.00875689 -1.91192232 ... -0.75222967 -2.63170787
+ -2.11584638]. 
+[Sun Sep 15 00:09:11 2024]  Iteration number: 980 with current cost as 0.09795808947881872 and parameters 
+[-3.00982247  2.01090854 -1.90977067 ... -0.75438132 -2.63385952
+ -2.11799803]. 
+[Sun Sep 15 00:10:37 2024]  Iteration number: 981 with current cost as 0.06914496266189843 and parameters 
+[-3.00769183  2.01303918 -1.90764003 ... -0.75651196 -2.63172888
+ -2.12012868]. 
+[Sun Sep 15 00:12:59 2024]  Iteration number: 982 with current cost as 0.05774249921645745 and parameters 
+[-3.01280729  2.01815465 -1.9127555  ... -0.76162743 -2.63684434
+ -2.11501321]. 
+[Sun Sep 15 00:14:37 2024]  Iteration number: 983 with current cost as 0.07216097662110735 and parameters 
+[-3.0101105   2.02085144 -1.91545229 ... -0.76432422 -2.63954114
+ -2.11771   ]. 
+[Sun Sep 15 00:16:26 2024]  Iteration number: 984 with current cost as 0.0934816412940237 and parameters 
+[-3.01169224  2.0192697  -1.91387055 ... -0.76274248 -2.6379594
+ -2.11929174]. 
+[Sun Sep 15 00:20:06 2024]  Iteration number: 985 with current cost as 0.0725879201691566 and parameters 
+[-3.01404765  2.02162512 -1.91622597 ... -0.76038707 -2.63560398
+ -2.11693633]. 
+[Sun Sep 15 00:21:50 2024]  Iteration number: 986 with current cost as 0.09525331900213645 and parameters 
+[-3.01587818  2.02345565 -1.91439543 ... -0.75855654 -2.63743451
+ -2.11876686]. 
+[Sun Sep 15 00:25:40 2024]  Iteration number: 987 with current cost as 0.06836138972237091 and parameters 
+[-3.01600412  2.02332971 -1.91452137 ... -0.7584306  -2.63730857
+ -2.1188928 ]. 
+[Sun Sep 15 00:27:46 2024]  Iteration number: 988 with current cost as 0.09034211112146091 and parameters 
+[-3.01758718  2.02174665 -1.91293832 ... -0.76001366 -2.63572551
+ -2.11730974]. 
+[Sun Sep 15 00:29:20 2024]  Iteration number: 989 with current cost as 0.1635140293934786 and parameters 
+[-3.0210552   2.01827863 -1.9094703  ... -0.75654564 -2.6322575
+ -2.11384172]. 
+[Sun Sep 15 00:31:18 2024]  Iteration number: 990 with current cost as 0.10303054005133293 and parameters 
+[-3.02638875  2.01294508 -1.91480385 ... -0.76187919 -2.62692394
+ -2.10850817]. 
+[Sun Sep 15 00:34:06 2024]  Iteration number: 991 with current cost as 0.07977888055898127 and parameters 
+[-3.02905694  2.01027689 -1.91747204 ... -0.759211   -2.62425576
+ -2.10583998]. 
+[Sun Sep 15 00:36:08 2024]  Iteration number: 992 with current cost as 0.07722021019265302 and parameters 
+[-3.02580994  2.00702989 -1.92071904 ... -0.762458   -2.62100876
+ -2.10908698]. 
+[Sun Sep 15 00:38:22 2024]  Iteration number: 993 with current cost as 0.07994913120768889 and parameters 
+[-3.02132017  2.00254012 -1.91622927 ... -0.75796824 -2.62549852
+ -2.10459722]. 
+[Sun Sep 15 00:40:19 2024]  Iteration number: 994 with current cost as 0.10892338899505913 and parameters 
+[-3.02016532  2.00138527 -1.91738413 ... -0.75912309 -2.62665338
+ -2.10344236]. 
+[Sun Sep 15 00:42:04 2024]  Iteration number: 995 with current cost as 0.08128965166718202 and parameters 
+[-3.01758781  1.99880776 -1.91996163 ... -0.7617006  -2.62407587
+ -2.10601987]. 
+[Sun Sep 15 00:44:03 2024]  Iteration number: 996 with current cost as 0.09799406155158905 and parameters 
+[-3.01808253  1.99831304 -1.91946691 ... -0.76219532 -2.62358115
+ -2.10651459]. 
+[Sun Sep 15 00:45:17 2024]  Iteration number: 997 with current cost as 0.09347806016190159 and parameters 
+[-3.02054239  1.99585318 -1.92192677 ... -0.75973546 -2.62112129
+ -2.10897445]. 
+[Sun Sep 15 00:47:19 2024]  Iteration number: 998 with current cost as 0.04345961362716061 and parameters 
+[-3.02214269  1.99425288 -1.92352707 ... -0.76133576 -2.61952099
+ -2.11057475]. 
+[Sun Sep 15 00:49:52 2024]  Iteration number: 999 with current cost as 0.0628415192599112 and parameters 
+[-3.0250021   1.99711229 -1.92638648 ... -0.76419516 -2.61666159
+ -2.10771534]. 
+Training complete taking 117513.94194364548 total seconds. 
+Now scoring model... 
+Scoring complete taking 42.30377674102783 seconds. 
+Saved predicted values as IQP_Full-Pauli-CRX_predicted_values.csv
+Model scores: {'MSE_train': (1.9595823956667564,), 'R2_train': 0.7324436911972501, 'MAE_train': 0.9586122832826334, 'MSE_test': 6.351384984398883, 'R2_test': 0.36682625005221736, 'MAE_test': 1.6695748435509727}. 
+Saved model results as IQP_Full-Pauli-CRX_results.json. 
