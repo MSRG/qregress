@@ -1,11 +1,13 @@
 #!/bin/bash
 # Grab iteration informations
-raniter=$(cat */model_log.csv  | grep -iE "Sep" | tail -n 1  | cut -d',' -f2)
+month=$(date +%b)
+raniter=$(cat */model_log.csv  | grep -iE "$month" | tail -n 1  | cut -d',' -f2)
 remain=$((1000-$raniter))
 echo "Iterations left: $remain"
 
 # Change iterations
-sed -i 's/"MAX_ITER": 1000/"MAX_ITER": $remain/g' */*.json
+sed -i 's/"MAX_ITER": 1000/"MAX_ITER": '$remain'/g' */*.json
+cat */*.json
 
 # run resubmit.sh
 rm *done *.o* *.e* *sub
