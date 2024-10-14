@@ -1,5 +1,6 @@
 import json
 import click
+import os
 from quantum.circuits.Encoders import double_angle, single_angle, iqp_embedding, mitarai, composer, \
     entangle_cz, entangle_cnot
 from quantum.circuits.Ansatz import HardwareEfficient, EfficientSU2, TwoLocal, ModifiedPauliTwo, HadamardAnsatz
@@ -65,7 +66,7 @@ hyperparameters = {
 
 
 def create_settings(filename: str, settings: dict, postprocess, error_mitigation, shots, backend, device,
-                    optimizer, layers, re_upload_depth, max_iter, tol, num_qubits, scale_factors=None):
+                    optimizer, layers, re_upload_depth, max_iter, tol, num_qubits,  batch_size, njobs, scale_factors=None):
     """
     Takes inputs for all of the settings to be used in the QML model and creates a dictionary of the corresponding
     settings. Then is dumped into JSON and saved as filename.json. Filename parameter should not include the extension.
@@ -91,8 +92,14 @@ def create_settings(filename: str, settings: dict, postprocess, error_mitigation
     settings['RE-UPLOAD_DEPTH'] = re_upload_depth
     settings['NUM_QUBITS'] = num_qubits
     settings['HYPERPARAMETERS'] = hyperparameters
-
-    filename = filename + '.json'
+    settings['BATCH_SIZE'] = batch_size
+    settings['NUM_CORES'] = njobs
+    
+    dirname = filename
+    if os.path.exists(dirname)==False:
+        os.mkdir(dirname)
+        
+    filename = os.path.join(dirname,filename + '.json')
 
     with open(filename, 'w') as outfile:
         json.dump(settings, outfile)
@@ -155,8 +162,14 @@ def create_combinations(encoder: str = None, ansatz: str = None):
               help='Specify a post-processing type. Leave blank for none. ')
 @click.option('--file_name', default=None, type=click.Path(), help='Name for the file to be saved as. Only specify if '
                                                                    'creating a single settings file. ')
+
+@click.option('--batch_size', default=None, type=int, help='Batch size.')
+@click.option('--njobs', default=None, type=int, help='Number of cores.')
+
+
+
 def main(encoder, ansatz, layers, device, backend, shots, optimizer, max_iter, tol, error_mitigation, post_process,
-         file_name, re_upload_depth, num_qubits):
+         file_name, re_upload_depth, num_qubits,batch_size,njobs):
     """
     Takes user input parameters and creates a settings json file to be inputted into main.py. If an encoder/ansatz is
     not supplied it will loop over all remaining combinations with remaining settings and title it with encoder_ansatz.
@@ -172,7 +185,7 @@ def main(encoder, ansatz, layers, device, backend, shots, optimizer, max_iter, t
     for name, setting in settings.items():
         create_settings(filename=name, settings=setting, postprocess=post_process, error_mitigation=error_mitigation,
                         shots=shots, backend=backend, device=device, optimizer=optimizer, layers=layers,
-                        re_upload_depth=re_upload_depth, max_iter=max_iter, tol=tol, num_qubits=num_qubits)
+                        re_upload_depth=re_upload_depth, max_iter=max_iter, tol=tol, num_qubits=num_qubits,batch_size=batch_size,njobs=njobs)
 
 
 if __name__ == '__main__':
