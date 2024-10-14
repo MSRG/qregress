@@ -14,11 +14,12 @@ import pandas as pd
 import pennylane as qml
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import KFold
-from qiskit_ibm_provider import IBMProvider
 
 from quantum.Quantum import QuantumRegressor
 from quantum.Evaluate import evaluate
 from settings import ANSATZ_LIST, ENCODER_LIST
+from sklearn.utils._testing import ignore_warnings
+from sklearn.exceptions import InconsistentVersionWarning
 
 # Global variables
 OPTIMIZER = None
@@ -32,15 +33,14 @@ ENCODER = None
 POSTPROCESS = None
 ERROR_MITIGATION = None
 LAYERS = None
-PROVIDER = None
 TOKEN = None
 HYPERPARAMETERS = None
 RE_UPLOAD_DEPTH = None
 MAX_ITER = None
 TOLERANCE = None
 NUM_QUBITS = None
-
-
+BATCH_SIZE = None
+NUM_CORES = None
 ############################################
 # Utility functions
 ############################################
@@ -55,7 +55,7 @@ def parse_settings(settings_file):
 
     global SHOTS
     SHOTS = settings['SHOTS']
-
+                
     global BACKEND
     BACKEND = settings['BACKEND']
 
@@ -105,6 +105,11 @@ def parse_settings(settings_file):
     global ENCODER
     ENCODER = ENCODER_LIST[settings['ENCODER']]
 
+    global BATCH_SIZE
+    BATCH_SIZE = settings['BATCH_SIZE']
+    
+    global NUM_CORES
+    NUM_CORES = settings['NUM_CORES']
 
 def load_dataset(file):
     print(f'Loading dataset from {file}... ')
@@ -119,10 +124,9 @@ def load_dataset(file):
 
 
 def save_token(instance, token):
-    global PROVIDER
-    PROVIDER = IBMProvider(instance=instance)
     global TOKEN
     TOKEN = token
+    QiskitRuntimeService.save_account(channel='ibm_quantum', instance=instance, token=token, overwrite=True)
 
 
 ############################################
@@ -135,7 +139,7 @@ def save_token(instance, token):
 @click.option('--train_set', required=True, type=click.Path(exists=True), help='Datafile for training the ML model. ')
 @click.option('--test_set', default=None, type=click.Path(exists=True), help='Optional datafile to use for testing '
                                                                              'and scoring the model. ')
-@click.option('--scaler', required=True, type=click.Path(exists=True), help='Scaler used to unsclae y-values. ')
+@click.option('--scaler', required=True, type=click.Path(exists=True), help='Scaler used to unscale y-values. ')
 @click.option('--instance', default=None, help='Instance for running on IBMQ devices. ')
 @click.option('--token', default=None, help='IBMQ token for running on hardware. ')
 @click.option('--save_circuits', default=False, help='Whether to save a figure of encoder and ansatz circuits. ')
@@ -144,6 +148,7 @@ def save_token(instance, token):
 @click.option('--resume_file', default=None, type=click.Path(exists=True), help='File to resume training from. Use '
                                                                                 'the same settings file to generate '
                                                                                 'the same model for training. ')
+@ignore_warnings(category=InconsistentVersionWarning)
 def main(save_path,settings, train_set, test_set, scaler, instance, token, save_circuits, title, resume_file):
     """
     Trains the quantum regressor with the settings in the given settings file using the dataset from the given train
@@ -157,6 +162,7 @@ def main(save_path,settings, train_set, test_set, scaler, instance, token, save_
 
     global NUM_QUBITS
     global X_DIM
+    
     if NUM_QUBITS is not None:
         X_DIM = NUM_QUBITS
     elif X_DIM == 1:  # if X_DIM is None and num_qubits wasn't specified anywhere use a default value of 2.
@@ -253,12 +259,14 @@ def create_kwargs():
         'max_iterations': MAX_ITER,
         'tol': TOLERANCE,
         'device': DEVICE,
+        'shots': SHOTS,
         'backend': BACKEND,
         'postprocess': POSTPROCESS,
         'error_mitigation': ERROR_MITIGATION,
-        'provider': PROVIDER,
         'token': TOKEN,
         're_upload_depth': RE_UPLOAD_DEPTH,
+        'batch_size': BATCH_SIZE,
+        'njobs':NUM_CORES
     }
     return kwargs
 
