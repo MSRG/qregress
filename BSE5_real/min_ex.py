@@ -48,7 +48,7 @@ class RegressionDataset(Dataset):
         return self.X[idx], self.y[idx]
 
 # Create DataLoaders
-batch_size = 32 * 8
+batch_size = 32 * 1
 train_dataset = RegressionDataset(X_train, y_train)
 test_dataset = RegressionDataset(X_test, y_test)
 train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
@@ -98,7 +98,7 @@ test_losses = []
 for epoch in tqdm(range(epochs)):
     model.train()
     running_loss = 0.0
-    for batch_X, batch_y in train_loader:
+    for batch_X, batch_y in tqdm(train_loader):
         optimizer.zero_grad()
         batch_X=batch_X.to(device)
         batch_y=batch_y.to(device)
@@ -115,7 +115,7 @@ for epoch in tqdm(range(epochs)):
     model.eval()
     test_running_loss = 0.0
     with torch.no_grad():
-        for batch_X, batch_y in test_loader:
+        for batch_X, batch_y in tqdm(test_loader):
             outputs = model(batch_X)
             loss = criterion(outputs, batch_y)
             test_running_loss += loss.item() * batch_X.size(0)
