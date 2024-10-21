@@ -1,5 +1,2 @@
 #!/bin/bash
-cwd=$(pwd)
-name="A2_HWE-CNOT"
-path=${cwd}/$name
-/opt/miniconda/bin/python ${cwd}/main.py --save_path ${path}  --settings ${path}/${name}.json --train_set ${cwd}/PCA5_Morgan_train.bin --test_set ${cwd}/PCA5_Morgan_test.bin --scaler ${cwd}/PCA5_Morgan_scaler.bin 
+python3 main.py --settings IQP_Full-Pauli-CRX/IQP_Full-Pauli-CRX.json --train_set 5_DDCC_train.bin --test_set 5_DDCC_test.bin --scaler 5_DDCC_scaler.bin --save_path ./ --save_circuits True 
