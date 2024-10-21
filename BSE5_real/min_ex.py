@@ -64,7 +64,7 @@ n_layers=1
 
 service = QiskitRuntimeService(channel="ibm_quantum", instance='pinq-quebec-hub/univ-toronto/matterlab')
 _backend = service.least_busy(operational=True, simulator=False, min_num_qubits=num_qubits)
-dev = qml.device("qiskit.remote", wires=num_qubits, backend=_backend,shots=1024,session=Session(backend=_backend))
+dev = qml.device("qiskit.remote", wires=127, backend=_backend,shots=1024,session=Session(backend=_backend))
 
 # Qulacs simulator
 # dev = qml.device("qulacs.simulator", wires=num_qubits)
