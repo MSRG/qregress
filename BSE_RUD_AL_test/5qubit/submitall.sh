@@ -5,7 +5,7 @@ for i in $dirs; do
   if [[ $i != "5qubithelp" ]]; then
    echo "$topdir/$i"
    cd $topdir/$i/M-M-CZ_HWE-CNOT/
-   python3 $topdir/$i/main.py --settings $topdir/$i/M-M-CZ_HWE-CNOT/M-M-CZ_HWE-CNOT.json --train_set $topdir/$i/PCA5_0.8_Morgan_train.bin --test_set $topdir/$i/PCA5_0.8_Morgan_test.bin --scaler $topdir/$i/PCA5_0.8_Morgan_scaler.bin --save_path $topdir/$i/M-M-CZ_HWE-CNOT 
+   python3 $topdir/$i/main.py --settings $topdir/$i/M-M-CZ_HWE-CNOT/M-M-CZ_HWE-CNOT.json --train_set $topdir/$i/PCA5_0.8_Morgan_train.bin --test_set $topdir/$i/PCA5_0.8_Morgan_test.bin --scaler $topdir/$i/PCA5_0.8_Morgan_scaler.bin --save_path $topdir/$i/M-M-CZ_HWE-CNOT --resume_file $topdir/$i/M-M-CZ_HWE-CNOT/final_state_model.bin 
    cd $topdir 
   fi
 done
