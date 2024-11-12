@@ -22,7 +22,7 @@ for i in */; do
 
 export OMP_NUM_THREADS=80
 cd $(pwd)/$name
-/scinet/niagara/software/2019b/opt/base/python/3.11.5/bin/python ${cwd}/main.py --save_path ${path}  --settings ${path}/${name}.json --train_set ${cwd}/5_DDCC_train.bin --test_set ${cwd}/5_DDCC_test.bin --scaler ${cwd}/5_DDCC_scaler.bin > ${name}.out 2>&1
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/bin/python ${cwd}/main.py --save_path ${path}  --settings ${path}/${name}.json --train_set ${cwd}/5_DDCC_train.bin --test_set ${cwd}/5_DDCC_test.bin --scaler ${cwd}/5_DDCC_scaler.bin --resume_file ${path}/partial_state_model.bin > ${name}.out 2>&1
 
 cd ..
 touch ${name}.done

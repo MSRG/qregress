@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 
 def main(path):
 
+    print(path)
     with open(path,'r') as f:
         filename=f.readlines()
     
@@ -24,4 +25,5 @@ def main(path):
 
 
 if __name__ == '__main__':
+
     main()
