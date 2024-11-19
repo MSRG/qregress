@@ -548,6 +548,14 @@ Using the aforementioned datasets, along with the 168 encoder-ansatz pairs we an
 \end{figure}
 
 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{images/BSE/16qubit_BSE_MAE.png}
+	\caption{16 qubit BSE MAE (kcal/mol)}
+	\label{fig:16qubit_BSE_MAE}
+\end{figure}
+
 Using this data, we analyzed the mean time per training iteration versus the MAE and circuit depth. 
 We found that within the 168 encoder-ansatz pairs, there existed a bimodal distribution, where there were a set of 70 circuits with the mean time per iteration greater than 100 seconds and those with less.
 Going forward, we will only use the set of circuits that belong to the set with mean iteration times less than 100 seconds due to cost considerations.
@@ -564,7 +572,16 @@ For the 70 circuits that belong to those with iterations less than 100 seconds f
 
 \subsubsection{RUD + AL (5 + 16 qubit)}
 Based off of the improvements shown in the function fitting dataset, we only used the best encoding ansatz pair for the real datasets
-For the 5 qubit, it is A2 HWE-CNOT
+For the 5 qubit, it is  M-M-CZ HWE-CNOT
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{images/BSE/BSE5_RUDAL.png}
+	\caption{5 qubit BSE MAE (kcal/mol) AL RUD}
+	\label{fig:	BSE5_RUDAL}
+\end{figure}
+
+For 16 qubit A2 Hadamard
 
 
 \subsubsection{Error mitigation}

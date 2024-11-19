@@ -12,9 +12,9 @@ for i in */; do
     	cat > ${name}.sub <<EOF
 #! /bin/bash
 #SBATCH -t 7-00:00:00
-#SBATCH -J ${errorname}_linear_${name}
+#SBATCH -J ${errorname}_DDCC_${name}
 #SBATCH -N 1
-#SBATCH -n 36
+#SBATCH -n 16
 #SBATCH --mem-per-cpu=300           # memory per cpu
 #SBATCH --account=rrg-jacobsen-ab
 #SBATCH --error=${name}.e%J        # The file where run time errors will be dumped
@@ -23,7 +23,7 @@ for i in */; do
 module load apptainer
 cd $(pwd)/$name
 
-apptainer run -C -B ${cwd} /home/gjones/projects/def-jacobsen/gjones/deb.sif /opt/miniconda/bin/python ${cwd}/main.py --save_path ${path}  --settings ${path}/${name}.json --train_set ${cwd}/linear_train.bin --test_set ${cwd}/linear_test.bin --scaler ${cwd}/linear_scaler.bin >> ${name}.out 2>&1
+apptainer run -C -B ${cwd} /home/gjones/projects/def-jacobsen/gjones/deb.sif /opt/miniconda/bin/python ${cwd}/main.py --save_path ${path}  --settings ${path}/${name}.json --train_set ${cwd}/5_DDCC_train.bin --test_set ${cwd}/5_DDCC_test.bin --scaler ${cwd}/5_DDCC_scaler.bin >> ${name}.out 2>&1
 
 cd ..
 touch ${name}.done

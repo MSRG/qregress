@@ -1,0 +1,1 @@
+        python3 /home/grierjones/5qubit/main.py --settings /home/grierjones/5qubit/M-M-CZ_HWE-CNOT/M-M-CZ_HWE-CNOT.json --train_set /home/grierjones/5qubit/PCA5_0.8_Morgan_train.bin --test_set /home/grierjones/5qubit/PCA5_0.8_Morgan_test.bin --scaler /home/grierjones/5qubit/PCA5_0.8_Morgan_scaler.bin --save_path /home/grierjones/5qubit/M-M-CZ_HWE-CNOT --save_circuits True 

@@ -22,7 +22,7 @@ for p in glob('*/*.json'):
     
     
     olddt["BATCH_SIZE"]=25
-    olddt["NUM_CORES"]=36
+    olddt["NUM_CORES"]=16
     olddt['TOLERANCE']=1e-6
     olddt['MAX_ITER']=1000
     print(olddt)    
