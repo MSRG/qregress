@@ -236,49 +236,54 @@ Canada M5S 3G4}
 The rapid growth of quantum computing has seen a rise in the development of applicable near-term quantum algorithms. A promising candidate to run on current noisy intermediate-scale quantum (NISQ) hardware is quantum machine learning (QML). Parameterized quantum circuits can be learned as models in a hybrid classical-quantum approach. It has been shown that QML models may need less training data to generalize compared to classical methods. Although QML has been explored largely within classification tasks, regression tasks have received much less attention. Existing studies have only utilized few qubits and lack relevant practical applications. We will discuss our work on the development and comparisons of QML models for highly desired prediction of chemical properties such as bond dissociation energies and barrier height energies. Our work investigates the trainability, expressibility, and generalization capability of various quantum models for the purpose of regression of molecular properties. Our work also provides a benchmark against classical machine learning models and implications of using error mitigation techniques for QML. \par
 
 \newpage
-\textcolor{red}{Reorganize}
 \begin{itemize}
 	\item Abstract
 	\item Introduction
 	\item Methods
 	\item Datasets
-	\item Results
+	\item Results and Discussion
 	\begin{itemize}
 		\item Function fitting 
 		\begin{itemize}
-			\item Classical testing
 			\item All (5 + 16 qubit)
 			\item RUD + AL (5 + 16 qubit)
-			\item Error mitigation
-			\item Real device
-		\end{itemize}
-		\item DDCC (5 qubit only because classically it can be done with 5 features!)
-		\begin{itemize}
-			\item Classical testing
-			\item Truncated  5 qubit set (based on BSE 5 qubit cost analysis)
-			\item RUD + AL (5)
-			\item Error mitigation
-			\item Real device
+			\item Error mitigation on FakeQuebec
 		\end{itemize}
 		\item BSE
 		\begin{itemize}
-			\item Classical testing
 			\item All 5 qubit
 			\item Truncated 16 qubit set (cost analysis 5 qubit)
 			\item RUD + AL (5 + 16 qubit)
-			\item Error mitigation
-			\item Real device
+			\item Real device (without error mitigation and with whatever the best is from function fitting)
+		\end{itemize}		
+		\item DDCC (5 qubit only because classically it can be done with 5 features!)
+		\begin{itemize}
+			\item Truncated  5 qubit set (based on BSE 5 qubit cost analysis)
+			\item RUD + AL (5 qubit)
+			\item Real device (without error mitigation and with whatever the best is from function fitting)
 		\end{itemize}				
 	\end{itemize}
-	\item Discussion and Conclusion
+	\item Conclusion
 \end{itemize}
 
 \newpage
 \section{Introduction}
 \cite{prasad_applications_2024}
-\cite{suzuki_predicting_2020}
-\cite{mitarai_quantum_2018}
-\cite{sim_expressibility_2019}
+
+
+A1, A2, M-Encoding \cite{suzuki_predicting_2020}
+M-Encoding \cite{mitarai_quantum_2018}
+
+
+Ansaetze \cite{sim_expressibility_2019}
+``In particular, a substantial improvement in performance of two-qubit gates in a ring or all-to-all connected arrangement, compared to thatof those on a line, is observed.''
+
+``Furthermore, improvement in both descriptors is achieved by sequences of controlled X-rotation gates compared tosequences of controlled Z-rotation gates.''
+
+``investigated howexpressibility “saturates” with increased circuit depth, finding that the rateand saturated value appear to be distinguishing features of a PQC''
+
+IQP \cite{bremner_average-case_2015}
+
 \cite{hatakeyama-sato_quantum_2023}
 \cite{krenn_artificial_2023}
 \cite{benedetti_parameterized_2019}
