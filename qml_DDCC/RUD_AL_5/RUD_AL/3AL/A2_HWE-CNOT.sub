@@ -1,0 +1,17 @@
+#! /bin/bash
+#SBATCH -t 0-23:59:59
+#SBATCH -J 3AL_A2_HWE-CNOT
+#SBATCH -N 1
+#SBATCH -n 80
+#SBATCH --account=rrg-fekl-ac
+#SBATCH --error=A2_HWE-CNOT.e%J        # The file where run time errors will be dumped
+#SBATCH --output=A2_HWE-CNOT.o%J               # The file where the output of the terminal will be dumped
+
+
+export OMP_NUM_THREADS=80
+cd /scratch/j/jacobsen/gjones/DDCC5_func_specific/RUD_AL/3AL/A2_HWE-CNOT
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/bin/python /scratch/j/jacobsen/gjones/DDCC5_func_specific/RUD_AL/3AL/main.py --save_path /scratch/j/jacobsen/gjones/DDCC5_func_specific/RUD_AL/3AL/A2_HWE-CNOT  --settings /scratch/j/jacobsen/gjones/DDCC5_func_specific/RUD_AL/3AL/A2_HWE-CNOT/A2_HWE-CNOT.json --train_set /scratch/j/jacobsen/gjones/DDCC5_func_specific/RUD_AL/3AL/5_DDCC_train.bin --test_set /scratch/j/jacobsen/gjones/DDCC5_func_specific/RUD_AL/3AL/5_DDCC_test.bin --scaler /scratch/j/jacobsen/gjones/DDCC5_func_specific/RUD_AL/3AL/5_DDCC_scaler.bin --resume_file /scratch/j/jacobsen/gjones/DDCC5_func_specific/RUD_AL/3AL/A2_HWE-CNOT/partial_state_model.bin > A2_HWE-CNOT.out 2>&1
+
+cd ..
+touch A2_HWE-CNOT.done
+
