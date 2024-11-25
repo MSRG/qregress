@@ -4,9 +4,8 @@ from pennylane import numpy as np
 from sklearn.metrics import mean_squared_error
 from scipy.optimize import minimize, basinhopping
 from qiskit_ibm_runtime import QiskitRuntimeService
-#from qiskit_ibm_provider import IBMProvider
 from qiskit_aer.noise import NoiseModel
-from qiskit_ibm_runtime.fake_provider import FakeCairoV2
+from qiskit_ibm_runtime.fake_provider import FakeQuebec
 from mitiq.zne.scaling import fold_global
 from mitiq.zne.inference import RichardsonFactory, LinearFactory
 from qiskit_aer import AerSimulator
@@ -15,7 +14,7 @@ import mthree
 import os
 import json
 import time
-
+from tqdm import tqdm
 
 
 class BasinBounds:
@@ -62,7 +61,6 @@ class QuantumRegressor:
             f: float = 1.,
             alpha: float = 0.,
             beta: float = 0,
-            provider=None,
             token: str = None,
             batch_size: int=None,
             njobs: int=None):
@@ -83,7 +81,7 @@ class QuantumRegressor:
         self.postprocess = postprocess
         self.encoder = encoder
         self.variational = variational
-        self._set_device(device, backend, shots, provider, token)
+        self._set_device(device, backend, shots, token)
         self._set_optimizer(optimizer)
         self._tol = tol
         self._build_qnode(scale_factors, folding)
@@ -93,29 +91,35 @@ class QuantumRegressor:
         print(self.njobs)
         os.environ["OMP_NUM_THREADS"] = str(self.njobs)
         print(os.environ["OMP_NUM_THREADS"])
-    def _set_device(self, device, backend, shots, provider=None, token=None):
+    def _set_device(self, device, backend, shots, token=None):
         #  sets the models quantum device. If using IBMQ asks for proper credentials
-        if device == 'qiskit.ibmq':
+        if device == 'qiskit.remote':
             print('Running on IBMQ Runtime')
-            if provider is None:
-                instance = input('Enter runtime setting: instance')
-                provider = IBMProvider(instance)
-            if token is None:
-                token = input('Enter IBMQ token')
-            # QiskitRuntimeService.save_account(channel='ibm_quantum', instance=instance, token=token, overwrite=True)
-            self.device = qml.device(device, wires=self.num_qubits, backend=backend, shots=shots, provider=provider, token=token)
-            service = QiskitRuntimeService()
-            self._backend = service.backend(backend)
+            #if provider is None:
+            #    instance = input('Enter runtime setting: instance')
+            #    provider = IBMProvider(instance)
+            #if token is None:
+            #    token = input('Enter IBMQ token')
+            ## QiskitRuntimeService.save_account(channel='ibm_quantum', instance=instance, token=token, overwrite=True)
+            # Or save your credentials on disk.
+            # QiskitRuntimeService.save_account(channel='ibm_quantum', instance='pinq-quebec-hub/univ-toronto/matterlab', token='<IBM Quantum API key>')
+            service = QiskitRuntimeService(channel="ibm_quantum", instance='pinq-quebec-hub/univ-toronto/matterlab')
+            self._backend = service.least_busy(operational=True, simulator=False, min_num_qubits=self.num_qubits)
+            self.device = qml.device(device, wires=self.num_qubits, backend=self._backend,shots=shots)
+            # Default to no noise 
+            self.device.set_transpile_args(**{"resilience_level":0,"seed_transpiler":42})
+
             if self.error_mitigation == 'TREX':
                 self.device.set_transpile_args(**{'resilience_level': 1})
 
-        elif device == 'qiskit.aer' and backend == "cairo":
+        elif device == 'qiskit.aer' and backend == "fake":
             # Example based on https://pennylane.ai/qml/demos/tutorial_error_mitigation/
-            device_backend = FakeCairoV2()
+            device_backend = FakeQuebec()
             backend = AerSimulator.from_backend(device_backend)
             noise_model = NoiseModel.from_backend(backend)
             self._backend=backend
-            self.device = qml.device(device, wires=self.num_qubits, noise_model=noise_model, optimization_level=0,shots=shots)
+            self.device = qml.device(device, backend=self._backend, wires=self.num_qubits, noise_model=noise_model,shots=shots)
+            self.device.set_transpile_args(**{'resilience_level': 0})
 
 
             if self.error_mitigation == 'TREX':
@@ -184,10 +188,8 @@ class QuantumRegressor:
     def _cost(self, parameters):
         # GMJ Batch loss
         if self._batch_size is not None and self.njobs is not None:
-            print("Batches of size: ",len(self.x)//self._batch_size)
-            print(len(self.x),self._batch_size)
-            batch_partititions = np.array_split(np.random.randint(0, len(self.x), len(self.x)),len(self.x)//self._batch_size)
-            base_cost = np.mean(joblib.Parallel(n_jobs=self.njobs,verbose=0)(joblib.delayed(mean_squared_error)(self.y[i], self.predict(self.x[i], params=parameters)) for i in batch_partititions))
+            batch_partitions = np.array_split(np.random.randint(0, len(self.x), len(self.x)),len(self.x)//self._batch_size)
+            base_cost = np.mean(joblib.Parallel(n_jobs=self.njobs,verbose=0)(joblib.delayed(mean_squared_error)(self.y[i], self.predict(self.x[i], params=parameters)) for i in tqdm(batch_partitions,desc=f"Cost (Batches {len(batch_partitions)} of size {self._batch_size})")))
         else:
             pred = self.predict(self.x, params=parameters)
             base_cost = mean_squared_error(self.y, pred)        
@@ -391,6 +393,7 @@ class QuantumRegressor:
             params = self.params
 
         if self.postprocess is None:
-            return [f * self.qnode(features=features, parameters=params) for features in x]
+            print(self.qnode(features=x[0], parameters=params),x,params)
+            return [f * self.qnode(features=features, parameters=params) for features in tqdm(x,desc="Predict")]
         else:
             return [np.dot(f * np.array(self.qnode(features=features, parameters=params[:-self.num_qubits])),params[-self.num_qubits:]) for features in x]

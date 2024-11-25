@@ -50,7 +50,7 @@ ANSATZ_LIST = {
     'Efficient-CRZ': TwoLocal(rot_gates=['rx', 'rz'], entangle_gates=['crz'], entanglement='linear'),
     'Efficient-CRX': TwoLocal(rot_gates=['rx', 'rz'], entangle_gates=['crx'], entanglement='linear'),
     'Full-CRZ': TwoLocal(rot_gates=['rx', 'rz'], entangle_gates=['crz'], entanglement='complete'),
-    'Full-CRX': TwoLocal(rot_gates=['rx', 'rz'], entangle_gates=['crz'], entanglement='complete'),
+    'Full-CRX': TwoLocal(rot_gates=['rx', 'rz'], entangle_gates=['crx'], entanglement='complete'),
     'Modified-Pauli-CRZ': ModifiedPauliTwo(rotation_block=['rx', 'rz'], entanglement='crz', full_rotation=False),
     'Modified-Pauli-CRX': ModifiedPauliTwo(rotation_block=['rx', 'rz'], entanglement='crx', full_rotation=False),
     'Full-Pauli-CRZ': ModifiedPauliTwo(rotation_block=['rx', 'rz'], entanglement='crz', full_rotation=True),

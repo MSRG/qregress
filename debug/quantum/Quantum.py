@@ -107,7 +107,7 @@ class QuantumRegressor:
             self._backend = service.least_busy(operational=True, simulator=False, min_num_qubits=self.num_qubits)
             self.device = qml.device(device, wires=self.num_qubits, backend=self._backend,shots=shots)
             # Default to no noise 
-            self.device.set_transpile_args(**{"optimization_level":0,"resilience_level":0,"seed_transpiler":42})
+            self.device.set_transpile_args(**{"resilience_level":0,"seed_transpiler":42})
 
             if self.error_mitigation == 'TREX':
                 self.device.set_transpile_args(**{'resilience_level': 1})

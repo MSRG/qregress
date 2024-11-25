@@ -1,0 +1,138 @@
+Loading dataset from /Users/grierjones/rerun_FullCRX/function-calc-test/fivequbit_tests/lin5qubit/linear_train.bin... 
+Successfully loaded /Users/grierjones/rerun_FullCRX/function-calc-test/fivequbit_tests/lin5qubit/linear_train.bin into X and y data. 
+Loading dataset from /Users/grierjones/rerun_FullCRX/function-calc-test/fivequbit_tests/lin5qubit/linear_test.bin... 
+Successfully loaded /Users/grierjones/rerun_FullCRX/function-calc-test/fivequbit_tests/lin5qubit/linear_test.bin into X and y data. 
+Training model with dataset /Users/grierjones/rerun_FullCRX/function-calc-test/fivequbit_tests/lin5qubit/linear_train.bin 
+ at time Mon Nov 25 10:17:49 2024... 
+64
+64
+Cost (Batches 2 of size 32):   0%|          | 0/2 [00:00<?, ?it/s]<QNode: wires=5, device='qulacs.simulator', interface='auto', diff_method='best'> FUCK
+
+Predict:   0%|          | 0/40 [00:00<?, ?it/s][APredict:   0%|          | 0/40 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/joblib/parallel.py", line 1457, in dispatch_one_batch
+    tasks = self._ready_batches.get(block=False)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/queue.py", line 168, in get
+    raise Empty
+_queue.Empty
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/pennylane/devices/_legacy_device.py", line 388, in map_wires
+    mapped_wires = wires.map(self.wire_map)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/pennylane/wires.py", line 296, in map
+    raise WireError(f"No mapping for wire label {w} specified in wire map {wire_map}.")
+pennylane.wires.WireError: No mapping for wire label -1 specified in wire map OrderedDict({0: 0, 1: 1, 2: 2, 3: 3, 4: 4}).
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/grierjones/rerun_FullCRX/function-calc-test/fivequbit_tests/lin5qubit/main.py", line 339, in <module>
+    main()
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+         ^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/sklearn/utils/_testing.py", line 160, in wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/rerun_FullCRX/function-calc-test/fivequbit_tests/lin5qubit/main.py", line 195, in main
+    model.fit(X_train, y_train, load_state=resume_file)
+  File "/Users/grierjones/rerun_FullCRX/function-calc-test/fivequbit_tests/lin5qubit/quantum/Quantum.py", line 347, in fit
+    params, temp_cost = opt.step_and_cost(self._cost_wrapper, params)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/pennylane/optimize/spsa.py", line 196, in step_and_cost
+    g = self.compute_grad(objective_fn, args, kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/pennylane/optimize/spsa.py", line 263, in compute_grad
+    yplus = objective_fn(*thetaplus, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/rerun_FullCRX/function-calc-test/fivequbit_tests/lin5qubit/quantum/Quantum.py", line 234, in _cost_wrapper
+    cost = self._cost(parameters)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/rerun_FullCRX/function-calc-test/fivequbit_tests/lin5qubit/quantum/Quantum.py", line 192, in _cost
+    base_cost = np.mean(joblib.Parallel(n_jobs=self.njobs,verbose=0)(joblib.delayed(mean_squared_error)(self.y[i], self.predict(self.x[i], params=parameters)) for i in tqdm(batch_partitions,desc=f"Cost (Batches {len(batch_partitions)} of size {self._batch_size})")))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/joblib/parallel.py", line 2007, in __call__
+    return output if self.return_generator else list(output)
+                                                ^^^^^^^^^^^^
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/joblib/parallel.py", line 1650, in _get_outputs
+    yield from self._retrieve()
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/joblib/parallel.py", line 1754, in _retrieve
+    self._raise_error_fast()
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/joblib/parallel.py", line 1789, in _raise_error_fast
+    error_job.get_result(self.timeout)
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/joblib/parallel.py", line 745, in get_result
+    return self._return_or_raise()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/joblib/parallel.py", line 763, in _return_or_raise
+    raise self._result
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/joblib/parallel.py", line 1469, in dispatch_one_batch
+    islice = list(itertools.islice(iterator, big_batch_size))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/rerun_FullCRX/function-calc-test/fivequbit_tests/lin5qubit/quantum/Quantum.py", line 192, in <genexpr>
+    base_cost = np.mean(joblib.Parallel(n_jobs=self.njobs,verbose=0)(joblib.delayed(mean_squared_error)(self.y[i], self.predict(self.x[i], params=parameters)) for i in tqdm(batch_partitions,desc=f"Cost (Batches {len(batch_partitions)} of size {self._batch_size})")))
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/rerun_FullCRX/function-calc-test/fivequbit_tests/lin5qubit/quantum/Quantum.py", line 397, in predict
+    return [f * self.qnode(features=features, parameters=params) for features in tqdm(x,desc="Predict")]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/pennylane/workflow/qnode.py", line 1020, in __call__
+    return self._impl_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/pennylane/workflow/qnode.py", line 1008, in _impl_call
+    res = self._execution_component(args, kwargs, override_shots=override_shots)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/pennylane/workflow/qnode.py", line 957, in _execution_component
+    res = qml.execute(
+          ^^^^^^^^^^^^
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/pennylane/workflow/execution.py", line 771, in execute
+    results = ml_boundary_execute(tapes, execute_fn, jpc, device=device)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/pennylane/workflow/interfaces/autograd.py", line 147, in autograd_execute
+    return _execute(parameters, tuple(tapes), execute_fn, jpc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/autograd/tracer.py", line 48, in f_wrapped
+    return f_raw(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/pennylane/workflow/interfaces/autograd.py", line 168, in _execute
+    return execute_fn(tapes)
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/pennylane/workflow/execution.py", line 212, in inner_execute
+    results = device.execute(transformed_tapes, execution_config=execution_config)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/pennylane/devices/modifiers/single_tape_support.py", line 32, in execute
+    results = batch_execute(self, circuits, execution_config)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/pennylane/devices/legacy_facade.py", line 456, in execute
+    results = _set_shots(dev, first_shot)(dev.batch_execute)(circuits, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/contextlib.py", line 81, in inner
+    return func(*args, **kwds)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/pennylane/devices/_qubit_device.py", line 510, in batch_execute
+    res = self.execute(circuit, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/pennylane/devices/_qubit_device.py", line 298, in execute
+    self.apply(
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/pennylane_qulacs/qulacs_device.py", line 155, in apply
+    self.apply_operations(operations)
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/pennylane_qulacs/qulacs_device.py", line 191, in apply_operations
+    self._apply_gate(op, inverse)
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/pennylane_qulacs/qulacs_device.py", line 291, in _apply_gate
+    device_wires = self.map_wires(op.wires)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/grierjones/miniconda3/envs/simple_qml/lib/python3.12/site-packages/pennylane/devices/_legacy_device.py", line 390, in map_wires
+    raise WireError(
+pennylane.wires.WireError: Did not find some of the wires Wires([<WiresEnum.AnyWires: -1>, 5]) on device with wires Wires([0, 1, 2, 3, 4]).
+Cost (Batches 2 of size 32):   0%|          | 0/2 [00:00<?, ?it/s]
