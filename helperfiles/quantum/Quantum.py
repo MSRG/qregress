@@ -145,7 +145,11 @@ class QuantumRegressor:
         for i in range(self._re_upload_depth):
             params = parameters[self._num_params() * i:self._num_params() * (i + 1)]
             self.encoder(features, wires=range(self.num_qubits))
-            self.variational(params, wires=range(self.num_qubits))
+            # GMJ: 11/26/24 a hack to get this to work for Full-CRZ/X
+            try:
+                self.variational(params, wires=range(self.num_qubits))
+            except:
+                self.variational(params, wires=range(self.num_qubits))
 
         if self.postprocess is None and self.error_mitigation != 'M3':
             return qml.expval(qml.PauliZ(0))
