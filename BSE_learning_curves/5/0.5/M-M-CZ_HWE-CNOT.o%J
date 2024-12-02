@@ -1,0 +1,152 @@
+
+scontrol show job 13902979
+JobId=13902979 JobName=0.5_PCA5_0.5_Morgan_M-M-CZ_HWE-CNOT
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1697061 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:42 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2024-11-26T13:58:52 EligibleTime=2024-11-26T13:58:52
+   AccrueTime=2024-11-26T13:58:52
+   StartTime=2024-11-26T17:04:20 EndTime=2024-11-26T17:05:02 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2024-11-26T17:04:20 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login03:120545
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia1832
+   BatchHost=nia1832
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=175000M MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=./M-M-CZ_HWE-CNOT.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/5/0.5
+   Comment=/opt/slurm/bin/sbatch ./M-M-CZ_HWE-CNOT.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/5/0.5/M-M-CZ_HWE-CNOT.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/5/0.5/M-M-CZ_HWE-CNOT.o%J
+   
+
+sacct -j 13902979
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+13902979     0.5_PCA5_+ rrg-fekl-+   00:00:43                         00:00:00   00:00:00      0:0 
+13902979.ba+      batch rrg-fekl-+   00:00:43                         00:00:00   00:00:00      0:0 
+13902979.ex+     extern rrg-fekl-+   00:00:43                         00:00:00   00:00:00      0:0 
+
+scontrol show job 13910790
+JobId=13910790 JobName=0.5_PCA5_0.5_Morgan_M-M-CZ_HWE-CNOT
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1627471 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=05:48:51 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2024-11-28T12:28:40 EligibleTime=2024-11-28T12:28:40
+   AccrueTime=2024-11-28T12:28:40
+   StartTime=2024-11-28T12:28:42 EndTime=2024-11-28T18:17:33 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2024-11-28T12:28:42 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login05:9665
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia0812
+   BatchHost=nia0812
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=175000M MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/j/jacobsen/gjones/5/0.5/M-M-CZ_HWE-CNOT.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/5/0.5
+   Comment=/opt/slurm/bin/sbatch --export=NONE M-M-CZ_HWE-CNOT.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/5/0.5/M-M-CZ_HWE-CNOT.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/5/0.5/M-M-CZ_HWE-CNOT.o%J
+   
+
+sacct -j 13910790
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+13910790     0.5_PCA5_+ rrg-fekl-+   05:48:51                         00:00:00   00:00:00      0:0 
+13910790.ba+      batch rrg-fekl-+   05:48:51                         00:00:00   00:00:00      0:0 
+13910790.ex+     extern rrg-fekl-+   05:48:51                         00:00:00   00:00:00      0:0 
+
+kernel messages produced during job executions:
+[Nov28 16:17] CIFS PidTable: buckets 64
+[  +0.004217] CIFS BufTable: buckets 64
+
+scontrol show job 13914497
+JobId=13914497 JobName=0.5_PCA5_0.5_Morgan_M-M-CZ_HWE-CNOT
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1654460 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=05:46:11 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2024-11-29T15:05:48 EligibleTime=2024-11-29T15:05:48
+   AccrueTime=2024-11-29T15:05:48
+   StartTime=2024-11-29T15:06:35 EndTime=2024-11-29T20:52:46 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2024-11-29T15:06:35 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login06:36301
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia1365
+   BatchHost=nia1365
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=175000M MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/j/jacobsen/gjones/5/0.5/M-M-CZ_HWE-CNOT.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/5/0.5
+   Comment=/opt/slurm/bin/sbatch --export=NONE M-M-CZ_HWE-CNOT.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/5/0.5/M-M-CZ_HWE-CNOT.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/5/0.5/M-M-CZ_HWE-CNOT.o%J
+   
+
+sacct -j 13914497
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+13914497     0.5_PCA5_+ rrg-fekl-+   05:46:11                         16:11:29 18-09:04:+      0:0 
+13914497.ba+      batch rrg-fekl-+   05:46:11  62475540K   7860824K   16:11:29 18-09:04:+      0:0 
+13914497.ex+     extern rrg-fekl-+   05:46:11    136828K      1032K   00:00:00   00:00:00      0:0 
+
+scontrol show job 13916394
+JobId=13916394 JobName=0.5_PCA5_0.5_Morgan_M-M-CZ_HWE-CNOT
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1629468 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=05:46:39 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2024-11-30T13:30:13 EligibleTime=2024-11-30T13:30:13
+   AccrueTime=2024-11-30T13:30:13
+   StartTime=2024-11-30T13:30:15 EndTime=2024-11-30T19:16:54 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2024-11-30T13:30:15 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login02:30173
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia0401
+   BatchHost=nia0401
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=175000M MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/j/jacobsen/gjones/5/0.5/M-M-CZ_HWE-CNOT.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/5/0.5
+   Comment=/opt/slurm/bin/sbatch --export=NONE M-M-CZ_HWE-CNOT.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/5/0.5/M-M-CZ_HWE-CNOT.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/5/0.5/M-M-CZ_HWE-CNOT.o%J
+   
+
+sacct -j 13916394
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+13916394     0.5_PCA5_+ rrg-fekl-+   05:46:39                         16:10:06 18-10:23:+      0:0 
+13916394.ba+      batch rrg-fekl-+   05:46:39  62473572K   7925944K   16:10:06 18-10:23:+      0:0 
+13916394.ex+     extern rrg-fekl-+   05:46:40    136828K       852K   00:00:00   00:00:00      0:0 

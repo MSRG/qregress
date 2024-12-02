@@ -1,0 +1,16 @@
+#! /bin/bash
+#SBATCH -t 0-23:59:59
+#SBATCH -J 0.1_PCA5_0.1_Morgan_M-M-CZ_HWE-CNOT
+#SBATCH -N 1
+#SBATCH -n 80
+#SBATCH --account=rrg-fekl-ac
+#SBATCH --error=M-M-CZ_HWE-CNOT.e%J        # The file where run time errors will be dumped
+#SBATCH --output=M-M-CZ_HWE-CNOT.o%J               # The file where the output of the terminal will be dumped
+
+cd /scratch/j/jacobsen/gjones/5/0.1/M-M-CZ_HWE-CNOT
+
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/bin/python3 /scratch/j/jacobsen/gjones/5/0.1/main.py --save_path /scratch/j/jacobsen/gjones/5/0.1/M-M-CZ_HWE-CNOT  --settings /scratch/j/jacobsen/gjones/5/0.1/M-M-CZ_HWE-CNOT/M-M-CZ_HWE-CNOT.json --train_set /scratch/j/jacobsen/gjones/5/0.1/PCA5_0.1_Morgan_train.bin --test_set /scratch/j/jacobsen/gjones/5/0.1/PCA5_0.1_Morgan_test.bin --scaler /scratch/j/jacobsen/gjones/5/0.1/PCA5_0.1_Morgan_scaler.bin --resume_file /scratch/j/jacobsen/gjones/5/0.1/M-M-CZ_HWE-CNOT/final_state_model.bin > M-M-CZ_HWE-CNOT.out 2>&1
+
+cd ..
+touch M-M-CZ_HWE-CNOT.done
+
