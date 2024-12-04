@@ -88,9 +88,9 @@ class QuantumRegressor:
         self.fit_count = 0
         self.cached_results = {}
         self.njobs = njobs 
-        print(self.njobs)
+        
         os.environ["OMP_NUM_THREADS"] = str(self.njobs)
-        print(os.environ["OMP_NUM_THREADS"])
+        print(f"Cores set: {self.njobs}")
     def _set_device(self, device, backend, shots, token=None):
         #  sets the models quantum device. If using IBMQ asks for proper credentials
         if device == 'qiskit.remote':
