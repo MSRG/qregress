@@ -4,14 +4,17 @@ from pennylane import numpy as np
 from sklearn.metrics import mean_squared_error
 from scipy.optimize import minimize, basinhopping
 from qiskit_ibm_runtime import QiskitRuntimeService
-from qiskit_ibm_provider import IBMProvider
+from qiskit_aer.noise import NoiseModel
+from qiskit_ibm_runtime.fake_provider import FakeQuebec
 from mitiq.zne.scaling import fold_global
 from mitiq.zne.inference import RichardsonFactory, LinearFactory
+from qiskit_aer import AerSimulator
 import joblib
 import mthree
 import os
 import json
 import time
+from tqdm import tqdm
 
 
 class BasinBounds:
@@ -58,8 +61,9 @@ class QuantumRegressor:
             f: float = 1.,
             alpha: float = 0.,
             beta: float = 0,
-            provider=None,
-            token: str = None):
+            token: str = None,
+            batch_size: int=None,
+            njobs: int=None):
         self.hyperparameters = {'f': f, 'alpha': alpha, 'beta': beta}
         if scale_factors is None:
             scale_factors = [1, 3, 5]
@@ -67,6 +71,7 @@ class QuantumRegressor:
         self.x = None
         self.y = None
         self.params = None
+        self._batch_size = batch_size
         self._re_upload_depth = re_upload_depth
         self.error_mitigation = error_mitigation
         self.num_qubits = num_qubits
@@ -76,27 +81,47 @@ class QuantumRegressor:
         self.postprocess = postprocess
         self.encoder = encoder
         self.variational = variational
-        self._set_device(device, backend, shots, provider, token)
+        self._set_device(device, backend, shots, token)
         self._set_optimizer(optimizer)
         self._tol = tol
         self._build_qnode(scale_factors, folding)
         self.fit_count = 0
         self.cached_results = {}
-
-    def _set_device(self, device, backend, shots, provider=None, token=None):
+        self.njobs = njobs 
+        print(self.njobs)
+        os.environ["OMP_NUM_THREADS"] = str(self.njobs)
+        print(os.environ["OMP_NUM_THREADS"])
+    def _set_device(self, device, backend, shots, token=None):
         #  sets the models quantum device. If using IBMQ asks for proper credentials
-        if device == 'qiskit.ibmq':
+        if device == 'qiskit.remote':
             print('Running on IBMQ Runtime')
-            if provider is None:
-                instance = input('Enter runtime setting: instance')
-                provider = IBMProvider(instance)
-            if token is None:
-                token = input('Enter IBMQ token')
-            # QiskitRuntimeService.save_account(channel='ibm_quantum', instance=instance, token=token, overwrite=True)
-            self.device = qml.device(device, wires=self.num_qubits, backend=backend, shots=shots, provider=provider,
-                                     token=token)
-            service = QiskitRuntimeService()
-            self._backend = service.backend(backend)
+            #if provider is None:
+            #    instance = input('Enter runtime setting: instance')
+            #    provider = IBMProvider(instance)
+            #if token is None:
+            #    token = input('Enter IBMQ token')
+            ## QiskitRuntimeService.save_account(channel='ibm_quantum', instance=instance, token=token, overwrite=True)
+            # Or save your credentials on disk.
+            # QiskitRuntimeService.save_account(channel='ibm_quantum', instance='pinq-quebec-hub/univ-toronto/matterlab', token='<IBM Quantum API key>')
+            service = QiskitRuntimeService(channel="ibm_quantum", instance='pinq-quebec-hub/univ-toronto/matterlab')
+            self._backend = service.least_busy(operational=True, simulator=False, min_num_qubits=self.num_qubits)
+            self.device = qml.device(device, wires=self.num_qubits, backend=self._backend,shots=shots)
+            # Default to no noise 
+            self.device.set_transpile_args(**{"resilience_level":0,"seed_transpiler":42})
+
+            if self.error_mitigation == 'TREX':
+                self.device.set_transpile_args(**{'resilience_level': 1})
+
+        elif device == 'qiskit.aer' and backend == "fake":
+            # Example based on https://pennylane.ai/qml/demos/tutorial_error_mitigation/
+            device_backend = FakeQuebec()
+            backend = AerSimulator.from_backend(device_backend)
+            noise_model = NoiseModel.from_backend(backend)
+            self._backend=backend
+            self.device = qml.device(device, backend=self._backend, wires=self.num_qubits, noise_model=noise_model,shots=shots)
+            self.device.set_transpile_args(**{'resilience_level': 0})
+
+
             if self.error_mitigation == 'TREX':
                 self.device.set_transpile_args(**{'resilience_level': 1})
         else:
@@ -120,7 +145,11 @@ class QuantumRegressor:
         for i in range(self._re_upload_depth):
             params = parameters[self._num_params() * i:self._num_params() * (i + 1)]
             self.encoder(features, wires=range(self.num_qubits))
-            self.variational(params, wires=range(self.num_qubits))
+            # GMJ: 11/26/24 a hack to get this to work for Full-CRZ/X
+            try:
+                self.variational(params, wires=range(self.num_qubits))
+            except:
+                self.variational(params, wires=range(self.num_qubits))
 
         if self.postprocess is None and self.error_mitigation != 'M3':
             return qml.expval(qml.PauliZ(0))
@@ -161,9 +190,15 @@ class QuantumRegressor:
             self.qnode = new_qnode
 
     def _cost(self, parameters):
-
-        pred = self.predict(self.x, params=parameters)
-        base_cost = mean_squared_error(self.y, pred)
+        # GMJ Batch loss
+        if self._batch_size is not None and self.njobs is not None:
+            batch_partitions = np.array_split(np.random.randint(0, len(self.x), len(self.x)),len(self.x)//self._batch_size)
+            base_cost = np.mean(joblib.Parallel(n_jobs=self.njobs,verbose=0)(joblib.delayed(mean_squared_error)(self.y[i], self.predict(self.x[i], params=parameters)) for i in tqdm(batch_partitions,desc=f"Cost (Batches {len(batch_partitions)} of size {self._batch_size})")))
+        else:
+            pred = self.predict(self.x, params=parameters)
+            base_cost = mean_squared_error(self.y, pred)        
+            
+        
         if self.postprocess is None or self.postprocess == 'None' or self.postprocess == 'simple':
             return base_cost
         elif self.postprocess == 'ridge':
@@ -211,7 +246,7 @@ class QuantumRegressor:
 
     def _callback(self, xk):
         cost_at_step = self._cost_wrapper(xk)
-        if self.fit_count % 50 == 0:
+        if self.fit_count % 1 == 0:
             print(f'[{time.asctime()}]  Iteration number: {self.fit_count} with current cost as {cost_at_step} and '
                   f'parameters \n{xk}. ')
         filename = 'model_log.csv'
@@ -279,6 +314,7 @@ class QuantumRegressor:
             outfile.write('Time,Iteration,Cost,Parameters')
             outfile.write('\n')
         self.callback_interval = callback_interval
+
         if load_state is not None:
             param_vector, self.fit_count = self._load_partial_state(load_state)
             initial_parameters = param_vector
@@ -311,10 +347,15 @@ class QuantumRegressor:
         else:
             opt = qml.SPSAOptimizer(maxiter=self.max_iterations)
             cost = []
-            for _ in range(self.max_iterations):
+            for idx,_ in enumerate(range(self.max_iterations)):
                 params, temp_cost = opt.step_and_cost(self._cost_wrapper, params)
                 cost.append(temp_cost)
                 self._callback(params)
+
+                if idx>0 and abs(cost[idx]-cost[idx-1])<=self._tol and abs(np.mean(cost[-3:])-temp_cost)<=self._tol:
+                    print("Early stopping!")
+                    break
+                    
             opt_result = [params, cost]
             self.params = params
 
@@ -356,7 +397,6 @@ class QuantumRegressor:
             params = self.params
 
         if self.postprocess is None:
-            return [f * self.qnode(features=features, parameters=params) for features in x]
+            return [f * self.qnode(features=features, parameters=params) for features in tqdm(x,desc="Predict")]
         else:
-            return [np.dot(f * np.array(self.qnode(features=features, parameters=params[:-self.num_qubits])),
-                           params[-self.num_qubits:]) for features in x]
+            return [np.dot(f * np.array(self.qnode(features=features, parameters=params[:-self.num_qubits])),params[-self.num_qubits:]) for features in x]
