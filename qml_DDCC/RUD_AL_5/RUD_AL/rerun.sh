@@ -25,7 +25,7 @@ for i in $dir; do
 ## Write the remaining iterations to file
 #remain=$((1000 - sumiter))
 #echo "Iterations left: $remain"
- mv ${path}/model_log.csv ${path}/10_model_log.csv
+ mv ${path}/model_log.csv ${path}/21_model_log.csv
 #sed -i 's/"MAX_ITER": 500/"MAX_ITER": '$remain'/g' ${path}/*.json
  
  # Go into directory and submit

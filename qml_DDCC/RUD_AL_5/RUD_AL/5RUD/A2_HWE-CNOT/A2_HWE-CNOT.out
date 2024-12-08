@@ -1,0 +1,2147 @@
+Matplotlib created a temporary cache directory at /tmp/matplotlib-kgror68g because the default path (/home/j/jacobsen/gjones/.config/matplotlib) is not a writable directory; it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)/scratch/j/jacobsen/gjones/DDCC5_func_specific/RUD_AL/5RUD/main.py:17: DeprecationWarning: The package qiskit_ibm_provider is being deprecated. Please see https://docs.quantum.ibm.com/api/migration-guides/qiskit-runtime to get instructions on how to migrate to qiskit-ibm-runtime (https://github.com/Qiskit/qiskit-ibm-runtime).
+  from qiskit_ibm_provider import IBMProvider
+Loading dataset from /scratch/j/jacobsen/gjones/DDCC5_func_specific/RUD_AL/5RUD/5_DDCC_train.bin... 
+Successfully loaded /scratch/j/jacobsen/gjones/DDCC5_func_specific/RUD_AL/5RUD/5_DDCC_train.bin into X and y data. 
+Loading dataset from /scratch/j/jacobsen/gjones/DDCC5_func_specific/RUD_AL/5RUD/5_DDCC_test.bin... 
+Successfully loaded /scratch/j/jacobsen/gjones/DDCC5_func_specific/RUD_AL/5RUD/5_DDCC_test.bin into X and y data. 
+Training model with dataset /scratch/j/jacobsen/gjones/DDCC5_func_specific/RUD_AL/5RUD/5_DDCC_train.bin 
+ at time Fri Dec  6 16:02:06 2024... 
+80
+80
+Loading partial state from file /scratch/j/jacobsen/gjones/DDCC5_func_specific/RUD_AL/5RUD/A2_HWE-CNOT/partial_state_model.bin
+Loaded parameter_vector as [-2.7483423   2.16493456 -2.20297843  0.08452781  0.29613638 -2.67062043
+  3.03114368  1.93017572  1.26939912 -1.43619062  0.9000551   0.91295002
+  1.20850759 -1.64807644  0.76471057  2.81624783 -0.59791658 -0.75668536
+ -1.85571092  0.52269276  1.57335595  2.61450739 -1.00757717 -0.68718989
+ -2.36240959 -2.75915692  3.25869718  2.22230255 -0.50641378 -2.8964382
+  2.01025998 -0.24698069 -1.93544832  2.08671594  1.4268215  -0.72417278
+  1.02525908 -2.14344451 -0.53587746  2.44558224 -0.04032763  0.76416532
+  2.63370138  1.57243661  2.35906314  2.8720626   2.31961863 -2.78249469
+  0.0330743  -0.73806572  1.74243619  2.77564337  0.05251977 -2.28613631
+  3.09876891 -3.1292686   0.41695818 -0.81104744 -1.69882814  3.31207742
+ -1.91494105 -1.63658047 -2.61851145  2.34003279 -2.48239226  2.12722593
+  1.81384307  1.37197221  2.69529143  2.92404566  2.00881504  1.31888566
+ -1.60772219 -2.19235867  1.12189537]
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 16:19:17 2024]  Iteration number: 1785 with current cost as 0.016492907529992523 and parameters 
+[-2.74646277  2.16681409 -2.20109889  0.08640734  0.29801592 -2.6687409
+  3.03302321  1.92829619  1.26751959 -1.43807016  0.89817556  0.91107048
+  1.21038712 -1.6461969   0.76283103  2.81812736 -0.59979611 -0.75856489
+ -1.85759046  0.52081323  1.57147641  2.61262786 -1.00945671 -0.68531036
+ -2.36428912 -2.76103645  3.26057671  2.22042302 -0.50453425 -2.89455867
+  2.01213951 -0.24886023 -1.93356879  2.08859547  1.42870103 -0.72605231
+  1.02713862 -2.14156497 -0.537757    2.44746177 -0.04220716  0.76228579
+  2.63558091  1.57431615  2.36094267  2.87394213  2.32149816 -2.78437423
+  0.03119477 -0.73618618  1.74431572  2.7775229   0.05064024 -2.28801584
+  3.09688938 -3.12738907  0.41507865 -0.80916791 -1.69694861  3.31019789
+ -1.91306152 -1.63846    -2.61663191  2.33815326 -2.48051273  2.1253464
+  1.81196354  1.37009268  2.69717096  2.92592519  2.01069457  1.31700612
+ -1.60584265 -2.19047913  1.12377491]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 16:32:40 2024]  Iteration number: 1786 with current cost as 0.016504243714474485 and parameters 
+[-2.74821778  2.16856909 -2.2028539   0.08816235  0.29626091 -2.6704959
+  3.03126821  1.93005119  1.26576458 -1.43982516  0.89993057  0.90931548
+  1.21214213 -1.6444419   0.76458604  2.81988237 -0.59804111 -0.7603199
+ -1.85583545  0.51905822  1.57323142  2.61087285 -1.0077017  -0.68355535
+ -2.36604412 -2.76279146  3.2588217   2.22217802 -0.50628925 -2.89631367
+  2.01389452 -0.25061523 -1.93181378  2.09035048  1.42694603 -0.72429731
+  1.02889362 -2.14331998 -0.53600199  2.44570677 -0.04045216  0.7640408
+  2.63733592  1.57256114  2.36269768  2.87218713  2.32325317 -2.78612923
+  0.02943976 -0.73443118  1.74607073  2.7757679   0.04888523 -2.28977085
+  3.09864438 -3.12914407  0.41683365 -0.81092291 -1.69870361  3.31195289
+ -1.91481652 -1.63670499 -2.61838692  2.33990827 -2.48226773  2.12710141
+  1.81020853  1.37184768  2.69892597  2.92417019  2.00893957  1.31525112
+ -1.60759766 -2.18872413  1.12552991]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 16:46:01 2024]  Iteration number: 1787 with current cost as 0.016639517098657203 and parameters 
+[-2.74997996  2.17033128 -2.20461608  0.08640017  0.29449873 -2.67225808
+  3.02950602  1.93181338  1.26752676 -1.43806298  0.90169275  0.90755329
+  1.21390431 -1.64620408  0.76282385  2.81812019 -0.59627893 -0.75855771
+ -1.85759763  0.51729604  1.57146924  2.61263504 -1.00593952 -0.68531753
+ -2.36780631 -2.76102927  3.26058389  2.22041584 -0.50452707 -2.89807586
+  2.0156567  -0.24885305 -1.93357596  2.08858829  1.42518384 -0.72605949
+  1.03065581 -2.1415578  -0.53423981  2.44394458 -0.04221434  0.76580298
+  2.63557374  1.57079896  2.36445986  2.87394931  2.32149098 -2.78789142
+  0.03120194 -0.73619336  1.74783291  2.77753008  0.05064742 -2.28800867
+  3.0968822  -3.13090626  0.41507147 -0.80916073 -1.7004658   3.31371508
+ -1.91657871 -1.63494281 -2.61662474  2.34167045 -2.48050555  2.12886359
+  1.81197071  1.3700855   2.69716379  2.92593237  2.01070175  1.31348893
+ -1.60583548 -2.18696194  1.12376773]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 16:59:26 2024]  Iteration number: 1788 with current cost as 0.016632555473379673 and parameters 
+[-2.75081998  2.1711713  -2.2054561   0.08724019  0.29533875 -2.67309811
+  3.028666    1.93097336  1.26668674 -1.43722296  0.90085273  0.90671327
+  1.21474433 -1.64536406  0.76198383  2.81896021 -0.59711895 -0.75939773
+ -1.85843765  0.51813606  1.57062921  2.61179502 -1.00677954 -0.68447751
+ -2.36864633 -2.76018925  3.26142391  2.21957582 -0.50536709 -2.89723584
+  2.01649672 -0.24969307 -1.93441598  2.08774827  1.42602386 -0.72521947
+  1.02981579 -2.14071778 -0.53339979  2.4447846  -0.04305436  0.766643
+  2.63473371  1.57163898  2.36529988  2.87478933  2.32065096 -2.78873144
+  0.03036192 -0.73535334  1.74867293  2.7783701   0.0498074  -2.28884869
+  3.09604218 -3.13006624  0.41591149 -0.80832071 -1.69962578  3.31287506
+ -1.91741873 -1.63578283 -2.61578472  2.34083043 -2.47966553  2.12802357
+  1.81281073  1.36924548  2.69800381  2.92677239  2.01154177  1.31432895
+ -1.60499546 -2.18780196  1.12460775]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 17:12:50 2024]  Iteration number: 1789 with current cost as 0.016657079846952253 and parameters 
+[-2.75169676  2.17029452 -2.20457932  0.08811697  0.29621553 -2.67397489
+  3.02778922  1.93009657  1.26580996 -1.43634618  0.90172952  0.90759006
+  1.21562111 -1.64624084  0.76286062  2.81808342 -0.59799573 -0.76027452
+ -1.85931444  0.51725927  1.571506    2.61091824 -1.00590276 -0.68360073
+ -2.36776955 -2.75931247  3.26054712  2.21869904 -0.50449031 -2.89635906
+  2.01561994 -0.25056985 -1.9335392   2.08687149  1.42514708 -0.72609625
+  1.03069257 -2.14159456 -0.532523    2.44390782 -0.04393114  0.76576622
+  2.6356105   1.57076219  2.36617666  2.87566611  2.31977418 -2.78960822
+  0.02948514 -0.73447656  1.74954971  2.77924688  0.04893061 -2.28797191
+  3.0951654  -3.12918945  0.41503471 -0.80919749 -1.698749    3.31375184
+ -1.91654194 -1.63490605 -2.61490793  2.33995365 -2.48054231  2.12714679
+  1.81193395  1.37012226  2.69888059  2.92764917  2.01241855  1.31345217
+ -1.60411867 -2.18867874  1.12548453]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 17:26:21 2024]  Iteration number: 1790 with current cost as 0.017138793332490545 and parameters 
+[-2.75154991  2.17014766 -2.20443247  0.08826382  0.29636238 -2.67412174
+  3.02793608  1.93024343  1.26595682 -1.43649303  0.90158266  0.90773691
+  1.21576797 -1.64609399  0.76271376  2.81793657 -0.59784887 -0.76012766
+ -1.85916758  0.51711242  1.57135914  2.61077138 -1.0057559  -0.68345388
+ -2.3679164  -2.75945933  3.26040027  2.21884589 -0.50463716 -2.8962122
+  2.01547309 -0.250423   -1.93368606  2.08672463  1.42500023 -0.72624311
+  1.03083942 -2.1414477  -0.53237615  2.44405468 -0.04378429  0.76591307
+  2.63575735  1.57090905  2.36602981  2.87581297  2.31992104 -2.78975507
+  0.02933829 -0.73432971  1.74969657  2.77910003  0.04907747 -2.28782505
+  3.09531225 -3.12933631  0.41518156 -0.80934435 -1.69889585  3.31360498
+ -1.91639509 -1.63475919 -2.61505479  2.33980679 -2.48068917  2.12699993
+  1.8117871   1.36997541  2.69873373  2.92750232  2.0122717   1.31359903
+ -1.60397182 -2.18853189  1.12533767]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 17:39:37 2024]  Iteration number: 1791 with current cost as 0.016555257114710214 and parameters 
+[-2.74978855  2.1683863  -2.2026711   0.09002519  0.29460102 -2.6758831
+  3.02617472  1.92848207  1.26771818 -1.43825439  0.90334402  0.90597555
+  1.2140066  -1.64433263  0.76447512  2.81617521 -0.59608751 -0.7583663
+ -1.86092894  0.51887378  1.56959778  2.61253274 -1.00751726 -0.68169252
+ -2.36615504 -2.75769796  3.25863891  2.21708453 -0.50639853 -2.89797356
+  2.01371172 -0.24866163 -1.9319247   2.088486    1.42676159 -0.72800447
+  1.02907806 -2.14320907 -0.53061479  2.44581604 -0.04554565  0.76767444
+  2.63399599  1.56914769  2.36426845  2.87757433  2.3216824  -2.78799371
+  0.02757692 -0.73256834  1.75145793  2.77733866  0.04731611 -2.28606369
+  3.09355089 -3.13109767  0.41694292 -0.80758298 -1.69713449  3.31184362
+ -1.91463373 -1.63299783 -2.61681615  2.34156816 -2.47892781  2.12523857
+  1.81354846  1.37173677  2.69697237  2.92574095  2.01403306  1.31536039
+ -1.60221046 -2.19029325  1.12357631]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 17:52:56 2024]  Iteration number: 1792 with current cost as 0.016663518068015963 and parameters 
+[-2.74762955  2.1662273  -2.2005121   0.08786619  0.29676002 -2.6780421
+  3.02833372  1.93064107  1.26987718 -1.44041339  0.90118502  0.90813455
+  1.21616561 -1.64649163  0.76231612  2.81401621 -0.59824651 -0.7605253
+ -1.86308794  0.52103278  1.56743878  2.61469174 -1.00535826 -0.68385152
+ -2.36399604 -2.75553896  3.25647991  2.21492553 -0.50423953 -2.89581456
+  2.01155272 -0.25082064 -1.9297657   2.086327    1.42892059 -0.72584547
+  1.03123706 -2.14536807 -0.52845579  2.44797504 -0.04770465  0.76983344
+  2.63183699  1.56698869  2.36642745  2.87973333  2.3195234  -2.78583471
+  0.02541792 -0.73472734  1.75361693  2.77949767  0.04947511 -2.28390469
+  3.09570989 -3.12893867  0.41910193 -0.80974199 -1.69497549  3.30968462
+ -1.91679273 -1.63515683 -2.61465715  2.33940915 -2.48108681  2.12739757
+  1.81570746  1.36957777  2.69481337  2.92789995  2.01187406  1.31751939
+ -1.60005146 -2.18813425  1.12141731]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 18:06:22 2024]  Iteration number: 1793 with current cost as 0.016272861309143478 and parameters 
+[-2.74799747  2.16659522 -2.20088003  0.08823411  0.29712794 -2.67841003
+  3.02870164  1.93027315  1.2702451  -1.44004547  0.9008171   0.90850247
+  1.21653353 -1.64685955  0.7619482   2.81438413 -0.59861443 -0.76015738
+ -1.86345586  0.5214007   1.56707086  2.61432382 -1.00572618 -0.68348359
+ -2.36436396 -2.75590689  3.25684783  2.21455761 -0.5038716  -2.89618248
+  2.01192065 -0.25118856 -1.93013362  2.08595907  1.42928851 -0.72621339
+  1.03086914 -2.14573599 -0.52808786  2.44834296 -0.04733673  0.76946551
+  2.63146907  1.56662077  2.36605952  2.88010125  2.31915548 -2.78546679
+  0.02578585 -0.73509527  1.75324901  2.77986559  0.04910719 -2.28353677
+  3.09607782 -3.12930659  0.418734   -0.81010991 -1.69534341  3.3093167
+ -1.91642481 -1.63478891 -2.61428923  2.33904123 -2.48145473  2.12776549
+  1.81533954  1.36920984  2.69518129  2.92753203  2.01150614  1.31788731
+ -1.59968353 -2.18850217  1.12178523]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 18:20:08 2024]  Iteration number: 1794 with current cost as 0.01741600335841472 and parameters 
+[-2.74846586  2.16612682 -2.20134842  0.0887025   0.29665955 -2.67794163
+  3.02823324  1.93074154  1.2697767  -1.43957707  0.9003487   0.90897087
+  1.21606513 -1.64639115  0.7614798   2.81391573 -0.59814604 -0.76062577
+ -1.86392426  0.5218691   1.56753925  2.61479222 -1.00525779 -0.6830152
+ -2.36483236 -2.75543849  3.25731623  2.21502601 -0.50434    -2.89571409
+  2.01238904 -0.25165695 -1.93060202  2.08549068  1.42975691 -0.72668179
+  1.03133754 -2.14526759 -0.52761947  2.44787456 -0.04780512  0.76993391
+  2.63100067  1.56615237  2.36559113  2.88056965  2.31868708 -2.78593519
+  0.02625424 -0.73462687  1.7537174   2.78033398  0.04863879 -2.28400516
+  3.09560942 -3.12977499  0.4192024  -0.8105783  -1.69487501  3.3097851
+ -1.91595641 -1.63432051 -2.61475763  2.33950963 -2.48098633  2.12823389
+  1.81487114  1.36967824  2.6947129   2.92706364  2.01197453  1.31741891
+ -1.60015193 -2.18897057  1.12225363]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 18:33:30 2024]  Iteration number: 1795 with current cost as 0.01612156260755969 and parameters 
+[-2.75170188  2.1628908  -2.20458444  0.09193852  0.29989557 -2.67470561
+  3.02499722  1.92750552  1.26654068 -1.44281309  0.90358472  0.91220689
+  1.21930115 -1.64315513  0.76471582  2.81715175 -0.59491002 -0.75738975
+ -1.86716028  0.52510512  1.56430323  2.61802824 -1.00849381 -0.68625122
+ -2.36159634 -2.75220247  3.26055225  2.21826202 -0.50110398 -2.89247807
+  2.01562506 -0.24842094 -1.93383803  2.0887267   1.43299293 -0.72991781
+  1.02810152 -2.14203157 -0.53085549  2.44463855 -0.05104114  0.77316993
+  2.62776465  1.56938839  2.36882715  2.88380567  2.31545106 -2.78269917
+  0.02301822 -0.73139085  1.75695342  2.78357     0.05187481 -2.28076914
+  3.09884544 -3.12653897  0.42243842 -0.81381432 -1.69811103  3.30654908
+ -1.91919243 -1.63108449 -2.61799365  2.33627361 -2.48422235  2.13146991
+  1.81163512  1.36644222  2.69147688  2.93029965  2.00873851  1.31418289
+ -1.60338795 -2.19220659  1.12548965]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 18:46:55 2024]  Iteration number: 1796 with current cost as 0.016843552507514323 and parameters 
+[-2.75148472  2.16267364 -2.2048016   0.09215568  0.29967841 -2.67492277
+  3.02521438  1.92728836  1.26675785 -1.44259593  0.90336756  0.91242405
+  1.21908399 -1.64293797  0.76449866  2.81693459 -0.59469286 -0.75760692
+ -1.86694312  0.52532228  1.56408607  2.6182454  -1.00871097 -0.68603406
+ -2.3618135  -2.75241963  3.26076941  2.21847919 -0.50088682 -2.89269523
+  2.0154079  -0.24820378 -1.93405519  2.08850954  1.43321009 -0.72970065
+  1.02831868 -2.14181441 -0.53107265  2.44485571 -0.05082398  0.77338709
+  2.62754749  1.56960555  2.36904431  2.88358851  2.31566822 -2.78248201
+  0.02323538 -0.73160801  1.75673626  2.78378716  0.05209197 -2.2809863
+  3.09862828 -3.12675613  0.42265558 -0.81403148 -1.69789387  3.30676624
+ -1.91940959 -1.63086733 -2.61821081  2.33649077 -2.48443951  2.13168707
+  1.81185228  1.36665938  2.69169404  2.93051682  2.00852135  1.31440006
+ -1.60360511 -2.19198943  1.12570681]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 19:00:19 2024]  Iteration number: 1797 with current cost as 0.017566897036092516 and parameters 
+[-2.7539587   2.16514762 -2.20727558  0.09462966  0.30215238 -2.67244879
+  3.02768836  1.92976234  1.26923182 -1.44012196  0.90089358  0.90995007
+  1.21661001 -1.64046399  0.76202468  2.81940857 -0.59221888 -0.76008089
+ -1.8694171   0.52779626  1.56656005  2.61577142 -1.00623699 -0.68850803
+ -2.35933952 -2.75489361  3.26324338  2.21600521 -0.49841284 -2.8951692
+  2.01293393 -0.25067775 -1.93158122  2.09098351  1.43073611 -0.73217463
+  1.0258447  -2.14428839 -0.52859867  2.44732968 -0.05329796  0.77091311
+  2.63002147  1.57207952  2.37151828  2.88606249  2.31319424 -2.78495598
+  0.02076141 -0.72913403  1.75426229  2.78131319  0.05456595 -2.28346028
+  3.0961543  -3.12923011  0.42512956 -0.81650546 -1.70036785  3.30429226
+ -1.91693561 -1.62839336 -2.61573683  2.33896475 -2.48691349  2.13416105
+  1.8093783   1.36913336  2.68922006  2.92804284  2.01099533  1.31192608
+ -1.60113113 -2.18951545  1.12323283]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 19:13:37 2024]  Iteration number: 1798 with current cost as 0.016825874892101383 and parameters 
+[-2.75531853  2.16650745 -2.20591575  0.09598949  0.30079255 -2.67108896
+  3.02632853  1.92840251  1.26787199 -1.43876213  0.90225341  0.9113099
+  1.21525018 -1.63910416  0.76338451  2.81804874 -0.59357871 -0.75872106
+ -1.87077693  0.52643643  1.56791988  2.61713125 -1.00487716 -0.6871482
+ -2.36069935 -2.75353378  3.26460321  2.21464538 -0.49977267 -2.89380937
+  2.01429376 -0.24931792 -1.93022139  2.09234334  1.42937628 -0.7308148
+  1.02448487 -2.14564822 -0.5299585   2.44596985 -0.05465779  0.77227294
+  2.62866164  1.57071969  2.37287811  2.88470266  2.31455407 -2.78359615
+  0.02212124 -0.7277742   1.75290246  2.78267302  0.05592578 -2.28482011
+  3.09751413 -3.12787028  0.42648939 -0.81514563 -1.69900802  3.30565209
+ -1.91829544 -1.62703353 -2.614377    2.34032458 -2.48827332  2.13280122
+  1.80801847  1.37049319  2.68786023  2.92940267  2.01235516  1.31056625
+ -1.5997713  -2.19087528  1.121873  ]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 19:26:56 2024]  Iteration number: 1799 with current cost as 0.016538851124490436 and parameters 
+[-2.75713701  2.16468897 -2.20409727  0.09780797  0.29897407 -2.67290744
+  3.02451005  1.92658403  1.26969047 -1.43694365  0.90043493  0.90949142
+  1.21706866 -1.63728568  0.765203    2.81986722 -0.59176023 -0.76053954
+ -1.87259541  0.52825491  1.5661014   2.61894973 -1.00305868 -0.68532972
+ -2.36251783 -2.75535226  3.26642169  2.2128269  -0.50159115 -2.89199089
+  2.01611224 -0.2511364  -1.93203987  2.09052486  1.4275578  -0.73263328
+  1.02266639 -2.14382974 -0.53177698  2.44415137 -0.05283931  0.77409143
+  2.62684316  1.57253817  2.37469659  2.88288418  2.31273559 -2.78177767
+  0.02393972 -0.72595572  1.75472094  2.7844915   0.05774426 -2.28300163
+  3.09569565 -3.12968876  0.42830787 -0.81696411 -1.7008265   3.30747057
+ -1.92011392 -1.62521504 -2.61255852  2.34214306 -2.4900918   2.13098274
+  1.80983696  1.37231167  2.68967871  2.92758419  2.01417364  1.31238473
+ -1.59795282 -2.19269376  1.12369149]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 19:40:26 2024]  Iteration number: 1800 with current cost as 0.016623502710331955 and parameters 
+[-2.75872844  2.1662804  -2.2056887   0.0993994   0.29738265 -2.67449887
+  3.02291862  1.9249926   1.2712819  -1.43535222  0.90202636  0.91108285
+  1.21866009 -1.63569426  0.76679442  2.82145864 -0.5901688  -0.76213097
+ -1.87100398  0.52666348  1.56450997  2.62054116 -1.00146725 -0.68692115
+ -2.36410926 -2.75376083  3.26801312  2.21441832 -0.50318258 -2.89039947
+  2.01770366 -0.24954498 -1.9336313   2.08893343  1.42914923 -0.7342247
+  1.02107497 -2.14223831 -0.53336841  2.44255994 -0.05443074  0.7725
+  2.62843458  1.57094675  2.37310517  2.88129275  2.31432702 -2.7833691
+  0.02234829 -0.72754715  1.75631236  2.78608292  0.05933568 -2.2814102
+  3.09410422 -3.12809733  0.42671644 -0.81537268 -1.70241793  3.309062
+ -1.91852249 -1.62362362 -2.61096709  2.34373449 -2.49168323  2.12939131
+  1.80824553  1.3739031   2.68808728  2.92917561  2.01576507  1.31397616
+ -1.5963614  -2.19428519  1.12210006]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 19:53:41 2024]  Iteration number: 1801 with current cost as 0.016643138449078165 and parameters 
+[-2.75728051  2.16772832 -2.20424077  0.10084732  0.29883057 -2.67305095
+  3.02436655  1.92354468  1.27272982 -1.4339043   0.90347428  0.91253077
+  1.22010801 -1.63424633  0.7653465   2.82290657 -0.58872088 -0.76068305
+ -1.8724519   0.5281114   1.56306205  2.61909323 -1.00291518 -0.68547323
+ -2.36555718 -2.75520875  3.2665652   2.21586625 -0.50173466 -2.89184739
+  2.01625574 -0.2509929  -1.93218337  2.09038136  1.4277013  -0.73277678
+  1.01962704 -2.14079039 -0.53481633  2.44400787 -0.05587866  0.77105207
+  2.62698666  1.57239467  2.37165724  2.87984482  2.3128791  -2.78481702
+  0.02379621 -0.72899507  1.75486444  2.784635    0.05788776 -2.27996228
+  3.0926563  -3.12664941  0.42526852 -0.81392476 -1.70386585  3.30761407
+ -1.91997042 -1.62507154 -2.60951917  2.34228656 -2.49313115  2.12794339
+  1.8067976   1.37245517  2.68663936  2.92772769  2.01431714  1.31542408
+ -1.59780932 -2.19573311  1.12354798]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 20:07:00 2024]  Iteration number: 1802 with current cost as 0.016863749422726663 and parameters 
+[-2.75765695  2.16810476 -2.20386433  0.10047088  0.29845413 -2.67342739
+  3.02399011  1.92316824  1.27310626 -1.43352786  0.90309785  0.91215433
+  1.21973158 -1.63462277  0.76572294  2.82253013 -0.58909732 -0.76105948
+ -1.87282834  0.52773497  1.56343849  2.61946967 -1.00253874 -0.68509679
+ -2.36518075 -2.75483232  3.26694163  2.21624269 -0.50135822 -2.89147095
+  2.0158793  -0.25136934 -1.93255981  2.09000492  1.42807774 -0.73240034
+  1.0192506  -2.14116683 -0.53519277  2.44438431 -0.0562551   0.77142851
+  2.62661022  1.57277111  2.37203368  2.87946839  2.31250266 -2.78444059
+  0.02341978 -0.72861864  1.75524088  2.78501144  0.0582642  -2.27958584
+  3.09227986 -3.12627297  0.42489208 -0.8143012  -1.70348941  3.30799051
+ -1.92034686 -1.62544798 -2.60914273  2.34191012 -2.49350759  2.12831982
+  1.80717404  1.37283161  2.6870158   2.92735125  2.01469358  1.31580052
+ -1.59743288 -2.19535667  1.12317154]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 20:20:26 2024]  Iteration number: 1803 with current cost as 0.016244874046439733 and parameters 
+[-2.75620267  2.16955904 -2.20531862  0.10192517  0.29699985 -2.67488167
+  3.02253582  1.92462253  1.27165198 -1.43207357  0.90455213  0.91070005
+  1.21827729 -1.63607706  0.76426865  2.82107585 -0.58764303 -0.76251377
+ -1.87428263  0.52918925  1.56489277  2.61801539 -1.00399302 -0.68655107
+ -2.36372646 -2.7562866   3.26839592  2.21769697 -0.49990394 -2.89292524
+  2.01733359 -0.25282362 -1.93110553  2.0914592   1.42662346 -0.73094606
+  1.01779632 -2.14262111 -0.53373849  2.44583859 -0.05480081  0.76997423
+  2.62515594  1.57422539  2.3705794   2.88092267  2.31104837 -2.7829863
+  0.02196549 -0.73007292  1.75378659  2.78646572  0.05680991 -2.28104013
+  3.09082558 -3.12481869  0.42634636 -0.81284692 -1.70203513  3.3094448
+ -1.92180114 -1.6239937  -2.61059701  2.34336441 -2.49496187  2.12977411
+  1.80862833  1.3742859   2.68847008  2.92880554  2.01614787  1.3172548
+ -1.59888717 -2.19681096  1.12462583]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 20:33:53 2024]  Iteration number: 1804 with current cost as 0.016239075933083928 and parameters 
+[-2.75662582  2.16913589 -2.20489546  0.10150202  0.297423   -2.67530482
+  3.02295898  1.92504568  1.27122882 -1.43165042  0.90412898  0.9111232
+  1.21870044 -1.6356539   0.7638455   2.82065269 -0.58806618 -0.76293692
+ -1.87470578  0.5287661   1.56531593  2.61843854 -1.00356987 -0.68612792
+ -2.36414962 -2.75586345  3.26881907  2.21727382 -0.50032709 -2.89334839
+  2.01775674 -0.25240047 -1.93152868  2.09188236  1.42704661 -0.73136921
+  1.01737317 -2.14304426 -0.53416164  2.44626174 -0.05437766  0.76955108
+  2.62473279  1.57464855  2.37100255  2.88049952  2.31062522 -2.78340945
+  0.02238865 -0.73049607  1.75336344  2.78688888  0.05723307 -2.28061697
+  3.09124873 -3.12524184  0.42676952 -0.81327007 -1.70245828  3.30986795
+ -1.92137799 -1.62357054 -2.61102017  2.34294126 -2.49538502  2.13019726
+  1.80820517  1.37386274  2.68804693  2.92922869  2.01657102  1.31683165
+ -1.59846401 -2.19638781  1.12504898]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 20:47:08 2024]  Iteration number: 1805 with current cost as 0.015797170841519673 and parameters 
+[-2.75368352  2.17207819 -2.20195316  0.10444432  0.2944807  -2.67824713
+  3.02001667  1.92210337  1.26828652 -1.42870812  0.90707128  0.91406551
+  1.21575814 -1.63859621  0.7609032   2.81771039 -0.58512388 -0.76587923
+ -1.87176348  0.5317084   1.56825823  2.62138085 -1.00651217 -0.68907022
+ -2.36709192 -2.75880575  3.27176138  2.22021612 -0.49738478 -2.89629069
+  2.02069904 -0.24945816 -1.93447098  2.08894005  1.42998892 -0.73431151
+  1.02031547 -2.14598657 -0.53121933  2.44331944 -0.05731996  0.77249338
+  2.62179048  1.57759085  2.37394485  2.87755721  2.31356752 -2.78046715
+  0.01944634 -0.72755377  1.75630575  2.78394657  0.05429076 -2.27767467
+  3.09419103 -3.12818414  0.42971182 -0.81032776 -1.69951598  3.31281025
+ -1.92432029 -1.62651285 -2.60807786  2.33999895 -2.49832733  2.13313957
+  1.81114748  1.37680505  2.69098923  2.93217099  2.01362871  1.31388934
+ -1.59552171 -2.19933011  1.12210668]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 21:00:28 2024]  Iteration number: 1806 with current cost as 0.016396458134239 and parameters 
+[-2.75342136  2.17234035 -2.20221531  0.10418217  0.29474285 -2.67798497
+  3.01975452  1.92236553  1.26802437 -1.42844596  0.90680913  0.91432766
+  1.21602029 -1.63885836  0.76116535  2.81797254 -0.58486173 -0.76614138
+ -1.87202563  0.53197055  1.56799608  2.621643   -1.00677432 -0.68880807
+ -2.36682977 -2.7590679   3.27149922  2.21995397 -0.49764694 -2.89602854
+  2.02096119 -0.24972032 -1.93420883  2.0886779   1.42972676 -0.73404936
+  1.02057762 -2.14624872 -0.53095718  2.44305729 -0.05705781  0.77223123
+  2.62152833  1.577853    2.37420701  2.87729506  2.31382968 -2.7807293
+  0.01918419 -0.72729162  1.7565679   2.78420872  0.05455291 -2.27741252
+  3.09445319 -3.1284463   0.42944967 -0.81058992 -1.69977813  3.3125481
+ -1.92458244 -1.626775   -2.60781571  2.3397368  -2.49858948  2.13287741
+  1.81140963  1.3770672   2.69072708  2.93190884  2.01336656  1.31362719
+ -1.59525956 -2.19959226  1.12184452]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 21:13:50 2024]  Iteration number: 1807 with current cost as 0.016530649160597353 and parameters 
+[-2.75304874  2.17196772 -2.20258794  0.10380954  0.29437023 -2.67761235
+  3.0193819   1.92273815  1.26765174 -1.42807334  0.90718175  0.91395504
+  1.21639291 -1.63923098  0.76153797  2.81759992 -0.58523435 -0.766514
+ -1.87239825  0.53234318  1.56762345  2.62127037 -1.00714695 -0.68918069
+ -2.36720239 -2.75869528  3.27187185  2.22032659 -0.49727431 -2.89640116
+  2.02058857 -0.25009294 -1.93458145  2.08905052  1.43009939 -0.73367674
+  1.020205   -2.14662134 -0.5313298   2.44342991 -0.05668519  0.77260385
+  2.62115571  1.57748038  2.37383438  2.87766768  2.31345705 -2.78035668
+  0.01955681 -0.72691899  1.75694052  2.7838361   0.05418029 -2.27703989
+  3.09408056 -3.12881892  0.42907704 -0.81096254 -1.69940551  3.31217548
+ -1.92495507 -1.62640238 -2.60744309  2.33936418 -2.4989621   2.13325004
+  1.81103701  1.37743982  2.6910997   2.93228146  2.01299394  1.31399982
+ -1.59563218 -2.19996489  1.12221715]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 21:27:15 2024]  Iteration number: 1808 with current cost as 0.016181517249332266 and parameters 
+[-2.75247899  2.17253747 -2.20201819  0.10323979  0.29493997 -2.6781821
+  3.01995165  1.9233079   1.26822149 -1.42864309  0.906612    0.91452479
+  1.21696266 -1.63980073  0.76096822  2.81703017 -0.5846646  -0.76708375
+ -1.872968    0.53177343  1.5681932   2.62070063 -1.0065772  -0.68975044
+ -2.36663264 -2.75812553  3.2713021   2.21975684 -0.49784406 -2.89697091
+  2.02001882 -0.24952319 -1.9340117   2.08848077  1.42952964 -0.73310699
+  1.01963525 -2.14605159 -0.53076005  2.44286016 -0.05725494  0.7731736
+  2.62172546  1.57805013  2.37440413  2.87709793  2.3128873  -2.77978693
+  0.02012656 -0.72634924  1.75637077  2.78326635  0.05475004 -2.27760964
+  3.09351081 -3.12938867  0.42850729 -0.81153229 -1.69883576  3.31160573
+ -1.92552482 -1.62697213 -2.60687334  2.33879443 -2.49839235  2.13268029
+  1.81046726  1.37800957  2.69166945  2.93171171  2.01356369  1.31456956
+ -1.59506243 -2.20053463  1.1216474 ]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 21:40:38 2024]  Iteration number: 1809 with current cost as 0.01641097423290528 and parameters 
+[-2.75276896  2.1722475  -2.20230816  0.10294982  0.29465    -2.67789213
+  3.02024162  1.92359787  1.26793152 -1.42893306  0.90690197  0.91423482
+  1.21725264 -1.63951076  0.76067825  2.81732014 -0.58495457 -0.76679378
+ -1.87325797  0.5320634   1.56848317  2.62041065 -1.00628723 -0.69004041
+ -2.36634267 -2.75783556  3.27159207  2.22004681 -0.49813403 -2.89726088
+  2.01972885 -0.24981316 -1.93430167  2.0881908   1.42923967 -0.73339696
+  1.01992522 -2.14576162 -0.53105003  2.44257019 -0.05754491  0.77346357
+  2.62201543  1.5783401   2.37411416  2.87680796  2.31259733 -2.7800769
+  0.01983659 -0.72663921  1.7560808   2.78297638  0.05446007 -2.27789961
+  3.09322084 -3.1290987   0.42879727 -0.81182226 -1.69854579  3.3118957
+ -1.92523485 -1.6272621  -2.60658337  2.33850446 -2.49810238  2.13297026
+  1.81075723  1.37829954  2.69195942  2.93142174  2.01327372  1.31485954
+ -1.59477246 -2.20024466  1.12135743]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 21:54:04 2024]  Iteration number: 1810 with current cost as 0.0163854383023291 and parameters 
+[-2.75240182  2.17261464 -2.20267529  0.10331696  0.29501714 -2.67752499
+  3.02060876  1.92396501  1.26756439 -1.4293002   0.90726911  0.91460195
+  1.2168855  -1.6398779   0.76031111  2.81768728 -0.58458743 -0.76716092
+ -1.87289083  0.53243054  1.56811604  2.62077779 -1.00665437 -0.68967328
+ -2.36597553 -2.7582027   3.27122493  2.21967968 -0.49850117 -2.89762802
+  2.02009599 -0.2501803  -1.93466881  2.08782367  1.42887253 -0.7337641
+  1.02029236 -2.14612876 -0.53068289  2.44293733 -0.05717777  0.77309643
+  2.62164829  1.57797296  2.37374703  2.8771751   2.3122302  -2.77970976
+  0.02020373 -0.72700635  1.75644794  2.78260924  0.05409293 -2.27826675
+  3.0928537  -3.12946584  0.4291644  -0.8121894  -1.69891292  3.31226284
+ -1.92560198 -1.62689496 -2.60621623  2.33887159 -2.49773525  2.13333739
+  1.81112437  1.3779324   2.69159229  2.93105461  2.01364086  1.3144924
+ -1.5951396  -2.2006118   1.12172456]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 22:07:22 2024]  Iteration number: 1811 with current cost as 0.016486427683268533 and parameters 
+[-2.75079062  2.17100344 -2.20106409  0.10170576  0.29662835 -2.67591379
+  3.02221996  1.9223538   1.26595318 -1.427689    0.90565791  0.91299075
+  1.21527429 -1.6382667   0.76192232  2.81929848 -0.58619864 -0.76877212
+ -1.87450204  0.53404174  1.56650483  2.622389   -1.00504316 -0.69128448
+ -2.36436433 -2.7565915   3.27283613  2.22129088 -0.50011238 -2.89601682
+  2.02170719 -0.2485691  -1.93628002  2.08621246  1.43048373 -0.73215289
+  1.02190356 -2.14773996 -0.52907168  2.44132612 -0.05878897  0.77148523
+  2.62003709  1.57636176  2.37213582  2.8755639   2.3138414  -2.77809856
+  0.01859253 -0.72861756  1.75805914  2.78099804  0.05570414 -2.27987795
+  3.0912425  -3.13107704  0.4275532  -0.81057819 -1.69730172  3.31387404
+ -1.92721319 -1.62528376 -2.60460503  2.33726039 -2.49612404  2.1349486
+  1.80951316  1.37954361  2.68998108  2.93266581  2.01202965  1.3161036
+ -1.5967508  -2.20222301  1.12333577]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 22:20:43 2024]  Iteration number: 1812 with current cost as 0.016574194520139942 and parameters 
+[-2.75081622  2.17097784 -2.20108969  0.10173135  0.29660275 -2.67593939
+  3.02219436  1.9223794   1.26592759 -1.4276634   0.90563231  0.91296516
+  1.2152487  -1.63829229  0.76189672  2.81932408 -0.58617304 -0.76874653
+ -1.87452763  0.53401614  1.56647924  2.6223634  -1.00506876 -0.69131007
+ -2.36438992 -2.7565659   3.27286173  2.22126528 -0.50013797 -2.89599122
+  2.0216816  -0.2485435  -1.93630561  2.08618687  1.43050933 -0.7321273
+  1.02192916 -2.14771437 -0.52904609  2.44135172 -0.05881457  0.77145963
+  2.62001149  1.57638735  2.37211023  2.8755383   2.3138158  -2.77812415
+  0.01861812 -0.72859196  1.75808474  2.78097245  0.05572973 -2.27990355
+  3.09121691 -3.13110263  0.4275788  -0.8105526  -1.69727613  3.31389964
+ -1.92723878 -1.62530935 -2.60457943  2.33728599 -2.49614964  2.13497419
+  1.80948757  1.3795692   2.68995549  2.93264021  2.01205525  1.31607801
+ -1.59672521 -2.2022486   1.12331017]. 
+[Fri Dec  6 22:34:01 2024]  Iteration number: 1813 with current cost as 0.01681471438519583 and parameters 
+[-2.75154694  2.17170856 -2.20182041  0.10100063  0.29733347 -2.67667011
+  3.02146364  1.92311012  1.26519687 -1.42693268  0.90636303  0.91223443
+  1.21451798 -1.63756157  0.76262744  2.81859336 -0.58690376 -0.76947725
+ -1.87525835  0.53328542  1.56574852  2.62309412 -1.00579948 -0.69057935
+ -2.3636592  -2.75583518  3.27359245  2.22053456 -0.50086869 -2.8952605
+  2.02095088 -0.24781278 -1.93557489  2.08545615  1.43124005 -0.73285802
+  1.02119844 -2.14844509 -0.52831537  2.44208244 -0.05954529  0.77072891
+  2.62074221  1.57711808  2.37137951  2.87626902  2.31454652 -2.77739343
+  0.01934884 -0.72786124  1.75881546  2.78024172  0.05499901 -2.28063427
+  3.09048619 -3.13183335  0.42684807 -0.80982188 -1.69800685  3.31463036
+ -1.9279695  -1.62604007 -2.60531015  2.33655526 -2.49688036  2.13424347
+  1.81021829  1.38029992  2.69068621  2.93337093  2.01132453  1.31534728
+ -1.59599448 -2.20151788  1.12404089]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 22:47:21 2024]  Iteration number: 1814 with current cost as 0.016854666142619122 and parameters 
+[-2.74988851  2.17005014 -2.20347884  0.10265906  0.29567504 -2.67501168
+  3.02312207  1.92476855  1.26685529 -1.42527425  0.90802146  0.91389286
+  1.21285955 -1.63922     0.76096901  2.82025178 -0.58856219 -0.76781882
+ -1.87359992  0.53162699  1.56409009  2.62143569 -1.00414105 -0.68892092
+ -2.36531763 -2.75749361  3.27525088  2.21887613 -0.50252712 -2.89360207
+  2.01929245 -0.24615435 -1.93723332  2.08379772  1.42958162 -0.73119959
+  1.01954001 -2.14678666 -0.52665694  2.44374087 -0.06120372  0.77238734
+  2.62240064  1.5787765   2.37303793  2.87792745  2.3128881  -2.77573501
+  0.01769041 -0.72620281  1.76047389  2.7785833   0.05665744 -2.27897584
+  3.08882776 -3.13349178  0.4285065  -0.81148031 -1.69634842  3.31628878
+ -1.92631108 -1.6276985  -2.60696858  2.33821369 -2.49522193  2.13258504
+  1.81187672  1.38195835  2.69234464  2.93171251  2.01298296  1.31700571
+ -1.59765291 -2.19985945  1.12238247]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 23:00:38 2024]  Iteration number: 1815 with current cost as 0.016671999004793093 and parameters 
+[-2.74986603  2.17007262 -2.20345635  0.10263658  0.29565256 -2.67503416
+  3.02314455  1.92474606  1.26687778 -1.42529674  0.90804394  0.91387038
+  1.21283707 -1.63919751  0.76094653  2.8202293  -0.58858467 -0.7678413
+ -1.87362241  0.53160451  1.56411257  2.62141321 -1.00416353 -0.68894341
+ -2.36529515 -2.75751609  3.27522839  2.21889862 -0.50250464 -2.89357959
+  2.01931493 -0.24617684 -1.9372558   2.0838202   1.42955914 -0.73117711
+  1.01956249 -2.14676418 -0.52667942  2.44371838 -0.06118123  0.77240982
+  2.62242312  1.57875402  2.37306042  2.87790497  2.31291058 -2.77575749
+  0.0177129  -0.72618033  1.76049637  2.77860578  0.05663496 -2.27899833
+  3.08880527 -3.13351427  0.42848402 -0.81150279 -1.69632593  3.31631127
+ -1.92633356 -1.62767602 -2.6069461   2.33823618 -2.49524441  2.13260753
+  1.81185423  1.38198084  2.69232215  2.93173499  2.01300544  1.31698323
+ -1.5976754  -2.19983697  1.12240495]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 23:14:00 2024]  Iteration number: 1816 with current cost as 0.015856381056726328 and parameters 
+[-2.75052708  2.16941157 -2.2041174   0.10197553  0.29499151 -2.67569521
+  3.0224835   1.92540712  1.26621673 -1.42463568  0.90738289  0.91453143
+  1.21217601 -1.63985857  0.76160758  2.81956825 -0.58792362 -0.76718025
+ -1.87296136  0.53226556  1.56477362  2.62075216 -1.00350248 -0.68960446
+ -2.3659562  -2.75817714  3.27456734  2.21955967 -0.50184358 -2.89424064
+  2.01997598 -0.24551578 -1.93791685  2.08315915  1.42889808 -0.73183816
+  1.01890144 -2.14742523 -0.52734048  2.44305733 -0.06184229  0.77307088
+  2.62176207  1.57809297  2.37372147  2.87856602  2.31357163 -2.77509644
+  0.01837395 -0.72684138  1.76115742  2.77794473  0.05729601 -2.27965938
+  3.08946633 -3.13417532  0.42782297 -0.81216384 -1.69566488  3.31697232
+ -1.92699461 -1.62833707 -2.60628504  2.33889723 -2.49590547  2.13326858
+  1.81119318  1.38264189  2.6929832   2.93107394  2.01234439  1.31632218
+ -1.59833645 -2.20049802  1.1217439 ]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 23:27:16 2024]  Iteration number: 1817 with current cost as 0.01616483363828446 and parameters 
+[-2.74997321  2.1688577  -2.20356354  0.10142166  0.29554537 -2.67514135
+  3.02192964  1.92596098  1.26566286 -1.42518955  0.90793676  0.9150853
+  1.21272988 -1.6393047   0.76105372  2.82012211 -0.58736976 -0.76773412
+ -1.87351522  0.5317117   1.56532749  2.62019829 -1.00294862 -0.68905059
+ -2.36651006 -2.75762328  3.27512121  2.2190058  -0.50239745 -2.89368678
+  2.02052985 -0.24606965 -1.93847072  2.08260528  1.42945195 -0.73239203
+  1.01834758 -2.14797909 -0.52789434  2.44250347 -0.06239615  0.77251701
+  2.62120821  1.57864683  2.3731676   2.87911989  2.3141255  -2.77454257
+  0.01782008 -0.72628751  1.76171129  2.77849859  0.05674214 -2.28021324
+  3.09002019 -3.13472918  0.4272691  -0.81271771 -1.69511102  3.31752619
+ -1.92644075 -1.62889093 -2.60573118  2.33945109 -2.49645933  2.13382245
+  1.81063932  1.38319575  2.69353707  2.93052007  2.01179052  1.31576831
+ -1.59889031 -2.19994415  1.12229776]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 23:40:39 2024]  Iteration number: 1818 with current cost as 0.016100333414872277 and parameters 
+[-2.75007957  2.16896406 -2.2036699   0.1013153   0.29543901 -2.67524771
+  3.022036    1.92585462  1.26576922 -1.42529591  0.90804312  0.91497894
+  1.21283624 -1.63941106  0.76094736  2.82022847 -0.58747612 -0.76762776
+ -1.87362158  0.53181806  1.56522113  2.62030465 -1.00284226 -0.68915695
+ -2.36640371 -2.75772964  3.27501485  2.21889945 -0.50250381 -2.89358042
+  2.02063621 -0.24617601 -1.93857708  2.08249893  1.42934559 -0.73249838
+  1.01824122 -2.14787273 -0.52778798  2.44239711 -0.06250251  0.77262337
+  2.62110185  1.57875319  2.37306125  2.87901353  2.31423186 -2.77464893
+  0.01771372 -0.72618115  1.76181765  2.77839224  0.05663578 -2.28010689
+  3.09012655 -3.13462283  0.42716274 -0.81261135 -1.69500466  3.31741983
+ -1.92633439 -1.62899729 -2.60583754  2.33934474 -2.49656569  2.13371609
+  1.81074567  1.38330211  2.69343071  2.93062643  2.01189688  1.31587467
+ -1.59878395 -2.20005051  1.1221914 ]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Fri Dec  6 23:53:56 2024]  Iteration number: 1819 with current cost as 0.016373145717206865 and parameters 
+[-2.74974142  2.16930221 -2.20400804  0.10165345  0.29510087 -2.67490956
+  3.02237414  1.92619277  1.26543107 -1.42495776  0.90770497  0.91531708
+  1.21317438 -1.63907291  0.7612855   2.82056662 -0.58713797 -0.76728961
+ -1.87328343  0.5321562   1.56555928  2.6199665  -1.0031804  -0.68881881
+ -2.36606556 -2.75806778  3.2746767   2.21923759 -0.50284195 -2.89391856
+  2.02029806 -0.24583786 -1.93823893  2.08216078  1.42968374 -0.73216024
+  1.01790307 -2.14821088 -0.52812613  2.44273526 -0.06284066  0.77228522
+  2.6207637   1.57909134  2.37339939  2.87935167  2.31389371 -2.77498708
+  0.01737558 -0.72584301  1.76215579  2.77873038  0.05697393 -2.28044503
+  3.0897884  -3.13428468  0.4268246  -0.81294949 -1.6953428   3.31708168
+ -1.92599624 -1.62933544 -2.60549939  2.33968288 -2.49622754  2.13337794
+  1.81040753  1.38296397  2.69309256  2.93028829  2.01155874  1.31553652
+ -1.5991221  -2.20038866  1.12252955]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 00:07:13 2024]  Iteration number: 1820 with current cost as 0.01675650480347158 and parameters 
+[-2.74782707  2.17121656 -2.20592239  0.0997391   0.29318652 -2.67682391
+  3.02428849  1.92810712  1.26351672 -1.42687211  0.90579062  0.91340273
+  1.21126003 -1.63715856  0.75937115  2.82248097 -0.58522362 -0.76920396
+ -1.87136908  0.53024185  1.56747363  2.62188086 -1.00126605 -0.69073316
+ -2.36797991 -2.75615343  3.27659105  2.21732324 -0.50475631 -2.89583291
+  2.01838371 -0.24775221 -1.94015328  2.08407513  1.42776939 -0.73024589
+  1.01598872 -2.14629653 -0.52621178  2.4408209  -0.06475501  0.77037087
+  2.62267805  1.58100569  2.37531374  2.87743732  2.31197936 -2.77307273
+  0.01546123 -0.72775736  1.76024144  2.77681603  0.05505958 -2.28235938
+  3.09170275 -3.13619903  0.42491025 -0.81486385 -1.69725716  3.31899603
+ -1.92408189 -1.62742109 -2.60358504  2.33776853 -2.4981419   2.13146359
+  1.81232188  1.38487832  2.69117821  2.93220264  2.01347309  1.31745087
+ -1.59720775 -2.20230301  1.1206152 ]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 00:20:37 2024]  Iteration number: 1821 with current cost as 0.015615021336572702 and parameters 
+[-2.7476725   2.17106199 -2.20576783  0.09958453  0.29334109 -2.67666934
+  3.02413392  1.92826169  1.26367129 -1.42671754  0.90594519  0.9135573
+  1.2114146  -1.63731313  0.75921658  2.82263554 -0.58506905 -0.76935853
+ -1.87121451  0.53039642  1.56731906  2.62172629 -1.00111148 -0.69057859
+ -2.36813448 -2.756308    3.27674562  2.21747781 -0.50491087 -2.89567835
+  2.01822914 -0.24790678 -1.93999871  2.0842297   1.42761482 -0.73009132
+  1.01583415 -2.14614196 -0.52636635  2.44066634 -0.06490958  0.7702163
+  2.62252348  1.58085112  2.37546831  2.87759189  2.31213393 -2.77322729
+  0.01530666 -0.72791193  1.76039601  2.7769706   0.05490501 -2.28220481
+  3.09185732 -3.1363536   0.42475568 -0.81470928 -1.69741172  3.3191506
+ -1.92423646 -1.62757565 -2.60343047  2.33761396 -2.49829646  2.13130902
+  1.81216731  1.38472375  2.69102364  2.93204807  2.01362766  1.31729631
+ -1.59736232 -2.20245758  1.12046063]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 00:34:01 2024]  Iteration number: 1822 with current cost as 0.015973358555146176 and parameters 
+[-2.74944893  2.17283842 -2.2039914   0.0978081   0.29511751 -2.67489292
+  3.02591035  1.92648526  1.26189486 -1.42849397  0.90416876  0.91533373
+  1.20963817 -1.63908956  0.75744016  2.82441196 -0.58329262 -0.77113496
+ -1.86943809  0.53217285  1.56554263  2.62350271 -0.99933506 -0.68880216
+ -2.36635805 -2.75808443  3.27496919  2.21925424 -0.5066873  -2.89390192
+  2.01645272 -0.24613035 -1.93822229  2.08245327  1.42939124 -0.73186774
+  1.01761058 -2.14436553 -0.52458992  2.43888991 -0.066686    0.77199273
+  2.62074706  1.58262755  2.37724474  2.87581546  2.3103575  -2.77500372
+  0.01353023 -0.7261355   1.75861958  2.77519417  0.05668144 -2.28398124
+  3.09363375 -3.13457717  0.4265321  -0.8164857  -1.69918815  3.32092703
+ -1.92246003 -1.62579923 -2.60165404  2.33583753 -2.49652004  2.13308545
+  1.81039088  1.38650018  2.68924722  2.9338245   2.01540408  1.31551988
+ -1.59913875 -2.20423401  1.12223706]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 00:47:27 2024]  Iteration number: 1823 with current cost as 0.016653744379695072 and parameters 
+[-2.74923153  2.17305582 -2.20377399  0.09802551  0.29533492 -2.67467551
+  3.02612776  1.92626786  1.26167746 -1.42827657  0.90395136  0.91511632
+  1.20985558 -1.63930696  0.75765756  2.82462937 -0.58351003 -0.77135236
+ -1.86922068  0.53239025  1.56532523  2.62328531 -0.99911765 -0.68901957
+ -2.36657546 -2.75786702  3.27475179  2.21903683 -0.5064699  -2.89411932
+  2.01667012 -0.24591295 -1.93843969  2.08223587  1.42917384 -0.73165034
+  1.01782798 -2.14414813 -0.52437251  2.4386725  -0.0664686   0.77177533
+  2.62096446  1.58241014  2.37746214  2.87559806  2.3101401  -2.77478632
+  0.01331283 -0.72635291  1.75883699  2.77497677  0.05646403 -2.28376384
+  3.09341635 -3.13435977  0.42674951 -0.8162683  -1.69940556  3.32114443
+ -1.92224263 -1.62558182 -2.60187145  2.33562013 -2.49673744  2.13330285
+  1.81017348  1.38628277  2.68902981  2.93360709  2.01518668  1.31530248
+ -1.59892134 -2.2040166   1.12245446]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 01:00:43 2024]  Iteration number: 1824 with current cost as 0.01637947309120286 and parameters 
+[-2.74822386  2.17204815 -2.20478166  0.09903317  0.29432725 -2.67568318
+  3.02512009  1.92727553  1.26066979 -1.42928424  0.90495903  0.91410865
+  1.21086325 -1.64031463  0.75866523  2.8236217  -0.5845177  -0.77034469
+ -1.86821301  0.53138258  1.5663329   2.62227764 -0.99810998 -0.6880119
+ -2.36556779 -2.75887469  3.27374412  2.2200445  -0.50546223 -2.89512699
+  2.01566245 -0.24490528 -1.93743202  2.08324354  1.42816617 -0.73265801
+  1.01682031 -2.1451558  -0.52538018  2.43968017 -0.06546093  0.77278299
+  2.61995679  1.58341781  2.37846981  2.87660573  2.31114776 -2.77377865
+  0.01230516 -0.72534524  1.75782932  2.77598444  0.05545636 -2.28275617
+  3.09442401 -3.1333521   0.42574184 -0.81526063 -1.69839789  3.32013676
+ -1.92123496 -1.62658949 -2.60287912  2.3366278  -2.49774511  2.13431052
+  1.80916581  1.38729044  2.69003748  2.93259942  2.01619435  1.31429481
+ -1.59992901 -2.20502427  1.12144679]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 01:14:02 2024]  Iteration number: 1825 with current cost as 0.016383549732521076 and parameters 
+[-2.74780792  2.17163221 -2.20436572  0.09944911  0.29391131 -2.67526724
+  3.02553603  1.92769147  1.26025385 -1.4288683   0.90537497  0.91452459
+  1.21044731 -1.63989869  0.75824929  2.82320576 -0.58410176 -0.76992875
+ -1.86862896  0.53179852  1.56591696  2.62269358 -0.99769404 -0.68842784
+ -2.36515185 -2.75845875  3.27332818  2.21962856 -0.50504629 -2.89554293
+  2.01524651 -0.24532122 -1.93784796  2.08365948  1.42775023 -0.73307395
+  1.01640437 -2.14473986 -0.52579612  2.43926423 -0.06587687  0.77236705
+  2.61954085  1.58383375  2.37805387  2.87702167  2.3115637  -2.77336271
+  0.0127211  -0.72576118  1.75741338  2.7755685   0.05504042 -2.28317211
+  3.09400807 -3.13293616  0.42615778 -0.81567657 -1.69881383  3.31972082
+ -1.92081902 -1.62700543 -2.60246318  2.33621186 -2.49732917  2.13389458
+  1.80874987  1.3868745   2.68962154  2.93301536  2.01577841  1.31387887
+ -1.60034495 -2.20544021  1.12103085]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 01:27:20 2024]  Iteration number: 1826 with current cost as 0.017124213155869736 and parameters 
+[-2.74727018  2.17109447 -2.20490346  0.09891138  0.29337357 -2.6747295
+  3.02607376  1.92822921  1.26079159 -1.42833056  0.90483723  0.91398686
+  1.20990957 -1.63936095  0.75771155  2.8237435  -0.58356402 -0.77046649
+ -1.86916669  0.53233626  1.5664547   2.62215584 -0.99715631 -0.6878901
+ -2.36568959 -2.75792101  3.27279044  2.21909082 -0.50558403 -2.89608067
+  2.01470877 -0.24478348 -1.93731023  2.08419722  1.42721249 -0.73361169
+  1.01586664 -2.14420212 -0.52633386  2.43980197 -0.06533913  0.77290479
+  2.61900311  1.58329601  2.37859161  2.87755941  2.31102597 -2.77282497
+  0.01325884 -0.72629892  1.75795112  2.77503076  0.05557816 -2.28370985
+  3.09347034 -3.13239842  0.42562004 -0.81621431 -1.69935157  3.32025856
+ -1.92135676 -1.62646769 -2.60192544  2.3367496  -2.49786691  2.13443232
+  1.80928761  1.38633676  2.6890838   2.9335531   2.01524067  1.31334113
+ -1.60088269 -2.20597795  1.12156859]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 01:40:37 2024]  Iteration number: 1827 with current cost as 0.01667695120034214 and parameters 
+[-2.74638628  2.17197837 -2.20578736  0.09802748  0.29248967 -2.6756134
+  3.02695767  1.92911311  1.26167549 -1.42921446  0.90572113  0.91487076
+  1.20902567 -1.63847705  0.75682765  2.8228596  -0.58268012 -0.77135039
+ -1.86828279  0.53145236  1.5655708   2.62127194 -0.99627241 -0.688774
+ -2.36657349 -2.75880491  3.27190654  2.21820692 -0.50646793 -2.89519677
+  2.01559267 -0.24389958 -1.93819413  2.08508112  1.42809639 -0.73272779
+  1.01498274 -2.14331822 -0.52544996  2.44068587 -0.06445523  0.77378869
+  2.61811921  1.58241211  2.37770771  2.87667551  2.31014207 -2.77370887
+  0.01414274 -0.72541501  1.75883502  2.77414686  0.05469426 -2.28459375
+  3.09435424 -3.13328232  0.42650394 -0.81709821 -1.69846766  3.32114246
+ -1.92047286 -1.62735159 -2.60280934  2.3376335  -2.49875081  2.13354842
+  1.80840371  1.38545286  2.6899677   2.9326692   2.01435677  1.31245723
+ -1.60176659 -2.20509405  1.12245249]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 01:53:54 2024]  Iteration number: 1828 with current cost as 0.015740458092502442 and parameters 
+[-2.74651321  2.1721053  -2.20591429  0.0981544   0.29236274 -2.67548648
+  3.02683074  1.92898618  1.26180241 -1.42908753  0.9055942   0.91499768
+  1.2091526  -1.63835013  0.75695458  2.82273267 -0.58280704 -0.77122347
+ -1.86815587  0.53132543  1.56569772  2.62114502 -0.99614548 -0.68864708
+ -2.36670041 -2.75893184  3.27203347  2.21833385 -0.50659485 -2.89506984
+  2.0157196  -0.24377266 -1.93832105  2.08495419  1.42796947 -0.73260086
+  1.01510966 -2.14319129 -0.52532304  2.4408128  -0.06458216  0.77391562
+  2.61799229  1.58253904  2.37758078  2.87654858  2.31026899 -2.77358194
+  0.01426966 -0.72528809  1.75870809  2.77401993  0.05456733 -2.28472067
+  3.09422731 -3.13340925  0.42663087 -0.81697128 -1.69834074  3.32126939
+ -1.92034593 -1.62722467 -2.60268241  2.33750657 -2.49887773  2.13342149
+  1.80827678  1.38557979  2.68984078  2.93279613  2.01422984  1.31258415
+ -1.60163966 -2.20496712  1.12232557]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 02:07:22 2024]  Iteration number: 1829 with current cost as 0.01592483511092495 and parameters 
+[-2.74751312  2.17310521 -2.2069142   0.09715449  0.29336266 -2.67448656
+  3.02583083  1.92798627  1.26280233 -1.43008744  0.90659411  0.91399777
+  1.20815268 -1.63935004  0.75595466  2.82173276 -0.58180713 -0.77222338
+ -1.86915578  0.53032552  1.56469781  2.62214493 -0.99714539 -0.68764716
+ -2.3657005  -2.75993175  3.27103356  2.21933376 -0.50759476 -2.89406993
+  2.01471969 -0.24477257 -1.93732114  2.08395428  1.42696955 -0.73160095
+  1.01610957 -2.14219138 -0.52432312  2.44181271 -0.06358225  0.77291571
+  2.6189922   1.58353895  2.3785807   2.87554867  2.3112689  -2.77458186
+  0.01526958 -0.726288    1.75770818  2.77501984  0.05356742 -2.28372076
+  3.0932274  -3.13440916  0.42763078 -0.8179712  -1.69734083  3.3222693
+ -1.91934602 -1.62822458 -2.6016825   2.33850648 -2.49787782  2.13242158
+  1.80727687  1.38457987  2.68884087  2.93179621  2.01522975  1.31158424
+ -1.60063975 -2.20596703  1.12132565]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 02:20:47 2024]  Iteration number: 1830 with current cost as 0.015966332539519793 and parameters 
+[-2.74644679  2.17417154 -2.20798052  0.09822081  0.29229633 -2.67555289
+  3.0247645   1.92905259  1.261736   -1.43115377  0.90766044  0.91293145
+  1.20921901 -1.63828371  0.75702099  2.82279908 -0.58074081 -0.7732897
+ -1.8702221   0.53139184  1.56363149  2.62321125 -0.99607907 -0.68871349
+ -2.36676682 -2.76099807  3.26996723  2.21826744 -0.50652844 -2.89300361
+  2.01578601 -0.24370625 -1.93625482  2.0850206   1.42590323 -0.73266727
+  1.0171759  -2.14112506 -0.52538945  2.44074639 -0.06251592  0.77184938
+  2.62005852  1.58460528  2.37751437  2.87448234  2.31233523 -2.77351553
+  0.01420325 -0.72735433  1.7587745   2.77608617  0.05463375 -2.28265444
+  3.09429372 -3.13334284  0.4286971  -0.81903752 -1.69840715  3.32333562
+ -1.92041234 -1.62715826 -2.60061618  2.33744016 -2.49894415  2.13135526
+  1.80621055  1.3856462   2.68990719  2.93286254  2.01629608  1.31051792
+ -1.60170607 -2.20490071  1.12025933]. 
+[Sat Dec  7 02:34:04 2024]  Iteration number: 1831 with current cost as 0.01635043048698 and parameters 
+[-2.747186    2.17343233 -2.20724132  0.09896002  0.29303554 -2.67481368
+  3.02550371  1.92831339  1.2609968  -1.43041456  0.90839964  0.91367065
+  1.2084798  -1.63902292  0.75776019  2.82353829 -0.5800016  -0.77402891
+ -1.8694829   0.53065264  1.56289228  2.62247205 -0.99681827 -0.68945269
+ -2.36750603 -2.76173728  3.27070644  2.21752823 -0.50578924 -2.8922644
+  2.01652522 -0.24444545 -1.93699402  2.0842814   1.42516403 -0.73340648
+  1.0179151  -2.14186426 -0.52612865  2.44000718 -0.06325513  0.77258859
+  2.61931932  1.58534448  2.37825358  2.87374314  2.31159602 -2.77425474
+  0.01494246 -0.72809353  1.7580353   2.77682537  0.05389454 -2.28339364
+  3.09355452 -3.13260363  0.42943631 -0.81977673 -1.69914636  3.32259642
+ -1.92115155 -1.62641905 -2.60135538  2.33670095 -2.49968335  2.13061605
+  1.80547134  1.3863854   2.68916798  2.93360174  2.01555687  1.31125712
+ -1.60096687 -2.20563992  1.12099853]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 02:47:22 2024]  Iteration number: 1832 with current cost as 0.016152977653114946 and parameters 
+[-2.74568729  2.17493104 -2.20874003  0.09746131  0.29453425 -2.67631239
+  3.02700242  1.92681468  1.26249551 -1.42891585  0.90989835  0.91217194
+  1.20997851 -1.64052163  0.7592589   2.825037   -0.58150031 -0.77552762
+ -1.86798419  0.53215135  1.56439099  2.62397076 -0.99531957 -0.68795398
+ -2.36900474 -2.76023857  3.27220515  2.21902694 -0.50429053 -2.89076569
+  2.01802392 -0.24594416 -1.93549531  2.08278269  1.42366532 -0.73190777
+  1.01941381 -2.14036556 -0.52462994  2.43850847 -0.06175642  0.77108988
+  2.61782061  1.58684319  2.37675487  2.87524185  2.31009731 -2.77275603
+  0.01644117 -0.72959224  1.75653659  2.77832408  0.05539325 -2.28189493
+  3.09505323 -3.13410234  0.43093502 -0.82127543 -1.69764765  3.32109771
+ -1.91965284 -1.62791776 -2.59985667  2.33819966 -2.50118206  2.13211476
+  1.80697005  1.3848867   2.69066669  2.93210304  2.01705558  1.30975842
+ -1.60246558 -2.20414121  1.11949983]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 03:00:44 2024]  Iteration number: 1833 with current cost as 0.0163329042487355 and parameters 
+[-2.74390257  2.17671576 -2.21052475  0.09924604  0.29631897 -2.67452767
+  3.02521769  1.92502995  1.26071078 -1.43070058  0.91168308  0.91395667
+  1.20819379 -1.64230635  0.76104363  2.82682172 -0.58328503 -0.77731234
+ -1.86619946  0.53393607  1.56617571  2.62575548 -0.99710429 -0.68616926
+ -2.36722001 -2.7620233   3.27042042  2.22081166 -0.5025058  -2.88898097
+  2.0162392  -0.24772888 -1.93728004  2.08099796  1.42545004 -0.73012305
+  1.02119854 -2.13858083 -0.52284522  2.43672375 -0.06354114  0.7728746
+  2.61960533  1.58862791  2.37853959  2.87345712  2.30831259 -2.77454075
+  0.01822589 -0.73137696  1.75832131  2.77653936  0.05717797 -2.28367966
+  3.09683795 -3.13231761  0.43271974 -0.82306016 -1.69586292  3.32288243
+ -1.92143756 -1.62613304 -2.6016414   2.33998439 -2.49939734  2.13389948
+  1.80518532  1.38667142  2.68888197  2.93388776  2.01884031  1.31154314
+ -1.60068085 -2.20235648  1.1177151 ]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 03:14:09 2024]  Iteration number: 1834 with current cost as 0.016816646616510382 and parameters 
+[-2.74455796  2.17606037 -2.20986936  0.09859064  0.29697436 -2.67518306
+  3.02587309  1.92568535  1.26005539 -1.43135597  0.91233847  0.91461206
+  1.20753839 -1.64296175  0.76038823  2.82616633 -0.58394043 -0.77796773
+ -1.86554407  0.53459146  1.56683111  2.62510009 -0.99775968 -0.68682465
+ -2.36787541 -2.7613679   3.26976503  2.22146706 -0.5031612  -2.88963636
+  2.01558381 -0.24707349 -1.93662464  2.08165336  1.42610543 -0.72946765
+  1.02054314 -2.13792544 -0.52218983  2.43737914 -0.06419654  0.77353
+  2.61894994  1.58797252  2.37919499  2.87280173  2.30896798 -2.77388536
+  0.0175705  -0.73072157  1.7589767   2.77719475  0.05652258 -2.28433505
+  3.09749334 -3.13166222  0.43337514 -0.82240477 -1.69520753  3.32353783
+ -1.92209296 -1.62547764 -2.60098601  2.33932899 -2.49874194  2.13455488
+  1.80452993  1.38732681  2.68953736  2.93323237  2.01818491  1.31219853
+ -1.60133625 -2.20170109  1.1183705 ]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 03:27:45 2024]  Iteration number: 1835 with current cost as 0.015785150615292898 and parameters 
+[-2.74347812  2.17498053 -2.2109492   0.0975108   0.29805421 -2.67410322
+  3.02479324  1.9246055   1.25897554 -1.43243582  0.91341831  0.91353222
+  1.20861824 -1.6418819   0.76146808  2.82508648 -0.58286058 -0.77688789
+ -1.86446423  0.53567131  1.56791095  2.62402024 -0.99667984 -0.68574481
+ -2.36679556 -2.76244775  3.26868519  2.2225469  -0.50424104 -2.89071621
+  2.01666365 -0.24599365 -1.93770449  2.08057351  1.42718528 -0.72838781
+  1.02162299 -2.13900528 -0.52110998  2.4362993  -0.06311669  0.77245015
+  2.62002979  1.58689268  2.37811514  2.87388157  2.30788814 -2.77496521
+  0.01649065 -0.72964173  1.75789686  2.77611491  0.05760242 -2.2854149
+  3.09857319 -3.13058238  0.43445498 -0.82348461 -1.69628738  3.32245798
+ -1.92101311 -1.6243978  -2.60206585  2.33824915 -2.49982179  2.13563472
+  1.80345009  1.38624697  2.69061721  2.93431221  2.01710507  1.31327838
+ -1.6002564  -2.20278093  1.11729065]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 03:41:03 2024]  Iteration number: 1836 with current cost as 0.015926909375133143 and parameters 
+[-2.74550511  2.17295353 -2.20892221  0.0954838   0.29602721 -2.67207622
+  3.02682024  1.92257851  1.25694855 -1.43446281  0.91544531  0.91150522
+  1.21064523 -1.6439089   0.75944108  2.82711348 -0.58083359 -0.77486089
+ -1.86649122  0.5376983   1.56993794  2.62199325 -0.99465284 -0.68371781
+ -2.36882256 -2.76042075  3.27071218  2.22051991 -0.50221405 -2.88868921
+  2.01463666 -0.24396665 -1.93973148  2.07854652  1.42921227 -0.72636081
+  1.01959599 -2.13697829 -0.52313698  2.43832629 -0.0610897   0.77042316
+  2.62205678  1.58891967  2.38014214  2.87590857  2.30991513 -2.7769922
+  0.01851765 -0.72761473  1.75586987  2.7781419   0.05962942 -2.2833879
+  3.10060018 -3.13260937  0.43242799 -0.82145762 -1.69426038  3.32448498
+ -1.91898612 -1.62642479 -2.60003886  2.34027614 -2.50184878  2.13766171
+  1.80142309  1.38421997  2.68859021  2.93228522  2.01913206  1.31530537
+ -1.6022834  -2.20075394  1.11931765]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 03:54:21 2024]  Iteration number: 1837 with current cost as 0.015866169247966022 and parameters 
+[-2.74555769  2.17290096 -2.20886963  0.09553638  0.29607979 -2.67202365
+  3.02676766  1.92252593  1.25689598 -1.43441024  0.91549788  0.9115578
+  1.21059266 -1.64385632  0.75938851  2.8270609  -0.58078101 -0.77491347
+ -1.8665438   0.53775088  1.56988537  2.62194067 -0.99470542 -0.68366524
+ -2.36887513 -2.76036818  3.2706596   2.22046733 -0.50216147 -2.88874179
+  2.01458408 -0.24401923 -1.93978406  2.07859909  1.4291597  -0.72630824
+  1.01954342 -2.13703086 -0.5230844   2.43837886 -0.06103712  0.77037058
+  2.62200421  1.5888671   2.38008956  2.87585599  2.30996771 -2.77693963
+  0.01857022 -0.72756216  1.75581729  2.77808933  0.05968199 -2.28344048
+  3.10054761 -3.13266195  0.43248056 -0.82140504 -1.69420781  3.32453755
+ -1.91903869 -1.62637222 -2.59998628  2.34022357 -2.50179621  2.13760914
+  1.80147567  1.38427255  2.68853764  2.93223264  2.01918464  1.3152528
+ -1.60233597 -2.20080652  1.11926507]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 04:07:44 2024]  Iteration number: 1838 with current cost as 0.016695176686465918 and parameters 
+[-2.74471789  2.17206117 -2.20802984  0.09469659  0.29691958 -2.67118386
+  3.02760745  1.92336572  1.25773577 -1.43525003  0.91465809  0.91239759
+  1.21143245 -1.64301653  0.75854872  2.82622111 -0.5816208  -0.77407368
+ -1.86738359  0.53859067  1.56904558  2.62110088 -0.99386563 -0.68282545
+ -2.36971492 -2.76120797  3.26981981  2.22130712 -0.50300126 -2.88958158
+  2.01542387 -0.24485902 -1.94062385  2.07943888  1.42999949 -0.72546845
+  1.01870363 -2.13787065 -0.52224461  2.43753907 -0.06187691  0.76953079
+  2.62116441  1.58970689  2.37924977  2.8750162   2.30912792 -2.77777942
+  0.01941001 -0.72840195  1.75665708  2.77892912  0.06052178 -2.28260068
+  3.09970782 -3.13182216  0.43164077 -0.82056525 -1.69336802  3.32369776
+ -1.91987848 -1.62553243 -2.60082607  2.34106336 -2.502636    2.13676935
+  1.80231546  1.38511234  2.68769785  2.93307243  2.01834485  1.31441301
+ -1.60149618 -2.19996672  1.11842528]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 04:21:05 2024]  Iteration number: 1839 with current cost as 0.016382079253347667 and parameters 
+[-2.74796914  2.17531241 -2.21128109  0.09144534  0.30017082 -2.66793261
+  3.02435621  1.92011448  1.26098701 -1.43850127  0.91140685  0.91564883
+  1.21468369 -1.64626777  0.75529747  2.82296987 -0.58487205 -0.77082243
+ -1.86413234  0.53533942  1.57229682  2.61784964 -0.99711687 -0.68607669
+ -2.36646368 -2.75795673  3.27307106  2.22455837 -0.50625251 -2.89283282
+  2.01867512 -0.24160777 -1.9373726   2.07618764  1.42674824 -0.7222172
+  1.02195487 -2.1411219  -0.51899337  2.44079032 -0.05862567  0.76627955
+  2.61791317  1.59295813  2.37599853  2.87176496  2.31237916 -2.78103066
+  0.01615877 -0.73165319  1.75990833  2.77567787  0.06377303 -2.27934944
+  3.10295906 -3.1350734   0.42838953 -0.81731401 -1.69661926  3.32044652
+ -1.92312973 -1.62878367 -2.60407732  2.33781212 -2.49938475  2.14002059
+  1.79906421  1.38836358  2.69094909  2.92982119  2.0150936   1.31116176
+ -1.60474742 -2.19671548  1.12167652]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 04:34:29 2024]  Iteration number: 1840 with current cost as 0.016350354927175643 and parameters 
+[-2.75056412  2.17271743 -2.21387606  0.08885036  0.29757584 -2.67052759
+  3.02695119  1.9175195   1.25839203 -1.44109625  0.91400183  0.91305385
+  1.21727867 -1.6436728   0.75789245  2.82037489 -0.58227707 -0.77341741
+ -1.86672732  0.53274445  1.56970184  2.62044462 -0.99452189 -0.68348171
+ -2.36905866 -2.75536175  3.27566604  2.22715335 -0.50884749 -2.89023784
+  2.01608014 -0.24420275 -1.93477762  2.07878262  1.42415327 -0.72481218
+  1.01935989 -2.13852692 -0.51639839  2.43819534 -0.05603069  0.76887453
+  2.61531819  1.59555311  2.37340355  2.87435994  2.31497414 -2.78362564
+  0.01356379 -0.73424817  1.7625033   2.77827285  0.06117805 -2.28194442
+  3.10036408 -3.13247842  0.4309845  -0.81990898 -1.69402428  3.31785154
+ -1.92053475 -1.63137865 -2.60148234  2.34040709 -2.49678977  2.14261557
+  1.79646924  1.3857686   2.68835411  2.93241617  2.01249862  1.31375674
+ -1.60215244 -2.19931046  1.1242715 ]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 04:47:50 2024]  Iteration number: 1841 with current cost as 0.01643152962316818 and parameters 
+[-2.75167323  2.17160832 -2.21276696  0.08774126  0.29646674 -2.6716367
+  3.02806029  1.91641039  1.25728292 -1.44220536  0.91289272  0.91416296
+  1.21616956 -1.6447819   0.75678334  2.821484   -0.58338618 -0.77230831
+ -1.86561821  0.53385355  1.57081095  2.62155373 -0.99341279 -0.68237261
+ -2.37016777 -2.75425264  3.27677515  2.22604424 -0.50773838 -2.88912874
+  2.01718925 -0.24309364 -1.93588673  2.07989173  1.42526237 -0.72370307
+  1.01825078 -2.13963603 -0.5175075   2.43708623 -0.05492158  0.76776542
+  2.61420908  1.59666222  2.37229444  2.87325083  2.31386503 -2.78251653
+  0.0146729  -0.73535728  1.7613942   2.77716374  0.06006894 -2.28083531
+  3.09925497 -3.13358753  0.43209361 -0.82101809 -1.69291517  3.31674243
+ -1.92164385 -1.63248776 -2.60259144  2.3415162  -2.49568067  2.14372468
+  1.79757834  1.38687771  2.68946322  2.93352528  2.01138951  1.31486585
+ -1.60104334 -2.19820135  1.12316239]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 05:01:15 2024]  Iteration number: 1842 with current cost as 0.016683829157408337 and parameters 
+[-2.74919972  2.16913482 -2.21524046  0.08526775  0.29894024 -2.6691632
+  3.0305338   1.91393689  1.25975642 -1.44467886  0.91536622  0.91663646
+  1.21864306 -1.6423084   0.75430984  2.8239575  -0.58585968 -0.77478181
+ -1.86809172  0.53632706  1.57328445  2.62402723 -0.99093928 -0.6798991
+ -2.37264127 -2.75177914  3.27924865  2.22357074 -0.51021188 -2.88665523
+  2.01471575 -0.24062014 -1.93836023  2.08236523  1.42773588 -0.72122957
+  1.02072429 -2.14210953 -0.515034    2.43461273 -0.05739508  0.77023892
+  2.61668258  1.59418872  2.36982094  2.87572433  2.31633853 -2.78004303
+  0.0121994  -0.73288378  1.75892069  2.77469024  0.06254244 -2.27836181
+  3.10172847 -3.13111403  0.42962011 -0.81854459 -1.69538867  3.31921593
+ -1.92411736 -1.63496126 -2.60506495  2.3390427  -2.49320716  2.14619818
+  1.80005184  1.38440421  2.69193672  2.93105177  2.00891601  1.31733935
+ -1.60351684 -2.19572785  1.1256359 ]. 
+[Sat Dec  7 05:14:42 2024]  Iteration number: 1843 with current cost as 0.017362510787937113 and parameters 
+[-2.74964651  2.16958161 -2.21568724  0.08482097  0.29938702 -2.66960998
+  3.03008701  1.91349011  1.26020321 -1.44512564  0.91491944  0.91618968
+  1.21819628 -1.64186162  0.75386306  2.82351071 -0.58630646 -0.77433502
+ -1.8685385   0.53588027  1.57373124  2.62447401 -0.99138607 -0.68034589
+ -2.37308805 -2.75222592  3.27969543  2.22312395 -0.51065866 -2.88620845
+  2.01516253 -0.24017336 -1.93791345  2.08191844  1.42728909 -0.72167636
+  1.02117107 -2.14166274 -0.51458721  2.43505951 -0.05784187  0.76979214
+  2.61712937  1.5946355   2.37026772  2.87527755  2.31678532 -2.77959625
+  0.01175261 -0.73243699  1.75936748  2.77513703  0.06298923 -2.27880859
+  3.10217526 -3.13156081  0.42917333 -0.81809781 -1.69494189  3.31966271
+ -1.92367057 -1.63540804 -2.60551173  2.33948949 -2.49365395  2.14664497
+  1.79960506  1.384851    2.69148994  2.93149856  2.00846923  1.31689257
+ -1.60307005 -2.19528107  1.12518911]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 05:28:16 2024]  Iteration number: 1844 with current cost as 0.017371782984011812 and parameters 
+[-2.75140417  2.17133926 -2.2174449   0.08306331  0.30114468 -2.66785232
+  3.03184467  1.91524777  1.26196087 -1.44336798  0.9166771   0.91443202
+  1.21995394 -1.64010396  0.7521054   2.82526837 -0.5845488  -0.77609268
+ -1.87029616  0.53763793  1.5754889   2.62623167 -0.99314373 -0.67858823
+ -2.37133039 -2.75046826  3.28145309  2.22488161 -0.51241632 -2.88796611
+  2.01692019 -0.2384157  -1.93615579  2.08016078  1.42553143 -0.72343402
+  1.02292873 -2.1434204  -0.51282955  2.43330185 -0.05959953  0.76803448
+  2.61537171  1.59639316  2.36851006  2.87703521  2.31502766 -2.7813539
+  0.01351027 -0.73419465  1.75760982  2.77337937  0.06123157 -2.28056625
+  3.10393292 -3.12980315  0.43093099 -0.81985547 -1.69669955  3.32142037
+ -1.92542823 -1.63365039 -2.60375407  2.34124714 -2.49541161  2.14840263
+  1.80136272  1.38660865  2.68973228  2.93325622  2.00671157  1.31513491
+ -1.60131239 -2.19352341  1.12694677]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 05:41:47 2024]  Iteration number: 1845 with current cost as 0.01641195498080247 and parameters 
+[-2.75024598  2.17249746 -2.21860309  0.0842215   0.30230287 -2.66901051
+  3.03068648  1.91640596  1.26311906 -1.44220979  0.91783529  0.91559021
+  1.21879575 -1.63894577  0.75326359  2.82642656 -0.58339061 -0.77725087
+ -1.87145435  0.53647974  1.57664709  2.62507348 -0.99198554 -0.67743004
+ -2.37248858 -2.75162645  3.28261128  2.22372342 -0.51125813 -2.88680792
+  2.015762   -0.23957389 -1.9349976   2.07900259  1.42437324 -0.72227583
+  1.02177054 -2.14226221 -0.51398774  2.43446005 -0.05844134  0.76919267
+  2.61421352  1.59523497  2.36966825  2.87587702  2.31386947 -2.78019571
+  0.01235208 -0.73303646  1.75876801  2.77222118  0.06238976 -2.27940806
+  3.10277473 -3.13096134  0.43208918 -0.82101366 -1.69554136  3.32257856
+ -1.92658642 -1.6324922  -2.60491226  2.34240533 -2.4965698   2.14956082
+  1.80020453  1.38776684  2.68857409  2.93441441  2.00786976  1.3162931
+ -1.6001542  -2.19236522  1.12578858]. 
+[Sat Dec  7 05:55:10 2024]  Iteration number: 1846 with current cost as 0.0167148507832212 and parameters 
+[-2.74984174  2.17209322 -2.21819886  0.08381727  0.30189864 -2.66860628
+  3.03109071  1.91600172  1.26352329 -1.44180556  0.91823952  0.91599444
+  1.21839152 -1.63935     0.75285936  2.8268308  -0.58298638 -0.7776551
+ -1.87105012  0.53607551  1.57624285  2.62547771 -0.9915813  -0.67783427
+ -2.37208435 -2.75122222  3.28301551  2.22331919 -0.51166236 -2.88721215
+  2.01616623 -0.23997812 -1.93540183  2.07859836  1.42477748 -0.72187159
+  1.0213663  -2.14266645 -0.51439198  2.43486428 -0.0580371   0.76878843
+  2.61461775  1.59483074  2.36926402  2.87628125  2.3142737  -2.78059995
+  0.01194785 -0.7334407   1.75836378  2.77181694  0.06279399 -2.27900383
+  3.10317896 -3.13055711  0.43249341 -0.82060942 -1.69513712  3.3229828
+ -1.92618219 -1.63208796 -2.60531649  2.3420011  -2.49616556  2.14996505
+  1.80060876  1.38736261  2.68816985  2.93401017  2.00746553  1.31669733
+ -1.59974997 -2.19196098  1.12538435]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 06:08:33 2024]  Iteration number: 1847 with current cost as 0.016481674195122004 and parameters 
+[-2.74942031  2.17167179 -2.21862029  0.0842387   0.30232007 -2.66818484
+  3.03066928  1.91558029  1.26394473 -1.44138413  0.91781808  0.91641588
+  1.21797008 -1.63977144  0.75328079  2.82725223 -0.58340782 -0.77807654
+ -1.87062868  0.53649694  1.57582142  2.62589915 -0.99200274 -0.67825571
+ -2.37250578 -2.75164365  3.28259408  2.22289775 -0.51124093 -2.88679072
+  2.0157448  -0.23955669 -1.93582327  2.0790198   1.42519891 -0.72145016
+  1.02178774 -2.14224501 -0.51481341  2.43444284 -0.05761567  0.768367
+  2.61503919  1.59525217  2.36968546  2.87585981  2.31469514 -2.78102138
+  0.01236928 -0.73301926  1.75794234  2.77139551  0.06237256 -2.27942527
+  3.1036004  -3.13097855  0.43291485 -0.82103086 -1.69555856  3.32340423
+ -1.92660362 -1.63166653 -2.60489506  2.34242254 -2.49574413  2.15038648
+  1.8010302   1.38778405  2.68859129  2.93358874  2.00788696  1.31711877
+ -1.60017141 -2.19238242  1.12496291]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 06:22:00 2024]  Iteration number: 1848 with current cost as 0.015985517426795923 and parameters 
+[-2.75048082  2.1727323  -2.21755978  0.08529922  0.30125956 -2.66712433
+  3.03172979  1.9166408   1.26288421 -1.44244464  0.9188786   0.91535537
+  1.21903059 -1.63871093  0.75434131  2.82619172 -0.58446833 -0.77913705
+ -1.86956817  0.53755745  1.57688193  2.62695966 -0.99094223 -0.6771952
+ -2.37144527 -2.75270417  3.28153356  2.22183724 -0.51018042 -2.88785123
+  2.01680531 -0.2406172  -1.93476276  2.07795928  1.42625942 -0.72038964
+  1.02072723 -2.1411845  -0.5137529   2.43338233 -0.05867618  0.76730649
+  2.61397868  1.59631269  2.37074597  2.87692033  2.31363463 -2.77996087
+  0.01130877 -0.73407977  1.75900285  2.770335    0.06131204 -2.27836475
+  3.10466091 -3.13203906  0.43397536 -0.82209137 -1.69661907  3.32234372
+ -1.92766414 -1.63060601 -2.60595557  2.34348305 -2.49468362  2.151447
+  1.80209071  1.38672353  2.68753078  2.93464925  2.00682645  1.31817928
+ -1.59911089 -2.19132191  1.12602342]. 
+[Sat Dec  7 06:35:16 2024]  Iteration number: 1849 with current cost as 0.016129360614639703 and parameters 
+[-2.75126292  2.1719502  -2.21834188  0.08608131  0.30204166 -2.66634223
+  3.03251189  1.9174229   1.26210212 -1.44322673  0.91966069  0.91613746
+  1.2182485  -1.63792883  0.7551234   2.82540962 -0.58525043 -0.77991915
+ -1.86878607  0.53833955  1.57609983  2.62617757 -0.99172432 -0.6764131
+ -2.37066318 -2.75348626  3.28231566  2.22261934 -0.50939832 -2.88706913
+  2.01758741 -0.2398351  -1.93398066  2.07874138  1.42547733 -0.72117174
+  1.02150932 -2.1404024  -0.514535    2.43260023 -0.05789408  0.76652439
+  2.61476077  1.59709478  2.37152806  2.87613823  2.31285253 -2.77917877
+  0.01209087 -0.73486187  1.75822076  2.77111709  0.06209414 -2.27758266
+  3.105443   -3.13282115  0.43475745 -0.82287347 -1.69740117  3.32312582
+ -1.92844623 -1.63138811 -2.60673767  2.34426515 -2.49390152  2.15222909
+  1.80130861  1.38594144  2.68674868  2.93386715  2.00760855  1.31739718
+ -1.5983288  -2.19053981  1.12524133]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 06:48:35 2024]  Iteration number: 1850 with current cost as 0.016578015653001828 and parameters 
+[-2.75108699  2.17177427 -2.21851781  0.08625725  0.30221759 -2.66651817
+  3.03268782  1.91759883  1.26227805 -1.44340267  0.91948476  0.91631339
+  1.21842443 -1.63810476  0.75529933  2.82523369 -0.58542636 -0.78009508
+ -1.86861014  0.53851548  1.57627576  2.6263535  -0.99154839 -0.67658903
+ -2.37083911 -2.7536622   3.28213973  2.22279527 -0.50922239 -2.8868932
+  2.01741147 -0.24001104 -1.93380473  2.07891731  1.4253014  -0.72099581
+  1.02168526 -2.14057833 -0.51471093  2.43277617 -0.05807002  0.76670032
+  2.61493671  1.59727071  2.371704    2.8759623   2.31302846 -2.77935471
+  0.0122668  -0.73468594  1.75804483  2.77094116  0.06191821 -2.27775859
+  3.10526707 -3.13264522  0.43458152 -0.8230494  -1.69722524  3.32330175
+ -1.92862216 -1.63156404 -2.6069136   2.34444108 -2.49407745  2.15205316
+  1.80148455  1.38611737  2.68692461  2.93369122  2.00743262  1.31722125
+ -1.59850473 -2.19071574  1.12541726]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 07:01:57 2024]  Iteration number: 1851 with current cost as 0.016662814458234195 and parameters 
+[-2.75211614  2.17280342 -2.21954696  0.0872864   0.30324674 -2.66754732
+  3.03371697  1.91656968  1.2612489  -1.44443182  0.91845561  0.91734255
+  1.21945358 -1.63913391  0.75427018  2.82420454 -0.58645551 -0.77906593
+ -1.86758099  0.53748633  1.57730492  2.62532435 -0.99051924 -0.67761818
+ -2.37186826 -2.75469135  3.28316888  2.22382442 -0.50819324 -2.88792235
+  2.01638232 -0.23898188 -1.93277558  2.07994646  1.42633055 -0.72202496
+  1.0206561  -2.13954918 -0.51574008  2.43380532 -0.05704086  0.76772947
+  2.61596586  1.59624156  2.37067485  2.87699145  2.31405761 -2.77832555
+  0.01123765 -0.73365679  1.75907398  2.76991201  0.06088906 -2.27672944
+  3.10423792 -3.13367437  0.43355237 -0.82407855 -1.69825439  3.3222726
+ -1.92759301 -1.63053489 -2.60794275  2.34341193 -2.4951066   2.15102401
+  1.80045539  1.38508822  2.68795376  2.93266207  2.00640346  1.3182504
+ -1.59747558 -2.19174489  1.12438811]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 07:15:14 2024]  Iteration number: 1852 with current cost as 0.01679874349664087 and parameters 
+[-2.75109961  2.17178689 -2.22056349  0.08626987  0.30223021 -2.66856385
+  3.0347335   1.9175862   1.26226543 -1.44544835  0.91947214  0.91632602
+  1.22047011 -1.63811738  0.75528671  2.82318801 -0.58747204 -0.7780494
+ -1.86656446  0.53850286  1.57832144  2.62634087 -0.99153577 -0.67660165
+ -2.37288479 -2.75570788  3.28418541  2.22280789 -0.50717671 -2.88690582
+  2.01536579 -0.23999841 -1.93379211  2.07892994  1.42734708 -0.72304149
+  1.01963958 -2.14056571 -0.51675661  2.43278879 -0.05805739  0.768746
+  2.61698238  1.59725809  2.36965832  2.87800798  2.31507414 -2.77730903
+  0.01022112 -0.73264026  1.75805745  2.76889548  0.05987253 -2.27571291
+  3.10525445 -3.13265785  0.43253584 -0.82509508 -1.69927092  3.32328913
+ -1.92657648 -1.63155142 -2.60692622  2.34442845 -2.49409007  2.15000748
+  1.79943887  1.38407169  2.68897029  2.93164554  2.00538694  1.31723387
+ -1.59849211 -2.19072836  1.12540464]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 07:28:30 2024]  Iteration number: 1853 with current cost as 0.01700926891004716 and parameters 
+[-2.75090965  2.17159694 -2.22075344  0.08607991  0.30242017 -2.66837389
+  3.03492345  1.91777616  1.26207547 -1.44525839  0.91966209  0.91613606
+  1.22028015 -1.63830734  0.75547667  2.82299806 -0.58766199 -0.77823936
+ -1.8663745   0.53831291  1.5785114   2.62615092 -0.99172572 -0.67679161
+ -2.37307474 -2.75589783  3.28399545  2.22299784 -0.50698675 -2.88709578
+  2.01517584 -0.24018837 -1.93360215  2.07911989  1.42753703 -0.72285153
+  1.01944962 -2.14075566 -0.51694656  2.43259883 -0.05824735  0.76855605
+  2.61679243  1.59744805  2.36984827  2.87819793  2.3152641  -2.77749898
+  0.01003116 -0.73283021  1.75786749  2.76908544  0.05968257 -2.27552295
+  3.1054444  -3.1328478   0.4327258  -0.82490512 -1.69946087  3.32309917
+ -1.92638653 -1.63136146 -2.60673627  2.34461841 -2.49390012  2.14981753
+  1.79924891  1.38388174  2.68878034  2.9318355   2.00519698  1.31704392
+ -1.59868206 -2.19091832  1.12521468]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 07:41:53 2024]  Iteration number: 1854 with current cost as 0.016246609165346704 and parameters 
+[-2.7508751   2.17156239 -2.22071889  0.08611446  0.30238562 -2.66833934
+  3.034958    1.91774161  1.26211002 -1.44522384  0.91962754  0.91617061
+  1.2202456  -1.63827279  0.75551122  2.82296351 -0.58762744 -0.77827391
+ -1.86640905  0.53827835  1.57854595  2.62611637 -0.99176027 -0.67682616
+ -2.37310929 -2.75593238  3.2839609   2.22296329 -0.5069522  -2.88706123
+  2.01521039 -0.24022292 -1.9336367   2.07915444  1.42757158 -0.72288609
+  1.01941507 -2.14072111 -0.51691201  2.43263338 -0.0582819   0.7685906
+  2.61675788  1.5974826   2.36988282  2.87823248  2.31522955 -2.77753353
+  0.01006571 -0.73286476  1.75783294  2.76905089  0.05971712 -2.2754884
+  3.10540985 -3.13281325  0.43269125 -0.82493968 -1.69949542  3.32306462
+ -1.92642108 -1.63139602 -2.60677082  2.34465296 -2.49386557  2.14985208
+  1.79921436  1.38391629  2.68881489  2.93180095  2.00523153  1.31707847
+ -1.59871661 -2.19088377  1.12518013]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 07:55:18 2024]  Iteration number: 1855 with current cost as 0.01684977347594178 and parameters 
+[-2.75190546  2.17053203 -2.22174925  0.08714482  0.30341597 -2.66730899
+  3.03392765  1.91671125  1.26314038 -1.44419348  0.91859719  0.91514026
+  1.21921525 -1.63930314  0.75654157  2.82193315 -0.5886578  -0.77930426
+ -1.86743941  0.537248    1.57751559  2.62508601 -0.99279063 -0.6757958
+ -2.37207894 -2.75490203  3.28293055  2.22399365 -0.50592185 -2.88809158
+  2.01418003 -0.23919256 -1.93260635  2.0801848   1.42654122 -0.72185573
+  1.01838472 -2.14175147 -0.51794237  2.43366374 -0.05725154  0.76962095
+  2.61778824  1.59851295  2.37091318  2.87720213  2.31419919 -2.77856389
+  0.00903536 -0.73389512  1.75680259  2.76802053  0.06074748 -2.27445805
+  3.10644021 -3.1338436   0.43166089 -0.82390932 -1.69846507  3.32203426
+ -1.92745144 -1.63242637 -2.60574046  2.3436226  -2.49283521  2.14882172
+  1.79818401  1.38494664  2.68778453  2.93077059  2.00626189  1.31604811
+ -1.59974697 -2.19191412  1.12414978]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 08:08:37 2024]  Iteration number: 1856 with current cost as 0.0157302321117277 and parameters 
+[-2.75271324  2.17133981 -2.22094147  0.08633704  0.30260819 -2.66811676
+  3.03473543  1.91590347  1.26394816 -1.44338571  0.91778941  0.91594804
+  1.21840747 -1.64011092  0.75573379  2.82274093 -0.58785002 -0.78011204
+ -1.86824719  0.53644022  1.57832337  2.62589379 -0.99198285 -0.67660358
+ -2.37127116 -2.75409425  3.28373833  2.22480143 -0.50672962 -2.8872838
+  2.01498781 -0.24000034 -1.93341412  2.07937702  1.427349   -0.72104795
+  1.01757694 -2.14094369 -0.51713459  2.43447152 -0.05805932  0.76881317
+  2.61859601  1.59932073  2.37172096  2.87639435  2.31339141 -2.77775611
+  0.00822758 -0.73308734  1.75599481  2.76721275  0.0599397  -2.27365027
+  3.10724799 -3.13303583  0.43246867 -0.8247171  -1.69765729  3.32122649
+ -1.92664366 -1.63161859 -2.60654824  2.34443038 -2.49202744  2.14801394
+  1.79899178  1.38575442  2.68697676  2.93157837  2.00706967  1.31685589
+ -1.60055475 -2.1927219   1.12495755]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 08:22:07 2024]  Iteration number: 1857 with current cost as 0.016548413149842248 and parameters 
+[-2.75255026  2.17150278 -2.2207785   0.08617407  0.30277117 -2.66827974
+  3.0348984   1.91606645  1.26411113 -1.44354868  0.91795238  0.91578506
+  1.2182445  -1.64027389  0.75589677  2.8229039  -0.58768705 -0.78027501
+ -1.86841016  0.53660319  1.57848635  2.62605676 -0.99214582 -0.67676655
+ -2.37143413 -2.75393127  3.28357535  2.2249644  -0.5068926  -2.88712083
+  2.01482484 -0.24016331 -1.9335771   2.07953999  1.42751198 -0.72088498
+  1.01741396 -2.14078072 -0.51729756  2.43463449 -0.05822229  0.76897615
+  2.61843304  1.59915776  2.37188393  2.87623138  2.31322844 -2.77791908
+  0.00806461 -0.73325031  1.75583184  2.76737572  0.06010267 -2.2734873
+  3.10741096 -3.13287285  0.4323057  -0.82455413 -1.69749432  3.32138946
+ -1.92648069 -1.63145562 -2.60638527  2.34459336 -2.49186446  2.14785097
+  1.79882881  1.38591739  2.68681378  2.93174134  2.00690669  1.31701886
+ -1.60071772 -2.19255893  1.12479458]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 08:35:34 2024]  Iteration number: 1858 with current cost as 0.016528174430209784 and parameters 
+[-2.7527303   2.17132274 -2.22059846  0.08599403  0.30295121 -2.66845977
+  3.03471836  1.91588641  1.26429117 -1.44372872  0.91813242  0.91560502
+  1.21842453 -1.64009385  0.75607681  2.82308394 -0.58786709 -0.78045505
+ -1.8685902   0.53642315  1.57866638  2.62587672 -0.99232586 -0.67694659
+ -2.37125409 -2.75375124  3.28375539  2.22478436 -0.50671256 -2.88730087
+  2.0146448  -0.24034335 -1.93339706  2.07972003  1.42769201 -0.72070494
+  1.01723393 -2.14096076 -0.5174776   2.43445445 -0.05804225  0.76915619
+  2.61861308  1.59897772  2.37170389  2.87641142  2.3130484  -2.77809912
+  0.00788457 -0.73343035  1.7556518   2.76755576  0.06028271 -2.27330726
+  3.107591   -3.13305289  0.43212566 -0.82437409 -1.69767436  3.32120942
+ -1.92666072 -1.63163566 -2.60656531  2.34477339 -2.4920445   2.14803101
+  1.79864877  1.38573735  2.68663374  2.93192138  2.00708673  1.3171989
+ -1.60089776 -2.19237889  1.12461454]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 08:48:49 2024]  Iteration number: 1859 with current cost as 0.016522631672663782 and parameters 
+[-2.75267587  2.17137718 -2.22054402  0.08593959  0.30300564 -2.66840534
+  3.03466392  1.91594084  1.26423673 -1.44367428  0.91807798  0.91565946
+  1.21847897 -1.64003942  0.75602237  2.82302951 -0.58781265 -0.78040062
+ -1.86853576  0.53647759  1.57861195  2.62593116 -0.9923803  -0.67689216
+ -2.37119966 -2.75380567  3.28370096  2.22472993 -0.50665812 -2.88735531
+  2.01469924 -0.24028892 -1.93345149  2.07977447  1.42763758 -0.7206505
+  1.01728836 -2.14090632 -0.51753204  2.43440002 -0.05809669  0.76910175
+  2.61855864  1.59892328  2.37175832  2.87635698  2.31299396 -2.77804469
+  0.00793901 -0.73348479  1.75570623  2.7676102   0.06033715 -2.27336169
+  3.10753656 -3.13310733  0.43207122 -0.82431965 -1.69772879  3.32126386
+ -1.92671516 -1.63158122 -2.60661974  2.34471896 -2.49199007  2.14808545
+  1.79870321  1.38579179  2.68668818  2.93197582  2.00714117  1.31714447
+ -1.60084332 -2.19232445  1.12466898]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 09:02:12 2024]  Iteration number: 1860 with current cost as 0.016894216168370765 and parameters 
+[-2.75285541  2.17155672 -2.22036448  0.08611914  0.30318519 -2.66822579
+  3.03448438  1.91612039  1.26405719 -1.44349474  0.91789844  0.91547991
+  1.21865852 -1.64021896  0.75620192  2.82320905 -0.5876331  -0.78058016
+ -1.86871531  0.53629805  1.57879149  2.62575162 -0.99255984 -0.6770717
+ -2.37102011 -2.75398522  3.28352141  2.22490947 -0.50683767 -2.88717576
+  2.01487878 -0.24010937 -1.93363104  2.07959492  1.42745803 -0.72047096
+  1.01746791 -2.14072678 -0.51771158  2.43457956 -0.05827623  0.76892221
+  2.61873819  1.59874374  2.37193787  2.87617743  2.31317351 -2.77786514
+  0.00775946 -0.73366433  1.75552669  2.76743065  0.0601576  -2.27354124
+  3.10771611 -3.13328687  0.43189168 -0.82414011 -1.69754925  3.32108431
+ -1.92653562 -1.63140168 -2.60679929  2.34453941 -2.49216961  2.1479059
+  1.79852366  1.38597133  2.68686772  2.93215536  2.00696162  1.31696492
+ -1.60066378 -2.19214491  1.12448943]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 09:15:36 2024]  Iteration number: 1861 with current cost as 0.016461931932827707 and parameters 
+[-2.75267195  2.17174018 -2.22018102  0.0863026   0.30336865 -2.66840925
+  3.03430092  1.91593693  1.26387373 -1.44331128  0.91771498  0.91529646
+  1.21847506 -1.64040242  0.75638538  2.82302559 -0.58744965 -0.7803967
+ -1.86853185  0.5364815   1.57860803  2.62556816 -0.9927433  -0.67688824
+ -2.37083665 -2.75380176  3.28370487  2.22472601 -0.50665421 -2.88735922
+  2.01506224 -0.24029283 -1.93344758  2.07941146  1.42727457 -0.7202875
+  1.01728445 -2.14054332 -0.51752812  2.43476302 -0.05809277  0.76873875
+  2.61855473  1.59856028  2.37212133  2.87636089  2.31335697 -2.77768168
+  0.007576   -0.73384779  1.75571015  2.76724719  0.05997414 -2.27335778
+  3.10753265 -3.13347033  0.43170822 -0.82395665 -1.69773271  3.32126777
+ -1.92635216 -1.63121822 -2.60698275  2.34472287 -2.49235307  2.14808936
+  1.79870712  1.38615479  2.68668426  2.93233882  2.00677816  1.31678146
+ -1.60084724 -2.19232837  1.12430597]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 09:29:00 2024]  Iteration number: 1862 with current cost as 0.016362756759293776 and parameters 
+[-2.75238525  2.17202689 -2.22046772  0.0865893   0.30365535 -2.66812255
+  3.03458762  1.91565022  1.26358702 -1.44359798  0.91742827  0.91558316
+  1.21876176 -1.64068913  0.75667208  2.8233123  -0.58773635 -0.78011
+ -1.86824515  0.53676821  1.57889474  2.62528145 -0.9924566  -0.67717495
+ -2.37112336 -2.75351505  3.28341817  2.22443931 -0.5063675  -2.88707252
+  2.01477554 -0.24000613 -1.93316087  2.07969817  1.42756128 -0.72000079
+  1.01699774 -2.14083002 -0.51781483  2.43504973 -0.05837948  0.76845204
+  2.61826802  1.59884698  2.37183462  2.8766476   2.31364367 -2.77796839
+  0.00786271 -0.7341345   1.75542344  2.76696049  0.05968744 -2.27364448
+  3.10724594 -3.13318363  0.43142151 -0.82366994 -1.697446    3.32155448
+ -1.92663886 -1.63093151 -2.60669604  2.34443617 -2.49263978  2.14837607
+  1.79842042  1.38586809  2.68639756  2.93262553  2.00706487  1.31706817
+ -1.60113394 -2.19204166  1.12459268]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 09:42:32 2024]  Iteration number: 1863 with current cost as 0.016186039921821438 and parameters 
+[-2.75281879  2.17159335 -2.22090126  0.08702284  0.30322181 -2.66855609
+  3.03415409  1.91521669  1.26402056 -1.44403152  0.91786181  0.9160167
+  1.21832822 -1.64025559  0.75623854  2.82287876 -0.58730281 -0.78054354
+ -1.86867868  0.53720175  1.5784612   2.62484791 -0.99289014 -0.67760849
+ -2.37068982 -2.75394859  3.28298463  2.22400577 -0.50680104 -2.88750605
+  2.01520907 -0.23957259 -1.93359441  2.07926463  1.42799482 -0.71956726
+  1.0165642  -2.14126356 -0.51824837  2.43461619 -0.05794594  0.76888558
+  2.61783449  1.59928052  2.37226816  2.87621406  2.31321014 -2.77840192
+  0.00742917 -0.73456804  1.75585698  2.76739403  0.0592539  -2.27321095
+  3.10681241 -3.13275009  0.43185505 -0.82410348 -1.69701246  3.32112094
+ -1.92620532 -1.63136505 -2.60712958  2.34400263 -2.49220624  2.1488096
+  1.79885395  1.38543455  2.68596402  2.93305906  2.00663133  1.31750171
+ -1.60156748 -2.19160813  1.12502622]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 09:55:51 2024]  Iteration number: 1864 with current cost as 0.01633373229763202 and parameters 
+[-2.75154458  2.17286755 -2.22217546  0.08574864  0.30194761 -2.66728188
+  3.03287988  1.91649089  1.26529476 -1.44530572  0.91913602  0.9172909
+  1.21705402 -1.64152979  0.75496434  2.82415296 -0.58857701 -0.78181774
+ -1.86995289  0.53847595  1.577187    2.62357371 -0.99161594 -0.67633428
+ -2.36941562 -2.75267439  3.28171043  2.22273157 -0.50807524 -2.88623185
+  2.01648328 -0.23829839 -1.93232021  2.08053883  1.42926902 -0.71829305
+  1.01529    -2.13998936 -0.51952257  2.43334198 -0.05667174  0.76761138
+  2.61656028  1.59800632  2.37354237  2.87493986  2.31193593 -2.77967613
+  0.00615496 -0.73584224  1.75458278  2.76611983  0.0605281  -2.27448515
+  3.1055382  -3.13147589  0.43058085 -0.82537768 -1.69828666  3.31984673
+ -1.92747952 -1.63263926 -2.60585538  2.34272843 -2.49093204  2.1475354
+  1.79757975  1.38416035  2.68468982  2.93433327  2.00535713  1.3162275
+ -1.60284168 -2.19288233  1.12375201]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 10:09:13 2024]  Iteration number: 1865 with current cost as 0.016815945315045842 and parameters 
+[-2.75110821  2.17330393 -2.22173909  0.08531226  0.30238399 -2.66771826
+  3.03244351  1.91605451  1.26485839 -1.44486935  0.91869964  0.91685452
+  1.2174904  -1.64109341  0.75540072  2.82371658 -0.58901339 -0.78225412
+ -1.87038926  0.53891233  1.57675062  2.62401009 -0.99205231 -0.67677066
+ -2.36897924 -2.75311077  3.2821468   2.22229519 -0.50851162 -2.88579547
+  2.01691965 -0.23873476 -1.93188383  2.08010245  1.4297054  -0.71872943
+  1.01485362 -2.13955298 -0.51995895  2.43377836 -0.05710812  0.767175
+  2.61699666  1.59756994  2.37397874  2.87537624  2.31149956 -2.77923975
+  0.00571859 -0.73627862  1.7541464   2.76568345  0.06009173 -2.27492153
+  3.10510183 -3.13191227  0.43014447 -0.8249413  -1.69785029  3.31941036
+ -1.9279159  -1.63307563 -2.60629176  2.34316481 -2.49049566  2.14709902
+  1.79714337  1.38459673  2.68425344  2.93389689  2.00492075  1.31579113
+ -1.60327806 -2.19244595  1.12418839]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 10:22:37 2024]  Iteration number: 1866 with current cost as 0.01725130167968384 and parameters 
+[-2.75165187  2.17276027 -2.22228275  0.08585593  0.30292765 -2.66826192
+  3.03298717  1.91659817  1.26540205 -1.44432568  0.91815598  0.91739819
+  1.21694673 -1.64054975  0.75485705  2.82317292 -0.58955705 -0.78171045
+ -1.8698456   0.53945599  1.57620696  2.62346642 -0.99259598 -0.67731432
+ -2.3695229  -2.7525671   3.28269047  2.22175153 -0.50796796 -2.88633914
+  2.01637599 -0.23927843 -1.93134017  2.07955879  1.43024906 -0.71927309
+  1.01539729 -2.14009664 -0.51941528  2.4332347  -0.05656445  0.76771866
+  2.61754032  1.5981136   2.37452241  2.87483257  2.31095589 -2.77978341
+  0.00517492 -0.73573495  1.75360274  2.76622711  0.05954806 -2.27546519
+  3.10564549 -3.13245593  0.42960081 -0.82548497 -1.69839395  3.31995402
+ -1.92737224 -1.63253197 -2.60683542  2.34262114 -2.49103932  2.14655536
+  1.79659971  1.38514039  2.6847971   2.93335323  2.00546441  1.31524746
+ -1.60382172 -2.19298961  1.12364473]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 10:36:00 2024]  Iteration number: 1867 with current cost as 0.016884415203494527 and parameters 
+[-2.75192117  2.17302957 -2.22201345  0.08558663  0.30265835 -2.66799263
+  3.03271787  1.91686747  1.26513275 -1.44405638  0.91788668  0.91766749
+  1.21721603 -1.64081905  0.75512635  2.82290362 -0.58928775 -0.78197975
+ -1.8695763   0.53972529  1.57647626  2.62319713 -0.99286527 -0.67704503
+ -2.3692536  -2.7528364   3.28242117  2.22148223 -0.50823726 -2.88606984
+  2.01664529 -0.23900913 -1.93160947  2.07982809  1.43051836 -0.71954239
+  1.01512799 -2.13982734 -0.51914598  2.433504   -0.05683375  0.76744936
+  2.61780962  1.5978443   2.37479171  2.87456327  2.31122519 -2.77951411
+  0.00490562 -0.73600425  1.75387204  2.76595781  0.05981736 -2.27573449
+  3.10591479 -3.13218663  0.42933151 -0.82521567 -1.69812465  3.32022332
+ -1.92710294 -1.63226267 -2.60656612  2.34289044 -2.49130862  2.14682466
+  1.79686901  1.38487109  2.6845278   2.93308393  2.00573371  1.31551676
+ -1.60355242 -2.19325891  1.12391403]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 10:49:23 2024]  Iteration number: 1868 with current cost as 0.0166010550097392 and parameters 
+[-2.75180801  2.17291641 -2.22190029  0.08569978  0.30254519 -2.66787947
+  3.03260471  1.91698063  1.26501959 -1.44416954  0.91777352  0.91778064
+  1.21710288 -1.6407059   0.75523951  2.82301678 -0.58940091 -0.78209291
+ -1.86946315  0.53961213  1.57658941  2.62331028 -0.99297843 -0.67693187
+ -2.36914045 -2.75272325  3.28253432  2.22159538 -0.5081241  -2.88618299
+  2.01675845 -0.23889597 -1.93172263  2.07971493  1.4304052  -0.71965555
+  1.01524114 -2.1399405  -0.51903283  2.43361716 -0.05694691  0.76756252
+  2.61792278  1.59795746  2.37467855  2.87445012  2.31133835 -2.77962727
+  0.00479247 -0.7358911   1.75375888  2.76607097  0.05993052 -2.27562133
+  3.10602794 -3.13229978  0.42921835 -0.82532882 -1.69823781  3.32011016
+ -1.92698978 -1.63214951 -2.60667928  2.3430036  -2.49142178  2.14671151
+  1.79698217  1.38475793  2.68464096  2.93319708  2.00562055  1.31540361
+ -1.60343927 -2.19314576  1.12380087]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 11:02:56 2024]  Iteration number: 1869 with current cost as 0.016626035488185423 and parameters 
+[-2.75212853  2.17259589 -2.22222081  0.08537926  0.30286571 -2.66755895
+  3.03228419  1.91666011  1.26469907 -1.44449006  0.917453    0.91810116
+  1.21678236 -1.64038537  0.75491899  2.82269625 -0.58908039 -0.78241343
+ -1.86914262  0.53993266  1.57626889  2.62298976 -0.99329895 -0.67725239
+ -2.36946097 -2.75304377  3.2822138   2.22127486 -0.50844462 -2.88586247
+  2.01707897 -0.23921649 -1.93204315  2.08003545  1.43008468 -0.71997607
+  1.01492062 -2.13961998 -0.51935335  2.43393768 -0.05726743  0.767242
+  2.61760226  1.59827798  2.37435803  2.8741296   2.31165887 -2.77994779
+  0.00447195 -0.73621162  1.75343836  2.76575045  0.05961    -2.27530081
+  3.10634847 -3.13262031  0.42953887 -0.8250083  -1.69855833  3.32043068
+ -1.92666926 -1.63247004 -2.6069998   2.34332412 -2.4917423   2.14703203
+  1.79666165  1.38507845  2.68496148  2.9335176   2.00594108  1.31572413
+ -1.60375979 -2.19346628  1.12348035]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 11:16:22 2024]  Iteration number: 1870 with current cost as 0.01640298082747523 and parameters 
+[-2.75151062  2.1732138  -2.22283873  0.08476135  0.30348363 -2.66817686
+  3.0329021   1.9160422   1.26408116 -1.44510797  0.91807091  0.91871907
+  1.21616444 -1.64100329  0.75430108  2.82207834 -0.58846248 -0.78303134
+ -1.86976054  0.53931474  1.5768868   2.62360767 -0.99268104 -0.6778703
+ -2.36884306 -2.75366168  3.28159589  2.22065695 -0.50906254 -2.88524456
+  2.01769688 -0.23859858 -1.93142524  2.08065337  1.43070259 -0.72059398
+  1.01553853 -2.14023789 -0.51873544  2.43455559 -0.05664952  0.76662409
+  2.61698435  1.59889589  2.37497594  2.87474751  2.31227678 -2.77932988
+  0.00385404 -0.73559371  1.75282045  2.76636836  0.05899209 -2.2746829
+  3.10573055 -3.13200239  0.43015678 -0.82562621 -1.69917624  3.3210486
+ -1.92728717 -1.63308795 -2.60638189  2.34270621 -2.49112439  2.14764994
+  1.79604374  1.38569636  2.68557939  2.93413552  2.00655899  1.31634204
+ -1.60314188 -2.19284837  1.12286244]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 11:30:13 2024]  Iteration number: 1871 with current cost as 0.016308248602646108 and parameters 
+[-2.75068647e+00  2.17403795e+00 -2.22366288e+00  8.55855006e-02
+  3.04307778e-01 -2.66735271e+00  3.03372625e+00  1.91521804e+00
+  1.26490531e+00 -1.44593213e+00  9.17246758e-01  9.17894923e-01
+  1.21698860e+00 -1.64017913e+00  7.53476926e-01  2.82125419e+00
+ -5.87638326e-01 -7.83855494e-01 -1.87058469e+00  5.40138895e-01
+  1.57606265e+00  2.62443182e+00 -9.91856889e-01 -6.77046150e-01
+ -2.36966721e+00 -2.75283753e+00  3.28242004e+00  2.21983280e+00
+ -5.08238384e-01 -2.88442041e+00  2.01687273e+00 -2.39422731e-01
+ -1.93224939e+00  2.07982921e+00  1.43152675e+00 -7.21418135e-01
+  1.01471438e+00 -2.14106204e+00 -5.19559588e-01  2.43373144e+00
+ -5.58253682e-02  7.67448238e-01  2.61616019e+00  1.59807174e+00
+  2.37415179e+00  2.87392336e+00  2.31310093e+00 -2.77850573e+00
+  3.02988356e-03 -7.36417858e-01  1.75199630e+00  2.76719251e+00
+  5.98162379e-02 -2.27550705e+00  3.10490640e+00 -3.13117824e+00
+  4.30980937e-01 -8.26450365e-01 -1.69835209e+00  3.32187275e+00
+ -1.92646302e+00 -1.63226380e+00 -2.60555773e+00  2.34353036e+00
+ -2.49030023e+00  2.14682579e+00  1.79521958e+00  1.38652052e+00
+  2.68475524e+00  2.93495967e+00  2.00738314e+00  1.31716619e+00
+ -1.60231772e+00 -2.19367252e+00  1.12368659e+00]. 
+[Sat Dec  7 11:43:48 2024]  Iteration number: 1872 with current cost as 0.01618024404150273 and parameters 
+[-2.75137573  2.1733487  -2.22297362  0.08489625  0.30361852 -2.66804196
+  3.033037    1.91452879  1.26421606 -1.44524287  0.91793601  0.91720567
+  1.21629934 -1.64086839  0.75416618  2.82194345 -0.58694907 -0.78454475
+ -1.86989543  0.53944964  1.57675191  2.62512108 -0.99116763 -0.6763569
+ -2.36897795 -2.75214827  3.28173079  2.22052205 -0.50892764 -2.88510966
+  2.01618347 -0.24011199 -1.93156013  2.08051847  1.43083749 -0.72210739
+  1.01402513 -2.1417513  -0.52024884  2.43304218 -0.05651462  0.76813749
+  2.61547094  1.59738249  2.37484104  2.87461261  2.31241168 -2.77919498
+  0.00371914 -0.73710711  1.75268555  2.76788176  0.05912698 -2.2761963
+  3.10421715 -3.1318675   0.43029168 -0.82713962 -1.69904134  3.32118349
+ -1.92715228 -1.63295305 -2.60624699  2.34421961 -2.48961098  2.14613653
+  1.79453033  1.38720977  2.6854445   2.93564892  2.00669388  1.31785545
+ -1.60162847 -2.19436177  1.12437584]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 11:57:08 2024]  Iteration number: 1873 with current cost as 0.01685333828882772 and parameters 
+[-2.75179793e+00  2.17377090e+00 -2.22255142e+00  8.53184489e-02
+  3.03196320e-01 -2.66761976e+00  3.03345920e+00  1.91495099e+00
+  1.26463826e+00 -1.44482067e+00  9.18358216e-01  9.17627871e-01
+  1.21587714e+00 -1.64044619e+00  7.53743978e-01  2.82236565e+00
+ -5.87371274e-01 -7.84122546e-01 -1.86947323e+00  5.39871844e-01
+  1.57632970e+00  2.62469887e+00 -9.91589838e-01 -6.75934692e-01
+ -2.36940016e+00 -2.75172607e+00  3.28215299e+00  2.22094426e+00
+ -5.08505435e-01 -2.88468746e+00  2.01576127e+00 -2.40534189e-01
+ -1.93113793e+00  2.08009627e+00  1.43041529e+00 -7.21685186e-01
+  1.01444733e+00 -2.14132909e+00 -5.20671047e-01  2.43346439e+00
+ -5.69368263e-02  7.67715290e-01  2.61504874e+00  1.59780469e+00
+  2.37526325e+00  2.87419041e+00  2.31198948e+00 -2.77961718e+00
+  3.29693523e-03 -7.37529316e-01  1.75310776e+00  2.76830397e+00
+  5.87047798e-02 -2.27577410e+00  3.10463935e+00 -3.13144529e+00
+  4.29869478e-01 -8.26717417e-01 -1.69861914e+00  3.32160570e+00
+ -1.92757448e+00 -1.63337525e+00 -2.60666919e+00  2.34379741e+00
+ -2.48918878e+00  2.14571433e+00  1.79495253e+00  1.38678757e+00
+  2.68586670e+00  2.93522672e+00  2.00711609e+00  1.31743324e+00
+ -1.60205067e+00 -2.19478398e+00  1.12479805e+00]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 12:10:35 2024]  Iteration number: 1874 with current cost as 0.016491574577356078 and parameters 
+[-2.75115178  2.17441705 -2.22190527  0.0846723   0.30255017 -2.66697361
+  3.03281305  1.91559714  1.26528441 -1.44417452  0.91900437  0.91698172
+  1.21652329 -1.63980004  0.75309783  2.8217195  -0.58672512 -0.7834764
+ -1.87011938  0.54051799  1.57568355  2.62405272 -0.99094369 -0.67658084
+ -2.368754   -2.75237222  3.28279914  2.2202981  -0.50785928 -2.88404131
+  2.01640742 -0.23988804 -1.93178408  2.08074242  1.43106144 -0.72103904
+  1.01380118 -2.14068294 -0.5213172   2.43281823 -0.05629068  0.76706914
+  2.61440259  1.59715854  2.3759094   2.87354426  2.31263563 -2.78026334
+  0.00394309 -0.73817547  1.75375391  2.76895012  0.05805863 -2.27642025
+  3.1039932  -3.13209145  0.42922333 -0.82607127 -1.69926529  3.32095955
+ -1.92822063 -1.6327291  -2.60731534  2.34315126 -2.48983493  2.14506818
+  1.79430638  1.38614142  2.68522055  2.93458057  2.00646994  1.31807939
+ -1.60140452 -2.19543013  1.1241519 ]. 
+[Sat Dec  7 12:23:57 2024]  Iteration number: 1875 with current cost as 0.016106939039589502 and parameters 
+[-2.75087788  2.17469095 -2.22163137  0.0843984   0.30282406 -2.6672475
+  3.03253916  1.91587104  1.26555831 -1.44444841  0.91927826  0.91725562
+  1.21679718 -1.63952614  0.75337172  2.8214456  -0.58645123 -0.7832025
+ -1.86984548  0.54079189  1.57540966  2.62377883 -0.99066979 -0.67630695
+ -2.3690279  -2.75264612  3.28252525  2.220572   -0.50758539 -2.8843152
+  2.01613353 -0.23961414 -1.93205798  2.08101631  1.43078754 -0.72131293
+  1.01352728 -2.14040905 -0.52159109  2.43309213 -0.05601678  0.76734303
+  2.61467648  1.59743243  2.37618329  2.87381815  2.31236173 -2.77998944
+  0.00421698 -0.73844936  1.7540278   2.76867622  0.05833252 -2.27614636
+  3.10371931 -3.13181755  0.42894943 -0.82579737 -1.69953919  3.32123344
+ -1.92849453 -1.633003   -2.60758924  2.34287737 -2.48956103  2.14534207
+  1.79403249  1.38641531  2.68549444  2.93430667  2.00674383  1.31835329
+ -1.60113063 -2.19515623  1.12442579]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 12:37:23 2024]  Iteration number: 1876 with current cost as 0.0164019223281068 and parameters 
+[-2.74962701  2.17344008 -2.22288224  0.08314754  0.30407493 -2.66849837
+  3.03128829  1.91712191  1.26430744 -1.44569928  0.92052913  0.91600475
+  1.21554632 -1.64077701  0.75462259  2.82019474 -0.58520036 -0.78445337
+ -1.87109635  0.54204276  1.57415879  2.6250297  -0.98941892 -0.67505608
+ -2.36777703 -2.75389698  3.28377611  2.21932113 -0.50633452 -2.88556607
+  2.01488266 -0.24086501 -1.93080711  2.08226718  1.43203841 -0.7225638
+  1.01227642 -2.14165992 -0.52034022  2.43184126 -0.05726765  0.76609217
+  2.61592735  1.5986833   2.37743416  2.87256728  2.31111086 -2.78124031
+  0.00546785 -0.73719849  1.75527867  2.76742535  0.05958339 -2.27739723
+  3.10497017 -3.13056668  0.42769856 -0.82704824 -1.69828832  3.32248431
+ -1.92974539 -1.63175213 -2.60633837  2.34412823 -2.4908119   2.1440912
+  1.79278162  1.38516444  2.68674531  2.93305581  2.00549296  1.31710242
+ -1.59987976 -2.1964071   1.12567666]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 12:50:45 2024]  Iteration number: 1877 with current cost as 0.016745790141185577 and parameters 
+[-2.74991887  2.17373193 -2.2231741   0.08343939  0.30436679 -2.66820652
+  3.03158014  1.91683005  1.26459929 -1.44599113  0.92082098  0.91571289
+  1.21525446 -1.64106886  0.75491444  2.81990288 -0.58490851 -0.78416151
+ -1.87138821  0.54233461  1.57445064  2.62532155 -0.98971078 -0.67476423
+ -2.36748518 -2.75418884  3.28406797  2.21961299 -0.50662638 -2.88527422
+  2.01517451 -0.24115687 -1.93051525  2.08197533  1.43174656 -0.72227194
+  1.01256827 -2.14195177 -0.52063208  2.43154941 -0.05697579  0.76638402
+  2.61563549  1.59897516  2.37772601  2.87285914  2.31140272 -2.78153216
+  0.00517599 -0.73690664  1.75498681  2.76771721  0.05929154 -2.27768908
+  3.10526203 -3.13085854  0.42799042 -0.82675639 -1.69799646  3.32219245
+ -1.93003725 -1.63204398 -2.60604652  2.34442009 -2.49052005  2.14438306
+  1.79307347  1.38487259  2.68703717  2.93334766  2.00520111  1.31681057
+ -1.60017161 -2.19669895  1.12596851]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 13:04:09 2024]  Iteration number: 1878 with current cost as 0.01699148144328492 and parameters 
+[-2.7490677   2.1745831  -2.22232293  0.08258822  0.30351562 -2.66905769
+  3.03243131  1.91597888  1.26545046 -1.4468423   0.92167215  0.91656406
+  1.21610563 -1.64021769  0.75576561  2.81905171 -0.58575968 -0.78501268
+ -1.87053704  0.54148344  1.57530181  2.62617272 -0.98885961 -0.67561539
+ -2.36663401 -2.75333767  3.28491914  2.22046415 -0.50577521 -2.88612539
+  2.01432334 -0.2403057  -1.93136642  2.08282649  1.43089539 -0.72312311
+  1.01341944 -2.14280294 -0.51978091  2.43069824 -0.05612463  0.76723519
+  2.61478433  1.59982633  2.37857718  2.87371031  2.31055155 -2.78238333
+  0.00432483 -0.73605547  1.75583798  2.76856838  0.05844037 -2.27854025
+  3.10441086 -3.1317097   0.42884159 -0.82760755 -1.69884763  3.32304362
+ -1.92918608 -1.63289515 -2.60689768  2.34356892 -2.49137121  2.14523423
+  1.7922223   1.38572376  2.686186    2.93249649  2.00605228  1.3159594
+ -1.60102278 -2.19755012  1.12681968]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 13:17:25 2024]  Iteration number: 1879 with current cost as 0.0171188300512104 and parameters 
+[-2.74875636  2.17489444 -2.22201159  0.08289956  0.30320428 -2.66874635
+  3.03211997  1.91566754  1.2657618  -1.44653096  0.92198349  0.91625272
+  1.21641697 -1.64052903  0.75545427  2.81874037 -0.58544834 -0.78532402
+ -1.87084838  0.54179478  1.57561315  2.62648406 -0.98917095 -0.67530406
+ -2.36632267 -2.75302633  3.2846078   2.22015281 -0.50546387 -2.88643673
+  2.014012   -0.24061704 -1.93167776  2.08313783  1.43058405 -0.72343445
+  1.01373078 -2.14311428 -0.52009225  2.43100958 -0.05643597  0.76754653
+  2.61447299  1.59951499  2.37888852  2.87402164  2.31024021 -2.78269467
+  0.00463617 -0.73636681  1.75614932  2.76887972  0.05875171 -2.27885159
+  3.10409952 -3.13139837  0.42915293 -0.82729621 -1.69853629  3.32335496
+ -1.92949742 -1.63320649 -2.60658634  2.34325758 -2.49168255  2.14554557
+  1.79253364  1.3860351   2.68587466  2.93280783  2.00636362  1.31627074
+ -1.60133412 -2.19723878  1.12713102]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 13:30:50 2024]  Iteration number: 1880 with current cost as 0.016359318061221192 and parameters 
+[-2.74968325  2.17582133 -2.22293848  0.08382645  0.30413117 -2.66781945
+  3.03119308  1.91659444  1.26483491 -1.44560407  0.9210566   0.91532583
+  1.21734386 -1.63960214  0.75452738  2.81781348 -0.58637523 -0.78625091
+ -1.86992149  0.54272167  1.57468626  2.62555717 -0.99009784 -0.67437716
+ -2.36539578 -2.75209944  3.28553469  2.21922592 -0.50453698 -2.88550983
+  2.01308511 -0.24154393 -1.93075087  2.08406473  1.43151094 -0.72250756
+  1.01465767 -2.14404117 -0.51916536  2.43008269 -0.05550907  0.76847342
+  2.6135461   1.59858809  2.37796163  2.87309475  2.3111671  -2.78176778
+  0.00370927 -0.73543992  1.75522243  2.76795282  0.05782482 -2.2779247
+  3.10502641 -3.13047147  0.43007982 -0.82822311 -1.6976094   3.32242807
+ -1.92857053 -1.6322796  -2.60751324  2.34418447 -2.49075566  2.14647246
+  1.79346053  1.38510821  2.68494777  2.93188094  2.00729051  1.31719763
+ -1.60040723 -2.19631189  1.12620413]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 13:44:38 2024]  Iteration number: 1881 with current cost as 0.01744465804711274 and parameters 
+[-2.75022044  2.17635852 -2.22347567  0.08328926  0.30466836 -2.66728227
+  3.03173027  1.91605725  1.2653721  -1.44506688  0.92159379  0.91478864
+  1.21788105 -1.63906495  0.75399019  2.81727629 -0.58691242 -0.7867881
+ -1.8693843   0.54325886  1.57522345  2.62501998 -0.99063503 -0.67383997
+ -2.36485859 -2.75156225  3.28607188  2.21976311 -0.50507417 -2.88497265
+  2.0136223  -0.24100674 -1.93021368  2.08352754  1.43204813 -0.72304475
+  1.01519486 -2.14457836 -0.51862817  2.4295455  -0.05604626  0.76793623
+  2.61408328  1.59912528  2.37742444  2.87255756  2.31170429 -2.78230497
+  0.00424646 -0.73597711  1.75468524  2.76849001  0.05728763 -2.27738751
+  3.1055636  -3.13100866  0.43061701 -0.8287603  -1.69707221  3.32296526
+ -1.92803334 -1.63281679 -2.60805043  2.34472166 -2.49129285  2.14700965
+  1.79292335  1.38457102  2.68441058  2.93134375  2.0078277   1.31773482
+ -1.60094442 -2.1957747   1.12674132]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 13:57:56 2024]  Iteration number: 1882 with current cost as 0.01663387901841736 and parameters 
+[-2.75144249e+00  2.17513648e+00 -2.22225363e+00  8.20672198e-02
+  3.03446317e-01 -2.66606022e+00  3.03050823e+00  1.91483520e+00
+  1.26659414e+00 -1.44384484e+00  9.22815831e-01  9.16010685e-01
+  1.21910309e+00 -1.63784291e+00  7.55212236e-01  2.81605425e+00
+ -5.85690374e-01 -7.85566060e-01 -1.86816225e+00  5.44480906e-01
+  1.57400141e+00  2.62624202e+00 -9.91857073e-01 -6.75062017e-01
+ -2.36608063e+00 -2.75034021e+00  3.28729392e+00  2.22098515e+00
+ -5.06296208e-01 -2.88375060e+00  2.01484434e+00 -2.39784696e-01
+ -1.92899164e+00  2.08230549e+00  1.43327017e+00 -7.24266792e-01
+  1.01641690e+00 -2.14580040e+00 -5.17406124e-01  2.42832345e+00
+ -5.72683050e-02  7.66714187e-01  2.61286124e+00  1.59790324e+00
+  2.37620240e+00  2.87133552e+00  2.31292633e+00 -2.78352701e+00
+  3.02441933e-03 -7.34755064e-01  1.75346320e+00  2.76726797e+00
+  5.60655843e-02 -2.27860955e+00  3.10434156e+00 -3.13223071e+00
+  4.29394965e-01 -8.29982339e-01 -1.69829425e+00  3.32418730e+00
+ -1.92925538e+00 -1.63159475e+00 -2.60927247e+00  2.34349962e+00
+ -2.49251489e+00  2.14578760e+00  1.79414539e+00  1.38334897e+00
+  2.68318854e+00  2.93256579e+00  2.00904974e+00  1.31651278e+00
+ -1.59972237e+00 -2.19699675e+00  1.12551928e+00]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 14:11:20 2024]  Iteration number: 1883 with current cost as 0.016365232654309045 and parameters 
+[-2.75276376e+00  2.17381521e+00 -2.22093236e+00  8.33884907e-02
+  3.04767588e-01 -2.66473895e+00  3.02918696e+00  1.91351393e+00
+  1.26791541e+00 -1.44252357e+00  9.21494560e-01  9.14689414e-01
+  1.22042436e+00 -1.63916418e+00  7.56533506e-01  2.81737552e+00
+ -5.87011645e-01 -7.86887331e-01 -1.86948352e+00  5.45802177e-01
+  1.57268014e+00  2.62756329e+00 -9.90535802e-01 -6.76383288e-01
+ -2.36740190e+00 -2.75166148e+00  3.28861519e+00  2.22230643e+00
+ -5.04974937e-01 -2.88507187e+00  2.01616562e+00 -2.41105967e-01
+ -1.93031291e+00  2.08098422e+00  1.43194890e+00 -7.25588063e-01
+  1.01773817e+00 -2.14447913e+00 -5.16084854e-01  2.42700218e+00
+ -5.59470342e-02  7.65392916e-01  2.61418251e+00  1.59922451e+00
+  2.37752367e+00  2.87265679e+00  2.31160506e+00 -2.78220574e+00
+  1.70314844e-03 -7.36076335e-01  1.75478447e+00  2.76594670e+00
+  5.73868552e-02 -2.27728828e+00  3.10302029e+00 -3.13090944e+00
+  4.30716236e-01 -8.31303610e-01 -1.69961553e+00  3.32550857e+00
+ -1.93057665e+00 -1.63291602e+00 -2.61059374e+00  2.34217835e+00
+ -2.49383616e+00  2.14446633e+00  1.79546666e+00  1.38467024e+00
+  2.68186726e+00  2.93124452e+00  2.01037101e+00  1.31519151e+00
+ -1.59840110e+00 -2.19831802e+00  1.12684055e+00]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 14:24:47 2024]  Iteration number: 1884 with current cost as 0.016164839891184817 and parameters 
+[-2.75384941e+00  2.17272956e+00 -2.21984671e+00  8.23028415e-02
+  3.05853237e-01 -2.66365330e+00  3.03027261e+00  1.91242828e+00
+  1.26682976e+00 -1.44360922e+00  9.22580209e-01  9.15775063e-01
+  1.22151001e+00 -1.64024983e+00  7.57619156e-01  2.81628987e+00
+ -5.88097294e-01 -7.87972980e-01 -1.87056917e+00  5.44716528e-01
+  1.57376578e+00  2.62864894e+00 -9.89450153e-01 -6.75297639e-01
+ -2.36631625e+00 -2.75057583e+00  3.28752954e+00  2.22339207e+00
+ -5.03889288e-01 -2.88398622e+00  2.01725126e+00 -2.42191616e-01
+ -1.92922726e+00  2.07989857e+00  1.43086325e+00 -7.24502414e-01
+  1.01882382e+00 -2.14339348e+00 -5.14999204e-01  2.42808783e+00
+ -5.48613850e-02  7.64307267e-01  2.61309686e+00  1.60031016e+00
+  2.37860932e+00  2.87374244e+00  2.31051941e+00 -2.78329139e+00
+  6.17499277e-04 -7.37161984e-01  1.75369882e+00  2.76486105e+00
+  5.84725044e-02 -2.27620263e+00  3.10193464e+00 -3.12982379e+00
+  4.31801885e-01 -8.30217961e-01 -1.70070117e+00  3.32659422e+00
+ -1.92949100e+00 -1.63400167e+00 -2.61167939e+00  2.34326400e+00
+ -2.49275052e+00  2.14555198e+00  1.79438101e+00  1.38358460e+00
+  2.68295291e+00  2.93233017e+00  2.01145666e+00  1.31410586e+00
+ -1.59731545e+00 -2.19723237e+00  1.12792620e+00]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 14:38:15 2024]  Iteration number: 1885 with current cost as 0.016108049496550005 and parameters 
+[-2.75410285e+00  2.17247612e+00 -2.22010015e+00  8.25562826e-02
+  3.05599796e-01 -2.66339986e+00  3.03052605e+00  1.91217484e+00
+  1.26708320e+00 -1.44335578e+00  9.22833650e-01  9.15521622e-01
+  1.22176345e+00 -1.64050327e+00  7.57365714e-01  2.81603643e+00
+ -5.87843853e-01 -7.88226421e-01 -1.87031573e+00  5.44463087e-01
+  1.57351234e+00  2.62890238e+00 -9.89703594e-01 -6.75551080e-01
+ -2.36606281e+00 -2.75082927e+00  3.28727610e+00  2.22364552e+00
+ -5.04142729e-01 -2.88373278e+00  2.01750471e+00 -2.41938175e-01
+ -1.92897382e+00  2.07964513e+00  1.43060981e+00 -7.24248973e-01
+  1.01857038e+00 -2.14364692e+00 -5.15252645e-01  2.42783439e+00
+ -5.51148261e-02  7.64560708e-01  2.61284342e+00  1.60056360e+00
+  2.37835588e+00  2.87399588e+00  2.31026597e+00 -2.78303795e+00
+  8.70940385e-04 -7.37415425e-01  1.75344538e+00  2.76460761e+00
+  5.82190633e-02 -2.27594919e+00  3.10218808e+00 -3.12957034e+00
+  4.32055326e-01 -8.30471402e-01 -1.70044773e+00  3.32684766e+00
+ -1.92974444e+00 -1.63425511e+00 -2.61193283e+00  2.34351744e+00
+ -2.49249707e+00  2.14580542e+00  1.79412757e+00  1.38333115e+00
+  2.68269947e+00  2.93207673e+00  2.01171010e+00  1.31385241e+00
+ -1.59756890e+00 -2.19748581e+00  1.12767276e+00]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 14:51:54 2024]  Iteration number: 1886 with current cost as 0.016453749312022665 and parameters 
+[-2.75450852e+00  2.17207044e+00 -2.21969448e+00  8.29619547e-02
+  3.05194124e-01 -2.66299419e+00  3.03093172e+00  1.91258052e+00
+  1.26748887e+00 -1.44295010e+00  9.23239323e-01  9.15927294e-01
+  1.22216913e+00 -1.64009760e+00  7.56960042e-01  2.81644210e+00
+ -5.88249525e-01 -7.88632093e-01 -1.87072140e+00  5.44868759e-01
+  1.57391802e+00  2.62849671e+00 -9.90109266e-01 -6.75956752e-01
+ -2.36646848e+00 -2.75042360e+00  3.28687043e+00  2.22405119e+00
+ -5.03737057e-01 -2.88413846e+00  2.01791038e+00 -2.41532503e-01
+ -1.92937949e+00  2.08005080e+00  1.43020414e+00 -7.24654645e-01
+  1.01897605e+00 -2.14324125e+00 -5.15658318e-01  2.42824006e+00
+ -5.55204982e-02  7.64155036e-01  2.61324909e+00  1.60015793e+00
+  2.37876155e+00  2.87359021e+00  2.31067164e+00 -2.78263228e+00
+  4.65268272e-04 -7.37009753e-01  1.75303971e+00  2.76420194e+00
+  5.78133911e-02 -2.27635486e+00  3.10178241e+00 -3.12997602e+00
+  4.31649654e-01 -8.30877074e-01 -1.70085341e+00  3.32644199e+00
+ -1.93015011e+00 -1.63384943e+00 -2.61233850e+00  2.34392311e+00
+ -2.49290275e+00  2.14539975e+00  1.79453324e+00  1.38292548e+00
+  2.68229380e+00  2.93167106e+00  2.01130443e+00  1.31344674e+00
+ -1.59716322e+00 -2.19789148e+00  1.12726708e+00]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 15:05:16 2024]  Iteration number: 1887 with current cost as 0.016329747961972303 and parameters 
+[-2.75525845e+00  2.17132051e+00 -2.21894454e+00  8.22120201e-02
+  3.04444189e-01 -2.66224426e+00  3.03168165e+00  1.91333045e+00
+  1.26673894e+00 -1.44220017e+00  9.23989257e-01  9.15177359e-01
+  1.22291906e+00 -1.64084753e+00  7.56210108e-01  2.81569217e+00
+ -5.88999460e-01 -7.89382028e-01 -1.86997147e+00  5.45618693e-01
+  1.57466795e+00  2.62924664e+00 -9.89359331e-01 -6.76706687e-01
+ -2.36571855e+00 -2.75117353e+00  3.28612050e+00  2.22330125e+00
+ -5.02987123e-01 -2.88338852e+00  2.01716044e+00 -2.40782568e-01
+ -1.92862955e+00  2.07930087e+00  1.43095407e+00 -7.23904710e-01
+  1.01972599e+00 -2.14249132e+00 -5.14908383e-01  2.42749013e+00
+ -5.47705636e-02  7.64904971e-01  2.61249916e+00  1.60090786e+00
+  2.37801161e+00  2.87434014e+00  2.30992171e+00 -2.78338221e+00
+  1.21520291e-03 -7.37759687e-01  1.75228977e+00  2.76345200e+00
+  5.70634565e-02 -2.27560493e+00  3.10103247e+00 -3.13072595e+00
+  4.32399588e-01 -8.30127139e-01 -1.70010347e+00  3.32719193e+00
+ -1.92940018e+00 -1.63309950e+00 -2.61158857e+00  2.34317318e+00
+ -2.49365268e+00  2.14614969e+00  1.79378331e+00  1.38367542e+00
+  2.68154387e+00  2.93092112e+00  2.01055450e+00  1.31269681e+00
+ -1.59791316e+00 -2.19714155e+00  1.12801702e+00]. 
+[Sat Dec  7 15:18:41 2024]  Iteration number: 1888 with current cost as 0.01629392743552493 and parameters 
+[-2.75582947e+00  2.17189153e+00 -2.21837352e+00  8.27830373e-02
+  3.03873172e-01 -2.66167324e+00  3.03225267e+00  1.91390147e+00
+  1.26730996e+00 -1.44162915e+00  9.23418240e-01  9.15748377e-01
+  1.22349008e+00 -1.64027652e+00  7.55639091e-01  2.81626319e+00
+ -5.88428443e-01 -7.89953045e-01 -1.86940045e+00  5.46189711e-01
+  1.57523897e+00  2.62867563e+00 -9.89930348e-01 -6.77277704e-01
+ -2.36514753e+00 -2.75060251e+00  3.28554948e+00  2.22387227e+00
+ -5.02416105e-01 -2.88281750e+00  2.01658943e+00 -2.40211551e-01
+ -1.92805854e+00  2.07987189e+00  1.43038306e+00 -7.24475727e-01
+  1.01915497e+00 -2.14306233e+00 -5.15479400e-01  2.42806115e+00
+ -5.53415808e-02  7.65475988e-01  2.61192814e+00  1.60147888e+00
+  2.37744060e+00  2.87376913e+00  2.30935069e+00 -2.78395323e+00
+  6.44185717e-04 -7.37188670e-01  1.75171875e+00  2.76288099e+00
+  5.76344737e-02 -2.27503391e+00  3.10046146e+00 -3.13129697e+00
+  4.32970606e-01 -8.30698156e-01 -1.70067449e+00  3.32776294e+00
+ -1.92882916e+00 -1.63367052e+00 -2.61215958e+00  2.34260216e+00
+ -2.49308166e+00  2.14557867e+00  1.79321229e+00  1.38310440e+00
+  2.68211488e+00  2.93035011e+00  2.01112551e+00  1.31212579e+00
+ -1.59848418e+00 -2.19771256e+00  1.12744600e+00]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 15:32:09 2024]  Iteration number: 1889 with current cost as 0.015423679706631853 and parameters 
+[-2.75665135e+00  2.17106965e+00 -2.21919540e+00  8.19611609e-02
+  3.03051296e-01 -2.66249511e+00  3.03307455e+00  1.91472334e+00
+  1.26813183e+00 -1.44080728e+00  9.22596364e-01  9.16570253e-01
+  1.22431195e+00 -1.64109839e+00  7.56460967e-01  2.81708506e+00
+ -5.89250319e-01 -7.89131169e-01 -1.87022233e+00  5.45367834e-01
+  1.57441709e+00  2.62785375e+00 -9.89108472e-01 -6.78099580e-01
+ -2.36596941e+00 -2.74978064e+00  3.28472760e+00  2.22305039e+00
+ -5.01594229e-01 -2.88363938e+00  2.01576755e+00 -2.41033427e-01
+ -1.92723666e+00  2.08069376e+00  1.43120493e+00 -7.25297604e-01
+  1.01997685e+00 -2.14388421e+00 -5.16301276e-01  2.42723927e+00
+ -5.45197044e-02  7.64654112e-01  2.61275002e+00  1.60230076e+00
+  2.37826247e+00  2.87294725e+00  2.30852882e+00 -2.78477510e+00
+  1.46606206e-03 -7.38010546e-01  1.75254063e+00  2.76205911e+00
+  5.84563500e-02 -2.27585578e+00  3.10128333e+00 -3.13047509e+00
+  4.32148729e-01 -8.29876280e-01 -1.69985261e+00  3.32694107e+00
+ -1.92800729e+00 -1.63449239e+00 -2.61133771e+00  2.34342404e+00
+ -2.49225979e+00  2.14475679e+00  1.79403417e+00  1.38228252e+00
+  2.68293676e+00  2.92952823e+00  2.01194739e+00  1.31294767e+00
+ -1.59930605e+00 -2.19853444e+00  1.12662412e+00]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 15:45:40 2024]  Iteration number: 1890 with current cost as 0.016397900897481252 and parameters 
+[-2.75582990e+00  2.17189110e+00 -2.21837395e+00  8.11397102e-02
+  3.03872747e-01 -2.66167366e+00  3.03389600e+00  1.91554479e+00
+  1.26731038e+00 -1.44162873e+00  9.23417814e-01  9.17391704e-01
+  1.22349050e+00 -1.64027694e+00  7.57282418e-01  2.81626361e+00
+ -5.90071770e-01 -7.88309718e-01 -1.87104378e+00  5.44546383e-01
+  1.57359564e+00  2.62703230e+00 -9.89929923e-01 -6.78921031e-01
+ -2.36514796e+00 -2.75060209e+00  3.28390615e+00  2.22387185e+00
+ -5.02415680e-01 -2.88281793e+00  2.01658900e+00 -2.41854878e-01
+ -1.92805811e+00  2.07987231e+00  1.43038348e+00 -7.26119055e-01
+  1.02079830e+00 -2.14306276e+00 -5.17122727e-01  2.42641782e+00
+ -5.36982537e-02  7.65475563e-01  2.61357147e+00  1.60147931e+00
+  2.37744102e+00  2.87376870e+00  2.30770737e+00 -2.78559655e+00
+  6.44611354e-04 -7.38831997e-01  1.75336208e+00  2.76123766e+00
+  5.76348993e-02 -2.27503433e+00  3.10210478e+00 -3.12965364e+00
+  4.31327279e-01 -8.29054829e-01 -1.69903116e+00  3.32611962e+00
+ -1.92882874e+00 -1.63367094e+00 -2.61051626e+00  2.34424549e+00
+ -2.49308124e+00  2.14557824e+00  1.79321271e+00  1.38310397e+00
+  2.68211531e+00  2.92870678e+00  2.01276884e+00  1.31212622e+00
+ -1.60012750e+00 -2.19935589e+00  1.12580267e+00]. 
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Sat Dec  7 15:59:05 2024]  Iteration number: 1891 with current cost as 0.01638328483487204 and parameters 
+[-2.75593091e+00  2.17179009e+00 -2.21827294e+00  8.10386963e-02
+  3.03771733e-01 -2.66157265e+00  3.03399701e+00  1.91564581e+00
+  1.26741140e+00 -1.44152771e+00  9.23316800e-01  9.17290690e-01
+  1.22338949e+00 -1.64017593e+00  7.57181404e-01  2.81616260e+00
+ -5.89970756e-01 -7.88208704e-01 -1.87094277e+00  5.44647397e-01
+  1.57369665e+00  2.62693129e+00 -9.90030937e-01 -6.79022045e-01
+ -2.36524897e+00 -2.75070310e+00  3.28380514e+00  2.22377083e+00
+ -5.02516694e-01 -2.88291894e+00  2.01648799e+00 -2.41753864e-01
+ -1.92795710e+00  2.07977130e+00  1.43048450e+00 -7.26220068e-01
+  1.02069728e+00 -2.14296175e+00 -5.17021713e-01  2.42631680e+00
+ -5.35972398e-02  7.65374549e-01  2.61347046e+00  1.60158032e+00
+  2.37734001e+00  2.87366769e+00  2.30760635e+00 -2.78569757e+00
+  7.45625279e-04 -7.38933011e-01  1.75326107e+00  2.76133867e+00
+  5.77359133e-02 -2.27513535e+00  3.10200377e+00 -3.12955263e+00
+  4.31428293e-01 -8.29155843e-01 -1.69893015e+00  3.32601860e+00
+ -1.92892975e+00 -1.63356993e+00 -2.61061727e+00  2.34434650e+00
+ -2.49318225e+00  2.14547723e+00  1.79311170e+00  1.38300296e+00
+  2.68201429e+00  2.92880779e+00  2.01286985e+00  1.31202520e+00
+ -1.60002649e+00 -2.19925488e+00  1.12590369e+00]. 
