@@ -1,21 +1,22 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
+# In[1]:
 
 
+import os
 n_jobs = 12
 os.environ["OMP_NUM_THREADS"] = str(n_jobs)
 import joblib
 import click
 import json
 import time
-import os
+
 import itertools
 import collections.abc
 import sys
 from tqdm import tqdm
-# !{sys.executable} -m pip install optimparallel
+# !{sys.executable} -m pip install pylatexenc
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -35,10 +36,10 @@ from qiskit_aer.noise import NoiseModel
 from qiskit_ibm_runtime.fake_provider import FakeQuebec
 from qiskit_ibm_runtime import Session
 
-from optimparallel import minimize_parallel
 
 
-# In[ ]:
+
+# In[2]:
 
 
 def mitarai(quantumcircuit,num_wires,paramname='x'):
@@ -92,7 +93,7 @@ def HardwareEfficient(quantumcircuit,num_wires,paramname='theta'):
 
 
 
-# In[ ]:
+# In[3]:
 
 
 # def circuit(nqubits):
@@ -118,7 +119,7 @@ def circuit(nqubits,RUD=1):
     return qc
 
 
-# In[ ]:
+# In[4]:
 
 
 # with open('linear_train.bin','rb') as f:
@@ -176,7 +177,7 @@ X_test, y_test = X_ddcc_test, y_ddcc_test
 scaler = ddcc_scaler
 
 
-# In[ ]:
+# In[5]:
 
 
 def predict(params, ansatz, hamiltonian, estimator, num_qubits, X):
@@ -192,18 +193,18 @@ def predict(params, ansatz, hamiltonian, estimator, num_qubits, X):
     return energy
 
 
-# In[ ]:
+# In[6]:
 
 
 def parallel_predict(params, ansatz, hamiltonian, estimator, num_qubits, X, y,n_jobs):
-    y_pred = np.array(joblib.Parallel(n_jobs=n_jobs)(joblib.delayed(predict)(params, ansatz, hamiltonian, estimator, num_qubits, x) for x in X)).reshape(*y.shape)
+    y_pred = np.array(joblib.Parallel(n_jobs=n_jobs,verbose=0)(joblib.delayed(predict)(params, ansatz, hamiltonian, estimator, num_qubits, x) for x in tqdm(X))).reshape(*y.shape)
     return y_pred
 
 
-# In[ ]:
+# In[7]:
 
 
-def cost_func(params, ansatz, hamiltonian, estimator, num_qubits, X, y,n_jobs):
+def cost_func(params, ansatz, hamiltonian, estimator, num_qubits, X, y,n_jobs,cost_history_dict):
     """Return estimate of energy from estimator
 
     Parameters:
@@ -220,18 +221,21 @@ def cost_func(params, ansatz, hamiltonian, estimator, num_qubits, X, y,n_jobs):
     t0=time.perf_counter()
     y_pred = parallel_predict(params, ansatz, hamiltonian, estimator, num_qubits, X, y,n_jobs)
     loss = mean_squared_error(y,y_pred)
+    r2 = r2_score(y,y_pred)
     cost_history_dict["iters"] += 1
     cost_history_dict["prev_vector"] = params
     cost_history_dict["cost_history"].append(loss)
-    print(f"Iters. done: {cost_history_dict['iters']} Current cost: {loss} Accuracy: {r2_score(y,y_pred)} Time: {time.perf_counter()-t0}")
-
+    print(f"Iters. done: {cost_history_dict['iters']} Current cost: {loss} Accuracy: {r2} Time: {time.perf_counter()-t0}")
+    with open('model_log.csv', 'a') as outfile:
+        log = f"{time.asctime()},{cost_history_dict['iters']},{loss},{params}\n"
+        outfile.write(log)
     return loss
 
 
-# In[ ]:
+# In[8]:
 
 
-def evaluate(params, ansatz, hamiltonian, estimator, num_qubits,n_jobs, X_train, y_train, X_test=None, y_test=None, plot: bool = False, title: str = 'defult',y_scaler=None):
+def evaluate(params, ansatz, hamiltonian, estimator, num_qubits, n_jobs, X_train, y_train, X_test=None, y_test=None, plot: bool = False, title: str = 'defult',y_scaler=None):
     scores = {}
     st = time.time()
     print('Now scoring model... ')
@@ -287,30 +291,14 @@ def evaluate(params, ansatz, hamiltonian, estimator, num_qubits,n_jobs, X_train,
     return scores, y_test_pred, y_train_pred
 
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-cost_history_dict = {
-    "prev_vector": None,
-    "iters": 0,
-    "cost_history": [],
-}
-
-
-# In[ ]:
+# In[9]:
 
 
 num_qubits = 5
 RUD = 3
 
 
-# In[ ]:
+# In[10]:
 
 
 # 
@@ -355,39 +343,32 @@ with open('model_log.csv', 'w') as outfile:
     outfile.write('Time,Iteration,Cost,Parameters')
     outfile.write('\n')        
 with Session(backend=_backend) as session:
-    print(session)
+    print(session.details())
     estimator = Estimator(mode=session)
     estimator.options.default_shots = 1024.0
     estimator.options.resilience_level = 1
     
-
-    for i in range(1):
-        cost_history_dict = {
-            "prev_vector": None,
-            "iters": 0,
-            "cost_history": [],
-        }    
+    cost_history_dict = {
+        "prev_vector": None,
+        "iters": 0,
+        "cost_history": [],
+    }
+    
+    for i in range(2):
+    
         res = minimize(
             cost_func,
             x0,
-            args=(qc, mapped_observables, estimator, num_qubits, X_train, y_train,n_jobs),
-            method="cobyla", options={'maxiter':1}
+            args=(qc, mapped_observables, estimator, num_qubits, X_train, y_train,n_jobs,cost_history_dict),
+            method="cobyla", options={'maxiter':5}
     )
         x0 = res.x
+        loss = res.fun
         np.savez_compressed('partial_state_model.bin',x0=x0)
 
         
-        
-        y_pred = parallel_predict(x0,qc, mapped_observables, estimator, num_qubits, X_train,y_train,n_jobs)
-        loss = mean_squared_error(y_train,y_pred)
-        r2 = r2_score(y_train,y_pred)
-        
-        with open('model_log.csv', 'a') as outfile:
-            log = f'{time.asctime()},{i},{loss},{x0}\n'
-            outfile.write(log)            
             
-        print(f"Iteration: {i} R2: {r2} MSE: {loss}")
-        scores.append((r2,loss))
+            
 
     scores, y_test_pred, y_train_pred = evaluate(x0,qc, mapped_observables, estimator, num_qubits, n_jobs, X_train, y_train, X_test=X_test, y_test=y_test, plot = True, title = 'A2_HWE-CNOT',y_scaler=scaler)
     np.savez_compressed('final_state_model.bin',x0=x0)
@@ -406,6 +387,12 @@ with Session(backend=_backend) as session:
     with open(results_title, 'w') as outfile:
         json.dump(scores, outfile)
     
+
+
+# In[ ]:
+
+
+
 
 
 # In[ ]:
