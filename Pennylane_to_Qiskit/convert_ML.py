@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[ ]:
 
 
 import os
-n_jobs = 12
+n_jobs = 16
 os.environ["OMP_NUM_THREADS"] = str(n_jobs)
 import joblib
 import click
@@ -37,9 +37,10 @@ from qiskit_ibm_runtime.fake_provider import FakeQuebec
 from qiskit_ibm_runtime import Session
 
 
+from joblib import dump, load
 
 
-# In[2]:
+# In[ ]:
 
 
 def mitarai(quantumcircuit,num_wires,paramname='x'):
@@ -93,7 +94,7 @@ def HardwareEfficient(quantumcircuit,num_wires,paramname='theta'):
 
 
 
-# In[3]:
+# In[ ]:
 
 
 # def circuit(nqubits):
@@ -119,7 +120,7 @@ def circuit(nqubits,RUD=1):
     return qc
 
 
-# In[4]:
+# In[ ]:
 
 
 # with open('linear_train.bin','rb') as f:
@@ -177,10 +178,106 @@ X_test, y_test = X_ddcc_test, y_ddcc_test
 scaler = ddcc_scaler
 
 
-# In[5]:
+# In[ ]:
 
 
-def predict(params, ansatz, hamiltonian, estimator, num_qubits, X):
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+def incremental_save_minimize(fun, x0, save_path, args=(), method='cobyla', options=None):
+    """
+    Minimize a function using scipy.optimize.minimize with incremental saving of parameters and loss.
+
+    Parameters:
+        fun (callable): The objective function to be minimized.
+        x0 (ndarray): Initial guess.
+        save_path (str): Path to save progress with joblib.
+        args (tuple, optional): Extra arguments passed to the objective function.
+        method (str, optional): Optimization method (default is 'BFGS').
+        options (dict, optional): Options passed to scipy.optimize.minimize.
+
+    Returns:
+        result (OptimizeResult): The optimization result represented as a `OptimizeResult` object.
+    """
+    if os.path.exists(save_path):
+        progress = load(save_path)
+        x0 = progress['x']
+        print("Resuming optimization from saved state.")        
+    else:
+        progress = {'x': x0, 'loss': None}
+
+    def callback(x):
+        # Save current parameters and function value
+        progress['x'] = x
+        progress['loss'] = fun(x, *args)
+        dump(progress, save_path)
+        print(f"Saved state: x={x}, loss={progress['loss']}")
+
+    result = minimize(fun, x0, args=args, method=method, callback=callback, options=options)
+
+    # Save the final result
+    progress['x'] = result.x
+    progress['loss'] = result.fun
+    dump(progress, save_path)
+    print("Optimization complete. Final state saved.")
+    return result
+
+
+
+# In[ ]:
+
+
+num_qubits = 5
+RUD = 3
+
+
+# In[ ]:
+
+
+# 
+qc = circuit(num_qubits,RUD)
+
+num_params = len([i for i in list(qc.parameters) if 'theta' in i.name]) // RUD
+# x0 = 2 * np.pi * np.random.random(num_params)
+generator = np.random.default_rng(12958234)
+# load_params = 'partial_state_model.bin.npz'
+load_params = None
+if load_params!=None:
+    print('Parameters loaded')
+    x0 = np.load(load_params)['x0']
+else:
+    print('Parameters from scratch')
+    x0 = np.tile(generator.uniform(-np.pi, np.pi, num_params),RUD)
+
+
+service = QiskitRuntimeService(channel="ibm_quantum", instance='pinq-quebec-hub/univ-toronto/default')
+_backend = service.least_busy(operational=True, simulator=False, min_num_qubits=127)
+# _backend = FakeQuebec()
+target = _backend.target
+pm = generate_preset_pass_manager(target=target, optimization_level=0)
+
+qc = pm.run(qc)
+
+
+observables_labels = ''.join(['I']*(num_qubits-1))+"Z"
+observables = [SparsePauliOp(observables_labels)]
+
+mapped_observables = [observable.apply_layout(qc.layout) for observable in observables]
+
+
+# In[ ]:
+
+
+def map2qiskit(params, ansatz, hamiltonian, estimator, num_qubits, X):
     if len(X)==1:
         featparams = dict([(i,X.item()) for idx,i in enumerate(ansatz.parameters) if 'x' in i.name])
     else:
@@ -189,19 +286,19 @@ def predict(params, ansatz, hamiltonian, estimator, num_qubits, X):
     ansatz = ansatz.assign_parameters(featparams)    
     pub = (ansatz, [hamiltonian], [params])
     result = estimator.run(pubs=[pub]).result()
-    energy = result[0].data.evs[0]
-    return energy
-
-
-# In[6]:
-
-
-def parallel_predict(params, ansatz, hamiltonian, estimator, num_qubits, X, y,n_jobs):
-    y_pred = np.array(joblib.Parallel(n_jobs=n_jobs,verbose=0)(joblib.delayed(predict)(params, ansatz, hamiltonian, estimator, num_qubits, x) for x in tqdm(X))).reshape(*y.shape)
+    y_pred = result[0].data.evs[0]
     return y_pred
 
 
-# In[7]:
+# In[ ]:
+
+
+def predict(params, ansatz, hamiltonian, estimator, num_qubits, X):
+    y_pred = np.array(joblib.Parallel(n_jobs=n_jobs,verbose=0)(joblib.delayed(map2qiskit)(params, ansatz, hamiltonian, estimator, num_qubits, x) for x in tqdm(X))).reshape(*y.shape)
+    return y_pred
+
+
+# In[ ]:
 
 
 def cost_func(params, ansatz, hamiltonian, estimator, num_qubits, X, y,n_jobs,cost_history_dict):
@@ -219,7 +316,7 @@ def cost_func(params, ansatz, hamiltonian, estimator, num_qubits, X, y,n_jobs,co
         float: Energy estimate
     """
     t0=time.perf_counter()
-    y_pred = parallel_predict(params, ansatz, hamiltonian, estimator, num_qubits, X, y,n_jobs)
+    y_pred = predict(params, ansatz, hamiltonian, estimator, num_qubits, X)
     loss = mean_squared_error(y,y_pred)
     r2 = r2_score(y,y_pred)
     cost_history_dict["iters"] += 1
@@ -232,7 +329,7 @@ def cost_func(params, ansatz, hamiltonian, estimator, num_qubits, X, y,n_jobs,co
     return loss
 
 
-# In[8]:
+# In[ ]:
 
 
 def evaluate(params, ansatz, hamiltonian, estimator, num_qubits, n_jobs, X_train, y_train, X_test=None, y_test=None, plot: bool = False, title: str = 'defult',y_scaler=None):
@@ -240,7 +337,7 @@ def evaluate(params, ansatz, hamiltonian, estimator, num_qubits, n_jobs, X_train
     st = time.time()
     print('Now scoring model... ')
     
-    y_train_pred = parallel_predict(params, ansatz, hamiltonian, estimator, num_qubits, X_train, y_train,n_jobs)
+    y_train_pred = predict(params, ansatz, hamiltonian, estimator, num_qubits, X_train)
     y_train_pred = y_scaler.inverse_transform(y_train_pred.reshape(-1, 1))
     y_train = y_scaler.inverse_transform(y_train.reshape(-1, 1))
 
@@ -251,7 +348,7 @@ def evaluate(params, ansatz, hamiltonian, estimator, num_qubits, n_jobs, X_train
     y_test_pred = None
     y_test = y_scaler.inverse_transform(y_test.reshape(-1, 1))
     if y_test is not None:
-        y_test_pred = parallel_predict(params, ansatz, hamiltonian, estimator, num_qubits, X_test, y_test,n_jobs)
+        y_test_pred = predict(params, ansatz, hamiltonian, estimator, num_qubits, X_test)
         y_test_pred = y_scaler.inverse_transform(y_test_pred.reshape(-1, 1))
         scores['MSE_test'] = mean_squared_error(y_test, y_test_pred)
         scores['R2_test'] = r2_score(y_test, y_test_pred)
@@ -291,47 +388,6 @@ def evaluate(params, ansatz, hamiltonian, estimator, num_qubits, n_jobs, X_train
     return scores, y_test_pred, y_train_pred
 
 
-# In[9]:
-
-
-num_qubits = 5
-RUD = 3
-
-
-# In[10]:
-
-
-# 
-qc = circuit(num_qubits,RUD)
-
-num_params = len([i for i in list(qc.parameters) if 'theta' in i.name]) // RUD
-# x0 = 2 * np.pi * np.random.random(num_params)
-generator = np.random.default_rng(12958234)
-# load_params = 'partial_state_model.bin.npz'
-load_params = None
-if load_params!=None:
-    print('Parameters loaded')
-    x0 = np.load(load_params)['x0']
-else:
-    print('Parameters from scratch')
-    x0 = np.tile(generator.uniform(-np.pi, np.pi, num_params),RUD)
-
-
-# service = QiskitRuntimeService(channel="ibm_quantum", instance='pinq-quebec-hub/univ-toronto/default')
-# _backend = service.least_busy(operational=True, simulator=False, min_num_qubits=127)
-_backend = FakeQuebec()
-target = _backend.target
-pm = generate_preset_pass_manager(target=target, optimization_level=0)
-
-qc = pm.run(qc)
-
-
-observables_labels = ''.join(['I']*(num_qubits-1))+"Z"
-observables = [SparsePauliOp(observables_labels)]
-
-mapped_observables = [observable.apply_layout(qc.layout) for observable in observables]
-
-
 # In[ ]:
 
 
@@ -354,24 +410,22 @@ with Session(backend=_backend) as session:
         "cost_history": [],
     }
     
-    for i in range(2):
-    
-        res = minimize(
-            cost_func,
+    for i in range(1):
+        save_file = 'partial_state_model.bin'
+        res = minimize(cost_func,
             x0,
             args=(qc, mapped_observables, estimator, num_qubits, X_train, y_train,n_jobs,cost_history_dict),
-            method="cobyla", options={'maxiter':5}
-    )
+            method="cobyla", options={'maxiter':1})        
         x0 = res.x
         loss = res.fun
-        np.savez_compressed('partial_state_model.bin',x0=x0)
-
+        progress = {'x': x0, 'loss': loss}
+        dump(progress, save_file)
         
-            
-            
-
+    progress = {'x': x0, 'loss': loss}
+    dump(progress, 'final_state_model.bin')
+    os.remove('partial_state_model.bin') 
     scores, y_test_pred, y_train_pred = evaluate(x0,qc, mapped_observables, estimator, num_qubits, n_jobs, X_train, y_train, X_test=X_test, y_test=y_test, plot = True, title = 'A2_HWE-CNOT',y_scaler=scaler)
-    np.savez_compressed('final_state_model.bin',x0=x0)
+    
     name = 'A2_HWE-CNOT_predicted_values.csv'
     train_pred, y_train, test_pred, y_test = y_train_pred.tolist(), y_train.tolist(), y_test_pred.tolist(), y_test.tolist()
     df_train = pd.DataFrame({'Predicted': train_pred, 'Reference': y_train})
