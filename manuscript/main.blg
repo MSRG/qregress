@@ -2,48 +2,58 @@ This is BibTeX, Version 0.99d (TeX Live 2024)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: achemso.bst
+Stuff after "}"---line 17 of file main.aux
+ : \citation{sanchez-lengeling_{i
+ :                               }nverse_2018}
+I'm skipping whatever remains of this command
+Stuff after "}"---line 20 of file main.aux
+ : \citation{behler_perspective_2016,goh_deep_2017,sanchez-lengeling_{i
+ :                                                                     }nverse_2018,butler_machine_2018,janet_machine_2020}
+I'm skipping whatever remains of this command
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: acs-main.bib
 Database file #2: achemso-demo.bib
+Warning--I didn't find a database entry for "bremner_average-case_2015"
 achemso 2024-01-30 v3.13g
-You've used 12 entries,
+You've used 27 entries,
             2538 wiz_defined-function locations,
-            838 strings with 9391 characters,
-and the built_in function-call counts, 4064 in all, are:
-= -- 321
-> -- 238
-< -- 7
-+ -- 95
-- -- 83
-* -- 438
-:= -- 552
-add.period$ -- 23
-call.type$ -- 12
+            960 strings with 13725 characters,
+and the built_in function-call counts, 9609 in all, are:
+= -- 780
+> -- 558
+< -- 13
++ -- 219
+- -- 192
+* -- 1035
+:= -- 1298
+add.period$ -- 52
+call.type$ -- 27
 change.case$ -- 4
 chr.to.int$ -- 2
-cite$ -- 12
-duplicate$ -- 231
-empty$ -- 265
-format.name$ -- 97
-if$ -- 779
+cite$ -- 27
+duplicate$ -- 553
+empty$ -- 649
+format.name$ -- 227
+if$ -- 1893
 int.to.chr$ -- 0
 int.to.str$ -- 1
 missing$ -- 0
-newline$ -- 94
-num.names$ -- 33
-pop$ -- 20
+newline$ -- 184
+num.names$ -- 80
+pop$ -- 47
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 11
+skip$ -- 28
 stack$ -- 0
-substring$ -- 195
-swap$ -- 239
-text.length$ -- 22
+substring$ -- 467
+swap$ -- 577
+text.length$ -- 54
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 81
+type$ -- 183
 warning$ -- 0
-while$ -- 37
+while$ -- 89
 width$ -- 0
-write$ -- 170
+write$ -- 368
+(There were 2 error messages)

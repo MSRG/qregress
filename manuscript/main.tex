@@ -268,26 +268,35 @@ Within the quantum machine learning (QML) field, parameterized quantum circuits 
 
 \newpage
 \section{Introduction}
-[quantum machine learning]
+Within the field of chemistry, tools such as machine learning and quantum computing have become popular due to the promise of discoverying new molecules and materials.
+Machine learning in chemistry has already become a broadly applicable tool for exploring chemical compound space\cite{ramakrishnan_quantum_2014,ramakrishnan_big_2015}, accelerating wave functions\cite{townsend_data-driven_2019,jones_chapter_2023}, and for applications, such as catalysis and drug discovery.\cite{behler_perspective_2016,goh_deep_2017,sanchez-lengeling_{i}nverse_2018,butler_machine_2018,janet_machine_2020}
+[Sentence about quantum computing]
+Another popular avenue, which combines quantum computing and machine learning, is quantum machine learning (QML).
+QML utilizes quantum algorithms during some portion of the machine learning process in an attempt to outperform classical algorithms. \cite{biamonte_quantum_2017}
+On the current era of quantum computers, parameterized quantum circuits (PQCs) offer an example of QML that is performed using a hybrid quantum-classical feedback loop, where the variational parameters are optimized classical, while the circuit is ran on quantum hardware.\cite{benedetti_parameterized_2019,suzuki_predicting_2020}
+
+PQCs are often composed using two different subcircuits: the encoding layer, which is used to encode the features into the quantum circuit, and variational layers, which are composed of parameterized gates which can be optimized classical. 
 
 
-[parameterized circuits for chemical applications]
 
-[What we introduce]
+PQCs are composed of data-encoding and variational subcircuits, which can be repeated multiple times.
 
+
+While several examples exist for PQCs applied to chemical applications, they are largely relegated to drug discovery\cite{suzuki_predicting_2020,smaldone_quantum--classical_2024,ishiyama_noise-robust_2022,ranga_quantum_2024,alam_qnet_2022,avramouli_quantum_2023,avramouli_unlocking_2023,bhatia_quantum_2023} and experimental properties\cite{hatakeyama-sato_quantum_2023}.
+Herein, we explore two different chemical datasets: one consisting of bond separation energies of 49 unique bond types, called the BSE49 dataset\cite{prasad_bse49_2021}, and another which utilizes data-driven coupled cluster (DDCC)\cite{townsend_data-driven_2019} to predict the coupled-cluster singles and doubles wave function parameters using lower-level quantum chemistry methods.
+
+In this study, we create a robust Python code base for exploring a set of 14 data-encoding and 12 variational (ansatz) subcircuits for a total of 168 combined PQCs.
 Our work includes the single and double encoding layers found in the paper of Suzuki and Katouda\cite{suzuki_predicting_2020}, including the encoding of Mitarai \textit{et al.}\cite{mitarai_quantum_2018}, along with using instantanious quantum polynomial (IQP) as an encoding layer. \cite{bremner_average-case_2015}
 All of our variational (ansatz) layers can be found in the study of Sim \textit{et al.}\cite{sim_expressibility_2019}, where the expressiblity and entanglement capability of these circuits is analyzed.
+We also examine the effects of the number of re-upload and ansatz layers, the effects of feature set size, and various error mitigation techniques. 
+
+
 
 
 
 
 
 \cite{krenn_artificial_2023}
-
-
-
-
-
 
 QML\cite{biamonte_quantum_2017}:
 \begin{itemize}
@@ -327,56 +336,45 @@ PQCs \cite{hatakeyama-sato_quantum_2023}:
 
 
 \section{Methods}
+For our PQCs, we follow the notation provided by Suzuki and Katouda in Ref. \citep{suzuki_predicting_2020}. 
+
+
+
 Use a mix of  \cite{hatakeyama-sato_quantum_2023} and \cite{suzuki_predicting_2020} for the methods.
 
-Format from \cite{suzuki_predicting_2020}:
-\begin{itemize}
-	\item Feature set $\mathbf{x}=(x_{1}, x_{2}, \ldots, x_{d})^{T} \in \mathbb{R}^{d}$
-	\item Feature map (encoding) $U_{\Phi(\mathbf{x})}$ produces the quantum state $U_{\Phi(\mathbf{x})}\ket{0}^{\otimes n}$
-	\item Variational circuit (ansatz) $U(\mathbf{\theta})$, leads to the parameterized quantum circuit $U(\mathbf{\theta})U_{\Phi(\mathbf{x})}\ket{0}^{\otimes n}$
-\end{itemize}
+A $d$-dimensional feature vector, $\mathbf{x}=(x_{1}, x_{2}, \ldots, x_{d})^{T} \in \mathbb{R}^{d}$, can be mapped onto a quantum circuit through a unitary matrix, denoted as $U_{\Phi(\mathbf{x})}$, to produce the quantum state $U_{\Phi(\mathbf{x})}\ket{0}^{\otimes n}$, where $n$ are the number of qubits.
+For encoding layers, we utilize the three encoding layers found in Ref. \citep{suzuki_predicting_2020} and the instantaneous quantum polynomial circuit found in Ref. \citep{bremner_average-case_2016}
 
+The single-angle encoding layer is defined as 
+\begin{equation}
+	U_{\text{A1}} = \prod_{i=1}^{n} R^{Y}_{i}(x_{i}) 
+	\label{eq:A1}
+\end{equation}
 
+Double-angle encoding defined as
+\begin{equation}
+	U_{\text{A2}} = \prod_{i=1}^{n}  R^{Z}_{i}(x_{i}) R^{Y}_{i}(x_{i})
+	\label{eq:A2}
+\end{equation}
 
+Mitarai encoding subcircuits found in 
+\begin{equation}
+	U_{\text{M}}  = \prod_{i=1}^{n} R^{Z}_{i}(\arccos (x_{i}^{2})) R^{Y}_{i}(\arcsin (x_{i}^{2}))
+	\label{eq:M}
+\end{equation}
+IQP [CHECK]
+\begin{equation}
+	U_{\text{IQP}}  = \prod_{i=1}^{n} R^{Z}_{i} (x_{i}) \prod_{i<j} CZ_{ij}  \prod_{i=1}^{n} R^{X}_{i} (x_{i})
+\label{eq:IQP}
+\end{equation}
 
-Quantum machine learning is a hybrid classical-quantum approach utilizing parameterized quantum circuits. Typical hybrid algorithms consist of shallow circuit depth of one qubit rotations and two qubit entangling gates. In the context of machine learning, we can subdivide our circuit into three components: the encoder, the variational circuit, and the act of measuring to estimate predictions. The encoder takes our $n$-dimensional data $\bm x \in \R^n$ and encodes it into a unitary feature map $U(\bm x)$ in our working Hilbert Space. This unitary acts on our initialized state $\ket{0}^{\otimes n'}$ to produce the state $U(\bm x) \ket{0}^{\otimes n'}$. It is usual to take $n' = n$ and for each feature $x_i$ to correspond to a qubit. With $n < n'$, features can be repeated across the qubits present in the system. Further elaboration will be discussed with specific encoding circuits. After the encoder produces the state $U(\bm x)\ket{0}^{\otimes n}$, we then tune the state with a parameterized unitary $U(\bm \theta)$ to transform the state into a meaningful prediction. Finally, some configuration of qubits are measured to produce expectation values $\hat y_k$ for our data labels $y_i$ which we then use to minimize a loss function. An obstacle in creating quantum models is there is no way to determine the best encoding or variational circuit for the problem. As such, this paper explores many different encoding and variational circuits. \par
+OR
 
-\subsection{Encoder Circuit}
-Representation of the data in any machine learning context is a crucial factor in its success. In a classical sense, this can be thought of as generating features and selecting the appropriate features to input into your model. In the quantum context, however, there is the additional question of how to translate the data into the Hilbert space. Different proposed  methods include angle encoding, and amplitude encoding. Following the work done by Suzuki and Katouda, we explore three base encoders composed together with entangling operations. Additionally, we explore the  IQP encoding as given in PennyLane. \par
-
-We composed circuits out of primary rotation blocks and entangling blocks. These rotation blocks include the one proposed by Mitrai et al.\cite{mitarai_quantum_2018}, a single angle rotation, and a double rotation encoder:
-\begin{align}
-    U_{A1} &= \prod_{i=1}^n R^Y_i(x_i) \\
-    U_{A2} &= \prod_{i=1}^n R^Y_i(x_i) R^Z_i(x_i) \\
-    U_{M}  &= \prod_{i=1}^n R^Z_i(\arccos x_i^2) R^Y_i(\arcsin x_i^2)
-\end{align}
-Where $R^j_i$ is a rotation about the $j$ axis on qubit $i$. It's clear to see that this method of encoding imposes a restriction on the number of features to the number of qubits. With this encoding method, it is possible to use more features than qubits and to re-encode the features along the remaining qubits. Then, to compose these encoders together we use entangling circuits that entangle adjacent qubits using either CNOT or CZ entangling operations. These encoding circuits can be seen presented in Figure \ref{fig: idk circuits or something}. 
-
-\subsection{Variational Circuit}
-After encoding the data, we have a quantum circuit in a state $U_{\text{enc}}(\bm x)\ket{0}^{\otimes n}$. We need to act on this state with a unitary that has parameters which can be tuned in our machine learning model. Choosing this circuit ansatz can greatly dictate the performance of a given model. Model performance can be greatly influenced by the variational circuit chosen as well as the depth of the circuit as we will later show. It is not obvious which circuit we should pick for our given problem, especially given that our algorithm is not physically motivated like other popular parameterized quantum circuit algorithms. We have gathered a list of 12 variational circuit blocks from previous works and libraries which we will then benchmark for our particular problem. These circuits each can be decomposed into individual rotation gates and two-qubit entangling gates. \par
-After our variational circuit acts on our state we have the state:
-\begin{align}
-    \ket\psi &= U_{\text{var}}(\bm\theta)U_{\text{enc}}(\bm x)\ket{0}^{\otimes n} \label{eq: psi}
-\end{align}
-where $\bm \theta$ is our parameter vector to be tuned in learning. We can further modify this state; by repeating variational circuit blocks we create a more rich and complex model with a better ability to explore the Hilbert space. This would give us the state:
-\begin{align}
-    \ket\psi &= U_{\text{var}}(\bm\phi)U_{\text{var}}(\bm\theta)U_{\text{enc}}(\bm x)\ket{0}^{\otimes n} \label{eq: layers}
-\end{align}
-However, as we are interested in NISQ applications, it should be noted that increasing layer depths creates decoherence in quantum devices. Additionally, we can use the idea of data re-uploading to create redundancies in the encoding of the model to explore a richer feature space. 
-\begin{align}
-    \ket\psi &= U_{\text{var}}(\bm\phi)U_{\text{enc}}(\bm x)U_{\text{var}}(\bm\theta)U_{\text{enc}}(\bm x)\ket{0}^{\otimes n} \label{eq: re-up}
-\end{align}
-This paper uses and compares both the data re-uploading and increased depth approaches of creating more complicated models. 
-
-\subsection{Measurement}
-After our system is in state $\ket\psi$ as given by either \eqref{eq: psi}, \eqref{eq: layers} or \eqref{eq: re-up} we can measure our system to generate a predicted value $\hat y_i$. At this point in the algorithm, any loss function can be used. In our simplest system, we measured the first qubit so that,
-\begin{align}
-    \hat y_i &= \langle Z_0 \rangle _\psi 
-\end{align}
-for a $\psi$ generated by the $k$th data point. Then, we have the loss function we are trying to minimize as,
-\begin{align}
-    \mathcal{L}(\bm{\hat y}) &= \sum_i^N \frac{(y_i - \hat y_i)^2}{N}
-\end{align}
+IQP [CHECK; pennylane]
+\begin{equation}
+	U_{\text{IQP}}  = \prod_{i=1}^{n} H_{i} R^{Z}_{i}(x_{i})  \prod_{i<j} ZZ_{ij}
+	\label{eq:IQP}
+\end{equation}
 
 \subsection{Implementation}
 Our work was implemented in Python using PennyLane for constructing the quantum circuits, and Qulacs as a primary backend for simulating the circuits. The optimization was implemented using the scipy.optimize module from the SciPy library. Classical models were implemented using scikit-learn while processing of the data was handled with Pandas, NumPy, and SciPy libraries.  
