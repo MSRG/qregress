@@ -1,16 +1,17 @@
 #!/bin/bash
-dirs=$(find . -maxdepth 1 -type d)
+dirs=$(find . -maxdepth 1 -mindepth 1 -type d)
+echo $(pwd)
 for i in $dirs; do
   echo $i
-  if [ -e "$i/run.sh" ]; then
-      echo "File exists"
-      cd $i
+  cd $i
+  echo $(pwd)
+  cp ../run.sh .
+  echo "File exists $i/run.sh"
+  if [ -e "run.sh" ]; then
       rm *done *.o* *.e* *sub
       bash run.sh
-      unzip helperfiles.zip
-      cp -r helperfiles/* .
-      rm quantum.sub __pycache__.sub helperfiles.sub 
+      rm quantum.sub __pycache__.sub helperfiles.sub
       find . -name "*sub" -exec sbatch {} \;
-      cd ../
-  fi 
+  fi
+  cd ../
 done

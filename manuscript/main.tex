@@ -4,6 +4,10 @@
 %% the target journal and optionally the manuscript type. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[journal=jacsat,manuscript=article]{achemso}
+\SectionNumbersOn
+\usepackage{tikz} %Format quantum circuits
+\usetikzlibrary{quantikz2}%Format quantum circuits
+
 \usepackage{multicol}
 \usepackage{graphicx}% Include figure files
 \usepackage{graphicx}% Include figure files
@@ -42,8 +46,7 @@
 \usepackage{comment}
 %for corrections
 \usepackage[normalem]{ulem}
-% \usepackage{xr-hyper}
-\usepackage[hidelinks]{hyperref} % allows hyperlinking for references
+\usepackage{hyperref} % allows hyperlinking for references
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Place any additional packages needed here.  Only include packages
 %% which are essential, to avoid problems later. Do NOT use any
@@ -53,20 +56,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[version=3]{mhchem} % Formula subscripts using \ce{}
 \usepackage{xcolor}
-% \usepackage{xr-hyper}
-\usepackage{xr-hyper}
-\usepackage{xr}
-
-
-\usepackage[hidelinks]{hyperref} % allows hyperlinking for references
-
-% \usepackage{hyperref}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{mathtools,physics}
-
-
 \usepackage{subcaption}
-\usepackage{caption}
 % \usepackage{titling}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% If issues arise when submitting your manuscript, you may want to
@@ -100,7 +92,7 @@
 \newcommand{\noteg}[1]{\textcolor{red}{({Grier: #1})}}
 \newcommand{\notek}[1]{\textcolor{darkspringgreen}{({Kostas: #1})}}
 
-
+\def\myvdots{\ \vdots\ }
 %%%% HELPER CODE FOR DEALING WITH EXTERNAL REFERENCES
 % (from an answer by cyberSingularity at http://tex.stackexchange.com/a/69832/226)
 %%%
@@ -232,7 +224,7 @@ Canada M5S 3G4}
 
 \begin{document}
 
-\section{Abstract}
+\section*{Abstract}
 Within the quantum machine learning (QML) field, parameterized quantum circuits (PQCs), built using fixed and parameterized gates, offer a hybrid approach for complex machine learning tasks. While many potential use cases have been proposed, the exploration of relevant datasets for chemists is lacking. Our study seeks to understand the possible advantages and disadvantages of PQCs for two chemically relevant datasets: one based on the bond separation energies of 49 different classes of bonds, called the BSE49 dataset, and another consisting of water confirmations, where coupled-cluster singles and doubles (CCSD) wave functions are predicted using electronic structure theory data from lower-level methods using the data-driven coupled-cluster (DDCC) method. In our study, we examine a combinatorial space of 14 data encoding layers and 12 variational (ansatz) layers, for a combined total of 168 PQCs. To calibrate our PQCs, we utilize a dataset of noisy linear, quadratic, and sine functions to explore the effects of the circuit width and depth, the effects of the feature set size, and various error mitigation techniques. Following this step, we similarly examine our chemically relevant datasets. Our work highlights the difficulties in encoding classical molecular representations in a PQC for predicting bond separation energies and the aptitude for PQCs for predicting molecular wave functions. \par
 
 \newpage
@@ -267,6 +259,7 @@ Within the quantum machine learning (QML) field, parameterized quantum circuits 
 \end{itemize}
 
 \newpage
+\setcounter{secnumdepth}{1}
 \section{Introduction}
 Within the field of chemistry, tools such as machine learning and quantum computing have become popular due to the promise of discoverying new molecules and materials.
 Machine learning in chemistry has already become a broadly applicable tool for exploring chemical compound space\cite{ramakrishnan_quantum_2014,ramakrishnan_big_2015}, accelerating wave functions\cite{townsend_data-driven_2019,jones_chapter_2023}, and for applications, such as catalysis and drug discovery.\cite{behler_perspective_2016,goh_deep_2017,sanchez-lengeling_{i}nverse_2018,butler_machine_2018,janet_machine_2020}
@@ -336,45 +329,175 @@ PQCs \cite{hatakeyama-sato_quantum_2023}:
 
 
 \section{Methods}
-For our PQCs, we follow the notation provided by Suzuki and Katouda in Ref. \citep{suzuki_predicting_2020}. 
-
-
-
-Use a mix of  \cite{hatakeyama-sato_quantum_2023} and \cite{suzuki_predicting_2020} for the methods.
-
-A $d$-dimensional feature vector, $\mathbf{x}=(x_{1}, x_{2}, \ldots, x_{d})^{T} \in \mathbb{R}^{d}$, can be mapped onto a quantum circuit through a unitary matrix, denoted as $U_{\Phi(\mathbf{x})}$, to produce the quantum state $U_{\Phi(\mathbf{x})}\ket{0}^{\otimes n}$, where $n$ are the number of qubits.
-For encoding layers, we utilize the three encoding layers found in Ref. \citep{suzuki_predicting_2020} and the instantaneous quantum polynomial circuit found in Ref. \citep{bremner_average-case_2016}
-
-The single-angle encoding layer is defined as 
+PQCs are often constructed of three parts: encoding layers that are used to encode the features onto a quantum circuit, variational layers which include parameters that are optimized classically, and measurements which provide numerical estimations of the regression target values.\citep{suzuki_predicting_2020} 
+In this study, we utilize the Mitarai (M)\cite{mitarai_quantum_2018}, single- (A1) and double-angle (A2) encoding layers found in Ref. \citep{suzuki_predicting_2020}, along with the instantaneous quantum polynomial (IQP) circuit found in Refs. \citep{bremner_average-case_2016} and \citep{havlicek_supervised_2019}.
+In the following section, we follow the notations derived from  Ref. \citep{suzuki_predicting_2020}.
+Encoding layers work mapping a $d$-dimensional feature vector, $\mathbf{x}=(x_{1}, x_{2}, \ldots, x_{d})^{T} \in \mathbb{R}^{d}$, normalized on the range $[-1,1]$, onto a quantum circuit using a unitary matrix, denoted as $U_{\Phi(\mathbf{x})}$, to produce the quantum state $U_{\Phi(\mathbf{x})}\ket{0}^{\otimes n}$, where $n$ are the number of qubits.
+The encoding layer takes the following general form,
 \begin{equation}
-	U_{\text{A1}} = \prod_{i=1}^{n} R^{Y}_{i}(x_{i}) 
+	U_{\Phi(x)} =  \prod_{l} E_{\text{ent}}^{l} U_{\phi_{l}(\mathbf{x})}
+	\label{eq:general_encoding}
+\end{equation}
+where, $E_{\text{ent}}^{l}$ denotes the entangling gates, which can be a CNOT, CZ, or identity ($\mathbf{I}$) gates,   $U_{\phi_{l}(\mathbf{x})}$ denotes the choice of encoding unitaries. 
+Like in  Ref. \citep{suzuki_predicting_2020}, we choose $l \in \{1, 2\}$, such that when $l=1$, $E_{\text{ent}}$ corresponds to an identity matrix and $U_{\Phi(x)} = U_{\phi_{1}(\mathbf{x})}$.
+
+When $l=1$, $U_{\Phi(x)}$ can be one of the following four encoding layers: $U_{\text{A1}}$, $U_{\text{A2}}$, $U_{\text{M}}$, or $U_{\text{IQP}}$.
+The single-angle encoding (Fig. \ref{fig:A1}) is the simplest and takes the following form,
+\begin{equation}
+	U_{\text{A1}} = \prod_{i=0}^{n} R^{Y}_{i}(x_{i}),
 	\label{eq:A1}
 \end{equation}
-
-Double-angle encoding defined as
+where $R^{Y}_{i}$ denotes a parameterized Y rotation gate on qubit $i$.
+Like the single-angle encoding, the double-angle encoding (Fig. \ref{fig:A2}) utilizes a parameterized Y rotation gate on qubit $i$, with the addition of a parameterized Z rotation gate on qubit $i$, denoted as
 \begin{equation}
-	U_{\text{A2}} = \prod_{i=1}^{n}  R^{Z}_{i}(x_{i}) R^{Y}_{i}(x_{i})
+	U_{\text{A2}} = \prod_{i=0}^{n}  R^{Z}_{i}(x_{i}) R^{Y}_{i}(x_{i}).
 	\label{eq:A2}
 \end{equation}
-
-Mitarai encoding subcircuits found in 
+The Mitarai encoding layer (Fig. \ref{fig:M}) is a double-angle encoding layer with the addition of an arcosine function on the parameterized Z gate and arcsine on the parameterized Y gate,
 \begin{equation}
-	U_{\text{M}}  = \prod_{i=1}^{n} R^{Z}_{i}(\arccos (x_{i}^{2})) R^{Y}_{i}(\arcsin (x_{i}^{2}))
+	U_{\text{M}}  = \prod_{i=0}^{n} R^{Z}_{i}(\arccos (x_{i}^{2})) R^{Y}_{i}(\arcsin (x_{i}^{2})).
 	\label{eq:M}
 \end{equation}
-IQP [CHECK]
+Following the formulation provided in the PennyLane\cite{bergholm_pennylane_2022} software package, the IQP encoding layer (Fig. \ref{fig:IQP}) is defined as,
 \begin{equation}
-	U_{\text{IQP}}  = \prod_{i=1}^{n} R^{Z}_{i} (x_{i}) \prod_{i<j} CZ_{ij}  \prod_{i=1}^{n} R^{X}_{i} (x_{i})
-\label{eq:IQP}
-\end{equation}
-
-OR
-
-IQP [CHECK; pennylane]
-\begin{equation}
-	U_{\text{IQP}}  = \prod_{i=1}^{n} H_{i} R^{Z}_{i}(x_{i})  \prod_{i<j} ZZ_{ij}
+	U_{\text{IQP}}  = \prod_{i=0}^{n} H_{i} R^{Z}_{i}(x_{i})  \prod_{i<j} ZZ_{ij},
 	\label{eq:IQP}
 \end{equation}
+where $H_{i}$ denotes a Hadamard gate on qubit $i$ and $ZZ_{ij}$ denotes a two-qubit entangline gate defined as $ZZ_{ij} = e^{-i x_{i} x_{j} \sigma_{z} \otimes \sigma_{z}}$.
+
+  
+  
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{images/encoders/quantikz/A1.png}
+		\caption{}
+		\label{fig:A1}		
+	\end{subfigure}%
+	\hfill
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{images/encoders/quantikz/A2.png}
+		\caption{}
+		\label{fig:A2}		
+	\end{subfigure}%
+	\hfill
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\includegraphics[width=1\columnwidth]{images/encoders/quantikz/M.png}
+		\caption{}
+		\label{fig:M}		
+	\end{subfigure}%	  
+	\hfill
+	\begin{subfigure}{1\textwidth}
+		\centering
+		    \includegraphics[width=\columnwidth]{images/encoders/quantikz/IQP.png}
+		\caption{}
+		\label{fig:IQP}
+	\end{subfigure}%
+	\caption{(a) Single angle (A1) encoding, (b) double angle (A2) encoding, (c) Mitarai (M) encoding, and (d) Instantaneous Quantum Polynomial (IQP) encoding}
+	\label{fig:encoders}
+\end{figure}
+
+
+
+
+
+  
+When $l=2$, like in Ref. \citep{suzuki_predicting_2020} we choose entanglement gates, $E_{\text{ent}}^{1}$ and $E_{\text{ent}}^{2}$ to be equivalent, and the encoding layer takes the following form, $U_{\Phi(x)} =  E_{\text{ent}} U_{\phi_{2}(\mathbf{x})} E_{\text{ent}} U_{\phi_{1}(\mathbf{x})}$ .
+We also exclude IQP encoding when $l=2$ due to the increased circuit depth, when compared to A1, A2, and M encoding.
+Therefore, there are five unique combinations of $U_{\phi_{1}(\mathbf{x})}$ and $U_{\phi_{2}(\mathbf{x})}$ (M-M, A1-A1, A2-A2, M-A1, and M-A2) and two different entanglement layer options (CNOT and CZ) for a total of 10 encoding circuits. 
+These circuits are denoted as $U_{\phi_{1}(\mathbf{x})}-U_{\phi_{2}(\mathbf{x})}-E_{\text{ent}}$, for example, two example encoding circuits are M--M--CNOT and M--A1--CNOT.
+Table \ref{tab:encoders} shows all fourteen encoding circuits examined in this study.
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\textbf{Name} & $U_{\phi_{1}(\mathbf{x})}$ & $U_{\phi_{2}(\mathbf{x})}$ & $E_{\text{ent}}$  \\
+		\hline
+		\hline
+		A1 & $U_{\text{A1}}$ & --- & --- \\
+		\hline
+		A2 & $U_{\text{A2}}$ & --- & --- \\
+		\hline		
+		M & $U_{\text{M}}$ & --- & --- \\
+		\hline
+		IQP & $U_{\text{IQP}}$ & --- & --- \\
+		\hline
+		A1--A1--CNOT & $U_{\text{A1}}$ & $U_{\text{A1}}$ & $E_{\text{CNOT}}$ \\
+		\hline
+		 A2--A2--CNOT & $U_{\text{A2}}$ & $U_{\text{A2}}$ & $E_{\text{CNOT}}$ \\
+		\hline
+		M--M--CNOT & $U_{\text{M}}$ & $U_{\text{M}}$ & $E_{\text{CNOT}}$ \\
+		\hline
+		M--A1--CNOT & $U_{\text{M}}$ & $U_{\text{A1}}$ & $E_{\text{CNOT}}$ \\
+		\hline		
+		M--A2--CNOT & $U_{\text{M}}$ & $U_{\text{A2}}$ & $E_{\text{CNOT}}$ \\
+		\hline				
+		A1--A1--CZ & $U_{\text{A1}}$ & $U_{\text{A1}}$ & $E_{\text{CZ}}$ \\
+		\hline
+		A2--A2--CZ& $U_{\text{A2}}$ & $U_{\text{A2}}$ & $E_{\text{CZ}}$ \\
+		\hline
+		M--M--CZ & $U_{\text{M}}$ & $U_{\text{M}}$ & $E_{\text{CZ}}$ \\
+		\hline
+		M--A1--CZ & $U_{\text{M}}$ & $U_{\text{A1}}$ & $E_{\text{CZ}}$ \\
+		\hline		
+		M--A2--CZ & $U_{\text{M}}$ & $U_{\text{A2}}$ & $E_{\text{CZ}}$ \\
+		\hline						
+	\end{tabular}
+	\caption{Add something smart}
+	\label{tab:encoders}
+\end{table}
+
+
+
+Following the encoding layers,variational (or ansatz) layers are used to introduce trainable parameters into the quantum circuit.
+We use a mixed notation from Refs. \citep{suzuki_predicting_2020} and \citep{sim_expressibility_2019}, since Ref. \citep{sim_expressibility_2019} contains all of the variational layers used within this work.
+We relegate the discussion of the expressibility and entanglement of these layers to Section \ref{section:results_and_discussion}
+
+
+\begin{equation}
+	U(\bm{\theta}) = \prod_{v} U_{v}(\bm{\theta}_{v}) E_{\text{ent}}^{v}
+	\label{eq:general_variational}
+\end{equation}
+
+
+
+12 variational layers
+ESU2
+Efficient-CRX
+Efficient-CRZ
+Full-CRX
+Full-CRZ
+Full-Pauli-CRX
+Full-Pauli-CRZ
+HWE-CNOT
+HWE-CZ
+Hadamard
+Modified-Pauli-CRX
+Modified-Pauli-CRZ
+
+\begin{quantikz}
+	\lstick{$q_0$} & \gate{H} & \gate{R_{Y} (\arcsin(x_{0}^{2}))} & \gate{R_{Z} (\arccos(x_{0})^{2})} & \\
+	\lstick{$q_1$} & \gate{H} & \gate{R_{Y} (\arcsin(x_{1}^{2}))} & \gate{R_{Z} (\arccos(x_{1})^{2})} & \\
+	\lstick{$q_2$} & \gate{H} & \gate{R_{Y} (\arcsin(x_{2}^{2}))} & \gate{R_{Z} (\arccos(x_{2})^{2})} & \\
+	\setwiretype{n} \lstick{}  & \myvdots & \myvdots & \myvdots & \\
+	\lstick{$q_n$} & \gate{H} & \gate{R_{Y} (\arcsin(x_{n}^{2}))} & \gate{R_{Z} (\arccos(x_{n})^{2})} & \\
+\end{quantikz}
+
+
+
+
+\begin{equation}
+	U(\bm{\theta}) U_{\Phi(\mathbf{x})}\ket{0}^{\otimes n} = \prod_{k}
+	\left( \prod_{v} U_{v}(\bm{\theta}_{v}) E_{\text{ent}}^{v}   \prod_{l} E_{\text{ent}}^{l} U_{\phi_{l}(\mathbf{x})} \right)  \ket{0}^{\otimes n}
+\end{equation}
+
+
+$v \in \{1, 3, 5\}$
+$k \in \{1, 3, 5\}$
 
 \subsection{Implementation}
 Our work was implemented in Python using PennyLane for constructing the quantum circuits, and Qulacs as a primary backend for simulating the circuits. The optimization was implemented using the scipy.optimize module from the SciPy library. Classical models were implemented using scikit-learn while processing of the data was handled with Pandas, NumPy, and SciPy libraries.  
@@ -399,8 +522,7 @@ For each $t^{ab}_{ij(\text{CCSD})}$, orbital energies ($\varepsilon_{i},\varepsi
 
 
 For the BSE dataset, various molecular representations are explored, and we settled on using Morgan fingerprints with X parameters. 
-For the feature reduction, we use PCA, as explained in Section \ref{subsubsection:BSE}.
-
+For the feature reduction, we use PCA, as explained in Section
 
 
 
@@ -439,7 +561,8 @@ For the feature reduction, we use PCA, as explained in Section \ref{subsubsectio
 	\label{fig:train_vs_test}
 \end{figure}
 
-\section{Results}
+\section{Results and Discussion}
+\label{section:results_and_discussion}
 
 
 Ansaetze analysis \cite{sim_expressibility_2019}

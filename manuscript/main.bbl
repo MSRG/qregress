@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{27}
+\begin{mcitethebibliography}{29}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -252,6 +252,32 @@ Takaki,~Y.; Mitarai,~K.; Negoro,~M.; Fujii,~K.; Kitagawa,~M. Learning temporal
 Bremner,~M.~J.; Montanaro,~A.; Shepherd,~D.~J. Average-case complexity versus
   approximate simulation of commuting quantum computations. \emph{Phys. Rev.
   Lett.} \textbf{2016}, \emph{117}, 080501, arXiv:1504.07999 [quant-ph]\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Havlicek \latin{et~al.}(2019)Havlicek, Córcoles, Temme, Harrow,
+  Kandala, Chow, and Gambetta]{havlicek_supervised_2019}
+Havlicek,~V.; Córcoles,~A.~D.; Temme,~K.; Harrow,~A.~W.; Kandala,~A.;
+  Chow,~J.~M.; Gambetta,~J.~M. Supervised learning with quantum enhanced
+  feature spaces. \emph{Nature} \textbf{2019}, \emph{567}, 209--212,
+  arXiv:1804.11326 [quant-ph]\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Bergholm \latin{et~al.}(2022)Bergholm, Izaac, Schuld, Gogolin, Ahmed,
+  Ajith, Alam, Alonso-Linaje, AkashNarayanan, Asadi, Arrazola, Azad, Banning,
+  Blank, Bromley, Cordier, Ceroni, Delgado, Matteo, Dusko, Garg, Guala, Hayes,
+  Hill, Ijaz, Isacsson, Ittah, Jahangiri, Jain, Jiang, Khandelwal, Kottmann,
+  Lang, Lee, Loke, Lowe, McKiernan, Meyer, Montañez-Barrera, Moyard, Niu,
+  O'Riordan, Oud, Panigrahi, Park, Polatajko, Quesada, Roberts, Sá, Schoch,
+  Shi, Shu, Sim, Singh, Strandberg, Soni, Száva, Thabet, Vargas-Hernández,
+  Vincent, Vitucci, Weber, Wierichs, Wiersema, Willmann, Wong, Zhang, and
+  Killoran]{bergholm_pennylane_2022}
+Bergholm,~V. \latin{et~al.}  {PennyLane}: {Automatic} differentiation of hybrid
+  quantum-classical computations. 2022; \url{http://arxiv.org/abs/1811.04968},
+  arXiv:1811.04968 [quant-ph]\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax

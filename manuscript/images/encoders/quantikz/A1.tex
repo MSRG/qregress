@@ -1,0 +1,16 @@
+\documentclass[preview, border=1mm]{standalone}
+\usepackage{tikz} %Format quantum circuits
+\usetikzlibrary{quantikz2}%Format quantum circuits
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools,physics}
+\def\myvdots{\ \vdots\ }
+
+\begin{document}
+\begin{quantikz} 
+    \lstick{$q_0$} & \gate{H} & \gate{R_{Y} (x_{0})} & \\ 
+    \lstick{$q_1$} & \gate{H} & \gate{R_{Y} (x_{1})} & \\ 
+    \lstick{$q_2$} & \gate{H} & \gate{R_{Y} (x_{2})} & \\ 
+    \setwiretype{n} \lstick{}  & \myvdots & \myvdots & \\
+    \lstick{$q_n$}& \gate{H}  & \gate{R_{Y} (x_{n})} & \\
+\end{quantikz}
+\end{document}
