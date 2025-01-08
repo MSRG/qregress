@@ -46,7 +46,7 @@
 \usepackage{comment}
 %for corrections
 \usepackage[normalem]{ulem}
-\usepackage{hyperref} % allows hyperlinking for references
+\usepackage[hidelinks]{hyperref} % allows hyperlinking for references
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Place any additional packages needed here.  Only include packages
 %% which are essential, to avoid problems later. Do NOT use any
@@ -342,23 +342,23 @@ where, $E_{\text{ent}}^{l}$ denotes the entangling gates, which can be a CNOT, C
 Like in  Ref. \citep{suzuki_predicting_2020}, we choose $l \in \{1, 2\}$, such that when $l=1$, $E_{\text{ent}}$ corresponds to an identity matrix and $U_{\Phi(x)} = U_{\phi_{1}(\mathbf{x})}$.
 
 When $l=1$, $U_{\Phi(x)}$ can be one of the following four encoding layers: $U_{\text{A1}}$, $U_{\text{A2}}$, $U_{\text{M}}$, or $U_{\text{IQP}}$.
-The single-angle encoding (Fig. \ref{fig:A1}) is the simplest and takes the following form,
+The single-angle encoding (Fig. \ref{fig:encoders} \textbf{(a)}) is the simplest and takes the following form,
 \begin{equation}
 	U_{\text{A1}} = \prod_{i=0}^{n} R^{Y}_{i}(x_{i}),
 	\label{eq:A1}
 \end{equation}
 where $R^{Y}_{i}$ denotes a parameterized Y rotation gate on qubit $i$.
-Like the single-angle encoding, the double-angle encoding (Fig. \ref{fig:A2}) utilizes a parameterized Y rotation gate on qubit $i$, with the addition of a parameterized Z rotation gate on qubit $i$, denoted as
+Like the single-angle encoding, the double-angle encoding (Fig. \ref{fig:encoders} \textbf{(b)}) utilizes a parameterized Y rotation gate on qubit $i$, with the addition of a parameterized Z rotation gate on qubit $i$, denoted as
 \begin{equation}
 	U_{\text{A2}} = \prod_{i=0}^{n}  R^{Z}_{i}(x_{i}) R^{Y}_{i}(x_{i}).
 	\label{eq:A2}
 \end{equation}
-The Mitarai encoding layer (Fig. \ref{fig:M}) is a double-angle encoding layer with the addition of an arcosine function on the parameterized Z gate and arcsine on the parameterized Y gate,
+The Mitarai encoding layer (Fig. \ref{fig:encoders} \textbf{(c)}) is a double-angle encoding layer with the addition of an arcosine function on the parameterized Z gate and arcsine on the parameterized Y gate,
 \begin{equation}
 	U_{\text{M}}  = \prod_{i=0}^{n} R^{Z}_{i}(\arccos (x_{i}^{2})) R^{Y}_{i}(\arcsin (x_{i}^{2})).
 	\label{eq:M}
 \end{equation}
-Following the formulation provided in the PennyLane\cite{bergholm_pennylane_2022} software package, the IQP encoding layer (Fig. \ref{fig:IQP}) is defined as,
+Following the formulation provided in the PennyLane\cite{bergholm_pennylane_2022} software package, the IQP encoding layer (Fig. \ref{fig:encoders} \textbf{(d)}) is defined as,
 \begin{equation}
 	U_{\text{IQP}}  = \prod_{i=0}^{n} H_{i} R^{Z}_{i}(x_{i})  \prod_{i<j} ZZ_{ij},
 	\label{eq:IQP}
@@ -367,38 +367,38 @@ where $H_{i}$ denotes a Hadamard gate on qubit $i$ and $ZZ_{ij}$ denotes a two-q
 
   
   
-\begin{figure}[H]
-	\centering
-	\begin{subfigure}{0.3\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{images/encoders/quantikz/A1.png}
-		\caption{}
-		\label{fig:A1}		
-	\end{subfigure}%
-	\hfill
-	\begin{subfigure}{0.3\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{images/encoders/quantikz/A2.png}
-		\caption{}
-		\label{fig:A2}		
-	\end{subfigure}%
-	\hfill
-	\begin{subfigure}{0.3\textwidth}
-		\centering
-		\includegraphics[width=1\textwidth]{images/encoders/quantikz/M.png}
-		\caption{}
-		\label{fig:M}		
-	\end{subfigure}%	  
-	\hfill
-	\begin{subfigure}{1\textwidth}
-		\centering
-		    \includegraphics[width=\textwidth]{images/encoders/quantikz/IQP.png}
-		\caption{}
-		\label{fig:IQP}
-	\end{subfigure}%
-	\caption{(a) Single angle (A1) encoding, (b) double angle (A2) encoding, (c) Mitarai (M) encoding, and (d) Instantaneous Quantum Polynomial (IQP) encoding}
-	\label{fig:encoders}
-\end{figure}
+%\begin{figure}[H]
+%       \centering
+%       \begin{subfigure}{0.3\textwidth}
+	%               \centering
+	%               \includegraphics[width=\textwidth]{images/encoders/quantikz/A1.png}
+	%               \caption{}
+	%               \label{fig:A1}
+	%       \end{subfigure}%
+%       \hfill
+%       \begin{subfigure}{0.3\textwidth}
+	%               \centering
+	%               \includegraphics[width=\textwidth]{images/encoders/quantikz/A2.png}
+	%               \caption{}
+	%               \label{fig:A2}
+	%       \end{subfigure}%
+%       \hfill
+%       \begin{subfigure}{0.3\textwidth}
+	%               \centering
+	%               \includegraphics[width=1\textwidth]{images/encoders/quantikz/M.png}
+	%               \caption{}
+	%               \label{fig:M}
+	%       \end{subfigure}%
+%       \hfill
+%       \begin{subfigure}{1\textwidth}
+	%               \centering
+	%                   \includegraphics[width=\textwidth]{images/encoders/quantikz/IQP.png}
+	%               \caption{}
+	%               \label{fig:IQP}
+	%       \end{subfigure}%
+%       \caption{(a) Single angle (A1) encoding, (b) double angle (A2) encoding, (c) Mitarai (M) encoding, and (d) Instantaneous Quantum Polynomial (IQP) encoding}
+%       \label{fig:encoders}
+%\end{figure}
 
 
 
@@ -465,91 +465,66 @@ Table \ref{tab:encoders} shows all fourteen encoding circuits examined in this s
 
 Following the encoding layers,variational (or ansatz) layers are used to introduce trainable parameters into the quantum circuit.
 We use a mixed notation from Refs. \citep{suzuki_predicting_2020} and \citep{sim_expressibility_2019}, since Ref. \citep{sim_expressibility_2019} contains all of the variational layers used within this work.
-We relegate the discussion of the expressibility and entanglement of these layers to Section \ref{section:results_and_discussion}
-
-
+We relegate the discussion of the expressibility and entanglement examined in that work to Section \ref{section:results_and_discussion}.
+A general variational layer can be denoted as,
 \begin{equation}
-	U(\bm{\theta}) = \prod_{v} U_{v}(\bm{\theta}_{v}) E_{\text{ent}}^{v}
+	U(\bm{\theta}) = \prod_{v} U_{v}(\bm{\theta}_{v}), % E_{\text{ent}}^{v}
 	\label{eq:general_variational}
 \end{equation}
+where $\bm{\theta}$ denotes the variational parameters and $v$ denotes the number of times that the layer is repeated within the circuit. 
+As $v$ increases and the number of trainable parameters ($\bm{\theta}$) increase, the theoretical assumption is that the model expressibility should also increase.
+In our study, we choose $v \in \{1, 3, 5\}$ and refer to this as the number of ansatz layers (ALs).
+We examine 12 different variational circuits, as shown in Fig. \ref{fig:ansatz}, which are denoted using the following labels: Modified-Pauli-CRZ (Fig. \ref{fig:ansatz}\textbf{(a)}) , Modified-Pauli-CRX (Fig. \ref{fig:ansatz}\textbf{(b)}), Efficient-CRZ (Fig. \ref{fig:ansatz}\textbf{(c)}), Efficient-CRX (Fig. \ref{fig:ansatz}\textbf{(d)}),, HWE-CNOT (Fig. \ref{fig:ansatz}\textbf{(e)}), HWE-CZ (Fig. \ref{fig:ansatz}\textbf{(f)}), ESU2 (Fig. \ref{fig:ansatz}\textbf{(g)}), Full-Pauli-CRZ (Fig. \ref{fig:ansatz}\textbf{(h)}), Full-Pauli-CRX (Fig. \ref{fig:ansatz}\textbf{(i)}), Hadamard (Fig. \ref{fig:ansatz}\textbf{(j)}), Full-CRZ (Fig. \ref{fig:ansatz}\textbf{(k)}), and Full-CRX (Fig. \ref{fig:ansatz}\textbf{(l)}),
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{images/ansatz/quantikz/combined.png}
+	\caption{(a) Modified-Pauli-CRZ, (b) Modified-Pauli-CRX, (c) Efficient-CRZ, (d) Efficient-CRX, (e) HWE-CNOT, (f) HWE-CZ,  (g) ESU2, (h) Full-Pauli-CRZ, (i) Full-Pauli-CRX, (j) Hadamard, (k) Full-CRZ, and (l)Full-CRX}
+	\label{fig:ansatz}
+\end{figure}
 
-
-12 variational layers
-ESU2
-Efficient-CRX
-Efficient-CRZ
-Full-CRX
-Full-CRZ
-Full-Pauli-CRX
-Full-Pauli-CRZ
-HWE-CNOT
-HWE-CZ
-Hadamard
-Modified-Pauli-CRX
-Modified-Pauli-CRZ
-
-
-
-
-
-
-
-
- 
- 	
-
- 	
-
-
-
-
-
-
-
+Now that we have define the encoding (Eq. \ref{eq:general_encoding}) and variational (Eq. \ref{eq:general_variational}) circuits, we can then combine them to denote a general, complete circuit as,
 \begin{equation}
-	U(\bm{\theta}) U_{\Phi(\mathbf{x})}\ket{0}^{\otimes n} = \prod_{k}
-	\left( \prod_{v} U_{v}(\bm{\theta}_{v}) E_{\text{ent}}^{v}   \prod_{l} E_{\text{ent}}^{l} U_{\phi_{l}(\mathbf{x})} \right)  \ket{0}^{\otimes n}
+	\ket{\Psi} = U(\bm{\theta}) U_{\Phi(\mathbf{x})}\ket{0}^{\otimes n} = \prod_{k}
+	\left( \prod_{v} U_{v}(\bm{\theta}_{v}) \prod_{l} E_{\text{ent}}^{l} U_{\phi_{l}(\mathbf{x})} \right)  \ket{0}^{\otimes n},
+\end{equation}
+where we choose $k \in \{1, 3, 5\}$, which denotes the re-upload depth (RUD) of the circuit.
+When a sufficient number of data re-uploading occur, it has been shown by P\'{e}rez-Salinas \textit{et al.} that data re-uploading is equivalent to the Universal Approximation Theorem for artificial neural networks.\cite{perez-salinas_data_2020}
+
+
+Lastly, to recover the predicted target values, $\hat{y}_{i}$, from our quantum circuits, measurement of the quantum state, $\ket{\Psi}$, must be performed.
+To perform this operation, we apply the Pauli Z operator on the first qubit denoted as,
+\begin{equation}
+	\hat{y}_{i} = \bra{\Psi}Z_{0}\ket{\Psi}_{i}.
+	\label{eq:y_pred}
+\end{equation}
+The set of predicted target values, $\bm{\hat{y}} = (\hat{y}_{1}, \ldots, \hat{y}_{N}) \in \mathbb{R}^{N}$, where $N$ is the number of samples, is then passed to the loss function, $\mathcal{L}(\bm{y}, \bm{\hat y})$, where $y_{i}$ belongs to the set of true target values $\bm{y} = (y_{1}, \ldots, y_{N}) \in \mathbb{R}^{N}$.
+In practice, $\mathcal{L}$ can be any loss function but we choose to use the mean square error loss function denoted as,
+\begin{equation}
+	\mathcal{L}(\bm{y}, \bm{\hat y}) = \frac{1}{N} \sum_{i=1}^{N} (y_{i} - \hat{y}_{i})^{2}.
+	\label{eq:isthisloss}
 \end{equation}
 
 
-$v \in \{1, 3, 5\}$
-$k \in \{1, 3, 5\}$
-
 \subsection{Implementation}
-Our work was implemented in Python using PennyLane for constructing the quantum circuits, and Qulacs as a primary backend for simulating the circuits. The optimization was implemented using the scipy.optimize module from the SciPy library. Classical models were implemented using scikit-learn while processing of the data was handled with Pandas, NumPy, and SciPy libraries.  
+Python
+Pennylane
+Pennylane Qiskit
+Pennylane Qulacs
+Qiskit
+SciPy
+Scikit-learn
 
 
 Simulated using FakeQuebecbackend
+IBM Quebec
+
+Error mitigation using
+MITIQ (delete because this is useless for the Qiskit stuff... try level 2 for ZNE...)
+
 
 \subsection{Dataset}
 We trained our models using three datasets: a function fitting dataset, consisting of a noisy linear, quadratic, and sine function, used for model calibration; a dataset consisting of electronic structure features to predict wavefunctions using the data-driven coupled-cluster scheme of Townsend and Vogiatzis \cite{townsend_data-driven_2019}; and a dataset of bond separation energies (BSE) of molecules, where the feature set encodes structural information of each molecule. 
-
-For the function fitting dataset, there is only one feature per target value.
-For the DDCC dataset, there are initially X features, reduced down to 5 and 16 features, respectively, using SHapley Additive exPlanation (SHAP) values.\cite{lundberg_unified_2017} 
-
-
-\begin{equation}
-	t^{ab}_{ij(\text{MP2})} = \frac{\mel{ij}{}{ab}}{\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}}
-	\label{eq:MP2_t2}
-\end{equation}
-
-For each $t^{ab}_{ij(\text{CCSD})}$, orbital energies ($\varepsilon_{i},\varepsilon_{j},\varepsilon_{a},\varepsilon_{b}$), Coulomb and exchange integrals ($J^{i}_{a},J^{j}_{b},K^{a}_{i},K^{b}_{j}$), binary feature whether two electrons are promoted to the same virtual orbital, the initial MP2 amplitudes, along with the numerator (two-electron integrals ($\mel{ij}{}{ab}$)) and denominator $\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}$.
-
-
-
-For the BSE dataset, various molecular representations are explored, and we settled on using Morgan fingerprints with X parameters. 
-For the feature reduction, we use PCA, as explained in Section
-
-
-
-% Make distribution plot
-%\begin{figure}[H]
-%	\centering
-%	\includegraphics[width=\linewidth]{images/BSE.png}
-%	\caption{BSE}
-%	\label{fig:BSE}
-%\end{figure}
 
 
 \begin{figure}[H]
@@ -578,8 +553,328 @@ For the feature reduction, we use PCA, as explained in Section
 	\label{fig:train_vs_test}
 \end{figure}
 
+
+
+For the function fitting dataset, there is only one feature per target value.
+
+
+
+
+
+
+For the BSE dataset, various molecular representations are explored, and we settled on using Morgan fingerprints with X parameters. 
+For the feature reduction, we use PCA, as explained in Section
+
+\begin{figure}[H]
+	\centering	
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../classical_testing/BSE/BSE_16_learning_curve}
+		\caption{}
+		\label{fig:bse16learningcurve}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../classical_testing/BSE/classical_funcfit}
+		\caption{}
+		\label{fig:classicalfuncfit}
+	\end{subfigure}
+	\caption{}
+	\label{fig:bse16classical}	
+\end{figure}
+
+
+
+
+
+
+For the DDCC dataset, there are initially X features, reduced down to 5 and 16 features, respectively, using SHapley Additive exPlanation (SHAP) values.\cite{lundberg_unified_2017} 
+
+
+\begin{equation}
+	t^{ab}_{ij(\text{MP2})} = \frac{\mel{ij}{}{ab}}{\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}}
+	\label{eq:MP2_t2}
+\end{equation}
+
+For each $t^{ab}_{ij(\text{CCSD})}$, orbital energies ($\varepsilon_{i},\varepsilon_{j},\varepsilon_{a},\varepsilon_{b}$), Coulomb and exchange integrals ($J^{i}_{a},J^{j}_{b},K^{a}_{i},K^{b}_{j}$), binary feature whether two electrons are promoted to the same virtual orbital, the initial MP2 amplitudes, along with the numerator (two-electron integrals ($\mel{ij}{}{ab}$)) and denominator $\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}$.
+
+
+
+
+
+
+% Make distribution plot
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=\linewidth]{images/BSE.png}
+%	\caption{BSE}
+%	\label{fig:BSE}
+%\end{figure}
+
+
+
+
 \section{Results and Discussion}
 \label{section:results_and_discussion}
+
+
+
+\subsection{Classical Data Analysis}
+
+
+ 
+
+ \begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{images/BSE/classical_features_MAE.png}
+		\caption{}
+		\label{fig:BSE_bse_classical_features_MAE}
+	\end{subfigure}
+	\hfill		
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{images/BSE/classical_features_R2.png}
+		\caption{}
+		\label{fig:BSE_classical_features_R2}
+	\end{subfigure}
+	\hfill		
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{images/DDCC/DDCC_feature_set.png}
+		\caption{}
+		\label{fig:DDCC_feature_set}
+	\end{subfigure}
+	\hfill	
+	\caption{}
+	\label{fig:chemical_classical_features}
+\end{figure}
+
+
+\subsection{Function Fitting}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{images/Function_Fitting/fivequbit/linear_heatplots.png}
+		\caption{}
+		\label{fig:linear_heatplots}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{images/Function_Fitting/fivequbit/linear_boxplots.png}
+		\caption{}
+		\label{fig:linear_boxplots}
+	\end{subfigure}
+	\hfill	
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{images/Function_Fitting/fivequbit/quadratic_heatplots.png}
+		\caption{}
+		\label{fig:quadratic_heatplots}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{images/Function_Fitting/fivequbit/quadratic_boxplots.png}
+		\caption{}
+		\label{fig:quadratic_boxplots}
+	\end{subfigure}
+	\hfill		
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{images/Function_Fitting/fivequbit/sine_heatplots.png}
+		\caption{}
+		\label{fig:sine_heatplots}
+	\end{subfigure}
+	\hfill		
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{images/Function_Fitting/fivequbit/sine_boxplots.png}
+		\caption{}
+		\label{fig:sine_boxplots}
+	\end{subfigure}
+	\hfill		
+	\caption{}
+	\label{fig:fivequbit_ff_heat}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{images/Function_Fitting/sixteenqubit/linear_heatplots.png}
+		\caption{}
+		\label{fig:sixteenlinear_heatplots}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{images/Function_Fitting/sixteenqubit/linear_boxplots.png}
+		\caption{}
+		\label{fig:sixteenlinear_boxplots}
+	\end{subfigure}
+	\hfill	
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{images/Function_Fitting/sixteenqubit/quadratic_heatplots.png}
+		\caption{}
+		\label{fig:sixteenquadratic_heatplots}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{images/Function_Fitting/sixteenqubit/quadratic_boxplots.png}
+		\caption{}
+		\label{fig:sixteenquadratic_boxplots}
+	\end{subfigure}
+	\hfill		
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{images/Function_Fitting/sixteenqubit/sine_heatplots.png}
+		\caption{}
+		\label{fig:sixteensine_heatplots}
+	\end{subfigure}
+	\hfill		
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{images/Function_Fitting/sixteenqubit/sine_boxplots.png}
+		\caption{}
+		\label{fig:sixteensine_boxplots}
+	\end{subfigure}
+	\hfill		
+	\caption{}
+	\label{fig:sixteensixteenqubit_ff_heat}
+\end{figure}
+
+
+
+\begin{figure}[H]
+	\centering	
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/Function_Fitting/sixteenqubit/16qubit_Linear_RUD_AL}
+		\caption{}
+		\label{fig:16qubit_Linear_RUD_AL}
+	\end{subfigure}
+	\hfill	
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/Function_Fitting/linear_circuitdepth_vs_R2}
+		\caption{}
+		\label{fig:linear_circuitdepth_vs_R2}
+	\end{subfigure}
+	\hfill		
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/Function_Fitting/sixteenqubit/16qubit_Quadratic_RUD_AL}
+		\caption{}
+		\label{fig:16qubit_Quadratic_RUD_AL}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/Function_Fitting/quadratic_circuitdepth_vs_R2}
+		\caption{}
+		\label{fig:quadratic_circuitdepth_vs_R2}
+	\end{subfigure}
+	\hfill		
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/Function_Fitting/sixteenqubit/16qubit_Linear_RUD_AL}
+		\caption{}
+		\label{fig:16qubitlinearrudal}
+	\end{subfigure}	
+	\hfill
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/Function_Fitting/sine_circuitdepth_vs_R2}
+		\caption{}
+		\label{fig:sine_circuitdepth_vs_R2}
+	\end{subfigure}
+	\hfill		
+	\caption{}
+	\label{fig:16qubit_RUD_AL}	
+\end{figure}
+
+
+
+
+\begin{figure}[H]
+	\centering	
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/Function_Fitting/linear_learning_curves.png}
+		\caption{}
+		\label{fig:linear_learning_curves}
+	\end{subfigure}
+	\hfill	
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/Function_Fitting/quadratic_learning_curves.png}
+		\caption{}
+		\label{fig:quadratic_learning_curves}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/Function_Fitting/sine_learning_curves.png}
+		\caption{}
+		\label{fig:sine_learning_curves}
+	\end{subfigure}	
+	\caption{}
+	\label{fig:functionfitting_learning_curves}	
+\end{figure}
+
+
+\subsection{BSE}
+
+\subsection{DDCC}
+
+
+
+
+\begin{figure}[H]
+	\centering	
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/DDCC/DDCC_heatplots}
+		\caption{}
+		\label{fig:ddccheatplots}
+	\end{subfigure}
+	\hfill	
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/DDCC/DDCC_boxplots}
+		\caption{}
+		\label{fig:ddccboxplots}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/DDCC/AllDDCC5_circuitdepth_R2_vs_iterationtime}
+		\caption{}
+		\label{fig:allddcc5circuitdepthr2vsiterationtime}
+	\end{subfigure}	
+	\caption{}
+	\label{fig:ddcc_all_analysis}	
+\end{figure}
+
+
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{images/DDCC/DDCC_RUDAL}
+	\caption{}
+	\label{fig:ddccrudal}
+\end{figure}
+
+
 
 
 Ansaetze analysis \cite{sim_expressibility_2019}
