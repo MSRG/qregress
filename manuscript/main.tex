@@ -371,31 +371,41 @@ where $H_{i}$ denotes a Hadamard gate on qubit $i$ and $ZZ_{ij}$ denotes a two-q
 	\centering
 	\begin{subfigure}{0.3\textwidth}
 		\centering
-		\includegraphics[width=\columnwidth]{images/encoders/quantikz/A1.png}
+		\includegraphics[width=\textwidth]{images/encoders/quantikz/A1.png}
 		\caption{}
 		\label{fig:A1}		
 	\end{subfigure}%
 	\hfill
 	\begin{subfigure}{0.3\textwidth}
 		\centering
-		\includegraphics[width=\columnwidth]{images/encoders/quantikz/A2.png}
+		\includegraphics[width=\textwidth]{images/encoders/quantikz/A2.png}
 		\caption{}
 		\label{fig:A2}		
 	\end{subfigure}%
 	\hfill
 	\begin{subfigure}{0.3\textwidth}
 		\centering
-		\includegraphics[width=1\columnwidth]{images/encoders/quantikz/M.png}
+		\includegraphics[width=1\textwidth]{images/encoders/quantikz/M.png}
 		\caption{}
 		\label{fig:M}		
 	\end{subfigure}%	  
 	\hfill
 	\begin{subfigure}{1\textwidth}
 		\centering
-		    \includegraphics[width=\columnwidth]{images/encoders/quantikz/IQP.png}
+		    \includegraphics[width=\textwidth]{images/encoders/quantikz/IQP.png}
 		\caption{}
 		\label{fig:IQP}
 	\end{subfigure}%
+	\caption{(a) Single angle (A1) encoding, (b) double angle (A2) encoding, (c) Mitarai (M) encoding, and (d) Instantaneous Quantum Polynomial (IQP) encoding}
+	\label{fig:encoders}
+\end{figure}
+
+
+
+  
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{images/encoders/quantikz/combined.png}
 	\caption{(a) Single angle (A1) encoding, (b) double angle (A2) encoding, (c) Mitarai (M) encoding, and (d) Instantaneous Quantum Polynomial (IQP) encoding}
 	\label{fig:encoders}
 \end{figure}
@@ -479,13 +489,20 @@ Hadamard
 Modified-Pauli-CRX
 Modified-Pauli-CRZ
 
-\begin{quantikz}
-	\lstick{$q_0$} & \gate{H} & \gate{R_{Y} (\arcsin(x_{0}^{2}))} & \gate{R_{Z} (\arccos(x_{0})^{2})} & \\
-	\lstick{$q_1$} & \gate{H} & \gate{R_{Y} (\arcsin(x_{1}^{2}))} & \gate{R_{Z} (\arccos(x_{1})^{2})} & \\
-	\lstick{$q_2$} & \gate{H} & \gate{R_{Y} (\arcsin(x_{2}^{2}))} & \gate{R_{Z} (\arccos(x_{2})^{2})} & \\
-	\setwiretype{n} \lstick{}  & \myvdots & \myvdots & \myvdots & \\
-	\lstick{$q_n$} & \gate{H} & \gate{R_{Y} (\arcsin(x_{n}^{2}))} & \gate{R_{Z} (\arccos(x_{n})^{2})} & \\
-\end{quantikz}
+
+
+
+
+
+
+
+ 
+ 	
+
+ 	
+
+
+
 
 
 

@@ -1,0 +1,20 @@
+\documentclass[preview, border=1mm]{standalone}
+\usepackage{tikz} %Format quantum circuits
+\usetikzlibrary{quantikz2}%Format quantum circuits
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools,physics}
+\def\myvdots{\ \vdots\ }
+
+\begin{document}
+
+%Efficient-CRX
+\begin{quantikz}
+	\lstick{$q_0$} & \gate{RX} & \gate{RZ} & \ctrl{1} & & & &\\
+	\lstick{$q_1$} & \gate{RX} & \gate{RZ} & \gate{RX} & \ctrl{1}& & &\\
+	\lstick{$q_2$} & \gate{RX} & \gate{RZ} & & \gate{RX} & \ctrl{1} & &\\
+	\lstick{$q_3$} & \gate{RX} & \gate{RZ} & & & \gate{RX} & \ctrl{1} &\\
+	\lstick{$q_4$} & \gate{RX} & \gate{RZ} & & &  & \gate{RX} & \\
+\end{quantikz}
+
+
+\end{document}

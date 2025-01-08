@@ -1,0 +1,18 @@
+\documentclass[preview, border=1mm]{standalone}
+\usepackage{tikz} %Format quantum circuits
+\usetikzlibrary{quantikz2}%Format quantum circuits
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools,physics}
+\def\myvdots{\ \vdots\ }
+
+\begin{document}
+% ESU2
+\begin{quantikz}
+	\lstick{$q_0$} & \gate{RY} & \gate{RZ} & \ctrl{1} & & &  &\\
+	\lstick{$q_1$} & \gate{RY} & \gate{RZ} & \targ{} & \ctrl{1}& &  & \\
+	\lstick{$q_2$} & \gate{RY} & \gate{RZ} & & \targ{} & \ctrl{1} &  &\\
+	\lstick{$q_3$} & \gate{RY } & \gate{RZ} & & & \targ{} & \ctrl{1} &\\
+	\lstick{$q_4$} & \gate{RY } & \gate{RZ} & & &  & \targ{} &\\	
+\end{quantikz}
+              
+\end{document}
