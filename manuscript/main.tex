@@ -508,19 +508,21 @@ In practice, $\mathcal{L}$ can be any loss function but we choose to use the mea
 
 \subsection{Implementation}
 Python
-Pennylane
-Pennylane Qiskit
-Pennylane Qulacs
-Qiskit
-SciPy
-Scikit-learn
+Pennylane\cite{bergholm_pennylane_2022}
+Pennylane Qiskit\cite{javadi-abhari_quantum_2024}
+Pennylane Qulacs\cite{suzuki_qulacs_2021}
+Qiskit\cite{javadi-abhari_quantum_2024}
+SciPy Minimize \cite{virtanen_scipy_2020}
+Scikit-learn\cite{pedregosa_scikit-learn_2011}
 
+``All HF calculations were performed in the Psi4 \cite{parrish_psi4_2017} program. The MP2 and coupled-cluster calculations were performed using the Psi4Numpy \cite{smith_psi4numpy_2018} spin-factored CCSD implementation. \cite{stanton_direct_1991}''
 
 Simulated using FakeQuebecbackend
 IBM Quebec
 
 Error mitigation using
-MITIQ (delete because this is useless for the Qiskit stuff... try level 2 for ZNE...)
+TREX \cite{van_den_berg_model-free_2022}
+
 
 
 \subsection{Dataset}
@@ -603,29 +605,7 @@ For each $t^{ab}_{ij(\text{CCSD})}$, orbital energies ($\varepsilon_{i},\varepsi
 
 
 
-
-% Make distribution plot
-%\begin{figure}[H]
-%	\centering
-%	\includegraphics[width=\linewidth]{../images/BSE.png}
-%	\caption{BSE}
-%	\label{fig:BSE}
-%\end{figure}
-
-
-
-
-\section{Results and Discussion}
-\label{section:results_and_discussion}
-
-
-
-\subsection{Classical Data Analysis}
-
-
- 
-
- \begin{figure}[H]
+\begin{figure}[H]
 	\centering
 	\begin{subfigure}[b]{0.49\textwidth}
 		\centering
@@ -651,6 +631,28 @@ For each $t^{ab}_{ij(\text{CCSD})}$, orbital energies ($\varepsilon_{i},\varepsi
 	\caption{}
 	\label{fig:chemical_classical_features}
 \end{figure}
+
+% Make distribution plot
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=\linewidth]{../images/BSE.png}
+%	\caption{BSE}
+%	\label{fig:BSE}
+%\end{figure}
+
+
+
+
+\section{Results and Discussion}
+\label{section:results_and_discussion}
+
+
+
+
+
+
+ 
+
 
 
 \subsection{Function Fitting}
@@ -829,6 +831,30 @@ For each $t^{ab}_{ij(\text{CCSD})}$, orbital energies ($\varepsilon_{i},\varepsi
 	\caption{}
 	\label{fig:functionfitting_learning_curves}	
 \end{figure}
+
+
+
+
+\begin{figure}[H]
+	\centering	
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../images/Function_Fitting/linear_error_mitigation.png}
+		\caption{}
+		\label{fig:linear_error_mitigation}
+	\end{subfigure}
+	\hfill	
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../images/Function_Fitting/quadratic_error_mitigation.png}
+		\caption{}
+		\label{fig:linear_error_mitigation}
+	\end{subfigure}	
+	\caption{}
+	\label{fig:functionfitting_errormitigation}	
+\end{figure}
+
+
 
 
 \subsection{BSE}
