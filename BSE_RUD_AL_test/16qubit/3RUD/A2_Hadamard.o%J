@@ -35,3 +35,114 @@ JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU  
 14044115     3RUD_A2_H+ rrg-fekl-+ 1-00:00:04                        00:00.120  00:00.085      0:0 
 14044115.ba+      batch rrg-fekl-+ 1-00:00:05  67963300K   7859304K  00:00.119  00:00.085     0:15 
 14044115.ex+     extern rrg-fekl-+ 1-00:00:05    136828K      1028K   00:00:00   00:00:00      0:0 
+
+scontrol show job 14049554
+JobId=14049554 JobName=3RUD_A2_Hadamard
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1455036 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=TimeLimit Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:15
+   RunTime=1-00:00:08 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2025-01-07T10:17:39 EligibleTime=2025-01-07T10:17:39
+   AccrueTime=2025-01-07T10:17:39
+   StartTime=2025-01-07T10:32:15 EndTime=2025-01-08T10:32:23 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2025-01-07T10:32:15 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login05:198154
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia0841
+   BatchHost=nia0841
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=0 MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/3RUD/A2_Hadamard.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/3RUD
+   Comment=/opt/slurm/bin/sbatch --export=NONE A2_Hadamard.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/3RUD/A2_Hadamard.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/3RUD/A2_Hadamard.o%J
+   
+
+sacct -j 14049554
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+14049554     3RUD_A2_H+ rrg-fekl-+ 1-00:00:08                        00:00.126  00:00.084      0:0 
+14049554.ba+      batch rrg-fekl-+ 1-00:00:10  67963092K   7852832K  00:00.125  00:00.084     0:15 
+14049554.ex+     extern rrg-fekl-+ 1-00:00:11    136828K      1032K   00:00:00   00:00:00      0:0 
+
+scontrol show job 14055325
+JobId=14055325 JobName=3RUD_A2_Hadamard
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1536498 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=TimeLimit Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:15
+   RunTime=1-00:00:32 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2025-01-09T12:13:51 EligibleTime=2025-01-09T12:13:51
+   AccrueTime=2025-01-09T12:13:51
+   StartTime=2025-01-09T12:29:13 EndTime=2025-01-10T12:29:45 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2025-01-09T12:29:13 Scheduler=Backfill
+   Partition=compute AllocNode:Sid=nia-login02:125510
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia0508
+   BatchHost=nia0508
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=175000M MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/3RUD/A2_Hadamard.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/3RUD
+   Comment=/opt/slurm/bin/sbatch --export=NONE A2_Hadamard.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/3RUD/A2_Hadamard.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/3RUD/A2_Hadamard.o%J
+   
+
+sacct -j 14055325
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+14055325     3RUD_A2_H+ rrg-fekl-+ 1-00:00:32                        00:00.108  00:00.091      0:0 
+14055325.ba+      batch rrg-fekl-+ 1-00:00:35  68265072K   7860428K  00:00.108  00:00.090     0:15 
+14055325.ex+     extern rrg-fekl-+ 1-00:00:35    136828K      1032K   00:00:00   00:00:00      0:0 
+
+scontrol show job 14059153
+JobId=14059153 JobName=3RUD_A2_Hadamard
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1495028 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=TimeLimit Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:15
+   RunTime=1-00:00:25 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2025-01-10T14:55:01 EligibleTime=2025-01-10T14:55:01
+   AccrueTime=2025-01-10T14:55:01
+   StartTime=2025-01-10T15:33:55 EndTime=2025-01-11T15:34:20 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2025-01-10T15:33:55 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login05:163950
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia0533
+   BatchHost=nia0533
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=0 MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/3RUD/A2_Hadamard.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/3RUD
+   Comment=/opt/slurm/bin/sbatch --export=NONE A2_Hadamard.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/3RUD/A2_Hadamard.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/3RUD/A2_Hadamard.o%J
+   
+
+sacct -j 14059153
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+14059153     3RUD_A2_H+ rrg-fekl-+ 1-00:00:25                        00:00.109  00:00.090      0:0 
+14059153.ba+      batch rrg-fekl-+ 1-00:00:27  67963812K   7868204K  00:00.108  00:00.090     0:15 
+14059153.ex+     extern rrg-fekl-+ 1-00:00:27    136828K       852K   00:00:00   00:00:00      0:0 
