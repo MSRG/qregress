@@ -1,0 +1,185 @@
+
+scontrol show job 14044111
+JobId=14044111 JobName=5RUD_A2_Hadamard
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1540003 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=TimeLimit Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:15
+   RunTime=1-00:00:04 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2025-01-05T19:12:46 EligibleTime=2025-01-05T19:12:46
+   AccrueTime=2025-01-05T19:12:46
+   StartTime=2025-01-05T19:13:25 EndTime=2025-01-06T19:13:29 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2025-01-05T19:13:25 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login02:189287
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia0061
+   BatchHost=nia0061
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=0 MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=./A2_Hadamard.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/5RUD
+   Comment=/opt/slurm/bin/sbatch ./A2_Hadamard.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/5RUD/A2_Hadamard.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/5RUD/A2_Hadamard.o%J
+   
+
+sacct -j 14044111
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+14044111     5RUD_A2_H+ rrg-fekl-+ 1-00:00:04                        00:00.112  00:02.093      0:0 
+14044111.ba+      batch rrg-fekl-+ 1-00:00:05  57300048K   6347416K  00:00.111  00:02.093     0:15 
+14044111.ex+     extern rrg-fekl-+ 1-00:00:05    136828K      1028K   00:00:00   00:00:00      0:0 
+
+scontrol show job 14049556
+JobId=14049556 JobName=5RUD_A2_Hadamard
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1455035 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=TimeLimit Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:15
+   RunTime=1-00:00:08 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2025-01-07T10:18:12 EligibleTime=2025-01-07T10:18:12
+   AccrueTime=2025-01-07T10:18:12
+   StartTime=2025-01-07T10:32:15 EndTime=2025-01-08T10:32:23 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2025-01-07T10:32:15 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login05:198154
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia0500
+   BatchHost=nia0500
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=0 MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/5RUD/A2_Hadamard.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/5RUD
+   Comment=/opt/slurm/bin/sbatch --export=NONE A2_Hadamard.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/5RUD/A2_Hadamard.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/5RUD/A2_Hadamard.o%J
+   
+
+sacct -j 14049556
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+14049556     5RUD_A2_H+ rrg-fekl-+ 1-00:00:08                        00:00.116  00:00.088      0:0 
+14049556.ba+      batch rrg-fekl-+ 1-00:00:10  57409720K   6414364K  00:00.116  00:00.087     0:15 
+14049556.ex+     extern rrg-fekl-+ 1-00:00:11    136828K      1032K   00:00:00   00:00:00      0:0 
+
+scontrol show job 14055326
+JobId=14055326 JobName=5RUD_A2_Hadamard
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1536498 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=TimeLimit Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:15
+   RunTime=1-00:00:32 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2025-01-09T12:13:57 EligibleTime=2025-01-09T12:13:57
+   AccrueTime=2025-01-09T12:13:57
+   StartTime=2025-01-09T12:29:13 EndTime=2025-01-10T12:29:45 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2025-01-09T12:29:13 Scheduler=Backfill
+   Partition=compute AllocNode:Sid=nia-login02:125510
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia0509
+   BatchHost=nia0509
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=175000M MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/5RUD/A2_Hadamard.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/5RUD
+   Comment=/opt/slurm/bin/sbatch --export=NONE A2_Hadamard.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/5RUD/A2_Hadamard.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/5RUD/A2_Hadamard.o%J
+   
+
+sacct -j 14055326
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+14055326     5RUD_A2_H+ rrg-fekl-+ 1-00:00:32                        00:00.113  00:00.086      0:0 
+14055326.ba+      batch rrg-fekl-+ 1-00:00:35  58730356K   6342000K  00:00.112  00:00.086     0:15 
+14055326.ex+     extern rrg-fekl-+ 1-00:00:35    136828K       844K   00:00:00   00:00:00      0:0 
+
+scontrol show job 14059155
+JobId=14059155 JobName=5RUD_A2_Hadamard
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1495028 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=TimeLimit Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:15
+   RunTime=1-00:00:26 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2025-01-10T14:55:09 EligibleTime=2025-01-10T14:55:09
+   AccrueTime=2025-01-10T14:55:09
+   StartTime=2025-01-10T15:33:55 EndTime=2025-01-11T15:34:21 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2025-01-10T15:33:55 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login05:163950
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia0670
+   BatchHost=nia0670
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=0 MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/5RUD/A2_Hadamard.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/5RUD
+   Comment=/opt/slurm/bin/sbatch --export=NONE A2_Hadamard.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/5RUD/A2_Hadamard.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/5RUD/A2_Hadamard.o%J
+   
+
+sacct -j 14059155
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+14059155     5RUD_A2_H+ rrg-fekl-+ 1-00:00:26                        00:00.112  00:00.089      0:0 
+14059155.ba+      batch rrg-fekl-+ 1-00:00:27  57301076K   6382880K  00:00.111  00:00.089     0:15 
+14059155.ex+     extern rrg-fekl-+ 1-00:00:27    136828K       844K   00:00:00   00:00:00      0:0 
+
+scontrol show job 14064048
+JobId=14064048 JobName=5RUD_A2_Hadamard
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1532999 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:15:21 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2025-01-13T10:11:21 EligibleTime=2025-01-13T10:11:21
+   AccrueTime=2025-01-13T10:11:21
+   StartTime=2025-01-13T10:19:25 EndTime=2025-01-13T10:34:46 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2025-01-13T10:19:25 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login05:93270
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia0631
+   BatchHost=nia0631
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=175000M MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/5RUD/A2_Hadamard.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/5RUD
+   Comment=/opt/slurm/bin/sbatch --export=NONE A2_Hadamard.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/5RUD/A2_Hadamard.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/16qubit/5RUD/A2_Hadamard.o%J
+   
+
+sacct -j 14064048
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+14064048     5RUD_A2_H+ rrg-fekl-+   00:15:21                         00:00:00   00:00:00      0:0 
+14064048.ba+      batch rrg-fekl-+   00:15:21                         00:00:00   00:00:00      0:0 
+14064048.ex+     extern rrg-fekl-+   00:15:21                         00:00:00   00:00:00      0:0 
