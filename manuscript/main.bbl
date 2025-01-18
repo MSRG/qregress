@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{38}
+\begin{mcitethebibliography}{43}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -292,6 +292,16 @@ Pérez-Salinas,~A.; Cervera-Lierta,~A.; Gil-Fuster,~E.; Latorre,~J.~I. Data
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
+\bibitem[Suzuki \latin{et~al.}(2021)Suzuki, Kawase, Masumura, Hiraga, Nakadai,
+  Chen, Nakanishi, Mitarai, Imai, Tamiya, Yamamoto, Yan, Kawakubo, Nakagawa,
+  Ibe, Zhang, Yamashita, Yoshimura, Hayashi, and Fujii]{suzuki_qulacs_2021}
+Suzuki,~Y. \latin{et~al.}  Qulacs: a fast and versatile quantum circuit
+  simulator for research purpose. \emph{Quantum} \textbf{2021}, \emph{5}, 559,
+  arXiv:2011.13524 [quant-ph]\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
 \bibitem[Javadi-Abhari \latin{et~al.}(2024)Javadi-Abhari, Treinish, Krsulich,
   Wood, Lishman, Gacon, Martiel, Nation, Bishop, Cross, Johnson, and
   Gambetta]{javadi-abhari_quantum_2024}
@@ -299,16 +309,6 @@ Javadi-Abhari,~A.; Treinish,~M.; Krsulich,~K.; Wood,~C.~J.; Lishman,~J.;
   Gacon,~J.; Martiel,~S.; Nation,~P.~D.; Bishop,~L.~S.; Cross,~A.~W.;
   Johnson,~B.~R.; Gambetta,~J.~M. Quantum computing with {Qiskit}. 2024;
   \_eprint: 2405.08810\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Suzuki \latin{et~al.}(2021)Suzuki, Kawase, Masumura, Hiraga, Nakadai,
-  Chen, Nakanishi, Mitarai, Imai, Tamiya, Yamamoto, Yan, Kawakubo, Nakagawa,
-  Ibe, Zhang, Yamashita, Yoshimura, Hayashi, and Fujii]{suzuki_qulacs_2021}
-Suzuki,~Y. \latin{et~al.}  Qulacs: a fast and versatile quantum circuit
-  simulator for research purpose. \emph{Quantum} \textbf{2021}, \emph{5}, 559,
-  arXiv:2011.13524 [quant-ph]\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -336,6 +336,83 @@ Pedregosa,~F. \latin{et~al.}  Scikit-learn: {Machine} {Learning} in {Python}.
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
+\bibitem[Rupp \latin{et~al.}(2012)Rupp, Tkatchenko, Müller, and
+  Lilienfeld]{rupp_fast_2012}
+Rupp,~M.; Tkatchenko,~A.; Müller,~K.~R.; Lilienfeld,~O. A.~v. Fast and
+  accurate modeling of molecular atomization energies with machine learning.
+  \emph{Physical Review Letters} \textbf{2012}, \emph{108}\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Rogers and Hahn(2010)Rogers, and
+  Hahn]{rogers_extended-connectivity_2010}
+Rogers,~D.; Hahn,~M. Extended-connectivity fingerprints. \emph{Journal of
+  Chemical Information and Modeling} \textbf{2010}, \emph{50}, 742--754,
+  Publisher: American Chemical Society\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Durant \latin{et~al.}(2002)Durant, Leland, Henry, and
+  Nourse]{durant_reoptimization_2002}
+Durant,~J.~L.; Leland,~B.~A.; Henry,~D.~R.; Nourse,~J.~G. Reoptimization of
+  {MDL} {Keys} for {Use} in {Drug} {Discovery}. \emph{Journal of Chemical
+  Information and Computer Sciences} \textbf{2002}, \emph{42}, 1273--1280\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Adams \latin{et~al.}(2017)Adams, Emerson, Kirby, Neville, Peterson,
+  Shipman, Chepushtanova, Hanson, Motta, and
+  Ziegelmeier]{adams_persistence_2017}
+Adams,~H.; Emerson,~T.; Kirby,~M.; Neville,~R.; Peterson,~C.; Shipman,~P.;
+  Chepushtanova,~S.; Hanson,~E.; Motta,~F.; Ziegelmeier,~L. Persistence
+  {Images}: {A} {Stable} {Vector} {Representation} of {Persistent} {Homology}.
+  \emph{Journal of Machine Learning Research} \textbf{2017}, \emph{18},
+  1--35\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Townsend \latin{et~al.}(2020)Townsend, Micucci, Hymel, Maroulas, and
+  Vogiatzis]{townsend_representation_2020}
+Townsend,~J.; Micucci,~C.~P.; Hymel,~J.~H.; Maroulas,~V.; Vogiatzis,~K.~D.
+  Representation of molecular structures with persistent homology for machine
+  learning applications in chemistry. \emph{Nature Communications}
+  \textbf{2020}, \emph{11}, 3230, Publisher: Nature Research\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Schiff \latin{et~al.}(2022)Schiff, Chenthamarakshan, Hoffman,
+  Natesan~Ramamurthy, and Das]{schiff_augmenting_2022}
+Schiff,~Y.; Chenthamarakshan,~V.; Hoffman,~S.~C.; Natesan~Ramamurthy,~K.;
+  Das,~P. Augmenting {Molecular} {Deep} {Generative} {Models} with
+  {Topological} {Data} {Analysis} {Representations}. {ICASSP} 2022 - 2022
+  {IEEE} {International} {Conference} on {Acoustics}, {Speech} and {Signal}
+  {Processing} ({ICASSP}). 2022; pp 3783--3787\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Morgan(1965)]{morgan_generation_1965}
+Morgan,~H.~L. The {Generation} of a {Unique} {Machine} {Description} for
+  {Chemical} {Structures}-{A} {Technique} {Developed} at {Chemical} {Abstracts}
+  {Service}. \emph{Journal of Chemical Documentation} \textbf{1965}, \emph{5},
+  107--113, Type: Journal Article\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Lundberg and Lee(2017)Lundberg, and Lee]{lundberg_unified_2017}
+Lundberg,~S.~M.; Lee,~S.-I. A {Unified} {Approach} to {Interpreting} {Model}
+  {Predictions}. Advances in {Neural} {Information} {Processing} {Systems}.
+  2017\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
 \bibitem[Parrish \latin{et~al.}(2017)Parrish, Burns, Smith, Simmonett,
   DePrince, Hohenstein, Bozkaya, Sokolov, Di~Remigio, Richard, Gonthier, James,
   McAlexander, Kumar, Saitow, Wang, Pritchard, Verma, Schaefer, Patkowski,
@@ -357,33 +434,6 @@ Smith,~D. G.~A. \latin{et~al.}  {Psi4NumPy}: {An} {Interactive} {Quantum}
   {Chemistry} {Programming} {Environment} for {Reference} {Implementations} and
   {Rapid} {Development}. \emph{J. Chem. Theory Comput.} \textbf{2018},
   \emph{14}, 3504--3511, Publisher: American Chemical Society\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Stanton \latin{et~al.}(1991)Stanton, Gauss, Watts, and
-  Bartlett]{stanton_direct_1991}
-Stanton,~J.~F.; Gauss,~J.; Watts,~J.~D.; Bartlett,~R.~J. A direct product
-  decomposition approach for symmetry exploitation in many‐body methods. {I}.
-  {Energy} calculations. \emph{The Journal of Chemical Physics} \textbf{1991},
-  \emph{94}, 4334--4345\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[van~den Berg \latin{et~al.}(2022)van~den Berg, Minev, and
-  Temme]{van_den_berg_model-free_2022}
-van~den Berg,~E.; Minev,~Z.~K.; Temme,~K. Model-free readout-error mitigation
-  for quantum expectation values. \emph{Phys. Rev. A} \textbf{2022},
-  \emph{105}, 032620, Publisher: American Physical Society\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Lundberg and Lee(2017)Lundberg, and Lee]{lundberg_unified_2017}
-Lundberg,~S.~M.; Lee,~S.-I. A {Unified} {Approach} to {Interpreting} {Model}
-  {Predictions}. Advances in {Neural} {Information} {Processing} {Systems}.
-  2017\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax

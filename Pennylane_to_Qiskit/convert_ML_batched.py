@@ -98,20 +98,6 @@ def HardwareEfficient(quantumcircuit,num_wires,paramname='theta'):
 
 # In[ ]:
 
-
-# def circuit(nqubits):
-#     qc = QuantumCircuit(nqubits)
-#     mitarai(qc,nqubits)
-#     entangle_cz(qc,nqubits)
-#     qc.barrier()
-#     mitarai(qc,nqubits,paramname='x1')
-#     entangle_cz(qc,nqubits)
-#     qc.barrier()
-#     HardwareEfficient(qc,nqubits)
-#     qc.barrier()
-#     return qc
-
-
 def circuit(nqubits,RUD=1):
     qc = QuantumCircuit(nqubits)
     for i in range(RUD):
@@ -517,7 +503,7 @@ cost_history_dict = {
 res = minimize(cost_func,
     x0,
     args=(qc, mapped_observables, num_qubits, X_train, y_train, cost_history_dict, _backend, 1024.0, 1, n_jobs),
-    method="cobyla", options={'maxiter':10})  
+    method="cobyla", options={'maxiter':100})  
 
 x0 = res.x
 loss = res.fun    

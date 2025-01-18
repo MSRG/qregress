@@ -98,7 +98,6 @@
 %%%
 
 \usepackage{xcite}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %----Helper code for dealing with external references----
 % (by cyberSingularity at http://tex.stackexchange.com/a/69832/226)
@@ -279,7 +278,7 @@ While several examples exist for PQCs applied to chemical applications, they are
 Herein, we explore two different chemical datasets: one consisting of bond separation energies of 49 unique bond types, called the BSE49 dataset\cite{prasad_bse49_2021}, and another which utilizes data-driven coupled cluster (DDCC)\cite{townsend_data-driven_2019} to predict the coupled-cluster singles and doubles wave function parameters using lower-level quantum chemistry methods.
 
 In this study, we create a robust Python code base for exploring a set of 14 data-encoding and 12 variational (ansatz) subcircuits for a total of 168 combined PQCs.
-Our work includes the single and double encoding layers found in the paper of Suzuki and Katouda\cite{suzuki_predicting_2020}, including the encoding of Mitarai \textit{et al.}\cite{mitarai_quantum_2018}, along with using instantanious quantum polynomial (IQP) as an encoding layer. \cite{bremner_average-case_2015}
+Our work includes the single and double encoding layers found in the paper of Suzuki and Katouda\cite{suzuki_predicting_2020}, including the encoding of Mitarai \textit{et al.}\cite{mitarai_quantum_2018}, along with using instantanious quantum polynomial (IQP) as an encoding layer. \cite{bremner_average-case_2016}
 All of our variational (ansatz) layers can be found in the study of Sim \textit{et al.}\cite{sim_expressibility_2019}, where the expressiblity and entanglement capability of these circuits is analyzed.
 We also examine the effects of the number of re-upload and ansatz layers, the effects of feature set size, and various error mitigation techniques. 
 
@@ -549,50 +548,31 @@ The normalized versions are shown in Fig. \ref{fig:train_vs_test}.
 	\label{fig:train_vs_test}
 \end{figure}
 
+\cite{rupp_fast_2012}
+\cite{rogers_extended-connectivity_2010}
 
-The first chemical dataset we explore is the BSE49 dataset. 
-This dataset consists of homolytic bond cleavages of X molecules and 49 unique bond types.
+The first chemical dataset we explore is the BSE49 dataset which consists of homolytic bond cleavages, such as \ce{A-B -> A^{.} + B^{.}}, of X molecules with 49 unique bond types.
 One important aspect of this dataset is the choice of molecular representation, or how the molecule is represented in the machine learning models.
+To find the optimal molecular representation, we examined five different molecular representations including Coulomb Matrices \cite{rupp_fast_2012}, Molecular ACCess Systems fingerprint (MACCS)\cite{durant_reoptimization_2002}, persistence images (PIs) \cite{adams_persistence_2017,townsend_representation_2020,schiff_augmenting_2022}, RDKit [cite], and Morgan or extended-connectivity fingerprints \cite{morgan_generation_1965,rogers_extended-connectivity_2010}.
+For each representation we tested two different choices of representation, one based on the the products minus the reactants, denoted by \textit{sub}, similar to the method used in [cite], and one based on just the reactants, denoted as \textit{AB}.
+We use the same 80\% train/20\% test split as we use throughout our studies. 
+We found that the best molecular representation across all models test, as shown in Fig. \ref{fig:classicalfuncfit}, was Morgan fingerprints using the \textit{sub} formulation.
 
-
-
-
-
-For the BSE dataset, various molecular representations are explored, and we settled on using Morgan fingerprints with X parameters. 
-80\% train 20\%test Fig. \ref{fig:classicalfuncfit} 
-\ref{fig:BSE_classical_features_R2} and \ref{fig:BSE_bse_classical_features_MAE}
-
-For the feature reduction, we use PCA, as explained in Section
-
-\begin{figure}[H]
-	\centering	
-	\includegraphics[width=\linewidth]{../classical_testing/BSE/classical_funcfit}
-	\caption{}
-	\label{fig:classicalfuncfit}
-\end{figure}
-
-
-
-
-``All HF calculations were performed in the Psi4 \cite{parrish_psi4_2017} program. The MP2 and coupled-cluster calculations were performed using the Psi4Numpy \cite{smith_psi4numpy_2018} spin-factored CCSD implementation. \cite{stanton_direct_1991}''
-
-
-For the DDCC dataset, there are initially X features, reduced down to 5 and 16 features, respectively, using SHapley Additive exPlanation (SHAP) values.\cite{lundberg_unified_2017} 
-
-
-\begin{equation}
-	t^{ab}_{ij(\text{MP2})} = \frac{\mel{ij}{}{ab}}{\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}}
-	\label{eq:MP2_t2}
-\end{equation}
-
-For each $t^{ab}_{ij(\text{CCSD})}$, orbital energies ($\varepsilon_{i},\varepsilon_{j},\varepsilon_{a},\varepsilon_{b}$), Coulomb and exchange integrals ($J^{i}_{a},J^{j}_{b},K^{a}_{i},K^{b}_{j}$), binary feature whether two electrons are promoted to the same virtual orbital, the initial MP2 amplitudes, along with the numerator (two-electron integrals ($\mel{ij}{}{ab}$)) and denominator $\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}$.
-
-
+One challenge of applying classical molecular representations for quantum machine learning models is mapping the classical features, often containing hundreds or thousands of features per sample, to the number of qubits used.
+Using the \textit{sub}-Morgan fingerprints, we explore mapping these features to 5 and 16 qubits, the number of qubits used throughout this study, using SHapley Additive ExPlanation analysis (SHAP)\cite{lundberg_unified_2017} and principal component analysis (PCA).
+We found that the most accurate models, using both 5 and 16 features, were those generated by PCA, as shown in Fig. \ref{fig:BSE_classical_features_R2} and \ref{fig:BSE_bse_classical_features_MAE}.
 
 
 
 \begin{figure}[H]
 	\centering
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering	
+		\includegraphics[width=\linewidth]{../classical_testing/BSE/classical_funcfit}
+		\caption{}
+		\label{fig:classicalfuncfit}
+	\end{subfigure}
+	\hfill	
 	\begin{subfigure}[b]{0.49\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{../images/BSE/classical_features_MAE.png}
@@ -606,17 +586,37 @@ For each $t^{ab}_{ij(\text{CCSD})}$, orbital energies ($\varepsilon_{i},\varepsi
 		\caption{}
 		\label{fig:BSE_classical_features_R2}
 	\end{subfigure}
-	\hfill		
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/DDCC/DDCC_feature_set.png}
-		\caption{}
-		\label{fig:DDCC_feature_set}
-	\end{subfigure}
-	\hfill	
 	\caption{}
-	\label{fig:chemical_classical_features}
+	\label{fig:bse_classical_features}
 \end{figure}
+
+
+The next chemical dataset explored is based on the Data-Driven Coupled-Cluster (DDCC) methods found in Ref. \cite{townsend_data-driven_2019,jones_chapter_2023}.
+DDCC is a machine learning-based method for accelerating coupled-cluster singles and doubles (CCSD) calculations by predicting the CCSD T2-amplitudes using features generated by a lower-level method, typically Hartree-Fock (HF) and M{\o}ller-Plesset second-order perturbation theory (MP2).
+We generate a database consisting X water molecules with y features for each molecule, using Psi4\cite{parrish_psi4_2017} and Psi4Numpy\cite{smith_psi4numpy_2018}.
+
+
+Like with the BSE dataset, we explore how we can reduce the initial y features down to 5 and 16 features using SHAP and PCA.
+
+\begin{equation}
+	t^{ab}_{ij(\text{MP2})} = \frac{\mel{ij}{}{ab}}{\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}}
+	\label{eq:MP2_t2}
+\end{equation}
+
+For each $t^{ab}_{ij(\text{CCSD})}$, orbital energies ($\varepsilon_{i},\varepsilon_{j},\varepsilon_{a},\varepsilon_{b}$), Coulomb and exchange integrals ($J^{i}_{a},J^{j}_{b},K^{a}_{i},K^{b}_{j}$), binary feature whether two electrons are promoted to the same virtual orbital, the initial MP2 amplitudes, along with the numerator (two-electron integrals ($\mel{ij}{}{ab}$)) and denominator $\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}$.
+
+
+
+
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{../images/DDCC/DDCC_feature_set.png}
+	\caption{}
+	\label{fig:DDCC_feature_set}
+\end{figure}
+
 
 % Make distribution plot
 %\begin{figure}[H]
@@ -625,6 +625,8 @@ For each $t^{ab}_{ij(\text{CCSD})}$, orbital energies ($\varepsilon_{i},\varepsi
 %	\caption{BSE}
 %	\label{fig:BSE}
 %\end{figure}
+
+We utilize the BSE49 and DDCC databases for two different reasons: the BSE49 database consists of a hard chemical property to predict using few features, while the DDCC dataset can be predicted easily using few features classically but is data intensive in the sense that for every molecule you will have $N_{occ}^{2}\cdot N_{virt}^{2}$ entries.
 
 
 
@@ -834,7 +836,7 @@ For each $t^{ab}_{ij(\text{CCSD})}$, orbital energies ($\varepsilon_{i},\varepsi
 		\centering
 		\includegraphics[width=\linewidth]{../images/Function_Fitting/quadratic_error_mitigation.png}
 		\caption{}
-		\label{fig:linear_error_mitigation}
+		\label{fig:quadratic_error_mitigation}
 	\end{subfigure}	
 	\caption{}
 	\label{fig:functionfitting_errormitigation}	
