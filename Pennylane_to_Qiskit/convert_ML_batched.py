@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
+# In[1]:
 
 
 import os
@@ -42,7 +42,7 @@ from qiskit_ibm_runtime import Session, Batch
 from joblib import dump, load
 
 
-# In[ ]:
+# In[2]:
 
 
 def mitarai(quantumcircuit,num_wires,paramname='x'):
@@ -96,7 +96,21 @@ def HardwareEfficient(quantumcircuit,num_wires,paramname='theta'):
 
 
 
-# In[ ]:
+# In[3]:
+
+
+# def circuit(nqubits):
+#     qc = QuantumCircuit(nqubits)
+#     mitarai(qc,nqubits)
+#     entangle_cz(qc,nqubits)
+#     qc.barrier()
+#     mitarai(qc,nqubits,paramname='x1')
+#     entangle_cz(qc,nqubits)
+#     qc.barrier()
+#     HardwareEfficient(qc,nqubits)
+#     qc.barrier()
+#     return qc
+
 
 def circuit(nqubits,RUD=1):
     qc = QuantumCircuit(nqubits)
@@ -108,7 +122,7 @@ def circuit(nqubits,RUD=1):
     return qc
 
 
-# In[ ]:
+# In[4]:
 
 
 # with open('linear_train.bin','rb') as f:
@@ -175,14 +189,14 @@ print(X_train.shape, X_test.shape)
 print(y_train.shape, y_test.shape)
 
 
-# In[ ]:
+# In[5]:
 
 
 num_qubits = 5
 RUD = 3
 
 
-# In[ ]:
+# In[6]:
 
 
 # 
@@ -202,19 +216,19 @@ else:
 
 
 
-# In[ ]:
+# In[7]:
 
 
 # qc.draw('mpl', scale=1, plot_barriers=False)
 
 
-# In[ ]:
+# In[8]:
 
 
 # Select backend
-service = QiskitRuntimeService(channel="ibm_quantum", instance='pinq-quebec-hub/univ-toronto/default')
-_backend = service.least_busy(operational=True, simulator=False, min_num_qubits=127)
-# _backend = FakeQuebec()
+# service = QiskitRuntimeService(channel="ibm_quantum", instance='pinq-quebec-hub/univ-toronto/default')
+# _backend = service.least_busy(operational=True, simulator=False, min_num_qubits=127)
+_backend = FakeQuebec()
 target = _backend.target
 
 # Generate pass manager
@@ -229,7 +243,7 @@ mapped_observables = [observable.apply_layout(qc.layout) for observable in obser
 print(mapped_observables)
 
 
-# In[ ]:
+# In[9]:
 
 
 def map2qiskit(ansatz, num_qubits, X):
@@ -258,7 +272,7 @@ def map2qiskit(ansatz, num_qubits, X):
     return ansatz
 
 
-# In[ ]:
+# In[10]:
 
 
 def get_results(job):
@@ -281,7 +295,7 @@ def get_results(job):
     return pred
 
 
-# In[ ]:
+# In[11]:
 
 
 def batched_pred(params, ansatz, hamiltonian, num_qubits, X, _backend, shots, resilience_level, n_jobs):
@@ -343,13 +357,14 @@ def batched_pred(params, ansatz, hamiltonian, num_qubits, X, _backend, shots, re
     print(f"Submitted to device in {time.perf_counter()-t0:.4f} s")
     
     t1 = time.perf_counter()
-    y_pred = np.vstack(joblib.Parallel(n_jobs=-1,verbose=0, prefer="threads")(joblib.delayed(get_results)(job) for jobid, job in tqdm(jobs,desc="Running batch: ")))
+    y_pred = np.vstack([get_results(job) for jobid, job in tqdm(jobs,desc="Running batch: ")])
+    # y_pred = np.vstack(joblib.Parallel(n_jobs=-1,verbose=0, prefer="threads")(joblib.delayed(get_results)(job) for jobid, job in tqdm(jobs,desc="Running batch: ")))
     print(f"Predicted in {time.perf_counter()-t1:.4f} s")
 
     return y_pred
 
 
-# In[ ]:
+# In[12]:
 
 
 def cost_func(params, ansatz, hamiltonian, num_qubits, X, y, cost_history_dict, _backend, shots=1024.0, resilience_level=1, n_jobs=-1):
@@ -416,7 +431,7 @@ def cost_func(params, ansatz, hamiltonian, num_qubits, X, y, cost_history_dict, 
     return loss
 
 
-# In[ ]:
+# In[13]:
 
 
 def evaluate(params, ansatz, hamiltonian, num_qubits, n_jobs, _backend, X_train, y_train, X_test=None, y_test=None, plot: bool = False, title: str = 'defult',y_scaler=None, shots=1024.0, resilience_level=1):
@@ -487,9 +502,6 @@ with open('model_log.csv', 'w') as outfile:
     outfile.write('\n')        
 
 
-
-
-
 cost_history_dict = {
     "prev_vector": None,
     "iters": 0,
@@ -503,7 +515,7 @@ cost_history_dict = {
 res = minimize(cost_func,
     x0,
     args=(qc, mapped_observables, num_qubits, X_train, y_train, cost_history_dict, _backend, 1024.0, 1, n_jobs),
-    method="cobyla", options={'maxiter':100})  
+    method="cobyla", options={'maxiter':10})  
 
 x0 = res.x
 loss = res.fun    

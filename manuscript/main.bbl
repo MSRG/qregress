@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{43}
+\begin{mcitethebibliography}{49}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -219,6 +219,15 @@ Mitarai,~K.; Negoro,~M.; Kitagawa,~M.; Fujii,~K. Quantum circuit learning.
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
+\bibitem[Bremner \latin{et~al.}(2016)Bremner, Montanaro, and
+  Shepherd]{bremner_average-case_2016}
+Bremner,~M.~J.; Montanaro,~A.; Shepherd,~D.~J. Average-case complexity versus
+  approximate simulation of commuting quantum computations. \emph{Phys. Rev.
+  Lett.} \textbf{2016}, \emph{117}, 080501, arXiv:1504.07999 [quant-ph]\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
 \bibitem[Sim \latin{et~al.}(2019)Sim, Johnson, and
   Aspuru-Guzik]{sim_expressibility_2019}
 Sim,~S.; Johnson,~P.~D.; Aspuru-Guzik,~A. Expressibility and {Entangling}
@@ -243,15 +252,6 @@ Krenn,~M.; Landgraf,~J.; Foesel,~T.; Marquardt,~F. Artificial intelligence and
 Takaki,~Y.; Mitarai,~K.; Negoro,~M.; Fujii,~K.; Kitagawa,~M. Learning temporal
   data with a variational quantum recurrent neural network. \emph{Phys. Rev. A}
   \textbf{2021}, \emph{103}, 052414\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Bremner \latin{et~al.}(2016)Bremner, Montanaro, and
-  Shepherd]{bremner_average-case_2016}
-Bremner,~M.~J.; Montanaro,~A.; Shepherd,~D.~J. Average-case complexity versus
-  approximate simulation of commuting quantum computations. \emph{Phys. Rev.
-  Lett.} \textbf{2016}, \emph{117}, 080501, arXiv:1504.07999 [quant-ph]\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -336,20 +336,55 @@ Pedregosa,~F. \latin{et~al.}  Scikit-learn: {Machine} {Learning} in {Python}.
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
+\bibitem[Jones \latin{et~al.}(2023)Jones, Story, Maroulas, and
+  Vogiatzis]{jones_molecular_2023}
+Jones,~G.~M.; Story,~B.; Maroulas,~V.; Vogiatzis,~K.~D. \emph{Molecular
+  {Representations} for {Machine} {Learning}}; {ACS} {In} {Focus}; American
+  Chemical Society, 2023\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Himanen \latin{et~al.}(2020)Himanen, Jäger, Morooka, Federici~Canova,
+  Ranawat, Gao, Rinke, and Foster]{himanen_dscribe_2020}
+Himanen,~L.; Jäger,~M. O.~J.; Morooka,~E.~V.; Federici~Canova,~F.;
+  Ranawat,~Y.~S.; Gao,~D.~Z.; Rinke,~P.; Foster,~A.~S. {DScribe}: {Library} of
+  descriptors for machine learning in materials science. \emph{Computer Physics
+  Communications} \textbf{2020}, \emph{247}, 106949\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Tralie \latin{et~al.}(2018)Tralie, Saul, and
+  Bar-On]{tralie_ripserpy_2018}
+Tralie,~C.; Saul,~N.; Bar-On,~R. Ripser.py: {A} {Lean} {Persistent} {Homology}
+  {Library} for {Python}. \emph{Journal of Open Source Software} \textbf{2018},
+  \emph{3}, 925\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[noa()]{noauthor_rdkit_nodate}
+{RDKit}. \url{https://www.rdkit.org/}\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[De \latin{et~al.}(2016)De, Bartók, Csányi, and
+  Ceriotti]{de_comparing_2016}
+De,~S.; Bartók,~A.~P.; Csányi,~G.; Ceriotti,~M. Comparing molecules and
+  solids across structural and alchemical space. \emph{Phys. Chem. Chem. Phys.}
+  \textbf{2016}, \emph{18}, 13754--13769, Publisher: The Royal Society of
+  Chemistry\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
 \bibitem[Rupp \latin{et~al.}(2012)Rupp, Tkatchenko, Müller, and
   Lilienfeld]{rupp_fast_2012}
 Rupp,~M.; Tkatchenko,~A.; Müller,~K.~R.; Lilienfeld,~O. A.~v. Fast and
   accurate modeling of molecular atomization energies with machine learning.
   \emph{Physical Review Letters} \textbf{2012}, \emph{108}\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Rogers and Hahn(2010)Rogers, and
-  Hahn]{rogers_extended-connectivity_2010}
-Rogers,~D.; Hahn,~M. Extended-connectivity fingerprints. \emph{Journal of
-  Chemical Information and Modeling} \textbf{2010}, \emph{50}, 742--754,
-  Publisher: American Chemical Society\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -401,6 +436,26 @@ Morgan,~H.~L. The {Generation} of a {Unique} {Machine} {Description} for
   {Chemical} {Structures}-{A} {Technique} {Developed} at {Chemical} {Abstracts}
   {Service}. \emph{Journal of Chemical Documentation} \textbf{1965}, \emph{5},
   107--113, Type: Journal Article\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Rogers and Hahn(2010)Rogers, and
+  Hahn]{rogers_extended-connectivity_2010}
+Rogers,~D.; Hahn,~M. Extended-connectivity fingerprints. \emph{Journal of
+  Chemical Information and Modeling} \textbf{2010}, \emph{50}, 742--754,
+  Publisher: American Chemical Society\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[García-Andrade \latin{et~al.}(2023)García-Andrade, García~Tahoces,
+  Pérez-Ríos, and Martínez~Núñez]{garcia-andrade_barrier_2023}
+García-Andrade,~X.; García~Tahoces,~P.; Pérez-Ríos,~J.;
+  Martínez~Núñez,~E. Barrier {Height} {Prediction} by {Machine} {Learning}
+  {Correction} of {Semiempirical} {Calculations}. \emph{J. Phys. Chem. A}
+  \textbf{2023}, \emph{127}, 2274--2283, Publisher: American Chemical
+  Society\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
