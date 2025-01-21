@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[ ]:
 
 
 import os
@@ -42,7 +42,7 @@ from qiskit_ibm_runtime import Session, Batch
 from joblib import dump, load
 
 
-# In[2]:
+# In[ ]:
 
 
 def mitarai(quantumcircuit,num_wires,paramname='x'):
@@ -96,7 +96,7 @@ def HardwareEfficient(quantumcircuit,num_wires,paramname='theta'):
 
 
 
-# In[3]:
+# In[ ]:
 
 
 # def circuit(nqubits):
@@ -122,7 +122,7 @@ def circuit(nqubits,RUD=1):
     return qc
 
 
-# In[4]:
+# In[ ]:
 
 
 # with open('linear_train.bin','rb') as f:
@@ -189,14 +189,14 @@ print(X_train.shape, X_test.shape)
 print(y_train.shape, y_test.shape)
 
 
-# In[5]:
+# In[ ]:
 
 
 num_qubits = 5
 RUD = 3
 
 
-# In[6]:
+# In[ ]:
 
 
 # 
@@ -216,13 +216,13 @@ else:
 
 
 
-# In[7]:
+# In[ ]:
 
 
 # qc.draw('mpl', scale=1, plot_barriers=False)
 
 
-# In[8]:
+# In[ ]:
 
 
 # Select backend
@@ -243,7 +243,7 @@ mapped_observables = [observable.apply_layout(qc.layout) for observable in obser
 print(mapped_observables)
 
 
-# In[9]:
+# In[ ]:
 
 
 def map2qiskit(ansatz, num_qubits, X):
@@ -272,7 +272,7 @@ def map2qiskit(ansatz, num_qubits, X):
     return ansatz
 
 
-# In[10]:
+# In[ ]:
 
 
 def get_results(job):
@@ -295,7 +295,7 @@ def get_results(job):
     return pred
 
 
-# In[11]:
+# In[ ]:
 
 
 def batched_pred(params, ansatz, hamiltonian, num_qubits, X, _backend, shots, resilience_level, n_jobs):
@@ -357,14 +357,13 @@ def batched_pred(params, ansatz, hamiltonian, num_qubits, X, _backend, shots, re
     print(f"Submitted to device in {time.perf_counter()-t0:.4f} s")
     
     t1 = time.perf_counter()
-    y_pred = np.vstack([get_results(job) for jobid, job in tqdm(jobs,desc="Running batch: ")])
-    # y_pred = np.vstack(joblib.Parallel(n_jobs=-1,verbose=0, prefer="threads")(joblib.delayed(get_results)(job) for jobid, job in tqdm(jobs,desc="Running batch: ")))
+    y_pred = np.vstack(joblib.Parallel(n_jobs=-1,verbose=0, prefer="threads")(joblib.delayed(get_results)(job) for jobid, job in tqdm(jobs,desc="Running batch: ")))
     print(f"Predicted in {time.perf_counter()-t1:.4f} s")
 
     return y_pred
 
 
-# In[12]:
+# In[ ]:
 
 
 def cost_func(params, ansatz, hamiltonian, num_qubits, X, y, cost_history_dict, _backend, shots=1024.0, resilience_level=1, n_jobs=-1):
@@ -431,7 +430,7 @@ def cost_func(params, ansatz, hamiltonian, num_qubits, X, y, cost_history_dict, 
     return loss
 
 
-# In[13]:
+# In[ ]:
 
 
 def evaluate(params, ansatz, hamiltonian, num_qubits, n_jobs, _backend, X_train, y_train, X_test=None, y_test=None, plot: bool = False, title: str = 'defult',y_scaler=None, shots=1024.0, resilience_level=1):
