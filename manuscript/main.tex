@@ -516,6 +516,8 @@ For the simulations using \textit{FakeQuebec} and experiments on \textit{ibm\_qu
 
 \subsection{Datasets}
 In this study, we explore three datasets: a function fitting dataset, consisting of a noisy functions used for model calibration; a dataset consisting of electronic structure features to predict wavefunctions using the data-driven coupled-cluster scheme of Townsend and Vogiatzis \cite{townsend_data-driven_2019}; and a dataset of bond separation energies (BSE) of molecules, where the feature set encodes structural information of each molecule. 
+We utilize the BSE49 and DDCC databases for two different reasons: the BSE49 database consists of a hard chemical property to predict using few features, while the DDCC dataset can be predicted easily using few features classically but is data intensive in the sense that for every molecule you will have $N_{occ}^{2}\cdot N_{virt}^{2}$ entries.
+
 The function fitting dataset consists of a noisy linear (Fig. \ref{fig:linear_train_vs_test}), quadratic (Fig. \ref{fig:quadratic_train_vs_test}), and sine (\ref{fig:sine_train_vs_test}) function.  
 For each function, 90 points are generated, where 80 are used for training set and 10 for the test set.
 This dataset is used for calibration of the 168 PQCs, along with providing additional insights into the effects of circuit depth, training set size, and error mitigation on model performance.
@@ -549,43 +551,28 @@ This dataset is used for calibration of the 168 PQCs, along with providing addit
 
 Following model calibration using the function fitting dataset, we explore the appliciblity of PQCs for complex chemically relevant machine learning tasks.
 The first chemically motivated dataset we explore is the BSE49 dataset, which contains the bond seperation energies (BSE)  for the homolytic bond cleavage of covalently bonded molecules, such as \ce{A-B -> A^{.} + B^{.}}.\cite{prasad_bse49_2021}
-This dataset consists of 4394 datapoints (!VIKI! paper says 4502), 1951 of which are existing and 2443 are hypthoetical structures, with 49 unique A-B single bond types.
+This dataset consists of 4394 datapoints, 1951 of which are existing and 2443 are hypthoetical structures, with 49 unique A-B single bond types.
 In practice, we used 2436 of the hypothetical structures due to issues with valency exceptions when converting to RDKit mol objects which were later used for generating our features for the machine learning models.
 An important aspect of machine learning in chemistry is the choice of molecular representation, or how the molecule is represented in the machine learning models.\cite{jones_molecular_2023}
-
- Cite:
-DScribe\cite{himanen_dscribe_2020} CMs and SOAPs + REMatchKernel 
-
-Ripser\cite{tralie_ripserpy_2018}
-RDKit\cite{noauthor_rdkit_nodate}
-
-
-SOAPs\cite{de_comparing_2016} were excluded due to the cost of computing the kernel 
-
-
-To find the optimal molecular representation, we examined five different molecular representations including Coulomb Matrices \cite{rupp_fast_2012}, Molecular ACCess Systems fingerprint (MACCS)\cite{durant_reoptimization_2002}, persistence images (PIs) \cite{adams_persistence_2017,townsend_representation_2020,schiff_augmenting_2022}, RDKit [cite], and Morgan or extended-connectivity fingerprints \cite{morgan_generation_1965,rogers_extended-connectivity_2010}.
-
-
-
-\begin{equation}
-	X_{\text{RDKit},i} = X_{\text{RDKit},i}^{\text{R}} - X_{\text{RDKit},i}^{\text{R}}
-	\label{eq:descriptor_garcia}
-\end{equation}
-
-
-An additional challenge for choosing a molecular representions for the BSE49 dataset is how to represent the overall chemical system
-
-
- We found that the best molecular representation across all models test, as shown in Fig. \ref{fig:classicalfuncfit}, was Morgan fingerprints using the \textit{sub} formulation.\cite{garcia-andrade_barrier_2023}
+Using RDKit\cite{noauthor_rdkit_nodate} we examined three commonly applied graph-based molecular preresentations, Molecular ACCess Systems (MACCS)\cite{durant_reoptimization_2002}, Morgan or extended-connectivity fingerprints \cite{morgan_generation_1965,rogers_extended-connectivity_2010}, and RDKit fingerprints.
+All three of these methods are use traversals of the molecular graphs to encode various structural details into bit vectors.
+Lastly, we explore both topology- and physics-based molecular representations, both of which encode the three-dimensional structure of molecules in various, unique ways.
+Persistent images (PIs) are a topology-based fingerprint that uses persistence homology to encode topological information of three-dimensional molecular structures into fixed dimension images.\cite{adams_persistence_2017,townsend_representation_2020,schiff_augmenting_2022} 
+We use the implementation from Townsend \textit{et al.}\cite{townsend_representation_2020}, which uses the Ripser Python package to generate PIs.\cite{tralie_ripserpy_2018}
+Lastly, we explre two physics-based representations, Coulomb matrices (CMs) \cite{rupp_fast_2012} and smooth overlap of atomic positions (SOAPs), that were generated using DScribe.\cite{de_comparing_2016}
+Due to the computational cost of computing the regularized entropy match (REMatch) kernel  with the SOAPs representation, we excluded this representation in the overall discussion.
+We  also tested two different methods for representing the components of the bond separation chemical reaction, one where the feature vectors for the products are subtracted from the reactants, denoted by \textit{sub}, similar to the method used in Ref. \cite{garcia-andrade_barrier_2023}, and one that is composed of the reactant molecular only, denoted as \textit{AB}.
+Since we are analyzing a diverse set of PQCs, we used a set of three different classic regression models, with varying capabilities, implemented in sckit-learn.\cite{pedregosa_scikit-learn_2011}
+Based on our results shown in Fig. \ref{fig:classicalfuncfit} we found that Morgan fingerprints
+We found that the best molecular representation across all models test, as shown in Fig. \ref{fig:classicalfuncfit}, was Morgan fingerprints using the \textit{sub} formulation.
  
 
-For each representation we tested two different choices of representation, one based on the the products minus the reactants, denoted by \textit{sub}, similar to the method used in [cite], and one based on just the reactants, denoted as \textit{AB}.
-
-
-We use the same 80\% train/20\% test split as we use throughout our studies. 
 
 
 One challenge of applying classical molecular representations for quantum machine learning models is mapping the classical features, often containing hundreds or thousands of features per sample, to the number of qubits used.
+
+Morgan has X featues per sample
+
 Using the \textit{sub}-Morgan fingerprints, we explore mapping these features to 5 and 16 qubits, the number of qubits used throughout this study, using SHapley Additive ExPlanation analysis (SHAP)\cite{lundberg_unified_2017} and principal component analysis (PCA).
 We found that the most accurate models, using both 5 and 16 features, were those generated by PCA, as shown in Fig. \ref{fig:BSE_classical_features_R2} and \ref{fig:BSE_bse_classical_features_MAE}.
 
@@ -596,7 +583,7 @@ We found that the most accurate models, using both 5 and 16 features, were those
 	\begin{subfigure}[b]{0.49\textwidth}
 		\centering	
 		\includegraphics[width=\linewidth]{../classical_testing/BSE/classical_funcfit}
-		\caption{}
+		\caption{FIX}
 		\label{fig:classicalfuncfit}
 	\end{subfigure}
 	\hfill	
@@ -618,19 +605,19 @@ We found that the most accurate models, using both 5 and 16 features, were those
 \end{figure}
 
 
-The next chemical dataset explored is based on the Data-Driven Coupled-Cluster (DDCC) methods found in Ref. \cite{townsend_data-driven_2019,jones_chapter_2023}.
+The next chemical dataset explored is based on the Data-Driven Coupled-Cluster (DDCC) method found in Refs. \cite{townsend_data-driven_2019,jones_chapter_2023}.
 DDCC is a machine learning-based method for accelerating coupled-cluster singles and doubles (CCSD) calculations by predicting the CCSD T2-amplitudes using features generated by a lower-level method, typically Hartree-Fock (HF) and M{\o}ller-Plesset second-order perturbation theory (MP2).
 We generate a database consisting X water molecules with y features for each molecule, using Psi4\cite{parrish_psi4_2017} and Psi4Numpy\cite{smith_psi4numpy_2018}.
-
-
-Like with the BSE dataset, we explore how we can reduce the initial y features down to 5 and 16 features using SHAP and PCA.
-
+The orignal feature set consists of X 
 \begin{equation}
 	t^{ab}_{ij(\text{MP2})} = \frac{\mel{ij}{}{ab}}{\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}}
 	\label{eq:MP2_t2}
 \end{equation}
-
+Like with the BSE dataset, we explore how we can reduce the initial y features down to 5 and 16 features using SHAP and PCA.
 For each $t^{ab}_{ij(\text{CCSD})}$, orbital energies ($\varepsilon_{i},\varepsilon_{j},\varepsilon_{a},\varepsilon_{b}$), Coulomb and exchange integrals ($J^{i}_{a},J^{j}_{b},K^{a}_{i},K^{b}_{j}$), binary feature whether two electrons are promoted to the same virtual orbital, the initial MP2 amplitudes, along with the numerator (two-electron integrals ($\mel{ij}{}{ab}$)) and denominator $\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}$.
+
+
+
 
 
 
@@ -653,7 +640,7 @@ For each $t^{ab}_{ij(\text{CCSD})}$, orbital energies ($\varepsilon_{i},\varepsi
 %	\label{fig:BSE}
 %\end{figure}
 
-We utilize the BSE49 and DDCC databases for two different reasons: the BSE49 database consists of a hard chemical property to predict using few features, while the DDCC dataset can be predicted easily using few features classically but is data intensive in the sense that for every molecule you will have $N_{occ}^{2}\cdot N_{virt}^{2}$ entries.
+
 
 
 
@@ -677,7 +664,7 @@ We utilize the BSE49 and DDCC databases for two different reasons: the BSE49 dat
 	\begin{subfigure}[b]{0.49\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{../images/Function_Fitting/fivequbit/linear_heatplots.png}
-		\caption{}
+		\caption{replot y axis}
 		\label{fig:linear_heatplots}
 	\end{subfigure}
 	\hfill
