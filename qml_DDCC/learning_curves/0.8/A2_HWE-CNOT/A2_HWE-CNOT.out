@@ -1,0 +1,39 @@
+Matplotlib created a temporary cache directory at /tmp/matplotlib-eyf74ir8 because the default path (/home/j/jacobsen/gjones/.config/matplotlib) is not a writable directory; it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Error.  nthreads cannot be larger than environment variable "NUMEXPR_MAX_THREADS" (64)/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/main.py:17: DeprecationWarning: The package qiskit_ibm_provider is being deprecated. Please see https://docs.quantum.ibm.com/api/migration-guides/qiskit-runtime to get instructions on how to migrate to qiskit-ibm-runtime (https://github.com/Qiskit/qiskit-ibm-runtime).
+  from qiskit_ibm_provider import IBMProvider
+Loading dataset from /scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/0.8_5_DDCC_train.bin... 
+Successfully loaded /scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/0.8_5_DDCC_train.bin into X and y data. 
+Loading dataset from /scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/0.8_5_DDCC_test.bin... 
+Successfully loaded /scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/0.8_5_DDCC_test.bin into X and y data. 
+Training model with dataset /scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/0.8_5_DDCC_train.bin 
+ at time Mon Jan 13 10:05:31 2025... 
+80
+80
+Loading partial state from file /scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT/partial_state_model.bin
+Loaded parameter_vector as [-2.65893826  1.98948984 -2.08230029  0.04839414  0.29604239 -2.94354744
+  3.15475489  2.4138375   0.95284818 -1.13488263  1.206422    1.12713557
+  1.30461264 -2.10844178  0.65497525  2.86709308 -1.26950674 -0.64148758
+ -2.22991918  0.57111123  1.56154583  3.01603376 -0.73299657 -0.17586247
+ -2.02765124 -2.41340432  2.63689784  2.85541051 -0.12085973 -2.84047431
+  1.38099146 -0.04888923 -2.34024935  1.71103451  0.90189556 -0.98214349
+  0.76144619 -1.94617627 -0.11517148  2.7811582   0.10257861  1.04064762
+  2.86990234  1.313909    2.76965774]
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py:752: UserWarning: A worker stopped while some jobs were given to the executor. This can be caused by a too short worker timeout or by a memory leak.
+  warnings.warn(
+[Mon Jan 13 10:19:44 2025]  Iteration number: 2015 with current cost as 0.013975843902406356 and parameters 
+[-2.65552906  1.98608064 -2.07889109  0.05180334  0.2994516  -2.94013824
+  3.15134569  2.4104283   0.94943898 -1.13147343  1.2098312   1.12372637
+  1.30120344 -2.11185098  0.65838445  2.86368388 -1.26609754 -0.63807838
+ -2.22650998  0.57452044  1.56495503  3.01944296 -0.72958737 -0.17245327
+ -2.03106044 -2.40999512  2.64030704  2.85881971 -0.12426893 -2.84388352
+  1.38440066 -0.05229843 -2.34365855  1.71444371  0.90530476 -0.97873429
+  0.76485539 -1.94276707 -0.11858068  2.78456741  0.10598781  1.03723842
+  2.86649314  1.3104998   2.77306694]. 
+Training complete taking 853.5003490447998 total seconds. 
+Now scoring model... 
+Scoring complete taking 283.71743988990784 seconds. 
+Saved predicted values as A2_HWE-CNOT_predicted_values.csv
+Model scores: {'MSE_train': (5.9661791396483336e-05,), 'R2_train': 0.8469749111746878, 'MAE_train': 0.005385250116995493, 'MSE_test': 5.857745557012802e-05, 'R2_test': 0.8492310121561373, 'MAE_test': 0.005363681328283874}. 
+Saved model results as A2_HWE-CNOT_results.json. 

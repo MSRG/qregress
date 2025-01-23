@@ -1,0 +1,17 @@
+#! /bin/bash
+#SBATCH -t 0-23:59:59
+#SBATCH -J sine_TREX_A2_HWE-CZ
+#SBATCH -N 1
+#SBATCH -n 80
+#SBATCH --account=rrg-fekl-ac
+#SBATCH --error=A2_HWE-CZ.e%J        # The file where run time errors will be dumped
+#SBATCH --output=A2_HWE-CZ.o%J               # The file where the output of the terminal will be dumped
+
+
+export OMP_NUM_THREADS=80
+cd /scratch/j/jacobsen/gjones/sine/TREX/A2_HWE-CZ
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/bin/python /scratch/j/jacobsen/gjones/sine/TREX/main.py --save_path /scratch/j/jacobsen/gjones/sine/TREX/A2_HWE-CZ  --settings /scratch/j/jacobsen/gjones/sine/TREX/A2_HWE-CZ/A2_HWE-CZ.json --train_set /scratch/j/jacobsen/gjones/sine/TREX/sine_train.bin --test_set /scratch/j/jacobsen/gjones/sine/TREX/sine_test.bin --scaler /scratch/j/jacobsen/gjones/sine/TREX/sine_scaler.bin --resume_file /scratch/j/jacobsen/gjones/sine/TREX/A2_HWE-CZ/partial_state_model.bin > A2_HWE-CZ.out 2>&1
+
+cd ..
+touch A2_HWE-CZ.done
+

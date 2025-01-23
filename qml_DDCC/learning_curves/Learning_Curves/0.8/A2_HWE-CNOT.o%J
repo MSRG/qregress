@@ -1,0 +1,641 @@
+
+scontrol show job 13967367
+JobId=13967367 JobName=0.8_0.8_5_DDCC_A2_HWE-CNOT
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1385655 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=TimeLimit Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:15
+   RunTime=1-00:00:10 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2024-12-11T16:01:54 EligibleTime=2024-12-11T16:01:54
+   AccrueTime=2024-12-11T16:01:54
+   StartTime=2024-12-11T16:09:24 EndTime=2024-12-12T16:09:34 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2024-12-11T16:09:24 Scheduler=Backfill
+   Partition=compute AllocNode:Sid=nia-login05:59200
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia1296
+   BatchHost=nia1296
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=0 MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=./A2_HWE-CNOT.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8
+   Comment=/opt/slurm/bin/sbatch ./A2_HWE-CNOT.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.o%J
+   
+
+sacct -j 13967367
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+13967367     0.8_0.8_5+ rrg-fekl-+ 1-00:00:10                        00:00.128  00:00.079      0:0 
+13967367.ba+      batch rrg-fekl-+ 1-00:00:13  67900868K   7927192K  00:00.127  00:00.079     0:15 
+13967367.ex+     extern rrg-fekl-+ 1-00:00:13    136828K      1028K   00:00:00   00:00:00      0:0 
+
+scontrol show job 13974547
+JobId=13974547 JobName=0.8_0.8_5_DDCC_A2_HWE-CNOT
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1343189 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=TimeLimit Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:15
+   RunTime=1-00:00:23 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2024-12-12T22:42:00 EligibleTime=2024-12-12T22:42:00
+   AccrueTime=2024-12-12T22:42:00
+   StartTime=2024-12-12T22:42:01 EndTime=2024-12-13T22:42:24 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2024-12-12T22:42:01 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login06:13870
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia1900
+   BatchHost=nia1900
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=0 MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8
+   Comment=/opt/slurm/bin/sbatch --export=NONE A2_HWE-CNOT.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.o%J
+   
+
+sacct -j 13974547
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+13974547     0.8_0.8_5+ rrg-fekl-+ 1-00:00:23                        00:00.079  00:00.077      0:0 
+13974547.ba+      batch rrg-fekl-+ 1-00:00:25  80893104K   8005712K  00:00.078  00:00.077     0:15 
+13974547.ex+     extern rrg-fekl-+ 1-00:00:25    136828K       844K   00:00:00   00:00:00      0:0 
+
+scontrol show job 13984869
+JobId=13984869 JobName=0.8_0.8_5_DDCC_A2_HWE-CNOT
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1326806 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=TimeLimit Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:15
+   RunTime=1-00:00:27 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2024-12-16T11:08:12 EligibleTime=2024-12-16T11:08:12
+   AccrueTime=2024-12-16T11:08:12
+   StartTime=2024-12-16T11:16:42 EndTime=2024-12-17T11:17:09 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2024-12-16T11:16:42 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login02:119477
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia0298
+   BatchHost=nia0298
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=0 MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8
+   Comment=/opt/slurm/bin/sbatch --export=NONE A2_HWE-CNOT.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.o%J
+   
+
+sacct -j 13984869
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+13984869     0.8_0.8_5+ rrg-fekl-+ 1-00:00:27                        00:00.126  00:00.075      0:0 
+13984869.ba+      batch rrg-fekl-+ 1-00:00:30  67967056K   7909380K  00:00.125  00:00.075     0:15 
+13984869.ex+     extern rrg-fekl-+ 1-00:00:30    136828K      1032K  00:00.001   00:00:00      0:0 
+
+scontrol show job 14001029
+JobId=14001029 JobName=0.8_0.8_5_DDCC_A2_HWE-CNOT
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1393701 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=TimeLimit Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:15
+   RunTime=1-00:00:07 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2024-12-18T17:32:23 EligibleTime=2024-12-18T17:32:23
+   AccrueTime=2024-12-18T17:32:23
+   StartTime=2024-12-18T22:08:32 EndTime=2024-12-19T22:08:39 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2024-12-18T22:08:32 Scheduler=Backfill
+   Partition=compute AllocNode:Sid=nia-login05:193356
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia1326
+   BatchHost=nia1326
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=0 MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8
+   Comment=/opt/slurm/bin/sbatch --export=NONE A2_HWE-CNOT.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.o%J
+   
+
+sacct -j 14001029
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+14001029     0.8_0.8_5+ rrg-fekl-+ 1-00:00:07                        00:00.114  00:00.087      0:0 
+14001029.ba+      batch rrg-fekl-+ 1-00:00:08  67904204K   7859092K  00:00.113  00:00.087     0:15 
+14001029.ex+     extern rrg-fekl-+ 1-00:00:08    136828K      1032K   00:00:00   00:00:00      0:0 
+
+kernel messages produced during job executions:
+[Dec19 07:07] CIFS PidTable: buckets 64
+[  +0.004382] CIFS BufTable: buckets 64
+[Dec19 09:25] CIFS PidTable: buckets 64
+[  +0.004326] CIFS BufTable: buckets 64
+[Dec19 12:57] CIFS PidTable: buckets 64
+[  +0.004298] CIFS BufTable: buckets 64
+
+scontrol show job 14005696
+JobId=14005696 JobName=0.8_0.8_5_DDCC_A2_HWE-CNOT
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1436603 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=TimeLimit Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:15
+   RunTime=1-00:00:24 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2024-12-20T15:59:38 EligibleTime=2024-12-20T15:59:38
+   AccrueTime=2024-12-20T15:59:38
+   StartTime=2024-12-20T16:00:50 EndTime=2024-12-21T16:01:14 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2024-12-20T16:00:50 Scheduler=Backfill
+   Partition=compute AllocNode:Sid=nia-login01:4266
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia1405
+   BatchHost=nia1405
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=0 MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8
+   Comment=/opt/slurm/bin/sbatch --export=NONE A2_HWE-CNOT.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.o%J
+   
+
+sacct -j 14005696
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+14005696     0.8_0.8_5+ rrg-fekl-+ 1-00:00:24                        00:00.102  00:00.101      0:0 
+14005696.ba+      batch rrg-fekl-+ 1-00:00:25  67967300K   7866260K  00:00.102  00:00.100     0:15 
+14005696.ex+     extern rrg-fekl-+ 1-00:00:25    136828K      1032K   00:00:00   00:00:00      0:0 
+
+scontrol show job 14007581
+JobId=14007581 JobName=0.8_0.8_5_DDCC_A2_HWE-CNOT
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1393904 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=TimeLimit Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:15
+   RunTime=1-00:00:19 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2024-12-21T20:36:21 EligibleTime=2024-12-21T20:36:21
+   AccrueTime=2024-12-21T20:36:21
+   StartTime=2024-12-21T20:36:22 EndTime=2024-12-22T20:36:41 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2024-12-21T20:36:22 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login02:179154
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia0713
+   BatchHost=nia0713
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=0 MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8
+   Comment=/opt/slurm/bin/sbatch --export=NONE A2_HWE-CNOT.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.o%J
+   
+
+sacct -j 14007581
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+14007581     0.8_0.8_5+ rrg-fekl-+ 1-00:00:19                        00:00.107  00:00.094      0:0 
+14007581.ba+      batch rrg-fekl-+ 1-00:00:21  68170680K   7869712K  00:00.106  00:00.094     0:15 
+14007581.ex+     extern rrg-fekl-+ 1-00:00:22    136828K      1032K   00:00:00   00:00:00      0:0 
+
+kernel messages produced during job executions:
+[Dec22 02:09] CIFS PidTable: buckets 64
+[  +0.005005] CIFS BufTable: buckets 64
+
+scontrol show job 14009077
+JobId=14009077 JobName=0.8_0.8_5_DDCC_A2_HWE-CNOT
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1356031 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=TimeLimit Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:15
+   RunTime=1-00:00:03 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2024-12-22T20:39:30 EligibleTime=2024-12-22T20:39:30
+   AccrueTime=2024-12-22T20:39:30
+   StartTime=2024-12-22T20:39:43 EndTime=2024-12-23T20:39:46 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2024-12-22T20:39:43 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login02:45183
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia0010
+   BatchHost=nia0010
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=0 MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8
+   Comment=/opt/slurm/bin/sbatch --export=NONE A2_HWE-CNOT.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.o%J
+   
+
+sacct -j 14009077
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+14009077     0.8_0.8_5+ rrg-fekl-+ 1-00:00:03                        00:00.110  00:01.091      0:0 
+14009077.ba+      batch rrg-fekl-+ 1-00:00:04  67906576K   7870108K  00:00.110  00:01.090     0:15 
+14009077.ex+     extern rrg-fekl-+ 1-00:00:04    136828K       844K   00:00:00  00:00.001      0:0 
+
+scontrol show job 14011451
+JobId=14011451 JobName=0.8_0.8_5_DDCC_A2_HWE-CNOT
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1306560 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=TimeLimit Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:15
+   RunTime=1-00:00:10 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2024-12-23T21:57:45 EligibleTime=2024-12-23T21:57:45
+   AccrueTime=2024-12-23T21:57:45
+   StartTime=2024-12-23T22:00:56 EndTime=2024-12-24T22:01:06 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2024-12-23T22:00:56 Scheduler=Backfill
+   Partition=compute AllocNode:Sid=nia-login01:152202
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia1938
+   BatchHost=nia1938
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=0 MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8
+   Comment=/opt/slurm/bin/sbatch --export=NONE A2_HWE-CNOT.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.o%J
+   
+
+sacct -j 14011451
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+14011451     0.8_0.8_5+ rrg-fekl-+ 1-00:00:10                        00:00.086  00:00.070      0:0 
+14011451.ba+      batch rrg-fekl-+ 1-00:00:11  67902512K   7867400K  00:00.086  00:00.070     0:15 
+14011451.ex+     extern rrg-fekl-+ 1-00:00:11    136828K      1032K   00:00:00   00:00:00      0:0 
+
+scontrol show job 14023511
+JobId=14023511 JobName=0.8_0.8_5_DDCC_A2_HWE-CNOT
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1434355 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=TimeLimit Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:15
+   RunTime=1-00:00:07 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2024-12-28T14:07:02 EligibleTime=2024-12-28T14:07:02
+   AccrueTime=2024-12-28T14:07:02
+   StartTime=2024-12-28T14:07:04 EndTime=2024-12-29T14:07:11 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2024-12-28T14:07:04 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login01:266700
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia1514
+   BatchHost=nia1514
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=0 MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8
+   Comment=/opt/slurm/bin/sbatch --export=NONE A2_HWE-CNOT.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.o%J
+   
+
+sacct -j 14023511
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+14023511     0.8_0.8_5+ rrg-fekl-+ 1-00:00:07                        00:00.112  00:00.090      0:0 
+14023511.ba+      batch rrg-fekl-+ 1-00:00:08  68035084K   7870396K  00:00.112  00:00.089     0:15 
+14023511.ex+     extern rrg-fekl-+ 1-00:00:08    136828K      1032K   00:00:00   00:00:00      0:0 
+
+scontrol show job 14033508
+JobId=14033508 JobName=0.8_0.8_5_DDCC_A2_HWE-CNOT
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1443489 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=TimeLimit Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:15
+   RunTime=1-00:00:22 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2024-12-31T10:36:01 EligibleTime=2024-12-31T10:36:01
+   AccrueTime=2024-12-31T10:36:01
+   StartTime=2024-12-31T10:36:08 EndTime=2025-01-01T10:36:30 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2024-12-31T10:36:08 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login03:16754
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia1176
+   BatchHost=nia1176
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=0 MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8
+   Comment=/opt/slurm/bin/sbatch --export=NONE A2_HWE-CNOT.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.o%J
+   
+
+sacct -j 14033508
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+14033508     0.8_0.8_5+ rrg-fekl-+ 1-00:00:22                        00:00.110  00:00.092      0:0 
+14033508.ba+      batch rrg-fekl-+ 1-00:00:23  68105016K   7945212K  00:00.110  00:00.091     0:15 
+14033508.ex+     extern rrg-fekl-+ 1-00:00:23    136828K      1028K   00:00:00   00:00:00      0:0 
+
+scontrol show job 14037559
+JobId=14037559 JobName=0.8_0.8_5_DDCC_A2_HWE-CNOT
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1484610 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=TimeLimit Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:15
+   RunTime=1-00:00:29 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2025-01-02T12:09:56 EligibleTime=2025-01-02T12:09:56
+   AccrueTime=2025-01-02T12:09:56
+   StartTime=2025-01-02T12:09:57 EndTime=2025-01-03T12:10:26 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2025-01-02T12:09:57 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login02:234992
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia0382
+   BatchHost=nia0382
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=0 MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8
+   Comment=/opt/slurm/bin/sbatch --export=NONE A2_HWE-CNOT.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.o%J
+   
+
+sacct -j 14037559
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+14037559     0.8_0.8_5+ rrg-fekl-+ 1-00:00:29                        00:00.107  00:00.094      0:0 
+14037559.ba+      batch rrg-fekl-+ 1-00:00:50  67901520K   7867908K  00:00.106  00:00.094     0:15 
+14037559.ex+     extern rrg-fekl-+ 1-00:00:50    136828K       844K   00:00:00   00:00:00      0:0 
+
+scontrol show job 14044108
+JobId=14044108 JobName=0.8_0.8_5_DDCC_A2_HWE-CNOT
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1540003 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=TimeLimit Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:15
+   RunTime=1-00:00:25 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2025-01-05T19:11:33 EligibleTime=2025-01-05T19:11:33
+   AccrueTime=2025-01-05T19:11:33
+   StartTime=2025-01-05T19:11:34 EndTime=2025-01-06T19:11:59 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2025-01-05T19:11:34 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login02:189287
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia0971
+   BatchHost=nia0971
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=0 MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8
+   Comment=/opt/slurm/bin/sbatch --export=NONE A2_HWE-CNOT.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.o%J
+   
+
+sacct -j 14044108
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+14044108     0.8_0.8_5+ rrg-fekl-+ 1-00:00:25                        00:00.114  00:00.087      0:0 
+14044108.ba+      batch rrg-fekl-+ 1-00:00:26  67971432K   7872296K  00:00.114  00:00.087     0:15 
+14044108.ex+     extern rrg-fekl-+ 1-00:00:26    136828K       848K   00:00:00   00:00:00      0:0 
+
+scontrol show job 14049513
+JobId=14049513 JobName=0.8_0.8_5_DDCC_A2_HWE-CNOT
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1455040 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=TimeLimit Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:15
+   RunTime=1-00:00:08 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2025-01-07T10:14:38 EligibleTime=2025-01-07T10:14:38
+   AccrueTime=2025-01-07T10:14:38
+   StartTime=2025-01-07T10:32:15 EndTime=2025-01-08T10:32:23 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2025-01-07T10:32:15 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login05:198154
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia0662
+   BatchHost=nia0662
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=0 MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8
+   Comment=/opt/slurm/bin/sbatch --export=NONE A2_HWE-CNOT.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.o%J
+   
+
+sacct -j 14049513
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+14049513     0.8_0.8_5+ rrg-fekl-+ 1-00:00:08                        00:00.113  00:00.095      0:0 
+14049513.ba+      batch rrg-fekl-+ 1-00:00:10  67901312K   7902136K  00:00.112  00:00.095     0:15 
+14049513.ex+     extern rrg-fekl-+ 1-00:00:11    136828K      1032K   00:00:00   00:00:00      0:0 
+
+scontrol show job 14055316
+JobId=14055316 JobName=0.8_0.8_5_DDCC_A2_HWE-CNOT
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1536501 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:19:58 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2025-01-09T12:11:25 EligibleTime=2025-01-09T12:11:25
+   AccrueTime=2025-01-09T12:11:25
+   StartTime=2025-01-09T12:28:34 EndTime=2025-01-09T12:48:32 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2025-01-09T12:28:34 Scheduler=Backfill
+   Partition=compute AllocNode:Sid=nia-login02:125510
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia0024
+   BatchHost=nia0024
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=175000M MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8
+   Comment=/opt/slurm/bin/sbatch --export=NONE A2_HWE-CNOT.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.o%J
+   
+
+sacct -j 14055316
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+14055316     0.8_0.8_5+ rrg-fekl-+   00:19:59                         00:00:00   00:00:00      0:0 
+14055316.ba+      batch rrg-fekl-+   00:19:59                         00:00:00   00:00:00      0:0 
+14055316.ex+     extern rrg-fekl-+   00:19:59                         00:00:00   00:00:00      0:0 
+
+scontrol show job 14059150
+JobId=14059150 JobName=0.8_0.8_5_DDCC_A2_HWE-CNOT
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1495031 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:17 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2025-01-10T14:52:35 EligibleTime=2025-01-10T14:52:35
+   AccrueTime=2025-01-10T14:52:35
+   StartTime=2025-01-10T15:31:55 EndTime=2025-01-10T15:32:12 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2025-01-10T15:31:55 Scheduler=Backfill
+   Partition=compute AllocNode:Sid=nia-login05:163950
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia0535
+   BatchHost=nia0535
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=175000M MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8
+   Comment=/opt/slurm/bin/sbatch --export=NONE A2_HWE-CNOT.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.o%J
+   
+
+sacct -j 14059150
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+14059150     0.8_0.8_5+ rrg-fekl-+   00:00:18                         00:00:00   00:00:00      0:0 
+14059150.ba+      batch rrg-fekl-+   00:00:18                         00:00:00   00:00:00      0:0 
+14059150.ex+     extern rrg-fekl-+   00:00:18                         00:00:00   00:00:00      0:0 
+
+scontrol show job 14059266
+JobId=14059266 JobName=0.8_0.8_5_DDCC_A2_HWE-CNOT
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1503122 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=TimeLimit Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:15
+   RunTime=1-00:00:15 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2025-01-10T16:00:55 EligibleTime=2025-01-10T16:00:55
+   AccrueTime=2025-01-10T16:00:55
+   StartTime=2025-01-10T16:01:12 EndTime=2025-01-11T16:01:27 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2025-01-10T16:01:12 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login05:163950
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia0710
+   BatchHost=nia0710
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=0 MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8
+   Comment=/opt/slurm/bin/sbatch --export=NONE A2_HWE-CNOT.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.o%J
+   
+
+sacct -j 14059266
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+14059266     0.8_0.8_5+ rrg-fekl-+ 1-00:00:15                        00:00.111  00:00.090      0:0 
+14059266.ba+      batch rrg-fekl-+ 1-00:00:16  67997524K   7867540K  00:00.110  00:00.090     0:15 
+14059266.ex+     extern rrg-fekl-+ 1-00:00:16    136828K      1032K   00:00:00   00:00:00      0:0 
+
+scontrol show job 14064034
+JobId=14064034 JobName=0.8_0.8_5_DDCC_A2_HWE-CNOT
+   UserId=gjones(3135537) GroupId=jacobsen(6006115) MCS_label=N/A
+   Priority=1533612 Nice=0 Account=rrg-fekl-ac QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:19:32 TimeLimit=1-00:00:00 TimeMin=N/A
+   SubmitTime=2025-01-13T10:04:58 EligibleTime=2025-01-13T10:04:58
+   AccrueTime=2025-01-13T10:04:58
+   StartTime=2025-01-13T10:04:59 EndTime=2025-01-13T10:24:31 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2025-01-13T10:04:59 Scheduler=Main
+   Partition=compute AllocNode:Sid=nia-login05:93270
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=nia0462
+   BatchHost=nia0462
+   NumNodes=1 NumCPUs=80 NumTasks=80 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=80,mem=175000M,node=1,billing=40
+   AllocTRES=cpu=80,mem=175000M,node=1,billing=40
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=175000M MinTmpDiskNode=0
+   Features=[skylake|cascade] DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.sub
+   WorkDir=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8
+   Comment=/opt/slurm/bin/sbatch --export=NONE A2_HWE-CNOT.sub 
+   StdErr=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.e%J
+   StdIn=/dev/null
+   StdOut=/gpfs/fs0/scratch/j/jacobsen/gjones/DDCC5_func_specific/Learning_Curves/0.8/A2_HWE-CNOT.o%J
+   
+
+sacct -j 14064034
+JobID           JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+14064034     0.8_0.8_5+ rrg-fekl-+   00:19:32                         00:00:00   00:00:00      0:0 
+14064034.ba+      batch rrg-fekl-+   00:19:32                         00:00:00   00:00:00      0:0 
+14064034.ex+     extern rrg-fekl-+   00:19:32                         00:00:00   00:00:00      0:0 
