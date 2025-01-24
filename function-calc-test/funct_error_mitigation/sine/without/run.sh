@@ -11,19 +11,18 @@ for i in */; do
         echo "${name}.done not found!"
     	cat > ${name}.sub <<EOF
 #! /bin/bash
-#SBATCH -t 7-00:00:00
-#SBATCH -J ${errorname}_DDCC_${name}
+#SBATCH -t 0-23:59:59
+#SBATCH -J sine_${errorname}_${name}
 #SBATCH -N 1
-#SBATCH -n 16
-#SBATCH --mem-per-cpu=300           # memory per cpu
-#SBATCH --account=rrg-jacobsen-ab
+#SBATCH -n 80
+#SBATCH --account=rrg-fekl-ac
 #SBATCH --error=${name}.e%J        # The file where run time errors will be dumped
 #SBATCH --output=${name}.o%J               # The file where the output of the terminal will be dumped
 
-module load apptainer
-cd $(pwd)/$name
 
-apptainer run -C -B ${cwd} /home/gjones/projects/def-jacobsen/gjones/deb.sif /opt/miniconda/bin/python ${cwd}/main.py --save_path ${path}  --settings ${path}/${name}.json --train_set ${cwd}/5_DDCC_train.bin --test_set ${cwd}/5_DDCC_test.bin --scaler ${cwd}/5_DDCC_scaler.bin >> ${name}.out 2>&1
+export OMP_NUM_THREADS=80
+cd $(pwd)/$name
+/scinet/niagara/software/2019b/opt/base/python/3.11.5/bin/python ${cwd}/main.py --save_path ${path}  --settings ${path}/${name}.json --train_set ${cwd}/sine_train.bin --test_set ${cwd}/sine_test.bin --scaler ${cwd}/sine_scaler.bin --resume_file ${path}/partial_state_model.bin > ${name}.out 2>&1
 
 cd ..
 touch ${name}.done

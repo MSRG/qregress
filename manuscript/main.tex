@@ -97,7 +97,7 @@
 % (from an answer by cyberSingularity at http://tex.stackexchange.com/a/69832/226)
 %%%
 
-\usepackage{xcite}
+\usepackage{xr-hyper}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %----Helper code for dealing with external references----
 % (by cyberSingularity at http://tex.stackexchange.com/a/69832/226)
@@ -569,8 +569,7 @@ We found that the best molecular representation across all models test, as shown
 
 
 
-One challenge of applying classical molecular representations for quantum machine learning models is mapping the classical features, often containing hundreds or thousands of features per sample, to the number of qubits used.
-
+One challenge of applying classical molecular representations for quantum machine learning models is mapping the classical features, often containing hundreds or thousands of features per sample, to the number of qubits used on the quantum device.
 Morgan has X featues per sample
 
 Using the \textit{sub}-Morgan fingerprints, we explore mapping these features to 5 and 16 qubits, the number of qubits used throughout this study, using SHapley Additive ExPlanation analysis (SHAP)\cite{lundberg_unified_2017} and principal component analysis (PCA).
@@ -830,7 +829,7 @@ For each $t^{ab}_{ij(\text{CCSD})}$, orbital energies ($\varepsilon_{i},\varepsi
 		\caption{}
 		\label{fig:sine_learning_curves}
 	\end{subfigure}	
-	\caption{}
+	\caption{(a) linear, (b) quadratic, (c) sine function}
 	\label{fig:functionfitting_learning_curves}	
 \end{figure}
 
@@ -852,7 +851,14 @@ For each $t^{ab}_{ij(\text{CCSD})}$, orbital energies ($\varepsilon_{i},\varepsi
 		\caption{}
 		\label{fig:quadratic_error_mitigation}
 	\end{subfigure}	
-	\caption{}
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../images/Function_Fitting/sine_error_mitigation.png}
+		\caption{}
+		\label{fig:sine_error_mitigation}
+	\end{subfigure}
+	\hfill		
+	\caption{(a) linear, (b) quadratic, (c) sine function}
 	\label{fig:functionfitting_errormitigation}	
 \end{figure}
 
