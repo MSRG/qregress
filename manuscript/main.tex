@@ -562,15 +562,18 @@ We use the implementation from Townsend \textit{et al.}\cite{townsend_representa
 Lastly, we explre two physics-based representations, Coulomb matrices (CMs) \cite{rupp_fast_2012} and smooth overlap of atomic positions (SOAPs), that were generated using DScribe.\cite{de_comparing_2016}
 Due to the computational cost of computing the regularized entropy match (REMatch) kernel  with the SOAPs representation, we excluded this representation in the overall discussion.
 We  also tested two different methods for representing the components of the bond separation chemical reaction, one where the feature vectors for the products are subtracted from the reactants, denoted by \textit{sub}, similar to the method used in Ref. \cite{garcia-andrade_barrier_2023}, and one that is composed of the reactant molecular only, denoted as \textit{AB}.
+
+[Ridge(), Lasso(), ElasticNet(), KNeighborsRegressor(), RandomForestRegressor(), GradientBoostingRegressor(), SVR(), KernelRidge(), GaussianProcessRegressor()]
+
 Since we are analyzing a diverse set of PQCs, we used a set of three different classic regression models, with varying capabilities, implemented in sckit-learn.\cite{pedregosa_scikit-learn_2011}
-Based on our results shown in Fig. \ref{fig:classicalfuncfit} we found that Morgan fingerprints
-We found that the best molecular representation across all models test, as shown in Fig. \ref{fig:classicalfuncfit}, was Morgan fingerprints using the \textit{sub} formulation.
+Based on our results shown in Fig. \ref{fig:classical_molrepfig} we found that Morgan fingerprints
+We found that the best molecular representation across all models test, as shown in Fig. \ref{fig:classical_molrepfig}, was Morgan fingerprints using the \textit{sub} formulation.
  
 \begin{figure}[H]
 	\centering	
-	\includegraphics[width=\linewidth]{../classical_testing/BSE/classical_funcfit}
-	\caption{FIX:The performance of various molecular representations is shown using different classical machine learning models. \textit{AB} (top row) and \textit{sub} (bottom row) denote how the chemical reaction is represented. Each column denotes a different classical machine learning model, where the first column, denoted as knn, refers to \textit{k}-nearest neighbors, the second column, labeled rfr, denotes random forest regression, and krr, the last column, denotes kernel ridge regression. The x-axis of each sub-figure denotes the various molecular representations that are analyzed: Coulomb matrices (CM), Molecular ACCess Systems (MACCS), persistence images (PIs), RDKit fingerprints (RDKit), and Morgan fingerprints (Morgan).The y-axis of each sub-figure shows the performance of each model, evaluated using the R$^{2}$, where the training set is denoted using light blue and the test set is dark blue.}
-	\label{fig:classicalfuncfit}
+	\includegraphics[width=\linewidth]{../images/BSE/classical/classical_molrepfig.png}
+	\caption{}
+	\label{fig:classical_molrepfig}
 \end{figure}
 
 
