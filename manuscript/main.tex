@@ -261,7 +261,7 @@ Within the quantum machine learning (QML) field, parameterized quantum circuits 
 \setcounter{secnumdepth}{1}
 \section{Introduction}
 Within the field of chemistry, tools such as machine learning and quantum computing have become popular due to the promise of discoverying new molecules and materials.
-Machine learning in chemistry has already become a broadly applicable tool for exploring chemical compound space\cite{ramakrishnan_quantum_2014,ramakrishnan_big_2015}, accelerating wave functions\cite{townsend_data-driven_2019,jones_chapter_2023}, and for applications, such as catalysis and drug discovery.\cite{behler_perspective_2016,goh_deep_2017,sanchez-lengeling_{i}nverse_2018,butler_machine_2018,janet_machine_2020}
+Machine learning in chemistry has already become a broadly applicable tool for exploring chemical compound space\cite{ramakrishnan_quantum_2014,ramakrishnan_big_2015}, accelerating wave functions\cite{townsend_data-driven_2019,jones_chapter_2023}, and for applications, such as catalysis and drug discovery.\cite{behler_perspective_2016,goh_deep_2017,butler_machine_2018,sanchez-lengeling_inverse_2018,janet_machine_2020}
 [Sentence about quantum computing]
 Another popular avenue, which combines quantum computing and machine learning, is quantum machine learning (QML).
 QML utilizes quantum algorithms during some portion of the machine learning process in an attempt to outperform classical algorithms. \cite{biamonte_quantum_2017}
@@ -513,6 +513,11 @@ Each optimizer was chosen based on the performance for the given task.
 All features ($\mathbf{x}$) and target values ($\mathbf{y}$) were scaled using the MinMaxScaler in Scikit-learn\cite{pedregosa_scikit-learn_2011}, such that all featues and target values are $\mathbb{R}\in [ -1,1 ]$.
 For the simulations using \textit{FakeQuebec} and experiments on \textit{ibm\_quebec} we utilize Twirled Readout Error eXtinction (TREX) error mitigation.
 
+Function fitting 5: 
+Function fitting 16: all ran with 1000 iterations
+BSE 5
+BSE 16
+DDCC
 
 \subsection{Datasets}
 In this study, we explore three datasets: a function fitting dataset, consisting of a noisy functions used for model calibration; a dataset consisting of electronic structure features to predict wave functions using the data-driven coupled-cluster scheme of Townsend and Vogiatzis \cite{townsend_data-driven_2019}; and a dataset of bond separation energies (BSE) of molecules, where the feature set encodes structural information of each molecule. 
@@ -629,24 +634,29 @@ The CCSD correlation energy is defined as,
 where $i$ and $j$ denote occupied orbitals, $a$ and $b$ denote virtual orbitals, $t^{ab}_{ij}$ are the $t_{2}$-amplitudes which correspond to two-electron excitations, 
 $t^{a}_{i}$ and $t^{b}_{j}$ are $t_{1}$-amplitudes corresponding to one-electron excitations, and $\mel{ij}{}{ab}$ are two-electron integrals.
 
-For each two-electron excitation, $t^{ab}_{ij}$, a feature set can be derived based on the MP2 $t_{2}$-amplitudes, which are used to initialize the CCSD amplitudes.
-The MP2 $t_{2}$-amplitudes take the following form,
+For each two-electron excitation, $t^{ab}_{ij}$, a feature set can be generated from HF and MP2.
+The feature set includes the MP2 $t_{2}$-amplitudes, which are used to initialize the CCSD amplitudes,
 \begin{equation}
 	t^{ab}_{ij(\text{MP2})} = \frac{\mel{ij}{}{ab}}{\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}}
 	\label{eq:MP2_t2}
 \end{equation}
 where $\varepsilon_{i}$ and $\varepsilon_{j}$ denote the orbital energies of the occupied orbitals $i$ and $j$, while the virtual orbitals $a$ and $b$ are denoted by $\varepsilon_{a}$ and $\varepsilon_{b}$.
-In the feature set, the MP2 $t_{2}$-amplitudes are included, along with the numerator ($\mel{ij}{}{ab}$) and denominator ($\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}$), a binary feature to denote whether the excitation goes to the same virtual orbital, 
+Features related to the MP2 $t_{2}$-amplitudes that are also included in the feature set are the numerator ($\mel{ij}{}{ab}$) and denominator ($\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}$), a binary feature to denote whether the excitation goes to the same virtual orbital, and the orbital energies ($\varepsilon_{i},\varepsilon_{j},\varepsilon_{a},\varepsilon_{b}$).
+The feature set also includes terms related to the individual contributes to the orbital energies are also included, such as the one-electron Hamiltonain ($h$), Coulombic matrix ($J$), and exchange matrix $K$, and Coulombic and exchange integrals ($J^{i}_{a},J^{j}_{b},K^{a}_{i},K^{b}_{j}$).
+In total, there are 30 features for each $t_{2}$-amplitude due to the addition of features that denote the sign and magntudes of the previously mentioned features.
 
+We generate a dataset consisting of 199 water molecules from the study by Townsend and Vogiatzis 
+All calculations were performed using Psi4\cite{parrish_psi4_2017} and Psi4Numpy\cite{smith_psi4numpy_2018} with the STO-3G basis set\cite{hehre_selfconsistent_1970} and frozen core orbitals.
+For each water molecule there are 4 occupied orbitals ($N_{occ}$) and 2 virtual orbitals ($N_{virt}$), with a toal of 30 features for each $t_{2}$-amplitude, so each water molecule has a feature set dimension of 64 ($(N_{occ})^{2}(N_{virt})^{2}$) by 30.
 
-We generate a database consisting 199 water molecules with 31 features for each molecule, using Psi4\cite{parrish_psi4_2017} and Psi4Numpy\cite{smith_psi4numpy_2018}.
-STO-3G\cite{hehre_selfconsistent_1970} basis set due for benchmarking reasons
+We generate a database consisting 199 water molecules with 30 features for each molecule.
+STO-3G basis set due for benchmarking reasons
 
 
 Details regarding the feature set and implementation can be found in \cite{townsend_data-driven_2019}
 
 Like with the BSE dataset, we explore how we can reduce the initial y features down to 5 and 16 features using SHAP and PCA.
-For each $t^{ab}_{ij(\text{CCSD})}$, orbital energies ($\varepsilon_{i},\varepsilon_{j},\varepsilon_{a},\varepsilon_{b}$), Coulomb and exchange integrals ($J^{i}_{a},J^{j}_{b},K^{a}_{i},K^{b}_{j}$), binary feature whether two electrons are promoted to the same virtual orbital, the initial MP2 amplitudes, along with the numerator (two-electron integrals ($\mel{ij}{}{ab}$)) and denominator $\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}$.
+For each $t^{ab}_{ij(\text{CCSD})}$, orbital energies ($\varepsilon_{i},\varepsilon_{j},\varepsilon_{a},\varepsilon_{b}$), Coulomb and exchange integrals , binary feature whether two electrons are promoted to the same virtual orbital, the initial MP2 amplitudes, along with the numerator (two-electron integrals ($\mel{ij}{}{ab}$)) and denominator $\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}$.
 
 
 

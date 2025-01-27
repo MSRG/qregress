@@ -21,11 +21,7 @@ for p in glob('*/*.json'):
         olddt=json.load(f)
     
     
-    olddt["BATCH_SIZE"]=32
-    olddt["NUM_CORES"]=16
-    olddt['TOLERANCE']=1e-6
-    olddt['MAX_ITER']=500
-    olddt['NUM_QUBITS']=5
+    olddt['MAX_ITER']=1000
     print(olddt)    
 
     with open(p,'w') as g:
