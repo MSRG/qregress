@@ -521,7 +521,7 @@ DDCC
 
 \subsection{Datasets}
 In this study, we explore three datasets: a function fitting dataset, consisting of a noisy functions used for model calibration; a dataset consisting of electronic structure features to predict wave functions using the data-driven coupled-cluster scheme of Townsend and Vogiatzis \cite{townsend_data-driven_2019}; and a dataset of bond separation energies (BSE) of molecules, where the feature set encodes structural information of each molecule. 
-We utilize the BSE49 and DDCC databases for two different reasons: the BSE49 database consists of a hard chemical property to predict using few features, while the DDCC dataset can be predicted easily using few features classically but is data intensive in the sense that for every molecule you will have $N_{occ}^{2}\cdot N_{virt}^{2}$ entries.
+We utilize the BSE49 and DDCC databases for two different reasons: the BSE49 database consists of a hard chemical property to predict using few features, while the DDCC dataset can be predicted easily using few features classically but is data intensive in the number of samples per molecule.
 
 The function fitting dataset consists of a noisy linear (Fig. \ref{fig:linear_train_vs_test}), quadratic (Fig. \ref{fig:quadratic_train_vs_test}), and sine (\ref{fig:sine_train_vs_test}) function.  
 For each function, 90 points are generated, where 80 are used for training set and 10 for the test set.
@@ -645,24 +645,17 @@ Features related to the MP2 $t_{2}$-amplitudes that are also included in the fea
 The feature set also includes terms related to the individual contributes to the orbital energies are also included, such as the one-electron Hamiltonain ($h$), Coulombic matrix ($J$), and exchange matrix $K$, and Coulombic and exchange integrals ($J^{i}_{a},J^{j}_{b},K^{a}_{i},K^{b}_{j}$).
 In total, there are 30 features for each $t_{2}$-amplitude due to the addition of features that denote the sign and magntudes of the previously mentioned features.
 
-We generate a dataset consisting of 199 water molecules from the study by Townsend and Vogiatzis 
-All calculations were performed using Psi4\cite{parrish_psi4_2017} and Psi4Numpy\cite{smith_psi4numpy_2018} with the STO-3G basis set\cite{hehre_selfconsistent_1970} and frozen core orbitals.
-For each water molecule there are 4 occupied orbitals ($N_{occ}$) and 2 virtual orbitals ($N_{virt}$), with a toal of 30 features for each $t_{2}$-amplitude, so each water molecule has a feature set dimension of 64 ($(N_{occ})^{2}(N_{virt})^{2}$) by 30.
+Our dataset consists of 199 water molecules from the study by Townsend and Vogiatzis using the STO-3G basis set\cite{hehre_selfconsistent_1970} and frozen core orbitals.
+All data was generated using Psi4\cite{parrish_psi4_2017} and Psi4Numpy\cite{smith_psi4numpy_2018}.
+As previously mentioned, the DDCC method is data intensive regarding the number of samples per molecule, for example, each water molecule has 4 occupied and 2 virtual orbitals.
+The number of $t_{2}$-amplitudes is equivalent to $(N_{occ})^{2}(N_{virt})^{2}$, where $N_{occ}$ denotes the number of occupied orbitals and $N_{virt}$ denotes the number of virtual orbitals, so the total number of $t_{2}$-amplitudes per molecule is 64.
+Further details regarding the feature set and implementation can be found in \cite{townsend_data-driven_2019}
 
-We generate a database consisting 199 water molecules with 30 features for each molecule.
-STO-3G basis set due for benchmarking reasons
-
-
-Details regarding the feature set and implementation can be found in \cite{townsend_data-driven_2019}
-
-Like with the BSE dataset, we explore how we can reduce the initial y features down to 5 and 16 features using SHAP and PCA.
-For each $t^{ab}_{ij(\text{CCSD})}$, orbital energies ($\varepsilon_{i},\varepsilon_{j},\varepsilon_{a},\varepsilon_{b}$), Coulomb and exchange integrals , binary feature whether two electrons are promoted to the same virtual orbital, the initial MP2 amplitudes, along with the numerator (two-electron integrals ($\mel{ij}{}{ab}$)) and denominator $\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}$.
-
-
-
-
-
-
+Like the BSE dataset, the 30 features from the full DDCC feature set must be reduced to 5 or 16 features using SHAP or PCA.
+Unlike the BSE dataset, we choose SHAP over PCA for the feature reduction since there is a direct correlation between the input features and output values.
+As shown in Fig. \ref{fig:DDCC_feature_set}, 5 and 16 features can accurately recover performance of the original model using 30 features, where all three models have train and test R$^{2}$s of 1.00.
+Due to the computational costs of running QML models, we will then use only 5 features for all DDCC QML models.
+The 5 most important features are the two-electron integrals ($\mel{ij}{}{ab}$), MP2 $t_{2}$-amplitudes ($t^{ab}_{ij(\text{MP2})}$), the magnitude of the MP2 $t_{2}$-amplitudes, and the difference in orbital energies ($\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}$).
 
 
 
@@ -689,15 +682,6 @@ For each $t^{ab}_{ij(\text{CCSD})}$, orbital energies ($\varepsilon_{i},\varepsi
 
 \section{Results and Discussion}
 \label{section:results_and_discussion}
-
-
-
-
-
-
- 
-
-
 
 \subsection{Function Fitting}
 
@@ -749,6 +733,9 @@ For each $t^{ab}_{ij(\text{CCSD})}$, orbital energies ($\varepsilon_{i},\varepsi
 	\label{fig:fivequbit_ff_heat}
 \end{figure}
 
+
+
+
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}[b]{0.49\textwidth}
@@ -796,6 +783,27 @@ For each $t^{ab}_{ij(\text{CCSD})}$, orbital energies ($\varepsilon_{i},\varepsi
 	\caption{}
 	\label{fig:sixteensixteenqubit_ff_heat}
 \end{figure}
+
+Across all three five qubit function fitting datasets, on average, the best encoders are `M-A2-CZ' with an average R$^{2}$ of 0.4599 and ansatz is `Full-CRX' with an average R$^{2}$ of 0.6731.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{../images/Function_Fitting/fivequbit/five_feature_function_fitting_boxplots.png}
+	\caption{}
+	\label{fig:five_feature_function_fitting_boxplots}
+\end{figure}
+
+
+Across all three five qubit function fitting datasets, on average, the best encoders are `IQP' with an average R$^{2}$ of 0.4506 and ansatz is `Full-Pauli-CRZ' with an average R$^{2}$ of 0.4393.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{../images/Function_Fitting/sixteenqubit/sixteen_feature_function_fitting_boxplots.png}
+	\caption{}
+	\label{fig:sixteen_feature_function_fitting_boxplots}
+\end{figure}
+
+
 
 
 
