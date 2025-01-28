@@ -1,4 +1,5 @@
 \documentclass[journal=jacsat,manuscript=article]{achemso}
+\SectionNumbersOn
 \usepackage{multicol}
 \usepackage{graphicx}% Include figure files
 \usepackage{graphicx}% Include figure files
@@ -121,7 +122,7 @@
 
 % put all the external documents here!
 
-\newcommand{\siref}[1]{\ref{#1}}
+\newcommand{\siref}[1]{S\ref{#1}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -216,7 +217,7 @@
 \begin{document}
 
 \newpage
-\section{Electronic Supplementary Information}
+\section*{Electronic Supplementary Information}
 \setcounter{page}{1}
 \renewcommand{\thepage}{S-\arabic{page}}
 
@@ -228,7 +229,7 @@
 		\hline
 		\textbf{Section} & \textbf{Page} \\
 		\hline
-		S1.  & \pageref{section:section1} \\
+		\siref{section:si_functionfitting}  Model Calibration using Function Fitting & \pageref{section:si_functionfitting} \\
 		\hline
 		S2. & \pageref{section:section2} \\
 		\hline
@@ -239,7 +240,109 @@
 \end{table}
 
 \newpage
-\section{title}\label{section:section1}
+\section{Model Calibration using Function Fitting}\label{section:si_functionfitting}
+
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../images/Function_Fitting/fivequbit/linear_heatplots.png}
+		\caption{}
+		\label{fig:linear_heatplots}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../images/Function_Fitting/fivequbit/linear_boxplots.png}
+		\caption{}
+		\label{fig:linear_boxplots}
+	\end{subfigure}
+	\hfill	
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../images/Function_Fitting/fivequbit/quadratic_heatplots.png}
+		\caption{}
+		\label{fig:quadratic_heatplots}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../images/Function_Fitting/fivequbit/quadratic_boxplots.png}
+		\caption{}
+		\label{fig:quadratic_boxplots}
+	\end{subfigure}
+	\hfill		
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../images/Function_Fitting/fivequbit/sine_heatplots.png}
+		\caption{}
+		\label{fig:sine_heatplots}
+	\end{subfigure}
+	\hfill		
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../images/Function_Fitting/fivequbit/sine_boxplots.png}
+		\caption{}
+		\label{fig:sine_boxplots}
+	\end{subfigure}
+	\hfill		
+	\caption{Five qubit function fitting results for the linear function (a) and (b), quadratic (c) and (d), and sine function (e) and (f).}
+	\label{fig:fivequbit_ff_heat}
+\end{figure}
+
+
+
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../images/Function_Fitting/sixteenqubit/linear_heatplots.png}
+		\caption{}
+		\label{fig:sixteenlinear_heatplots}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../images/Function_Fitting/sixteenqubit/linear_boxplots.png}
+		\caption{}
+		\label{fig:sixteenlinear_boxplots}
+	\end{subfigure}
+	\hfill	
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../images/Function_Fitting/sixteenqubit/quadratic_heatplots.png}
+		\caption{}
+		\label{fig:sixteenquadratic_heatplots}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../images/Function_Fitting/sixteenqubit/quadratic_boxplots.png}
+		\caption{}
+		\label{fig:sixteenquadratic_boxplots}
+	\end{subfigure}
+	\hfill		
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../images/Function_Fitting/sixteenqubit/sine_heatplots.png}
+		\caption{}
+		\label{fig:sixteensine_heatplots}
+	\end{subfigure}
+	\hfill		
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../images/Function_Fitting/sixteenqubit/sine_boxplots.png}
+		\caption{}
+		\label{fig:sixteensine_boxplots}
+	\end{subfigure}
+	\hfill		
+	\caption{Five qubit function fitting results for the linear function (a) and (b), quadratic (c) and (d), and sine function (e) and (f).}
+	\label{fig:sixteensixteenqubit_ff_heat}
+\end{figure}
+
+
 \section{title}\label{section:section2}
 \section{title}\label{section:section3}
 

@@ -129,7 +129,7 @@
 
 % put all the external documents here!
 \myexternaldocument{SI}
-\newcommand{\siref}[1]{\ref{#1}}
+\newcommand{\siref}[1]{S\ref{#1}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -520,13 +520,9 @@ BSE 16
 DDCC
 
 \subsection{Datasets}
-In this study, we explore three datasets: a function fitting dataset, consisting of a noisy functions used for model calibration; a dataset consisting of electronic structure features to predict wave functions using the data-driven coupled-cluster scheme of Townsend and Vogiatzis \cite{townsend_data-driven_2019}; and a dataset of bond separation energies (BSE) of molecules, where the feature set encodes structural information of each molecule. 
+In this study, we explore three datasets: a function fitting dataset (Figs. \ref{fig:linear_train_vs_test},\ref{fig:quadratic_train_vs_test}, and \ref{fig:sine_train_vs_test}), consisting of a noisy functions used for model calibration; a dataset of bond separation energies (BSE) of molecules (Figs. \ref{fig:bondtypes} and \ref{fig:BSEdistr}), where the feature set encodes structural information of each molecule;
+and a dataset consisting of electronic structure features to predict wave functions using the data-driven coupled-cluster scheme of Townsend and Vogiatzis (Fig. \ref{fig:waterddccdistribution}).\cite{townsend_data-driven_2019}
 We utilize the BSE49 and DDCC databases for two different reasons: the BSE49 database consists of a hard chemical property to predict using few features, while the DDCC dataset can be predicted easily using few features classically but is data intensive in the number of samples per molecule.
-
-The function fitting dataset consists of a noisy linear (Fig. \ref{fig:linear_train_vs_test}), quadratic (Fig. \ref{fig:quadratic_train_vs_test}), and sine (\ref{fig:sine_train_vs_test}) function.  
-For each function, 90 points are generated, where 80 are used for training set and 10 for the test set.
-This dataset is used for calibration of the 168 PQCs, along with providing additional insights into the effects of circuit depth, training set size, and error mitigation on model performance.
-
 
 \begin{figure}[H]
 	\centering
@@ -549,10 +545,67 @@ This dataset is used for calibration of the 168 PQCs, along with providing addit
 		\includegraphics[width=\textwidth]{../images/Function_Fitting/function_dataset/sine_train_vs_test.png}
 		\caption{}
 		\label{fig:sine_train_vs_test}
+	\end{subfigure}	
+	\hfill
+	\begin{subfigure}[b]{0.65\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../images/BSE/bondtypes.png}
+		\caption{}
+		\label{fig:bondtypes}
 	\end{subfigure}
-	\caption{The function fitting dataset which consists of 90 total points, 80 for training and 10 used for testing, for the (a) linear, (b) quadratic, and (c) sine functions.}
-	\label{fig:train_vs_test}
+	\hfill
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../images/BSE/BSE.jpg}
+		\caption{}
+		\label{fig:BSEdistr}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../images/manuscript_figures/waterddccdistribution.png}
+		\caption{}
+		\label{fig:waterddccdistribution}
+	\end{subfigure}	
+	\caption{Examples of the datasets explored in this study. The function fitting dataset used for model calibration include (a) linear (green), (b) quadratic (pink), and (c) sine (blue) functions. For the BSE49 dataset the distributions of the (d) bond types and the (e) bond separation energies in kcal/mol. For the DDCC dataset distributions of the initial MP2 $t_{2}$-amplitudes and the optimized CCSD $t_{2}$-amplitudes are shown in (f).}
+	\label{fig:bse_data}
 \end{figure}
+
+
+The function fitting dataset consists of a noisy linear (Fig. \ref{fig:linear_train_vs_test}), quadratic (Fig. \ref{fig:quadratic_train_vs_test}), and sine (\ref{fig:sine_train_vs_test}) function.  
+For each function, 90 points are generated, where 80 are used for training set and 10 for the test set.
+This dataset is used for calibration of the 168 PQCs, along with providing additional insights into the effects of circuit depth, training set size, and error mitigation on model performance.
+
+
+%\begin{figure}[H]
+%	\centering
+%	\begin{subfigure}[b]{0.3\textwidth}
+%		\centering
+%		\includegraphics[width=\textwidth]{../images/Function_Fitting/function_dataset/linear_train_vs_test.png}
+%		\caption{}
+%		\label{fig:linear_train_vs_test}
+%	\end{subfigure}
+%	\hfill
+%	\begin{subfigure}[b]{0.3\textwidth}
+%		\centering
+%		\includegraphics[width=\textwidth]{../images/Function_Fitting/function_dataset/quadratic_train_vs_test.png}
+%		\caption{}
+%		\label{fig:quadratic_train_vs_test}
+%	\end{subfigure}
+%	\hfill
+%	\begin{subfigure}[b]{0.3\textwidth}
+%		\centering
+%		\includegraphics[width=\textwidth]{../images/Function_Fitting/function_dataset/sine_train_vs_test.png}
+%		\caption{}
+%		\label{fig:sine_train_vs_test}
+%	\end{subfigure}
+%	\caption{The function fitting dataset which consists of 90 total points, 80 for training and 10 used for testing, for the (a) linear, (b) quadratic, and (c) sine functions.}
+%	\label{fig:train_vs_test}
+%\end{figure}
+
+
+
+
 
 Following model calibration using the function fitting dataset, we explore the appliciblity of PQCs for complex chemically relevant machine learning tasks.
 The first chemically motivated dataset we explore is the BSE49 dataset, which contains the bond seperation energies (BSE)  for the homolytic bond cleavage of covalently bonded molecules, such as \ce{A-B -> A^{.} + B^{.}}.\cite{prasad_bse49_2021}
@@ -568,16 +621,15 @@ Lastly, we explre two physics-based representations, Coulomb matrices (CMs) \cit
 Due to the computational cost of computing the regularized entropy match (REMatch) kernel  with the SOAPs representation, we excluded this representation in the overall discussion.
 We  also tested two different methods for representing the components of the bond separation chemical reaction, one where the feature vectors for the products are subtracted from the reactants, denoted by \textit{sub}, similar to the method used in Ref. \cite{garcia-andrade_barrier_2023}, and one that is composed of the reactant molecular only, denoted as \textit{AB}.
 
-[Ridge(), Lasso(), ElasticNet(), KNeighborsRegressor(), RandomForestRegressor(), GradientBoostingRegressor(), SVR(), KernelRidge(), GaussianProcessRegressor()]
 
-Since we are analyzing a diverse set of PQCs, we used a set of three different classic regression models, with varying capabilities, implemented in sckit-learn.\cite{pedregosa_scikit-learn_2011}
+Since we are analyzing a diverse set of PQCs, we also examine a diverse set of classic regression models, with varying capabilities, such as ridge, lasso, elastic net, \textit{k}-nearest-neighbors, random forest, gradient boosting, support vector, kernel ridge, and gaussian process regression as implemented in sckit-learn.\cite{pedregosa_scikit-learn_2011}
 Based on our results shown in Fig. \ref{fig:classical_molrepfig} we found that Morgan fingerprints
 We found that the best molecular representation across all models test, as shown in Fig. \ref{fig:classical_molrepfig}, was Morgan fingerprints using the \textit{sub} formulation.
  
 \begin{figure}[H]
 	\centering	
 	\includegraphics[width=\linewidth]{../images/BSE/classical/classical_molrepfig.png}
-	\caption{}
+	\caption{Coulomb matrices (CMs), Molecular ACCess Systems (MACCS), persistence images (PIs), RDKit and Morgan fingerprints. Performance of a diverse set of molecular representations R$^{2}$}
 	\label{fig:classical_molrepfig}
 \end{figure}
 
@@ -680,111 +732,24 @@ The 5 most important features are the two-electron integrals ($\mel{ij}{}{ab}$),
 
 
 
+
 \section{Results and Discussion}
 \label{section:results_and_discussion}
 
 \subsection{Function Fitting}
-
-\begin{figure}[H]
-	\centering
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/Function_Fitting/fivequbit/linear_heatplots.png}
-		\caption{replot y axis}
-		\label{fig:linear_heatplots}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/Function_Fitting/fivequbit/linear_boxplots.png}
-		\caption{}
-		\label{fig:linear_boxplots}
-	\end{subfigure}
-	\hfill	
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/Function_Fitting/fivequbit/quadratic_heatplots.png}
-		\caption{}
-		\label{fig:quadratic_heatplots}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/Function_Fitting/fivequbit/quadratic_boxplots.png}
-		\caption{}
-		\label{fig:quadratic_boxplots}
-	\end{subfigure}
-	\hfill		
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/Function_Fitting/fivequbit/sine_heatplots.png}
-		\caption{}
-		\label{fig:sine_heatplots}
-	\end{subfigure}
-	\hfill		
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/Function_Fitting/fivequbit/sine_boxplots.png}
-		\caption{}
-		\label{fig:sine_boxplots}
-	\end{subfigure}
-	\hfill		
-	\caption{}
-	\label{fig:fivequbit_ff_heat}
-\end{figure}
+To calibrate the PQCs, we perform an initial study of the 168 encoder-ansatz pairs using both 5 and 16 qubits.
+Individual heat maps showing the performance of the encoder-ansatz pairs and box plots showing the overall statistics for each encoder and ansatz are shown for the 5 and 16 qubit models in SI Section \siref{section:si_functionfitting}.
 
 
+Starting with the five qubit function fitting, we found that out of the
+168 encoder-ansatz pairs, for the linear function (Fig. \siref{fig:linear_heatplots}) is is A1\_ESU2 with a train and test R$^{2}$ of 0.9886 and 0.9893, respectively.
+Box plots for the encoders (left) and variational layers (right) are shown in Fig. \siref{fig:linear_boxplots}, where, the best encoder is IQP, with a mean R$^{2}$ of 0.8028, and best ansatz layer A1-A1-CNOT, with a mean R$^{2}$ of 0.5541.
+For the quadratic function, the best encoder-ansatz pair is A1-A1-CNOT\_Full-CRX with a train and test R$^{2}$ of 0.8809 and 0.7309, respectively, as shown in Fig \ref{fig:quadratic_heatplots}.
+On average the best encoder is A1-A1-CNOT with an R$^{2}$ of 0.5541 and best variational layer is Full-CRX with an R$^{2}$ of 0.5958 (Fig. \ref{fig:quadratic_boxplots}).
+For the sine function, Fig. \ref{fig:sine_heatplots}, M-M-CZ\_Full-CRX is the best encoder-ansatz pair with a train and test R$^{2}$ of 0.8887 and 0.9081, respectively.
+As shown in Fig. \ref{fig:sine_boxplots}, the best encoder is M with an average R$^{2}$ of 0.6456 and best variational layer is Full-CRX with a mean R$^{2}$ of 0.7551.
+Across all three five qubit function fitting datasets, on average, the best encoders are M-A2-CZ with an average R$^{2}$ of 0.4599 (Fig. \ref{fig:five_feature_function_fitting_boxplots} left) and ansatz is Full-CRX with an average R$^{2}$ of 0.6731 (Fig. \ref{fig:five_feature_function_fitting_boxplots} right).
 
-
-\begin{figure}[H]
-	\centering
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/Function_Fitting/sixteenqubit/linear_heatplots.png}
-		\caption{}
-		\label{fig:sixteenlinear_heatplots}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/Function_Fitting/sixteenqubit/linear_boxplots.png}
-		\caption{}
-		\label{fig:sixteenlinear_boxplots}
-	\end{subfigure}
-	\hfill	
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/Function_Fitting/sixteenqubit/quadratic_heatplots.png}
-		\caption{}
-		\label{fig:sixteenquadratic_heatplots}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/Function_Fitting/sixteenqubit/quadratic_boxplots.png}
-		\caption{}
-		\label{fig:sixteenquadratic_boxplots}
-	\end{subfigure}
-	\hfill		
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/Function_Fitting/sixteenqubit/sine_heatplots.png}
-		\caption{}
-		\label{fig:sixteensine_heatplots}
-	\end{subfigure}
-	\hfill		
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/Function_Fitting/sixteenqubit/sine_boxplots.png}
-		\caption{}
-		\label{fig:sixteensine_boxplots}
-	\end{subfigure}
-	\hfill		
-	\caption{}
-	\label{fig:sixteensixteenqubit_ff_heat}
-\end{figure}
-
-Across all three five qubit function fitting datasets, on average, the best encoders are `M-A2-CZ' with an average R$^{2}$ of 0.4599 and ansatz is `Full-CRX' with an average R$^{2}$ of 0.6731.
 
 \begin{figure}[H]
 	\centering
@@ -794,7 +759,7 @@ Across all three five qubit function fitting datasets, on average, the best enco
 \end{figure}
 
 
-Across all three five qubit function fitting datasets, on average, the best encoders are `IQP' with an average R$^{2}$ of 0.4506 and ansatz is `Full-Pauli-CRZ' with an average R$^{2}$ of 0.4393.
+Across all three sixteen qubit function fitting datasets, on average, the best encoders are `IQP' with an average R$^{2}$ of 0.4506 and ansatz is `Full-Pauli-CRZ' with an average R$^{2}$ of 0.4393.
 
 \begin{figure}[H]
 	\centering
