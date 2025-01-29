@@ -519,7 +519,7 @@ BSE 5
 BSE 16
 DDCC
 
-\subsection{Datasets}
+\subsection{Datasets}\label{subsection:datasets}
 In this study, we explore three datasets: a function fitting dataset (Figs. \ref{fig:linear_train_vs_test},\ref{fig:quadratic_train_vs_test}, and \ref{fig:sine_train_vs_test}), consisting of a noisy functions used for model calibration; a dataset of bond separation energies (BSE) of molecules (Figs. \ref{fig:bondtypes} and \ref{fig:BSEdistr}), where the feature set encodes structural information of each molecule;
 and a dataset consisting of electronic structure features to predict wave functions using the data-driven coupled-cluster scheme of Townsend and Vogiatzis (Fig. \ref{fig:waterddccdistribution}).\cite{townsend_data-driven_2019}
 We utilize the BSE49 and DDCC databases for two different reasons: the BSE49 database consists of a hard chemical property to predict using few features, while the DDCC dataset can be predicted easily using few features classically but is data intensive in the number of samples per molecule.
@@ -713,7 +713,7 @@ The 5 most important features are the two-electron integrals ($\mel{ij}{}{ab}$),
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{../images/DDCC/DDCC_feature_set.png}
+	\includegraphics[width=0.49\textwidth]{../images/DDCC/DDCC_feature_set.png}
 	\caption{}
 	\label{fig:DDCC_feature_set}
 \end{figure}
@@ -742,34 +742,60 @@ Individual heat maps showing the performance of the encoder-ansatz pairs and box
 
 
 Starting with the five qubit function fitting, we found that out of the
-168 encoder-ansatz pairs, for the linear function (Fig. \siref{fig:linear_heatplots}) is is A1\_ESU2 with a train and test R$^{2}$ of 0.9886 and 0.9893, respectively.
-Box plots for the encoders (left) and variational layers (right) are shown in Fig. \siref{fig:linear_boxplots}, where, the best encoder is IQP, with a mean R$^{2}$ of 0.8028, and best ansatz layer A1-A1-CNOT, with a mean R$^{2}$ of 0.5541.
-For the quadratic function, the best encoder-ansatz pair is A1-A1-CNOT\_Full-CRX with a train and test R$^{2}$ of 0.8809 and 0.7309, respectively, as shown in Fig \ref{fig:quadratic_heatplots}.
-On average the best encoder is A1-A1-CNOT with an R$^{2}$ of 0.5541 and best variational layer is Full-CRX with an R$^{2}$ of 0.5958 (Fig. \ref{fig:quadratic_boxplots}).
-For the sine function, Fig. \ref{fig:sine_heatplots}, M-M-CZ\_Full-CRX is the best encoder-ansatz pair with a train and test R$^{2}$ of 0.8887 and 0.9081, respectively.
-As shown in Fig. \ref{fig:sine_boxplots}, the best encoder is M with an average R$^{2}$ of 0.6456 and best variational layer is Full-CRX with a mean R$^{2}$ of 0.7551.
-Across all three five qubit function fitting datasets, on average, the best encoders are M-A2-CZ with an average R$^{2}$ of 0.4599 (Fig. \ref{fig:five_feature_function_fitting_boxplots} left) and ansatz is Full-CRX with an average R$^{2}$ of 0.6731 (Fig. \ref{fig:five_feature_function_fitting_boxplots} right).
+168 encoder-ansatz pairs, for the linear function (SI Fig. \siref{fig:linear_heatplots}) is is A1\_ESU2 with a train and test R$^{2}$ of 0.9886 and 0.9893, respectively.
+Box plots for the encoders (left) and variational layers (right) are shown in SI  Fig. \siref{fig:linear_boxplots}, where, the best encoder is IQP, with a mean R$^{2}$ of 0.8434, and best ansatz layer Full-CRX, with a mean R$^{2}$ of 0.7562.
+For the quadratic function, the best encoder-ansatz pair is A1-A1-CNOT\_Full-CRX with a train and test R$^{2}$ of 0.8809 and 0.7309, respectively, as shown in SI Fig \siref{fig:quadratic_heatplots}.
+On average the best encoder is A1-A1-CNOT with an R$^{2}$ of 0.5541 and best variational layer is Full-CRX with an R$^{2}$ of 0.5958 (SI  Fig. \siref{fig:quadratic_boxplots}).
+For the sine function, SI  Fig. \siref{fig:sine_heatplots}, M-M-CZ\_Full-CRX is the best encoder-ansatz pair with a train and test R$^{2}$ of 0.8887 and 0.9081, respectively.
+As shown in SI  Fig. \siref{fig:sine_boxplots}, the best encoder is M with an average R$^{2}$ of 0.6456 and best variational layer is Full-CRX with a mean R$^{2}$ of 0.7551.
+Across all three five qubit function fitting datasets, on average, the best encoders are M-A2-CZ with an average R$^{2}$ of 0.4776 (Fig. \ref{fig:five_feature_function_fitting_boxplots} left) and ansatz is Full-CRX with an average R$^{2}$ of 0.7023 (Fig. \ref{fig:five_feature_function_fitting_boxplots} right).
 
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]{../images/Function_Fitting/fivequbit/five_feature_function_fitting_boxplots.png}
-	\caption{}
-	\label{fig:five_feature_function_fitting_boxplots}
-\end{figure}
-
-
-Across all three sixteen qubit function fitting datasets, on average, the best encoders are `IQP' with an average R$^{2}$ of 0.4506 and ansatz is `Full-Pauli-CRZ' with an average R$^{2}$ of 0.4393.
+For the sixteen qubit function fitting evaluation of the 168 encoder-ansatz pairs, we found that, similarly to the five qubit data, for the linear function the best pair is A1\_ESU2 with train and test R$^{2}$s of 0.9886 and 0.9893, respectively, as highlighted in SI Fig. \siref{fig:sixteenlinear_heatplots}.
+Like the five qubit data, the best encoder is also IQP with an average R$^{2}$ of 0.7800 (SI Fig. \siref{fig:sixteenlinear_boxplots} left), while the best ansatz varies from the five qubit data, Full-Pauli-CRZ with a mean R$^{2}$ of 0.3947 (SI Fig. \siref{fig:sixteenlinear_boxplots} right).
+The A1-A1-CZ\_Modified-Pauli-CRX encoder-ansatz pair has the best overall model performance, highlighted in SI Fig. \siref{fig:sixteenquadratic_heatplots}, where the training set has an R$^{2}$ of 0.8415 and the test set has an R$^{2}$ of  0.7722.
+As demonstrated in SI Fig. \siref{fig:sixteenquadratic_boxplots}, the best encoders and ans\"{a}tze are A1-A1-CNOT and Full-Pauli-CRX, with mean R$^{2}$s of 0.5759 and 0.4474, respectively.
+For the last sixteen qubit dataset, the sine function data (SI Fig. \siref{fig:sixteensine_heatplots}), the best encoder-ansatz pair is A1-A1-CZ\_Full-Pauli-CRZ	with an R$^{2}$ of 0.8147 for the training set and an R$^{2}$ of 0.8626	for the test set.
+SI Fig. \siref{fig:sixteensine_boxplots} highlights that the best encoder is M with a mean R$^{2}$ of 0.5824 and best ansatz, on average, is Full-Pauli-CRZ with an R$^{2}$ of 0.4881.
+Across all three function fitting datasets, the sixteen qubit data varies where the best encoders are IQP with an average R$^{2}$ of 0.4506 and ans\"{a}tze is Full-Pauli-CRZ with an average R$^{2}$ of 0.4393.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{../images/Function_Fitting/sixteenqubit/sixteen_feature_function_fitting_boxplots.png}
-	\caption{}
-	\label{fig:sixteen_feature_function_fitting_boxplots}
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../images/Function_Fitting/fivequbit/five_feature_function_fitting_boxplots.png}
+		\caption{}
+		\label{fig:five_feature_function_fitting_boxplots}
+	\end{subfigure}
+	\hfill		
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../images/Function_Fitting/sixteenqubit/sixteen_feature_function_fitting_boxplots.png}
+		\caption{}
+		\label{fig:sixteen_feature_function_fitting_boxplots}
+	\end{subfigure}
+	\hfill		
+	\caption{The combined performance of all three function fitting datasets for both the (a) five and (b) sixteen qubit models is evaluated using the R$^{2}$ (y-axis) versus the encoders (left) and ans\"{a}tze (right).}
+	\label{fig:function_fitting_boxplots}
 \end{figure}
 
 
+Following the initially analysis of the performance of the 168 PQCs using both five and sixteen qubits, we experimented with the effect of the re-upload depth (RUD) and number of ansatz layers (AL) using the sixteen qubit circuits.
+We chose to use the sixteen qubit circuits over the five qubit circuits since these circuits have complexity more similar to when the circuits are used for the chemical dataset in terms of the number of parameters and optimization times.
+From the initial 168 PQCs, for each function fitting dataset, we choose the five best (top row), five median (middle row), and five worst (bottom row) circuits to see the effects of increasing the RUD and AL on model performance as shown in Figs. \ref{fig:16qubit_Linear_RUD_AL}, \ref{fig:16qubit_Quadratic_RUD_AL}, and  \ref{fig:16qubit_Sine_RUD_AL}.
+For the linear (Fig. \ref{fig:16qubit_Linear_RUD_AL}), quadratic (\ref{fig:16qubit_Quadratic_RUD_AL}), and sine (Fig. \ref{fig:16qubit_Sine_RUD_AL}) data, some generalities arise for the five best circuits. 
+We see that for these circuits, increasing the number of AL from 1 to 3 or 5 improves model performance more than RUD.
+For the median performers, the RUD improves model performance more than the ansatz layers.
+And lastly, for the worse performers a general trend does not exist and increasing the RUD and AL depends on the dataset and circuit architecture. 
 
+
+% Commented this out because it is not useful for the overall discussion
+%While an increase in the circuit depth, either by increasing the RUD or AL, is associated with an increase in model performance this is also associated with an increased computational cost. 
+%In Figs. \ref{fig:linear_circuitdepth_vs_R2}, \ref{fig:quadratic_circuitdepth_vs_R2}, and \ref{fig:sine_circuitdepth_vs_R2} we  highlight this trade-off, where the x-axes denote circuit depth, y-axis denotes the R$^{2}$, and the median train and test R$^{2}$ are shown in red and blue, respectively, for all 15 circuits. 
+Despite these trends, we found that for the linear function, the best performing model is IQP\_Full-Pauli-CRZ  with a RUD and AL of 1.
+This circuit also has a training and test R$^{2}$ of 0.9883 and 0.9891, respectively, and a depth of 95.
+Unlike the best linear circuit, the best circuits for both the quadratic and sine data, IQP\_Full-Pauli-CRX	 and A2\_HWE-CZ, respectively,  benefit from an increased RUD, with the best models having a RUD of 5 and AL of 1.
+These two circuits differ in depth and performance, with the IQP\_Full-Pauli-CRX for the quadratic data having a circuit depth of 520, training R$^{2}$ of 0.9817, and test R$^{2}$ of 0.9609 and the A2\_HWE-CZ circuit for the sine data having a depth of 105 , training R$^{2}$ of 0.9156, and test R$^{2}$ of 0.9576.
+Following these insights, we applied these circuits for analyzing the effects of the training set size on model performance using learning curves and the effects of error mitigation using noisy simulation.
 
 
 \begin{figure}[H]
@@ -781,13 +807,13 @@ Across all three sixteen qubit function fitting datasets, on average, the best e
 		\label{fig:16qubit_Linear_RUD_AL}
 	\end{subfigure}
 	\hfill	
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{../images/Function_Fitting/linear_circuitdepth_vs_R2}
-		\caption{}
-		\label{fig:linear_circuitdepth_vs_R2}
-	\end{subfigure}
-	\hfill		
+%	\begin{subfigure}[b]{0.49\textwidth}
+%		\centering
+%		\includegraphics[width=\linewidth]{../images/Function_Fitting/linear_circuitdepth_vs_R2}
+%		\caption{}
+%		\label{fig:linear_circuitdepth_vs_R2}
+%	\end{subfigure}
+%	\hfill		
 	\begin{subfigure}[b]{0.49\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{../images/Function_Fitting/sixteenqubit/16qubit_Quadratic_RUD_AL}
@@ -795,32 +821,51 @@ Across all three sixteen qubit function fitting datasets, on average, the best e
 		\label{fig:16qubit_Quadratic_RUD_AL}
 	\end{subfigure}
 	\hfill
+%	\begin{subfigure}[b]{0.49\textwidth}
+%		\centering
+%		\includegraphics[width=\linewidth]{../images/Function_Fitting/quadratic_circuitdepth_vs_R2}
+%		\caption{}
+%		\label{fig:quadratic_circuitdepth_vs_R2}
+%	\end{subfigure}
+%	\hfill		
 	\begin{subfigure}[b]{0.49\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{../images/Function_Fitting/quadratic_circuitdepth_vs_R2}
+		\includegraphics[width=\linewidth]{../images/Function_Fitting/sixteenqubit/16qubit_Sine_RUD_AL.png}
 		\caption{}
-		\label{fig:quadratic_circuitdepth_vs_R2}
-	\end{subfigure}
-	\hfill		
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{../images/Function_Fitting/sixteenqubit/16qubit_Linear_RUD_AL}
-		\caption{}
-		\label{fig:16qubitlinearrudal}
+		\label{fig:16qubit_Sine_RUD_AL}
 	\end{subfigure}	
 	\hfill
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{../images/Function_Fitting/sine_circuitdepth_vs_R2}
-		\caption{}
-		\label{fig:sine_circuitdepth_vs_R2}
-	\end{subfigure}
-	\hfill		
-	\caption{}
+%	\begin{subfigure}[b]{0.49\textwidth}
+%		\centering
+%		\includegraphics[width=\linewidth]{../images/Function_Fitting/sine_circuitdepth_vs_R2}
+%		\caption{}
+%		\label{fig:sine_circuitdepth_vs_R2}
+%	\end{subfigure}
+%	\hfill		
+	\caption{(a) linear, (b) quadratic, (c) sine}
 	\label{fig:16qubit_RUD_AL}	
 \end{figure}
 
 
+One proposed advantage of using PQCs for ML tasks is that, in some cases, they can outperform classical ML models.\cite{hatakeyama-sato_quantum_2023}
+To explore this, we use learning curves with the best performing circuits previously described, where we hold the number of test points to 10\% of the total data points and vary the percentage of the training data. 
+
+We compare the best PQCs with the classical models mentioned in subsection \ref{subsection:datasets}
+For the linear data using IQP\_Full-Pauli-CRZ  with a RUD and AL of 1, we found that the quantum circuit offers similiar performance 
+
+Performance:
+Linear
+Offers comparable performance to the classical models
+
+quadratic
+Outperforms classical linear models (elastic lasso ridge)
+
+sine
+Outperforms classical linear models (elastic lasso ridge)
+
+
+
+'elastic', 'gpr', 'grad', 'knn', 'krr', 'lasso', 'rfr', 'ridge', 'svr'
 
 
 \begin{figure}[H]
@@ -845,7 +890,7 @@ Across all three sixteen qubit function fitting datasets, on average, the best e
 		\caption{}
 		\label{fig:sine_learning_curves}
 	\end{subfigure}	
-	\caption{(a) linear, (b) quadratic, (c) sine function}
+	\caption{Learning curves of the best PQCs (right side in the subfigures) versus various classical models (left side in the subfigure) for the (a) linear, (b) quadratic, and (c) sine function datasets.}
 	\label{fig:functionfitting_learning_curves}	
 \end{figure}
 
