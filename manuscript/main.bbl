@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{50}
+\begin{mcitethebibliography}{51}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -499,6 +499,17 @@ Smith,~D. G.~A. \latin{et~al.}  {Psi4NumPy}: {An} {Interactive} {Quantum}
   {Chemistry} {Programming} {Environment} for {Reference} {Implementations} and
   {Rapid} {Development}. \emph{J. Chem. Theory Comput.} \textbf{2018},
   \emph{14}, 3504--3511, Publisher: American Chemical Society\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[LaRose \latin{et~al.}(2022)LaRose, Mari, Kaiser, Karalekas, Alves,
+  Czarnik, Mandouh, Gordon, Hindy, Robertson, Thakre, Wahl, Samuel, Mistri,
+  Tremblay, Gardner, Stemen, Shammah, and Zeng]{larose_mitiq_2022}
+LaRose,~R. \latin{et~al.}  Mitiq: {A} software package for error mitigation on
+  noisy quantum computers. \emph{Quantum} \textbf{2022}, \emph{6}, 774,
+  Publisher: Verein zur Forderung des Open Access Publizierens in den
+  Quantenwissenschaften\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
