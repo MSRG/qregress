@@ -890,28 +890,12 @@ For all three datasets, this implies that the PQCs offer similar performance to 
 Lastly, using the function fitting datasets we analyze the effects of error mitigation on the model accuracy by comparing state vector simulations with noisy and error mitigated simulations using the \textit{fake\_quebec} backend.
 Initially, we explored two different methods of error mitigation zero-noise extrapolation (ZNE) using MITIQ\cite{larose_mitiq_2022} and TREX, as implemented in Qiskit. 
 We found that both linear and Richardson ZNE were too costly to simulate on classical computers using 16 qubits for all three function fitting datasets and chose only to use TREX for error mitigation.
-
-
-
-
-
-IQP\_Full-Pauli-CRZ (linear function fitting)
-state vector: train 0.99/test 0.99
-TREX: train 0.98/test 0.98
-without: train 0.98/test 0.98
-\ref{fig:linear_error_mitigation}
-
-IQP\_Full-Pauli-CRX (quadratic function fitting)
-state vector: train 0.80/test 0.68
-TREX: train 0.69/test 0.60
-without: train 0.65/test 0.45
-\ref{fig:quadratic_error_mitigation}
-
-A2\_HWE-CZ (sine function fitting)
-state vector: train 0.92/test 0.96
-TREX: train 0.87/test 0.89
-without: train 0.87/test 0.91
-\ref{fig:sine_error_mitigation}
+Our analysis revealed that the state vector, TREX, and unmitigated IQP\_Full-Pauli-CRZ (linear function fitting data) models all have R$^{2}$ between 0.98 and 0.99, for both the training and test sets, as highlighted in Fig. \ref{fig:linear_error_mitigation}.
+While the performance of the linear data can be attributed to the simiplicity of the dataset, for the quadratic function fitting data using IQP\_Full-Pauli-CRX (Fig. \ref{fig:quadratic_error_mitigation}), we found that the model with unmitigated error has an R$^{2}$ of 0.65 for the training set and 0.45 for the test set.
+This model is improved slightly by the incorporation of error mitigation using TREX, where the training set R$^{2}$ is 0.69 and test set R$^{2}$ is 0.60.
+Overall, the model using TREX offers results more comparable to the state vector simulations, which has a R$^{2}$s of 0.80 and 0.68 for the training and test set, respectively.
+On the sine function fitting data, using A2\_HWE-CZ (Fig. \ref{fig:sine_error_mitigation}), for the state vector, TREX, and unmitigated models, the training sets have R$^{2}$s of 0.92, 0.87, and 0.87, respectively, while the test sets have R$^{2}$s of 0.96, 0.89, and 0.91, respectively.
+Overall, while these results are for simple function fitting data, we concluded that TREX offers a computational efficient error mitigation method, with results similar to the state vector calculations.0
 
 
 \begin{figure}[H]
@@ -944,13 +928,25 @@ without: train 0.87/test 0.91
 
 
 \subsection{BSE}
+The first chemically relevant dataset we explore in this study is the BSE49 dataset.
+As highlighted in Figs. \ref{fig:bondtypes} and \ref{fig:BSEdistr}, this dataset consists of a diverse set of representative chemical bonds and bond separation energies.
+Herein, we follow a similar analysis to the function fitting data, starting off with an analysis of a large set of PQCs using five and sixteen qubits with RUDs and ALs of 1.
+From these two sets of data, we choose the best two models to study how an increase in the RUD and AL effects model performance.
+[learning curves]
+[Conclude we do not want to run this on real hardware due to the lack of promising results using simulation]
+
+
 
 five qubit \ref{fig:5BSE_heatplots} \ref{fig:5BSE_boxplots}
 best encoder-ansatz pair: train R$^{2}$/test R$^{2}$
 Best encoder on average train R$^{2}$/test R$^{2}$
 Best ansatz on average train R$^{2}$/test R$^{2}$
 
+'M-M-CNOT', '-0.0216'
+'Full-CRX', '0.1214'
+
 sixteen qubit \ref{fig:16BSE_heatplots} \ref{fig:16BSE_boxplots}
+removed the really bad ones from five qubit
 best encoder-ansatz pair: train R$^{2}$/test R$^{2}$
 Best encoder on average train R$^{2}$/test R$^{2}$
 Best ansatz on average train R$^{2}$/test R$^{2}$
