@@ -88,9 +88,9 @@ class QuantumRegressor:
         self.fit_count = 0
         self.cached_results = {}
         self.njobs = njobs 
-        
+        print(self.njobs)
         os.environ["OMP_NUM_THREADS"] = str(self.njobs)
-        print(f"Cores set: {self.njobs}")
+        print(os.environ["OMP_NUM_THREADS"])
     def _set_device(self, device, backend, shots, token=None):
         #  sets the models quantum device. If using IBMQ asks for proper credentials
         if device == 'qiskit.remote':
@@ -102,15 +102,17 @@ class QuantumRegressor:
             #    token = input('Enter IBMQ token')
             ## QiskitRuntimeService.save_account(channel='ibm_quantum', instance=instance, token=token, overwrite=True)
             # Or save your credentials on disk.
-            # QiskitRuntimeService.save_account(channel='ibm_quantum', instance='pinq-quebec-hub/univ-toronto/matterlab', token='<IBM Quantum API key>')
-            service = QiskitRuntimeService(channel="ibm_quantum", instance='pinq-quebec-hub/univ-toronto/matterlab')
+            # QiskitRuntimeService.save_account(channel='ibm_quantum', instance='pinq-quebec-hub/univ-toronto/default', token='<IBM Quantum API key>')
+            service = QiskitRuntimeService(channel="ibm_quantum", instance='pinq-quebec-hub/univ-toronto/default')
             self._backend = service.least_busy(operational=True, simulator=False, min_num_qubits=self.num_qubits)
-            self.device = qml.device(device, wires=self.num_qubits, backend=self._backend,shots=shots)
-            # Default to no noise 
-            self.device.set_transpile_args(**{"resilience_level":0,"seed_transpiler":42})
+            if self.error_mitigation == None:
+                self.device = qml.device(device, wires=127, backend=self._backend,shots=shots,resilience_level=0,seed_transpiler=42)
+            elif self.error_mitigation == 'TREX':
+                self.device = qml.device(device, wires=127, backend=self._backend,shots=shots,resilience_level=1,seed_transpiler=42)
+            
+            
+            
 
-            if self.error_mitigation == 'TREX':
-                self.device.set_transpile_args(**{'resilience_level': 1})
 
         elif device == 'qiskit.aer' and backend == "fake":
             # Example based on https://pennylane.ai/qml/demos/tutorial_error_mitigation/
@@ -145,7 +147,11 @@ class QuantumRegressor:
         for i in range(self._re_upload_depth):
             params = parameters[self._num_params() * i:self._num_params() * (i + 1)]
             self.encoder(features, wires=range(self.num_qubits))
-            self.variational(params, wires=range(self.num_qubits))
+            # GMJ: 11/26/24 a hack to get this to work for Full-CRZ/X
+            try:
+                self.variational(params, wires=range(self.num_qubits))
+            except:
+                self.variational(params, wires=range(self.num_qubits))
 
         if self.postprocess is None and self.error_mitigation != 'M3':
             return qml.expval(qml.PauliZ(0))
@@ -241,7 +247,7 @@ class QuantumRegressor:
         return num_params
 
     def _callback(self, xk):
-        cost_at_step = self._cost_wrapper(xk)
+        cost_at_step = self._cost_wrapper(xk)            
         if self.fit_count % 1 == 0:
             print(f'[{time.asctime()}]  Iteration number: {self.fit_count} with current cost as {cost_at_step} and '
                   f'parameters \n{xk}. ')
@@ -341,6 +347,7 @@ class QuantumRegressor:
                                       callback=self._callback)
             self.params = opt_result['x']
         else:
+   
             opt = qml.SPSAOptimizer(maxiter=self.max_iterations)
             cost = []
             for idx,_ in enumerate(range(self.max_iterations)):
@@ -353,7 +360,8 @@ class QuantumRegressor:
                     break
                     
             opt_result = [params, cost]
-            self.params = params
+            self.params = params                    
+ 
 
         self._save_partial_state(params, force=True)
         if detailed_results:
@@ -392,7 +400,17 @@ class QuantumRegressor:
             # if no parameters are passed then we are predicting the fitted model, so we use the stored parameters.
             params = self.params
 
-        if self.postprocess is None:
-            return [f * self.qnode(features=features, parameters=params) for features in tqdm(x,desc="Predict")]
-        else:
-            return [np.dot(f * np.array(self.qnode(features=features, parameters=params[:-self.num_qubits])),params[-self.num_qubits:]) for features in x]
+        # Real device OR FakeQuebec
+        try:
+            print(self.device)
+            with qiskit_session(self.device) as session:
+                if self.postprocess is None:
+                    return [f * self.qnode(features=features, parameters=params) for features in tqdm(x,desc="Predict")]
+                else:
+                    return [np.dot(f * np.array(self.qnode(features=features, parameters=params[:-self.num_qubits])),params[-self.num_qubits:]) for features in x]
+        # Everything else.
+        except:
+            if self.postprocess is None:
+                return [f * self.qnode(features=features, parameters=params) for features in tqdm(x,desc="Predict")]
+            else:
+                return [np.dot(f * np.array(self.qnode(features=features, parameters=params[:-self.num_qubits])),params[-self.num_qubits:]) for features in x]
