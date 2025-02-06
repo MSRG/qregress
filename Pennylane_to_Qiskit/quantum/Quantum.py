@@ -197,7 +197,7 @@ class QuantumRegressor:
             batch_partitions = np.array_split(np.random.randint(0, len(self.x), len(self.x)),len(self.x)//self._batch_size)
             base_cost = np.mean(joblib.Parallel(n_jobs=self.njobs,verbose=0)(joblib.delayed(mean_squared_error)(self.y[i], self.predict(self.x[i], params=parameters)) for i in tqdm(batch_partitions,desc=f"Cost (Batches {len(batch_partitions)} of size {self._batch_size})")))
         else:
-            pred = self.predict(self.x, params=parameters)
+            pred = np.array(self.predict(self.x, params=parameters)).reshape(*self.y.shape)
             base_cost = mean_squared_error(self.y, pred)        
             
         
@@ -239,6 +239,8 @@ class QuantumRegressor:
         else:
             cost = self._cost(parameters)
             self.cached_results[param_hash] = cost
+
+        cost = np.array(cost)
         return cost
 
     def _num_params(self):
@@ -402,7 +404,6 @@ class QuantumRegressor:
 
         # Real device OR FakeQuebec
         try:
-            print(self.device)
             with qiskit_session(self.device) as session:
                 if self.postprocess is None:
                     return [f * self.qnode(features=features, parameters=params) for features in tqdm(x,desc="Predict")]
