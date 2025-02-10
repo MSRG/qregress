@@ -7,22 +7,9 @@ name=${i%/}
 # Extracting the parent directory name
 settings_folder=${name#M-A1-CNOT_Efficient-CRX_}
 path="${cwd}/${name}"
-cat > ${name}.sub <<EOF
-#! /bin/bash
-#SBATCH -t 0-23:59:59
-#SBATCH -J ${errorname}_${name}
-#SBATCH -N 1
-#SBATCH -n 80
-#SBATCH --account=rrg-fekl-ac
-#SBATCH --error=${name}.e%J        # The file where run time errors will be dumped
-#SBATCH --output=${name}.o%J               # The file where the output of the terminal will be dumped
-
-
-export OMP_NUM_THREADS=80
+export OMP_NUM_THREADS=64
 cd $(pwd)/$name
-/scinet/niagara/software/2019b/opt/base/python/3.11.5/bin/python ${cwd}/main.py --save_path ${path}  --settings ${path}/${name}.json --train_set ${cwd}/PCA16_0.8_Morgan_train.bin --test_set ${cwd}/PCA16_0.8_Morgan_test.bin --scaler ${cwd}/PCA16_0.8_Morgan_scaler.bin --resume_file ${path}/partial_state_model.bin > ${name}.out 2>&1
-
+python ${cwd}/main.py --save_path ${path}  --settings ${path}/${name}.json --train_set ${cwd}/PCA16_0.7_Morgan_train.bin --test_set ${cwd}/PCA16_0.7_Morgan_test.bin --scaler ${cwd}/PCA16_0.7_Morgan_scaler.bin  > ${name}.out 2>&1
 cd ..
 touch ${name}.done
 
-EOF

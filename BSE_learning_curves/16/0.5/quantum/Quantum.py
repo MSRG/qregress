@@ -102,8 +102,8 @@ class QuantumRegressor:
             #    token = input('Enter IBMQ token')
             ## QiskitRuntimeService.save_account(channel='ibm_quantum', instance=instance, token=token, overwrite=True)
             # Or save your credentials on disk.
-            # QiskitRuntimeService.save_account(channel='ibm_quantum', instance='pinq-quebec-hub/univ-toronto/default', token='<IBM Quantum API key>')
-            service = QiskitRuntimeService(channel="ibm_quantum", instance='pinq-quebec-hub/univ-toronto/default')
+            # QiskitRuntimeService.save_account(channel='ibm_quantum', instance='pinq-quebec-hub/univ-toronto/matterlab', token='<IBM Quantum API key>')
+            service = QiskitRuntimeService(channel="ibm_quantum", instance='pinq-quebec-hub/univ-toronto/matterlab')
             self._backend = service.least_busy(operational=True, simulator=False, min_num_qubits=self.num_qubits)
             self.device = qml.device(device, wires=self.num_qubits, backend=self._backend,shots=shots)
             # Default to no noise 
