@@ -6,7 +6,6 @@ Ignore conflicts: `cat min_requirements.txt | xargs -n 1 pip install`
 Use Viki's requirement.txt
 
 TODO:
-- Fix README.md, i.e. how to run examples?
 
 
 Example of how to run a function fitting for 5 qubits:
