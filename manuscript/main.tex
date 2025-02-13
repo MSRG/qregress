@@ -326,6 +326,10 @@ PQCs \cite{hatakeyama-sato_quantum_2023}:
 	\item Justification for starting with 1D regression: ``Preliminary optimization of quantum circuits15,17 and our optimization revealed that the following configuration was concise and practical for regression tasks (for details, see results and explanations in Fig. S1''
 \end{itemize}
 
+We introduce \textit{qregress}, a modular Python-based code built on PennyLane for exploring PQCs for regression based learning tasks.
+We analyze three datasets, a function fitting dataset, used for model calibration, and two chemically relevant datasets that offer challenging learning tasks for PQCs.
+
+
 
 \section{Methods}
 PQCs are often constructed of three parts: encoding layers that are used to encode the features onto a quantum circuit, variational layers which include parameters that are optimized classically, and measurements which provide numerical estimations of the regression target values.\citep{suzuki_predicting_2020} 
@@ -506,6 +510,15 @@ In practice, $\mathcal{L}$ can be any loss function but we choose to use the mea
 
 
 \subsection{Implementation}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{../images/manuscript_figures/overview.png}
+	\caption{Make this figure highlight the modularity of \textit{qregress}}
+	\label{fig:overview_project}
+\end{figure}
+
+We introduce \textit{qregress}, a modular Python package for regression-based PQCs.
+
 We perform all simulation calculations using PennyLane\cite{bergholm_pennylane_2022}, either using Qulacs\cite{suzuki_qulacs_2021} for state vector calcualtions, while noisy calculations were performed using \textit{qiskit-aer} with the \textit{FakeQuebec} backend as implemented in the PennyLane-Qiskit plugin.\cite{javadi-abhari_quantum_2024}
 We perform calculations in the \textit{ibm\_quebec} device using circuits implemented using Qiskit\cite{javadi-abhari_quantum_2024}, due to issues we initially faced with running experiments on the real device using the PennyLane-Qiskit plugin.
 For the experiments using PennyLane,  we utilize the Simultaneous Perturbation Stochastic Approximation method (SPSA) as implemented in PennyLane, while for the experiments run on \textit{ibm\_quebec} utilizes the Constrained Optimization By Linear Approximation (COBYLA) optimizer as implemented ing SciPy\cite{virtanen_scipy_2020}.
@@ -885,7 +898,7 @@ For all three datasets, this implies that the PQCs offer similar performance to 
 \end{figure}
 
 
-
+optimization level needs to be set to 0!
 
 Lastly, using the function fitting datasets we analyze the effects of error mitigation on the model accuracy by comparing state vector simulations with noisy and error mitigated simulations using the \textit{fake\_quebec} backend.
 Initially, we explored two different methods of error mitigation zero-noise extrapolation (ZNE) using MITIQ\cite{larose_mitiq_2022} and TREX, as implemented in Qiskit. 
@@ -928,7 +941,7 @@ Overall, while these results are for simple function fitting data, we concluded 
 
 
 \subsection{BSE}
-The first chemically relevant dataset we explore in this study is the BSE49 dataset.
+The first chemically relevant dataset we explore is the BSE49 dataset.
 As highlighted in Figs. \ref{fig:bondtypes} and \ref{fig:BSEdistr}, this dataset consists of a diverse set of representative chemical bonds and bond separation energies.
 Herein, we follow a similar analysis to the function fitting data, starting off with an analysis of a large set of PQCs using five and sixteen qubits with RUDs and ALs of 1.
 From these two sets of data, we choose the best two models to study how an increase in the RUD and AL effects model performance.
@@ -985,36 +998,63 @@ Best ansatz on average train R$^{2}$/test R$^{2}$
 	\label{fig:BSEboxandheat}	
 \end{figure}
 
-\ref{fig:bse5rudal}
+\begin{figure}[H]
+	\centering	
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../images/BSE/fivequbit/BSE5_RUDAL_lineplot}
+		\caption{}
+		\label{fig:bse5RUDAL_lineplot}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../images/BSE/sixteenqubit/BSE16_RUDAL_lineplot}
+		\caption{}
+		\label{fig:bse16RUDAL_lineplot}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../images/BSE/fivequbit/distribution_parity}
+		\caption{}
+		\label{fig:BSE5_distribution_parity}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../images/BSE/sixteenqubit/distribution_parity}
+		\caption{}
+		\label{fig:BSE16_distribution_parity}
+	\end{subfigure}
+	\caption{}
+	\label{fig:BSE_distribution_parity}	
+\end{figure}
 
-\ref{fig:bse16rudal}
+
 
 \begin{figure}[H]
 	\centering	
 	\begin{subfigure}[b]{0.49\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{../images/BSE/fivequbit/BSE5_RUDAL}
+		\includegraphics[width=\linewidth]{../images/BSE/fivequbit/BSE_learningcurve}
 		\caption{}
-		\label{fig:bse5rudal}
+		\label{fig:BSE5_learning_curves}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.49\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{../images/BSE/sixteenqubit/BSE16_RUDAL}
+		\includegraphics[width=\linewidth]{../images/BSE/sixteenqubit/BSE_learningcurve}
 		\caption{}
-		\label{fig:bse16rudal}
+		\label{fig:BSE16_learningcurve}
 	\end{subfigure}
 	\caption{}
-	\label{fig:BSE_RUD_AL}	
+	\label{fig:BSE_LC}	
 \end{figure}
 
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\linewidth]{../images/BSE/fivequbit/BSE5_learning_curves}
-	\caption{}
-	\label{fig:bse5learningcurves}
-\end{figure}
+
+
 
 
 
@@ -1059,12 +1099,27 @@ Best ansatz HWE-CNOT average Train R$^{2}$ X/test R$^{2}$ Y
 (AL,RUD)=(5,1) Train R$^{2}$ 0.77/test R$^{2}$ 0.77
 
 
+
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=\linewidth]{../images/DDCC/DDCC_RUDAL}
+	\centering	
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../images/DDCC/DDCC_RUDAL_lineplot}
+		\caption{}
+		\label{fig:ddccRUDAL_lineplot}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../images/DDCC/distribution_parity}
+		\caption{}
+		\label{fig:ddccdistribution_parity}
+	\end{subfigure}
 	\caption{Model evaluation, using R$^{2}$ (y-axis), of re-upload depths (RUD) and ansatz layers (AL) of 1, 3, and 5 for the A2\_HWE-CNOT using the DDCC dataset. The left side of the plot denotes the training set and the right side the test set.}
-	\label{fig:ddccrudal}
+	\label{fig:ddcc_rud}	
 \end{figure}
+
+
 
 
 
