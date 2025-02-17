@@ -8,7 +8,7 @@ from qiskit_ibm_provider import IBMProvider
 from mitiq.zne.scaling import fold_global
 from mitiq.zne.inference import RichardsonFactory, LinearFactory
 import joblib
-import mthree
+
 import os
 import json
 import time

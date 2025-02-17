@@ -11,7 +11,7 @@ from mitiq.zne.scaling import fold_global
 from mitiq.zne.inference import RichardsonFactory, LinearFactory
 from qiskit_aer import AerSimulator
 import joblib
-import mthree
+
 import os
 import json
 import time
