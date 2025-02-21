@@ -6,8 +6,8 @@ from scipy.optimize import minimize, basinhopping
 from qiskit_ibm_runtime import QiskitRuntimeService
 from qiskit_aer.noise import NoiseModel
 from qiskit_ibm_runtime.fake_provider import FakeQuebec
-from mitiq.zne.scaling import fold_global
-from mitiq.zne.inference import RichardsonFactory, LinearFactory
+
+
 from qiskit_aer import AerSimulator
 import joblib
 
@@ -55,7 +55,7 @@ class QuantumRegressor:
             postprocess: str = None,
             error_mitigation=None,
             scale_factors: list = None,
-            folding=fold_global,
+            
             shots: int = None,
             re_upload_depth: int = 1,
             f: float = 1.,

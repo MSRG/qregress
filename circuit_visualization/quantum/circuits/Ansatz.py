@@ -106,11 +106,9 @@ class EfficientSU2:
     @layers.setter
     def layers(self, val):
         self._reps = val
-    
 
     def set_wires(self, wires):
         self._wires = wires
-        # print(f"FUCKING {self._reps}")
         self._qc = n_local.EfficientSU2(num_qubits=len(self._wires), su2_gates=self._su2_gates,
                                         entanglement=self._entanglement, reps=self._reps,
                                         skip_final_rotation_layer=self._skip_final_rot)

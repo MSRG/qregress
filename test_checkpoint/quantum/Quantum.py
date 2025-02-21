@@ -5,8 +5,8 @@ from sklearn.metrics import mean_squared_error
 from scipy.optimize import minimize, basinhopping
 from qiskit_ibm_runtime import QiskitRuntimeService
 from qiskit_ibm_provider import IBMProvider
-from mitiq.zne.scaling import fold_global
-from mitiq.zne.inference import RichardsonFactory, LinearFactory
+
+
 import joblib
 
 import os
@@ -52,7 +52,7 @@ class QuantumRegressor:
             postprocess: str = None,
             error_mitigation=None,
             scale_factors: list = None,
-            folding=fold_global,
+            
             shots: int = None,
             re_upload_depth: int = 1,
             f: float = 1.,
