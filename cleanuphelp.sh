@@ -10,6 +10,10 @@ for dir in $(find . -type d -mindepth 1 -maxdepth 1 ! -name '.*' ! -path './help
     echo "$(find "$dir" -name "Quantum.py")"
     find "$dir" -name "Quantum.py" -exec cp ./helperfiles/quantum/Quantum.py {} \;
     echo "$(find "$dir" -name "main.py")"
-    find "$dir" -name "main.py" -exec cp ./helperfiles/quantum/Quantum.py {} \;
+    find "$dir" -name "main.py" -exec cp ./helperfiles/main.py {} \;
+    echo "$(find "$dir" -name "Ansatz.py")"
+    find "$dir" -name "Ansatz.py" -exec cp ./helperfiles/quantum/circuits/Ansatz.py {} \;
+    echo "$(find "$dir" -name "Encoders.py")"
+    find "$dir" -name "Encoders.py" -exec cp ./helperfiles/quantum/circuits/Encoders.py {} \;
 done
 

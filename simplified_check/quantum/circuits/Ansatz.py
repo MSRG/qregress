@@ -81,12 +81,10 @@ class EfficientSU2:
             self.set_wires(wires)
 
     def __call__(self, parameters, wires: list = None):
-        
         if wires is not None:
             if len(self._wires) != len(self._wires):
                 raise ValueError("Cannot override wires instance of different length")
             self._wires = wires
-              
         qc = self._qc
         if qc.num_parameters_settable != len(parameters):
             raise ValueError("Incorrect number of parameters. Expected ", qc.num_parameters_settable, 'but received ',
@@ -179,17 +177,14 @@ class TwoLocal:
         self._skip_final_rot = skip_final_rot
         self._wires = None
         self._qc = None
-        print("wires",self._wires)
         if wires is not None:
             self.set_wires(wires)
-        print("wires2",self._wires)
+
     def __call__(self, parameters, wires: list = None):
         if wires is not None:
             if len(self._wires) != len(self._wires):
                 raise ValueError("Cannot override wires instance of different length")
             self._wires = wires
-            print(self._wires)
-            
         qc = self._qc
         if qc.num_parameters_settable != len(parameters):
             raise ValueError("Incorrect number of parameters. Expected ", qc.num_parameters_settable, "but received ",
@@ -198,7 +193,6 @@ class TwoLocal:
         parameters = parameters.tolist()
         qc = qc.assign_parameters(parameters)
         qml_circuit = qml.from_qiskit(qc)
-        print("wires3",self._wires)
         qml_circuit(wires=self._wires)
 
     @property
@@ -215,7 +209,6 @@ class TwoLocal:
 
     def set_wires(self, wires):
         self._wires = wires
-        print("wires4",self._wires)
         if self._entanglement == 'complete':
             entanglement = []
             for i in wires:
@@ -227,7 +220,6 @@ class TwoLocal:
                                     rotation_blocks=self._rot_gates, entanglement_blocks=self._entangle_gates,
                                     skip_final_rotation_layer=self._skip_final_rot)
 
-        print("wires4",self._wires)
 
 class PauliTwoDesign:
 

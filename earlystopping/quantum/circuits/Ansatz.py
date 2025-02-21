@@ -5,12 +5,12 @@ from qiskit.circuit.library import n_local
 
 def rotation_layer(parameters, wires, three_rotations=True):
     if not three_rotations:
-        if len(parameters) != 2 * len(self._wires):
-            raise ValueError("Unsopported number of parameters. Expected amount should be", 3 * len(self._wires))
+        if len(parameters) != 2 * len(wires):
+            raise ValueError("Unsopported number of parameters. Expected amount should be", 3 * len(wires))
     else:
-        if len(parameters) != 3 * len(self._wires):
-            raise ValueError("Unsupported number of parameters. Expected amount should be", 3 * len(self._wires))
-    for i in range(len(self._wires)):
+        if len(parameters) != 3 * len(wires):
+            raise ValueError("Unsupported number of parameters. Expected amount should be", 3 * len(wires))
+    for i in range(len(wires)):
         if three_rotations:
             qml.RX(parameters[3 * i], wires=wires[i])
             qml.RZ(parameters[3 * i + 1], wires=wires[i])
