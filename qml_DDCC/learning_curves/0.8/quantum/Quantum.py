@@ -8,6 +8,7 @@ from qiskit_aer.noise import NoiseModel
 from qiskit_ibm_runtime.fake_provider import FakeQuebec
 
 
+
 from qiskit_aer import AerSimulator
 import joblib
 
@@ -111,6 +112,8 @@ class QuantumRegressor:
 
             if self.error_mitigation == 'TREX':
                 self.device.set_transpile_args(**{'resilience_level': 1})
+            elif self.error_mitigation == 'ZNEPauliTwirl':
+                self.device.set_transpile_args(**{'resilience_level': 2})                
 
         elif device == 'qiskit.aer' and backend == "fake":
             # Example based on https://pennylane.ai/qml/demos/tutorial_error_mitigation/
@@ -119,11 +122,15 @@ class QuantumRegressor:
             noise_model = NoiseModel.from_backend(backend)
             self._backend=backend
             self.device = qml.device(device, backend=self._backend, wires=self.num_qubits, noise_model=noise_model,shots=shots)
-            self.device.set_transpile_args(**{'resilience_level': 0})
+            self.device.set_transpile_args(**{"resilience_level":0,"seed_transpiler":42})
 
 
             if self.error_mitigation == 'TREX':
                 self.device.set_transpile_args(**{'resilience_level': 1})
+            elif self.error_mitigation == 'ZNEPauliTwirl':
+                self.device.set_transpile_args(**{'resilience_level': 2})                
+                
+                
         else:
             self.device = qml.device(device, wires=self.num_qubits, shots=shots)
 
