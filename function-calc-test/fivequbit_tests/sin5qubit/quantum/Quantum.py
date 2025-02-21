@@ -84,7 +84,7 @@ class QuantumRegressor:
         self._set_device(device, backend, shots, token)
         self._set_optimizer(optimizer)
         self._tol = tol
-        self._build_qnode(scale_factors, folding)
+        self._build_qnode()
         self.fit_count = 0
         self.cached_results = {}
         self.njobs = njobs 
@@ -153,41 +153,12 @@ class QuantumRegressor:
 
         if self.postprocess is None and self.error_mitigation != 'M3':
             return qml.expval(qml.PauliZ(0))
-        elif self.postprocess is None and self.error_mitigation == 'M3':
-            return [qml.counts(qml.PauliZ(0))]
         elif self.postprocess is not None and self.error_mitigation != 'M3':
             return [qml.expval(qml.PauliZ(i)) for i in range(self.num_qubits)]
-        elif self.postprocess is not None and self.error_mitigation == 'M3':
-            return [qml.counts(qml.PauliZ(i)) for i in range(self.num_qubits)]
 
-    def _build_qnode(self, scale_factors, folding):
+    def _build_qnode(self):
         #  builds QNode from device and circuit using mitiq error mitigation if specified.
         self.qnode = qml.QNode(self._circuit, self.device)
-        if self.error_mitigation == 'MITIQ_Linear':
-            factory = LinearFactory.extrapolate
-            scale_factors = scale_factors
-            noise_scale_method = folding
-            self.qnode = qml.transforms.mitigate_with_zne(self.qnode, scale_factors, noise_scale_method, factory)
-        elif self.error_mitigation == 'MITIQ_Richardson':
-            factory = RichardsonFactory.extrapolate
-            scale_factors = scale_factors
-            noise_scale_method = folding
-            self.qnode = qml.transforms.mitigate_with_zne(self.qnode, scale_factors, noise_scale_method, factory)
-        elif self.error_mitigation == 'M3':
-            mit = mthree.M3Mitigation(self._backend)
-            mit.cals_from_system()
-            old_qnode = self.qnode
-
-            def new_qnode(features, params):
-                raw_counts = old_qnode(features, params)
-                m3_counts = [mit.apply_correction(raw_counts[i], [i], return_mitigation_overhead=False)
-                             for i in range(len(raw_counts))]
-                expval = [counts.expval() for counts in m3_counts]
-                if len(expval) == 1:
-                    expval = expval[0]
-                return expval
-
-            self.qnode = new_qnode
 
     def _cost(self, parameters):
         # GMJ Batch loss

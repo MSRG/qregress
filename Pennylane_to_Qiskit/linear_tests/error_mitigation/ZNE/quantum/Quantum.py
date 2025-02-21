@@ -84,7 +84,7 @@ class QuantumRegressor:
         self._set_device(device, backend, shots, token)
         self._set_optimizer(optimizer)
         self._tol = tol
-        self._build_qnode(scale_factors, folding)
+        self._build_qnode()
         self.fit_count = 0
         self.cached_results = {}
         self.njobs = njobs 
@@ -105,14 +105,12 @@ class QuantumRegressor:
             # QiskitRuntimeService.save_account(channel='ibm_quantum', instance='pinq-quebec-hub/univ-toronto/default', token='<IBM Quantum API key>')
             service = QiskitRuntimeService(channel="ibm_quantum", instance='pinq-quebec-hub/univ-toronto/default')
             self._backend = service.least_busy(operational=True, simulator=False, min_num_qubits=self.num_qubits)
-            if self.error_mitigation == None:
-                self.device = qml.device(device, wires=127, backend=self._backend,shots=shots,resilience_level=0,seed_transpiler=42)
-            elif self.error_mitigation == 'TREX':
-                self.device = qml.device(device, wires=127, backend=self._backend,shots=shots,resilience_level=1,seed_transpiler=42)
-            
-            
-            
+            self.device = qml.device(device, wires=self.num_qubits, backend=self._backend,shots=shots)
+            # Default to no noise 
+            self.device.set_transpile_args(**{"resilience_level":0,"seed_transpiler":42})
 
+            if self.error_mitigation == 'TREX':
+                self.device.set_transpile_args(**{'resilience_level': 1})
 
         elif device == 'qiskit.aer' and backend == "fake":
             # Example based on https://pennylane.ai/qml/demos/tutorial_error_mitigation/
@@ -155,41 +153,12 @@ class QuantumRegressor:
 
         if self.postprocess is None and self.error_mitigation != 'M3':
             return qml.expval(qml.PauliZ(0))
-        elif self.postprocess is None and self.error_mitigation == 'M3':
-            return [qml.counts(qml.PauliZ(0))]
         elif self.postprocess is not None and self.error_mitigation != 'M3':
             return [qml.expval(qml.PauliZ(i)) for i in range(self.num_qubits)]
-        elif self.postprocess is not None and self.error_mitigation == 'M3':
-            return [qml.counts(qml.PauliZ(i)) for i in range(self.num_qubits)]
 
-    def _build_qnode(self, scale_factors, folding):
+    def _build_qnode(self):
         #  builds QNode from device and circuit using mitiq error mitigation if specified.
         self.qnode = qml.QNode(self._circuit, self.device)
-        if self.error_mitigation == 'MITIQ_Linear':
-            factory = LinearFactory.extrapolate
-            scale_factors = scale_factors
-            noise_scale_method = folding
-            self.qnode = qml.transforms.mitigate_with_zne(self.qnode, scale_factors, noise_scale_method, factory)
-        elif self.error_mitigation == 'MITIQ_Richardson':
-            factory = RichardsonFactory.extrapolate
-            scale_factors = scale_factors
-            noise_scale_method = folding
-            self.qnode = qml.transforms.mitigate_with_zne(self.qnode, scale_factors, noise_scale_method, factory)
-        elif self.error_mitigation == 'M3':
-            mit = mthree.M3Mitigation(self._backend)
-            mit.cals_from_system()
-            old_qnode = self.qnode
-
-            def new_qnode(features, params):
-                raw_counts = old_qnode(features, params)
-                m3_counts = [mit.apply_correction(raw_counts[i], [i], return_mitigation_overhead=False)
-                             for i in range(len(raw_counts))]
-                expval = [counts.expval() for counts in m3_counts]
-                if len(expval) == 1:
-                    expval = expval[0]
-                return expval
-
-            self.qnode = new_qnode
 
     def _cost(self, parameters):
         # GMJ Batch loss
@@ -197,7 +166,7 @@ class QuantumRegressor:
             batch_partitions = np.array_split(np.random.randint(0, len(self.x), len(self.x)),len(self.x)//self._batch_size)
             base_cost = np.mean(joblib.Parallel(n_jobs=self.njobs,verbose=0)(joblib.delayed(mean_squared_error)(self.y[i], self.predict(self.x[i], params=parameters)) for i in tqdm(batch_partitions,desc=f"Cost (Batches {len(batch_partitions)} of size {self._batch_size})")))
         else:
-            pred = np.array(self.predict(self.x, params=parameters)).reshape(*self.y.shape)
+            pred = self.predict(self.x, params=parameters)
             base_cost = mean_squared_error(self.y, pred)        
             
         
@@ -239,8 +208,6 @@ class QuantumRegressor:
         else:
             cost = self._cost(parameters)
             self.cached_results[param_hash] = cost
-
-        cost = np.array(cost)
         return cost
 
     def _num_params(self):
@@ -249,7 +216,7 @@ class QuantumRegressor:
         return num_params
 
     def _callback(self, xk):
-        cost_at_step = self._cost_wrapper(xk)            
+        cost_at_step = self._cost_wrapper(xk)
         if self.fit_count % 1 == 0:
             print(f'[{time.asctime()}]  Iteration number: {self.fit_count} with current cost as {cost_at_step} and '
                   f'parameters \n{xk}. ')
@@ -349,7 +316,6 @@ class QuantumRegressor:
                                       callback=self._callback)
             self.params = opt_result['x']
         else:
-   
             opt = qml.SPSAOptimizer(maxiter=self.max_iterations)
             cost = []
             for idx,_ in enumerate(range(self.max_iterations)):
@@ -362,8 +328,7 @@ class QuantumRegressor:
                     break
                     
             opt_result = [params, cost]
-            self.params = params                    
- 
+            self.params = params
 
         self._save_partial_state(params, force=True)
         if detailed_results:
@@ -402,16 +367,7 @@ class QuantumRegressor:
             # if no parameters are passed then we are predicting the fitted model, so we use the stored parameters.
             params = self.params
 
-        # Real device OR FakeQuebec
-        try:
-            with qiskit_session(self.device) as session:
-                if self.postprocess is None:
-                    return [f * self.qnode(features=features, parameters=params) for features in tqdm(x,desc="Predict")]
-                else:
-                    return [np.dot(f * np.array(self.qnode(features=features, parameters=params[:-self.num_qubits])),params[-self.num_qubits:]) for features in x]
-        # Everything else.
-        except:
-            if self.postprocess is None:
-                return [f * self.qnode(features=features, parameters=params) for features in tqdm(x,desc="Predict")]
-            else:
-                return [np.dot(f * np.array(self.qnode(features=features, parameters=params[:-self.num_qubits])),params[-self.num_qubits:]) for features in x]
+        if self.postprocess is None:
+            return [f * self.qnode(features=features, parameters=params) for features in tqdm(x,desc="Predict")]
+        else:
+            return [np.dot(f * np.array(self.qnode(features=features, parameters=params[:-self.num_qubits])),params[-self.num_qubits:]) for features in x]

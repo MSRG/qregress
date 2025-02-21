@@ -1,342 +1,373 @@
+import pennylane as qml
+import numpy as np
+from pennylane import numpy as np
+from sklearn.metrics import mean_squared_error
+from scipy.optimize import minimize, basinhopping
+from qiskit_ibm_runtime import QiskitRuntimeService
+from qiskit_aer.noise import NoiseModel
+from qiskit_ibm_runtime.fake_provider import FakeQuebec
+
+
+from qiskit_aer import AerSimulator
 import joblib
-import click
+
+import os
 import json
 import time
-import os
-import itertools
-import collections.abc
-from shutil import copy,SameFileError
-from glob import glob
-
-import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
-import pennylane as qml
-from sklearn.metrics import mean_squared_error
-from sklearn.model_selection import KFold
-from qiskit_ibm_provider import IBMProvider
-
-from quantum.Quantum import QuantumRegressor
-from quantum.Evaluate import evaluate
-from settings import ANSATZ_LIST, ENCODER_LIST
-from sklearn.utils._testing import ignore_warnings
-from sklearn.exceptions import InconsistentVersionWarning
-
-# Global variables
-OPTIMIZER = None
-SHOTS = None
-X_DIM = None
-BACKEND = None
-DEVICE = None
-SCALE_FACTORS = None
-ANSATZ = None
-ENCODER = None
-POSTPROCESS = None
-ERROR_MITIGATION = None
-LAYERS = None
-PROVIDER = None
-TOKEN = None
-HYPERPARAMETERS = None
-RE_UPLOAD_DEPTH = None
-MAX_ITER = None
-TOLERANCE = None
-NUM_QUBITS = None
-BATCH_SIZE = None
-NUM_CORES = None
-############################################
-# Utility functions
-############################################
+from tqdm import tqdm
 
 
-def parse_settings(settings_file):
-    with open(settings_file, 'r') as fp:
-        settings = json.load(fp)
+class BasinBounds:
+    def __init__(self, xmax=np.pi, xmin=-np.pi):
+        self.xmax = xmax
+        self.xmin = xmin
 
-    global OPTIMIZER
-    OPTIMIZER = settings['OPTIMIZER']
-
-    global SHOTS
-    SHOTS = settings['SHOTS']
-
-    global BACKEND
-    BACKEND = settings['BACKEND']
-
-    global DEVICE
-    DEVICE = settings['DEVICE']
-
-    global SCALE_FACTORS
-    SCALE_FACTORS = settings['SCALE_FACTORS']
-
-    global POSTPROCESS
-    POSTPROCESS = settings['POSTPROCESS']
-
-    global ERROR_MITIGATION
-    ERROR_MITIGATION = settings['ERROR_MITIGATION']
-
-    global LAYERS
-    LAYERS = settings['LAYERS']
-
-    global HYPERPARAMETERS
-    HYPERPARAMETERS = settings['HYPERPARAMETERS']
-    # f was removed from HYPERPARAMETERS, this ensures old settings files can still run.
-    if 'f' in HYPERPARAMETERS.keys():
-        _ = HYPERPARAMETERS.pop('f', None)
-
-    global RE_UPLOAD_DEPTH
-    RE_UPLOAD_DEPTH = settings['RE-UPLOAD_DEPTH']
-
-    global MAX_ITER
-    MAX_ITER = settings['MAX_ITER']
-
-    global TOLERANCE
-    try:
-        TOLERANCE = settings['TOLERANCE']
-    except KeyError:
-        TOLERANCE = None
-
-    global NUM_QUBITS
-    try:
-        NUM_QUBITS = settings['NUM_QUBITS']
-    except KeyError:
-        NUM_QUBITS = None
-
-    # classes aren't JSON serializable, so we store the key in the settings file and access it here.
-    global ANSATZ
-    ANSATZ = ANSATZ_LIST[settings['ANSATZ']]
-
-    global ENCODER
-    ENCODER = ENCODER_LIST[settings['ENCODER']]
-
-    global BATCH_SIZE
-    BATCH_SIZE = settings['BATCH_SIZE']
-    
-    global NUM_CORES
-    NUM_CORES = settings['NUM_CORES']
-
-def load_dataset(file):
-    print(f'Loading dataset from {file}... ')
-    data = joblib.load(file)
-    X = data['X']
-    y = data['y']
-
-    global X_DIM
-    _, X_DIM = X.shape
-    print(f'Successfully loaded {file} into X and y data. ')
-    return X, y
+    def __call__(self, **kwargs):
+        x = kwargs["x_new"]
+        tmax = bool(np.all(x <= self.xmax))
+        tmin = bool(np.all(x >= self.xmin))
+        return tmax and tmin
 
 
-def save_token(instance, token):
-    global PROVIDER
-    PROVIDER = IBMProvider(instance=instance)
-    global TOKEN
-    TOKEN = token
-
-
-############################################
-# Main
-############################################
-
-@click.command()
-@click.option('--save_path', required=True, type=click.Path(exists=True), help='Path for Apptainer to save data.')
-@click.option('--settings', required=True, type=click.Path(exists=True), help='Settings file for running ML. ')
-@click.option('--train_set', required=True, type=click.Path(exists=True), help='Datafile for training the ML model. ')
-@click.option('--test_set', default=None, type=click.Path(exists=True), help='Optional datafile to use for testing '
-                                                                             'and scoring the model. ')
-@click.option('--scaler', required=True, type=click.Path(exists=True), help='Scaler used to unscale y-values. ')
-@click.option('--instance', default=None, help='Instance for running on IBMQ devices. ')
-@click.option('--token', default=None, help='IBMQ token for running on hardware. ')
-@click.option('--save_circuits', default=False, help='Whether to save a figure of encoder and ansatz circuits. ')
-@click.option('--title', default=None, type=click.Path(), help='Title to use for save files. If none, infers it from '
-                                                               'settings file. ')
-@click.option('--resume_file', default=None, type=click.Path(exists=True), help='File to resume training from. Use '
-                                                                                'the same settings file to generate '
-                                                                                'the same model for training. ')
-@ignore_warnings(category=InconsistentVersionWarning)
-def main(save_path,settings, train_set, test_set, scaler, instance, token, save_circuits, title, resume_file):
+class QuantumRegressor:
     """
-    Trains the quantum regressor with the settings in the given settings file using the dataset from the given train
-    and test files. Will perform grid search on a default hyperparameter space unless they are specified. Saves scores
-    and best hyperparameters to joblib dumps and graphs of performance and circuit drawings as mpl svg.
+    Machine learning model based on quantum circuit learning.
+
+    Methods
+    ------
+    fit(x, y, initial_parameters=None, detailed_results=False, load_state=None, callback_interval=None)
+        Fits the model instance to the given x and y data.
+    predict(x)
+        Predicts y values for a given array of input data based on previous training.
+
     """
-    X_train, y_train = load_dataset(train_set)
-    parse_settings(settings)
-    if DEVICE == 'qiskit.ibmq':
-        save_token(instance, token)
 
-    global NUM_QUBITS
-    global X_DIM
-    
-    if NUM_QUBITS is not None:
-        X_DIM = NUM_QUBITS
-    elif X_DIM == 1:  # if X_DIM is None and num_qubits wasn't specified anywhere use a default value of 2.
-        NUM_QUBITS = 2
-        X_DIM = NUM_QUBITS
+    def __init__(
+            self,
+            encoder,
+            variational,
+            num_qubits,
+            optimizer: str = 'COBYLA',
+            max_iterations: int = None,
+            tol: float = 1e-8,
+            device: str = 'default.qubit',
+            backend: str = None,
+            postprocess: str = None,
+            error_mitigation=None,
+            scale_factors: list = None,
+            
+            shots: int = None,
+            re_upload_depth: int = 1,
+            f: float = 1.,
+            alpha: float = 0.,
+            beta: float = 0,
+            token: str = None,
+            batch_size: int=None,
+            njobs: int=None):
+        self.hyperparameters = {'f': f, 'alpha': alpha, 'beta': beta}
+        if scale_factors is None:
+            scale_factors = [1, 3, 5]
+        self.callback_interval = None
+        self.x = None
+        self.y = None
+        self.params = None
+        self._batch_size = batch_size
+        self._re_upload_depth = re_upload_depth
+        self.error_mitigation = error_mitigation
+        self.num_qubits = num_qubits
+        self.max_iterations = max_iterations
+        if postprocess == 'None':
+            postprocess = None
+        self.postprocess = postprocess
+        self.encoder = encoder
+        self.variational = variational
+        self._set_device(device, backend, shots, token)
+        self._set_optimizer(optimizer)
+        self._tol = tol
+        self._build_qnode()
+        self.fit_count = 0
+        self.cached_results = {}
+        self.njobs = njobs 
+        print(self.njobs)
+        os.environ["OMP_NUM_THREADS"] = str(self.njobs)
+        print(os.environ["OMP_NUM_THREADS"])
+    def _set_device(self, device, backend, shots, token=None):
+        #  sets the models quantum device. If using IBMQ asks for proper credentials
+        if device == 'qiskit.remote':
+            print('Running on IBMQ Runtime')
+            #if provider is None:
+            #    instance = input('Enter runtime setting: instance')
+            #    provider = IBMProvider(instance)
+            #if token is None:
+            #    token = input('Enter IBMQ token')
+            ## QiskitRuntimeService.save_account(channel='ibm_quantum', instance=instance, token=token, overwrite=True)
+            # Or save your credentials on disk.
+            # QiskitRuntimeService.save_account(channel='ibm_quantum', instance='pinq-quebec-hub/univ-toronto/default', token='<IBM Quantum API key>')
+            service = QiskitRuntimeService(channel="ibm_quantum", instance='pinq-quebec-hub/univ-toronto/default')
+            self._backend = service.least_busy(operational=True, simulator=False, min_num_qubits=self.num_qubits)
+            self.device = qml.device(device, wires=self.num_qubits, backend=self._backend,shots=shots)
+            # Default to no noise 
+            self.device.set_transpile_args(**{"resilience_level":0,"seed_transpiler":42})
 
-    kwargs = create_kwargs()
+            if self.error_mitigation == 'TREX':
+                self.device.set_transpile_args(**{'resilience_level': 1})
 
-    if title is None:
-        title = os.path.basename(settings)
-        title, _ = os.path.splitext(title)
-
-    if save_circuits:
-        plot_circuits(title)
-
-    if test_set is not None:
-        X_test, y_test = load_dataset(test_set)
-    else:
-        X_test, y_test = None, None
-
-    scaler = joblib.load(scaler)
-
-    print(f'Training model with dataset {train_set} \n at time {time.asctime()}... ')
-    st = time.time()
-
-    if len(HYPERPARAMETERS['alpha']) != 1:
-        model, hyperparams, _, _ = grid_search(QuantumRegressor, HYPERPARAMETERS, X_train, y_train, **kwargs)
-    else:
-        model = QuantumRegressor(**kwargs)
-        model.fit(X_train, y_train, load_state=resume_file)
-        hyperparams = None
-
-    et = time.time()
-    print(f'Training complete taking {et - st} total seconds. ')
-
-    save_apptainer(save_path)
-    # removes temporary file created during training.
-    if os.path.exists(title + '_tentative_model.bin'):
-        os.remove('tentative_model.bin')
-    elif os.path.exists('tentative_model.bin'):
-        os.remove('tentative_model.bin')
-
-    scores, test_pred, train_pred = evaluate(model, X_train, y_train, X_test, y_test, plot=True, title=title,
-                                             y_scaler=scaler)
-    y_train = scaler.inverse_transform(y_train.reshape(-1, 1))
-    y_test = scaler.inverse_transform(y_test.reshape(-1, 1))
-
-    name = title + '_predicted_values.csv'
-    train_pred, y_train, test_pred, y_test = train_pred.tolist(), y_train.tolist(), test_pred.tolist(), y_test.tolist()
-    df_train = pd.DataFrame({'Predicted': train_pred, 'Reference': y_train})
-    df_train['Data'] = 'Train'
-    df_test = pd.DataFrame({'Predicted': test_pred, 'Reference': y_test})
-    df_test['Data'] = 'Test'
-    df = pd.concat([df_train, df_test], ignore_index=True)
-    df = df[['Data', 'Predicted', 'Reference']]
-
-    df.to_csv(name, index=False)
-    print(f'Saved predicted values as {name}')
-
-    print(f'Model scores: {scores}. ')
-
-    results = scores
-
-    if len(HYPERPARAMETERS['alpha']) != 1:
-        results['hyperparameters'] = hyperparams
-    results_title = title + '_results.json'
-    with open(results_title, 'w') as outfile:
-        json.dump(results, outfile)
-        pass
-    print(f'Saved model results as {results_title}. ')
-    save_apptainer(save_path)
-
-def plot_circuits(title):
-    draw_ansatz = qml.draw_mpl(ANSATZ)
-    draw_ansatz(np.random.rand(ANSATZ.num_params))
-    plt.savefig(title + '_ansatz.svg')
-
-    draw_encoder = qml.draw_mpl(ENCODER)
-    draw_encoder(np.random.rand(X_DIM), range(X_DIM))
-    plt.savefig(title + '_encoder.svg')
+        elif device == 'qiskit.aer' and backend == "fake":
+            # Example based on https://pennylane.ai/qml/demos/tutorial_error_mitigation/
+            device_backend = FakeQuebec()
+            backend = AerSimulator.from_backend(device_backend)
+            noise_model = NoiseModel.from_backend(backend)
+            self._backend=backend
+            self.device = qml.device(device, backend=self._backend, wires=self.num_qubits, noise_model=noise_model,shots=shots)
+            self.device.set_transpile_args(**{'resilience_level': 0})
 
 
-def create_kwargs():
-    #  First have to apply specific ansatz settings: setting number of layers and the number of wires based on features
-    ANSATZ.layers = LAYERS
-    ANSATZ.set_wires(range(X_DIM))
-
-    kwargs = {
-        'encoder': ENCODER,
-        'variational': ANSATZ,
-        'num_qubits': X_DIM,
-        'optimizer': OPTIMIZER,
-        # 'optimizer': "BFGS",
-        'max_iterations': MAX_ITER,
-        'tol': TOLERANCE,
-        'device': DEVICE,
-        'backend': BACKEND,
-        'postprocess': POSTPROCESS,
-        'error_mitigation': ERROR_MITIGATION,
-        'provider': PROVIDER,
-        'token': TOKEN,
-        're_upload_depth': RE_UPLOAD_DEPTH,
-        'batch_size': BATCH_SIZE,
-        'njobs':NUM_CORES
-    }
-    return kwargs
-
-
-def grid_search(model, hyperparameters: dict, X, y, folds: int = 5, **kwargs):
-    """
-    Performs a grid search on the given model. Trains the model for each combination of hyperparameters. Scores each
-    model using MSE on the test fold using k-fold cross-validation saves the average across the folds as score and
-    returns the best performing model with its score and hyperparameters. Any additional parameters to be passed to
-    the model are handled with kwargs.
-
-    :return: trained_model, dict: best_hyperparameters, flaot: best_score, dict: results
-    """
-    for x in hyperparameters.values():
-        if not isinstance(x, collections.abc.Sequence):
-            raise ValueError('Dictionary must contain list-like objects of values to try! ')
-
-    kf = KFold(n_splits=folds)
-    print(f'Training using {folds}-fold cross-validation. \n')
-
-    results = {}
-    best_score = float('-inf')
-    best_model = None
-    best_hyperparameters = {}
-
-    param_combinations = list(itertools.product(*hyperparameters.values()))
-
-    for combination in param_combinations:
-        update = dict(zip(hyperparameters.keys(), combination))
-        kwargs.update(update)
-        print(f'Beginning training with hyperparameters {update}...\n')
-        st = time.time()
-        k_score = []
-        count = 1
-        for train_index, test_index in kf.split(X):
-            print(f'Working on {count / folds} fold... ')
-            count += 1
-            X_train, X_test = X[train_index], X[test_index]
-            y_train, y_test = y[train_index], y[test_index]
-            built_model = model(**kwargs)
-            built_model.fit(X_train, y_train, callback_interval=1)
-            y_pred = built_model.predict(X_test)
-            score = mean_squared_error(y_test, y_pred)
-            k_score.append(score)
-        score = np.array(k_score).mean()
-        results[f'{update}'] = score
-        print(f'Training complete taking {time.time() - st} seconds. ')
-        if score > best_score:
-            print('Saving model as new best... \n')
-            best_score = score
-            best_model = built_model  # not sure about this line. Maybe I should return a different version of the model
-            # or re-train the model on the entire set.
-            best_hyperparameters = {key: kwargs[key] for key in hyperparameters.keys()}
+            if self.error_mitigation == 'TREX':
+                self.device.set_transpile_args(**{'resilience_level': 1})
         else:
-            print('Discarding model... \n')
+            self.device = qml.device(device, wires=self.num_qubits, shots=shots)
 
-    with open('Grid_search.json', 'w') as outfile:
-        json.dump(results, outfile)
+    def _set_optimizer(self, optimizer):
+        #  sets the desired optimizer. SPSA is not available in scipy and has to be handled separately in fitting
+        if optimizer == 'SPSA':
+            self.use_scipy = False
+            self.optimizer = optimizer
+        elif optimizer == 'BasinHopping':
+            self.use_scipy = False
+            self.optimizer = optimizer
+        else:
+            self.use_scipy = True
+            self.optimizer = optimizer
 
-    return best_model, best_hyperparameters, best_score, results
+    def _circuit(self, features, parameters):
+        #  builds the circuit with the given encoder and variational circuits.
+        #  encoder and variational circuits must have only two required parameters, params/feats and wires
+        for i in range(self._re_upload_depth):
+            params = parameters[self._num_params() * i:self._num_params() * (i + 1)]
+            self.encoder(features, wires=range(self.num_qubits))
+            # GMJ: 11/26/24 a hack to get this to work for Full-CRZ/X
+            try:
+                self.variational(params, wires=range(self.num_qubits))
+            except:
+                self.variational(params, wires=range(self.num_qubits))
 
-def save_apptainer(save_path):
-     for i in glob("*.bin")+ glob("*.csv")+ glob("*.out")+ glob("*.svg")+ glob("Grid_search.json")+ glob("*_results.json"):
-         try:
-          copy(i,save_path)
-         except SameFileError:
-          pass
-             
-if __name__ == '__main__':
-    main()
+        if self.postprocess is None and self.error_mitigation != 'M3':
+            return qml.expval(qml.PauliZ(0))
+        elif self.postprocess is not None and self.error_mitigation != 'M3':
+            return [qml.expval(qml.PauliZ(i)) for i in range(self.num_qubits)]
+
+    def _build_qnode(self):
+        #  builds QNode from device and circuit using mitiq error mitigation if specified.
+        self.qnode = qml.QNode(self._circuit, self.device)
+
+    def _cost(self, parameters):
+        # GMJ Batch loss
+        if self._batch_size is not None and self.njobs is not None:
+            batch_partitions = np.array_split(np.random.randint(0, len(self.x), len(self.x)),len(self.x)//self._batch_size)
+            base_cost = np.mean(joblib.Parallel(n_jobs=self.njobs,verbose=0)(joblib.delayed(mean_squared_error)(self.y[i], self.predict(self.x[i], params=parameters)) for i in tqdm(batch_partitions,desc=f"Cost (Batches {len(batch_partitions)} of size {self._batch_size})")))
+        else:
+            pred = self.predict(self.x, params=parameters)
+            base_cost = mean_squared_error(self.y, pred)        
+            
+        
+        if self.postprocess is None or self.postprocess == 'None' or self.postprocess == 'simple':
+            return base_cost
+        elif self.postprocess == 'ridge':
+            extra_params = parameters[-self.num_qubits:]
+            alpha = self.hyperparameters['alpha']
+
+            return base_cost + alpha * np.linalg.norm(extra_params)
+        elif self.postprocess == 'lasso':
+            extra_params = parameters[-self.num_qubits:]
+            alpha = self.hyperparameters['alpha']
+
+            l1_norm = 0
+            for param in extra_params:
+                l1_norm += np.abs(param)
+
+            return base_cost + alpha * l1_norm
+        elif self.postprocess == 'elastic':
+            extra_params = parameters[-self.num_qubits:]
+            alpha = self.hyperparameters['alpha']
+            beta = self.hyperparameters['beta']
+
+            l1_norm = 0
+            for param in extra_params:
+                l1_norm += np.abs(param)
+
+            return base_cost + beta * (alpha * l1_norm + (1 - alpha) * np.linalg.norm(extra_params))
+        else:
+            raise NotImplementedError(f'The given postprocess type {self.postprocess} is not implemented. ')
+
+    def _cost_wrapper(self, parameters):
+        # caches the results from the cost function, so they don't have to be recalculated if they get called again i.e.
+        # during the callback function for logging.
+        param_hash = hash(parameters.data.tobytes())
+        if param_hash in self.cached_results:
+            cost = self.cached_results[param_hash]
+        else:
+            cost = self._cost(parameters)
+            self.cached_results[param_hash] = cost
+        return cost
+
+    def _num_params(self):
+        #  computes the number of parameters required for the implemented variational circuit
+        num_params = self.variational.num_params
+        return num_params
+
+    def _callback(self, xk):
+        cost_at_step = self._cost_wrapper(xk)
+        if self.fit_count % 1 == 0:
+            print(f'[{time.asctime()}]  Iteration number: {self.fit_count} with current cost as {cost_at_step} and '
+                  f'parameters \n{xk}. ')
+        filename = 'model_log.csv'
+        log = f'{time.asctime()},{self.fit_count},{cost_at_step},{xk}'
+        with open(filename, 'a') as outfile:
+            outfile.write(log)
+            outfile.write('\n')
+        self.fit_count += 1
+        self._save_partial_state(xk)
+
+    def _save_partial_state(self, param_vector, force=False):
+        # saves every call to a bin file able to be loaded later by calling fit with load_state set to filename
+        interval = self.callback_interval
+        if interval is None:
+            interval = 5
+        if self.fit_count % interval == 0 or force:
+            partial_results = {
+                'parameters': param_vector,
+                'iterations': self.fit_count
+            }
+            if force is True and os.path.exists('partial_state_model.bin'):
+                outfile = 'final_state_model.bin'
+                os.remove('partial_state_model.bin')
+            else:
+                outfile = 'partial_state_model.bin'
+            joblib.dump(partial_results, outfile)
+
+    def _load_partial_state(self, infile):
+        print('Loading partial state from file ' + infile)
+        partial_state = joblib.load(infile)
+        if type(partial_state) == dict:
+            param_vector = partial_state['parameters']
+            iteration = partial_state['iterations']
+            print('Loaded parameter_vector as', param_vector)
+            return param_vector, iteration
+        else:
+            print('Outdated partial file detected! Unexpected behaviour may occur.')
+            param_vector = partial_state
+            print('Loaded parameter_vector as', param_vector)
+        return param_vector, 0
+
+    def fit(self, x, y, initial_parameters=None, detailed_results=False, load_state=None, callback_interval=None):
+        """
+        Fits the current model to the given x and y data. If no initial parameters are given then random ones will be
+        chosen. Optimal parameters are stored in the model for use in predict and returned in this function.
+
+        :param x: np.array
+            x data to fit
+        :param y: np.array
+            y data to fit
+        :param initial_parameters: list, optional
+            initial parameters to start optimizer
+        :param detailed_results: bool, optional
+            whether to return detailed results of optimization or just parameters
+        :param load_state: str, optional
+            file to load partial fit data from
+        :param callback_interval: int, optional
+            how often to save the optimization steps to file
+        :return:
+            returns the optimal parameters found by optimizer. If detailed_results=True and optimizer is scipy, then
+            will be of type scipy optimizer results stored in dictionary.
+        """
+        self.fit_count = 0
+        with open('model_log.csv', 'w') as outfile:
+            outfile.write('Time,Iteration,Cost,Parameters')
+            outfile.write('\n')
+        self.callback_interval = callback_interval
+
+        if load_state is not None:
+            param_vector, self.fit_count = self._load_partial_state(load_state)
+            initial_parameters = param_vector
+        elif initial_parameters is None:
+            num_params = self._num_params() * self._re_upload_depth
+            generator = np.random.default_rng(12958234)
+            initial_parameters = generator.uniform(-np.pi, np.pi, num_params)
+            if self.postprocess is not None:
+                additional_num_params = self.num_qubits
+                additional_params = generator.uniform(-1, 1, additional_num_params)
+                initial_parameters = np.concatenate((initial_parameters, additional_params))
+        self.x = x
+        self.y = y
+        params = initial_parameters
+
+        if self.use_scipy:
+            options = {
+                'maxiter': self.max_iterations - self.fit_count,
+                'tol': self._tol,
+                'disp': True
+            }
+            opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback, options=options)
+            self.params = opt_result['x']
+        elif self.optimizer == 'BasinHopping':
+            minimizer_kwargs = {"method": "BFGS"}
+            opt_result = basinhopping(self._cost_wrapper, x0=params, minimizer_kwargs=minimizer_kwargs,
+                                      accept_test=BasinBounds(xmax=np.pi, xmin=-np.pi), niter=self.max_iterations,
+                                      callback=self._callback)
+            self.params = opt_result['x']
+        else:
+            opt = qml.SPSAOptimizer(maxiter=self.max_iterations)
+            cost = []
+            for idx,_ in enumerate(range(self.max_iterations)):
+                params, temp_cost = opt.step_and_cost(self._cost_wrapper, params)
+                cost.append(temp_cost)
+                self._callback(params)
+
+                if idx>0 and abs(cost[idx]-cost[idx-1])<=self._tol and abs(np.mean(cost[-3:])-temp_cost)<=self._tol:
+                    print("Early stopping!")
+                    break
+                    
+            opt_result = [params, cost]
+            self.params = params
+
+        self._save_partial_state(params, force=True)
+        if detailed_results:
+            for key, value in opt_result.items():
+                if type(value) is np.ndarray:
+                    value = value.tolist()
+                    for i, x in enumerate(value):
+                        if type(x) is np.bool_:
+                            value[i] = bool(x)
+                    opt_result[key] = value
+                elif type(value) is np.bool_:
+                    value = bool(value)
+                    opt_result[key] = value
+            with open('detailed_results.json', 'w') as outfile:
+                try:
+                    json.dump(opt_result, outfile)
+                except:
+                    print('Could not dump detailed results. Not json serializable. ')
+        return self.params
+
+    def predict(self, x, params=None):
+        """
+        Predicts a set of output data given a set of input data x using the trained parameters found with fit
+
+        :param x: np.array
+            x data to predict outputs of in the model
+        :param params: list
+            optional parameters to use in prediction, used for internal cost functions.
+        :raises ValueError:
+            if fit is not first called then raises error explaining that the model must first be trained
+        :return: np.ndarray
+            predicted values corresponding to each datapoint in x
+        """
+        f = self.hyperparameters['f']
+        if params is None:
+            # if no parameters are passed then we are predicting the fitted model, so we use the stored parameters.
+            params = self.params
+
+        if self.postprocess is None:
+            return [f * self.qnode(features=features, parameters=params) for features in tqdm(x,desc="Predict")]
+        else:
+            return [np.dot(f * np.array(self.qnode(features=features, parameters=params[:-self.num_qubits])),params[-self.num_qubits:]) for features in x]

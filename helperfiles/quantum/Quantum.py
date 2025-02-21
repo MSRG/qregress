@@ -153,12 +153,8 @@ class QuantumRegressor:
 
         if self.postprocess is None and self.error_mitigation != 'M3':
             return qml.expval(qml.PauliZ(0))
-        elif self.postprocess is None and self.error_mitigation == 'M3':
-            return [qml.counts(qml.PauliZ(0))]
         elif self.postprocess is not None and self.error_mitigation != 'M3':
             return [qml.expval(qml.PauliZ(i)) for i in range(self.num_qubits)]
-        elif self.postprocess is not None and self.error_mitigation == 'M3':
-            return [qml.counts(qml.PauliZ(i)) for i in range(self.num_qubits)]
 
     def _build_qnode(self):
         #  builds QNode from device and circuit using mitiq error mitigation if specified.
