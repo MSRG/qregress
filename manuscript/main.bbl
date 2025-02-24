@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{51}
+\begin{mcitethebibliography}{55}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -256,6 +256,53 @@ Krenn,~M.; Landgraf,~J.; Foesel,~T.; Marquardt,~F. Artificial intelligence and
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
+\bibitem[Jin and Merz(2025)Jin, and Merz]{jin_integrating_2025}
+Jin,~H.; Merz,~K. M.~J. Integrating {Machine} {Learning} and {Quantum}
+  {Circuits} for {Proton} {Affinity} {Predictions}. \emph{J. Chem. Theory
+  Comput.} \textbf{2025}, Publisher: American Chemical Society\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Kao \latin{et~al.}(2023)Kao, Yang, Chiang, Hsiao, Cao, Aliper, Ren,
+  Aspuru-Guzik, Zhavoronkov, Hsieh, and Lin]{kao_exploring_2023}
+Kao,~P.-Y.; Yang,~Y.-C.; Chiang,~W.-Y.; Hsiao,~J.-Y.; Cao,~Y.; Aliper,~A.;
+  Ren,~F.; Aspuru-Guzik,~A.; Zhavoronkov,~A.; Hsieh,~M.-H.; Lin,~Y.-C.
+  Exploring the {Advantages} of {Quantum} {Generative} {Adversarial} {Networks}
+  in {Generative} {Chemistry}. \emph{J. Chem. Inf. Model.} \textbf{2023},
+  \emph{63}, 3307--3318, Publisher: American Chemical Society\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Li \latin{et~al.}(2021)Li, Topaloglu, and Ghosh]{li_quantum_2021}
+Li,~J.; Topaloglu,~R.~O.; Ghosh,~S. Quantum {Generative} {Models} for {Small}
+  {Molecule} {Drug} {Discovery}. \emph{IEEE Transactions on Quantum
+  Engineering} \textbf{2021}, \emph{2}, 1--8, Conference Name: IEEE
+  Transactions on Quantum Engineering\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Vitz \latin{et~al.}(2024)Vitz, Mohammadbagherpoor, Sandeep, Vlasic,
+  Padbury, and Pham]{vitz_hybrid_2024}
+Vitz,~M.; Mohammadbagherpoor,~H.; Sandeep,~S.; Vlasic,~A.; Padbury,~R.;
+  Pham,~A. Hybrid {Quantum} {Graph} {Neural} {Network} for {Molecular}
+  {Property} {Prediction}. 2024; \url{http://arxiv.org/abs/2405.05205},
+  arXiv:2405.05205 [quant-ph]\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Ryu \latin{et~al.}(2023)Ryu, Elala, and Rhee]{ryu_quantum_2023}
+Ryu,~J.-Y.; Elala,~E.; Rhee,~J.-K.~K. Quantum {Graph} {Neural} {Network}
+  {Models} for {Materials} {Search}. \emph{Materials} \textbf{2023}, \emph{16},
+  4300, Number: 12 Publisher: Multidisciplinary Digital Publishing
+  Institute\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
 \bibitem[Takaki \latin{et~al.}(2021)Takaki, Mitarai, Negoro, Fujii, and
   Kitagawa]{takaki_learning_2021}
 Takaki,~Y.; Mitarai,~K.; Negoro,~M.; Fujii,~K.; Kitagawa,~M. Learning temporal
@@ -499,17 +546,6 @@ Smith,~D. G.~A. \latin{et~al.}  {Psi4NumPy}: {An} {Interactive} {Quantum}
   {Chemistry} {Programming} {Environment} for {Reference} {Implementations} and
   {Rapid} {Development}. \emph{J. Chem. Theory Comput.} \textbf{2018},
   \emph{14}, 3504--3511, Publisher: American Chemical Society\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[LaRose \latin{et~al.}(2022)LaRose, Mari, Kaiser, Karalekas, Alves,
-  Czarnik, Mandouh, Gordon, Hindy, Robertson, Thakre, Wahl, Samuel, Mistri,
-  Tremblay, Gardner, Stemen, Shammah, and Zeng]{larose_mitiq_2022}
-LaRose,~R. \latin{et~al.}  Mitiq: {A} software package for error mitigation on
-  noisy quantum computers. \emph{Quantum} \textbf{2022}, \emph{6}, 774,
-  Publisher: Verein zur Forderung des Open Access Publizierens in den
-  Quantenwissenschaften\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
