@@ -254,37 +254,23 @@ Within the quantum machine learning (QML) field, parameterized quantum circuits 
 \newpage
 \setcounter{secnumdepth}{1}
 \section{Introduction}
-\begin{itemize}
-	\item General background information
-	\item Specific background information
-	\item A description of the gap in our knowledge that the study was designed to fill
-	\item A statement of study objective, and (optionally) a brief summary of study
-\end{itemize}
 
-In recent years, machine learning (ML) has become a popular tool for within the field of chemistry.\cite{janet_machine_2020}
-
-Force--fields
-drug discovery
-catalysis discovery
-accelerating wave functions
+In recent years, machine learning (ML) has become a popular tool within the field of chemistry for exploring chemical compound space\cite{ramakrishnan_quantum_2014,ramakrishnan_big_2015}, accelerating wave functions\cite{townsend_data-driven_2019,jones_chapter_2023}, and for applications, such as catalysis and drug discovery.\cite{behler_perspective_2016,goh_deep_2017,butler_machine_2018,sanchez-lengeling_inverse_2018,janet_machine_2020}
+Often, the goal of machine learning in chemistry is to reveal new patterns in data, provide new insights beyond simple models and human experience, and to accelerate computations and analysis of chemical space.\cite{janet_machine_2020}
+Additionally, interest in quantum computing (QC) for chemical applications have become increasingly popular due to the inherent quantum nature of chemistry.\cite{cao_quantum_2019}
+An approach that combines both ML and QC, is quantum machine learning (QML).
+QML has has shown potential for quantum speedups, either through formal mathematical proofs or numerical experiments based on empirical observations.
+In practice, determining theoretical quantum speedups can be difficult to determine and numerical experiments must be used to quantify the computational complexity.\cite{biamonte_quantum_2017}
 
 
+In the context of chemistry, quantum machine learning (QML) has gained traction for tasks such as drug discovery\cite{suzuki_predicting_2020,smaldone_quantum--classical_2024,bhatia_quantum_2023,kao_exploring_2023,li_quantum_2021,avramouli_quantum_2023,avramouli_unlocking_2023}, materials discovery\cite{ishiyama_noise-robust_2022,ryu_quantum_2023,vitz_hybrid_2024}, proton affinities\cite{jin_integrating_2025}, and experimental molecular properties, including the log solubility in water, melting point, octanol/water distribution coefficient, hydration free energy of small molecules in water.\cite{hatakeyama-sato_quantum_2023}
 
-Within the field of chemistry, tools such as machine learning and quantum computing have become popular due to the promise of discovering new molecules and materials.
-Machine learning in chemistry has already become a broadly applicable tool for exploring chemical compound space\cite{ramakrishnan_quantum_2014,ramakrishnan_big_2015}, accelerating wave functions\cite{townsend_data-driven_2019,jones_chapter_2023}, and for applications, such as catalysis and drug discovery.\cite{behler_perspective_2016,goh_deep_2017,butler_machine_2018,sanchez-lengeling_inverse_2018,janet_machine_2020}
-[Sentence about quantum computing]
-Another popular avenue, which combines quantum computing and machine learning, is quantum machine learning (QML).
-QML utilizes quantum algorithms during some portion of the machine learning process in an attempt to outperform classical algorithms. \cite{biamonte_quantum_2017}
-On the current era of quantum computers, parameterized quantum circuits (PQCs) offer an example of QML that is performed using a hybrid quantum-classical feedback loop, where the variational parameters are optimized classical, while the circuit is ran on quantum hardware.\cite{benedetti_parameterized_2019,suzuki_predicting_2020}
-
-PQCs are often composed using two different subcircuits: the encoding layer, which is used to encode the features into the quantum circuit, and variational layers, which are composed of parameterized gates which can be optimized classical. 
+One class of QML algorithms, based on a hybrid quantum--classical feedback loop, are parameterized quantum circuits (PQCs). PQCs offer flexible QML models where the variational parameters are optimized classically, while the quantum circuit can be ran on near-term quantum hardware.\cite{benedetti_parameterized_2019,suzuki_predicting_2020} 
+Often, PQCs are composed of two parts: an encoding circuit, used to encode the features, and a variational (ansatz) circuit, composed of trainable machine learning parameters.
 
 
 
-PQCs are composed of data-encoding and variational subcircuits, which can be repeated multiple times.
 
-
-While several examples exist for PQCs applied to chemical applications, they are largely relegated to drug discovery\cite{suzuki_predicting_2020,smaldone_quantum--classical_2024,ishiyama_noise-robust_2022,ranga_quantum_2024,alam_qnet_2022,avramouli_quantum_2023,avramouli_unlocking_2023,bhatia_quantum_2023} and experimental properties\cite{hatakeyama-sato_quantum_2023}.
 Herein, we explore two different chemical datasets: one consisting of bond separation energies of 49 unique bond types, called the BSE49 dataset\cite{prasad_bse49_2021}, and another which utilizes data-driven coupled cluster (DDCC)\cite{townsend_data-driven_2019} to predict the coupled-cluster singles and doubles wave function parameters using lower-level quantum chemistry methods.
 
 In this study, we create a robust Python code base for exploring a set of 14 data-encoding and 12 variational (ansatz) subcircuits for a total of 168 combined PQCs.
@@ -294,62 +280,19 @@ We also examine the effects of the number of re-upload and ansatz layers, the ef
 
 
 
-
-
-
-
-\cite{krenn_artificial_2023}
-
-QML\cite{biamonte_quantum_2017}:
-\begin{itemize}
-	\item ``Quantum machine learning software makes use of quantum algorithms as part of a larger implementation. By analysing the steps that quantum algorithms prescribe, it becomes clear that they have the potential to outperform classical algorithms for specific problems (that is, reduce the number of steps required). This potential is known as quantum speedup.''
-	\item ``The notion of a quantum speedup depends on whether one takes a formal computer science perspective—which demands mathematical proofs—or a perspective based on what can be done with realistic, finitesize devices—which requires solid statistical evidence of a scaling advantage over some finite range of problem sizes. For the case of quantum machine learning, the best possible performance of classical algorithms is not always known.''
-	\item ``Determination of a scaling advantage contrasting quantum and classical machine learning would rely on the existence of a quantum computer and is called a ‘benchmarking’ problem. Such advantages could include improved classification accuracy and sampling of classically inaccessible systems. Accordingly, quantum speedups in machine learning are currently characterized using idealized measures from complexity theory: query complexity and gate complexity (see Box 1 and Box 1 Table). Query complexity measures the number of queries to the information source for the classical or quantum algorithm. A quantum speedup results if the number of queries needed to solve a problem is lower for the quantum algorithm than for the classical algorithm. To determine the gate complexity, the number of elementary quantum operations (or gates) required to obtain the desired result are counted.''
-	\item Input problem: ``Classical data must be input before being processed on a quantum computer. This ‘input problem’ often has little overhead but can present a serious bottleneck for certain algorithms. Likewise, the ‘output problem’ is faced when reading out data after being processed on a quantum device. Like the input problem, the output problem often causes a noticeable operational slowdown.''
-	\item  QML challenges: ``These hardware challenges are technical in nature, and clear paths exist towards overcoming them. They must be overcome, however, if quantum machine learning is to become a ‘killer app’ for quantum computers. As noted previously, most of the quantum algorithms that have been identified face a number of caveats that limits their applicability. We can distill the caveats mentioned above into four fundamental problems. (1) The input problem. Although quantum algorithms can provide dramatic speedups for processing data, they seldom provide advantages in reading data. This means that the cost of reading in the input can in some cases dominate the cost of quantum algorithms. Understanding this factor is an ongoing challenge. (2) The output problem. Obtaining the full solution from some quantum algorithms as a string of bits requires learning an exponential number of bits. This makes some applications of quantum machine learning algorithms infeasible. This problem can potentially be sidestepped by learning only summary statistics for the solution state. (3) The costing problem. Closely related to the input/outputproblems, at present very little is known about the true number of gates required by quantum machine learning algorithms. Bounds on the complexity suggest that for sufficiently large problems they will offer huge advantages, but it is still unclear when that crossover point occurs. (4) The benchmarking problem. It is often difficult to assert that a quantum algorithm is ever better than all known classical machine algorithms in practice because this would require extensive benchmarking against modern heuristic methods. Establishing lower bounds for quantum machine learning would partially address this issue.''
-\end{itemize}
-
-
-PQCs\cite{benedetti_parameterized_2019}:
-\begin{itemize}
-	\item ``PQCs are typically composed of fixed gates, e.g. controlled NOTs, and adjustable gates, e.g. qubit rotations. Even at low circuit depth, some classes of PQCs are capable of generating highly non-trivial outputs. For example, under well-believed complexity-theoretic assumptions, the class of PQCs called instantaneous quantum polynomial-time cannot be efficiently simulated by classical resources (see Lund et al [3] and Harrow and Montanaro [4] for accessible Reviews of quantum supremacy proposals). The demonstration of quantum supremacy is an important milestone in the development of quantum computers. In practice, however, it is highly desirable to demonstrate a quantum advantage on applications. The main approach taken by the community consists in formalizing problems of interest as variational optimization problems and use hybrid systems of quantum and classical hardware to find approximate solutions. The intuition is that by implementing some subroutines on classical hardware, the requirement of quantum resources is significantly reduced, particularly the number of qubits, circuit depth, and coherence time. Therefore, in the hybrid algorithmic approach NISQ hardware focuses entirely on the classically intractable part of the problem.''
-\end{itemize}
-
-PQCs \cite{suzuki_predicting_2020}:
-\begin{itemize}
-	\item ``More recently, quantum machine learning (QML) [26–30] is a rapidly growing research field that combines near-term quantum algorithms and machine learning techniques. In particular, parameterized quantum circuits (PQCs) have been considered as machine learning models with high expressive power within the hybrid quantum–classical framework [31, 32]. PQCs are typically composed of fixed quantum gates (e.g., qubit rotations and entangling gates) in a shallow circuit layout, with variable parameters optimized in a classical feedback loop.''
-	\item ``To our knowledge, however, the application of QML to regression tasks has not been fully investigated in the literature. It remains unclear what kinds of quantum states should be used in order to generate the feature map with high expressibility that is suited for real-world data sets.''
-	\item ``quantitative structure–toxicity relationship (QSTR) models for predicting the toxicity of 221 phenols. While there are a variety of QSAR/QSTR models (e.g., 3D-QSAR [1, 4]),asafirst step we employ QSAR/QSTR models including molecular descriptors such as hydrophobicity, acidity constant, and frontier orbital energies. There have been quantum computations in biochemical and pharmaceutical areas, such as protein folding [43–45], molecular similarity [46], and biological data [47]; yet, there has been no study on quantum application to QSAR modeling, albeit an important part of ligand-based computer-aided drug design.''
-	\item ``PQCs have been regarded as machine learning models with high expressive power within the framework of the hybrid quantum–classical approach. PQCs are usually composed of one-qubit rotations and two-qubit entangling operations in a shallow circuit layout, with parameters optimized in a feedback loop.''
-	\item ``Combining near-term quantum algorithms and machine learning, QML using the framework of PQCs is sometimes referred to as quantum circuit learning (QCL)''
-	\item ``PQCs consist of three components: the encoder circuit, the variational circuit, and the measurement for the estimation of the loss function''
-	
-\end{itemize}
-
-
-\cite{jin_integrating_2025}
-\begin{itemize}
-	\item ``we designed quantum circuits as feature encoders for a classical neural network. To evaluate the
-	effectiveness of this hybrid quantum-classical model, we compared its performance with traditional ML models using a reduced
-	feature set derived from the full set. A correlation analysis showed that the quantum-encoded representations have a stronger positive
-	correlation with the target values than the original features do. As a result, the hybrid model outperformed its classical counterpart
-	and achieved consistent performance comparable to traditional ML models with the same reduced feature set on both a noiseless
-	simulator and real quantum hardware, highlighting the potential of quantum machine learning for accurate and efficient PA
-	predictions.''
-	\item Chemical QML: \cite{smaldone_quantum--classical_2024}, \cite{bhatia_quantum_2023} \cite{kao_exploring_2023} \cite{li_quantum_2021} \cite{vitz_hybrid_2024} \cite{ryu_quantum_2023}
-\end{itemize}
-
-PQCs \cite{hatakeyama-sato_quantum_2023}:
-\begin{itemize}
-	\item What they do: ``ntroduce quantum circuit learning (QCL) as an emerging regression algorithm for chemo- and materials-informatics. The supervised model, functioning on the rule of quantum mechanics, can process linear and smooth non-linear functions from small datasets (<100 records). Compared with conventional algorithms, such as random forest, support vector machine, and linear regressions, the QCL can offer better predictions with some one-dimensional functions and experimental chemical databases''
-	\item ``Here, we introduce quantum circuit learning (QCL), an emerging algorithm for supervised learning.15–18 QCL works on the rule of quantum mechanics. It can predict various parameters likewise to classical models. The current quantum systems (noisy intermediate-scale quantum computers: NISQ)19,20 face the problems of calculation noise and the limited processable number of information units (qubits).''
-	\item ``Since QCL is a frontier for machine learning, few reports have been published on authentic regression tasks. The success of prediction with a toxicity dataset of organic molecules was reported,17 whereas the study was still conceptual. The prediction processes and advantages have been unclear, especially from chemical and material viewpoints. Here, we conducted a more comprehensive study on QCL with standard datasets of one-dimensional functions and chemical properties. Both simulated and actual quantum computing was undertaken to clarify the challenges of QCL. Various hyperparameters were optimized for higher accuracy. The comparison with conventional models contrasted the benefits of the new approach: capable of learning both linear and non-linear functions even from small datasets. The property was also favorable for predicting the so-called extrapolating data region, which is essential for chemical and material research.''
-	\item They cite \cite{takaki_learning_2021,suzuki_predicting_2020,mitarai_quantum_2018} as examples of PQCs/quantum circuit learning for regression task
-	\item Justification for starting with 1D regression: ``Preliminary optimization of quantum circuits15,17 and our optimization revealed that the following configuration was concise and practical for regression tasks (for details, see results and explanations in Fig. S1''
-\end{itemize}
-
 We introduce \textit{qregress}, a modular Python-based code built on PennyLane for exploring PQCs for regression based learning tasks.
 We analyze three datasets, a function fitting dataset, used for model calibration, and two chemically relevant datasets that offer challenging learning tasks for PQCs.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -390,7 +333,7 @@ Following the formulation provided in the PennyLane\cite{bergholm_pennylane_2022
 \end{equation}
 where $H_{i}$ denotes a Hadamard gate on qubit $i$ and $ZZ_{ij}$ denotes a two-qubit entangline gate defined as $ZZ_{ij} = e^{-i x_{i} x_{j} \sigma_{z} \otimes \sigma_{z}}$.
 
-  
+Quantum advantage of IQP: ``For example, under well-believed complexity-theoretic assumptions, the class of PQCs called instantaneous quantum polynomial-time cannot be efficiently simulated by classical resources (see Lund et al [3] and Harrow and Montanaro [4] for accessible Reviews of quantum supremacy proposals).''\cite{benedetti_parameterized_2019}  
   
 %\begin{figure}[H]
 %       \centering
