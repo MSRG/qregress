@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{52}
+\begin{mcitethebibliography}{62}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -26,6 +26,54 @@
   {\relax}
   {\relax}
 
+\bibitem[Janet and Kulik(2020)Janet, and Kulik]{janet_machine_2020}
+Janet,~J.~P.; Kulik,~H.~J. \emph{Machine {Learning} in {Chemistry}}; {ACS} {In}
+  {Focus}; American Chemical Society, 2020\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Behler(2016)]{behler_perspective_2016}
+Behler,~J. Perspective: {Machine} learning potentials for atomistic
+  simulations. \emph{JOURNAL OF CHEMICAL PHYSICS} \textbf{2016},
+  \emph{145}\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[S. Smith \latin{et~al.}(2017)S. Smith, Isayev, and
+  E. Roitberg]{ssmith_ani-1_2017}
+S. Smith,~J.; Isayev,~O.; E. Roitberg,~A. {ANI}-1: an extensible neural
+  network potential with {DFT} accuracy at force field computational cost.
+  \emph{Chemical Science} \textbf{2017}, \emph{8}, 3192--3203, Publisher: Royal
+  Society of Chemistry\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Gao \latin{et~al.}(2020)Gao, Ramezanghorbani, Isayev, Smith, and
+  Roitberg]{gao_torchani_2020}
+Gao,~X.; Ramezanghorbani,~F.; Isayev,~O.; Smith,~J.~S.; Roitberg,~A.~E.
+  {TorchANI}: {A} {Free} and {Open} {Source} {PyTorch}-{Based} {Deep}
+  {Learning} {Implementation} of the {ANI} {Neural} {Network} {Potentials}.
+  \emph{J. Chem. Inf. Model.} \textbf{2020}, \emph{60}, 3408--3415, Publisher:
+  American Chemical Society\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Yang \latin{et~al.}(2019)Yang, Swanson, Jin, Coley, Eiden, Gao,
+  Guzman-Perez, Hopper, Kelley, Mathea, Palmer, Settels, Jaakkola, Jensen, and
+  Barzilay]{yang_analyzing_2019}
+Yang,~K.; Swanson,~K.; Jin,~W.; Coley,~C.; Eiden,~P.; Gao,~H.;
+  Guzman-Perez,~A.; Hopper,~T.; Kelley,~B.; Mathea,~M.; Palmer,~A.;
+  Settels,~V.; Jaakkola,~T.; Jensen,~K.; Barzilay,~R. Analyzing {Learned}
+  {Molecular} {Representations} for {Property} {Prediction}. \emph{JOURNAL OF
+  CHEMICAL INFORMATION AND MODELING} \textbf{2019}, \emph{59}, 3370--3388\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
 \bibitem[Ramakrishnan \latin{et~al.}(2014)Ramakrishnan, Dral, Rupp, and von
   Lilienfeld]{ramakrishnan_quantum_2014}
 Ramakrishnan,~R.; Dral,~P.~O.; Rupp,~M.; von Lilienfeld,~O.~A. Quantum
@@ -45,28 +93,53 @@ Ramakrishnan,~R.; Dral,~P.~O.; Rupp,~M.; von Lilienfeld,~O.~A. Big {Data}
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Townsend and Vogiatzis(2019)Townsend, and
-  Vogiatzis]{townsend_data-driven_2019}
-Townsend,~J.; Vogiatzis,~K.~D. Data-{Driven} {Acceleration} of the
-  {Coupled}-{Cluster} {Singles} and {Doubles} {Iterative} {Solver}. \emph{J.
-  Phys. Chem. Lett.} \textbf{2019}, \emph{10}, 4129--4135\relax
+\bibitem[Hansen \latin{et~al.}(2015)Hansen, Biegler, Ramakrishnan, Pronobis,
+  von Lilienfeld, Mueller, and Tkatchenko]{hansen_machine_2015}
+Hansen,~K.; Biegler,~F.; Ramakrishnan,~R.; Pronobis,~W.; von Lilienfeld,~O.~A.;
+  Mueller,~K.-R.; Tkatchenko,~A. Machine {Learning} {Predictions} of
+  {Molecular} {Properties}: {Accurate} {Many}-{Body} {Potentials} and
+  {Nonlocality} in {Chemical} {Space}. \emph{JOURNAL OF PHYSICAL CHEMISTRY
+  LETTERS} \textbf{2015}, \emph{6}, 2326--2331\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Jones \latin{et~al.}(2023)Jones, S.~Pathirage, and
-  Vogiatzis]{jones_chapter_2023}
-Jones,~G.~M.; S.~Pathirage,~P. D.~V.; Vogiatzis,~K.~D. In \emph{Quantum
-  {Chemistry} in the {Age} of {Machine} {Learning}}; Dral,~P.~O., Ed.;
-  Elsevier, 2023; pp 509--529\relax
+\bibitem[Unke and Meuwly(2019)Unke, and Meuwly]{unke_physnet_2019}
+Unke,~O.~T.; Meuwly,~M. {PhysNet}: {A} {Neural} {Network} for {Predicting}
+  {Energies}, {Forces}, {Dipole} {Moments}, and {Partial} {Charges}.
+  \emph{JOURNAL OF CHEMICAL THEORY AND COMPUTATION} \textbf{2019}, \emph{15},
+  3678--3693\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Behler(2016)]{behler_perspective_2016}
-Behler,~J. Perspective: {Machine} learning potentials for atomistic
-  simulations. \emph{JOURNAL OF CHEMICAL PHYSICS} \textbf{2016},
-  \emph{145}\relax
+\bibitem[Zhong \latin{et~al.}(2020)Zhong, Tran, Min, Wang, Wang, Dinh, De~Luna,
+  Yu, Rasouli, Brodersen, Sun, Voznyy, Tan, Askerka, Che, Liu, Seifitokaldani,
+  Pang, Lo, Ip, Ulissi, and Sargent]{zhong_accelerated_2020}
+Zhong,~M. \latin{et~al.}  Accelerated discovery of {CO}$_{\textrm{2}}$
+  electrocatalysts using active machine learning. \emph{NATURE} \textbf{2020},
+  \emph{581}, 178+\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Nandy \latin{et~al.}(2021)Nandy, Duan, Taylor, Liu, Steeves, and
+  Kulik]{nandy_computational_2021}
+Nandy,~A.; Duan,~C.; Taylor,~M.~G.; Liu,~F.; Steeves,~A.~H.; Kulik,~H.~J.
+  Computational {Discovery} of {Transition}-metal {Complexes}: {From}
+  {High}-throughput {Screening} to {Machine} {Learning}. \emph{Chem. Rev.}
+  \textbf{2021}, \emph{121}, 9927--10000, Publisher: American Chemical
+  Society\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[M. Jones \latin{et~al.}(2023)M. Jones, A. Smith, K. Kirkland, and
+  D. Vogiatzis]{mjones_data-driven_2023}
+M. Jones,~G.; A. Smith,~B.; K. Kirkland,~J.; D. Vogiatzis,~K. Data-driven
+  ligand field exploration of {Fe}( iv )–oxo sites for {C}–{H} activation.
+  \emph{Inorganic Chemistry Frontiers} \textbf{2023}, \emph{10}, 1062--1075,
+  Publisher: Royal Society of Chemistry\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -75,6 +148,16 @@ Behler,~J. Perspective: {Machine} learning potentials for atomistic
 Goh,~G.~B.; Hodas,~N.~O.; Vishnu,~A. Deep learning for computational chemistry.
   \emph{JOURNAL OF COMPUTATIONAL CHEMISTRY} \textbf{2017}, \emph{38},
   1291--1307\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Yang \latin{et~al.}(2019)Yang, Wang, Byrne, Schneider, and
+  Yang]{yang_concepts_2019}
+Yang,~X.; Wang,~Y.; Byrne,~R.; Schneider,~G.; Yang,~S. Concepts of {Artificial}
+  {Intelligence} for {Computer}-{Assisted} {Drug} {Discovery}. \emph{Chem.
+  Rev.} \textbf{2019}, \emph{119}, 10520--10594, Publisher: American Chemical
+  Society\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -97,9 +180,13 @@ Sanchez-Lengeling,~B.; Aspuru-Guzik,~A. Inverse molecular design using machine
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Janet and Kulik(2020)Janet, and Kulik]{janet_machine_2020}
-Janet,~J.~P.; Kulik,~H.~J. \emph{Machine {Learning} in {Chemistry}}; {ACS} {In}
-  {Focus}; American Chemical Society, 2020\relax
+\bibitem[Raccuglia \latin{et~al.}(2016)Raccuglia, Elbert, Adler, Falk, Wenny,
+  Mollo, Zeller, Friedler, Schrier, and
+  Norquist]{raccuglia_machine-learning-assisted_2016}
+Raccuglia,~P.; Elbert,~K.~C.; Adler,~P. D.~F.; Falk,~C.; Wenny,~M.~B.;
+  Mollo,~A.; Zeller,~M.; Friedler,~S.~A.; Schrier,~J.; Norquist,~A.~J.
+  Machine-learning-assisted materials discovery using failed experiments.
+  \emph{NATURE} \textbf{2016}, \emph{533}, 73+\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -121,6 +208,15 @@ Cao,~Y.; Romero,~J.; Olson,~J.~P.; Degroote,~M.; Johnson,~P.~D.;
 Biamonte,~J.; Wittek,~P.; Pancotti,~N.; Rebentrost,~P.; Wiebe,~N.; Lloyd,~S.
   Quantum machine learning. \emph{Nature} \textbf{2017}, \emph{549},
   195--202\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Benedetti \latin{et~al.}(2019)Benedetti, Lloyd, Sack, and
+  Fiorentini]{benedetti_parameterized_2019}
+Benedetti,~M.; Lloyd,~E.; Sack,~S.; Fiorentini,~M. Parameterized quantum
+  circuits as machine learning models. \emph{Quantum Sci. Technol.}
+  \textbf{2019}, \emph{4}, 043001\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -240,21 +336,21 @@ Hatakeyama-Sato,~K.; Igarashi,~Y.; Kashikawa,~T.; Kimura,~K.; Oyaizu,~K.
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Benedetti \latin{et~al.}(2019)Benedetti, Lloyd, Sack, and
-  Fiorentini]{benedetti_parameterized_2019}
-Benedetti,~M.; Lloyd,~E.; Sack,~S.; Fiorentini,~M. Parameterized quantum
-  circuits as machine learning models. \emph{Quantum Sci. Technol.}
-  \textbf{2019}, \emph{4}, 043001\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
 \bibitem[Prasad \latin{et~al.}(2021)Prasad, Khalilian, Otero-de-la Roza, and
   DiLabio]{prasad_bse49_2021}
 Prasad,~V.~K.; Khalilian,~M.~H.; Otero-de-la Roza,~A.; DiLabio,~G.~A. {BSE49},
   a diverse, high-quality benchmark dataset of separation energies of chemical
   bonds. \emph{Sci Data} \textbf{2021}, \emph{8}, 300, Publisher: Nature
   Publishing Group\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Townsend and Vogiatzis(2019)Townsend, and
+  Vogiatzis]{townsend_data-driven_2019}
+Townsend,~J.; Vogiatzis,~K.~D. Data-{Driven} {Acceleration} of the
+  {Coupled}-{Cluster} {Singles} and {Doubles} {Iterative} {Solver}. \emph{J.
+  Phys. Chem. Lett.} \textbf{2019}, \emph{10}, 4129--4135\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -272,16 +368,6 @@ Mitarai,~K.; Negoro,~M.; Kitagawa,~M.; Fujii,~K. Quantum circuit learning.
 Bremner,~M.~J.; Montanaro,~A.; Shepherd,~D.~J. Average-case complexity versus
   approximate simulation of commuting quantum computations. \emph{Phys. Rev.
   Lett.} \textbf{2016}, \emph{117}, 080501, arXiv:1504.07999 [quant-ph]\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Sim \latin{et~al.}(2019)Sim, Johnson, and
-  Aspuru-Guzik]{sim_expressibility_2019}
-Sim,~S.; Johnson,~P.~D.; Aspuru-Guzik,~A. Expressibility and {Entangling}
-  {Capability} of {Parameterized} {Quantum} {Circuits} for {Hybrid}
-  {Quantum}-{Classical} {Algorithms}. \emph{Advanced Quantum Technologies}
-  \textbf{2019}, \emph{2}, 1900070\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -308,6 +394,16 @@ Havlicek,~V.; Córcoles,~A.~D.; Temme,~K.; Harrow,~A.~W.; Kandala,~A.;
 Bergholm,~V. \latin{et~al.}  {PennyLane}: {Automatic} differentiation of hybrid
   quantum-classical computations. 2022; \url{http://arxiv.org/abs/1811.04968},
   arXiv:1811.04968 [quant-ph]\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Sim \latin{et~al.}(2019)Sim, Johnson, and
+  Aspuru-Guzik]{sim_expressibility_2019}
+Sim,~S.; Johnson,~P.~D.; Aspuru-Guzik,~A. Expressibility and {Entangling}
+  {Capability} of {Parameterized} {Quantum} {Circuits} for {Hybrid}
+  {Quantum}-{Classical} {Algorithms}. \emph{Advanced Quantum Technologies}
+  \textbf{2019}, \emph{2}, 1900070\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -484,6 +580,15 @@ García-Andrade,~X.; García~Tahoces,~P.; Pérez-Ríos,~J.;
 Lundberg,~S.~M.; Lee,~S.-I. A {Unified} {Approach} to {Interpreting} {Model}
   {Predictions}. Advances in {Neural} {Information} {Processing} {Systems}.
   2017\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Jones \latin{et~al.}(2023)Jones, S.~Pathirage, and
+  Vogiatzis]{jones_chapter_2023}
+Jones,~G.~M.; S.~Pathirage,~P. D.~V.; Vogiatzis,~K.~D. In \emph{Quantum
+  {Chemistry} in the {Age} of {Machine} {Learning}}; Dral,~P.~O., Ed.;
+  Elsevier, 2023; pp 509--529\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
