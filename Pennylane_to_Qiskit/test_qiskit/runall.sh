@@ -12,6 +12,7 @@ for ol in {1..3};do
   else
     echo "${dirname} does exist"
   fi
-  papermill convert_ML_batched.ipynb ${dirname}/convert_ML_batched.ipynb -r optimization_level ${ol} -r resilience_level ${rl} 
+  papermill convert_ML_batched.ipynb ${dirname}/convert_ML_batched.ipynb -r optimization_level ${ol} -r resilience_level ${rl}
+  mv ./model_log.csv ./final_state_model.bin ./A2_HWE-CNOT_plot.svg ./A2_HWE-CNOT_results.json ./A2_HWE-CNOT_predicted_values.csv ${dirname}/ 
  done
 done
