@@ -6,6 +6,7 @@ from scipy.optimize import minimize, basinhopping
 from qiskit_ibm_runtime import QiskitRuntimeService
 from qiskit_aer.noise import NoiseModel
 from qiskit_ibm_runtime.fake_provider import FakeQuebec
+from pennylane_qiskit import qiskit_session
 
 
 
@@ -28,8 +29,6 @@ class BasinBounds:
         tmax = bool(np.all(x <= self.xmax))
         tmin = bool(np.all(x >= self.xmin))
         return tmax and tmin
-
-
 class QuantumRegressor:
     """
     Machine learning model based on quantum circuit learning.
@@ -106,14 +105,13 @@ class QuantumRegressor:
             # QiskitRuntimeService.save_account(channel='ibm_quantum', instance='pinq-quebec-hub/univ-toronto/default', token='<IBM Quantum API key>')
             service = QiskitRuntimeService(channel="ibm_quantum", instance='pinq-quebec-hub/univ-toronto/default')
             self._backend = service.least_busy(operational=True, simulator=False, min_num_qubits=self.num_qubits)
-            self.device = qml.device(device, wires=self.num_qubits, backend=self._backend,shots=shots)
-            # Default to no noise 
-            self.device.set_transpile_args(**{"resilience_level":0,"seed_transpiler":42})
-
+            
             if self.error_mitigation == 'TREX':
-                self.device.set_transpile_args(**{'resilience_level': 1})
+                self.device = qml.device(device, wires=self._backend.num_qubits, backend=self._backend,shots=shots,resilience_level=1,seed_transpiler=42)
             elif self.error_mitigation == 'ZNEPauliTwirl':
-                self.device.set_transpile_args(**{'resilience_level': 2})                
+                self.device = qml.device(device, wires=self._backend.num_qubits, backend=self._backend,shots=shots,resilience_level=2,seed_transpiler=42)
+            else:
+                self.device = qml.device(device, wires=self._backend.num_qubits, backend=self._backend,shots=shots,resilience_level=0,seed_transpiler=42)                
 
         elif device == 'qiskit.aer' and backend == "fake":
             # Example based on https://pennylane.ai/qml/demos/tutorial_error_mitigation/
@@ -121,15 +119,12 @@ class QuantumRegressor:
             backend = AerSimulator.from_backend(device_backend)
             noise_model = NoiseModel.from_backend(backend)
             self._backend=backend
-            self.device = qml.device(device, backend=self._backend, wires=self.num_qubits, noise_model=noise_model,shots=shots)
-            self.device.set_transpile_args(**{"resilience_level":0,"seed_transpiler":42})
-
-
             if self.error_mitigation == 'TREX':
-                self.device.set_transpile_args(**{'resilience_level': 1})
+                self.device = qml.device(device, wires=self.num_qubits, backend=self._backend,shots=shots,resilience_level=1,seed_transpiler=42)
             elif self.error_mitigation == 'ZNEPauliTwirl':
-                self.device.set_transpile_args(**{'resilience_level': 2})                
-                
+                self.device = qml.device(device, wires=self.num_qubits, backend=self._backend,shots=shots,resilience_level=2,seed_transpiler=42)
+            else:
+                self.device = qml.device(device, wires=self.num_qubits, backend=self._backend,shots=shots,resilience_level=0,seed_transpiler=42)                                
                 
         else:
             self.device = qml.device(device, wires=self.num_qubits, shots=shots)
@@ -158,9 +153,9 @@ class QuantumRegressor:
             except:
                 self.variational(params, wires=range(self.num_qubits))
 
-        if self.postprocess is None and self.error_mitigation != 'M3':
+        if self.postprocess is None:
             return qml.expval(qml.PauliZ(0))
-        elif self.postprocess is not None and self.error_mitigation != 'M3':
+        elif self.postprocess is not None:
             return [qml.expval(qml.PauliZ(i)) for i in range(self.num_qubits)]
 
     def _build_qnode(self):
@@ -308,34 +303,71 @@ class QuantumRegressor:
         self.y = y
         params = initial_parameters
 
-        if self.use_scipy:
-            options = {
-                'maxiter': self.max_iterations - self.fit_count,
-                'tol': self._tol,
-                'disp': True
-            }
-            opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback, options=options)
-            self.params = opt_result['x']
-        elif self.optimizer == 'BasinHopping':
-            minimizer_kwargs = {"method": "BFGS"}
-            opt_result = basinhopping(self._cost_wrapper, x0=params, minimizer_kwargs=minimizer_kwargs,
-                                      accept_test=BasinBounds(xmax=np.pi, xmin=-np.pi), niter=self.max_iterations,
-                                      callback=self._callback)
-            self.params = opt_result['x']
-        else:
-            opt = qml.SPSAOptimizer(maxiter=self.max_iterations)
-            cost = []
-            for idx,_ in enumerate(range(self.max_iterations)):
-                params, temp_cost = opt.step_and_cost(self._cost_wrapper, params)
-                cost.append(temp_cost)
-                self._callback(params)
+        try:
+            with qiskit_session(self.device) as session:
+                print("Session details: ",session)
+                if self.use_scipy:
+                    options = {
+                        'maxiter': self.max_iterations - self.fit_count,
+                        'tol': self._tol,
+                        'disp': True
+                    }
+                    opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback, options=options)
+                    self.params = opt_result['x']
+                elif self.optimizer == 'BasinHopping':
+                    minimizer_kwargs = {"method": "BFGS"}
+                    opt_result = basinhopping(self._cost_wrapper, x0=params, minimizer_kwargs=minimizer_kwargs,
+                                              accept_test=BasinBounds(xmax=np.pi, xmin=-np.pi), niter=self.max_iterations,
+                                              callback=self._callback)
+                    self.params = opt_result['x']
+                else:
+           
+                    opt = qml.SPSAOptimizer(maxiter=self.max_iterations)
+                    cost = []
+                    for idx,_ in enumerate(range(self.max_iterations)):
+                        params, temp_cost = opt.step_and_cost(self._cost_wrapper, params)
+                        cost.append(temp_cost)
+                        self._callback(params)
+        
+                        if idx>0 and abs(cost[idx]-cost[idx-1])<=self._tol and abs(np.mean(cost[-3:])-temp_cost)<=self._tol:
+                            print("Early stopping!")
+                            break
+                            
+                    opt_result = [params, cost]
+                    self.params = params                    
 
-                if idx>0 and abs(cost[idx]-cost[idx-1])<=self._tol and abs(np.mean(cost[-3:])-temp_cost)<=self._tol:
-                    print("Early stopping!")
-                    break
-                    
-            opt_result = [params, cost]
-            self.params = params
+        except:
+            if self.use_scipy:
+                options = {
+                    'maxiter': self.max_iterations - self.fit_count,
+                    'tol': self._tol,
+                    'disp': True
+                }
+                opt_result = minimize(self._cost_wrapper, x0=params, method=self.optimizer, callback=self._callback, options=options)
+                self.params = opt_result['x']
+            elif self.optimizer == 'BasinHopping':
+                minimizer_kwargs = {"method": "BFGS"}
+                opt_result = basinhopping(self._cost_wrapper, x0=params, minimizer_kwargs=minimizer_kwargs,
+                                          accept_test=BasinBounds(xmax=np.pi, xmin=-np.pi), niter=self.max_iterations,
+                                          callback=self._callback)
+                self.params = opt_result['x']
+            else:
+       
+                opt = qml.SPSAOptimizer(maxiter=self.max_iterations)
+                cost = []
+                for idx,_ in enumerate(range(self.max_iterations)):
+                    params, temp_cost = opt.step_and_cost(self._cost_wrapper, params)
+                    cost.append(temp_cost)
+                    self._callback(params)
+    
+                    if idx>0 and abs(cost[idx]-cost[idx-1])<=self._tol and abs(np.mean(cost[-3:])-temp_cost)<=self._tol:
+                        print("Early stopping!")
+                        break
+                        
+                opt_result = [params, cost]
+                self.params = params                    
+            
+
 
         self._save_partial_state(params, force=True)
         if detailed_results:
