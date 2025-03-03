@@ -234,23 +234,39 @@ Within the quantum machine learning (QML) field, parameterized quantum circuits 
 
 [FOCUS ON QUANTUM CHEMISTRY]
 
-In recent years, machine learning (ML) has emerged as a popular tool in chemistry to reveal new patterns in data, provide new insights beyond simple models and human experience, and to accelerate computations and analysis of chemical space.
-Often, the goal of ML for chemists is to bypass the explicit calculation of molecular properties that can be expensive to calculate.\cite{janet_machine_2020}
-Applications of ML in chemistry include accelerating molecular simulations\cite{behler_perspective_2016,ssmith_ani-1_2017,gao_torchani_2020}, determining molecular properties\cite{yang_analyzing_2019,ramakrishnan_quantum_2014,ramakrishnan_big_2015,hansen_machine_2015,unke_physnet_2019}, and for the discovery of new catalysis\cite{zhong_accelerated_2020,nandy_computational_2021,mjones_data-driven_2023}, drugs\cite{goh_deep_2017,yang_concepts_2019}, and materials.\cite{butler_machine_2018,sanchez-lengeling_inverse_2018,raccuglia_machine-learning-assisted_2016}
-Similarly, interest in quantum computing (QC) for chemical applications has become increasingly popular due possible quantum speedups for quantum chemical calculations.\cite{cao_quantum_2019}
-An approach that combines both ML and QC, is quantum machine learning (QML), which has shown potential for quantum speedups, either through formal mathematical proofs or numerical experiments based on empirical observations.\cite{biamonte_quantum_2017}
+In recent years, machine learning (ML) has emerged as a popular tool in chemistry to reveal new patterns in data, provide new insights beyond simple models and human experience, and to accelerate computations and the analysis of chemical space.
+Applications of ML in chemistry include accelerating molecular simulations\cite{behler_perspective_2016,ssmith_ani-1_2017,gao_torchani_2020}, determining molecular properties\cite{yang_analyzing_2019,ramakrishnan_quantum_2014,ramakrishnan_big_2015,hansen_machine_2015,unke_physnet_2019}, and for the discovery of new catalysts\cite{zhong_accelerated_2020,nandy_computational_2021,mjones_data-driven_2023}, drugs\cite{goh_deep_2017,yang_concepts_2019}, and materials.\cite{butler_machine_2018,sanchez-lengeling_inverse_2018,raccuglia_machine-learning-assisted_2016}
+Often, the goal of ML in chemistry is to bypass the explicit calculation of molecular properties that can be expensive to calculate for large sets of data.\cite{janet_machine_2020}
+
+Similar to the aforementioned machine learning methods, quantum computing (QC) for chemical applications has become increasingly popular due to possible quantum speedups for quantum chemical calculations.\cite{cao_quantum_2019}
+While most quantum computing studies focus on creating new and more efficient electronic structure methods on quantum computers\cite{romero_strategies_2019,mcardle_quantum_2020,bauer_quantum_2020,cao_quantum_2019}, an approach that combines both ML and QC, is quantum machine learning (QML).
+In recent years, QML has shown potential for quantum speedups, either through formal mathematical proofs or numerical experiments based on empirical observations.\cite{biamonte_quantum_2017}
 Among the classes of QML algorithms, parameterized quantum circuits (PQCs), which are based on a hybrid quantum--classical optimization loop, have shown promise as flexible QML models, capable of achieving non-trivial results on near-term quantum hardware.\cite{benedetti_parameterized_2019,suzuki_predicting_2020}
 In the context of chemistry, quantum machine learning (QML) has gained traction for tasks such as drug discovery\cite{suzuki_predicting_2020,smaldone_quantum--classical_2024,bhatia_quantum_2023,kao_exploring_2023,li_quantum_2021,avramouli_quantum_2023,avramouli_unlocking_2023}, materials discovery\cite{ishiyama_noise-robust_2022,ryu_quantum_2023,vitz_hybrid_2024}, proton affinities\cite{jin_integrating_2025}, and experimental molecular properties, including the log solubility in water, melting point, octanol/water distribution coefficient, hydration free energy of small molecules in water.\cite{hatakeyama-sato_quantum_2023}
 
 
-[NOTE most of the previous studies are NOT quantum chemistry!]
+Like the previously mentioned studies, we wanted to determine whether QML, specifically using PQCs, can offer a quantum advantage (or speedup) on chemical applications.
+Herein, we explore two datasets that require the explicit calculation of (RO)CBS-QB3 and CCSD
+(RO)CBS-QB3  can be used for X Y and Z as found in the Wood et al pub
+CCSD can be used for energies and properties
+
+Despite the broad range of applications covered in the previously mentioned studies, 
+
+
+A common feature among most of the previously mentioned studies is that these studies do not focus on aspects related to quantum chemistry, such as the calculation of correlation energies or bond separation energies, which require the explicit calculation using quantum chemical methods.
+Motivated by this, we analyze two datasets related to quantum chemistry, one of which requires the use of classical molecular representations as output and predicts the bond separation energies 
+
+the BSE49 dataset\cite{prasad_bse49_2021}, which consists of bond separation energies of 49 unique bond types calculated using a high-level composite method called (RO)CBS-QB3
+
+, and a dataset of water confirmers using data-driven coupled cluster (DDCC)\cite{townsend_data-driven_2019}, a machine learning approach for predicting the coupled-cluster singles and doubles wave function parameters using lower-level quantum chemistry methods.
+
 
 
 Motivated by these recent studies, we wanted to perform an exhaustive benchmark of a large set of PQCs on chemically relevant datasets.
 To this end,  we introduce \textit{qregress}, a modular Python-based code built on PennyLane for exploring PQCs for regression based learning tasks.
 Our code base includes a set of 14 data-encoding and 12 variational (ansatz) subcircuits for a total of 168 PQCs.
 We include support for state-vector simulation using Qulacs, noisy fake backends, and real devices---along with error mitigation techniques implemented in Qiskit. 
-We explore two datasets related to classical machine learning in chemistry tasks, which includes the BSE49 dataset\cite{prasad_bse49_2021}, which consists of bond separation energies of 49 unique bond types, and a dataset of water confirmers using data-driven coupled cluster (DDCC)\cite{townsend_data-driven_2019}, a machine learning approach for predicting the coupled-cluster singles and doubles wave function parameters using lower-level quantum chemistry methods.
+We explore two datasets related to classical machine learning in chemistry tasks, which includes 
 
 
 Chose two datasets for which the authors are familiar with their classical performance

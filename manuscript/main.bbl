@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{62}
+\begin{mcitethebibliography}{65}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -26,13 +26,6 @@
   {\relax}
   {\relax}
 
-\bibitem[Janet and Kulik(2020)Janet, and Kulik]{janet_machine_2020}
-Janet,~J.~P.; Kulik,~H.~J. \emph{Machine {Learning} in {Chemistry}}; {ACS} {In}
-  {Focus}; American Chemical Society, 2020\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
 \bibitem[Behler(2016)]{behler_perspective_2016}
 Behler,~J. Perspective: {Machine} learning potentials for atomistic
   simulations. \emph{JOURNAL OF CHEMICAL PHYSICS} \textbf{2016},
@@ -191,6 +184,13 @@ Raccuglia,~P.; Elbert,~K.~C.; Adler,~P. D.~F.; Falk,~C.; Wenny,~M.~B.;
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
+\bibitem[Janet and Kulik(2020)Janet, and Kulik]{janet_machine_2020}
+Janet,~J.~P.; Kulik,~H.~J. \emph{Machine {Learning} in {Chemistry}}; {ACS} {In}
+  {Focus}; American Chemical Society, 2020\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
 \bibitem[Cao \latin{et~al.}(2019)Cao, Romero, Olson, Degroote, Johnson,
   Kieferová, Kivlichan, Menke, Peropadre, Sawaya, Sim, Veis, and
   Aspuru-Guzik]{cao_quantum_2019}
@@ -199,6 +199,34 @@ Cao,~Y.; Romero,~J.; Olson,~J.~P.; Degroote,~M.; Johnson,~P.~D.;
   Sim,~S.; Veis,~L.; Aspuru-Guzik,~A. Quantum {Chemistry} in the {Age} of
   {Quantum} {Computing}. \emph{Chem. Rev.} \textbf{2019}, \emph{119},
   10856--10915, Publisher: American Chemical Society\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Romero \latin{et~al.}(2019)Romero, Babbush, McClean, Hempel, Love, and
+  Aspuru-Guzik]{romero_strategies_2019}
+Romero,~J.; Babbush,~R.; McClean,~J.~R.; Hempel,~C.; Love,~P.~J.;
+  Aspuru-Guzik,~A. Strategies for quantum computing molecular energies using
+  the unitary coupled cluster ansatz. \emph{QUANTUM SCIENCE AND TECHNOLOGY}
+  \textbf{2019}, \emph{4}\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[McArdle \latin{et~al.}(2020)McArdle, Endo, Aspuru-Guzik, Benjamin, and
+  Yuan]{mcardle_quantum_2020}
+McArdle,~S.; Endo,~S.; Aspuru-Guzik,~A.; Benjamin,~S.; Yuan,~X. Quantum
+  computational chemistry. \emph{REVIEWS OF MODERN PHYSICS} \textbf{2020},
+  \emph{92}\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Bauer \latin{et~al.}(2020)Bauer, Bravyi, Motta, and
+  Chan]{bauer_quantum_2020}
+Bauer,~B.; Bravyi,~S.; Motta,~M.; Chan,~G. K.-L. Quantum {Algorithms} for
+  {Quantum} {Chemistry} and {Quantum} {Materials} {Science}. \emph{CHEMICAL
+  REVIEWS} \textbf{2020}, \emph{120}, 12685--12717\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
