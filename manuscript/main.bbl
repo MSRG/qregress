@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{65}
+\begin{mcitethebibliography}{72}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -364,6 +364,36 @@ Hatakeyama-Sato,~K.; Igarashi,~Y.; Kashikawa,~T.; Kimura,~K.; Oyaizu,~K.
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
+\bibitem[Wood \latin{et~al.}(2006)Wood, Radom, Petersson, Barnes, Frisch, and
+  Montgomery]{wood_restricted-open-shell_2006}
+Wood,~G. P.~F.; Radom,~L.; Petersson,~G.~A.; Barnes,~E.~C.; Frisch,~M.~J.;
+  Montgomery,~J.~A.,~Jr. A restricted-open-shell complete-basis-set model
+  chemistry. \emph{The Journal of Chemical Physics} \textbf{2006}, \emph{125},
+  094106\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Montgomery \latin{et~al.}(1999)Montgomery, Frisch, Ochterski, and
+  Petersson]{montgomery_complete_1999}
+Montgomery,~J.~A.,~Jr.; Frisch,~M.~J.; Ochterski,~J.~W.; Petersson,~G.~A. A
+  complete basis set model chemistry. {VI}. {Use} of density functional
+  geometries and frequencies. \emph{The Journal of Chemical Physics}
+  \textbf{1999}, \emph{110}, 2822--2827\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Montgomery \latin{et~al.}(2000)Montgomery, Frisch, Ochterski, and
+  Petersson]{montgomery_complete_2000}
+Montgomery,~J.~A.,~Jr.; Frisch,~M.~J.; Ochterski,~J.~W.; Petersson,~G.~A. A
+  complete basis set model chemistry. {VII}. {Use} of the minimum population
+  localization method. \emph{The Journal of Chemical Physics} \textbf{2000},
+  \emph{112}, 6532--6542\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
 \bibitem[Prasad \latin{et~al.}(2021)Prasad, Khalilian, Otero-de-la Roza, and
   DiLabio]{prasad_bse49_2021}
 Prasad,~V.~K.; Khalilian,~M.~H.; Otero-de-la Roza,~A.; DiLabio,~G.~A. {BSE49},
@@ -486,6 +516,42 @@ Virtanen,~P. \latin{et~al.}  {SciPy} 1.0: {Fundamental} {Algorithms} for
 Pedregosa,~F. \latin{et~al.}  Scikit-learn: {Machine} {Learning} in {Python}.
   \emph{Journal of Machine Learning Research} \textbf{2011}, \emph{12},
   2825--2830\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[van~den Berg \latin{et~al.}(2022)van~den Berg, Minev, and
+  Temme]{van_den_berg_model-free_2022}
+van~den Berg,~E.; Minev,~Z.~K.; Temme,~K. Model-free readout-error mitigation
+  for quantum expectation values. \emph{Phys. Rev. A} \textbf{2022},
+  \emph{105}, 032620, Publisher: American Physical Society\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Kandala \latin{et~al.}(2019)Kandala, Temme, Córcoles, Mezzacapo,
+  Chow, and Gambetta]{kandala_error_2019}
+Kandala,~A.; Temme,~K.; Córcoles,~A.~D.; Mezzacapo,~A.; Chow,~J.~M.;
+  Gambetta,~J.~M. Error mitigation extends the computational reach of a noisy
+  quantum processor. \emph{Nature} \textbf{2019}, \emph{567}, 491--495,
+  Publisher: Nature Publishing Group\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Li and Benjamin(2017)Li, and Benjamin]{li_efficient_2017}
+Li,~Y.; Benjamin,~S.~C. Efficient {Variational} {Quantum} {Simulator}
+  {Incorporating} {Active} {Error} {Minimization}. \emph{Phys. Rev. X}
+  \textbf{2017}, \emph{7}, 021050, Publisher: American Physical Society\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Temme \latin{et~al.}(2017)Temme, Bravyi, and
+  Gambetta]{temme_error_2017}
+Temme,~K.; Bravyi,~S.; Gambetta,~J.~M. Error {Mitigation} for {Short}-{Depth}
+  {Quantum} {Circuits}. \emph{Phys. Rev. Lett.} \textbf{2017}, \emph{119},
+  180509, Publisher: American Physical Society\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax

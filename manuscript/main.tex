@@ -254,6 +254,8 @@ In recent years, QML has shown potential for quantum speedups, either through fo
 
 [Parameterized quantum circuits]
 
+Expand on all of these to make a proper case for what we are doing.
+
 Among the classes of QML algorithms, parameterized quantum circuits (PQCs), which are based on a hybrid quantum--classical optimization loop, have shown promise as flexible QML models, capable of achieving non-trivial results on near-term quantum hardware.\cite{benedetti_parameterized_2019,suzuki_predicting_2020}
 In the context of chemistry, quantum machine learning (QML) has gained traction for tasks such as drug discovery\cite{suzuki_predicting_2020,smaldone_quantum--classical_2024,bhatia_quantum_2023,kao_exploring_2023,li_quantum_2021,avramouli_quantum_2023,avramouli_unlocking_2023}, materials discovery\cite{ishiyama_noise-robust_2022,ryu_quantum_2023,vitz_hybrid_2024}, proton affinities\cite{jin_integrating_2025}, and experimental molecular properties, including the log solubility in water, melting point, octanol/water distribution coefficient, hydration free energy of small molecules in water.\cite{hatakeyama-sato_quantum_2023}
 
@@ -262,7 +264,14 @@ In the context of chemistry, quantum machine learning (QML) has gained traction 
 
 Like the previously mentioned studies, we wanted to determine whether QML, specifically using PQCs, can offer a quantum advantage (or speedup) on chemical applications.
 Herein, we explore two datasets that require the explicit calculation of (RO)CBS-QB3 and CCSD
-(RO)CBS-QB3  can be used for X Y and Z as found in the Wood et al pub
+
+
+BSE49 
+
+
+
+
+
 CCSD can be used for energies and properties
 
 Despite the broad range of applications covered in the previously mentioned studies, 
@@ -521,9 +530,8 @@ RemoveDiagonalGatesBeforeMeasure: Removes gates before measurements that would n
 
 resilience levels (error mitigation)
 none (0) 
-1 ``Minimal mitigation costs: Mitigate error associated with readout errors'' ``Twirled Readout Error eXtinction (TREX) measurement twirling''
-Medium mitigation cost medium 
-2 ``Medium mitigation costs. Typically reduces bias in estimators, but is not guaranteed to be zero-bias.'' ``Level 1 + Zero Noise Extrapolation (ZNE) and gate twirling''
+level 1 readout error mitigation and measurement twirling using Twirled Readout Error eXtinction (TREX) \cite{van_den_berg_model-free_2022}
+level 2 level 1 + gate twirling and zero noise extrapolation (ZNE)\cite{kandala_error_2019,li_efficient_2017,temme_error_2017}
 
 Function fitting 5: all ran with 1000 iterations
 Function fitting 16: all ran with 1000 iterations
@@ -563,8 +571,11 @@ We utilize the BSE49 and DDCC databases for two different reasons: the BSE49 dat
 \end{figure}
 
 
+BSE49
+``This work addresses the aforementioned gap in the literature by constructing a large dataset (4502 datapoints) of computationally predicted BSEs of 49 unique bond types, all of which are determined with a high-level composite theoretical procedure denoted as (RO)CBS-QB3. This approach ensures uniform, high-quality reference data and eliminates the need to collect and verify data gathered from various sources, which may differ substantially in their accuracy. The (RO)CBS-QB3 method is known to produce BDEs of high accuracy. Therefore, it is suitable for developing a database of BSEs that can be used to test and parametrize low-cost computational methods. One particular target application of our dataset is for the training of cost-effective computational approaches like atom-centered potentials (ACPs) or machine learning potentials.''
+(RO)CBS-QB3\cite{wood_restricted-open-shell_2006,montgomery_complete_1999,montgomery_complete_2000}  
 
-
+```The structures obtained from the workflow described above were then used for the final step of reference data calculation, using the composite (RO)CBS-QB331,32,33 method. The restricted-open-shell61 CBS-QB3 or ROCBS-QB3 was employed for the open-shell radical fragments, while restricted closed-shell calculations were performed for the closed-shell parent molecules with CBS-QB3. The composite (RO)CBS-QB3 method approximates energies at the complete-basis-set CCSD(T) level, using a series of computationally lower-cost methods including: (i) geometry optimization followed by vibration frequency calculation using the unrestricted-open-shell62 B3LYP/6-311G(2d,d,p) method46,47,48,49,50,51,63, (ii) ROMP2/6-311+G(3d2f,2df,2p) level63,64,65 energy extrapolated to the complete-basis-set limit, (iii) energy calculation at ROMP4(SDQ)/6-31+G(d(f),p) level63,64,66, and (iv) energy calculation at ROCCSD(T)/6-31+G† level63,64,67 (where 6-31+G† is a modified 6-31+G(d) basis set). Note that the final (RO)CBS-QB3 energy includes additional empirical correction terms described in Reference33. Structures were screened to remove any system for which the imaginary frequencies were obtained. The (RO)CBS-QB3 energies for the structures associated with a particular bond breaking reaction were used to obtain the bond separation energies for the dataset.'''
 
 
 
@@ -885,9 +896,6 @@ Talk about the cost of going wider, and inherently deeper
 
 
 
-
-
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{../images/DDCC/DDCC_learning_curves}
@@ -901,6 +909,21 @@ Ansaetze analysis \cite{sim_expressibility_2019}
 ``Furthermore, improvement in both descriptors is achieved by sequences of controlled X-rotation gates compared tosequences of controlled Z-rotation gates.''
 
 ``investigated howexpressibility “saturates” with increased circuit depth, finding that the rateand saturated value appear to be distinguishing features of a PQC''
+
+
+
+5 qubit/5 ansatz layers: 2*5 + 3 * 5 * 5 = 85 parameters (75 trainable, 5 * 2 features)
+A2 $2n$ parameters
+HWE-CNOT $3nL$ parameters
+2 qubit gates $nL$
+Number of parameters (2n+3nL)=(2+3L)*n
+
+$n$, number of qubits and $L$, number of circuit layers
+
+To efficiently run DDCC on IBM Quebec, splitting the data into batches of $\approx 4$ samples with 64 $t_{2}$-amplitudes each.
+
+One iteration would require approximately $N_{\text{samples}} * N_{occ}^{2} * N_{virt}^{2} * N_{\text{shots}} * N_{\text{observables}}$ circuit executions (+ whatever SPSA costs to run per iteration)
+
 
 Ran using the state vector model parameters for one iteration to test the optimization and resilience levels using Fake Quebec before running on the real device
 
