@@ -229,128 +229,41 @@
 		\hline
 		\textbf{Section} & \textbf{Page} \\
 		\hline
-		\siref{section:si_functionfitting}  Model Calibration using Function Fitting & \pageref{section:si_functionfitting} \\
-		\hline
-		S2. & \pageref{section:section2} \\
+		\siref{section:DDCC_fake}  DDCC Fake Quebec & \pageref{section:DDCC_fake} \\
 		\hline
 		S3. & \pageref{section:section3} \\
 		\hline
 	\end{tabular}
 	\label{tab:my_label}
 \end{table}
-
+\setcounter{figure}{0}
+\renewcommand{\figurename}{Figure}
+\renewcommand{\thefigure}{S\arabic{figure}}
 \newpage
-\section{Model Calibration using Function Fitting}\label{section:si_functionfitting}
-
+\section{DDCC Fake Quebec}\label{section:DDCC_fake}
+Ran using the state vector model parameters for one iteration to test the optimization and resilience levels using Fake Quebec before running on the real device
 
 \begin{figure}[H]
 	\centering
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/Function_Fitting/fivequbit/linear_heatplots.png}
-		\caption{}
-		\label{fig:linear_heatplots}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/Function_Fitting/fivequbit/linear_boxplots.png}
-		\caption{}
-		\label{fig:linear_boxplots}
-	\end{subfigure}
-	\hfill	
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/Function_Fitting/fivequbit/quadratic_heatplots.png}
-		\caption{}
-		\label{fig:quadratic_heatplots}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/Function_Fitting/fivequbit/quadratic_boxplots.png}
-		\caption{}
-		\label{fig:quadratic_boxplots}
-	\end{subfigure}
-	\hfill		
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/Function_Fitting/fivequbit/sine_heatplots.png}
-		\caption{}
-		\label{fig:sine_heatplots}
-	\end{subfigure}
-	\hfill		
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/Function_Fitting/fivequbit/sine_boxplots.png}
-		\caption{}
-		\label{fig:sine_boxplots}
-	\end{subfigure}
-	\hfill		
-	\caption{Five qubit function fitting results for the linear function (a) and (b), quadratic (c) and (d), and sine function (e) and (f).}
-	\label{fig:fivequbit_ff_heat}
+	\includegraphics[width=1\linewidth]{../images/DDCC/opt_res_fakequebec}
+	\caption{}
+	\label{fig:optresfakequebec}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{../images/DDCC/shots_fakequebec}
+	\caption{}
+	\label{fig:shotsfakequebec}
 \end{figure}
 
 
 
-
-\begin{figure}[H]
-	\centering
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/Function_Fitting/sixteenqubit/linear_heatplots.png}
-		\caption{}
-		\label{fig:sixteenlinear_heatplots}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/Function_Fitting/sixteenqubit/linear_boxplots.png}
-		\caption{}
-		\label{fig:sixteenlinear_boxplots}
-	\end{subfigure}
-	\hfill	
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/Function_Fitting/sixteenqubit/quadratic_heatplots.png}
-		\caption{}
-		\label{fig:sixteenquadratic_heatplots}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/Function_Fitting/sixteenqubit/quadratic_boxplots.png}
-		\caption{}
-		\label{fig:sixteenquadratic_boxplots}
-	\end{subfigure}
-	\hfill		
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/Function_Fitting/sixteenqubit/sine_heatplots.png}
-		\caption{}
-		\label{fig:sixteensine_heatplots}
-	\end{subfigure}
-	\hfill		
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/Function_Fitting/sixteenqubit/sine_boxplots.png}
-		\caption{}
-		\label{fig:sixteensine_boxplots}
-	\end{subfigure}
-	\hfill		
-	\caption{Five qubit function fitting results for the linear function (a) and (b), quadratic (c) and (d), and sine function (e) and (f).}
-	\label{fig:sixteensixteenqubit_ff_heat}
-\end{figure}
-
-
-\section{title}\label{section:section2}
 \section{title}\label{section:section3}
 
 
 
-\setcounter{figure}{0}
-\renewcommand{\figurename}{Figure}
-\renewcommand{\thefigure}{S\arabic{figure}}
+
 
 
 

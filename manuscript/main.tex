@@ -138,7 +138,7 @@
 %% a running title from the author: this should be supplied as an
 %% optional argument to \title.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{A Combinatorial Search of Parameterized Quantum Circuit Learning for Quantum Chemical Applications}
+\title{Benchmarking Parameterized Quantum Circuit Learning for Quantum Chemical Applications}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Meta-data block
 %% ---------------
@@ -237,21 +237,28 @@ Four paragraph structure:
 	\item What we introduce
 \end{itemize}
 
-[Problem: QML methods related to quantum chemistry are rarely studied so we chose two different sets of data, one that's classical in-quantum out and the other that is quantum in-quantum out]
 
 
-[FOCUS ON QUANTUM CHEMISTRY]
+[General problem and classical machine learning]
 
 In recent years, machine learning (ML) has emerged as a popular tool in chemistry to reveal new patterns in data, provide new insights beyond simple models and human experience, and to accelerate computations and the analysis of chemical space.
 Applications of ML in chemistry include accelerating molecular simulations\cite{behler_perspective_2016,ssmith_ani-1_2017,gao_torchani_2020}, determining molecular properties\cite{yang_analyzing_2019,ramakrishnan_quantum_2014,ramakrishnan_big_2015,hansen_machine_2015,unke_physnet_2019}, and for the discovery of new catalysts\cite{zhong_accelerated_2020,nandy_computational_2021,mjones_data-driven_2023}, drugs\cite{goh_deep_2017,yang_concepts_2019}, and materials.\cite{butler_machine_2018,sanchez-lengeling_inverse_2018,raccuglia_machine-learning-assisted_2016}
 Often, the goal of ML in chemistry is to bypass the explicit calculation of molecular properties that can be expensive to calculate for large sets of data.\cite{janet_machine_2020}
 
+
+[quantum computing and qml]
+
 Similar to the aforementioned machine learning methods, quantum computing (QC) for chemical applications has become increasingly popular due to possible quantum speedups for quantum chemical calculations.\cite{cao_quantum_2019}
 While most quantum computing studies focus on creating new and more efficient electronic structure methods on quantum computers\cite{romero_strategies_2019,mcardle_quantum_2020,bauer_quantum_2020,cao_quantum_2019}, an approach that combines both ML and QC, is quantum machine learning (QML).
 In recent years, QML has shown potential for quantum speedups, either through formal mathematical proofs or numerical experiments based on empirical observations.\cite{biamonte_quantum_2017}
+
+[Parameterized quantum circuits]
+
 Among the classes of QML algorithms, parameterized quantum circuits (PQCs), which are based on a hybrid quantum--classical optimization loop, have shown promise as flexible QML models, capable of achieving non-trivial results on near-term quantum hardware.\cite{benedetti_parameterized_2019,suzuki_predicting_2020}
 In the context of chemistry, quantum machine learning (QML) has gained traction for tasks such as drug discovery\cite{suzuki_predicting_2020,smaldone_quantum--classical_2024,bhatia_quantum_2023,kao_exploring_2023,li_quantum_2021,avramouli_quantum_2023,avramouli_unlocking_2023}, materials discovery\cite{ishiyama_noise-robust_2022,ryu_quantum_2023,vitz_hybrid_2024}, proton affinities\cite{jin_integrating_2025}, and experimental molecular properties, including the log solubility in water, melting point, octanol/water distribution coefficient, hydration free energy of small molecules in water.\cite{hatakeyama-sato_quantum_2023}
 
+
+[What we introduce; Problem: QML methods related to quantum chemistry are rarely studied so we chose two different sets of data, one that's classical in-quantum out and the other that is quantum in-quantum out; FOCUS ON QUANTUM CHEMISTRY]
 
 Like the previously mentioned studies, we wanted to determine whether QML, specifically using PQCs, can offer a quantum advantage (or speedup) on chemical applications.
 Herein, we explore two datasets that require the explicit calculation of (RO)CBS-QB3 and CCSD
@@ -299,7 +306,9 @@ The encoding layer takes the following general form,
 	\label{eq:general_encoding}
 \end{equation}
 where, $E_{\text{ent}}^{l}$ denotes the entangling gates, which can be a CNOT, CZ, or identity ($\mathbf{I}$) gates,   $U_{\phi_{l}(\mathbf{x})}$ denotes the choice of encoding unitaries. 
-Like in  Ref. \citep{suzuki_predicting_2020}, we choose $l \in \{1, 2\}$, such that when $l=1$, $E_{\text{ent}}$ corresponds to an identity matrix and $U_{\Phi(x)} = U_{\phi_{1}(\mathbf{x})}$.
+Like in  Ref. \citep{suzuki_predicting_2020}, $E_{\text{ent}}$ corresponds to an identity matrix and $U_{\Phi(x)} = U_{\phi_{1}(\mathbf{x})}$.
+
+%Like in  Ref. \citep{suzuki_predicting_2020}, we choose $l \in \{1, 2\}$, such that when $l=1$, $E_{\text{ent}}$ corresponds to an identity matrix and $U_{\Phi(x)} = U_{\phi_{1}(\mathbf{x})}$.
 
 When $l=1$, $U_{\Phi(x)}$ can be one of the following four encoding layers: $U_{\text{A1}}$, $U_{\text{A2}}$, $U_{\text{M}}$, or $U_{\text{IQP}}$.
 The single-angle encoding (Fig. \ref{fig:encoders} \textbf{(a)}) is the simplest and takes the following form,
@@ -433,7 +442,8 @@ A general variational layer can be denoted as,
 \end{equation}
 where $\bm{\theta}$ denotes the variational parameters and $v$ denotes the number of times that the layer is repeated within the circuit. 
 As $v$ increases and the number of trainable parameters ($\bm{\theta}$) increase, the theoretical assumption is that the model expressibility should also increase.
-In our study, we choose $v \in \{1, 3, 5\}$ and refer to this as the number of ansatz layers (ALs).
+In our study, we the number of variational layers as the number of ansatz layers (ALs).
+%In our study, we choose $v \in \{1, 3, 5\}$ and refer to this as the number of ansatz layers (ALs).
 We examine 12 different variational circuits, as shown in Fig. \ref{fig:ansatz}, which are denoted using the following labels: Modified-Pauli-CRZ (Fig. \ref{fig:ansatz}\textbf{(a)}) , Modified-Pauli-CRX (Fig. \ref{fig:ansatz}\textbf{(b)}), Efficient-CRZ (Fig. \ref{fig:ansatz}\textbf{(c)}), Efficient-CRX (Fig. \ref{fig:ansatz}\textbf{(d)}),, HWE-CNOT (Fig. \ref{fig:ansatz}\textbf{(e)}), HWE-CZ (Fig. \ref{fig:ansatz}\textbf{(f)}), ESU2 (Fig. \ref{fig:ansatz}\textbf{(g)}), Full-Pauli-CRZ (Fig. \ref{fig:ansatz}\textbf{(h)}), Full-Pauli-CRX (Fig. \ref{fig:ansatz}\textbf{(i)}), Hadamard (Fig. \ref{fig:ansatz}\textbf{(j)}), Full-CRZ (Fig. \ref{fig:ansatz}\textbf{(k)}), and Full-CRX (Fig. \ref{fig:ansatz}\textbf{(l)}),
 
 \begin{figure}[H]
@@ -485,9 +495,35 @@ For the simulations using \textit{FakeQuebec} and experiments on \textit{ibm\_qu
 
 
 
-Used QisKit for Fake backend
+Used QisKit for real and fake back end using Qiskit Batches
+
+optimization levels
+none (0) 
+
+``No optimization: typically used for hardware characterization
+Basic translation and Layout/Routing: TrivialLayout, where it selects the same physical qubit numbers as virtual and inserts SWAPs to make it work (using StochasticSwap)''
 
 
+light (1)
+``Light optimization: Layout/Routing: Layout is first attempted with TrivialLayout. If additional SWAPs are required, a layout with a minimum number of SWAPs is found by using SabreSWAP, then it uses VF2LayoutPostLayout to try to select the best qubits in the graph, InverseCancellation, 1Q gate optimization''
+
+medium (2)
+``Medium optimization: Layout/Routing: Optimization level 1 (without trivial) + heuristic optimized with greater search depth and trials of optimization function. Because TrivialLayout is not used, there is no attempt to use the same physical and virtual qubit numbers. CommutativeCancellation''
+
+high (3)
+``High Optimization:
+Optimization level 2 + heuristic optimized on layout/routing further with greater effort/trials
+Resynthesis of two-qubit blocks using Cartan's KAK Decomposition.
+Unitarity-breaking passes:
+OptimizeSwapBeforeMeasure: Moves the measurements around to avoid SWAPs
+RemoveDiagonalGatesBeforeMeasure: Removes gates before measurements that would not effect the measurements''
+
+
+resilience levels (error mitigation)
+none (0) 
+1 ``Minimal mitigation costs: Mitigate error associated with readout errors'' ``Twirled Readout Error eXtinction (TREX) measurement twirling''
+Medium mitigation cost medium 
+2 ``Medium mitigation costs. Typically reduces bias in estimators, but is not guaranteed to be zero-bias.'' ``Level 1 + Zero Noise Extrapolation (ZNE) and gate twirling''
 
 Function fitting 5: all ran with 1000 iterations
 Function fitting 16: all ran with 1000 iterations
@@ -683,6 +719,9 @@ Best encoder on average train R$^{2}$/test R$^{2}$
 Best ansatz on average train R$^{2}$/test R$^{2}$
 
 
+Talk about the cost of going wider, and inherently deeper
+
+
 \begin{figure}[H]
 	\centering	
 	\begin{subfigure}[b]{0.49\textwidth}
@@ -822,7 +861,7 @@ Best ansatz HWE-CNOT average Train R$^{2}$ X/test R$^{2}$ Y
 (AL,RUD)=(3,1) Train R$^{2}$ 0.71/test R$^{2}$ 0.71
 (AL,RUD)=(5,1) Train R$^{2}$ 0.77/test R$^{2}$ 0.77
 
-
+Talk about the cost of going wider, and inherently deeper
 
 \begin{figure}[H]
 	\centering	
@@ -863,7 +902,18 @@ Ansaetze analysis \cite{sim_expressibility_2019}
 
 ``investigated howexpressibility “saturates” with increased circuit depth, finding that the rateand saturated value appear to be distinguishing features of a PQC''
 
+Ran using the state vector model parameters for one iteration to test the optimization and resilience levels using Fake Quebec before running on the real device
 
+$\{1024 \times x \vert  x \in [1,10]\}$ 
+
+Optimization level 2 
+resilience level 0
+
+Regarding the number of circuit executions vs performance 3072 (1024 times 3) is the best number of shots
+
+
+Fig. \ref{fig:optresfakequebec}
+Fig. \ref{fig:shotsfakequebec}
 
 \section{Conclusion}
 Quantum advantage in terms of computational complexity but not in model performance?

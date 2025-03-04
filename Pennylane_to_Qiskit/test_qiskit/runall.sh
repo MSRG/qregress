@@ -3,8 +3,8 @@
 #shots = 1024.0
 #resilience_level = 1
 
-for ol in {1..3};do
- for rl in {1..2};do
+for ol in 0;do
+ for rl in {0..2};do
   dirname="ol${ol}_rl${rl}"
   if [ ! -d ${dirname} ] ; then
     echo "${dirname} does not exist"
