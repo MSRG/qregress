@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{72}
+\begin{mcitethebibliography}{88}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -26,6 +26,13 @@
   {\relax}
   {\relax}
 
+\bibitem[Janet and Kulik(2020)Janet, and Kulik]{janet_machine_2020}
+Janet,~J.~P.; Kulik,~H.~J. \emph{Machine {Learning} in {Chemistry}}; {ACS} {In}
+  {Focus}; American Chemical Society, 2020\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
 \bibitem[Behler(2016)]{behler_perspective_2016}
 Behler,~J. Perspective: {Machine} learning potentials for atomistic
   simulations. \emph{JOURNAL OF CHEMICAL PHYSICS} \textbf{2016},
@@ -184,9 +191,51 @@ Raccuglia,~P.; Elbert,~K.~C.; Adler,~P. D.~F.; Falk,~C.; Wenny,~M.~B.;
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Janet and Kulik(2020)Janet, and Kulik]{janet_machine_2020}
-Janet,~J.~P.; Kulik,~H.~J. \emph{Machine {Learning} in {Chemistry}}; {ACS} {In}
-  {Focus}; American Chemical Society, 2020\relax
+\bibitem[Ufimtsev and Martínez(2008)Ufimtsev, and
+  Martínez]{ufimtsev_graphical_2008}
+Ufimtsev,~I.~S.; Martínez,~T.~J. Graphical {Processing} {Units} for {Quantum}
+  {Chemistry}. \emph{Computing in Science \& Engineering} \textbf{2008},
+  \emph{10}, 26--34, Conference Name: Computing in Science \& Engineering\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Götz \latin{et~al.}(2010)Götz, Wölfle, and
+  Walker]{gotz_chapter_2010}
+Götz,~A.~W.; Wölfle,~T.; Walker,~R.~C. In \emph{Annual {Reports} in
+  {Computational} {Chemistry}}; Wheeler,~R.~A., Ed.; Elsevier, 2010; Vol.~6; pp
+  21--35\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Pederson \latin{et~al.}(2023)Pederson, Kozlowski, Song, Beall, Ganahl,
+  Hauru, Lewis, Yao, Mallick, Blum, and Vidal]{pederson_large_2023}
+Pederson,~R.; Kozlowski,~J.; Song,~R.; Beall,~J.; Ganahl,~M.; Hauru,~M.;
+  Lewis,~A. G.~M.; Yao,~Y.; Mallick,~S.~B.; Blum,~V.; Vidal,~G. Large {Scale}
+  {Quantum} {Chemistry} with {Tensor} {Processing} {Units}. \emph{J. Chem.
+  Theory Comput.} \textbf{2023}, \emph{19}, 25--32, Publisher: American
+  Chemical Society\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Gawehn \latin{et~al.}(2018)Gawehn, Hiss, Brown, and
+  Schneider]{gawehn_advancing_2018}
+Gawehn,~E.; Hiss,~J.~A.; Brown,~J.~B.; Schneider,~G. Advancing drug discovery
+  via {GPU}-based deep learning. \emph{Expert Opinion on Drug Discovery}
+  \textbf{2018}, \emph{13}, 579--582, Publisher: Taylor \& Francis \_eprint:
+  https://doi.org/10.1080/17460441.2018.1465407\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Pandey \latin{et~al.}(2022)Pandey, Fernandez, Gentile, Isayev,
+  Tropsha, Stern, and Cherkasov]{pandey_transformational_2022}
+Pandey,~M.; Fernandez,~M.; Gentile,~F.; Isayev,~O.; Tropsha,~A.; Stern,~A.~C.;
+  Cherkasov,~A. The transformational role of {GPU} computing and deep learning
+  in drug discovery. \emph{Nat Mach Intell} \textbf{2022}, \emph{4}, 211--221,
+  Publisher: Nature Publishing Group\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -199,6 +248,103 @@ Cao,~Y.; Romero,~J.; Olson,~J.~P.; Degroote,~M.; Johnson,~P.~D.;
   Sim,~S.; Veis,~L.; Aspuru-Guzik,~A. Quantum {Chemistry} in the {Age} of
   {Quantum} {Computing}. \emph{Chem. Rev.} \textbf{2019}, \emph{119},
   10856--10915, Publisher: American Chemical Society\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Abrams and Lloyd(1997)Abrams, and Lloyd]{abrams_simulation_1997}
+Abrams,~D.~S.; Lloyd,~S. Simulation of many-body {Fermi} systems on a universal
+  quantum computer. \emph{Physical Review Letters} \textbf{1997}, \emph{79},
+  2586, Publisher: APS\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Abrams and Lloyd(1999)Abrams, and Lloyd]{abrams_quantum_1999}
+Abrams,~D.~S.; Lloyd,~S. Quantum algorithm providing exponential speed increase
+  for finding eigenvalues and eigenvectors. \emph{Physical Review Letters}
+  \textbf{1999}, \emph{83}, 5162, Publisher: APS\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Aspuru-Guzik \latin{et~al.}(2005)Aspuru-Guzik, Dutoi, Love, and
+  Head-Gordon]{aspuru-guzik_simulated_2005}
+Aspuru-Guzik,~A.; Dutoi,~A.~D.; Love,~P.~J.; Head-Gordon,~M. Simulated quantum
+  computation of molecular energies. \emph{Science} \textbf{2005}, \emph{309},
+  1704--1707, Publisher: American Association for the Advancement of
+  Science\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Lanyon \latin{et~al.}(2010)Lanyon, Whitfield, Gillett, Goggin,
+  Almeida, Kassal, Biamonte, Mohseni, Powell, Barbieri, and
+  {others}]{lanyon_towards_2010}
+Lanyon,~B.~P.; Whitfield,~J.~D.; Gillett,~G.~G.; Goggin,~M.~E.; Almeida,~M.~P.;
+  Kassal,~I.; Biamonte,~J.~D.; Mohseni,~M.; Powell,~B.~J.; Barbieri,~M.;
+  {others} Towards quantum chemistry on a quantum computer. \emph{Nature
+  chemistry} \textbf{2010}, \emph{2}, 106--111, Publisher: Nature Publishing
+  Group\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Whitfield \latin{et~al.}(2011)Whitfield, Biamonte, and
+  Aspuru-Guzik]{whitfield_simulation_2011}
+Whitfield,~J.~D.; Biamonte,~J.; Aspuru-Guzik,~A. Simulation of electronic
+  structure {Hamiltonians} using quantum computers. \emph{Molecular Physics}
+  \textbf{2011}, \emph{109}, 735--750, Publisher: Taylor \& Francis\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Aspuru-Guzik and Walther(2012)Aspuru-Guzik, and
+  Walther]{aspuru-guzik_photonic_2012}
+Aspuru-Guzik,~A.; Walther,~P. Photonic quantum simulators. \emph{Nature
+  physics} \textbf{2012}, \emph{8}, 285--291, Publisher: Nature Publishing
+  Group\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Peruzzo \latin{et~al.}(2014)Peruzzo, McClean, Shadbolt, Yung, Zhou,
+  Love, Aspuru-Guzik, and O’Brien]{peruzzo_variational_2014}
+Peruzzo,~A.; McClean,~J.; Shadbolt,~P.; Yung,~M.-H.; Zhou,~X.-Q.; Love,~P.~J.;
+  Aspuru-Guzik,~A.; O’Brien,~J.~L. A variational eigenvalue solver on a
+  photonic quantum processor. \emph{Nat Commun} \textbf{2014}, \emph{5}, 4213,
+  Publisher: Nature Publishing Group\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Cerezo \latin{et~al.}(2021)Cerezo, Arrasmith, Babbush, Benjamin, Endo,
+  Fujii, McClean, Mitarai, Yuan, Cincio, and Coles]{cerezo_variational_2021}
+Cerezo,~M.; Arrasmith,~A.; Babbush,~R.; Benjamin,~S.~C.; Endo,~S.; Fujii,~K.;
+  McClean,~J.~R.; Mitarai,~K.; Yuan,~X.; Cincio,~L.; Coles,~P.~J. Variational
+  quantum algorithms. \emph{Nat Rev Phys} \textbf{2021}, \emph{3}, 625--644,
+  Publisher: Nature Publishing Group\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[McClean \latin{et~al.}(2016)McClean, Romero, Babbush, and
+  Aspuru-Guzik]{mcclean_theory_2016}
+McClean,~J.~R.; Romero,~J.; Babbush,~R.; Aspuru-Guzik,~A. The theory of
+  variational hybrid quantum-classical algorithms. \emph{New J. Phys.}
+  \textbf{2016}, \emph{18}, 023023, Publisher: IOP Publishing\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Bharti \latin{et~al.}(2022)Bharti, Cervera-Lierta, Kyaw, Haug,
+  Alperin-Lea, Anand, Degroote, Heimonen, Kottmann, Menke, Mok, Sim, Kwek, and
+  Aspuru-Guzik]{bharti_noisy_2022}
+Bharti,~K.; Cervera-Lierta,~A.; Kyaw,~T.~H.; Haug,~T.; Alperin-Lea,~S.;
+  Anand,~A.; Degroote,~M.; Heimonen,~H.; Kottmann,~J.~S.; Menke,~T.;
+  Mok,~W.-K.; Sim,~S.; Kwek,~L.-C.; Aspuru-Guzik,~A. Noisy intermediate-scale
+  quantum algorithms. \emph{Rev. Mod. Phys.} \textbf{2022}, \emph{94}, 015004,
+  Publisher: American Physical Society\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -364,36 +510,6 @@ Hatakeyama-Sato,~K.; Igarashi,~Y.; Kashikawa,~T.; Kimura,~K.; Oyaizu,~K.
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Wood \latin{et~al.}(2006)Wood, Radom, Petersson, Barnes, Frisch, and
-  Montgomery]{wood_restricted-open-shell_2006}
-Wood,~G. P.~F.; Radom,~L.; Petersson,~G.~A.; Barnes,~E.~C.; Frisch,~M.~J.;
-  Montgomery,~J.~A.,~Jr. A restricted-open-shell complete-basis-set model
-  chemistry. \emph{The Journal of Chemical Physics} \textbf{2006}, \emph{125},
-  094106\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Montgomery \latin{et~al.}(1999)Montgomery, Frisch, Ochterski, and
-  Petersson]{montgomery_complete_1999}
-Montgomery,~J.~A.,~Jr.; Frisch,~M.~J.; Ochterski,~J.~W.; Petersson,~G.~A. A
-  complete basis set model chemistry. {VI}. {Use} of density functional
-  geometries and frequencies. \emph{The Journal of Chemical Physics}
-  \textbf{1999}, \emph{110}, 2822--2827\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Montgomery \latin{et~al.}(2000)Montgomery, Frisch, Ochterski, and
-  Petersson]{montgomery_complete_2000}
-Montgomery,~J.~A.,~Jr.; Frisch,~M.~J.; Ochterski,~J.~W.; Petersson,~G.~A. A
-  complete basis set model chemistry. {VII}. {Use} of the minimum population
-  localization method. \emph{The Journal of Chemical Physics} \textbf{2000},
-  \emph{112}, 6532--6542\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
 \bibitem[Prasad \latin{et~al.}(2021)Prasad, Khalilian, Otero-de-la Roza, and
   DiLabio]{prasad_bse49_2021}
 Prasad,~V.~K.; Khalilian,~M.~H.; Otero-de-la Roza,~A.; DiLabio,~G.~A. {BSE49},
@@ -409,6 +525,51 @@ Prasad,~V.~K.; Khalilian,~M.~H.; Otero-de-la Roza,~A.; DiLabio,~G.~A. {BSE49},
 Townsend,~J.; Vogiatzis,~K.~D. Data-{Driven} {Acceleration} of the
   {Coupled}-{Cluster} {Singles} and {Doubles} {Iterative} {Solver}. \emph{J.
   Phys. Chem. Lett.} \textbf{2019}, \emph{10}, 4129--4135\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Cerezo \latin{et~al.}(2022)Cerezo, Verdon, Huang, Cincio, and
+  Coles]{cerezo_challenges_2022}
+Cerezo,~M.; Verdon,~G.; Huang,~H.-Y.; Cincio,~L.; Coles,~P.~J. Challenges and
+  opportunities in quantum machine learning. \emph{Nat Comput Sci}
+  \textbf{2022}, \emph{2}, 567--576, Publisher: Nature Publishing Group\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Jones \latin{et~al.}(2023)Jones, Story, Maroulas, and
+  Vogiatzis]{jones_molecular_2023}
+Jones,~G.~M.; Story,~B.; Maroulas,~V.; Vogiatzis,~K.~D. \emph{Molecular
+  {Representations} for {Machine} {Learning}}; {ACS} {In} {Focus}; American
+  Chemical Society, 2023\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Durant \latin{et~al.}(2002)Durant, Leland, Henry, and
+  Nourse]{durant_reoptimization_2002}
+Durant,~J.~L.; Leland,~B.~A.; Henry,~D.~R.; Nourse,~J.~G. Reoptimization of
+  {MDL} {Keys} for {Use} in {Drug} {Discovery}. \emph{Journal of Chemical
+  Information and Computer Sciences} \textbf{2002}, \emph{42}, 1273--1280\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Morgan(1965)]{morgan_generation_1965}
+Morgan,~H.~L. The {Generation} of a {Unique} {Machine} {Description} for
+  {Chemical} {Structures}-{A} {Technique} {Developed} at {Chemical} {Abstracts}
+  {Service}. \emph{Journal of Chemical Documentation} \textbf{1965}, \emph{5},
+  107--113, Type: Journal Article\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Rogers and Hahn(2010)Rogers, and
+  Hahn]{rogers_extended-connectivity_2010}
+Rogers,~D.; Hahn,~M. Extended-connectivity fingerprints. \emph{Journal of
+  Chemical Information and Modeling} \textbf{2010}, \emph{50}, 742--754,
+  Publisher: American Chemical Society\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -556,44 +717,38 @@ Temme,~K.; Bravyi,~S.; Gambetta,~J.~M. Error {Mitigation} for {Short}-{Depth}
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Jones \latin{et~al.}(2023)Jones, Story, Maroulas, and
-  Vogiatzis]{jones_molecular_2023}
-Jones,~G.~M.; Story,~B.; Maroulas,~V.; Vogiatzis,~K.~D. \emph{Molecular
-  {Representations} for {Machine} {Learning}}; {ACS} {In} {Focus}; American
-  Chemical Society, 2023\relax
+\bibitem[Wood \latin{et~al.}(2006)Wood, Radom, Petersson, Barnes, Frisch, and
+  Montgomery]{wood_restricted-open-shell_2006}
+Wood,~G. P.~F.; Radom,~L.; Petersson,~G.~A.; Barnes,~E.~C.; Frisch,~M.~J.;
+  Montgomery,~J.~A.,~Jr. A restricted-open-shell complete-basis-set model
+  chemistry. \emph{The Journal of Chemical Physics} \textbf{2006}, \emph{125},
+  094106\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Montgomery \latin{et~al.}(1999)Montgomery, Frisch, Ochterski, and
+  Petersson]{montgomery_complete_1999}
+Montgomery,~J.~A.,~Jr.; Frisch,~M.~J.; Ochterski,~J.~W.; Petersson,~G.~A. A
+  complete basis set model chemistry. {VI}. {Use} of density functional
+  geometries and frequencies. \emph{The Journal of Chemical Physics}
+  \textbf{1999}, \emph{110}, 2822--2827\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Montgomery \latin{et~al.}(2000)Montgomery, Frisch, Ochterski, and
+  Petersson]{montgomery_complete_2000}
+Montgomery,~J.~A.,~Jr.; Frisch,~M.~J.; Ochterski,~J.~W.; Petersson,~G.~A. A
+  complete basis set model chemistry. {VII}. {Use} of the minimum population
+  localization method. \emph{The Journal of Chemical Physics} \textbf{2000},
+  \emph{112}, 6532--6542\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
 \bibitem[noa()]{noauthor_rdkit_nodate}
 {RDKit}. \url{https://www.rdkit.org/}\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Durant \latin{et~al.}(2002)Durant, Leland, Henry, and
-  Nourse]{durant_reoptimization_2002}
-Durant,~J.~L.; Leland,~B.~A.; Henry,~D.~R.; Nourse,~J.~G. Reoptimization of
-  {MDL} {Keys} for {Use} in {Drug} {Discovery}. \emph{Journal of Chemical
-  Information and Computer Sciences} \textbf{2002}, \emph{42}, 1273--1280\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Morgan(1965)]{morgan_generation_1965}
-Morgan,~H.~L. The {Generation} of a {Unique} {Machine} {Description} for
-  {Chemical} {Structures}-{A} {Technique} {Developed} at {Chemical} {Abstracts}
-  {Service}. \emph{Journal of Chemical Documentation} \textbf{1965}, \emph{5},
-  107--113, Type: Journal Article\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Rogers and Hahn(2010)Rogers, and
-  Hahn]{rogers_extended-connectivity_2010}
-Rogers,~D.; Hahn,~M. Extended-connectivity fingerprints. \emph{Journal of
-  Chemical Information and Modeling} \textbf{2010}, \emph{50}, 742--754,
-  Publisher: American Chemical Society\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
