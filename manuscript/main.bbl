@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{88}
+\begin{mcitethebibliography}{91}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -529,6 +529,15 @@ Townsend,~J.; Vogiatzis,~K.~D. Data-{Driven} {Acceleration} of the
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
+\bibitem[Jones \latin{et~al.}(2023)Jones, S.~Pathirage, and
+  Vogiatzis]{jones_chapter_2023}
+Jones,~G.~M.; S.~Pathirage,~P. D.~V.; Vogiatzis,~K.~D. In \emph{Quantum
+  {Chemistry} in the {Age} of {Machine} {Learning}}; Dral,~P.~O., Ed.;
+  Elsevier, 2023; pp 509--529\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
 \bibitem[Cerezo \latin{et~al.}(2022)Cerezo, Verdon, Huang, Cincio, and
   Coles]{cerezo_challenges_2022}
 Cerezo,~M.; Verdon,~G.; Huang,~H.-Y.; Cincio,~L.; Coles,~P.~J. Challenges and
@@ -574,6 +583,43 @@ Rogers,~D.; Hahn,~M. Extended-connectivity fingerprints. \emph{Journal of
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
+\bibitem[Bergholm \latin{et~al.}(2022)Bergholm, Izaac, Schuld, Gogolin, Ahmed,
+  Ajith, Alam, Alonso-Linaje, AkashNarayanan, Asadi, Arrazola, Azad, Banning,
+  Blank, Bromley, Cordier, Ceroni, Delgado, Matteo, Dusko, Garg, Guala, Hayes,
+  Hill, Ijaz, Isacsson, Ittah, Jahangiri, Jain, Jiang, Khandelwal, Kottmann,
+  Lang, Lee, Loke, Lowe, McKiernan, Meyer, Montañez-Barrera, Moyard, Niu,
+  O'Riordan, Oud, Panigrahi, Park, Polatajko, Quesada, Roberts, Sá, Schoch,
+  Shi, Shu, Sim, Singh, Strandberg, Soni, Száva, Thabet, Vargas-Hernández,
+  Vincent, Vitucci, Weber, Wierichs, Wiersema, Willmann, Wong, Zhang, and
+  Killoran]{bergholm_pennylane_2022}
+Bergholm,~V. \latin{et~al.}  {PennyLane}: {Automatic} differentiation of hybrid
+  quantum-classical computations. 2022; \url{http://arxiv.org/abs/1811.04968},
+  arXiv:1811.04968 [quant-ph]\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Javadi-Abhari \latin{et~al.}(2024)Javadi-Abhari, Treinish, Krsulich,
+  Wood, Lishman, Gacon, Martiel, Nation, Bishop, Cross, Johnson, and
+  Gambetta]{javadi-abhari_quantum_2024}
+Javadi-Abhari,~A.; Treinish,~M.; Krsulich,~K.; Wood,~C.~J.; Lishman,~J.;
+  Gacon,~J.; Martiel,~S.; Nation,~P.~D.; Bishop,~L.~S.; Cross,~A.~W.;
+  Johnson,~B.~R.; Gambetta,~J.~M. Quantum computing with {Qiskit}. 2024;
+  \_eprint: 2405.08810\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Pérez-Salinas \latin{et~al.}(2020)Pérez-Salinas, Cervera-Lierta,
+  Gil-Fuster, and Latorre]{perez-salinas_data_2020}
+Pérez-Salinas,~A.; Cervera-Lierta,~A.; Gil-Fuster,~E.; Latorre,~J.~I. Data
+  re-uploading for a universal quantum classifier. \emph{Quantum}
+  \textbf{2020}, \emph{4}, 226, Publisher: Verein zur Förderung des Open
+  Access Publizierens in den Quantenwissenschaften\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
 \bibitem[Mitarai \latin{et~al.}(2018)Mitarai, Negoro, Kitagawa, and
   Fujii]{mitarai_quantum_2018}
 Mitarai,~K.; Negoro,~M.; Kitagawa,~M.; Fujii,~K. Quantum circuit learning.
@@ -601,18 +647,25 @@ Havlicek,~V.; Córcoles,~A.~D.; Temme,~K.; Harrow,~A.~W.; Kandala,~A.;
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Bergholm \latin{et~al.}(2022)Bergholm, Izaac, Schuld, Gogolin, Ahmed,
-  Ajith, Alam, Alonso-Linaje, AkashNarayanan, Asadi, Arrazola, Azad, Banning,
-  Blank, Bromley, Cordier, Ceroni, Delgado, Matteo, Dusko, Garg, Guala, Hayes,
-  Hill, Ijaz, Isacsson, Ittah, Jahangiri, Jain, Jiang, Khandelwal, Kottmann,
-  Lang, Lee, Loke, Lowe, McKiernan, Meyer, Montañez-Barrera, Moyard, Niu,
-  O'Riordan, Oud, Panigrahi, Park, Polatajko, Quesada, Roberts, Sá, Schoch,
-  Shi, Shu, Sim, Singh, Strandberg, Soni, Száva, Thabet, Vargas-Hernández,
-  Vincent, Vitucci, Weber, Wierichs, Wiersema, Willmann, Wong, Zhang, and
-  Killoran]{bergholm_pennylane_2022}
-Bergholm,~V. \latin{et~al.}  {PennyLane}: {Automatic} differentiation of hybrid
-  quantum-classical computations. 2022; \url{http://arxiv.org/abs/1811.04968},
-  arXiv:1811.04968 [quant-ph]\relax
+\bibitem[Stoudenmire and Schwab(2016)Stoudenmire, and
+  Schwab]{stoudenmire_supervised_2016}
+Stoudenmire,~E.; Schwab,~D.~J. Supervised {Learning} with {Tensor} {Networks}.
+  Advances in {Neural} {Information} {Processing} {Systems}. 2016\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Lund \latin{et~al.}(2017)Lund, Bremner, and Ralph]{lund_quantum_2017}
+Lund,~A.~P.; Bremner,~M.~J.; Ralph,~T.~C. Quantum sampling problems,
+  {BosonSampling} and quantum supremacy. \emph{npj Quantum Inf} \textbf{2017},
+  \emph{3}, 1--8, Publisher: Nature Publishing Group\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Harrow and Montanaro(2017)Harrow, and Montanaro]{harrow_quantum_2017}
+Harrow,~A.~W.; Montanaro,~A. Quantum computational supremacy. \emph{Nature}
+  \textbf{2017}, \emph{549}, 203--209, Publisher: Nature Publishing Group\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -627,33 +680,12 @@ Sim,~S.; Johnson,~P.~D.; Aspuru-Guzik,~A. Expressibility and {Entangling}
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Pérez-Salinas \latin{et~al.}(2020)Pérez-Salinas, Cervera-Lierta,
-  Gil-Fuster, and Latorre]{perez-salinas_data_2020}
-Pérez-Salinas,~A.; Cervera-Lierta,~A.; Gil-Fuster,~E.; Latorre,~J.~I. Data
-  re-uploading for a universal quantum classifier. \emph{Quantum}
-  \textbf{2020}, \emph{4}, 226, Publisher: Verein zur Förderung des Open
-  Access Publizierens in den Quantenwissenschaften\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
 \bibitem[Suzuki \latin{et~al.}(2021)Suzuki, Kawase, Masumura, Hiraga, Nakadai,
   Chen, Nakanishi, Mitarai, Imai, Tamiya, Yamamoto, Yan, Kawakubo, Nakagawa,
   Ibe, Zhang, Yamashita, Yoshimura, Hayashi, and Fujii]{suzuki_qulacs_2021}
 Suzuki,~Y. \latin{et~al.}  Qulacs: a fast and versatile quantum circuit
   simulator for research purpose. \emph{Quantum} \textbf{2021}, \emph{5}, 559,
   arXiv:2011.13524 [quant-ph]\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Javadi-Abhari \latin{et~al.}(2024)Javadi-Abhari, Treinish, Krsulich,
-  Wood, Lishman, Gacon, Martiel, Nation, Bishop, Cross, Johnson, and
-  Gambetta]{javadi-abhari_quantum_2024}
-Javadi-Abhari,~A.; Treinish,~M.; Krsulich,~K.; Wood,~C.~J.; Lishman,~J.;
-  Gacon,~J.; Martiel,~S.; Nation,~P.~D.; Bishop,~L.~S.; Cross,~A.~W.;
-  Johnson,~B.~R.; Gambetta,~J.~M. Quantum computing with {Qiskit}. 2024;
-  \_eprint: 2405.08810\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -829,15 +861,6 @@ García-Andrade,~X.; García~Tahoces,~P.; Pérez-Ríos,~J.;
 Lundberg,~S.~M.; Lee,~S.-I. A {Unified} {Approach} to {Interpreting} {Model}
   {Predictions}. Advances in {Neural} {Information} {Processing} {Systems}.
   2017\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Jones \latin{et~al.}(2023)Jones, S.~Pathirage, and
-  Vogiatzis]{jones_chapter_2023}
-Jones,~G.~M.; S.~Pathirage,~P. D.~V.; Vogiatzis,~K.~D. In \emph{Quantum
-  {Chemistry} in the {Age} of {Machine} {Learning}}; Dral,~P.~O., Ed.;
-  Elsevier, 2023; pp 509--529\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
