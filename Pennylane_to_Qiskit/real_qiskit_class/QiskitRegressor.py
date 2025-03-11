@@ -100,11 +100,11 @@ class QiskitRegressor:
         self.verbose = verbose
         self.n_jobs = n_jobs
         
-        self.initial_parameters()
-        self.setdevice()
+        self._initial_parameters()
+        self._setdevice()
         
         
-    def initial_parameters(self):
+    def _initial_parameters(self):
         '''
         Load or create model parameters
         '''
@@ -124,8 +124,10 @@ class QiskitRegressor:
                 self.x0 = np.array(np.load(self.parameterpath,allow_pickle=True)['parameters'])
         print(self.x0)
 
-    def setdevice(self):
-        
+    def _setdevice(self):
+        '''
+        Sets the device
+        '''
         if self.backendstr=='statevector':
             observables = [SparsePauliOp(self.observables_labels)]
             self.qc = self.qc
@@ -188,6 +190,9 @@ class QiskitRegressor:
         ----------
         filename: str/None
             Name of file
+
+        job: list
+            List of list containing jobs
     
         returns
         -------
@@ -195,11 +200,11 @@ class QiskitRegressor:
             Predicted values
         
         '''
-        if filename is None:
+        if self.backendstr=='statevector' or self.backendstr=='fake':
             pred = np.hstack([np.vstack([r.data.evs for r in rs.result()]) for jid, rs in job])
         else:
             with open(filename,'r') as f:
-                pred = np.hstack([np.vstack([r.data.evs for r in service.job(jid.strip()).result()]) for jid in f.readlines()])
+                pred = np.hstack([np.vstack([r.data.evs for r in self.service.job(jid.strip()).result()]) for jid in f.readlines()])
              
         return pred   
 
@@ -209,14 +214,14 @@ class QiskitRegressor:
     
         parameters
         ----------
-        params: numpy.ndarray
-            Initial circuit parameters
+        index: int
+            Index of batch
             
         ansatz: qiskit.circuit.quantumcircuit.QuantumCircuit
             Qiskit Quantum Circuit
         
-        index: int
-            Index of batch
+        params: numpy.ndarray
+            Model parameters
             
         file: class
             _io.TextIOWrapper
@@ -255,7 +260,7 @@ class QiskitRegressor:
     
         return results    
 
-    def _batched_pred(self,X,parameters,iters=None,restart=False,filename=None):
+    def predict(self,X,parameters=None,iters=None,restart=False,filename=None):
         '''
         Function to predict quantum circuits in batches
     
@@ -279,7 +284,8 @@ class QiskitRegressor:
         y_pred: numpy.ndarray
             Predicted values    
         '''
- 
+        if parameters is None:
+            parameters = self.x0 
 
         if restart==False:
             mapped_circuits = [[[self._map2qiskit(x_i) for x_i in xi ] for xi in X[i : i + 4]] for i in range(0, len(X), 4)]
@@ -299,7 +305,7 @@ class QiskitRegressor:
             
             if isinstance(self._backend, str)==False:
                 # Close file after writing            
-                filename.close() 
+                file.close() 
             
             if self.verbose:
                 print(f"Submitted to device in {time.perf_counter()-t0:.4f} s")
@@ -348,7 +354,7 @@ class QiskitRegressor:
         """
         t0=time.perf_counter()
         
-        y_pred = self._batched_pred(X,parameters)
+        y_pred = self.predict(X,parameters)
         
         loss = mean_squared_error(y.flatten(),y_pred.flatten())
         r2 = r2_score(y.flatten(),y_pred.flatten())
@@ -373,6 +379,16 @@ class QiskitRegressor:
         return loss    
 
     def fit(self,X,y):
+        '''
+        Fit the regressor and dump data
+        
+        parameters
+        ----------
+        X: numpy.ndarray
+            Features
+        y: numpy.ndarray
+            Target values
+        '''
         
         scores = []
         with open('model_log.csv', 'w') as outfile:
@@ -393,34 +409,9 @@ class QiskitRegressor:
             args=(X, y),
             method="cobyla", options={'maxiter':self.iterations})  
 
-        # self.x0 = self.cost_history_dict["prev_vector"]
-        # self.loss = self.cost_history_dict["cost_history"][-1]
-        print(self.x0)
-        print(self.loss)
+   
             
         progress = {'x': self.x0, 'loss': self.loss}
         dump(progress, 'final_state_model.bin')
         os.remove('partial_state_model.bin') 
-        
-        # scores, y_test_pred, y_train_pred = evaluate(x0, qc, mapped_observables, num_qubits, n_jobs, _backend, X_train, y_train, X_test=X_test, y_test=y_test, plot = True, title= 'A2_HWE-CNOT',y_scaler=scaler, shots=shots, resilience_level=resilience_level)
-        
-        # name = 'A2_HWE-CNOT_predicted_values.csv'
-        
-        # y_train = scaler.inverse_transform(y_train.reshape(-1, 1))
-        # y_test = scaler.inverse_transform(y_test.reshape(-1, 1))
-        # train_pred, y_train, test_pred, y_test = y_train_pred.flatten().tolist(), y_train.flatten().tolist(), y_test_pred.flatten().tolist(), y_test.flatten().tolist()
-        # df_train = pd.DataFrame({'Predicted': train_pred, 'Reference': y_train})
-        # df_train['Data'] = 'Train'
-        # df_test = pd.DataFrame({'Predicted': test_pred, 'Reference': y_test})
-        # df_test['Data'] = 'Test'
-        # df = pd.concat([df_train, df_test], ignore_index=True)
-        # df = df[['Data', 'Predicted', 'Reference']]
-        
-        # df.to_csv(name, index=False)
-        
-        # results_title = 'A2_HWE-CNOT_results.json'
-        # with open(results_title, 'w') as outfile:
-        #     json.dump(scores, outfile)
-        
-        
         
