@@ -247,7 +247,7 @@ PQCs formulate the ML algorithm as a variational problem optimized using a hybri
 Like classical ML approaches, PQCs have been applied for several chemistry use cases such as drug\cite{suzuki_predicting_2020,smaldone_quantum--classical_2024,bhatia_quantum_2023,kao_exploring_2023,li_quantum_2021,avramouli_quantum_2023,avramouli_unlocking_2023} and materials discovery\cite{ishiyama_noise-robust_2022,ryu_quantum_2023,vitz_hybrid_2024}, the prediction of proton affinities\cite{jin_integrating_2025}, and experimental molecular properties, including the log solubility in water, melting point, octanol/water distribution coefficient, and hydration free energy of small molecules in water.\cite{hatakeyama-sato_quantum_2023}
 Despite the broad range of topics covered in these studies and the interest among computational chemists in exploring PQCs for chemical applications, studies analyzing the potential benefits or drawbacks of using QML for quantum chemistry are lacking. 
 
-In this study, we address this by analyzing a diverse set of PQCs using two datasets related to computational chemistry.
+In this study, we address this by analyzing a diverse set of PQCs using two datasets related to quantum chemistry.
 The first dataset, BSE49 consists of bond separation energies (BSEs) of 49 unique bond types, calculated using the highly accurate (RO)CBS-QB3 composite method.\cite{prasad_bse49_2021}
 The second dataset consists of water conformers calculated with coupled-cluster singles and doubles (CCSD) using the data-driven coupled-cluster (DDCC) scheme of Townsend and Vogiatzis.\cite{townsend_data-driven_2019,jones_chapter_2023}
 Both datasets offer a unique perspective on the aptitude of applying PQCs on classical and quantum data\cite{cerezo_challenges_2022} since the models based on BSE49 rely on classical molecular representations\cite{jones_molecular_2023}, such as Molecular ACCess Systems (MACCS)\cite{durant_reoptimization_2002} or Morgan fingerprints \cite{morgan_generation_1965,rogers_extended-connectivity_2010}, as input, while the input features in the DDCC method encode explicit quantum information related to the molecular electronic structure.
@@ -405,11 +405,20 @@ While $\mathcal{L}$ can be any loss function relevant for regression-based ML ta
 \end{equation}
 
 
-\subsection{Implementation}
-To facilitate the exploration of the large design space of the PQCs, we created a modular Python-based workflow called \textit{qregress}.
-\textit{qregress} incorporates circuits generated using both PennyLane\cite{bergholm_pennylane_2022} and Qiskit\cite{javadi-abhari_quantum_2024}, along with state-vector simulation using Qulacs\cite{suzuki_qulacs_2021}, noisy simulation using \textit{qiskit-aer} with the \textit{FakeQuebec} backend  backend as implemented in  Qiskit\cite{javadi-abhari_quantum_2024}, and real using \textit{ibm\_quebec}. 
-All state-vector simulations are performed using the PennyLane code base, while all calculations using \textit{FakeQuebec} and \textit{ibm\_quebec} are ran using Qiskit due to the PennyLane-Qiskit plugin not including Batch execution modes.
-Additionally, state-vector simulations use the PennyLane implementation of the Simultaneous Perturbation Stochastic Approximation method (SPSA), while for the experiments run using \textit{FakeQuebec} and  \textit{ibm\_quebec} utilizes the Constrained Optimization By Linear Approximation (COBYLA) optimizer, as implemented ing SciPy\cite{virtanen_scipy_2020}.
+\section{Implementation}
+To explore the large combination of PQCs previously mentinoed, we introduce \textit{qregress} (Fig. \ref{fig:overview_project}), a modular Python package based on PennyLane\cite{bergholm_pennylane_2022} and Qiskit\cite{javadi-abhari_quantum_2024}.
+The portion of the code based on PennyLane is capable of performing state-vector simulation using Qulacs\cite{suzuki_qulacs_2021}, noisy simulation using \textit{qiskit-aer} with the \textit{FakeQuebec} backend, along with access to real devices assessible on the IBM Quantum Platform using the PennyLane-Qiskit plugin.
+Additionally, to train and test regression models that require many circuit executions, we ported our PennyLane code to Qiskit to use the Qiskit Batch Execution mode.
+This was a vital step for running on \textit{ibm\_quebec} since Qiskit Sessions, as implemented in the PennyLane-Qiskit plugin is too cumbersome to train PQC as $N$ increases.
+In practice, all state-vector simulations were performed using the PennyLane, while all calculations using \textit{FakeQuebec} and \textit{ibm\_quebec}  are ran using Qiskit.
+State-vector simulations were also optimized using the PennyLane implementation of the Simultaneous Perturbation Stochastic Approximation method (SPSA) since we found that SPSA requires less steps to optimize when compared to other optimizers. 
+For the experiments ran using \textit{FakeQuebec} and  \textit{ibm\_quebec}, we utilized the Constrained Optimization By Linear Approximation (COBYLA) optimizer, as implemented in SciPy\cite{virtanen_scipy_2020}.
+For all models, features ($\mathbf{x}$) and target values ($\mathbf{y}$) were scaled using the MinMaxScaler, as implemented in Scikit-learn\cite{pedregosa_scikit-learn_2011}, such that all featues and target values are $\mathbb{R}\in [ -1,1 ]$.
+
+All experiments were ran using 1000 iterations...
+BSE 5: all ran with 1000 iterations
+BSE 16: all ran with 1000 iterations
+DDCC 5: 
 
 
 \begin{figure}[H]
@@ -423,94 +432,20 @@ Additionally, state-vector simulations use the PennyLane implementation of the S
 
 
 
-Each optimizer was chosen based on the performance for the given task.
-All features ($\mathbf{x}$) and target values ($\mathbf{y}$) were scaled using the MinMaxScaler in Scikit-learn\cite{pedregosa_scikit-learn_2011}, such that all featues and target values are $\mathbb{R}\in [ -1,1 ]$.
-For the simulations using \textit{FakeQuebec} and experiments on \textit{ibm\_quebec} we utilize Twirled Readout Error eXtinction (TREX) error mitigation.
 
 
+\section{Datasets}\label{subsection:datasets}
 
-Used QisKit for real and fake back end using Qiskit Batches
+The first quantum chemistry dataset we explore is BSE49, which contains bond seperation energies (BSEs), for homolytic bond cleavage of covalently bonded molecules, such as \ce{A-B -> A^{.} + B^{.}}.\cite{prasad_bse49_2021}
+This dataset consists of 49 unique A-B type bonds with 4394 datapoints, 1951 of which are existing structures, while the remaining 2443 are hypthoetical structures. 
+BSE49 provides highly accurate BSEs, calculated using the  (RO)CBS-QB3\cite{wood_restricted-open-shell_2006,montgomery_complete_1999,montgomery_complete_2000} composite quantum chemistry method, that are useful for benchmarking ML based applications.
 
-optimization levels
-none (0) 
-
-``No optimization: typically used for hardware characterization
-Basic translation and Layout/Routing: TrivialLayout, where it selects the same physical qubit numbers as virtual and inserts SWAPs to make it work (using StochasticSwap)''
-
-
-light (1)
-``Light optimization: Layout/Routing: Layout is first attempted with TrivialLayout. If additional SWAPs are required, a layout with a minimum number of SWAPs is found by using SabreSWAP, then it uses VF2LayoutPostLayout to try to select the best qubits in the graph, InverseCancellation, 1Q gate optimization''
-
-medium (2)
-``Medium optimization: Layout/Routing: Optimization level 1 (without trivial) + heuristic optimized with greater search depth and trials of optimization function. Because TrivialLayout is not used, there is no attempt to use the same physical and virtual qubit numbers. CommutativeCancellation''
-
-high (3)
-``High Optimization:
-Optimization level 2 + heuristic optimized on layout/routing further with greater effort/trials
-Resynthesis of two-qubit blocks using Cartan's KAK Decomposition.
-Unitarity-breaking passes:
-OptimizeSwapBeforeMeasure: Moves the measurements around to avoid SWAPs
-RemoveDiagonalGatesBeforeMeasure: Removes gates before measurements that would not effect the measurements''
-
-
-resilience levels (error mitigation)
-none (0) 
-level 1 readout error mitigation and measurement twirling using Twirled Readout Error eXtinction (TREX) \cite{van_den_berg_model-free_2022}
-level 2 level 1 + gate twirling and zero noise extrapolation (ZNE)\cite{kandala_error_2019,li_efficient_2017,temme_error_2017}
-
-Function fitting 5: all ran with 1000 iterations
-Function fitting 16: all ran with 1000 iterations
-BSE 5: all ran with 1000 iterations
-BSE 16: all ran with 1000 iterations
-DDCC
-
-\subsection{Datasets}\label{subsection:datasets}
-In this study, we explore two datasets: a dataset of bond separation energies (BSE) of molecules (Figs. \ref{fig:bondtypes} and \ref{fig:BSEdistr}), where the feature set encodes structural information of each molecule;
-and a dataset consisting of electronic structure features to predict wave functions using the data-driven coupled-cluster scheme of Townsend and Vogiatzis (Fig. \ref{fig:waterddccdistribution}).\cite{townsend_data-driven_2019}
-We utilize the BSE49 and DDCC databases for two different reasons: the BSE49 database consists of a hard chemical property to predict using few features, while the DDCC dataset can be predicted easily using few features classically but is data intensive in the number of samples per molecule.
-
-\begin{figure}[H]
-	\centering
-	\begin{subfigure}[b]{0.65\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/BSE/bondtypes.png}
-		\caption{}
-		\label{fig:bondtypes}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.3\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/BSE/BSE.jpg}
-		\caption{}
-		\label{fig:BSEdistr}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.3\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/manuscript_figures/waterddccdistribution.png}
-		\caption{}
-		\label{fig:waterddccdistribution}
-	\end{subfigure}	
-	\caption{Examples of the datasets explored in this study. For the BSE49 dataset the distributions of the (d) bond types and the (e) bond separation energies in kcal/mol. For the DDCC dataset distributions of the initial MP2 $t_{2}$-amplitudes and the optimized CCSD $t_{2}$-amplitudes are shown in (f).}
-	\label{fig:bse_data}
-\end{figure}
-
-
-BSE49
-``This work addresses the aforementioned gap in the literature by constructing a large dataset (4502 datapoints) of computationally predicted BSEs of 49 unique bond types, all of which are determined with a high-level composite theoretical procedure denoted as (RO)CBS-QB3. This approach ensures uniform, high-quality reference data and eliminates the need to collect and verify data gathered from various sources, which may differ substantially in their accuracy. The (RO)CBS-QB3 method is known to produce BDEs of high accuracy. Therefore, it is suitable for developing a database of BSEs that can be used to test and parametrize low-cost computational methods. One particular target application of our dataset is for the training of cost-effective computational approaches like atom-centered potentials (ACPs) or machine learning potentials.''
-(RO)CBS-QB3\cite{wood_restricted-open-shell_2006,montgomery_complete_1999,montgomery_complete_2000}  
-
-```The structures obtained from the workflow described above were then used for the final step of reference data calculation, using the composite (RO)CBS-QB331,32,33 method. The restricted-open-shell61 CBS-QB3 or ROCBS-QB3 was employed for the open-shell radical fragments, while restricted closed-shell calculations were performed for the closed-shell parent molecules with CBS-QB3. The composite (RO)CBS-QB3 method approximates energies at the complete-basis-set CCSD(T) level, using a series of computationally lower-cost methods including: (i) geometry optimization followed by vibration frequency calculation using the unrestricted-open-shell62 B3LYP/6-311G(2d,d,p) method46,47,48,49,50,51,63, (ii) ROMP2/6-311+G(3d2f,2df,2p) level63,64,65 energy extrapolated to the complete-basis-set limit, (iii) energy calculation at ROMP4(SDQ)/6-31+G(d(f),p) level63,64,66, and (iv) energy calculation at ROCCSD(T)/6-31+G† level63,64,67 (where 6-31+G† is a modified 6-31+G(d) basis set). Note that the final (RO)CBS-QB3 energy includes additional empirical correction terms described in Reference33. Structures were screened to remove any system for which the imaginary frequencies were obtained. The (RO)CBS-QB3 energies for the structures associated with a particular bond breaking reaction were used to obtain the bond separation energies for the dataset.'''
-
-
-
-Following model calibration using the function fitting dataset, we explore the appliciblity of PQCs for complex chemically relevant machine learning tasks.
-The first chemically motivated dataset we explore is the BSE49 dataset, which contains the bond seperation energies (BSE)  for the homolytic bond cleavage of covalently bonded molecules, such as \ce{A-B -> A^{.} + B^{.}}.\cite{prasad_bse49_2021}
-This dataset consists of 4394 datapoints, 1951 of which are existing and 2443 are hypthoetical structures, with 49 unique A-B single bond types.
-In practice, we used 2436 of the hypothetical structures due to issues with valency exceptions when converting to RDKit mol objects which were later used for generating our features for the machine learning models.
 An important aspect of machine learning in chemistry is the choice of molecular representation, or how the molecule is represented in the machine learning models.\cite{jones_molecular_2023}
+In general, molecular representations can be partitioned into three groups, graph-, topology-, and physics-based representations, all of which were explored to provide a comprehensive overview of how they perform using classical models as a baseline.
+During the preprocessing stage, before converting to the xyz coordinates into our molecular representation of choice, the set of hypothetical structures was reduced to 2436 molecules due to issues with valency exceptions when converting xyz coordinates into RDKit mol objects.
 Using RDKit\cite{noauthor_rdkit_nodate} we examined three commonly applied graph-based molecular preresentations, Molecular ACCess Systems (MACCS)\cite{durant_reoptimization_2002}, Morgan or extended-connectivity fingerprints \cite{morgan_generation_1965,rogers_extended-connectivity_2010}, and RDKit fingerprints.
-All three of these methods are use traversals of the molecular graphs to encode various structural details into bit vectors.
+All three of these methods use traversals of the molecular graphs to encode various structural details into bit vectors.
+
 Lastly, we explore both topology- and physics-based molecular representations, both of which encode the three-dimensional structure of molecules in various, unique ways.
 Persistent images (PIs) are a topology-based fingerprint that uses persistence homology to encode topological information of three-dimensional molecular structures into fixed dimension images.\cite{adams_persistence_2017,townsend_representation_2020,schiff_augmenting_2022} 
 We use the implementation from Townsend \textit{et al.}\cite{townsend_representation_2020}, which uses the Ripser Python package to generate PIs.\cite{tralie_ripserpy_2018}
@@ -522,13 +457,8 @@ We  also tested two different methods for representing the components of the bon
 Since we are analyzing a diverse set of PQCs, we also examine a diverse set of classic regression models, with varying capabilities, such as ridge, lasso, elastic net, \textit{k}-nearest-neighbors, random forest, gradient boosting, support vector, kernel ridge, and gaussian process regression as implemented in sckit-learn.\cite{pedregosa_scikit-learn_2011}
 Based on our results shown in Fig. \ref{fig:classical_molrepfig} we found that Morgan fingerprints
 We found that the best molecular representation across all models test, as shown in Fig. \ref{fig:classical_molrepfig}, was Morgan fingerprints using the \textit{sub} formulation.
- 
-\begin{figure}[H]
-	\centering	
-	\includegraphics[width=\linewidth]{../images/BSE/classical/classical_molrepfig.png}
-	\caption{Coulomb matrices (CMs), Molecular ACCess Systems (MACCS), persistence images (PIs), RDKit and Morgan fingerprints. Performance of a diverse set of molecular representations R$^{2}$}
-	\label{fig:classical_molrepfig}
-\end{figure}
+
+
 
 
 An additional challenge of applying classical molecular representations for quantum machine learning models is mapping the classical features, often containing hundreds or thousands of features per sample, to the number of qubits used on the quantum device.
@@ -545,24 +475,31 @@ Due to the increased performance, despite exhibiting overfitting, we choose to u
 
 
 
-\begin{figure}[H]
-	\centering	
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/BSE/classical_features_MAE.png}
-		\caption{}
-		\label{fig:BSE_bse_classical_features_MAE}
-	\end{subfigure}
-	\hfill		
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{../images/BSE/classical_features_R2.png}
-		\caption{}
-		\label{fig:BSE_classical_features_R2}
-	\end{subfigure}
-	\caption{Feature reduction of the BSE dataset represented using }
-	\label{fig:bse_classical_features}
-\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The second is a dataset of 199 water conformers generated at the CCSD/STO-3G level of theory using the data-driven coupled-cluster scheme of Townsend and Vogiatzis (Fig. \ref{fig:waterddccdistribution}).\cite{townsend_data-driven_2019}
+
+
+
+
+
+
+
 
 
 The next chemical dataset explored is based on the data-driven coupled-cluster (DDCC) method, which is a machine learning-based approach for accelerating the convergence of coupled-cluster singles and doubles (CCSD) calculations.\cite{townsend_data-driven_2019,jones_chapter_2023}
@@ -608,23 +545,32 @@ The 5 most important features are the two-electron integrals ($\mel{ij}{}{ab}$),
 
 
 
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.49\textwidth]{../images/DDCC/DDCC_feature_set.png}
-	\caption{}
-	\label{fig:DDCC_feature_set}
+	\begin{subfigure}[b]{0.65\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../images/BSE/bondtypes.png}
+		\caption{}
+		\label{fig:bondtypes}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../images/BSE/BSE.jpg}
+		\caption{}
+		\label{fig:BSEdistr}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../images/manuscript_figures/waterddccdistribution.png}
+		\caption{}
+		\label{fig:waterddccdistribution}
+	\end{subfigure}	
+	\caption{REMAKE: Examples of the datasets explored in this study. For the BSE49 dataset the distributions of the (d) bond types and the (e) bond separation energies in kcal/mol. For the DDCC dataset distributions of the initial MP2 $t_{2}$-amplitudes and the optimized CCSD $t_{2}$-amplitudes are shown in (f).}
+	\label{fig:bse_data}
 \end{figure}
-
-
-% Make distribution plot
-%\begin{figure}[H]
-%	\centering
-%	\includegraphics[width=\linewidth]{../images/BSE.png}
-%	\caption{BSE}
-%	\label{fig:BSE}
-%\end{figure}
-
-
 
 
 
@@ -874,6 +820,17 @@ resilience level 2 is too expensive on the real device
 Regarding the number of circuit executions vs performance 3072 (1024 times 3) is the best number of shots
 
 Error handling for real run with iter>1
+
+For the experiments using the \textit{FakeQuebec} and \textit{ibm\_quebec} backends, we performed small tests, initialized using the state-vector parameters with one iteration, to determine the best circuit optimization and error mitigation (resilience) levels. 
+
+optimization levels
+none (0), light (1), medium (2), high (3)
+
+
+resilience levels (error mitigation)
+none (0) 
+level 1 readout error mitigation and measurement twirling using Twirled Readout Error eXtinction (TREX) \cite{van_den_berg_model-free_2022}
+level 2 level 1 + gate twirling and zero noise extrapolation (ZNE)\cite{kandala_error_2019,li_efficient_2017,temme_error_2017}
 
 \section{Conclusion}
 Quantum advantage in terms of computational complexity but not in model performance?

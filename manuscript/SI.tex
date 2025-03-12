@@ -229,6 +229,10 @@
 		\hline
 		\textbf{Section} & \textbf{Page} \\
 		\hline
+		\siref{section:bse49_molrep}  BSE49: Molecular Representations & \pageref{section:bse49_molrep} \\
+		\hline
+		\siref{section:feature_reduction} Classical Feature Reduction& \pageref{section:feature_reduction} \\ 
+		\hline
 		\siref{section:DDCC_fake}  DDCC Fake Quebec & \pageref{section:DDCC_fake} \\
 		\hline
 		S3. & \pageref{section:section3} \\
@@ -240,6 +244,44 @@
 \renewcommand{\figurename}{Figure}
 \renewcommand{\thefigure}{S\arabic{figure}}
 \newpage
+\section{BSE49: Molecular Representations}\label{section:bse49_molrep}
+
+\begin{figure}[H]
+	\centering	
+	\includegraphics[width=\linewidth]{../images/BSE/classical/classical_molrepfig.png}
+	\caption{Coulomb matrices (CMs), Molecular ACCess Systems (MACCS), persistence images (PIs), RDKit and Morgan fingerprints. Performance of a diverse set of molecular representations R$^{2}$}
+	\label{fig:classical_molrepfig}
+\end{figure}
+
+
+\section{Classical Feature Reduction}\label{section:feature_reduction}
+
+\begin{figure}[H]
+	\centering	
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../images/BSE/classical_features_MAE.png}
+		\caption{}
+		\label{fig:BSE_bse_classical_features_MAE}
+	\end{subfigure}
+	\hfill		
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{../images/BSE/classical_features_R2.png}
+		\caption{}
+		\label{fig:BSE_classical_features_R2}
+	\end{subfigure}
+	\caption{Feature reduction of the BSE dataset represented using }
+	\label{fig:bse_classical_features}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.49\textwidth]{../images/DDCC/DDCC_feature_set.png}
+	\caption{}
+	\label{fig:DDCC_feature_set}
+\end{figure}
+
 \section{DDCC Fake Quebec}\label{section:DDCC_fake}
 Ran using the state vector model parameters for one iteration to test the optimization and resilience levels using Fake Quebec before running on the real device
 
