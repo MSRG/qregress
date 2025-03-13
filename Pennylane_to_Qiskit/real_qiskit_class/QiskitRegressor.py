@@ -354,7 +354,7 @@ class QiskitRegressor:
         """
         t0=time.perf_counter()
         
-        y_pred = self.predict(X,parameters)
+        y_pred = self.predict(X,parameters,iters=self.cost_history_dict["iters"])
         
         loss = mean_squared_error(y.flatten(),y_pred.flatten())
         r2 = r2_score(y.flatten(),y_pred.flatten())
