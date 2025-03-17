@@ -237,7 +237,7 @@ Since these applications can become resource intensive, regarding the generation
 
 Alternatively, computational approaches incorporating the quantum mechanical principles of superposition and entanglement, called quantum computing (QC), have become increasingly popular for chemical applications due to possible quantum speedups for quantum chemical calculations.\cite{cao_quantum_2019}
 For computational chemistry, methods such as the quantum phase estimation (QPE)\cite{abrams_simulation_1997,abrams_quantum_1999,aspuru-guzik_simulated_2005,lanyon_towards_2010,whitfield_simulation_2011,aspuru-guzik_photonic_2012} algorithm have been shown to offer exponential speedups over classical methods.
-Despite the promising speedups, QPE requires long coherence times, while the current generation of quantum processing units (QPUs), are often too noisy for practical applications.
+Despite the promising speedups, QPE requires long coherence times, while the current generation of quantum processing units (QPUs) are often too noisy for practical applications.
 Alternatively, methods based on the variational principle, such as the variational quantum eigensolver (VQE)\cite{peruzzo_variational_2014,cerezo_variational_2021,mcclean_theory_2016,bharti_noisy_2022}, have been proposed as a quantum-classical hybrid approach, capable of running on noisy, near-term quantum devices.
 
 While most QC studies that are relevant to computational chemists focus on creating more efficient electronic structure methods on quantum computers\cite{romero_strategies_2019,mcardle_quantum_2020,bauer_quantum_2020,cao_quantum_2019}, an approach that combines both ML and QC, is quantum machine learning (QML).
@@ -253,19 +253,19 @@ The second dataset consists of water conformers calculated with coupled-cluster 
 Both datasets offer a unique perspective on the aptitude of applying PQCs on classical and quantum data\cite{cerezo_challenges_2022} since the models based on BSE49 rely on classical molecular representations\cite{jones_molecular_2023}, such as Molecular ACCess Systems (MACCS)\cite{durant_reoptimization_2002} or Morgan fingerprints \cite{morgan_generation_1965,rogers_extended-connectivity_2010}, as input, while the input features in the DDCC method encode explicit quantum information related to the molecular electronic structure.
 In this study, we introduce \textit{qregress} a modular Python framework, based on PennyLane\cite{bergholm_pennylane_2022} and Qiskit\cite{javadi-abhari_quantum_2024}, for exploring PQCs for regression-based QML tasks.
 To this end, we explore the effects of classical and quantum data using a broad set of 168 unique PQCs, based on a combination of 14 data encoding and 12 variational layers.
-We then  perform an analysis of circuit depth on model performance, using two different expansion stategies, one based on data re-uploading\cite{perez-salinas_data_2020} and the other based on increasing the number of model parameters using additional variational layers.
+We then perform an analysis of circuit depth on model performance, using two different expansion strategies, one based on data re-uploading\cite{perez-salinas_data_2020} and the other based on increasing the number of model parameters using additional variational layers.
 Using these insights, we then analyze how the best model performs using fake and real Qiskit backends.
-Lastly, we provide a detailed discussion on the efficiency and performance of PQCs, with insights to what quantum advantage could mean with respect to classical ML models.
+Lastly, we provide a detailed discussion on the efficiency and performance of PQCs, with insights into what quantum advantage could mean concerning classical ML models.
 
 
 \section{Methods}
 PQCs typically consist of three components: encoding layers that map features onto a quantum circuit, variational layers with classically optimized parameters, and measurement layers that provide numerical estimates of the regression target values.\citep{suzuki_predicting_2020} 
-Choosing the optimal encoding layer can be a challenging tasks due to costs associated with mapping the input data to qubits.\cite{biamonte_quantum_2017} 
+Choosing the optimal encoding layer can be a challenging task due to the costs associated with mapping the input data to qubits.\cite{biamonte_quantum_2017} 
 Due to this fact, we choose existing encoding layers that have shown promising results for regression tasks such as Mitarai (M)\cite{mitarai_quantum_2018}, single- (A1) and double-angle (A2) encoding layers found in Ref. \citep{suzuki_predicting_2020}, along with the instantaneous quantum polynomial (IQP) circuit found in Refs. \citep{bremner_average-case_2016} and \citep{havlicek_supervised_2019}.
 
 
-To maintain a general notation, in the following section we follow the notations derived from  Ref. \citep{suzuki_predicting_2020}.
-Encoding layers work by mapping a given $d$-dimensional feature vector, $\mathbf{x}=(x_{1}, x_{2}, \ldots, x_{d})^{T} \in \mathbb{R}^{d}$, normalized on the range $[-1,1]$, onto a quantum circuit using a unitary matrix, denoted as $U_{\Phi(\mathbf{x})}$, to produce the quantum state $U_{\Phi(\mathbf{x})}\ket{0}^{\otimes n}$, where $n$ are the number of qubits.
+To maintain a general notation, in the following section, we follow the notations derived from  Ref. \citep{suzuki_predicting_2020}.
+Encoding layers work by mapping a given $d$-dimensional feature vector, $\mathbf{x}=(x_{1}, x_{2}, \ldots, x_{d})^{T} \in \mathbb{R}^{d}$, normalized on the range $[-1,1]$, onto a quantum circuit using a unitary matrix, denoted as $U_{\Phi(\mathbf{x})}$, to produce the quantum state $U_{\Phi(\mathbf{x})}\ket{0}^{\otimes n}$, where $n$ is the number of qubits.
 More generally, the encoding layer can also incorporate both unitary and entanglement gates, such that 
 \begin{equation}
 	U_{\Phi(x)} =  \prod_{l} E_{\text{ent}}^{l} U_{\phi_{l}(\mathbf{x})},
@@ -275,7 +275,7 @@ where, $E_{\text{ent}}^{l}$ denotes the entangling gates, e.g., CNOT or CZ, and 
 
 In this study, like in Ref. \citep{suzuki_predicting_2020}, we explore encoders with $l={1,2}$. 
 When $l=1$, this forms the simplest encoding layers with $E_{\text{ent}}^{1}$ being absent, e.g. corresponding to the indenty ($\mathbf{I}$). 
-Using the previously defined general notation, the simplist encoding layer, single-angle encoding (Fig. \ref{fig:encoders} \textbf{(a)}), is then defined as,
+Using the previously defined general notation, the simplest encoding layer, single-angle encoding (Fig. \ref{fig:encoders} \textbf{(a)}), is then defined as,
 \begin{equation}
 	U_{\text{A1}} = \prod_{i=0}^{n} R^{Y}_{i}(x_{i}),
 	\label{eq:A1}
@@ -289,7 +289,7 @@ The next encoder, double-angle encoding (Fig. \ref{fig:encoders} \textbf{(b)}) u
 	\label{eq:A2}
 \end{equation}
 which introduces additional redundancy by encoding two angles on the Bloch sphere.
-An extension of the double-angle encoding is the Mitarai encoding layer (Fig. \ref{fig:encoders} \textbf{(c)}), which includes an arcosine function on the parameterized Z gate and arcsine on the parameterized Y gate,
+An extension of the double-angle encoding is the Mitarai encoding layer (Fig. \ref{fig:encoders} \textbf{(c)}), which includes an arccosine function on the parameterized Z gate and arcsine on the parameterized Y gate,
 \begin{equation}
 	U_{\text{M}}  = \prod_{i=0}^{n} R^{Z}_{i}(\arccos (x_{i}^{2})) R^{Y}_{i}(\arcsin (x_{i}^{2})).
 	\label{eq:M}
@@ -302,7 +302,7 @@ The last and most complex encoding layer is the instantaneous quantum polynomial
 	\label{eq:IQP}
 \end{equation}
 where $H_{i}$ denotes a Hadamard gate on qubit $i$ and $ZZ_{ij}$ denotes a two-qubit entangling gate defined as $ZZ_{ij} = e^{-i x_{i} x_{j} \sigma_{z} \otimes \sigma_{z}}$.
-It should be noted that under specific complexity and theoretic assumptions, IQP circuits cannot be efficiently simulated using classical resources and therefore offer a circuit that can only be simulted efficiently using quantum resources.\cite{lund_quantum_2017,harrow_quantum_2017}
+It should be noted that under specific complexity and theoretic assumptions, IQP circuits cannot be efficiently simulated using classical resources and therefore offer a circuit that can only be simulated efficiently using quantum resources.\cite{lund_quantum_2017,harrow_quantum_2017}
 
   
 
@@ -361,8 +361,8 @@ The 14 encoding circuits used throughout this study are shown in Table \ref{tab:
 	\label{tab:encoders}
 \end{table}
 
-The next layer in a PQC that follow the encoding layer, are the variational layers.
-The variational layers introduce trainable parameters, that can be optimized using classical compute resources, into the quantum circuit and provide flexiblity to the QML models.
+The next layer in a PQC which follows the encoding layer, is the variational layer.
+The variational layers introduce trainable parameters, that can be optimized using classical compute resources, into the quantum circuit and provide flexibility to the QML models.
 These layers have a general form, defined as,
 \begin{equation}
 	U(\bm{\theta}) = \prod_{v} U_{v}(\bm{\theta}_{v}), % E_{\text{ent}}^{v}
@@ -383,7 +383,7 @@ The unique names of the 12 variational circuits are as follows: Modified-Pauli-C
 To introduce more model parameters and increase the expressibility and nonlinearity of the PQCs, two expansion strategies can be explored.
 The first we denoted as the number of ansatz layers (AL), where $v$ can be increased to introduce more unique trainable parameters into the PQC.
 The second expansion strategy builds on the work of P\'{e}rez-Salinas \textit{et al.} that showed data re-uploading in PQCs is equivalent to the Universal Approximation Theorem for artificial neural networks.\cite{perez-salinas_data_2020}
-This is achieved combining Eqs. \ref{eq:general_encoding} and \ref{eq:general_variational} into a general circuit,
+This is achieved by combining Eqs. \ref{eq:general_encoding} and \ref{eq:general_variational} into a general circuit,
 
 \begin{equation}
 	\ket{\Psi} = U(\bm{\theta}) U_{\Phi(\mathbf{x})}\ket{0}^{\otimes n} = \prod_{k}
@@ -391,7 +391,7 @@ This is achieved combining Eqs. \ref{eq:general_encoding} and \ref{eq:general_va
 \end{equation}
 where $k$ denotes the re-upload depth (RUD) of the circuit.
 
-The last component of a PQC is measurement, which is required to recover the predicted target values, $\hat{y}_{i}$, of the machine learning model that are used to update the model parameters.
+The last component of a PQC is measurement, which is required to recover the predicted target values, $\hat{y}_{i}$, of the machine learning model that is used to update the model parameters.
 This is performed by measuring the quantum state, $\ket{\Psi}$, using the Pauli Z operator on the first qubit denoted as,
 \begin{equation}
 	\hat{y}_{i} = \bra{\Psi}Z_{0}\ket{\Psi}_{i},
@@ -406,19 +406,15 @@ While $\mathcal{L}$ can be any loss function relevant for regression-based ML ta
 
 
 \section{Implementation}
-To explore the large combination of PQCs previously mentinoed, we introduce \textit{qregress} (Fig. \ref{fig:overview_project}), a modular Python package based on PennyLane\cite{bergholm_pennylane_2022} and Qiskit\cite{javadi-abhari_quantum_2024}.
-The portion of the code based on PennyLane is capable of performing state-vector simulation using Qulacs\cite{suzuki_qulacs_2021}, noisy simulation using \textit{qiskit-aer} with the \textit{FakeQuebec} backend, along with access to real devices assessible on the IBM Quantum Platform using the PennyLane-Qiskit plugin.
-Additionally, to train and test regression models that require many circuit executions, we ported our PennyLane code to Qiskit to use the Qiskit Batch Execution mode.
-This was a vital step for running on \textit{ibm\_quebec} since Qiskit Sessions, as implemented in the PennyLane-Qiskit plugin is too cumbersome to train PQC as $N$ increases.
-In practice, all state-vector simulations were performed using the PennyLane, while all calculations using \textit{FakeQuebec} and \textit{ibm\_quebec}  are ran using Qiskit.
-State-vector simulations were also optimized using the PennyLane implementation of the Simultaneous Perturbation Stochastic Approximation method (SPSA) since we found that SPSA requires less steps to optimize when compared to other optimizers. 
+To explore the large combination of PQCs previously mentioned, we introduce \textit{qregress} (Fig. \ref{fig:overview_project}), a modular Python package based on PennyLane\cite{bergholm_pennylane_2022} and Qiskit\cite{javadi-abhari_quantum_2024}.
+The portion of the code based on PennyLane is capable of performing state-vector simulation using Qulacs\cite{suzuki_qulacs_2021}, noisy simulation using \textit{qiskit-aer} with the \textit{FakeQuebec} backend, along with access to real devices accessible on the IBM Quantum Platform using the PennyLane-Qiskit plugin.
+Additionally, to train and test regression models that require many circuit executions, we ported our PennyLane code to Qiskit so that the Qiskit Batch Execution mode could be utilized.
+This was a vital step for running on \textit{ibm\_quebec} since Qiskit Sessions, as implemented in the PennyLane-Qiskit plugin, are too cumbersome to train PQCs as $N$, the number of training samples, increases.
+In practice, all state-vector simulations were performed using PennyLane, while all calculations using \textit{FakeQuebec} and \textit{ibm\_quebec}  are run using Qiskit.
+State-vector simulations were also optimized using 1000 iterations with the Simultaneous Perturbation Stochastic Approximation method (SPSA), as implemented in PennyLane since we found that SPSA requires less steps to optimize when compared to other optimizers for state-vector simulation. 
 For the experiments ran using \textit{FakeQuebec} and  \textit{ibm\_quebec}, we utilized the Constrained Optimization By Linear Approximation (COBYLA) optimizer, as implemented in SciPy\cite{virtanen_scipy_2020}.
-For all models, features ($\mathbf{x}$) and target values ($\mathbf{y}$) were scaled using the MinMaxScaler, as implemented in Scikit-learn\cite{pedregosa_scikit-learn_2011}, such that all featues and target values are $\mathbb{R}\in [ -1,1 ]$.
+For all models, features ($\mathbf{x}$) and target values ($\mathbf{y}$) were scaled using the MinMaxScaler, as implemented in Scikit-learn\cite{pedregosa_scikit-learn_2011}, such that all features and target values are $\mathbb{R}\in [ -1,1 ]$.
 
-All experiments were ran using 1000 iterations...
-BSE 5: all ran with 1000 iterations
-BSE 16: all ran with 1000 iterations
-DDCC 5: 
 
 
 \begin{figure}[H]
@@ -436,75 +432,43 @@ DDCC 5:
 
 \section{Datasets}\label{subsection:datasets}
 
-The first quantum chemistry dataset we explore is BSE49, which contains bond seperation energies (BSEs), for homolytic bond cleavage of covalently bonded molecules, such as \ce{A-B -> A^{.} + B^{.}}.\cite{prasad_bse49_2021}
-This dataset consists of 49 unique A-B type bonds with 4394 datapoints, 1951 of which are existing structures, while the remaining 2443 are hypthoetical structures. 
-BSE49 provides highly accurate BSEs, calculated using the  (RO)CBS-QB3\cite{wood_restricted-open-shell_2006,montgomery_complete_1999,montgomery_complete_2000} composite quantum chemistry method, that are useful for benchmarking ML based applications.
+The first quantum chemistry dataset we explore is BSE49, which contains bond separation energies (BSEs), for homolytic bond cleavage of covalently bonded molecules, such as \ce{A-B -> A^{.} + B^{.}}.\cite{prasad_bse49_2021}
+This dataset consists of 49 unique A-B type bonds with 4394 datapoints, 1951 of which are existing structures, while the remaining 2443 are hypothetical structures. 
+BSE49 provides highly accurate BSEs, calculated using the  (RO)CBS-QB3\cite{wood_restricted-open-shell_2006,montgomery_complete_1999,montgomery_complete_2000} composite quantum chemistry method, that is useful for benchmarking ML-based applications.
 
-An important aspect of machine learning in chemistry is the choice of molecular representation, or how the molecule is represented in the machine learning models.\cite{jones_molecular_2023}
+
+An important aspect of ML in chemistry is the choice of molecular representation, or how the molecule is represented in the machine learning models.\cite{jones_molecular_2023}
 In general, molecular representations can be partitioned into three groups, graph-, topology-, and physics-based representations, all of which were explored to provide a comprehensive overview of how they perform using classical models as a baseline.
-During the preprocessing stage, before converting to the xyz coordinates into our molecular representation of choice, the set of hypothetical structures was reduced to 2436 molecules due to issues with valency exceptions when converting xyz coordinates into RDKit mol objects.
+During the preprocessing stage, before converting to the XYZ coordinates into our molecular representation of choice, the set of hypothetical structures was reduced to 2436 molecules due to issues with valency exceptions when converting XYZ coordinates into RDKit mol objects.
 Using RDKit\cite{noauthor_rdkit_nodate} we examined three commonly applied graph-based molecular preresentations, Molecular ACCess Systems (MACCS)\cite{durant_reoptimization_2002}, Morgan or extended-connectivity fingerprints \cite{morgan_generation_1965,rogers_extended-connectivity_2010}, and RDKit fingerprints.
 All three of these methods use traversals of the molecular graphs to encode various structural details into bit vectors.
-
 Lastly, we explore both topology- and physics-based molecular representations, both of which encode the three-dimensional structure of molecules in various, unique ways.
-Persistent images (PIs) are a topology-based fingerprint that uses persistence homology to encode topological information of three-dimensional molecular structures into fixed dimension images.\cite{adams_persistence_2017,townsend_representation_2020,schiff_augmenting_2022} 
+Persistent images (PIs) are a topology-based fingerprint that uses persistence homology to encode topological information of three-dimensional molecular structures into fixed-dimension images.\cite{adams_persistence_2017,townsend_representation_2020,schiff_augmenting_2022} 
 We use the implementation from Townsend \textit{et al.}\cite{townsend_representation_2020}, which uses the Ripser Python package to generate PIs.\cite{tralie_ripserpy_2018}
-Lastly, we explre two physics-based representations, Coulomb matrices (CMs) \cite{rupp_fast_2012} and smooth overlap of atomic positions (SOAPs), that were generated using DScribe.\cite{de_comparing_2016}
-Due to the computational cost of computing the regularized entropy match (REMatch) kernel  with the SOAPs representation, we excluded this representation in the overall discussion.
-We  also tested two different methods for representing the components of the bond separation chemical reaction, one where the feature vectors for the products are subtracted from the reactants, denoted by \textit{sub}, similar to the method used in Ref. \cite{garcia-andrade_barrier_2023}, and one that is composed of the reactant molecular only, denoted as \textit{AB}.
+Lastly, we explore two physics-based representations, Coulomb matrices (CMs) \cite{rupp_fast_2012} and smooth overlap of atomic positions (SOAPs), that were generated using DScribe.\cite{de_comparing_2016}
+Both methods encode physical information regarding the atomic environments of each molecule, where CMs encode the Coulomb repulsion between atoms using nuclear charges, while SOAPs encode the similarities between atomic neighborhoods using kernels.
+Due to the computational cost associated with computing the regularized entropy match (REMatch) kernel over the set of 2436 molecules with the SOAPs representation, we excluded SOAPs from the overall discussion.
+For each of the molecular representations, we analyzed two different methods for representing the components of the BSE reaction.
+The first represents the feature vector as the products subtracted from the reactants, denoted as \textit{sub} (e.g., $\text{CM}_{\mathit{sub}} = (\text{CM}_{\text{A}^{.}} + \text{CM}_{\text{B}^{.}}) - \text{CM}_{\text{A-B}}$), similar to the method used in Ref. \cite{garcia-andrade_barrier_2023}, and the second represents the feature vector using only the reactant (A-B), denoted as \textit{AB} (e.g., $\text{CM}_{\mathit{AB}} =  \text{CM}_{\text{A-B}}$).
 
 
-Since we are analyzing a diverse set of PQCs, we also examine a diverse set of classic regression models, with varying capabilities, such as ridge, lasso, elastic net, \textit{k}-nearest-neighbors, random forest, gradient boosting, support vector, kernel ridge, and gaussian process regression as implemented in sckit-learn.\cite{pedregosa_scikit-learn_2011}
-Based on our results shown in Fig. \ref{fig:classical_molrepfig} we found that Morgan fingerprints
-We found that the best molecular representation across all models test, as shown in Fig. \ref{fig:classical_molrepfig}, was Morgan fingerprints using the \textit{sub} formulation.
+Using this set of molecular representations, we also examine a diverse set of classical regression models to help choose the optimal representation for our diverse set of PQCs.
+The classical models we analyze include ridge, lasso, elastic net, \textit{k}-nearest-neighbors, random forest, gradient boosting, support vector machines, kernel ridge, and Gaussian process regression as implemented in sckit-learn.\cite{pedregosa_scikit-learn_2011}
+As highlighted in Fig. \ref{fig:classical_molrepfig}, we found that the best molecular representation across all models test was Morgan fingerprints using the \textit{sub} formulation, which we use for all experiments using the PQCs.
+Additionally, one challenge of applying classical molecular representations for ML tasks using PQCs is reducing the set of features, often containing hundreds or thousands of features per sample, to the number of qubits used on the quantum device.
+For example, at the onset of this project the standard number of qubits on the IBM quantum devices was 5 or 16 qubits, which requires reducing the initial set of 2048 features per sample for Morgan fingerprints down to 5 or 16 features.
+To perform this reduction, we explored two different methods, SHapley Additive ExPlanation analysis (SHAP)\cite{lundberg_unified_2017}, which uses cooperative game theory to determine feature importance, and principal component analysis (PCA), a linear algebra-based dimensionality reduction technique, as implemented in scikit-learn.\cite{pedregosa_scikit-learn_2011}
+In Figs. \ref{fig:BSE_classical_features_R2} and \ref{fig:BSE_bse_classical_features_MAE}, we compare the two reduction techniques, for both 5 and 16 features, with the initial model containing 2048 features.
+The initial model has mean absolute errors (MAE) of 1.91 and 4.98 kcal/mol and R$^{2}$s of 0.99 and 0.91 for the training and test set, respectively.
+Using SHAP, we found that the model containing 5 features has an MAE of 16.08 kcal/mol and an R$^{2}$ of 0.39 for the training set, while the test set has an MAE of 15.86 kcal/mol and an R$^{2}$ of 0.42.
+For the model with 16 features, we observe improvements in both the training and test sets, with MAEs of 10.48 and 11.08 kcal/mol and R$^{2}$ values of 0.69 and 0.68, respectively.
+For the models using 5 and 16 features reduced through PCA, the training sets yield MAEs of 4.09 and 3.23 kcal/mol, while the test sets have MAEs of 10.17 and 8.40 kcal/mol, respectively.
+The R$^{2}$s also show slight improvement over the feature reductions using SHAP, where the R$^{2}$s using 5 features are 0.95 and 0.69 for the training and test set, respectively, and the model using 16 features has R$^{2}$s of 0.97 and 0.78 for the training and test set, respectively.
+Overall, the models using SHAP to reduce the feature set offer models with less overfitting, while sacrificing accuracy, when compared to the models reduced using PCA, which offer more accurate models that are more overfit. 
+Based on these insights, for the experiments using PQCs, all BSE49 data is reduced to 5 or 16 qubits using PCA applied on Morgan fingerprint using the \textit{sub} formulation.
 
-
-
-
-An additional challenge of applying classical molecular representations for quantum machine learning models is mapping the classical features, often containing hundreds or thousands of features per sample, to the number of qubits used on the quantum device.
-Initially, the Morgan fingerpints have 2048 features per sample, that need to be reduced down to 5 or 16 qubits.
-We choose 5 and 16 qubits for two reasons, the first is that these were the standard number of qubits on IBM quantum devices when we started the project and the second is that reducing the number of features reduces the depth of the circuits.
-To reduce the feature set from 2048 to 5 or 16 features, we explore two different methods, SHapley Additive ExPlanation analysis (SHAP)\cite{lundberg_unified_2017} and principal component analysis (PCA), as implemented in scikit-learn.\cite{pedregosa_scikit-learn_2011}
-Figs. \ref{fig:BSE_classical_features_R2} and \ref{fig:BSE_bse_classical_features_MAE} show the results for the reductions using SHAP and PCA for the training and test set of using 5 and 16 features.
-The initial model using 2048 features has a train and test mean absolute error (MAE) of 1.91 and 4.98 kcal/mol, with train and test R$^{2}$s of 0.99 and 0.91, respectively.
-When using SHAP to reduce the feature set size to 5 features, we see that the training set has an MAE of 16.08 kcal/mol and an R$^{2}$ of 0.39, while for the test set has an MAE of 15.86 kcal/mol and an R$^{2}$ of 0.42.
-When the number of features is reduced to 16 features using SHAP, we see slight improvements with train and test MAEs of 10.48 and 11.08 kcal/mol with R$^{2}$s of 0.69 and 0.68, respectively.
-Using PCA, we see an improvement in accuracy for both 5 and 16 features, where the training sets have MAEs of 4.09 and 3.23 kcal/mol and the test sets have MAEs of 10.17 and 8.40 kcal/mol, respectively.
-The R$^{2}$s for PCA with 5 and 16 features also shows improvement over the reductions using SHAP, with R$^{2}$s of 0.95 and 0.69 for the training and test set, respectively, using 5 features and 0.97 and 0.78 for the training and test set, respectively, using 16 features.
-Due to the increased performance, despite exhibiting overfitting, we choose to use Morgan fingerprints reduced using PCA for our QML models.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-The second is a dataset of 199 water conformers generated at the CCSD/STO-3G level of theory using the data-driven coupled-cluster scheme of Townsend and Vogiatzis (Fig. \ref{fig:waterddccdistribution}).\cite{townsend_data-driven_2019}
-
-
-
-
-
-
-
-
-
-The next chemical dataset explored is based on the data-driven coupled-cluster (DDCC) method, which is a machine learning-based approach for accelerating the convergence of coupled-cluster singles and doubles (CCSD) calculations.\cite{townsend_data-driven_2019,jones_chapter_2023}
-This method works by predicting the $t_{2}$-amplitudes of the CCSD wave function (Eq. \ref{eq:cc_wfn}) with features generated using lower-level methods, such as Hartree-Fock (HF) and M{\o}ller-Plesset second-order perturbation theory (MP2), which are used to initialize CCSD calculations.
-
+The second quantum chemistry dataset we analyze in this paper is generated using the data-driven coupled-cluster (DDCC) scheme of Townsend and Vogiatzis.\cite{townsend_data-driven_2019}
+DDCC is an ML-based approach for accelerating the convergence of coupled-cluster singles and doubles (CCSD) calculations by predicting the $t_{2}$-amplitudes of the CCSD wave function (Eq. \ref{eq:cc_wfn}) with features generated using lower-level methods, such as Hartree-Fock (HF) and M{\o}ller-Plesset second-order perturbation theory (MP2), which are used to initialize CCSD calculations.
 The coupled-cluster wave function takes the general form,
 \begin{equation}
 	\ket{\Psi_{\text{CC}}} = \exp(\hat{T}) \ket{\Psi_{0}}
@@ -528,8 +492,8 @@ The feature set includes the MP2 $t_{2}$-amplitudes, which are used to initializ
 \end{equation}
 where $\varepsilon_{i}$ and $\varepsilon_{j}$ denote the orbital energies of the occupied orbitals $i$ and $j$, while the virtual orbitals $a$ and $b$ are denoted by $\varepsilon_{a}$ and $\varepsilon_{b}$.
 Features related to the MP2 $t_{2}$-amplitudes that are also included in the feature set are the numerator ($\mel{ij}{}{ab}$) and denominator ($\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}$), a binary feature to denote whether the excitation goes to the same virtual orbital, and the orbital energies ($\varepsilon_{i},\varepsilon_{j},\varepsilon_{a},\varepsilon_{b}$).
-The feature set also includes terms related to the individual contributes to the orbital energies are also included, such as the one-electron Hamiltonain ($h$), Coulombic matrix ($J$), and exchange matrix $K$, and Coulombic and exchange integrals ($J^{i}_{a},J^{j}_{b},K^{a}_{i},K^{b}_{j}$).
-In total, there are 30 features for each $t_{2}$-amplitude due to the addition of features that denote the sign and magntudes of the previously mentioned features.
+The feature set also includes terms related to the individual contributions to the orbital energies are also included, such as the one-electron Hamiltonian ($h$), Coulomb matrix ($J$), and exchange matrix $K$, and Coulomb and exchange integrals ($J^{i}_{a},J^{j}_{b},K^{a}_{i},K^{b}_{j}$).
+In total, there are 30 features for each $t_{2}$-amplitude due to the addition of features that denote the sign and magnitudes of the previously mentioned features.
 
 Our dataset consists of 199 water molecules from the study by Townsend and Vogiatzis using the STO-3G basis set\cite{hehre_selfconsistent_1970} and frozen core orbitals.
 All data was generated using Psi4\cite{parrish_psi4_2017} and Psi4Numpy\cite{smith_psi4numpy_2018}.
@@ -539,7 +503,7 @@ Further details regarding the feature set and implementation can be found in \ci
 
 Like the BSE dataset, the 30 features from the full DDCC feature set must be reduced to 5 or 16 features using SHAP or PCA.
 Unlike the BSE dataset, we choose SHAP over PCA for the feature reduction since there is a direct correlation between the input features and output values.
-As shown in Fig. \ref{fig:DDCC_feature_set}, 5 and 16 features can accurately recover performance of the original model using 30 features, where all three models have train and test R$^{2}$s of 1.00.
+As shown in Fig. \ref{fig:DDCC_feature_set}, 5 and 16 features can accurately recover the performance of the original model using 30 features, where all three models have train and test R$^{2}$s of 1.00.
 Due to the computational costs of running QML models, we will then use only 5 features for all DDCC QML models.
 The 5 most important features are the two-electron integrals ($\mel{ij}{}{ab}$), MP2 $t_{2}$-amplitudes ($t^{ab}_{ij(\text{MP2})}$), the magnitude of the MP2 $t_{2}$-amplitudes, and the difference in orbital energies ($\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}$).
 
