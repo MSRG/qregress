@@ -457,7 +457,7 @@ The classical models we analyze include ridge, lasso, elastic net, \textit{k}-ne
 As highlighted in Fig. \ref{fig:classical_molrepfig}, we found that the best molecular representation across all models test was Morgan fingerprints using the \textit{sub} formulation, which we use for all experiments using the PQCs.
 Additionally, one challenge of applying classical molecular representations for ML tasks using PQCs is reducing the set of features, often containing hundreds or thousands of features per sample, to the number of qubits used on the quantum device.
 For example, at the onset of this project the standard number of qubits on the IBM quantum devices was 5 or 16 qubits, which requires reducing the initial set of 2048 features per sample for Morgan fingerprints down to 5 or 16 features.
-To perform this reduction, we explored two different methods, SHapley Additive ExPlanation analysis (SHAP)\cite{lundberg_unified_2017}, which uses cooperative game theory to determine feature importance, and principal component analysis (PCA), a linear algebra-based dimensionality reduction technique, as implemented in scikit-learn.\cite{pedregosa_scikit-learn_2011}
+To perform this reduction, we explored two different methods, SHapley Additive ExPlanation analysis (SHAP)\cite{lundberg_unified_2017}, which uses cooperative game theory to determine feature importance, and principal component analysis (PCA), which is a dimensionality reduction technique that captures the direction a datasets variance, as implemented in scikit-learn.\cite{pedregosa_scikit-learn_2011}
 In Figs. \ref{fig:BSE_classical_features_R2} and \ref{fig:BSE_bse_classical_features_MAE}, we compare the two reduction techniques, for both 5 and 16 features, with the initial model containing 2048 features.
 The initial model has mean absolute errors (MAE) of 1.91 and 4.98 kcal/mol and R$^{2}$s of 0.99 and 0.91 for the training and test set, respectively.
 Using SHAP, we found that the model containing 5 features has an MAE of 16.08 kcal/mol and an R$^{2}$ of 0.39 for the training set, while the test set has an MAE of 15.86 kcal/mol and an R$^{2}$ of 0.42.
@@ -468,45 +468,41 @@ Overall, the models using SHAP to reduce the feature set offer models with less 
 Based on these insights, for the experiments using PQCs, all BSE49 data is reduced to 5 or 16 qubits using PCA applied on Morgan fingerprint using the \textit{sub} formulation.
 
 The second quantum chemistry dataset we analyze in this paper is generated using the data-driven coupled-cluster (DDCC) scheme of Townsend and Vogiatzis.\cite{townsend_data-driven_2019}
-DDCC is an ML-based approach for accelerating the convergence of coupled-cluster singles and doubles (CCSD) calculations by predicting the $t_{2}$-amplitudes of the CCSD wave function (Eq. \ref{eq:cc_wfn}) with features generated using lower-level methods, such as Hartree-Fock (HF) and M{\o}ller-Plesset second-order perturbation theory (MP2), which are used to initialize CCSD calculations.
-The coupled-cluster wave function takes the general form,
+DDCC is an ML-based approach for accelerating the convergence of coupled-cluster singles and doubles (CCSD) calculations by predicting the $t_{2}$-amplitudes of the CCSD wave function (Eq. \ref{eq:cc_wfn}) with features generated using lower-level methods, such as Hartree-Fock (HF) and M{\o}ller-Plesset second-order perturbation theory (MP2), that are used to initialize CCSD calculations.
+Herein, we provide a brief overview of the equations required to understand the DDCC method, starting with the coupled-cluster wave function, which takes the general form,
 \begin{equation}
 	\ket{\Psi_{\text{CC}}} = \exp(\hat{T}) \ket{\Psi_{0}}
 	\label{eq:cc_wfn}
 \end{equation}
-where the cluster operator is denoted as $\hat{T}$ and the reference, Hartree-Fock wave function is denoted as $\ket{\Psi_{0}}$.
-The CCSD wave function truncates the cluster operator to only include singles and doubles excitations.
-The CCSD correlation energy is defined as,
+where $\hat{T}$ is the cluster operator and $\ket{\Psi_{0}}$ is the reference (Hartree-Fock) wave function.
+In CCSD, the $\hat{T}$ operator is truncated to only include single ($\hat{T}_{1}$) and double ($\hat{T}_{2}$) excitations.
+After solving the coupled-cluster equations, the CCSD correlation energy can be formulated as,
 \begin{equation}
 	E^{\text{CCSD}}_{\text{corr}} = \sum_{\substack{a<b \\ i<j}} \mel{ij}{}{ab} t^{ab}_{ij} + \sum_{\substack{a<b \\ i<j}} \mel{ij}{}{ab} t^{a}_{i} t^{b}_{j}
 	\label{eq:cc_corr}
 \end{equation}
-where $i$ and $j$ denote occupied orbitals, $a$ and $b$ denote virtual orbitals, $t^{ab}_{ij}$ are the $t_{2}$-amplitudes which correspond to two-electron excitations, 
-$t^{a}_{i}$ and $t^{b}_{j}$ are $t_{1}$-amplitudes corresponding to one-electron excitations, and $\mel{ij}{}{ab}$ are two-electron integrals.
-
-For each two-electron excitation, $t^{ab}_{ij}$, a feature set can be generated from HF and MP2.
-The feature set includes the MP2 $t_{2}$-amplitudes, which are used to initialize the CCSD amplitudes,
+where $i$ and $j$ denote occupied orbitals, $a$ and $b$ denote virtual orbitals, $t^{ab}_{ij}$ correspond to two-electron excitation amplitudes ($t_{2}$-amplitudes), $t^{a}_{i}$ and $t^{b}_{j}$ correspond to one-electron excitation amplitudes ($t_{1}$-amplitudes), and $\mel{ij}{}{ab}$ are two-electron integrals.
+The objective of the DDCC method is to learn the CCSD $t_{2}$-amplitudes using features generated using HF and MP2, since the CCSD $t_{2}$-amplitudes are initialized using MP2 $t_{2}$-amplitudes, defined as,
 \begin{equation}
 	t^{ab}_{ij(\text{MP2})} = \frac{\mel{ij}{}{ab}}{\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}}
 	\label{eq:MP2_t2}
 \end{equation}
 where $\varepsilon_{i}$ and $\varepsilon_{j}$ denote the orbital energies of the occupied orbitals $i$ and $j$, while the virtual orbitals $a$ and $b$ are denoted by $\varepsilon_{a}$ and $\varepsilon_{b}$.
-Features related to the MP2 $t_{2}$-amplitudes that are also included in the feature set are the numerator ($\mel{ij}{}{ab}$) and denominator ($\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}$), a binary feature to denote whether the excitation goes to the same virtual orbital, and the orbital energies ($\varepsilon_{i},\varepsilon_{j},\varepsilon_{a},\varepsilon_{b}$).
-The feature set also includes terms related to the individual contributions to the orbital energies are also included, such as the one-electron Hamiltonian ($h$), Coulomb matrix ($J$), and exchange matrix $K$, and Coulomb and exchange integrals ($J^{i}_{a},J^{j}_{b},K^{a}_{i},K^{b}_{j}$).
-In total, there are 30 features for each $t_{2}$-amplitude due to the addition of features that denote the sign and magnitudes of the previously mentioned features.
+Due to this important relationship, MP2 $t_{2}$-amplitudes are included in the DDCC feature set, along with the numerator ($\mel{ij}{}{ab}$), denominator ($\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}$), a binary feature to denote whether the excitation goes to the same virtual orbital, and the orbital energies ($\varepsilon_{i},\varepsilon_{j},\varepsilon_{a},\varepsilon_{b}$).
+Additionally, the feature set includes terms related to the individual contributions to the orbital energies, such as the one-electron Hamiltonian ($h$), Coulomb matrix ($J$), exchange matrix $K$, and Coulomb and exchange integrals ($J^{i}_{a},J^{j}_{b},K^{a}_{i},K^{b}_{j}$).
+In total, there are 30 features for each CCSD $t_{2}$-amplitude due to the addition of features that denote the sign and magnitude of the MP2 $t_{2}$-amplitudes.
 
-Our dataset consists of 199 water molecules from the study by Townsend and Vogiatzis using the STO-3G basis set\cite{hehre_selfconsistent_1970} and frozen core orbitals.
-All data was generated using Psi4\cite{parrish_psi4_2017} and Psi4Numpy\cite{smith_psi4numpy_2018}.
-As previously mentioned, the DDCC method is data intensive regarding the number of samples per molecule, for example, each water molecule has 4 occupied and 2 virtual orbitals.
-The number of $t_{2}$-amplitudes is equivalent to $(N_{occ})^{2}(N_{virt})^{2}$, where $N_{occ}$ denotes the number of occupied orbitals and $N_{virt}$ denotes the number of virtual orbitals, so the total number of $t_{2}$-amplitudes per molecule is 64.
-Further details regarding the feature set and implementation can be found in \cite{townsend_data-driven_2019}
+Using the DDCC method, we generate a dataset consisting of 199 water molecules obtained from the study of Townsend and Vogiatzis using the STO-3G basis set\cite{hehre_selfconsistent_1970}  with the frozen core approximation.
+All HF, MP2, and CCSD data was generated using Psi4\cite{parrish_psi4_2017} and Psi4Numpy\cite{smith_psi4numpy_2018}.
+We will also note that despite using a minimal basis set, this is a data intensive quantum chemistry application for PQCs since for each molecule there are $(N_{occ})^{2}(N_{virt})^{2}$ $t_{2}$-amplitudes, where $N_{occ}$ denotes the number of occupied orbitals and $N_{virt}$ denotes the number of virtual orbitals.
+For the water confirmers with 4 occupied and 2 virtual orbitals, there are a total of 64 $t_{2}$-amplitudes per molecule.
+Further details regarding the feature set and implementation can be found in Ref.  \cite{townsend_data-driven_2019}
 
-Like the BSE dataset, the 30 features from the full DDCC feature set must be reduced to 5 or 16 features using SHAP or PCA.
-Unlike the BSE dataset, we choose SHAP over PCA for the feature reduction since there is a direct correlation between the input features and output values.
-As shown in Fig. \ref{fig:DDCC_feature_set}, 5 and 16 features can accurately recover the performance of the original model using 30 features, where all three models have train and test R$^{2}$s of 1.00.
-Due to the computational costs of running QML models, we will then use only 5 features for all DDCC QML models.
-The 5 most important features are the two-electron integrals ($\mel{ij}{}{ab}$), MP2 $t_{2}$-amplitudes ($t^{ab}_{ij(\text{MP2})}$), the magnitude of the MP2 $t_{2}$-amplitudes, and the difference in orbital energies ($\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}$).
-
+Lastly, like the BSE49 dataset, the 30 DDCC features must be reduced to 5 or 16 features using either SHAP or PCA.
+Unlike the BSE49 dataset, SHAP outperforms PCA due to the direct relationship between the feature set and target values.
+Additionally, as highlighted in Fig. \ref{fig:DDCC_feature_set}, when the feature set is reduced to 5 or 16 features, both models have train and test R$^{2}$s of 1.00.
+Due to the computational costs of simulating state-vector models on a broad set of PQCs, we will only perform our DDCC models with 5 features, which includes the two-electron integrals ($\mel{ij}{}{ab}$), MP2 $t_{2}$-amplitudes ($t^{ab}_{ij(\text{MP2})}$), the magnitude of the MP2 $t_{2}$-amplitudes, and the difference in orbital energies ($\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}$).
+[update... missing one feature]
 
 
 
