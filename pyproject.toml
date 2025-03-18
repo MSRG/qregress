@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools","wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+authors = [
+  { name="Grier M. Jones", email="grier.jones@utoronto.ca" },
+]
+description = "A small example package"
+readme = "README.md"
+requires-python = ">=3.10"
+name = "qregress"
+version = "0.0.1"
+dynamic = ["dependencies"] #, "optional-dependencies"]
+
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["qregress*"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+# optional-dependencies = {dev = { file = ["requirements-dev.txt"] }}
+
+
+[project.urls]
+Homepage = "https://github.com/MSRG/qregress"

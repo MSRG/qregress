@@ -501,8 +501,7 @@ Further details regarding the feature set and implementation can be found in Ref
 Lastly, like the BSE49 dataset, the 30 DDCC features must be reduced to 5 or 16 features using either SHAP or PCA.
 Unlike the BSE49 dataset, SHAP outperforms PCA due to the direct relationship between the feature set and target values.
 Additionally, as highlighted in Fig. \ref{fig:DDCC_feature_set}, when the feature set is reduced to 5 or 16 features, both models have train and test R$^{2}$s of 1.00.
-Due to the computational costs of simulating state-vector models on a broad set of PQCs, we will only perform our DDCC models with 5 features, which includes the two-electron integrals ($\mel{ij}{}{ab}$), MP2 $t_{2}$-amplitudes ($t^{ab}_{ij(\text{MP2})}$), the magnitude of the MP2 $t_{2}$-amplitudes, and the difference in orbital energies ($\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}$).
-[update... missing one feature]
+Due to the computational costs of simulating state-vector models on a broad set of PQCs, we will only perform our DDCC models with 5 features, which includes the two-electron integrals ($\mel{ij}{}{ab}$), MP2 $t_{2}$-amplitudes ($t^{ab}_{ij(\text{MP2})}$), the magnitude of the MP2 $t_{2}$-amplitudes, the difference in orbital energies ($\varepsilon_{i}+\varepsilon_{j}-\varepsilon_{a}-\varepsilon_{b}$), and the binary feature denoting whether two-electrons are promoted to the same virtual orbital ($a=b$).
 
 
 
@@ -538,11 +537,9 @@ Due to the computational costs of simulating state-vector models on a broad set 
 
 \section{Results and Discussion}
 \label{section:results_and_discussion}
+In this section, we discuss the initial analysis of the 168 PQCs with 5 qubits, using the PCA reduced \textit{sub}-Morgan fingerprints.
 
 
-\subsection{BSE}
-To explore the performance of PQCs for chemically relevant datasets, the dataset we explore is the BSE49 dataset, which consists of a diverse set of bond separation energies and the related structures, as highlighted in Figs. \ref{fig:bondtypes} and \ref{fig:BSEdistr}.
-Initially, we study the five qubit data, Figs. \ref{fig:5BSE_heatplots} and \ref{fig:5BSE_boxplots}, due to computational considerations.
 
 
 
@@ -550,6 +547,8 @@ five qubit
 best encoder-ansatz pair: train R$^{2}$/test R$^{2}$
 Best encoder on average train R$^{2}$/test R$^{2}$
 Best ansatz on average train R$^{2}$/test R$^{2}$
+
+M-M-CZ{\_}HWE-CNOT
 
 'M-M-CNOT', '-0.0216'
 'Full-CRX', '0.1214'
@@ -559,7 +558,7 @@ removed the really bad ones from five qubit
 best encoder-ansatz pair: train R$^{2}$/test R$^{2}$
 Best encoder on average train R$^{2}$/test R$^{2}$
 Best ansatz on average train R$^{2}$/test R$^{2}$
-
+A2_Hadamard
 
 Talk about the cost of going wider, and inherently deeper
 
@@ -657,7 +656,7 @@ Talk about the cost of going wider, and inherently deeper
 
 
 
-\subsection{DDCC}
+
 Structure
 \begin{itemize}
 	\item Broad set

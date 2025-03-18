@@ -1,1 +1,0 @@
-docker run deb  /bin/bash -c  ". /opt/miniconda/bin/activate && python3 main.py --settings ./function-calc-test/lin5qubits/M_Modified-Pauli-CRX/M_Modified-Pauli-CRX.json --train_set ./function-calc-test/linear/linear_train.bin --test_set ./function-calc-test/linear/linear_test.bin --scaler ./function-calc-test/linear/linear_scaler.bin --save_path ./"
