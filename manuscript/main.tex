@@ -189,6 +189,17 @@ Department of Chemical and Physical Sciences,
 University of Toronto Mississauga, 
 3359 Mississauga Road, Mississauga, Ontario, 
 Canada L5L 1C6}
+\alsoaffiliation[UT DSI]{
+	Data Science Institute, 
+	University of Toronto, 
+	700 University Ave 10th floor,
+	 Toronto, ON M7A 2S4}
+\alsoaffiliation[UCalg]{Current Affiliation: Department of Chemistry, 
+	University of Calgary, 
+	2500 University Drive NW,
+	 Calgary, AB T2N 1N4}
+
+
 
 
 
@@ -411,7 +422,8 @@ The portion of the code based on PennyLane is capable of performing state-vector
 Additionally, to train and test regression models that require many circuit executions, we ported our PennyLane code to Qiskit so that the Qiskit Batch Execution mode could be utilized.
 This was a vital step for running on \textit{ibm\_quebec} since Qiskit Sessions, as implemented in the PennyLane-Qiskit plugin, are too cumbersome to train PQCs as $N$, the number of training samples, increases.
 In practice, all state-vector simulations were performed using PennyLane, while all calculations using \textit{FakeQuebec} and \textit{ibm\_quebec}  are run using Qiskit.
-State-vector simulations were also optimized using 1000 iterations with the Simultaneous Perturbation Stochastic Approximation method (SPSA), as implemented in PennyLane since we found that SPSA requires less steps to optimize when compared to other optimizers for state-vector simulation. 
+All state-vector simulations with 5 qubits were optimized using 1000 iterations, while 16 qubit simulations utilized early stopping due to computational cost considerations.
+State-vector simulations were also optimized using the Simultaneous Perturbation Stochastic Approximation method (SPSA), as implemented in PennyLane since we found that SPSA requires less steps to optimize when compared to other optimizers for state-vector simulation. 
 For the experiments ran using \textit{FakeQuebec} and  \textit{ibm\_quebec}, we utilized the Constrained Optimization By Linear Approximation (COBYLA) optimizer, as implemented in SciPy\cite{virtanen_scipy_2020}.
 For all models, features ($\mathbf{x}$) and target values ($\mathbf{y}$) were scaled using the MinMaxScaler, as implemented in Scikit-learn\cite{pedregosa_scikit-learn_2011}, such that all features and target values are $\mathbb{R}\in [ -1,1 ]$.
 
@@ -537,28 +549,41 @@ Due to the computational costs of simulating state-vector models on a broad set 
 
 \section{Results and Discussion}
 \label{section:results_and_discussion}
-In this section, we discuss the initial analysis of the 168 PQCs with 5 qubits, using the PCA reduced \textit{sub}-Morgan fingerprints.
+[introduction paragraph]
+In this section, for both the DDCC and BSE49 datasets, we start our analysis of by examining the performance of the initial set of 168 PQCs with re-upload depths of 1 ($k=1$) and the number ansatz layers set to 1 ($v=1$).
+Using this data, we select the best encoder-ansatz pair and increase the re-upload depth and number of ansatz layers to 3 and 5 ($k,v \in {3,5}$) to determine how model performance is effected by circuit depth.
+We then analyze how the best circuit from this set performs using a learning curve, where we hold the number of test points set to 20\% and vary the number of training points, to determine how PQCs behave with varying numbers of training data.
+Lastly, we provide insights into how the best PQC model behaves on simulated and real IBM backends using \textit{FakeQuebec} and \textit{ibm{\_}quebec}.
+
+%old A1-A1-CNOT_Full-CRX (0.19/0.20)
+Starting with the 5 qubit BSE49 data, Fig. \ref{fig:5BSE_heatplots} highlights the performance of the 168 PQCs using a heat plot of the coefficients of determination (R$^{2}$) of the training (left) and test sets (right).
+The training set R$^2$ values range from a minimum of -1.4673 to a maximum of 0.1566, with a mean of -0.2131 and a standard deviation of 0.3463. For the test set, the R$^2$ values range from a minimum of -1.4774 to a maximum of 0.1740, with a mean of -0.2031 and a standard deviation of 0.3475.
+General trends regarding the performance of the encoders (left) and ansatz (right) layers are highlighted in Fig. \ref{fig:5BSE_boxplots} using box plots.
+On average, the best encoding layer is M-M-CNOT with a training and test R$^{2}$s of -0.0242 and -0.0229, respectively.
+The best ansatz layer, is HWE-CNOT with an average training  R$^{2}$ of 0.0360 and test R$^{2}$ of 0.0473.
+Overall, for the BSE49 dataset using 5 qubits, the best encoder-ansatz pair is M-M-CZ{\_}HWE-CNOT with a training set R$^{2}$ of 0.1566 and test set R$^{2}$ of 0.1740.
 
 
 
+[This is bad; the 70 removed were originally ran with 250 iter... not 1000 like the rest...]
+Following this analysis, 70 PQCs were removed based on performance regarding the computational costs of state-vector simulation and model accuracy.
 
 
-five qubit 
-best encoder-ansatz pair: train R$^{2}$/test R$^{2}$
-Best encoder on average train R$^{2}$/test R$^{2}$
-Best ansatz on average train R$^{2}$/test R$^{2}$
+Using the remaining 98 PQCs, we perform a similar analysis using 16 qubits.
 
-M-M-CZ{\_}HWE-CNOT
 
-'M-M-CNOT', '-0.0216'
-'Full-CRX', '0.1214'
+
 
 sixteen qubit \ref{fig:16BSE_heatplots} \ref{fig:16BSE_boxplots}
 removed the really bad ones from five qubit
-best encoder-ansatz pair: train R$^{2}$/test R$^{2}$
-Best encoder on average train R$^{2}$/test R$^{2}$
-Best ansatz on average train R$^{2}$/test R$^{2}$
-A2{\_}Hadamard
+
+pair A2{\_}Hadamard train R$^{2}$      0.0028 test R$^{2}$       0.0140 train MAE    19.8071 kcal/mol test MAE     20.0745 kcal/mol
+
+Encoder A1 train R$^{2}$     -0.0501 test R$^{2}$      -0.0458 train MAE    20.7795 kcal/mol test MAE     21.3186 kcal/mol
+
+variational HWE-CNOT train R$^{2}$     -0.0147 test R$^{2}$      -0.0025 train MAE    20.1601 kcal/mol test MAE     20.5422 kcal/mol
+
+
 
 Talk about the cost of going wider, and inherently deeper
 
@@ -665,7 +690,26 @@ Structure
 	\item real device 
 \end{itemize}
 
-A2\_HWE-CNOT Train R$^{2}$ 0.62/test R$^{2}$ 0.62 
+ Train R$^{2}$     0.6191
+Test R$^{2}$      0.6184
+train MAE    5.9739 $mE_{h}$ 
+test MAE     5.9660 $mE_{h}$
+pair: A2{\_}HWE-CNOT
+
+
+ Train R$^{2}$     0.0163
+Test R$^{2}$      0.0183
+train MAE    12.7282 $mE_{h}$
+test MAE    12.7116 $mE_{h}$
+encoder: A1
+
+
+ Train R$^{2}$     0.2817
+Test R$^{2}$      0.2853
+train MAE    11.6967 $mE_{h}$
+test MAE    11.6871 $mE_{h}$
+variational: HWE-CNOT
+
 Best encoder average Train R$^{2}$ X/test R$^{2}$ Y
 Best ansatz HWE-CNOT average Train R$^{2}$ X/test R$^{2}$ Y
 
@@ -801,6 +845,15 @@ Distributed QC to incorporate more features
 Noiseless simulation is costly and does not offer the desired accuracy for BSE49 or DDCC
 
 DDCC could be a useful dataset to benchmark PQC models since it is trivial to perform classically, yet hard for PQCs...
+
+
+
+\section{Acknowledgements}
+We would like to acknowledge the Government of Canada’s New Frontiers in Research Fund (NFRF), for grant NFRFE-2022-00226, and the Quantum Software Consortium (QSC), financed under grant \#ALLRP587590-23 from the National Sciences and Engineering Research Council of Canada (NSERC) Alliance Consortia Quantum Grants.
+This research was enabled in part by support provided by IBM Quantum via the Quantum Software Consortium and the Digital Research Alliance of Canada.
+The authors would also like to acknowledge Aviraj Newatia, who provided valuable insights with preliminary results excluded from this work.
+[somethings were ran on the MSRG cloud... do we need to cite the funders of our cloud???]
+[Viki: Did Nick have any special undergrad funding?]
 
 \bibliography{achemso-demo}
 

@@ -3,7 +3,7 @@ Quantum kernels and regression
 
 
 TODO:
-- [x] Create tests for pip package and executables
+- [ ] Create tests for pip package and executables
 - [ ] Real device DDCC 5
 - [ ] Manuscript
 - [ ] Clean up directories
