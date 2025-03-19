@@ -2,4 +2,4 @@
 from . import Evaluate
 from . import Quantum 
 from . import circuits
-
+from . import QiskitRegressor
