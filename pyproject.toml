@@ -1,27 +1,35 @@
 [build-system]
-requires = ["setuptools","wheel"]
+requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-authors = [
-  { name="Grier M. Jones", email="grier.jones@utoronto.ca" },
-]
-description = "A small example package"
-readme = "README.md"
-requires-python = ">=3.10"
 name = "qregress"
 version = "0.0.1"
-dynamic = ["dependencies"] #, "optional-dependencies"]
-
+authors = [
+  { name = "Grier M. Jones", email = "grier.jones@utoronto.ca" },
+  { name = "Nick Taylor"},
+  { name = "Viki Kumar Prasad"},
+  { name = "Ulrich Fekl"},
+  { name = "Hans-Arno Jacobsen" , email = "jacobsen@eecg.toronto.ca"}
+  
+]
+description = "UPDATE"
+readme = "README.md"
+requires-python = ">=3.10"
+dynamic = ["dependencies"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
 include = ["qregress*"]
 
 [tool.setuptools.dynamic]
-dependencies = {file = ["requirements.txt"]}
-# optional-dependencies = {dev = { file = ["requirements-dev.txt"] }}
+dependencies = { file = ["requirements.txt"] }
 
+[project.scripts]
+classical = "qregress.scripts.Classical:main"
+cli-classical = "qregress.scripts.cli_classical:main"
+qregressrun = "qregress.scripts.qregressrun:main"
+settings = "qregress.scripts.settings:main"
 
 [project.urls]
 Homepage = "https://github.com/MSRG/qregress"
