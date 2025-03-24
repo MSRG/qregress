@@ -479,7 +479,7 @@ The R$^{2}$s also show slight improvement over the feature reductions using SHAP
 Overall, the models using SHAP to reduce the feature set offer models with less overfitting, while sacrificing accuracy, when compared to the models reduced using PCA, which offer more accurate models that are more overfit. 
 Based on these insights, for the experiments using PQCs, all BSE49 data is reduced to 5 or 16 qubits using PCA applied on Morgan fingerprint using the \textit{sub} formulation.
 
-The second quantum chemistry dataset we analyze in this paper is generated using the data-driven coupled-cluster (DDCC) scheme of Townsend and Vogiatzis.\cite{townsend_data-driven_2019}
+The second quantum chemistry dataset we analyze in this paper is generated using the data-driven coupled-cluster (DDCC) scheme of Townsend and Vogiatzis.\cite{townsend_data-driven_2019,jones_chapter_2023}
 DDCC is an ML-based approach for accelerating the convergence of coupled-cluster singles and doubles (CCSD) calculations by predicting the $t_{2}$-amplitudes of the CCSD wave function (Eq. \ref{eq:cc_wfn}) with features generated using lower-level methods, such as Hartree-Fock (HF) and M{\o}ller-Plesset second-order perturbation theory (MP2), that are used to initialize CCSD calculations.
 Herein, we provide a brief overview of the equations required to understand the DDCC method, starting with the coupled-cluster wave function, which takes the general form,
 \begin{equation}
