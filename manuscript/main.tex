@@ -422,7 +422,7 @@ The portion of the code based on PennyLane is capable of performing state-vector
 Additionally, to train and test regression models that require many circuit executions, we ported our PennyLane code to Qiskit so that the Qiskit Batch Execution mode could be utilized.
 This was a vital step for running on \textit{ibm\_quebec} since Qiskit Sessions, as implemented in the PennyLane-Qiskit plugin, are too cumbersome to train PQCs as $N$, the number of training samples, increases.
 In practice, all state-vector simulations were performed using PennyLane, while all calculations using \textit{FakeQuebec} and \textit{ibm\_quebec}  are run using Qiskit.
-All state-vector simulations with 5 qubits were optimized using 1000 iterations, while 16 qubit simulations utilized early stopping due to computational cost considerations.
+All state-vector simulations with 5 qubits were optimized using 1000 iterations, while 16 qubit are initially ran using 250 iterations and longer runs, using 1000 iterations, use early stopping due to computational cost considerations.
 State-vector simulations were also optimized using the Simultaneous Perturbation Stochastic Approximation method (SPSA), as implemented in PennyLane since we found that SPSA requires less steps to optimize when compared to other optimizers for state-vector simulation. 
 For the experiments ran using \textit{FakeQuebec} and  \textit{ibm\_quebec}, we utilized the Constrained Optimization By Linear Approximation (COBYLA) optimizer, as implemented in SciPy\cite{virtanen_scipy_2020}.
 For all models, features ($\mathbf{x}$) and target values ($\mathbf{y}$) were scaled using the MinMaxScaler, as implemented in Scikit-learn\cite{pedregosa_scikit-learn_2011}, such that all features and target values are $\mathbb{R}\in [ -1,1 ]$.
@@ -557,11 +557,13 @@ Lastly, we provide insights into how the best PQC model behaves on simulated and
 
 %old A1-A1-CNOT_Full-CRX (0.19/0.20)
 Starting with the 5 qubit BSE49 data, Fig. \ref{fig:5BSE_heatplots} highlights the performance of the 168 PQCs using a heat plot of the coefficients of determination (R$^{2}$) of the training (left) and test sets (right).
-The training set R$^2$ values range from a minimum of -1.4673 to a maximum of 0.1566, with a mean of -0.2131 and a standard deviation of 0.3463. For the test set, the R$^2$ values range from a minimum of -1.4774 to a maximum of 0.1740, with a mean of -0.2031 and a standard deviation of 0.3475.
+The training set R$^2$ values range from a minimum of -1.4673 to a maximum of 0.1775, with a mean of -0.1865 and a standard deviation of 0.3433. 
+For the test set, the R$^2$ values range from a minimum of -1.4774 to a maximum of 0.1974, with a mean of -0.1765 and a standard deviation of 0.3446.
 General trends regarding the performance of the encoders (left) and ansatz (right) layers are highlighted in Fig. \ref{fig:5BSE_boxplots} using box plots.
-On average, the best encoding layer is M-M-CNOT with a training and test R$^{2}$s of -0.0242 and -0.0229, respectively.
-The best ansatz layer, is HWE-CNOT with an average training  R$^{2}$ of 0.0360 and test R$^{2}$ of 0.0473.
-Overall, for the BSE49 dataset using 5 qubits, the best encoder-ansatz pair is M-M-CZ{\_}HWE-CNOT with a training set R$^{2}$ of 0.1566 and test set R$^{2}$ of 0.1740.
+On average, the best encoding layer is M-M-CNOT with a training and test R$^{2}$s of -0.0173 and -0.0157, respectively.
+The best ansatz layer, is Full-CRX with an average training  R$^{2}$ of 0.1054 and test R$^{2}$ of 0.1165.
+Overall, for the BSE49 dataset using 5 qubits, the best encoder-ansatz pair is A1-A1-CNOT{\_}Full-CRX training set R$^{2}$ of 0.1775 and test set R$^{2}$ of 0.1974.
+Despite A1-A1-CNOT{\_}Full-CRX being the best encoder-ansatz pair, for explorations of the circuit depth, we chose M-M-CZ{\_}HWE-CNOT, which offers similar performance training set R$^{2}$ of 0.1566 and test set R$^{2}$ of 0.1740 but has offers a less deep circuit that is less costly to perform state-vector simulations on.
 
 
 
