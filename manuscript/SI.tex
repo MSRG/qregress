@@ -90,6 +90,7 @@
 %%%
 
 \usepackage{xcite}
+\usepackage{longtable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %----Helper code for dealing with external references----
@@ -282,6 +283,136 @@
 	\label{fig:DDCC_feature_set}
 \end{figure}
 
+\section{BSE49 5 Qubit Learning Curve Data}\label{section:5BSE49_LC_data}
+\begin{longtable}{llrr}
+\toprule
+ratio & model &  Train & Test \\
+\midrule
+\multirow[t]{10}{*}{0.1} & M-M-CZ{\_}HWE-CNOT & 0.2015 & 0.1303 \\
+& elastic & 0.1787 & 0.1229 \\
+& gpr & 0.3254 & 0.2147 \\
+& grad & 0.9010 & 0.3352 \\
+& knn & 0.9998 & 0.3963 \\
+& krr & 0.4242 & 0.2811 \\
+& lasso & 0.1786 & 0.1229 \\
+& rfr & 0.8896 & 0.4220 \\
+& ridge & 0.1789 & 0.1226 \\
+& svr & 0.4020 & 0.2719 \\
+\cline{1-4}
+\multirow[t]{10}{*}{0.3} & M-M-CZ{\_}HWE-CNOT & -0.0172 & -0.0088 \\
+& elastic & 0.2099 & 0.2012 \\
+& gpr & 0.4211 & 0.3857 \\
+& grad & 0.8896 & 0.5215 \\
+& knn & 0.9998 & 0.5837 \\
+& krr & 0.4967 & 0.4385 \\
+& lasso & 0.2094 & 0.2002 \\
+& rfr & 0.9455 & 0.5589 \\
+& ridge & 0.2100 & 0.2015 \\
+& svr & 0.4881 & 0.4287 \\
+\cline{1-4}
+\multirow[t]{10}{*}{0.5} & M-M-CZ{\_}HWE-CNOT & 0.1715 & 0.1792 \\
+& elastic & 0.1960 & 0.2050 \\
+& gpr & 0.4383 & 0.4377 \\
+& grad & 0.9350 & 0.5721 \\
+& knn & 0.9998 & 0.6222 \\
+& krr & 0.4724 & 0.4612 \\
+& lasso & 0.1954 & 0.2039 \\
+& rfr & 0.9453 & 0.5970 \\
+& ridge & 0.1961 & 0.2055 \\
+& svr & 0.4754 & 0.4628 \\
+\cline{1-4}
+\multirow[t]{10}{*}{0.7} & M-M-CZ{\_}HWE-CNOT & 0.1908 & 0.2064 \\
+& elastic & 0.1623 & 0.1785 \\
+& gpr & 0.4347 & 0.4516 \\
+& grad & 0.9624 & 0.5957 \\
+& knn & 0.9998 & 0.6366 \\
+& krr & 0.4577 & 0.4714 \\
+& lasso & 0.1617 & 0.1770 \\
+& rfr & 0.9483 & 0.6430 \\
+& ridge & 0.1623 & 0.1791 \\
+& svr & 0.4577 & 0.4709 \\
+\cline{1-4}
+\multirow[t]{10}{*}{0.8} & M-M-CZ{\_}HWE-CNOT & 0.1559 & 0.1727 \\
+& elastic & 0.1656 & 0.1828 \\
+& gpr & 0.4445 & 0.4607 \\
+& grad & 0.9531 & 0.6030 \\
+& knn & 0.9999 & 0.6725 \\
+& krr & 0.4596 & 0.4727 \\
+& lasso & 0.1651 & 0.1812 \\
+& rfr & 0.9462 & 0.6400 \\
+& ridge & 0.1657 & 0.1834 \\
+& svr & 0.4578 & 0.4671 \\
+\cline{1-4}
+\bottomrule
+\label{table:5BSE49_LC}
+\end{longtable}
+
+
+\section{DDCC 5 Qubit Learning Curve Data}\label{section:5DDCC_LC_data}
+\begin{longtable}{llrr}
+	\toprule
+	ratio & model & Test & Train \\
+	\midrule
+	\midrule
+	\multirow[t]{10}{*}{0.1} & A2{\_}HWE-CNOT & 0.4502 & 0.4434 \\
+	& elastic & 0.9874 & 0.9877 \\
+	& gpr & 1.0000 & 0.9997 \\
+	& grad & 1.0000 & 0.9999 \\
+	& knn & 1.0000 & 1.0000 \\
+	& krr & 0.9999 & 0.9997 \\
+	& lasso & 0.9873 & 0.9877 \\
+	& rfr & 1.0000 & 0.9999 \\
+	& ridge & 0.9898 & 0.9901 \\
+	& svr & 0.9985 & 0.9982 \\
+	\cline{1-4}
+	\multirow[t]{10}{*}{0.3} & A2{\_}HWE-CNOT & 0.4341 & 0.4270 \\
+	& elastic & 0.9873 & 0.9875 \\
+	& gpr & 1.0000 & 1.0000 \\
+	& grad & 1.0000 & 1.0000 \\
+	& knn & 1.0000 & 1.0000 \\
+	& krr & 0.9999 & 0.9999 \\
+	& lasso & 0.9872 & 0.9874 \\
+	& rfr & 1.0000 & 1.0000 \\
+	& ridge & 0.9897 & 0.9899 \\
+	& svr & 0.9990 & 0.9989 \\
+	\cline{1-4}
+	\multirow[t]{10}{*}{0.5} & A2{\_}HWE-CNOT & 0.8310 & 0.8308 \\
+	& elastic & 0.9875 & 0.9875 \\
+	& gpr & 1.0000 & 1.0000 \\
+	& grad & 1.0000 & 1.0000 \\
+	& knn & 1.0000 & 1.0000 \\
+	& krr & 0.9999 & 1.0000 \\
+	& lasso & 0.9875 & 0.9874 \\
+	& rfr & 1.0000 & 1.0000 \\
+	& ridge & 0.9899 & 0.9899 \\
+	& svr & 0.9994 & 0.9994 \\
+	\cline{1-4}
+	\multirow[t]{10}{*}{0.7} & A2{\_}HWE-CNOT & 0.7162 & 0.7093 \\
+	& elastic & 0.9874 & 0.9875 \\
+	& gpr & 1.0000 & 1.0000 \\
+	& grad & 1.0000 & 1.0000 \\
+	& knn & 1.0000 & 1.0000 \\
+	& krr & 1.0000 & 0.9999 \\
+	& lasso & 0.9874 & 0.9875 \\
+	& rfr & 1.0000 & 1.0000 \\
+	& ridge & 0.9898 & 0.9899 \\
+	& svr & 0.9995 & 0.9995 \\
+	\cline{1-4}
+	\multirow[t]{10}{*}{0.8} & A2{\_}HWE-CNOT & 0.8470 & 0.8492 \\
+	& elastic & 0.9875 & 0.9874 \\
+	& gpr & 1.0000 & 1.0000 \\
+	& grad & 1.0000 & 1.0000 \\
+	& knn & 1.0000 & 1.0000 \\
+	& krr & 0.9999 & 1.0000 \\
+	& lasso & 0.9874 & 0.9873 \\
+	& rfr & 1.0000 & 1.0000 \\
+	& ridge & 0.9899 & 0.9898 \\
+	& svr & 0.9995 & 0.9995 \\
+	\cline{1-4}
+	\bottomrule
+	\label{table:DDCC_LC}
+\end{longtable}
+
 \section{DDCC Fake Quebec}\label{section:DDCC_fake}
 Ran using the state vector model parameters for one iteration to test the optimization and resilience levels using Fake Quebec before running on the real device
 
@@ -298,13 +429,6 @@ Ran using the state vector model parameters for one iteration to test the optimi
 	\caption{}
 	\label{fig:shotsfakequebec}
 \end{figure}
-
-
-
-\section{title}\label{section:section3}
-
-
-
 
 
 

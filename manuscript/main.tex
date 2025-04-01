@@ -555,7 +555,7 @@ Using this data, we select the best encoder-ansatz pair and increase the re-uplo
 We then analyze how the best circuit from this set performs using a learning curve, where we hold the number of test points set to 20\% and vary the number of training points, to determine how PQCs behave with varying numbers of training data.
 Lastly, we provide insights into how the best PQC model behaves on simulated and real IBM backends using \textit{FakeQuebec} and \textit{ibm{\_}quebec}.
 
-%old A1-A1-CNOT_Full-CRX (0.19/0.20)
+
 Starting with the 5 qubit BSE49 data, Fig. \ref{fig:5BSE_heatplots} highlights the performance of the 168 PQCs using a heat plot of the coefficients of determination (R$^{2}$) of the training (left) and test sets (right).
 The training set R$^2$ values range from a minimum of -1.4673 to a maximum of 0.1775, with a mean of -0.1865 and a standard deviation of 0.3433. 
 For the test set, the R$^2$ values range from a minimum of -1.4774 to a maximum of 0.1974, with a mean of -0.1765 and a standard deviation of 0.3446.
@@ -563,31 +563,15 @@ General trends regarding the performance of the encoders (left) and ansatz (righ
 On average, the best encoding layer is M-M-CNOT with a training and test R$^{2}$s of -0.0173 and -0.0157, respectively.
 The best ansatz layer, is Full-CRX with an average training  R$^{2}$ of 0.1054 and test R$^{2}$ of 0.1165.
 Overall, for the BSE49 dataset using 5 qubits, the best encoder-ansatz pair is A1-A1-CNOT{\_}Full-CRX training set R$^{2}$ of 0.1775 and test set R$^{2}$ of 0.1974.
-Despite A1-A1-CNOT{\_}Full-CRX being the best encoder-ansatz pair, for explorations of the circuit depth, we chose M-M-CZ{\_}HWE-CNOT, which offers similar performance training set R$^{2}$ of 0.1566 and test set R$^{2}$ of 0.1740 but has offers a less deep circuit that is less costly to perform state-vector simulations on.
+Despite A1-A1-CNOT{\_}Full-CRX being the best encoder-ansatz pair, for explorations of the circuit depth, we chose M-M-CZ{\_}HWE-CNOT, which offers similar performance training set R$^{2}$ of 0.1566 and test set R$^{2}$ of 0.1740 but has offers a more shallow circuit, which is more computationally efficient for state-vector simulations.
 
+Following the 5 qubit models, we tested the BSE49 dataset on the set of 168 PQCs using 16 qubits.
+Fig. \ref{fig:16BSE_heatplots} shows the performance in R$^{2}$ for the training (left) and test (right) sets, where the best encoder-ansatz pair is A1{\_}Efficient-CRZ with an R$^{2}$ of -0.0007 for the training set and -0.0050 for the test set.
+Across the 168 PQCs, the training and test sets have a minimum R$^{2}$ -1.8104 and -1.7752, a mean of -0.4045 and -0.4022, a maximum of -0.0007 and -0.0004, and a standard deviation of 0.4161 and 0.4235,respectively.
+Overall, as highlighted in Fig. \ref{fig:16BSE_boxplots} (left), the best encoder is IQP with a mean R$^{2}$ of -0.0942 for the training set and -0.0882 for the test set.
+The best ansatz circuit (Fig. \ref{fig:16BSE_boxplots} right) is HWE-CNOT with a mean R$^{2}$ of -0.0148 and -0.0025 for the training and test set, respectively.
+Due to the overall poorer performance and high computational expense of state-vector simulation using 16 qubits, we use only the best 5-qubit PQC, M-M-CZ{\_}HWE-CNOT, for the additional experiments with the BSE49 dataset.
 
-
-[This is bad; the 70 removed were originally ran with 250 iter... not 1000 like the rest...]
-Following this analysis, 70 PQCs were removed based on performance regarding the computational costs of state-vector simulation and model accuracy.
-
-
-Using the remaining 98 PQCs, we perform a similar analysis using 16 qubits.
-
-
-
-
-sixteen qubit \ref{fig:16BSE_heatplots} \ref{fig:16BSE_boxplots}
-removed the really bad ones from five qubit
-
-pair A2{\_}Hadamard train R$^{2}$      0.0028 test R$^{2}$       0.0140 train MAE    19.8071 kcal/mol test MAE     20.0745 kcal/mol
-
-Encoder A1 train R$^{2}$     -0.0501 test R$^{2}$      -0.0458 train MAE    20.7795 kcal/mol test MAE     21.3186 kcal/mol
-
-variational HWE-CNOT train R$^{2}$     -0.0147 test R$^{2}$      -0.0025 train MAE    20.1601 kcal/mol test MAE     20.5422 kcal/mol
-
-
-
-Talk about the cost of going wider, and inherently deeper
 
 
 \begin{figure}[H]
@@ -601,16 +585,16 @@ Talk about the cost of going wider, and inherently deeper
 	\hfill
 	\begin{subfigure}[b]{0.49\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{../images/BSE/fivequbit/BSE_boxplots}
+		\includegraphics[width=\linewidth]{../images/BSE/sixteenqubit/BSE_heatplots}
 		\caption{}
-		\label{fig:5BSE_boxplots}
+		\label{fig:16BSE_heatplots}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.49\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{../images/BSE/sixteenqubit/BSE_heatplots}
+		\includegraphics[width=\linewidth]{../images/BSE/fivequbit/BSE_boxplots}
 		\caption{}
-		\label{fig:16BSE_heatplots}
+		\label{fig:5BSE_boxplots}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.49\textwidth}
@@ -619,101 +603,18 @@ Talk about the cost of going wider, and inherently deeper
 		\caption{}
 		\label{fig:16BSE_boxplots}
 	\end{subfigure}
-	\caption{}
+	\caption{The model performance (in R$^{2}$) of the 168 parameterized quantum circuits for BSE49 using (a) 5 and (b) 16 qubits, where the x-axis denotes the ansatz and the y-axis denotes the encoders. Box plots are used to highlight the general performance of the encoder (left) and ansatz (right) circuits for the (c) 5 and (d) 16 qubit BSE49 models.}
 	\label{fig:BSEboxandheat}	
 \end{figure}
 
-\begin{figure}[H]
-	\centering	
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{../images/BSE/fivequbit/BSE5_RUDAL_lineplot}
-		\caption{}
-		\label{fig:bse5RUDAL_lineplot}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{../images/BSE/sixteenqubit/BSE16_RUDAL_lineplot}
-		\caption{}
-		\label{fig:bse16RUDAL_lineplot}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{../images/BSE/fivequbit/distribution_parity}
-		\caption{}
-		\label{fig:BSE5_distribution_parity}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{../images/BSE/sixteenqubit/distribution_parity}
-		\caption{}
-		\label{fig:BSE16_distribution_parity}
-	\end{subfigure}
-	\caption{}
-	\label{fig:BSE_distribution_parity}	
-\end{figure}
-
-
-
-\begin{figure}[H]
-	\centering	
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{../images/BSE/fivequbit/BSE_learningcurve}
-		\caption{}
-		\label{fig:BSE5_learning_curves}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{../images/BSE/sixteenqubit/BSE_learningcurve}
-		\caption{}
-		\label{fig:BSE16_learningcurve}
-	\end{subfigure}
-	\caption{}
-	\label{fig:BSE_LC}	
-\end{figure}
-
-
-
-
-
-
-
-
-Structure
-\begin{itemize}
-	\item Broad set
-	\item RUD/AL tests
-	\item learning curve (maybe)
-	\item real device 
-\end{itemize}
-
- Train R$^{2}$     0.6191
-Test R$^{2}$      0.6184
-train MAE    5.9739 $mE_{h}$ 
-test MAE     5.9660 $mE_{h}$
-pair: A2{\_}HWE-CNOT
-
-
- Train R$^{2}$     0.0163
-Test R$^{2}$      0.0183
-train MAE    12.7282 $mE_{h}$
-test MAE    12.7116 $mE_{h}$
-encoder: A1
-
-
- Train R$^{2}$     0.2817
-Test R$^{2}$      0.2853
-train MAE    11.6967 $mE_{h}$
-test MAE    11.6871 $mE_{h}$
-variational: HWE-CNOT
-
-Best encoder average Train R$^{2}$ X/test R$^{2}$ Y
-Best ansatz HWE-CNOT average Train R$^{2}$ X/test R$^{2}$ Y
+Following the evaluation of the 168 PQCs using the BSE49 dataset, we used a reduced set of 98 PQCs for the DDCC dataset.
+Fig. \ref{fig:ddccheatplots} highlights the improved performance of the PQCs on the DDCC dataset over the BSE49 dataset, where the R$^{2}$s of the training set have a minimum, mean, maximum, and standard deviation of -2.1302, -0.3050, 0.6191, and 0.4422, respectively.
+While the R$^{2}$s of the test set have a minimum of -2.1007, a mean of -0.3046, a maximum of 0.6184, and a standard deviation of 0.4411.
+The best encoder-ansatz pair is A2{\_}HWE-CNOT with R$^{2}$s of 0.6191 and 0.6184, for the training and test sets, respectively.
+We found that the PQCs offer better model performance when ran on the DDCC dataset, with A1 offering the best average performance of the encoders with an R$^{2}$ of 0.0163 for the training set and 0.0183 for the test set (Fig. \ref{fig:ddccboxplots} left).
+Like the 16 qubit BSE49 data, the best ansatz layer is HWE-CNOT (Fig. \ref{fig:ddccboxplots} right).
+Unlike the 16 qubit BSE49 data, HWE-CNOT offers a training and test set R$^{2}$ of 0.2817 and 0.2853, respectively.
+Overall, the DDCC models offer more accurate models, with less overfitting, when compared to the BSE49 models.
 
 \begin{figure}[H]
 	\centering	
@@ -730,17 +631,104 @@ Best ansatz HWE-CNOT average Train R$^{2}$ X/test R$^{2}$ Y
 		\caption{}
 		\label{fig:ddccboxplots}
 	\end{subfigure}
-	\hfill
-%	\begin{subfigure}[b]{0.49\textwidth}
-%		\centering
-%		\includegraphics[width=\linewidth]{../images/DDCC/AllDDCC5_circuitdepth_R2_vs_iterationtime}
-%		\caption{}
-%		\label{fig:allddcc5circuitdepthr2vsiterationtime}
-%	\end{subfigure}	
-	\caption{}
+	\caption{(a) Heat maps for the 98 PQCs using the DDCC data set for the training (left) and test set (right). (b) Shows box plots for the encoder (left) and ansatz (right) circuits.}
 	\label{fig:ddcc_all_analysis}	
 \end{figure}
 
+
+After analyzing the initial set of PQCs using the BSE49 and DDCC datasets, we examine how increasing the re-upload depth (RUD) and number of ansatz layers (AL) affects model performance.
+For the BSE49 data, we examine RUDs of $k=\{1,3,5\}$ and for the ALs $v=\{1,3,5\}$.
+We examine this data in two ways, the first is a simple line plot, shown in Fig. \ref{fig:bse5RUDAL_lineplot}, where the number of ALs and the RUD layers are plotted on the x-axis, the y-axis denotes the model accuracy in R$^{2}$, and the training set is denoted in light blue, while the test set is shown in dark blue.
+The second is by analyzing the regression parity plots, Fig. \ref{fig:BSE5_distribution_parity}, with the addition of kernel density estimation (KDE) plots on the axes to highlight the distributions of the values.
+Overall, for M-M-CZ{\_}HWE-CNOT using the BSE49 dataset, increasing the number of ALs and RUD offer negligible improvements over the base model, which as R$^{s}$ of 0.16 and 0.17 for the training and test set, respectively.
+The model with the best R$^{2}$ for the training set is the model initial model using an AL of 1 and RUD 1, while the model with the best R$^{2}$ for the test set uses a AL of 1 and RUD of 5 where the R$^{2}$ is 0.18.
+When we analyze the distributions in \ref{fig:BSE5_distribution_parity}, we find that the reference target values have a wide distribution, ranging from 9.3800 to 177.2400 kcal/mol with a standard deviation of 27.4877 kcal/mol.
+For the predicted values, all of the models struggle with predicting an accurate range, where the model with the worst spread is AL=3/RUD=1 with a minimum of 67.6736 kcal/mol, maximum of 115.6791 kcal/mol, and standard deviation of 6.7346 kcal/mol.
+The best model, regarding the spread of the predicted data, is the AL=1/RUD=5, with a minimum of 49.8978 kcal/mol, maximum of 127.8078 kcal/mol, and standard deviation of 14.0201 kcal/mol. 
+Overall, all models, regardless of the number of ALs and RUD, tend to regress towards the mean value of the reference data, 90.6916 kcal/mol.
+
+Unlike the 5 qubit BSE49 data, we see that when we increase the number of ALs and RUD, A2{\_}HWE-CNOT with the DDCC dataset, shows improved model performance (Figs. \ref{fig:ddccRUDAL_lineplot} and \ref{fig:ddccdistribution_parity}).
+For this dataset, we go beyond ALs and RUDs of 5 due to the initial improvements shown as both values increased.
+Fig. \ref{fig:ddccRUDAL_lineplot} highlights an interesting trend where as the number of ALs increases the model performance increases from R$^{2}$s of 0.62 to R$^{2}$s of $\approx 0.80$, for both the training and test sets.
+For the RUD, the R$^{2}$s show marginal improvements at $k=5,9$, while showing increased performance for $k=3,5$. 
+Overall, the best model for A2{\_}HWE-CNOT with the DDCC dataset is the model with an AL of 5 and RUD of 1.
+This is highlighted in Fig. \ref{fig:ddccdistribution_parity}, where we see that the distribution of the predicted target values are closer to the spread of the reference values than the initial model with AL=1/RUD=1.
+
+
+
+
+
+\begin{figure}[H]
+	\centering	
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../images/BSE/fivequbit/BSE5_RUDAL_lineplot}
+		\caption{}
+		\label{fig:bse5RUDAL_lineplot}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../images/DDCC/DDCC_RUDAL_lineplot}
+		\caption{}
+		\label{fig:ddccRUDAL_lineplot}
+	\end{subfigure}
+	\hfill	
+	\begin{subfigure}[b]{0.65\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../images/BSE/fivequbit/distribution_parity}
+		\caption{}
+		\label{fig:BSE5_distribution_parity}
+	\end{subfigure}
+	\hfill
+
+	\begin{subfigure}[b]{0.65\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../images/DDCC/distribution_parity}
+		\caption{}
+		\label{fig:ddccdistribution_parity}
+	\end{subfigure}	
+	\caption{Line plots to highlight the performance as the number of ansatz layers (AL; left) and re-upload depth (RUD; right) increases for the 5 qubit (a) BSE49 and (b) DDCC data. Additionally, regression parity plots for each AL and RUD are shown for the (c) BSE49 and (d) DDCC data, where the x-axis denotes the predicted target values and the y-axis denotes the reference data.}
+	\label{fig:BSE_distribution_parity}	
+\end{figure}
+
+
+
+
+The last experiments we use state-vector for are learning curves since previous studies have mentioned that PQCs can outperform traditional models with fewer data points \cite{suzuki_predicting_2020,hatakeyama-sato_quantum_2023} \textbf{[double check]}
+\siref{table:5BSE49_LC}
+\siref{table:DDCC_LC}
+
+Error bars show the min and max values
+
+\begin{figure}[H]
+	\centering	
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../images/BSE/fivequbit/BSE_learningcurve}
+		\caption{}
+		\label{fig:BSE5_learning_curves}
+	\end{subfigure}	
+	\hfill
+	\begin{subfigure}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../images/DDCC/DDCC_learning_curves}
+		\caption{}
+		\label{fig:ddcclearningcurves}
+	\end{subfigure}
+	\caption{}
+	\label{fig:learningcurves}
+	
+\end{figure}
+
+
+
+
+
+
+
+
+\textbf{DDCC}
 
 (AL,RUD)=(1,1) Train R$^{2}$ 0.62/test R$^{2}$ 0.62
 (AL,RUD)=(1,3) Train R$^{2}$ 0.85/test R$^{2}$ 0.85
@@ -750,34 +738,12 @@ Best ansatz HWE-CNOT average Train R$^{2}$ X/test R$^{2}$ Y
 
 Talk about the cost of going wider, and inherently deeper
 
-\begin{figure}[H]
-	\centering	
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{../images/DDCC/DDCC_RUDAL_lineplot}
-		\caption{}
-		\label{fig:ddccRUDAL_lineplot}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{\textwidth}
-		\centering
-		\includegraphics[width=0.49\linewidth]{../images/DDCC/distribution_parity}
-		\caption{}
-		\label{fig:ddccdistribution_parity}
-	\end{subfigure}
-	\caption{Model evaluation, using R$^{2}$ (y-axis), of re-upload depths (RUD) and ansatz layers (AL) of 1, 3, and 5 for the A2\_HWE-CNOT using the DDCC dataset. The left side of the plot denotes the training set and the right side the test set.}
-	\label{fig:ddcc_rud}	
-\end{figure}
 
 
 
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\linewidth]{../images/DDCC/DDCC_learning_curves}
-	\caption{}
-	\label{fig:ddcclearningcurves}
-\end{figure}
+
+
 
 Ansaetze analysis \cite{sim_expressibility_2019}
 ``In particular, a substantial improvement in performance of two-qubit gates in a ring or all-to-all connected arrangement, compared to thatof those on a line, is observed.''
@@ -837,6 +803,11 @@ none (0)
 level 1 readout error mitigation and measurement twirling using Twirled Readout Error eXtinction (TREX) \cite{van_den_berg_model-free_2022}
 level 2 level 1 + gate twirling and zero noise extrapolation (ZNE)\cite{kandala_error_2019,li_efficient_2017,temme_error_2017}
 
+
+
+It should also be noted that the majority of the $t_{2}$-amplitudes will be centered near zero since the $t^{ab}_{ij}$ tensor will contain many small contributions.
+Models that exclude small amplitudes, such as those found in Ref\cite{pathirage_exploration_2024}, could be used for increased performance but are out of the scope of this work.
+
 \section{Conclusion}
 Quantum advantage in terms of computational complexity but not in model performance?
 
@@ -847,6 +818,7 @@ Distributed QC to incorporate more features
 Noiseless simulation is costly and does not offer the desired accuracy for BSE49 or DDCC
 
 DDCC could be a useful dataset to benchmark PQC models since it is trivial to perform classically, yet hard for PQCs...
+
 
 
 
