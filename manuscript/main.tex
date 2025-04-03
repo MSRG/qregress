@@ -804,21 +804,30 @@ level 1 readout error mitigation and measurement twirling using Twirled Readout 
 level 2 level 1 + gate twirling and zero noise extrapolation (ZNE)\cite{kandala_error_2019,li_efficient_2017,temme_error_2017}
 
 
+\textcolor{blue}{DDCC Discussion points}
+\begin{itemize}
+	\item Using multiple feature encoding qubits\cite{suzuki_predicting_2020} is unfeasible with DDCC due to the number of samples
+	\item DDCC is a \textit{trivial} task for classical ML (long time to train QML)
+	\item It should also be noted that the majority of the $t_{2}$-amplitudes will be centered near zero since the $t^{ab}_{ij}$ tensor will contain many small contributions. Models that exclude small amplitudes, such as those found in Ref\cite{pathirage_exploration_2024}, could be used for increased performance but are out of the scope of this work.
+\end{itemize}
 
-It should also be noted that the majority of the $t_{2}$-amplitudes will be centered near zero since the $t^{ab}_{ij}$ tensor will contain many small contributions.
-Models that exclude small amplitudes, such as those found in Ref\cite{pathirage_exploration_2024}, could be used for increased performance but are out of the scope of this work.
+
+
 
 \section{Conclusion}
 Quantum advantage in terms of computational complexity but not in model performance?
 
 
-Depth is not always better!
-Molecular representations specifically for QML
-Distributed QC to incorporate more features
-Noiseless simulation is costly and does not offer the desired accuracy for BSE49 or DDCC
 
-DDCC could be a useful dataset to benchmark PQC models since it is trivial to perform classically, yet hard for PQCs...
-
+PQCs for the BSE49 and DDCC datasets do not exhibit an advantage concerning model accuracy, the number of training points, or time to train the models
+Poor performance on the BSE49 dataset could be explained by the feature space reduction, we are compressing the feature space from 2048 to 5 features (structure-based ML reps. require more features than physics-based reps.)
+While the physics-based feature set of DDCC outperforms the structure-based feature set of BSE49, DDCC requires too many device executions to be useful on the current generation of devices
+For practitioners of quantum chemistry, who work on machine learning-related tasks, like Viki and me, several options exist:
+Use hybrid classical-quantum machine learning approaches to exploit entanglement on the QPU, while using a CPU/GPU/TPU for efficient classical tasks
+Classical machine learning assisted quantum computing (like I have proposed for a DDCC-LUCJ project for two undergraduates for summer 2025)
+Using distributed QML to maintain short circuit depths, while increasing the number of features
+Explore molecular representations designed for QML (e.g., BSE49 is a classic-in/quantum-out case)
+Stick to quantum-in/quantum-out approaches (e.g., DDCC falls into this category, but could this be reformulated to better exploit the QPU?)
 
 
 

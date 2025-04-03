@@ -414,4 +414,15 @@ class QiskitRegressor:
         progress = {'x': self.x0, 'loss': self.loss}
         dump(progress, 'final_state_model.bin')
         os.remove('partial_state_model.bin') 
-        
+
+
+
+
+__all__ = ["QiskitRegressor"]
+
+# Clean up the module namespace
+# del np, time, joblib, dump, load, os, tqdm, mean_squared_error, r2_score
+# del mean_absolute_error, minimize, Pauli, SparsePauliOp, Operator
+# del StatevectorEstimator, Parameter, ParameterVector, generate_preset_pass_manager
+# del Estimator, QiskitRuntimeService, AerSimulator, NoiseModel, FakeQuebec, Batch
+

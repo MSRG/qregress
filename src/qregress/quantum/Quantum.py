@@ -406,3 +406,10 @@ class QuantumRegressor:
             return [f * self.qnode(features=features, parameters=params) for features in tqdm(x,desc="Predict")]
         else:
             return [np.dot(f * np.array(self.qnode(features=features, parameters=params[:-self.num_qubits])),params[-self.num_qubits:]) for features in x]
+
+
+
+__all__ = ["QuantumRegressor"]
+
+
+del qiskit_session, AerSimulator, NoiseModel, QiskitRuntimeService, FakeQuebec, minimize, basinhopping, mean_squared_error, tqdm, joblib, json, np, os, qml, time,
