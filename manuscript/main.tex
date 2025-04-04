@@ -804,12 +804,7 @@ level 1 readout error mitigation and measurement twirling using Twirled Readout 
 level 2 level 1 + gate twirling and zero noise extrapolation (ZNE)\cite{kandala_error_2019,li_efficient_2017,temme_error_2017}
 
 
-\textcolor{blue}{DDCC Discussion points}
-\begin{itemize}
-	\item Using multiple feature encoding qubits\cite{suzuki_predicting_2020} is unfeasible with DDCC due to the number of samples
-	\item DDCC is a \textit{trivial} task for classical ML (long time to train QML)
-	\item It should also be noted that the majority of the $t_{2}$-amplitudes will be centered near zero since the $t^{ab}_{ij}$ tensor will contain many small contributions. Models that exclude small amplitudes, such as those found in Ref\cite{pathirage_exploration_2024}, could be used for increased performance but are out of the scope of this work.
-\end{itemize}
+
 
 
 
@@ -829,7 +824,12 @@ Using distributed QML to maintain short circuit depths, while increasing the num
 Explore molecular representations designed for QML (e.g., BSE49 is a classic-in/quantum-out case)
 Stick to quantum-in/quantum-out approaches (e.g., DDCC falls into this category, but could this be reformulated to better exploit the QPU?)
 
-
+\textcolor{blue}{DDCC Discussion points}
+\begin{itemize}
+	\item Using multiple feature encoding qubits\cite{suzuki_predicting_2020} is unfeasible with DDCC due to the number of samples
+	\item DDCC is a \textit{trivial} task for classical ML (long time to train QML)
+	\item It should also be noted that the majority of the $t_{2}$-amplitudes will be centered near zero since the $t^{ab}_{ij}$ tensor will contain many small contributions. Models that exclude small amplitudes, such as those found in Ref\cite{pathirage_exploration_2024}, could be used for increased performance but are out of the scope of this work.
+\end{itemize}
 
 \section{Acknowledgements}
 We would like to acknowledge the Government of Canada’s New Frontiers in Research Fund (NFRF), for grant NFRFE-2022-00226, and the Quantum Software Consortium (QSC), financed under grant \#ALLRP587590-23 from the National Sciences and Engineering Research Council of Canada (NSERC) Alliance Consortia Quantum Grants.
