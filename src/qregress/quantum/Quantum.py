@@ -25,6 +25,8 @@ class BasinBounds:
         tmax = bool(np.all(x <= self.xmax))
         tmin = bool(np.all(x >= self.xmin))
         return tmax and tmin
+
+        
 class QuantumRegressor:
     """
     Machine learning model based on quantum circuit learning.
@@ -163,6 +165,7 @@ class QuantumRegressor:
         if self._batch_size is not None and self.njobs is not None:
             batch_partitions = np.array_split(np.random.randint(0, len(self.x), len(self.x)),len(self.x)//self._batch_size)
             base_cost = np.mean(joblib.Parallel(n_jobs=self.njobs,verbose=0)(joblib.delayed(mean_squared_error)(self.y[i], self.predict(self.x[i], params=parameters)) for i in tqdm(batch_partitions,desc=f"Cost (Batches {len(batch_partitions)} of size {self._batch_size})")))
+
         else:
             pred = self.predict(self.x, params=parameters)
             base_cost = mean_squared_error(self.y, pred)        
@@ -325,18 +328,10 @@ class QuantumRegressor:
                         cost.append(temp_cost)
                         self._callback(params)
         
-                        # if idx>0 and abs(cost[idx]-cost[idx-1])<=self._tol and abs(np.mean(cost[-3:])-temp_cost)<=self._tol:
-                        #     print("Early stopping!")
-                        #     break
-                        # Early stopping condition
-                        if (
-                            idx > 0
-                            and abs(cost[idx] - cost[idx - 1]) <= self._tol
-                            and abs(np.mean(cost[-3:]) - temp_cost) <= self._tol
-                            and (prev_params is None or not np.allclose(params, prev_params))
-                        ):
+                        if idx>0 and abs(cost[idx]-cost[idx-1])<=self._tol and abs(np.mean(cost[-3:])-temp_cost)<=self._tol:
                             print("Early stopping!")
-                            break                            
+                            break
+                             
                     opt_result = [params, cost]
                     self.params = params                    
 
@@ -359,11 +354,12 @@ class QuantumRegressor:
        
                 opt = qml.SPSAOptimizer(maxiter=self.max_iterations)
                 cost = []
+                
                 for idx,_ in enumerate(range(self.max_iterations)):
                     params, temp_cost = opt.step_and_cost(self._cost_wrapper, params)
                     cost.append(temp_cost)
                     self._callback(params)
-    
+
                     if idx>0 and abs(cost[idx]-cost[idx-1])<=self._tol and abs(np.mean(cost[-3:])-temp_cost)<=self._tol:
                         print("Early stopping!")
                         break
@@ -371,7 +367,6 @@ class QuantumRegressor:
                 opt_result = [params, cost]
                 self.params = params                    
             
-
 
         self._save_partial_state(params, force=True)
         if detailed_results:
@@ -411,12 +406,11 @@ class QuantumRegressor:
             params = self.params
 
         if self.postprocess is None:
-            return [f * self.qnode(features=features, parameters=params) for features in tqdm(x,desc="Predict")]
+            return [f * self.qnode(features=features, parameters=params) for features in x]
         else:
             return [np.dot(f * np.array(self.qnode(features=features, parameters=params[:-self.num_qubits])),params[-self.num_qubits:]) for features in x]
 
 
 
-__all__ = ["QuantumRegressor"]
 
 
