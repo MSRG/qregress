@@ -412,4 +412,3 @@ class QuantumRegressor:
 __all__ = ["QuantumRegressor"]
 
 
-del qiskit_session, AerSimulator, NoiseModel, QiskitRuntimeService, FakeQuebec, minimize, basinhopping, mean_squared_error, tqdm, joblib, json, np, os, qml, time,
