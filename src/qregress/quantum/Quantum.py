@@ -325,10 +325,18 @@ class QuantumRegressor:
                         cost.append(temp_cost)
                         self._callback(params)
         
-                        if idx>0 and abs(cost[idx]-cost[idx-1])<=self._tol and abs(np.mean(cost[-3:])-temp_cost)<=self._tol:
+                        # if idx>0 and abs(cost[idx]-cost[idx-1])<=self._tol and abs(np.mean(cost[-3:])-temp_cost)<=self._tol:
+                        #     print("Early stopping!")
+                        #     break
+                        # Early stopping condition
+                        if (
+                            idx > 0
+                            and abs(cost[idx] - cost[idx - 1]) <= self._tol
+                            and abs(np.mean(cost[-3:]) - temp_cost) <= self._tol
+                            and (prev_params is None or not np.allclose(params, prev_params))
+                        ):
                             print("Early stopping!")
-                            break
-                            
+                            break                            
                     opt_result = [params, cost]
                     self.params = params                    
 
