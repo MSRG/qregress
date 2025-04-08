@@ -693,23 +693,15 @@ This is highlighted in Fig. \ref{fig:ddccdistribution_parity}, where we see that
 \end{figure}
 
 Following the analysis of the RUD and number of ALs for both 5 qubit models, we explored claims that PQCs offer better model performance using fewer training points and hyperparameters\cite{schuld_circuit-centric_2020,du_expressive_2020,suzuki_predicting_2020} using learning curves.
-Our learning curves are generated varying the number of training points from 10-80\% of the total data, while fixing the number of test points to 20\% of the total dataset.
+We generate the learning curves by varying the number of training points from 10-80\% of the total data, while holding the number of test points to 20\% of the total dataset.
 In Fig. \ref{fig:learningcurves}, we analyze the effects of the number of training points of the best 5 qubit BSE49 and DDCC circuits, M-M-CZ{\_}HWE-CNOT using a RUD and AL of 1 and A2{\_}HWE-CNOT using a RUD of 
-Next, we use learning curves, where the number of training points is varied, while the number of training points is varied to 
 For the BSE49 dataset, using 5 qubits, we found that M-M-CZ{\_}HWE-CNOT offers less overfit models, but offer poorer performance regarding the training and test set R$^{2}$s, as highlighted in Fig. \ref{fig:BSE5_learning_curves}.
 Across the learning curve, the \textit{k}-NN model has a mean R$^{2}$s of 0.9998 for the training set and 0.5822 test set, while M-M-CZ{\_}HWE-CNOT has a mean R$^{2}$ of 0.1405 for the training set and R$^{2}$ of 0.136 for the test set.
 For M-M-CZ{\_}HWE-CNOT, the training set performance peaks when using 10\% of the training data with an R$^{2}$ of 0.2015, dips to an R$^{2}$ of -0.0172 using 30\% of the training data, and then maintains an R$^{2}$ less than 0.2 for the remaining percentages of the training data.
 Unlike the training points, the test reaches peak performance when 70\% of the total data is used in the training set, with a test R$^{2}$ of 0.2064.
-
-
-
-When we analyze the effects of the number of training points on the DDCC dataset using the A2{\_}HWE-CNOT PQC, we found that 
-
-
-A2{\_}HWE-CNOT has $3nvk$ trainable parameters
-
-Minimum number of classical parameters is $n+1$
-
+The A2{\_}HWE-CNOT circuit on the DDCC dataset has some similarities and difference when compared to M-M-CZ{\_}HWE-CNOT on the BSE49 dataset.
+One difference is that A2{\_}HWE-CNOT improves across the learning curve, with maximum R$^{2}$ of 0.8470 and 0.8492 for the training and test sets, respectively.
+A common feature between both models is that the classical models outperform the PQCs in both cases, but with the DDCC dataset the classical models do not exhibit overfitting and have R$^{2}$s greater than 0.98 across the full learning curve.
 
 
 
