@@ -13,7 +13,7 @@ from .Classical import run_models
 @click.option('--train_set', type=click.Path(exists=True), required=True, help='File for train set')
 @click.option('--test_set', type=click.Path(exists=True), required=True, help='File for test set')
 @click.option('--save_plots', default=False, help="Don't use: depreceating soon... ")
-def main(scaler, train_set, test_set, save_plots):
+def run(scaler, train_set, test_set, save_plots):
     train = joblib.load(train_set)
     test = joblib.load(test_set)
     X_tr = train['X']
@@ -50,4 +50,4 @@ def main(scaler, train_set, test_set, save_plots):
 
 
 if __name__ == '__main__':
-    main()
+    run()

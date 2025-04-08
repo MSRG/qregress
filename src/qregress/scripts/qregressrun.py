@@ -147,7 +147,7 @@ def save_token(instance, token):
                                                                                 'the same settings file to generate '
                                                                                 'the same model for training. ')
 @ignore_warnings(category=InconsistentVersionWarning)
-def main(save_path,settings, train_set, test_set, scaler, instance, token, save_circuits, title, resume_file):
+def run(save_path,settings, train_set, test_set, scaler, instance, token, save_circuits, title, resume_file):
     """
     Trains the quantum regressor with the settings in the given settings file using the dataset from the given train
     and test files. Will perform grid search on a default hyperparameter space unless they are specified. Saves scores
@@ -334,4 +334,4 @@ def save_apptainer(save_path):
           pass
              
 if __name__ == '__main__':
-    main()
+    run()

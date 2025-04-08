@@ -29,10 +29,10 @@ include = ["qregress*"]
 dependencies = { file = ["requirements.txt"] }
 
 [project.scripts]
-# classical = "qregress.Classical:main"
-# cli-classical = "qregress.cli_classical:main"
-qregressrun = "qregress.scripts.qregressrun:main"
-settings = "qregress.scripts.settings:main"
+classical = "qregress.scripts.Classical:run"
+cli-classical = "qregress.scripts.cli_classical:run"
+qregressrun = "qregress.scripts.qregressrun:run"
+settings = "qregress.scripts.settings:run"
 
 [project.urls]
 Homepage = "https://github.com/MSRG/qregress"

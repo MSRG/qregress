@@ -167,7 +167,7 @@ def create_combinations(encoder: str = None, ansatz: str = None):
 
 
 
-def main(encoder, ansatz, layers, device, backend, shots, optimizer, max_iter, tol, error_mitigation, post_process,
+def run(encoder, ansatz, layers, device, backend, shots, optimizer, max_iter, tol, error_mitigation, post_process,
          file_name, re_upload_depth, num_qubits,batch_size,njobs):
     """
     Takes user input parameters and creates a settings json file to be inputted into main.py. If an encoder/ansatz is
@@ -188,4 +188,4 @@ def main(encoder, ansatz, layers, device, backend, shots, optimizer, max_iter, t
 
 
 if __name__ == '__main__':
-    main()
+    run()
