@@ -4,7 +4,7 @@ import json
 import pandas as pd
 import numpy as np
 
-from .Classical import run_models
+from ..quantum.Classical import run_models
 
 
 @click.command()
