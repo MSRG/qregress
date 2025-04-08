@@ -1,6 +1,6 @@
 from glob import glob
-from .quantum.Evaluate import evaluate
-from .quantum.Quantum import QuantumRegressor
+from ..quantum.Evaluate import evaluate
+from ..quantum.Quantum import QuantumRegressor
 from .settings import ANSATZ_LIST, ENCODER_LIST
 from shutil import copy,SameFileError
 from sklearn.exceptions import InconsistentVersionWarning

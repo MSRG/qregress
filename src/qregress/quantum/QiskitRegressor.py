@@ -1,24 +1,23 @@
-import numpy as np
-import time
-import joblib
-from joblib import dump, load
-import os
-from tqdm.notebook import tqdm
-from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
-from scipy.optimize import minimize
-from qiskit.quantum_info import Pauli, SparsePauliOp, Operator
-from qiskit.primitives import StatevectorEstimator
-from qiskit.circuit import Parameter, ParameterVector
-from qiskit.transpiler.preset_passmanagers import generate_preset_pass_manager
-from qiskit.quantum_info import SparsePauliOp
-from qiskit_ibm_runtime import EstimatorV2 as Estimator
-from qiskit_ibm_runtime import QiskitRuntimeService
-from qiskit_aer import AerSimulator
-from qiskit_aer.noise import NoiseModel
-from qiskit_ibm_runtime.fake_provider import FakeQuebec
-from qiskit_ibm_runtime import Batch
-
 class QiskitRegressor:
+    import numpy as np
+    import time
+    import joblib
+    from joblib import dump, load
+    import os
+    from tqdm.notebook import tqdm
+    from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
+    from scipy.optimize import minimize
+    from qiskit.quantum_info import Pauli, SparsePauliOp, Operator
+    from qiskit.primitives import StatevectorEstimator
+    from qiskit.circuit import Parameter, ParameterVector
+    from qiskit.transpiler.preset_passmanagers import generate_preset_pass_manager
+    from qiskit.quantum_info import SparsePauliOp
+    from qiskit_ibm_runtime import EstimatorV2 as Estimator
+    from qiskit_ibm_runtime import QiskitRuntimeService
+    from qiskit_aer import AerSimulator
+    from qiskit_aer.noise import NoiseModel
+    from qiskit_ibm_runtime.fake_provider import FakeQuebec
+    from qiskit_ibm_runtime import Batch
     def __init__(self,
                  quantumcircuit,
                  numqubits,
@@ -414,6 +413,5 @@ class QiskitRegressor:
         progress = {'x': self.x0, 'loss': self.loss}
         dump(progress, 'final_state_model.bin')
         os.remove('partial_state_model.bin') 
-
 
 

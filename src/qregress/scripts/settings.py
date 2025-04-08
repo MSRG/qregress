@@ -1,8 +1,8 @@
 import json
 import click
 import os
-from .quantum.circuits.Encoders import double_angle, single_angle, iqp_embedding, mitarai, composer, entangle_cz, entangle_cnot
-from .quantum.circuits.Ansatz import HardwareEfficient, EfficientSU2, TwoLocal, ModifiedPauliTwo, HadamardAnsatz
+from ..quantum.circuits.Encoders import double_angle, single_angle, iqp_embedding, mitarai, composer, entangle_cz, entangle_cnot
+from ..quantum.circuits.Ansatz import HardwareEfficient, EfficientSU2, TwoLocal, ModifiedPauliTwo, HadamardAnsatz
 
 ############################################
 #  Lists of acceptable values

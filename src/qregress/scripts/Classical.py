@@ -10,7 +10,7 @@ from sklearn.neighbors import KNeighborsRegressor
 from sklearn.model_selection import GridSearchCV
 from sklearn.svm import SVR
 
-from .quantum.Evaluate import evaluate
+from ..quantum.Evaluate import evaluate
 
 gaussian_kernel = RBF()
 
