@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH -t 4-00:00:00
+#SBATCH -J ol0_rl0 
+#SBATCH -N 1
+#SBATCH --cpus-per-task 64
+#SBATCH --account=rrg-jacobsen-ab
+#SBATCH --error=A2_HWE-CNOT.e%J
+#SBATCH --output=A2_HWE-CNOT.o%J
+
+export OMP_NUM_THREADS=64
+
+
+/lustre06/project/6006115/gjones/env/bin/python3 fake.py > fake.out 2>&1
+

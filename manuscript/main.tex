@@ -674,7 +674,7 @@ This is highlighted in Fig. \ref{fig:ddccdistribution_parity}, where we see that
 		\label{fig:ddccRUDAL_lineplot}
 	\end{subfigure}
 	\hfill	
-	\begin{subfigure}[b]{0.65\textwidth}
+	\begin{subfigure}[b]{0.49\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{../images/BSE/fivequbit/distribution_parity}
 		\caption{}
@@ -682,7 +682,7 @@ This is highlighted in Fig. \ref{fig:ddccdistribution_parity}, where we see that
 	\end{subfigure}
 	\hfill
 
-	\begin{subfigure}[b]{0.65\textwidth}
+	\begin{subfigure}[b]{0.49\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{../images/DDCC/distribution_parity}
 		\caption{}
@@ -727,9 +727,20 @@ A common feature between both models is that the classical models outperform the
 \end{figure}
 
 Following the evaluation of the learning curves, we decided to only run the A2{\_}HWE-CNOT circuit on real quantum hardware.
-Initial analysis suggested that using 80\% of the training data would take 
+Before running on the real hardware (\textit{ibm{\_}quebec}), we optimize the number of shots, the resilience level, and optimization using the \textit{FakeQuebec} backend with the \textit{qiskit-aer} plugin.
+Based on the results from the observations provided by the state vector learning curves (Fig. \ref{fig:ddcclearningcurves}), along with considerations regarding the computational cost associated with the query time to the IBM Quantum platform, number of training points ($N_{\text{occ}}^{2}N_{\text{virt}}^{2}$ $t_{2}$-amplitudes), along with the potential number of device executions associated with the number of shots, resilience (error mitigation) and optimization levels the total number of training data is reduced from 80\% to 10\% of the total training data.
+We validated this assumption using the \textit{ibm{\_}quebec} device using Twirled Readout Error eXtinction (TREX) \cite{van_den_berg_model-free_2022} error mitigation (resilience level 1), an optimization level of 2, with 3072 shots for both 10\%  and 80\% of the training data.
+Using one iteration, we found that one iteration using 10\% of the training data took 1824 s of wall time, versus one iteration using 80\% of the training data taking 25004 s of wall time.
+For a model that requires 500 or 1000 iterations to train, this would require approximately 145 to 289 days to train an end-to-end model using \textit{ibm{\_}quebec} using 80\% of the training data, versus 10 to 21 days required to train the model containing 10\% of the total data.
+While this is still much longer than the classical models, the value of running on real hardware is still a worthwhile experiment to show how these models behave on the current generation of hardware.
+ 
 
-1 iteration: 25004.5437 s
+
+To efficiently run the DDCC model on \textit{ibm{\_}quebec} the data is split into batches of 4 molecules per sample with 64 $t_{2}$-amplitudes each.
+The motivation for batching the data is to reduce the number of circuit executions per primitive unified blocs (PUBs).
+We found that for 500 iterations, an optimization level of X, with a resilience level of Y, using Z shots was adequate to reach satisfactory model performance using the \textit{FakeQuebec} backend (\textbf{Update these figures} Figs. \ref{fig:optresfakequebec} and \ref{fig:shotsfakequebec}).
+When applied on \textit{ibm{\_}quebec} we found that the models had R$^{2}$s of X and Y, for the training and test set, respectively, and took a total of X QPU time and Y wall time to complete.
+
 
 
 
@@ -743,56 +754,9 @@ Ansaetze analysis \cite{sim_expressibility_2019}
 
 
 
-5 qubit/5 ansatz layers: 2*5 + 3 * 5 * 5 = 85 parameters (75 trainable, 5 * 2 features)
-A2 $2n$ parameters
-HWE-CNOT $3nL$ parameters
-2 qubit gates $nL$
-Number of parameters (2n+3nL)=(2+3L)*n
 
-$n$, number of qubits and $L$, number of circuit layers
-
-To efficiently run DDCC on IBM Quebec, splitting the data into batches of $\approx 4$ samples with 64 $t_{2}$-amplitudes each.
-
-One iteration would require approximately $N_{\text{samples}} * N_{occ}^{2} * N_{virt}^{2} * N_{\text{shots}} * N_{\text{observables}}$ circuit executions (+ whatever SPSA costs to run per iteration)
-
-
-Ran using the state vector model parameters for one iteration to test the optimization and resilience levels using Fake Quebec before running on the real device
-
-$\{1024 \times x \vert  x \in [1,10]\}$ 
-
-Fake
-Optimization level 2 
-resilience level 0
-
-Regarding the number of circuit executions vs performance 3072 (1024 times 3) is the best number of shots
-
-
-Fig. \ref{fig:optresfakequebec}
-Fig. \ref{fig:shotsfakequebec}
-
-
-Real
-Optimization level 2 
-resilience level 1
-3072
-
-resilience level 2 is too expensive on the real device
-Regarding the number of circuit executions vs performance 3072 (1024 times 3) is the best number of shots
-
-Error handling for real run with iter>1
-
-For the experiments using the \textit{FakeQuebec} and \textit{ibm\_quebec} backends, we performed small tests, initialized using the state-vector parameters with one iteration, to determine the best circuit optimization and error mitigation (resilience) levels. 
-
-optimization levels
-none (0), light (1), medium (2), high (3)
-
-
-resilience levels (error mitigation)
-none (0) 
 level 1 readout error mitigation and measurement twirling using Twirled Readout Error eXtinction (TREX) \cite{van_den_berg_model-free_2022}
 level 2 level 1 + gate twirling and zero noise extrapolation (ZNE)\cite{kandala_error_2019,li_efficient_2017,temme_error_2017}
-
-
 
 
 For the circuits we perform experiments with, there exists a quantum advantage regarding the time complexity of training the quantum circuit classically versus on the quantum hardware. 
