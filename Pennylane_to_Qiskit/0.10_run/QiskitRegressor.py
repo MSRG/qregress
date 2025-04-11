@@ -318,8 +318,11 @@ class QiskitRegressor:
 
             self.jobs = jobs
             print("GMJ self.jobs",self.jobs)            
-            t1 = time.perf_counter()        
-            y_pred = np.hstack(joblib.Parallel(n_jobs=self.n_jobs,verbose=0, prefer="threads")(joblib.delayed(self.get_results)(filename,job) for job in tqdm(self.jobs,desc="Running batch: "))).T
+            t1 = time.perf_counter()
+            if self.backendstr=='statevector' or self.backendstr=='fake':
+                y_pred = np.hstack(joblib.Parallel(n_jobs=self.n_jobs,verbose=0, prefer="threads")(joblib.delayed(self.get_results)(filename,job) for job in tqdm(self.jobs,desc="Running batch: "))).T
+            else:
+                y_pred = self.get_results(filename)
             print('GMJ predict',y_pred.shape)
             if self.verbose:
                 print(f"Predicted in {time.perf_counter()-t1:.4f} s")          
@@ -331,8 +334,9 @@ class QiskitRegressor:
                 t1 = time.perf_counter()        
                 y_pred = np.hstack(self.get_results(filename)).T
                 if self.verbose:
-                    print(f"Predicted in {time.perf_counter()-t1:.4f} s")              
-                        
+                    print(f"Predicted in {time.perf_counter()-t1:.4f} s") 
+                    
+        print("return",y_pred.shape)
         return y_pred      
 
     def _cost_func(self,parameters,X, y):
