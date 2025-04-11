@@ -1,23 +1,24 @@
+import numpy as np
+import time
+import joblib
+from joblib import dump, load
+import os
+from tqdm.notebook import tqdm
+from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
+from scipy.optimize import minimize
+from qiskit.quantum_info import Pauli, SparsePauliOp, Operator
+from qiskit.primitives import StatevectorEstimator
+from qiskit.circuit import Parameter, ParameterVector
+from qiskit.transpiler.preset_passmanagers import generate_preset_pass_manager
+from qiskit.quantum_info import SparsePauliOp
+from qiskit_ibm_runtime import EstimatorV2 as Estimator
+from qiskit_ibm_runtime import QiskitRuntimeService
+from qiskit_aer import AerSimulator
+from qiskit_aer.noise import NoiseModel
+from qiskit_ibm_runtime.fake_provider import FakeQuebec
+from qiskit_ibm_runtime import Batch
+
 class QiskitRegressor:
-    import numpy as np
-    import time
-    import joblib
-    from joblib import dump, load
-    import os
-    from tqdm.notebook import tqdm
-    from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
-    from scipy.optimize import minimize
-    from qiskit.quantum_info import Pauli, SparsePauliOp, Operator
-    from qiskit.primitives import StatevectorEstimator
-    from qiskit.circuit import Parameter, ParameterVector
-    from qiskit.transpiler.preset_passmanagers import generate_preset_pass_manager
-    from qiskit.quantum_info import SparsePauliOp
-    from qiskit_ibm_runtime import EstimatorV2 as Estimator
-    from qiskit_ibm_runtime import QiskitRuntimeService
-    from qiskit_aer import AerSimulator
-    from qiskit_aer.noise import NoiseModel
-    from qiskit_ibm_runtime.fake_provider import FakeQuebec
-    from qiskit_ibm_runtime import Batch
     def __init__(self,
                  quantumcircuit,
                  numqubits,
@@ -290,7 +291,6 @@ class QiskitRegressor:
             mapped_circuits = [[[self._map2qiskit(x_i) for x_i in xi ] for xi in X[i : i + 4]] for i in range(0, len(X), 4)]
             tiled_params = np.tile(parameters,(X.shape[0],X.shape[1])).reshape(X.shape[0],X.shape[1],-1)
             batched_params = [tiled_params[i : i + 4] for i in range(0, len(X), 4)]
-            
             #  Set some parameters to assist with writing to file
             if isinstance(self._backend, str):
                 filename = None
@@ -312,9 +312,13 @@ class QiskitRegressor:
         
 
             self.jobs = jobs
-                              
-            t1 = time.perf_counter()        
-            y_pred = np.hstack(joblib.Parallel(n_jobs=self.n_jobs,verbose=0, prefer="threads")(joblib.delayed(self.get_results)(filename,job) for job in tqdm(self.jobs,desc="Running batch: "))).T
+                      
+            t1 = time.perf_counter()
+            if self.backendstr=='statevector' or self.backendstr=='fake':
+                y_pred = np.hstack(joblib.Parallel(n_jobs=self.n_jobs,verbose=0, prefer="threads")(joblib.delayed(self.get_results)(filename,job) for job in tqdm(self.jobs,desc="Running batch: "))).T
+            else:
+                y_pred = self.get_results(filename)
+            
             if self.verbose:
                 print(f"Predicted in {time.perf_counter()-t1:.4f} s")          
                 
@@ -323,10 +327,11 @@ class QiskitRegressor:
                 raise TypeError
             else:
                 t1 = time.perf_counter()        
-                y_pred = np.hstack(joblib.Parallel(n_jobs=self.n_jobs,verbose=0, prefer="threads")(joblib.delayed(self.get_results)(filename) for job in tqdm(jobs,desc="Running batch: "))).T
+                y_pred = np.hstack(self.get_results(filename)).T
                 if self.verbose:
-                    print(f"Predicted in {time.perf_counter()-t1:.4f} s")              
-                        
+                    print(f"Predicted in {time.perf_counter()-t1:.4f} s") 
+                    
+        print("return",y_pred.shape)
         return y_pred      
 
     def _cost_func(self,parameters,X, y):
@@ -413,5 +418,4 @@ class QiskitRegressor:
         progress = {'x': self.x0, 'loss': self.loss}
         dump(progress, 'final_state_model.bin')
         os.remove('partial_state_model.bin') 
-
-
+        

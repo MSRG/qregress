@@ -205,7 +205,6 @@ class QiskitRegressor:
         else:
             with open(filename,'r') as f:
                 pred = np.hstack([np.vstack([r.data.evs for r in self.service.job(jid.strip()).result()]) for jid in f.readlines()])
-            print("GMJ get_results pred",len(pred),pred.shape)
              
         return pred   
 
@@ -292,11 +291,7 @@ class QiskitRegressor:
             mapped_circuits = [[[self._map2qiskit(x_i) for x_i in xi ] for xi in X[i : i + 4]] for i in range(0, len(X), 4)]
             tiled_params = np.tile(parameters,(X.shape[0],X.shape[1])).reshape(X.shape[0],X.shape[1],-1)
             batched_params = [tiled_params[i : i + 4] for i in range(0, len(X), 4)]
-            print("GMJ mapped_circuits",len(mapped_circuits))
-            print("GMJ tiled_params",tiled_params.shape,len(tiled_params))
-            print("GMJ batched_params",len(batched_params))
             #  Set some parameters to assist with writing to file
-            print("GMJ isinstance",isinstance(self._backend, str),self._backend)
             if isinstance(self._backend, str):
                 filename = None
                 file = None
@@ -306,7 +301,7 @@ class QiskitRegressor:
             # Submit jobs
             t0 = time.perf_counter()
             jobs = joblib.Parallel(n_jobs=self.n_jobs,verbose=0, prefer="threads")(joblib.delayed(self._batchmap)(idx,anz,pars,file) for idx, (anz, pars) in tqdm(enumerate(zip(mapped_circuits,batched_params)),desc="Mappings"))
-            print("GMJ jobs",len(jobs))
+            
             if isinstance(self._backend, str)==False:
                 # Close file after writing            
                 file.close() 
@@ -317,13 +312,13 @@ class QiskitRegressor:
         
 
             self.jobs = jobs
-            print("GMJ self.jobs",self.jobs)            
+                      
             t1 = time.perf_counter()
             if self.backendstr=='statevector' or self.backendstr=='fake':
                 y_pred = np.hstack(joblib.Parallel(n_jobs=self.n_jobs,verbose=0, prefer="threads")(joblib.delayed(self.get_results)(filename,job) for job in tqdm(self.jobs,desc="Running batch: "))).T
             else:
                 y_pred = self.get_results(filename)
-            print('GMJ predict',y_pred.shape)
+            
             if self.verbose:
                 print(f"Predicted in {time.perf_counter()-t1:.4f} s")          
                 
@@ -364,8 +359,7 @@ class QiskitRegressor:
         t0=time.perf_counter()
         
         y_pred = self.predict(X,parameters,iters=self.cost_history_dict["iters"])
-        print('GMJ loss',y.flatten().shape,y_pred.flatten().shape)
-
+        
         loss = mean_squared_error(y.flatten(),y_pred.flatten())
         r2 = r2_score(y.flatten(),y_pred.flatten())
         
