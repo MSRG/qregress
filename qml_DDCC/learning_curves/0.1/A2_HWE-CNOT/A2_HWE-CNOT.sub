@@ -1,0 +1,17 @@
+#! /bin/bash
+#SBATCH -t 4-00:00:00
+#SBATCH -J 0.1_A2_HWE-CNOT
+#SBATCH -N 1
+#SBATCH --cpus-per-task 64
+#SBATCH --account=rrg-jacobsen-ab
+#SBATCH --error=A2_HWE-CNOT.e%J
+#SBATCH --output=A2_HWE-CNOT.o%J
+
+export OMP_NUM_THREADS=64
+
+cd /home/gjones/scratch/learning_curves/0.1/A2_HWE-CNOT
+
+/lustre06/project/6006115/gjones/env/bin/python3 /home/gjones/scratch/learning_curves/0.1/A2_HWE-CNOT/main.py     --save_path /home/gjones/scratch/learning_curves/0.1/A2_HWE-CNOT     --settings /home/gjones/scratch/learning_curves/0.1/A2_HWE-CNOT/A2_HWE-CNOT.json     --train_set /home/gjones/scratch/learning_curves/0.1/0.1_5_DDCC_train.bin     --test_set /home/gjones/scratch/learning_curves/0.1/0.1_5_DDCC_test.bin     --scaler /home/gjones/scratch/learning_curves/0.1/0.1_5_DDCC_scaler.bin     --save_circuits True      > A2_HWE-CNOT.out 2>&1
+
+cd ..
+touch A2_HWE-CNOT.done

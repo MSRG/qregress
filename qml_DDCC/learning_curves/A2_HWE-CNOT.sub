@@ -1,0 +1,15 @@
+#! /bin/bash
+#SBATCH -t 4-00:00:00
+#SBATCH -J A2_HWE-CNOT
+#SBATCH -N 1
+#SBATCH -n 16
+#SBATCH --account=rrg-jacobsen-ab
+#SBATCH --error=A2_HWE-CNOT.e%J
+#SBATCH --output=A2_HWE-CNOT.o%J
+
+cd 0.8/A2_HWE-CNOT
+
+/lustre06/project/6006115/gjones/env/bin/python3 0.8/A2_HWE-CNOT/main.py     --save_path 0.8/A2_HWE-CNOT     --settings 0.8/A2_HWE-CNOT/A2_HWE-CNOT.json     --train_set 0.8/A2_HWE-CNOT/0.8_5_DDCC_train.bin     --test_set 0.8/A2_HWE-CNOT/0.8_5_DDCC_test.bin     --scaler 0.8/A2_HWE-CNOT/0.8_5_DDCC_scaler.bin     --save_circuits True      > A2_HWE-CNOT.out 2>&1
+
+cd ..
+touch A2_HWE-CNOT.done
