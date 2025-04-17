@@ -1,0 +1,1 @@
+python3 ../main.py     --save_path $(pwd) --settings $(pwd)/A1-A1-CNOT_Full-CRX.json     --train_set ../PCA16_0.8_Morgan_train.bin     --test_set ../PCA16_0.8_Morgan_test.bin     --scaler ../PCA16_0.8_Morgan_scaler.bin     --save_circuits True     --resume_file $(pwd)/final_state_model.bin  > A1-A1-CNOT_Full-CRX.out 2>&1
