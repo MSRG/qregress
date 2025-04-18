@@ -1,0 +1,184 @@
+/home/ubuntu/miniconda3/envs/qml/lib/python3.10/site-packages/sklearn/base.py:380: InconsistentVersionWarning: Trying to unpickle estimator MinMaxScaler from version 1.5.1 when using version 1.6.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+(19, 64) (40, 64)
+None
+Parameters from scratch
+[-2.90318345  2.23743464 -2.12427964 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960145  1.18551998 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508  -2.90318345  2.23743464 -2.12427964
+ -0.11653103  0.55388708 -2.77010897  3.06858498  2.18960145  1.18551998
+ -1.06648308  0.6027151   1.14432445  1.31029899 -1.8735468   0.7296508
+ -2.90318345  2.23743464 -2.12427964 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960145  1.18551998 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508  -2.90318345  2.23743464 -2.12427964
+ -0.11653103  0.55388708 -2.77010897  3.06858498  2.18960145  1.18551998
+ -1.06648308  0.6027151   1.14432445  1.31029899 -1.8735468   0.7296508
+ -2.90318345  2.23743464 -2.12427964 -0.11653103  0.55388708 -2.77010897
+  3.06858498  2.18960145  1.18551998 -1.06648308  0.6027151   1.14432445
+  1.31029899 -1.8735468   0.7296508 ]
+[SparsePauliOp(['IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIZIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII'],
+              coeffs=[1.+0.j])]
+AerSimulator('aer_simulator_from(ibm_quebec)'
+             noise_model=<NoiseModel on ['sx', 'ecr', 'x', 'reset', 'measure', 'id']>)
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 85.0913 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 73.6976 s
+return (19, 64)
+Iters. done: 1 Current cost: 0.09843419191442598 Accuracy: -0.03197682226301324 Time: 159.53919997438788
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 88.2496 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 78.6617 s
+return (19, 64)
+Iters. done: 2 Current cost: 0.09699178332822343 Accuracy: -0.016854716821356863 Time: 167.45184191316366
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 87.2446 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 84.7823 s
+return (19, 64)
+Iters. done: 3 Current cost: 0.09504099594644293 Accuracy: 0.0035971944912366327 Time: 172.51963879913092
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 93.7212 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 83.6609 s
+return (19, 64)
+Iters. done: 4 Current cost: 0.09780416503755467 Accuracy: -0.025371666862345155 Time: 177.85430020466447
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 88.5883 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 84.3533 s
+return (19, 64)
+Iters. done: 5 Current cost: 0.0944869687354521 Accuracy: 0.009405574989169607 Time: 173.38641725853086
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 95.4767 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 89.1816 s
+return (19, 64)
+Iters. done: 6 Current cost: 0.09286726427441605 Accuracy: 0.026386437331782586 Time: 185.10423197597265
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 102.3199 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 84.8797 s
+return (19, 64)
+Iters. done: 7 Current cost: 0.09535329018398557 Accuracy: 0.00032312469290385337 Time: 187.67529117316008
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 97.9693 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 91.7807 s
+return (19, 64)
+Iters. done: 8 Current cost: 0.09975863831152693 Accuracy: -0.045862220797357356 Time: 190.24744874611497
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 100.4302 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 83.4047 s
+return (19, 64)
+Iters. done: 9 Current cost: 0.09404175824733432 Accuracy: 0.014073128974530502 Time: 184.31552890315652
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 99.5275 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 95.2123 s
+return (19, 64)
+Iters. done: 10 Current cost: 0.10110937554157236 Accuracy: -0.060023250489016355 Time: 195.22715045511723
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 103.1843 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 81.4009 s
+return (19, 64)
+Iters. done: 11 Current cost: 0.09962220465986212 Accuracy: -0.04443186043622194 Time: 185.06166804209352
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 96.8415 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 86.6178 s
+return (19, 64)
+Iters. done: 12 Current cost: 0.10049194615093796 Accuracy: -0.05355016620675168 Time: 183.94286027550697
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 100.0528 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 89.9513 s
+return (19, 64)
+Iters. done: 13 Current cost: 0.10194631698082314 Accuracy: -0.06879768293063293 Time: 190.4791979789734
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 98.5383 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 87.5260 s
+return (19, 64)
+Iters. done: 14 Current cost: 0.09746910268088549 Accuracy: -0.021858897779057473 Time: 186.53012946993113
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 95.4949 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 90.1613 s
+return (19, 64)
+Iters. done: 15 Current cost: 0.10154885654732242 Accuracy: -0.06463073700298261 Time: 186.1524124108255
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 97.7633 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 89.8257 s
+return (19, 64)
+Iters. done: 16 Current cost: 0.10514602332447233 Accuracy: -0.10234316870619042 Time: 188.05332317575812
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 96.7724 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 87.2146 s
+return (19, 64)
+Iters. done: 17 Current cost: 0.09213563228289791 Accuracy: 0.03405681327522747 Time: 184.4668013267219
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 100.9471 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 90.7744 s
+return (19, 64)
+Iters. done: 18 Current cost: 0.11270455094281416 Accuracy: -0.18158621587159796 Time: 192.2634455487132
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 99.8771 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 89.6485 s
+return (19, 64)
+Iters. done: 19 Current cost: 0.10174715908029307 Accuracy: -0.06670972616154303 Time: 189.9843112193048
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 104.5253 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 87.4112 s
+return (19, 64)
+Iters. done: 20 Current cost: 0.0980186210464287 Accuracy: -0.027620007873214947 Time: 192.41953445971012
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 98.3478 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 81.7638 s
+return (19, 64)
+Iters. done: 21 Current cost: 0.09375822115026357 Accuracy: 0.017045711028976784 Time: 180.5783783532679
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 98.3635 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 87.3387 s
+return (19, 64)
+Iters. done: 22 Current cost: 0.10126759579737153 Accuracy: -0.06168202000417833 Time: 186.17209718748927
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 104.9048 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 94.8466 s
+return (19, 64)
+Iters. done: 23 Current cost: 0.0852645831524815 Accuracy: 0.10609238657870457 Time: 200.225621342659
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 95.6642 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 89.1030 s
+return (19, 64)
+Iters. done: 24 Current cost: 0.09042959106138716 Accuracy: 0.051942823859384424 Time: 185.24184869229794
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 95.9468 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 91.0715 s
+return (19, 64)
+Iters. done: 25 Current cost: 0.0853229007007474 Accuracy: 0.10548098969545561 Time: 187.5065973699093
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 99.7405 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 90.0491 s
+return (19, 64)
+Iters. done: 26 Current cost: 0.09239341858487986 Accuracy: 0.031354200660968945 Time: 190.2612058520317
+Mappings: 0it [00:00, ?it/s]
+Submitted to device in 105.3802 s
+Running batch:   0%|          | 0/5 [00:00<?, ?it/s]
+Predicted in 85.8843 s
+return (19, 64)
