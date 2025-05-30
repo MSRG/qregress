@@ -13,11 +13,11 @@ def main(path):
         print(f"Processing file: {i}")
         loss.append(split(i)[:, 1])  # Get only the loss values (assumed to be in the second column)
     print(500-np.hstack(loss).shape[0],"left")
-#   plt.plot(np.hstack(loss))
-#   plt.xlabel("Iteration")
-#   plt.ylabel("Loss")
-#   plt.title("Loss Curve")
-#   plt.show()
+    plt.plot(np.hstack(loss))
+    plt.xlabel("Iteration")
+    plt.ylabel("Loss")
+    plt.title("Loss Curve")
+    plt.show()
 
 def split(path):
     """Helper function to read CSV file and extract required columns."""
