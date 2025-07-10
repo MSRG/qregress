@@ -4,10 +4,6 @@
 TODO:
 - [x] Create tests for pip package and executables
 - [ ] Fix pip package and executables name space issues
-- [ ] Fake device DDCC 5 OL/RL levels
-- [ ] Real device DDCC 5 10%
-- [ ] Manuscript
-- [ ] Clean up directories
 - [ ] Documentation
 
 
